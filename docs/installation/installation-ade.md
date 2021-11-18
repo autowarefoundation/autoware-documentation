@@ -1,15 +1,10 @@
-Installation with ADE {#installation-ade}
-=====================
+# Installation with ADE
 
-@tableofcontents
-
-# Goals {#installation-and-development-goals}
-
+## Goals
 
 This article demonstrates how to use the Agile Development Environment (ADE) to develop Autoware.Auto applications.
 
-
-# Install ADE {#installation-and-development-install-ade}
+## Install ADE
 
 [ADE](https://ade-cli.readthedocs.io/en/latest/) is a modular Docker-based tool to ensure that all developers in a project have a common, consistent development environment.
 
@@ -28,12 +23,12 @@ $ ade --version
 <version>
 ```
 
-# Setup ADE home and project checkout {#installation-and-development-setup-ade-home-and-project-checkout}
+## Setup ADE home and project checkout
 
 ADE needs a directory on the host machine which is mounted as the user's
 home directory within the container. The directory is populated with
 dotfiles, and must be different than the user's home directory
-*outside* of the container. In the event ADE is used for multiple, projects it
+_outside_ of the container. In the event ADE is used for multiple, projects it
 is recommended to use dedicated `adehome` directories for each project.
 
 ADE looks for a directory containing a file named `.adehome`
@@ -41,9 +36,9 @@ starting with the current working directory and continuing with the
 parent directories to identify the ADE home directory to be mounted.
 
 ```{bash}
-$ mkdir -p ~/adehome
-$ cd ~/adehome
-$ touch .adehome
+mkdir -p ~/adehome
+cd ~/adehome
+touch .adehome
 ```
 
 For ADE to function, it must be properly configured. Autoware.Auto provides
@@ -54,29 +49,33 @@ overridden by setting environment variables. See the `ade --help` output for mor
 using environment variables to define the configuration.
 
 ```{bash}
-$ cd ~/adehome
-$ git clone https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto.git
+cd ~/adehome
+git clone https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto.git
 ```
+
+TODO: Fix repo url and release url
 
 Checkout the [latest release](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/releases) by checking out the corresponding tag or release branch.
 Alternatively, when not checking out any specific tag, the latest `master` branch will be used
 which may include features that are still being developed. For example:
-```
-$ cd AutowareAuto
-$ git checkout tags/1.0.0 -b release-1.0.0
+
+```{bash}
+cd AutowareAuto
+git checkout tags/1.0.0 -b release-1.0.0
 ```
 
-## Sharing files between the host system and ADE (Optional)
+### Sharing files between the host system and ADE (Optional)
+
 It might come in handy to share files such as dotfiles or utility programs from your host machine
 with ADE. If you only have a single `adehome` directory, there is a way to do that without
 duplicating them: move them inside the `adehome` directory, then create a symlink in the host system
 to their regular location. For instance,
 
 ```{bash}
-$ cd ~
-$ cp ~/.bashrc ~/.bashrc.bak
-$ mv ~/.bashrc ~/adehome/.bashrc
-$ ln -s ~/adehome/.bashrc
+cd ~
+cp ~/.bashrc ~/.bashrc.bak
+mv ~/.bashrc ~/adehome/.bashrc
+ln -s ~/adehome/.bashrc
 ```
 
 It will then appear as `~/.bashrc` to the host system and to ADE.
@@ -84,21 +83,22 @@ It will then appear as `~/.bashrc` to the host system and to ADE.
 Another option is to put utility programs into `~/adehome/.local/bin` and symlink. The opposite
 direction will not work, files in a Docker container can not be symlinks to the outside.
 
-@note The programs have to be self-contained! They should not depend on loading libraries from e.g.
-`/usr/lib`.
+!!! note
 
-@note There is a risk of an error (symlink would be broken and .bashrc would not be loaded when your terminal is started). In this case, you should delete the symlink and move .bashrc back to the original directory.
+    The programs have to be self-contained! They should not depend on loading libraries from e.g. `/usr/lib`.
 
-# Entering the development environment
+    There is a risk of an error (symlink would be broken and .bashrc would not be loaded when your terminal is started). In this case, you should delete the symlink and move .bashrc back to the original directory.
+
+## Entering the development environment
 
 ```{bash}
-$ cd AutowareAuto
+cd AutowareAuto
 ```
 
 To start the default environment:
 
 ```{bash}
-$ ade start --update --enter
+ade start --update --enter
 ```
 
 There are several preconfigured environments to choose from by specifying an ADE rc file. To see
@@ -120,10 +120,10 @@ Congratulations! Now you should have a terminal inside ADE:
 $ade:~$
 ```
 
-The next steps are to proceed to @ref usage, or to work on the Autoware.Auto code itself as
-described in @ref contributors-guide.
+The next steps are to proceed to [Usage](usage.md), or to work on the Autoware.Code code itself as
+described in [Contributors guide](contributors-guide.md).
 
-# What is where inside ADE?
+## What is where inside ADE?
 
 Upon entering, ADE outputs the images used to create the environment; e.g.
 
@@ -144,34 +144,33 @@ lgsvl        # image: ade-lgsvl/foxy:2020.06
 ros          # image: ade-foxy:master
 ```
 
-The code in `/opt/AutowareAuto` is built from a particular version of the master branch of
-Autoware.Auto. The master branch is built multiple times a day in CI; see the [container
+The code in `/opt/AutowareCore` is built from a particular version of the main branch of
+Autoware.Core. The master branch is built multiple times a day in CI; see the [container
 registry](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/container_registry). With
 `ade ... --update`, the latest available version of each image is downloaded.
 
-# Cleanup {#installation-and-development-cleanup}
+## Cleanup
 
 ADE uses Docker, and over time unused images, containers, and volumes begin to clutter the hard
 drive. Follow the steps below to clean the Docker file system of stale images.
 
-
-## Start relevant Docker resources {#installation-and-development-start-relevant-docker-resources}
+### Start relevant Docker resources
 
 First, verify that ADE is running:
 
 ```{bash}
-$ cd ~/adehome/AutowareAuto
-$ ade start
+cd ~/adehome/AutowareAuto
+ade start
 ```
 
 If ADE is used for more than one project, verify all ADE instances are running; the same rule
 applies for any other non-ADE Docker containers that should be preserved.
 
-\note
-Docker resources that are not started/running **will be removed**!
+!!! note
 
+    Docker resources that are not started/running **will be removed**!
 
-## Docker disk usage {#installation-and-development-docker-disk-usage}
+### Docker disk usage
 
 To assess the disk usage situation, run the following command:
 
@@ -184,19 +183,19 @@ Local Volumes       17                  15                  5.411GB             
 Build Cache         0                   0                   0B                  0B
 ```
 
-
-## Remove unused docker items {#installation-and-development-remove-unused-docker-items}
+### Remove unused docker items
 
 Use `docker system prune` to remove any Docker items not used for currently running containers:
 
 ```{bash}
-$ docker system prune -a --volumes
+docker system prune -a --volumes
 ```
 
-# Troubleshooting {#ade-troubleshooting}
+## Troubleshooting
+
 Here are solutions for a few specific errors:
 
-## Error - "forward compatibility was attempted on non supported hw" when starting ADE
+### Error - "forward compatibility was attempted on non supported hw" when starting ADE
 
 When starting `ade` with GPU support enabled for NVIDIA graphics, you may sometimes receive the following error:
 
@@ -207,7 +206,7 @@ ERROR: Command return non-zero exit code (see above): 125
 
 This usually indicates that a new NVIDIA graphics driver has been installed (usually via `apt`) but the system has not yet been restarted. A similar message may appear if the graphics driver is not available, for example because of resuming after suspend.
 
-### Solution
+#### Solution
 
 Restart your system after installing the new NVIDIA driver.
 
