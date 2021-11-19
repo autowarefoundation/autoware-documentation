@@ -1,22 +1,17 @@
-Integration Testing {#integration-testing}
-========
+# Integration Testing
 
-@tableofcontents
-
-# Introduction {#integration-testing-introduction}
+## Introduction
 
 This article motivates developers to adopt integration testing by explaining how to write, run,
 and evaluate the results of integration tests.
 
-
-# Quick reference {#integration-testing-quick-reference}
+## Quick reference
 
 1. [colcon](https://github.com/ros2/ros2/wiki/Colcon-Tutorial) is used to build and run test.
 2. [launch testing](https://github.com/ros2/launch/tree/master/launch_testing) launches nodes and runs tests.
-3. @ref testing-in-general describes the big picture of testing.
+3. [Testing in general](testing-in-general.md) describes the big picture of testing.
 
-
-# Integration testing {#integration-testing-integration-testing}
+## Integration testing
 
 An integration test is defined as the phase in software testing where individual software
 modules are combined and tested as a group. Integration tests occur after unit tests, and before
@@ -26,8 +21,7 @@ The input to an integration test is a set of independent modules that have been 
 of modules are tested against the defined integration test plan, and the output is a set of
 properly integrated software modules that are ready for system testing.
 
-
-# Value of integration testing {#integration-testing-value-of-integration-testing}
+## Value of integration testing
 
 Integration tests determine if independently developed software modules work correctly
 when the modules are connected to each other. In ROS 2, the software modules are called
@@ -35,35 +29,27 @@ nodes. As a special case, testing a single node can be referred to as component 
 
 Integration tests help to find the following types of errors:
 
-- Incompatible interaction between nodes, such as non-matching topics, different message types, or
-incompatible QoS settings
-- Reveal edge cases that were not touched with unit tests, such as a critical timing issue, network
-communication delay, disk I/O failure, and many other problems that can occur in production
-environments
-- Using tools like `stress` and `udpreplay`, performance of nodes is tested with real data
-or while the system is under high CPU/memory load, where situations such as `malloc` failures can be
-detected
+- Incompatible interaction between nodes, such as non-matching topics, different message types, or incompatible QoS settings
+- Reveal edge cases that were not touched with unit tests, such as a critical timing issue, network communication delay, disk I/O failure, and many other problems that can occur in production environments
+- Using tools like `stress` and `udpreplay`, performance of nodes is tested with real data or while the system is under high CPU/memory load, where situations such as `malloc` failures can be detected
 
 With ROS 2, it is possible to program complex autonomous-driving applications with a large number
 of nodes. Therefore, a lot of effort has been made to provide an integration-test framework that
 helps developers test the interaction of ROS2 nodes.
 
-
-# Integration-test framework {#integration-testing-integration-test-framework}
+## Integration-test framework
 
 A typical integration-test framework has three parts:
 
 1. A series of executables with arguments that work together and generate outputs
 2. A series of expected outputs that should match the output of the executables
-3. A launcher that starts the tests, compares the outputs to the expected outputs,
-and determines if the test passes
+3. A launcher that starts the tests, compares the outputs to the expected outputs, and determines if the test passes
 
-In Autoware.Auto, we use the [launch_testing](https://github.com/ros2/launch/tree/master/launch_testing) framework.
+In Autoware.Core, we use the [launch_testing](https://github.com/ros2/launch/tree/master/launch_testing) framework.
 
+### Smoke tests
 
-## Smoke tests {#integration-testing-smoke-test}
-
-Autoware has dedicated API for smoke testing 
+Autoware has dedicated API for smoke testing
 
 To use this framework, in `package.xml` add:
 
@@ -83,24 +69,21 @@ if(BUILD_TESTING)
 endif()
 ```
 
-which adds smoke test that ensures that node can be: 
+which adds smoke test that ensures that node can be:
 
 1. launched with default parameter file,
 2. terminated with a standard `SIGTERM` signal,
 
-For full API documentation see [package design page](@ref autoware_testing-package-design).
+For full API documentation see [package design page](autoware-testing-package-design.md).
 
 This API is not suitable for all smoke test cases. For example, it can not be used when some specific file location,
-like map, is required to be passed to the node or some preparation need to be conducted before node launch. In such 
-cases use manual solution from [section below](#integration-testing-component-test).
+like map, is required to be passed to the node or some preparation need to be conducted before node launch. In such cases use manual solution from [section below](#integration-test-with-a-single-node-component-test).
 
-
-## Integration test with a single node: component test {#integration-testing-component-test}
+### Integration test with a single node: component test
 
 The simplest scenario is a single node. In this case, the integration test is commonly referred to as a component test.
 
-To add a component test to an existing node, follow the example of the `lanelet2_map_provider` package that has 
-an executable named `lanelet2_map_provider_exe`.
+To add a component test to an existing node, follow the example of the `lanelet2_map_provider` package that has an executable named `lanelet2_map_provider_exe`.
 
 In `package.xml`, add
 
@@ -121,9 +104,10 @@ if(BUILD_TESTING)
   )
 endif()
 ```
+
 The `TIMEOUT` argument is given in seconds; see [here](https://github.com/ros2/ros_testing/blob/master/ros_testing/cmake/add_ros_test.cmake) for details.
 
-To create test follow [launch_testing quick-start example](https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example). 
+To create test follow [launch_testing quick-start example](https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example).
 
 Let's look at `test/lanelet2_map_provider_launch.test.py` as an example.
 
@@ -196,7 +180,7 @@ Continuing the example from above, first build
 
 ```{bash}
 $ ade enter
-ade$ cd AutowareAuto
+ade$ cd AutowareCore
 ade$ colcon build --packages-up-to lanelet2_map_provider
 ade$ source install/setup.bash
 ```
@@ -221,13 +205,13 @@ ade$ colcon test-result --all --verbose
 build/lanelet2_map_provider/test_results/lanelet2_map_provider/test_lanelet2_map_provider_launch.test.py.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped
 ```
 
-## Next steps {#integration-testing-next-steps}
+### Next steps
 
-The simple test described in @ref integration-testing-component-test can be extended in numerous directions:
+The simple test described in [Integration test with a single node: component test](integration-test-with-a-single-node-component-test) can be extended in numerous directions:
 
-### Testing the output of a node
+#### Testing the output of a node
 
-To test while the node is running, create an [*active test*](https://github.com/ros2/launch/tree/foxy/launch_testing#active-tests) by adding a subclass of Python's `unittest.TestCase` to `*launch.test.py`. Some boilerplate code is required to access output by creating a node and a subscription to a particular topic; e.g.
+To test while the node is running, create an [_active test_](https://github.com/ros2/launch/tree/foxy/launch_testing#active-tests) by adding a subclass of Python's `unittest.TestCase` to `*launch.test.py`. Some boilerplate code is required to access output by creating a node and a subscription to a particular topic; e.g.
 
 ```{python}
 import unittest
@@ -281,8 +265,7 @@ class TestRunningDataPublisher(unittest.TestCase):
         self.assertEqual(msg, "Hello, world")
 ```
 
+#### Running multiple nodes together
 
-### Running multiple nodes together
-
-To run multiple nodes together, simply add more nodes to the launch description in  `*launch.test.py`.
+To run multiple nodes together, simply add more nodes to the launch description in `*launch.test.py`.
 The lidar stack has more elaborate examples on how to feed input and to test more than just the exit status of nodes; see [point_cloud_filter_transform_tf_publisher.test.py](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/blob/master/src/perception/filters/point_cloud_filter_transform_nodes/test/point_cloud_filter_transform_tf_publisher.test.py) for details.
