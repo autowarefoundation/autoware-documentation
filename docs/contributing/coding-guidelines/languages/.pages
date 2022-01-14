@@ -1,0 +1,9 @@
+nav:
+  - index.md
+  - cpp.md
+  - python.md
+  - shell-scripts.md
+  - markdown.md
+  - cmake.md
+  - package-xml.md
+  - github-actions.md
