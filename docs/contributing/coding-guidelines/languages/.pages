@@ -6,5 +6,6 @@ nav:
   - markdown.md
   - cmake.md
   - package-xml.md
+  - ros2-interfaces.md
   - docker.md
   - github-actions.md
