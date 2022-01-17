@@ -6,4 +6,5 @@ nav:
   - markdown.md
   - cmake.md
   - package-xml.md
+  - docker.md
   - github-actions.md
