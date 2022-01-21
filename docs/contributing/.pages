@@ -1,0 +1,7 @@
+nav:
+  - index.md
+  - coding-guidelines
+  - testing-guidelines
+  - documentation-guidelines
+  - pull-request-guidelines
+  - discussion-guidelines

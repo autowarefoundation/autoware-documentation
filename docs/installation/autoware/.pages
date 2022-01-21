@@ -1,0 +1,4 @@
+nav:
+  - index.md
+  - local-installation.md
+  - docker-installation.md

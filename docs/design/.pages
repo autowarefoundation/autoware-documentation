@@ -1,0 +1,5 @@
+nav:
+  - index.md
+  - component-interfaces
+  - AD API: ad-api
+  - configuration-management
