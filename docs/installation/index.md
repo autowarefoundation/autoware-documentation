@@ -1,20 +1,36 @@
 # Installation
 
-The supported environments are specified in [target-environments](target-environments.md).
+## Target platforms
 
-The recommended method for installation is through the use of [ADE](https://ade-cli.readthedocs.io/en/latest/),
-a Docker-based tool to ensure that all developers in a project have a common, consistent development
-environment. It comes with a pre-built version of Autoware.Auto, so that you will not need to compile it yourself
-if you do not want to.
+Autoware targets the platforms listed below. It may change in future versions of Autoware.
 
-- [installation-ade](installation-ade.md)
-- [installation-ade-arm64](installation-ade-arm64.md)
+The Autoware Foundation provides no support on other platforms than those listed below.
 
-Autoware.Core can also be built without the use of [ADE](https://ade-cli.readthedocs.io/en/latest/)
-for cases where a more granular control of the installation environment is needed.
+### Architecture
 
-- [installation-no-ade](installation-no-ade.md)
+- amd64
+- arm64
 
-A prerequisite for running the full software stack with simulation is the LGSVL simulator:
+### ROS version
 
-- [lgsvl](lgsvl.md)
+- ROS 2 Galactic (**active development**)
+- ROS 2 Humble (**will be supported in 2022**)
+
+Refer to [REP-2000](https://www.ros.org/reps/rep-2000.html) for the system dependencies.
+
+## Installation steps of Autoware
+
+See [here](autoware) for how to install Autoware.
+
+## Installation steps of tools for users
+
+Some other tools are required depending on the evaluation you want to do.
+For example, if you run E2E simulation, you need to install a simulator for that.
+
+See [here](tools-for-users) for how to install the tools.
+
+## Installation steps of tools for developers
+
+There are also tools and settings for developers, such as Shells or IDEs.
+
+See [here](tools-for-developers) for how to install the tools.
