@@ -13,12 +13,14 @@ A grand challenge of the microautonomy architecture is to achieve real-time capa
 Requirements and Roadmap
 
 Goals:
+
 - All open-source.
 - Use case driven.
 - Real-time (predictable) framework with overrun handling.
 - Code quality.
 
 Non-goals:
+
 - Accuracy of components
 
 # Architecture
@@ -26,28 +28,28 @@ Non-goals:
 Core and Universe.
 
 Autoware provides the runtimes and technology components by open-source software. The runtimes are based on the Robot Operating System (ROS). The technology components are provided by contributors, which include, but are not limited to:
- - Sensing
-   - Camera Component
-   - LiDAR Component
-   - RADAR Component
-   - GNSS Component
- - Computing
-   - Localization Component
-   - Perception Component
-   - Planning Component
-   - Control Component
-   - Logging Component
-   - System Monitoring Component
- - Actuation
-   - DBW Component
- - Tools
-   - Simulator Component
-   - Mapping Component
-   - Remote Component
-   - ML Component
-   - Annotation Component
-   - Calibration Component
 
+- Sensing
+  - Camera Component
+  - LiDAR Component
+  - RADAR Component
+  - GNSS Component
+- Computing
+  - Localization Component
+  - Perception Component
+  - Planning Component
+  - Control Component
+  - Logging Component
+  - System Monitoring Component
+- Actuation
+  - DBW Component
+- Tools
+  - Simulator Component
+  - Mapping Component
+  - Remote Component
+  - ML Component
+  - Annotation Component
+  - Calibration Component
 
 # Concern, Assumption, and Limitation
 
@@ -68,4 +70,3 @@ The downside of the microautonomy architecture is that the computational perform
 ## Configuration management
 
 # Conclusion
-
