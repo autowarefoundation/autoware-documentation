@@ -1,8 +1,9 @@
 # How-to guides
 
-!!! warning
+- [Advanced usage of colcon](advanced-usage-of-colcon)
+- [Choosing a DDS vendor](choosing-a-dds-vendor.md)
 
-    Under Construction
+TODO: Write the following contents.
 
 - Write an Autoware package
 - Add a message
