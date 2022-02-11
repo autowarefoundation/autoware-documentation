@@ -5,6 +5,7 @@
     - source: DISCLAIMER.md
     - source: LICENSE
     - source: .github/dependabot.yaml
+    - source: .github/workflows/pre-commit.yaml
     - source: .github/workflows/pre-commit-optional.yaml
     - source: .github/workflows/semantic-pull-request.yaml
     - source: .github/workflows/spell-check-differential.yaml
