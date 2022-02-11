@@ -1,7 +1,6 @@
 # How-to guides
 
 - [Advanced usage of colcon](advanced-usage-of-colcon)
-- [Choosing a DDS vendor](choosing-a-dds-vendor.md)
 
 TODO: Write the following contents.
 
