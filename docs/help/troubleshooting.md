@@ -1,5 +1,45 @@
 # Troubleshooting
 
+## How to resolve errors of the setup script?
+
+### CUDA-related errors
+
+When installing CUDA, it may cause errors because of version conflicts.
+To resolve this, try either:
+
+- Uninstall all CUDA-related libraries and rerun the setup script.
+
+  ```bash
+  sudo apt purge        \
+    "cuda*"             \
+    "libcudnn*"         \
+    "libnvinfer*"       \
+    "libnvonnxparsers*" \
+    "libnvparsers*"     \
+    "nvidia*"
+
+  sudo apt autoremove
+
+  ./setup-dev-env.sh
+  ```
+
+!!! warning
+
+    Note that this may break your system and run carefully.
+
+- Run the setup script without installing CUDA-related libraries.
+
+  ```bash
+  ./setup-dev-env.sh --no-nvidia
+  ```
+
+!!! warning
+
+    Note that some components in `autoware.universe` don't work without CUDA.
+
+    Also, although Autoware could work with different versions of CUDA libraries as well,
+    remember it is not officially supported and may sometimes be broken.
+
 ## How to resolve build errors?
 
 When you get build errors, follow the instruction below depending on the version you use.
