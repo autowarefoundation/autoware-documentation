@@ -1,4 +1,4 @@
-# E2E simulation
+# Ad hoc simulation
 
 !!! warning
 
