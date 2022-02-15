@@ -110,7 +110,7 @@ See [here](https://colcon.readthedocs.io/en/released/reference/event-handler-arg
 ## Using Ccache
 
 [Ccache](https://ccache.dev/) can speed up recompilation.
-It is recommended to use it to save your time if there are no particular reasons.
+It is recommended to use it to save your time unless you have a specific reason not to do so.
 
 1. Install `Ccache`:
 
