@@ -42,11 +42,9 @@ extra:
 extra_css:
   - assets/css/extra.css
   - https://use.fontawesome.com/releases/v5.15.4/css/all.css
-  - https://unpkg.com/mermaid@8.8.0/dist/mermaid.css
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML
-  - https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js
 
 plugins:
   - awesome-pages
@@ -77,6 +75,6 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_div_format
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - toc:
       permalink: "#"
