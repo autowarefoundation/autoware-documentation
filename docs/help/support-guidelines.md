@@ -1,54 +1,86 @@
-# Support Guidelines
+# Support guidelines
 
-## Overview
+This page explains the support mechanisms we provide.
 
-We provide several mechanism for getting help and this article describes those mechanisms.
-Whether you have run into a problem using Autoware.Core or you just want more information about some aspect of it not covered in the documentation, one of the below options should have you covered.
-Using the correct resource will ensure you get a helpful response to your query quickly.
-The following should be the general set of steps for obtaining support, depending on your specific need:
+!!! warning
 
-1. Read the docs
-1. Depending on your question:
-   1. Ask support questions and describe unconfirmed bugs on [GitHub discussions][github-discussions]
-   1. Start general Autoware discussions on [the Autoware category at ROS Discourse][ros-discourse]
-   1. For confirmed bugs or feature requests, create a [new issue on the Autoware.Core GitHub][new-issue]
-1. Message the `committers-autoware-core` channel [on the Autoware Developer's Slack][autoware-slack]
+    Before asking any help, search and read this documentation site carefully.
+    Also, understand and follow our [discussion guidelines](../contributing/discussion-guidelines/index.md) during your discussions.
 
-## General Information: Documentation
+Choose appropriate resources depending on what kind of help you need:
 
-Whether you are looking to get help [installing Autoware.Core](installation.md), looking for [developer best-practices](contributor-guidelines/index.md), or you just want to [run a demo](usage/index.md), the auto-generated documentation should be your first resource.
-If you find information missing in the docs, please [create a new issue](#confirmed-bugs-or-feature-requests-github-issues) and, optionally, create a merge request to add the information to the docs yourself.
+- Documentation sites
+  - Various information
+- GitHub Discussions
+  - Questions
+  - Unconfirmed bugs
+  - Feature requests
+  - Design discussions
+- GitHub Issues
+  - Confirmed bugs
+- Slack
+  - Instant messaging between contributors
+- ROS Discourse
+  - General topics that should be widely announced
 
-## Support Questions: GitHub Discussions
+The following sections are detailed descriptions of each resource.
 
-If you have a problem with Autoware.Core and it has not yet been confirmed by others, start your quest at [GitHub discussions][github-discussions].
-Questions asked with the `Q&A` category are regularly reviewed by Autoware developers and maintainers as well as other members of the Autoware community.
+## Documentation sites
 
-If your question is not answered within a timely manner (read: at least 1 week - this is an open-source project), then feel free to escalate to either [ROS Discourse][ros-discourse] or the `committers-autoware-core` channel [on Slack][autoware-slack].
+[Docs guide](docs-guide.md) shows the list of useful documentation sites.
+Visit them and see if there is any information related to your problem.
 
-## General Discussion: ROS Discourse
+Note that the documentation sites aren't always latest and perfect.
+If you find some information is wrong, unclear, or missing in Autoware docs, feel free to submit a pull request following our [contribution guidelines](../contributing/index.md).
 
-If you want to discuss a topic with the general Autoware community or ask a question not related to a problem with Autoware, head over to [the Autoware category on ROS Discourse][ros-discourse].
-The Autoware category is also where high-level announcements are made about Autoware by the Foundation.
+!!!warning
 
-## Confirmed Bugs or Feature Requests: GitHub Issues
+    Since this documentation site is still under construction, there are some empty pages.
 
-If you have discovered a bug that has been confirmed by others or you would like to request that a new feature be added to Autoware.Auto, consider [creating a new issue on GitHub][new-issue] and choosing the relevant template.
-If you have the background, feel free to also create a Merge Request to resolve the issue!
-Just remember to read over our [Contributor's Guide](contributors-guide/index.md) to know what to expect from a review of your Pull Request.
+## GitHub Discussions
 
-## Real-time Communication: Autoware Developer's Slack
+If you have a problem with Autoware, check existing issues and questions and search similar issues first.
 
-Please remember that our [Slack server][autoware-slack] is not for any of the cases mentioned above and is mostly a gathering place for developers.
-If you are seeking support, want to start a discussion, or want to request a feature, Slack is the wrong avenue.
-However, if your question on [GitHub Discussions](#support-questions-gitHub-discussions) has gone unanswered for a reasonable amount of time, messaging the `committers-autoware-core` channel is appropriate.
+- [Issues](https://github.com/autowarefoundation/autoware/issues)
 
-The Autoware Developer's Slack is a real-time communication mechanism for person-to-person or group chats.
-If you want to take a quick straw-pull survey, chat with a group outside of the primary channels, or introduce yourself to the community, this is a good place to start.
+  Note that Autoware has multiple repositories listed in [autoware.repos](https://github.com/autowarefoundation/autoware/blob/main/autoware.repos).  
+  It is recommended to search across the repositories.
 
-<!-- Links -->
+- [Questions](https://github.com/autowarefoundation/autoware/discussions/categories/q-a)
 
-[github-discussions]: https://github.com/autowarefoundation/autoware/discussions
-[ros-discourse]: https://discourse.ros.org/c/autoware
-[new-issue]: https://github.com/autowarefoundation/autoware/issues/new
-[autoware-slack]: https://autoware.herokuapp.com/
+If no answer was found, create a new question thread [here](https://github.com/autowarefoundation/autoware/discussions/new?category=q-a).
+If your question is not answered in a timely manner (about a week), mention maintainers and remind them.
+
+Also, there are other discussion types such as [feature requests](https://github.com/autowarefoundation/autoware/discussions/categories/feature-requests) or [design discussions](https://github.com/autowarefoundation/autoware/discussions/categories/design).
+Feel free to open or join such discussions.
+
+## GitHub Issues
+
+If you have a problem and you have confirmed it is a bug, find the appropriate repository and create a new issue there.
+If you can't determine the appropriate repository, you should not create an issue yet.
+
+!!!warning
+
+    Do not create issues for questions or unconfirmed bugs. If such issues are created, maintainers will transfer them to GitHub Discussions.
+
+If you want to fix the bug by yourself, discuss the approach with maintainers and submit a pull request.
+
+## Slack
+
+Autoware has a Slack workspace for casual communication between contributors.
+
+For example, this is a good place for the following activities:
+
+- Introduce yourself to the community.
+- Chat with contributors.
+- Take a quick straw poll.
+
+Note that it is not the right place to get help for your issues.
+
+## ROS Discourse
+
+If you want to widely discuss a topic with the general Autoware community or ask a question not related to Autoware's bugs, post to [the Autoware category on ROS Discourse](https://discourse.ros.org/c/autoware).
+
+!!!warning
+
+    Do not post questions about bugs to ROS Discourse!
