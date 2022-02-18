@@ -122,7 +122,7 @@ WARNING: The requested image's platform (linux/arm64/v8) does not match the dete
 aarch64
 ```
 
-To run specify `arm64` architecture for Autoware's Docker images, add the suffix `-arm64`.
+To run Autoware's Docker images of `arm64` architecture, add the suffix `-arm64`.
 
 ```sh-session
 $ docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:latest-arm64
