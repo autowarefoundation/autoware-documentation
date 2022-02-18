@@ -4,7 +4,7 @@
 
 TODO: Write the following contents.
 
-- Write an Autoware package
+- Create an Autoware package
 - Add a message
 - Debug Autoware
 - Integrate Autoware with a real vehicle
