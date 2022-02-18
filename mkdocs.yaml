@@ -1,9 +1,9 @@
 site_name: Autoware Documentation
 site_url: https://autowarefoundation.github.io/autoware-documentation
 repo_url: https://github.com/autowarefoundation/autoware-documentation
-edit_uri: edit/main/
+edit_uri: edit/main/docs/
 docs_dir: docs
-copyright: Copyright &copy; 2021 The Autoware Foundation
+copyright: Copyright &copy; 2022 The Autoware Foundation
 
 theme:
   name: material
