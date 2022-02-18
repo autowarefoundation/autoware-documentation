@@ -24,7 +24,7 @@ See [here](https://docs.ros.org/en/rolling/Tutorials/Logging-and-logger-configur
 
 ### Enabling localhost-only communication
 
-By default, ROS 2 communicates using multi-cast, which may unnecessaryly increase the network traffic.
+By default, ROS 2 communicates using multi-cast, which may unnecessarily increase the network traffic.
 To avoid it, write the following in your `.bashrc`:
 
 ```bash
