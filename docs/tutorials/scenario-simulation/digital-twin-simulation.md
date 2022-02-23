@@ -1,4 +1,4 @@
-# Closed loop simulation
+# Digital twin simulation
 
 !!! warning
 

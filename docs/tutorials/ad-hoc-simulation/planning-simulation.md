@@ -1,4 +1,4 @@
-# Local simulation
+# Planning simulation
 
 !!! warning
 
