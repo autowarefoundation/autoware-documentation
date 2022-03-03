@@ -21,3 +21,7 @@
     - source: .prettierignore
     - source: .prettierrc.yaml
     - source: .yamllint.yaml
+
+- repository: autowarefoundation/autoware_common
+  files:
+    - source: .github/workflows/sync-files.yaml
