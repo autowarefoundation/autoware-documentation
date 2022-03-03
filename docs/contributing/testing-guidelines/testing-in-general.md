@@ -1,37 +1,17 @@
 # Testing in General
 
-This article motivates developers to test code, explains the importance of testing, and details the
-testing performed in Autoware.Core.
-
-## Quick reference
-
-1. [colcon](https://github.com/ros2/ros2/wiki/Colcon-Tutorial) is the tool of choice for building
-   and running tests
-2. [ament_cmake](https://github.com/ament/ament_cmake) is useful to specify tests in CMake
-3. Chris Hobbs' [_Embedded Software Development for Safety Critical Systems_](https://www.amazon.com/Embedded-Software-Development-Safety-Critical-Systems/dp/1498726704),
-   describes tests necessary for code running in safety critical environments
-4. [ISO 26262 standard](https://www.iso.org/standard/51362.html) part 6 prescribes
-   how to test code in automotive systems
-5. [SQLite](https://www.sqlite.org/testing.html) is a software project that has an impressive and
-   thoroughly described testing system
+This article motivates developers to test code, explains the importance of testing, and details the testing performed in Autoware.Core.
 
 ## Importance of testing
 
-Dynamic and static testing methods make Autoware.Core reliable and robust, helping us to
-perform anomaly detection and handling that would otherwise be difficult to find.
-Through testing in Autoware.Core, we can estimate the number of Heisenbugs, and find
-and eliminate [undefined behaviors](https://blog.regehr.org/archives/1520) for
-which C and C++ languages are known for.
+Dynamic and static testing methods make Autoware.Core reliable and robust, helping us to perform anomaly detection and handling that would otherwise be difficult to find.
+Through testing in Autoware.Core, we can estimate the number of Heisenbugs, and find and eliminate [undefined behaviors](https://blog.regehr.org/archives/1520) for which C and C++ languages are known for.
 
-Dynamic analysis, simply called “testing” as a rule, means executing the code
-while looking for errors and failures.
+Dynamic analysis, simply called “testing” as a rule, means executing the code while looking for errors and failures.
 
-Static analysis means inspecting the code to look for faults. Static analysis is
-using a program (instead of a human) to inspect the code for faults.
+Static analysis means inspecting the code to look for faults. Static analysis is using a program (instead of a human) to inspect the code for faults.
 
-There are also formal verification methods (see the
-[book](https://www.amazon.com/Embedded-Software-Development-Safety-Critical-Systems/dp/1498726704),
-Chapter 15); note that the topics will not be covered in this document.
+There are also formal verification methods (see the [book](https://www.amazon.com/Embedded-Software-Development-Safety-Critical-Systems/dp/1498726704), Chapter 15); note that the topics will not be covered in this document.
 
 ## Testing in Autoware.Core
 
@@ -43,13 +23,11 @@ Some examples of tools used for style and linting are
 [cpplint](https://github.com/google/styleguide/tree/gh-pages/cpplint),
 [uncrustify](https://github.com/uncrustify/uncrustify).
 
-Tests using the tools above allow Autoware.Core to follow C and C++ style guides which results
-in uniform, easy to read code.
+Tests using the tools above allow Autoware.Core to follow C and C++ style guides which results in uniform, easy to read code.
 
 ### Static code analysis
 
-The [Cppcheck](https://github.com/danmar/cppcheck) tool is used for applications
-written in Autoware.Core.
+The [Cppcheck](https://github.com/danmar/cppcheck) tool is used for applications written in Autoware.Core.
 
 Static code analysis tools detect the following types of errors:
 
@@ -86,10 +64,24 @@ Static code analysis tools detect the following types of errors:
 
 ### Unit tests
 
-Unit-testing is a software testing method by which individual units of source code
-are tested to determine whether they are fit for use.
+Unit-testing is a software testing method by which individual units of source code are tested to determine whether they are fit for use.
 
 The tool used for unit testing in Autoware.Core is [gtest](https://github.com/google/googletest).
+
+gtest is a tool for unit testing all source code in Core packages.
+For Node testing, consider using `launch_testing`. Documentation is available in [Integration testing](integration-testing.md).
+
+Unit tests that are common to all Nodes are available in `autoware_testing`.
+Please refer to the following design documentation for usage.
+[Link](https://github.com/autowarefoundation/autoware.universe/blob/main/common/autoware_testing/design/autoware_testing-design.md)
+
+When creating a new Node, be sure to include the following tests:
+
+- For Core package
+  - gtest
+- For Node package
+  - smoke_test
+  - interface_test
 
 ### Integration tests
 
@@ -113,10 +105,16 @@ Memory tests allow the detection of unwanted calls to memory management APIs, su
 - `realloc`
 - `free`
 
-For more details on memory tests see the
-[memory testing](https://github.com/osrf/osrf_testing_tools_cpp#memory_tools) tool.
+For more details on memory tests see the [memory testing](https://github.com/osrf/osrf_testing_tools_cpp#memory_tools) tool.
 
 ### In-vehicle tests
 
-Regular in-vehicle testing is performed as part of ODD development and demonstrations. These tests
-validate Autoware.Core in a realistic autonomous vehicle product.
+Regular in-vehicle testing is performed as part of ODD development and demonstrations. These tests validate Autoware.Core in a realistic autonomous vehicle product.
+
+### References
+
+1. [colcon](https://github.com/ros2/ros2/wiki/Colcon-Tutorial) is the tool of choice for building and running tests
+2. [ament_cmake](https://github.com/ament/ament_cmake) is useful to specify tests in CMake
+3. Chris Hobbs' [_Embedded Software Development for Safety Critical Systems_](https://www.amazon.com/Embedded-Software-Development-Safety-Critical-Systems/dp/1498726704), describes tests necessary for code running in safety critical environments
+4. [ISO 26262 standard](https://www.iso.org/standard/51362.html) part 6 prescribes how to test code in automotive systems
+5. [SQLite](https://www.sqlite.org/testing.html) is a software project that has an impressive and thoroughly described testing system
