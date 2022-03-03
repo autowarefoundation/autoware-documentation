@@ -15,6 +15,6 @@ jobs:
           fetch-depth: 0
 
       - name: Delete closed PR docs
-        uses: autowarefoundation/autoware-github-actions/delete-closed-pr-docs@tier4/proposal
+        uses: autowarefoundation/autoware-github-actions/delete-closed-pr-docs@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
