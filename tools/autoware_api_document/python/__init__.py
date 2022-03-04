@@ -22,7 +22,7 @@ from .markdown import MarkdownTable
 
 def generate():
     parser = argparse.ArgumentParser()
-    parser.add_argument('path', default='docs/design/ad-api/prototyping', nargs='?')
+    parser.add_argument('path', default='docs/design/autoware-interface/prototyping', nargs='?')
     args = parser.parse_args()
 
     target = pathlib.Path(args.path)
@@ -32,7 +32,7 @@ def generate():
     groups = [
         ('external', 'autoware_api_document', 'resource/tier4.yaml'),
     ]
-    groups = [(data[0], list(AutowareAPI.Load(*data[1:]))) for data in groups]
+    groups = [(data[0], list(AutowareAPI.Load(target, *data[1:]))) for data in groups]
 
     # create list
     generate_list(target, groups)
@@ -77,7 +77,9 @@ def make_type_link(spec : AutowareAPI):
 
 
 def generate_page(target, spec):
-    lines = [
+    text = spec.page.read_text().split('## Description')
+    text = text[0] if len(text) < 2 else text[1]
+    line = [
         '# ' + spec.spec_name,
         '',
         '## Classification',
@@ -85,11 +87,9 @@ def generate_page(target, spec):
         '- Behavior: ' + spec.behavior.capitalize(),
         '- DataType: ' + spec.data_type,
         '',
-        spec.page,
+        '## Description',
     ]
-    path = target.joinpath(spec.spec_name.strip('/')).with_suffix('.md')
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text('\n'.join(lines) + '\n')
+    spec.page.write_text('\n'.join(line) + '\n\n' + text.strip() + '\n')
 
 
 def generate_type(target, definition):

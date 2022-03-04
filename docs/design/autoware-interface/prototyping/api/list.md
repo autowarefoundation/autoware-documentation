@@ -39,3 +39,5 @@
 | topic   | [/api/external/set/command/remote/heartbeat](../../api/external/set/command/remote/heartbeat)     | [tier4_external_api_msgs/msg/Heartbeat](../../type/tier4_external_api_msgs/msg/Heartbeat)                         |
 | topic   | [/api/external/get/command/selected/control](../../api/external/get/command/selected/control)     | [tier4_external_api_msgs/msg/ControlCommandStamped](../../type/tier4_external_api_msgs/msg/ControlCommandStamped) |
 | topic   | [/api/external/get/command/selected/vehicle](../../api/external/get/command/selected/vehicle)     | [tier4_external_api_msgs/msg/ControlCommandStamped](../../type/tier4_external_api_msgs/msg/ControlCommandStamped) |
+| service | [/api/external/set/rosbag_logging_mode](../../api/external/set/rosbag_logging_mode)               | [tier4_external_api_msgs/srv/SetRosbagLoggingMode](../../type/tier4_external_api_msgs/srv/SetRosbagLoggingMode)   |
+| topic   | [/api/external/get/rosbag_logging_mode](../../api/external/get/rosbag_logging_mode)               | [tier4_external_api_msgs/msg/RosbagLoggingMode](../../type/tier4_external_api_msgs/msg/RosbagLoggingMode)         |

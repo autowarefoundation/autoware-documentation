@@ -4,8 +4,6 @@
 
     Under Construction
 
-## Component interfaces
-
-## AD API
+## Autoware interfaces
 
 ## Configuration management

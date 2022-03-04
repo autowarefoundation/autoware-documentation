@@ -103,3 +103,9 @@ external/get/command/selected/control:
 external/get/command/selected/vehicle:
   behavior: topic
   type: tier4_external_api_msgs/msg/ControlCommandStamped
+external/set/rosbag_logging_mode:
+  behavior: service
+  type: tier4_external_api_msgs/srv/SetRosbagLoggingMode
+external/get/rosbag_logging_mode:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/RosbagLoggingMode
