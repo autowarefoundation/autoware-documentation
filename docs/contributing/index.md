@@ -18,6 +18,10 @@ It is recommended to read the [Contributing pages in ROS 2 Docs](https://docs.ro
 
 For general information about OSS contributions, [Open Source Guides](https://opensource.guide/) by GitHub is a good resource.
 
+!!!info
+
+    If you want to apply a new or different rule, you can open a new discussion thread and propose it.
+
 ## Code of conduct
 
 We welcome contributions from everyone.  
