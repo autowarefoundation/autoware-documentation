@@ -1,4 +1,4 @@
-# E2E simulation
+# Digital twin simulation
 
 !!! warning
 

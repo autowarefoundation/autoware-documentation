@@ -1,4 +1,4 @@
-# Open loop simulation
+# Rosbag replay simulation
 
 !!! warning
 
