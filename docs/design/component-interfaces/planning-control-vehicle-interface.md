@@ -53,7 +53,7 @@ With the traffic_light_state being one of the following
 
 current position and orientation of ego. Published by the Localization module.
 
-- Vehiclekinematicstate
+- VehicleKinematicState
   - [nav_msgs/Odometry](https://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html)
   - std_msgs/Header header
   - string child_frame_id
@@ -219,7 +219,7 @@ A motion signal to drive the vehicle, achieved by the low-level controller in th
 The `Vehicle Interface` receives the `Vehicle Signal Commands` and `Vehicle Control Commands` and publishes the vehicle status. It also communicates with vehicle by the vehicle-specific protocol.
 
 The `Gate` switches multiple `Vehicle Control Commands`. These signals include autonomous diving command, joystick, remote control, and emergency operation, etc.
-The `Adapter` converts generalized control command (target steering, steering rate, velocity, acceleration, jerk) into vehicle-specific control values (steering-torque, wheel-turque, voltage, pressure, accel pedal position, etc).
+The `Adapter` converts generalized control command (target steering, steering rate, velocity, acceleration, jerk) into vehicle-specific control values (steering-torque, wheel-torque, voltage, pressure, accel pedal position, etc).
 
 ### Inputs
 
