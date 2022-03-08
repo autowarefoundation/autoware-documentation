@@ -2,11 +2,11 @@
 
 The node diagram designs are depicted below for the Autoware.Core/Universe architecture.
 
-## Autoware.Core
+## Autoware Core
 
 TBD.
 
-## Autoware.Universe
+## Autoware Universe
 
 ![Node diagram](node-diagram/overall-node-diagram-autoware-universe.drawio.svg)
 
