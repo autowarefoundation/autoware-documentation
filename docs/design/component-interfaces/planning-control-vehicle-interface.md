@@ -1,4 +1,4 @@
-# Autoware.core/universe Architecture
+# Autoware Core/Universe Architecture
 
 ## Planning
 
