@@ -2,3 +2,4 @@ nav:
   - index.md
   - autoware-interface
   - configuration-management
+  - node-diagram
