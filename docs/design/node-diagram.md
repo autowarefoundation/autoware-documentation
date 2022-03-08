@@ -1,6 +1,6 @@
 # Node Diagram
 
-The node diagram designs are depicted below for the Autoware.Core/Universe architecture.
+This page depicts the node diagram designs for Autoware Core/Universe architecture.
 
 ## Autoware Core
 
