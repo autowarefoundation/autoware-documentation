@@ -53,7 +53,7 @@ See our [support guidelines](../help/support-guidelines.md) for the detailed ste
 
 ### Pull requests
 
-You can directly submit a pull request if it is small like the following:
+You can submit a pull request directly (without opening an issue) if it is small like the following:
 
 - Update a small part of documents.
 - Fix spelling mistakes.
