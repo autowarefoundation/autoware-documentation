@@ -20,7 +20,7 @@ For general information about OSS contributions, [Open Source Guides](https://op
 
 !!!info
 
-    If you want to apply a new or different rule, you can open a new discussion thread and propose it.
+    If you want to make changes to the guidelines in this documentation site, you can open a new discussion thread and propose it.
 
 ## Code of conduct
 
