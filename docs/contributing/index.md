@@ -5,7 +5,7 @@ This page explains how to contribute to Autoware.
 First, conform to the [Code of conduct](#contribution-workflows) section for the general manners in contributions.
 
 See the [Contribution workflows](#contribution-workflows) section for the workflows.  
-Also, confirm the following our guidelines depending on your situation:
+Also, make sure the contribution is in line with the following guidelines:
 
 - [Coding guidelines](coding-guidelines/index.md): when you write source code
 - [Testing guidelines](testing-guidelines/index.md): when you write tests
