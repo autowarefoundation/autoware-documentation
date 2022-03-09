@@ -47,7 +47,7 @@ You can contribute to Autoware by facilitating discussions:
 - Propose an idea of features that will enhance Autoware.
 - Join an existing discussion and express your opinion.
 - Organize discussion so far for others contributors.
-- Answer an question and support other contributors.
+- Answer questions and support other contributors.
 
 See our [support guidelines](../help/support-guidelines.md) for the detailed steps.
 
