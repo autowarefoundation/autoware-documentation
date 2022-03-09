@@ -6,7 +6,7 @@
 
    <!--  TODO: Move to the AWF organization's Google Drive. -->
 
-   - Click [here](https://drive.google.com/file/d/1zh_f9yKxTs6FsVHYVuF-tcBtbrDN5FZ8/view?usp=sharing) to download.
+   - Click [here](https://drive.google.com/file/d/1499_nsbUbIeturZaDj7jhUownh5fvXHd/view?usp=sharing) to download.
    - Unpack it by running the following command.
 
    ```bash
