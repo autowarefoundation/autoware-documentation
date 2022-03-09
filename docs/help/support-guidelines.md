@@ -79,7 +79,7 @@ Note that it is not the right place to get help for your issues.
 
 ## ROS Discourse
 
-If you want to widely discuss a topic with the general Autoware community or ask a question not related to Autoware's bugs, post to [the Autoware category on ROS Discourse](https://discourse.ros.org/c/autoware).
+If you want to widely discuss a topic with the general Autoware and ROS community or ask a question not related to Autoware's bugs, post to [the Autoware category on ROS Discourse](https://discourse.ros.org/c/autoware).
 
 !!!warning
 
