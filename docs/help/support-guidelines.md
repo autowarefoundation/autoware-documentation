@@ -4,7 +4,7 @@ This page explains the support mechanisms we provide.
 
 !!! warning
 
-    Before asking any help, search and read this documentation site carefully.
+    Before asking for help, search and read this documentation site carefully.
     Also, understand and follow our [discussion guidelines](../contributing/discussion-guidelines/index.md) during your discussions.
 
 Choose appropriate resources depending on what kind of help you need:
