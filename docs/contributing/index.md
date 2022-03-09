@@ -7,12 +7,12 @@ First, conform to the [Code of conduct](#contribution-workflows) section for the
 See the [Contribution workflows](#contribution-workflows) section for the workflows.  
 Also, make sure the contribution is in line with the following guidelines:
 
-- [Coding guidelines](coding-guidelines/index.md): when you write source code
-- [Testing guidelines](testing-guidelines/index.md): when you write tests
-- [Documentation guidelines](documentation-guidelines/index.md): when you write documents
-- [Pull request guidelines](pull-request-guidelines/index.md): when you submit pull requests
-- [Discussion guidelines](discussion-guidelines/index.md): when you discuss with other contributors
-- [Support guidelines](../help/support-guidelines.md): when you need any help
+- [Coding guidelines](coding-guidelines/index.md): for contributing source code
+- [Testing guidelines](testing-guidelines/index.md): for contributing tests
+- [Documentation guidelines](documentation-guidelines/index.md): for contributing documents
+- [Pull request guidelines](pull-request-guidelines/index.md): for submitting pull requests
+- [Discussion guidelines](discussion-guidelines/index.md): for discussing with other contributors
+- [Support guidelines](../help/support-guidelines.md): for finding the right channel when you need help
 
 It is recommended to read the [Contributing pages in ROS 2 Docs](https://docs.ros.org/en/rolling/Contributing.html) as well because Autoware's guidelines generally depend on them.
 
