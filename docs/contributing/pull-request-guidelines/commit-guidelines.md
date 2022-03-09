@@ -100,6 +100,8 @@ Signed-off-by: Autoware <autoware@example.com>
 feat(trajectory_follower): add an awesome feature
 ```
 
+Note that you have to start the description part (`add an awesome feature`) with a lowercase.
+
 Since Autoware uses the `Squash and merge` method of GitHub, you need to make the PR title follow `Conventional Commits` as well.
 
 #### Reference
