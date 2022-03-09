@@ -4,8 +4,6 @@
 
 1. Download and unpack a sample map.
 
-   <!--  TODO: Move to the AWF organization's Google Drive. -->
-
    - Click [here](https://drive.google.com/file/d/1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI/view?usp=sharing) to download.
    - Unpack it by running the following command.
 
@@ -14,8 +12,6 @@
    ```
 
 2. Download the sample rosbag files.
-
-   <!--  TODO: Move to the AWF organization's Google Drive. -->
 
    - Click [here](https://drive.google.com/file/d/1VnwJx9tI3kI_cTLzP61ktuAJ1ChgygpG/view?usp=sharing) to download.
    - Unpack it by running the following command.
