@@ -2,7 +2,7 @@
 
 This page explains how to contribute to Autoware.
 
-First, confirm the [Code of conduct](#contribution-workflows) section for the general manners in contributions.
+First, conform to the [Code of conduct](#contribution-workflows) section for the general manners in contributions.
 
 See the [Contribution workflows](#contribution-workflows) section for the workflows.  
 Also, confirm the following our guidelines depending on your situation:
