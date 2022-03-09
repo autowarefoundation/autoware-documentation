@@ -31,7 +31,7 @@ The following sections are detailed descriptions of each resource.
 Visit them and see if there is any information related to your problem.
 
 Note that the documentation sites aren't always up-to-date and perfect.
-If you find some information is wrong, unclear, or missing in Autoware docs, feel free to submit a pull request following our [contribution guidelines](../contributing/index.md).
+If you find out that some information is wrong, unclear, or missing in Autoware docs, feel free to submit a pull request following our [contribution guidelines](../contributing/index.md).
 
 !!!warning
 
