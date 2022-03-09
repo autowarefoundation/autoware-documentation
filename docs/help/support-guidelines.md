@@ -9,18 +9,18 @@ This page explains the support mechanisms we provide.
 
 Choose appropriate resources depending on what kind of help you need:
 
-- Documentation sites
+- **Documentation sites**
   - Various information
-- GitHub Discussions
+- **GitHub Discussions**
   - Questions
   - Unconfirmed bugs
   - Feature requests
   - Design discussions
-- GitHub Issues
+- **GitHub Issues**
   - Confirmed bugs
-- Slack
+- **Slack**
   - Instant messaging between contributors
-- ROS Discourse
+- **ROS Discourse**
   - General topics that should be widely announced
 
 The following sections are detailed descriptions of each resource.
