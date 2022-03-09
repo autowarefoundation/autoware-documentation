@@ -30,7 +30,7 @@ The following sections are detailed descriptions of each resource.
 [Docs guide](docs-guide.md) shows the list of useful documentation sites.
 Visit them and see if there is any information related to your problem.
 
-Note that the documentation sites aren't always latest and perfect.
+Note that the documentation sites aren't always up-to-date and perfect.
 If you find some information is wrong, unclear, or missing in Autoware docs, feel free to submit a pull request following our [contribution guidelines](../contributing/index.md).
 
 !!!warning
