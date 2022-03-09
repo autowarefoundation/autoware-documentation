@@ -59,6 +59,7 @@ You can directly submit a pull request if it is small like the following:
 - Fix spelling mistakes.
 - Fix CI failures.
 - Fix warnings detected by compilers or analysis tools.
+- Make small changes to a single package.
 
 Otherwise, create an issue or a discussion thread before submitting a pull request and discuss the approach with maintainers.
 
