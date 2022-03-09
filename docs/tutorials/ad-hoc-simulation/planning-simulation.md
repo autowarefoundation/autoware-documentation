@@ -4,8 +4,6 @@
 
 1. Download and unpack a sample map.
 
-   <!--  TODO: Move to the AWF organization's Google Drive. -->
-
    - Click [here](https://drive.google.com/file/d/1499_nsbUbIeturZaDj7jhUownh5fvXHd/view?usp=sharing) to download.
    - Unpack it by running the following command.
 
