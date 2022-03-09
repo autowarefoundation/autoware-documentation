@@ -39,7 +39,7 @@ If you find out that some information is wrong, unclear, or missing in Autoware 
 
 ## GitHub Discussions
 
-If you have a problem with Autoware, check existing issues and questions and search similar issues first.
+If you encounter a problem with Autoware, check existing issues and questions and search for similar issues first.
 
 - [Issues](https://github.com/autowarefoundation/autoware/issues)
 
