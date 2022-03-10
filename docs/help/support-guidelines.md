@@ -7,23 +7,21 @@ This page explains the support mechanisms we provide.
     Before asking for help, search and read this documentation site carefully.
     Also, understand and follow our [discussion guidelines](../contributing/discussion-guidelines/index.md) during your discussions.
 
-Choose appropriate resources depending on what kind of help you need:
+Choose appropriate resources depending on what kind of help you need and read the detailed description in the sections below.
 
-- **Documentation sites**
+- [Documentation sites](#documentation-sites)
   - Various information
-- **GitHub Discussions**
+- [GitHub Discussions](#github-discussions)
   - Questions
   - Unconfirmed bugs
   - Feature requests
   - Design discussions
-- **GitHub Issues**
+- [GitHub Issues](#github-issues)
   - Confirmed bugs
-- **Slack**
+- [Slack](#slack)
   - Instant messaging between contributors
-- **ROS Discourse**
+- [ROS Discourse](#ros-discourse)
   - General topics that should be widely announced
-
-The following sections are detailed descriptions of each resource.
 
 ## Documentation sites
 
