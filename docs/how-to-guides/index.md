@@ -1,11 +1,11 @@
 # How-to guides
 
-!!! warning
+- [Advanced usage of colcon](advanced-usage-of-colcon)
 
-    Under Construction
+TODO: Write the following contents.
 
-- Write an Autoware package
-- Add a message
+- Create an Autoware package
+- Add a custom ROS message
 - Debug Autoware
 - Integrate Autoware with a real vehicle
 - etc.
