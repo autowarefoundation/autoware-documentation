@@ -1,4 +1,4 @@
 nav:
   - index.md
-  - local-simulation
+  - ad-hoc-simulation
   - scenario-simulation

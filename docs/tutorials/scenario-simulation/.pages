@@ -1,5 +1,5 @@
 nav:
   - index.md
-  - closed-loop-simulation.md
-  - open-loop-simulation.md
-  - e2e-simulation.md
+  - planning-simulation.md
+  - rosbag-replay-simulation.md
+  - digital-twin-simulation.md
