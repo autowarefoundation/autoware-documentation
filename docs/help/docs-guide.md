@@ -4,7 +4,7 @@
 
     Under Construction
 
-This page explains documentations sites that are useful for Autoware and ROS development.
+This page explains several documentation sites that are useful for Autoware and ROS development.
 
 ## [The Autoware Foundation](https://www.autoware.org/)
 
