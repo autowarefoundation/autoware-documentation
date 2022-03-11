@@ -55,7 +55,7 @@ Feel free to open or join such discussions.
 ## GitHub Issues
 
 If you have a problem and you have confirmed it is a bug, find the appropriate repository and create a new issue there.
-If you can't determine the appropriate repository, you should not create an issue yet.
+If you can't determine the appropriate repository, ask the maintainers for help by creating a new discussion in the [Q&A category](https://github.com/autowarefoundation/autoware/discussions/categories/q-a).
 
 !!!warning
 
