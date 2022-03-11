@@ -47,7 +47,7 @@ If you encounter a problem with Autoware, check existing issues and questions an
 - [Questions](https://github.com/autowarefoundation/autoware/discussions/categories/q-a)
 
 If no answer was found, create a new question thread [here](https://github.com/autowarefoundation/autoware/discussions/categories/q-a).
-If your question is not answered in a timely manner (about a week), mention maintainers and remind them.
+If your question is not answered within a week, then @mention the maintainers to remind them.
 
 Also, there are other discussion types such as [feature requests](https://github.com/autowarefoundation/autoware/discussions/categories/feature-requests) or [design discussions](https://github.com/autowarefoundation/autoware/discussions/categories/design).
 Feel free to open or join such discussions.
