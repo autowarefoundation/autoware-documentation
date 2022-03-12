@@ -65,4 +65,5 @@ Otherwise, create an issue or a discussion thread before submitting a pull reque
 
 Also, regardless of the size of your pull request, follow the pull request template of the target repository.
 
-See our [pull request guidelines](pull-request-guidelines/index.md) for the detailed steps.
+See our [pull request guidelines](pull-request-guidelines/index.md) for the detailed steps.  
+See [License](license.md) for the license notations.

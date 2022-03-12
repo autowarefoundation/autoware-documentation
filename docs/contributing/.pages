@@ -1,5 +1,6 @@
 nav:
   - index.md
+  - license.md
   - coding-guidelines
   - testing-guidelines
   - documentation-guidelines
