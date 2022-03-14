@@ -41,6 +41,6 @@ jobs:
           latest: ${{ github.event_name != 'pull_request_target' && github.ref_name == github.event.repository.default_branch }}
 
       - run: |
-          echo ${{ github.event.workflow_run.event }}
+          echo ${{ github.event_name }}
           echo ${{ github.ref_name }}
           echo ${{ github.event.repository.default_branch }}
