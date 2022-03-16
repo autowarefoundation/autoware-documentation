@@ -1,2 +1,4 @@
 nav:
   - index.md
+  - commit-guidelines.md
+  - review-tips.md
