@@ -1,5 +1,5 @@
 nav:
-  - index.
+  - index.md
   - autoware-concepts
   - autoware-interface
   - configuration-management
