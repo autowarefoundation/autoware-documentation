@@ -1,4 +1,4 @@
-# Autoware Interfaces
+# Autoware interfaces
 
 !!! warning
 
