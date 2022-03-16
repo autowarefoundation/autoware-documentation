@@ -6,8 +6,6 @@
 
 ## Autoware concepts
 
-## Component interfaces
-
-## AD API
+## Autoware interfaces
 
 ## Configuration management
