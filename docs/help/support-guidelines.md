@@ -18,7 +18,7 @@ Choose appropriate resources depending on what kind of help you need and read th
   - Design discussions
 - [GitHub Issues](#github-issues)
   - Confirmed bugs
-- [Slack](#slack)
+- [Discord](#discord)
   - Instant messaging between contributors
 - [ROS Discourse](#ros-discourse)
   - General topics that should be widely announced
@@ -63,11 +63,13 @@ If you can't determine the appropriate repository, ask the maintainers for help 
 
 If you want to fix the bug by yourself, discuss the approach with maintainers and submit a pull request.
 
-## Slack
+## Discord
 
-Autoware has a Slack workspace for casual communication between contributors.
+[![Discord](https://img.shields.io/discord/953808765935816715?label=Join%20Autoware%20Discord&style=for-the-badge)](https://discord.gg/Q94UsPvReQ)
 
-For example, this is a good place for the following activities:
+Autoware has a Discord server for casual communication between contributors.
+
+The Autoware Discord server is a good place for the following activities:
 
 - Introduce yourself to the community.
 - Chat with contributors.
