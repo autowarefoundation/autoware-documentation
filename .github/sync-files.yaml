@@ -6,7 +6,6 @@
     - source: LICENSE
     - source: .github/ISSUE_TEMPLATE/config.yml
     - source: .github/ISSUE_TEMPLATE/task.yaml
-    - source: .github/PULL_REQUEST_TEMPLATE.md
     - source: .github/dependabot.yaml
     - source: .github/stale.yml
     - source: .github/workflows/pre-commit.yaml
