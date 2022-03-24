@@ -8,11 +8,11 @@ Autoware uses a [pipeline architecture](http://www.cs.sjsu.edu/~pearce/modules/p
 
 ![core-and-universe.svg](core-and-universe.svg)
 
-### The core module
+### The Core module
 
 The Core module contains basic runtimes and technology components that satisfy the basic functionality and capability of sensing, computing, and actuation required for autonomous driving systems. AWF develops and maintains the Core module with their architects and leading members through their working groups.
 
-### The universe module
+### The Universe module
 
 The Universe modules are extensions to the Core module that can be provided by the technology developers to enhance the functionality and capability of sensing, computing, and actuation. AWF provides the base Universe module to extend from. A key feature of the microautonomy architecture is that the Universe modules can be contributed to by any organization and individual. That is, you can even create your Universe and make it available for the Autoware community and ecosystem. AWF is responsible for quality control of the Universe modules through their development process. As a result, there are multiple types of the Universe modules - some are verified and validated by AWF and others are not. It is up to the users of Autoware which Universe modules are selected and integrated to build their end applications.
 
