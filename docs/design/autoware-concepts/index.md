@@ -4,13 +4,13 @@ Autoware is the world’s first open-source software for autonomous driving syst
 
 ## Microautonomy architecture
 
-Autoware uses a [pipeline architecture](http://www.cs.sjsu.edu/~pearce/modules/patterns/distArch/pipeline.htm) to enable the development of autonomous driving systems. The pipeline architecture used in Autoware consists of components similar to [three-layer-architecture](http://www.flownet.com/gat/papers/tla.pdf). And they run in parallel. The components are designed to be extensible and reusable. And we call it microautonomy architecture.
+Autoware uses a [pipeline architecture](http://www.cs.sjsu.edu/~pearce/modules/patterns/distArch/pipeline.htm) to enable the development of autonomous driving systems. The pipeline architecture used in Autoware consists of components similar to [three-layer-architecture](http://www.flownet.com/gat/papers/tla.pdf). And they run in parallel. There are 2 main modules: the Core and the Universe. The components in these modules are designed to be extensible and reusable. And we call it microautonomy architecture.
 
 ![core-and-universe.svg](core-and-universe.svg)
 
 ### The Core module
 
-The Core module contains basic runtimes and technology components that satisfy the basic functionality and capability of sensing, computing, and actuation required for autonomous driving systems. AWF develops and maintains the Core module with their architects and leading members through their working groups.
+The Core module contains basic runtimes and technology components that satisfy the basic functionality and capability of sensing, computing, and actuation required for autonomous driving systems. AWF develops and maintains the Core module with their architects and leading members through their working groups. Anyone can contribute to the Core but the PR(Pull Request) acceptance criteria is more strict compared to the Universe.
 
 ### The Universe module
 
@@ -18,7 +18,7 @@ The Universe modules are extensions to the Core module that can be provided by t
 
 ## Interface design
 
-The interface design is the most essential piece of the microautonomy architecture, which is classified into internal and external interfaces. The Component Interface is designed for the technology components in a universe module to communicate with those in other modules, including the core module, within Autoware internally. The AD API, on the other hand, is designed for the applications of Autoware to access the technology components in the core and universe modules of Autoware externally. Designing solid interfaces, the microautonomy architecture is made possible with our partners, and at the same time is made feasible for our partners.
+The interface design is the most essential piece of the microautonomy architecture, which is classified into internal and external interfaces. The component interface is designed for the components in a Universe module to communicate with those in other modules, including the Core module, within Autoware internally. The AD(Autonomous Driving) API, on the other hand, is designed for the applications of Autoware to access the technology components in the Core and Universe modules of Autoware externally. Designing solid interfaces, the microautonomy architecture is made possible with our partners, and at the same time is made feasible for our partners.
 
 ## Challenges
 
@@ -30,11 +30,7 @@ In addition, it is also difficult, if not impossible, to tightly estimate the en
 
 Goals:
 
-- All open-source.
-- Use case driven.
-- Real-time (predictable) framework with overrun handling.
-- Code quality.
-
-Non-goals:
-
-- Accuracy of components
+- All open-source
+- Use case driven
+- Real-time (predictable) framework with overrun handling
+- Code quality
