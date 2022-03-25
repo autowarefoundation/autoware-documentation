@@ -37,7 +37,7 @@ sudo apt-get -y install git
 
 !!!warning
 
-    Be very careful with this method. Make sure you read and confirmed all the steps in the ansible configuration before using it.
+    Be very careful with this method. Make sure you read and confirmed all the steps in the Ansible configuration before using it.
 
 ## How to set up a workspace
 

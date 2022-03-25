@@ -22,6 +22,10 @@
    ./setup-dev-env.sh docker
    ```
 
+!!!warning
+
+    Be very careful with this method. Make sure you read and confirmed all the steps in the Ansible configuration before using it.
+
 ## How to set up a workspace
 
 1. Launch a Docker container
