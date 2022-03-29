@@ -34,6 +34,11 @@ If you want to manually install the dependencies:
 
 ## How to set up a workspace
 
+!!!warning
+
+    Before proceeding, confirm and agree with the [NVIDIA Deep Learning Container license](https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license).
+    By pulling and using the Autoware Universe images, you accept the terms and conditions of the license.
+
 1. Launch a Docker container
 
    ```bash
