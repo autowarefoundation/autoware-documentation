@@ -22,7 +22,22 @@
    ./setup-dev-env.sh docker
    ```
 
+!!!warning
+
+    Be very careful with this method. Make sure you read and confirmed all the steps in the Ansible configuration before using it.
+
+If you want to manually install the dependencies:
+
+- See the roles in [docker.yaml](https://github.com/autowarefoundation/autoware/blob/main/ansible/playbooks/docker.yaml).
+- Read the READMEs of each role under the [ansible/roles](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles) directory.
+- Install the listed dependencies following the linked resources.
+
 ## How to set up a workspace
+
+!!!warning
+
+    Before proceeding, confirm and agree with the [NVIDIA Deep Learning Container license](https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license).
+    By pulling and using the Autoware Universe images, you accept the terms and conditions of the license.
 
 1. Launch a Docker container
 
