@@ -1,6 +1,5 @@
 nav:
   - index.md
   - autoware-concepts
-  - component-interfaces
-  - AD API: ad-api
+  - autoware-interfaces
   - configuration-management

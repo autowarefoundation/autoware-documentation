@@ -40,9 +40,7 @@ The downside of the microautonomy architecture is that the computational perform
 
 ### Autoware concepts
 
-### Component interfaces
-
-### AD API
+### Autoware interfaces
 
 ### Configuration management
 
