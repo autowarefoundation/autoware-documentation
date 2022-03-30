@@ -1,3 +1,5 @@
 nav:
   - index.md
-  - Architecture: planning-control-vehicle-interface.md
+  - planning.md
+  - control.md
+  - vehicle-interface.md
