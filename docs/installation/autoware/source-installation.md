@@ -66,6 +66,7 @@ If you've manually installed the dependencies, you can skip this section.
 
    Autoware requires some ROS 2 packages in addition to the core components.
    The tool `rosdep` allows an automatic search and installation of such dependencies.
+   You might need to run `rosdep update` before `rosdep install`.
 
    ```bash
    source /opt/ros/galactic/setup.bash
