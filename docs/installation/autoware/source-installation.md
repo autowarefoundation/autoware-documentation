@@ -69,8 +69,6 @@ If you've manually installed the dependencies, you can skip this section.
 
    ```bash
    source /opt/ros/galactic/setup.bash
-   sudo rosdep init
-   rosdep update
    rosdep install --from-paths src --ignore-src -y --rosdistro $ROS_DISTRO
    ```
 
@@ -112,7 +110,7 @@ If you've manually installed the dependencies, you can skip this section.
 
    ```bash
    source /opt/ros/galactic/setup.bash
-   rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO
+   rosdep install --from-paths src --ignore-src -y --rosdistro $ROS_DISTRO
    ```
 
 4. Build the workspace.
