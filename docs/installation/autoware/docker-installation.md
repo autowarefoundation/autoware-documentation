@@ -16,21 +16,21 @@
    git clone https://github.com/autowarefoundation/autoware.git
    ```
 
-2. Install the dependencies.
+2. You can install the dependencies either manually or using the provided Ansible script.
 
-   ```bash
-   ./setup-dev-env.sh docker
-   ```
+### Installing dependencies manually
 
-!!!warning
+- [Install Docker and related tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/docker#manual-installation)
 
-    Be very careful with this method. Make sure you read and confirmed all the steps in the Ansible configuration before using it.
+### Installing dependencies using Ansible
 
-If you want to manually install the dependencies:
+Be very careful with this method. Make sure you read and confirmed all the steps in the Ansible configuration before using it.
 
-- See the roles in [docker.yaml](https://github.com/autowarefoundation/autoware/blob/main/ansible/playbooks/docker.yaml).
-- Read the READMEs of each role under the [ansible/roles](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles) directory.
-- Install the listed dependencies following the linked resources.
+If you've manually installed the dependencies, you can skip this section.
+
+```bash
+./setup-dev-env.sh docker
+```
 
 ## How to set up a workspace
 
