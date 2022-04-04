@@ -1,6 +1,6 @@
 # How-to guides
 
-- [Advanced usage of colcon](advanced-usage-of-colcon)
+- [Advanced usage of colcon](advanced-usage-of-colcon.md)
 
 TODO: Write the following contents.
 

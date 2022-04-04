@@ -58,8 +58,8 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 
 If the error is not resolved, remove `src/` and update the workspace depending on your installation type:
 
-- [Docker](../../installation/autoware/docker-installation/#how-to-update-a-workspace)
-- [Source](../../installation/autoware/source-installation/#how-to-update-a-workspace)
+- [Docker](../installation/autoware/docker-installation.md#how-to-update-a-workspace)
+- [Source](../installation/autoware/source-installation.md#how-to-update-a-workspace)
 
 !!! Warning
 
