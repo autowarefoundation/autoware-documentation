@@ -66,10 +66,11 @@ If you've manually installed the dependencies, you can skip this section.
 
    Autoware requires some ROS 2 packages in addition to the core components.
    The tool `rosdep` allows an automatic search and installation of such dependencies.
+   You might need to run `rosdep update` before `rosdep install`.
 
    ```bash
    source /opt/ros/galactic/setup.bash
-   rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO
+   rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 
 3. Build the workspace.
@@ -110,7 +111,7 @@ If you've manually installed the dependencies, you can skip this section.
 
    ```bash
    source /opt/ros/galactic/setup.bash
-   rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO
+   rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 
 4. Build the workspace.
