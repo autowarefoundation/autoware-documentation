@@ -14,6 +14,7 @@
 
    ```bash
    git clone https://github.com/autowarefoundation/autoware.git
+   cd autoware
    ```
 
 2. You can install the dependencies either manually or using the provided Ansible script.
@@ -31,6 +32,8 @@ If you've manually installed the dependencies, you can skip this section.
 ```bash
 ./setup-dev-env.sh docker
 ```
+
+You might need to log out and log back to make the current user able to use docker.
 
 ## How to set up a workspace
 
