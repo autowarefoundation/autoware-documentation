@@ -32,5 +32,5 @@ Goals:
 
 - All open-source
 - Use case driven
-- Real-time (predictable) framework with overrun handling
+- Real-time (predictable) framework with overrun handling: [Add draft description]
 - Code quality
