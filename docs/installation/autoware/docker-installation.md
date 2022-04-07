@@ -42,10 +42,16 @@ You might need to log out and log back to make the current user able to use dock
     Before proceeding, confirm and agree with the [NVIDIA Deep Learning Container license](https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license).
     By pulling and using the Autoware Universe images, you accept the terms and conditions of the license.
 
-1. Launch a Docker container
+1. Launch a Docker container.
 
    ```bash
    rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
+   ```
+
+   If you want to run container without using NVIDIA GPU:
+
+   ```bash
+   rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
    ```
 
    See [here](https://github.com/autowarefoundation/autoware/tree/main/docker/README.md) for more advanced usage.
@@ -75,24 +81,35 @@ You might need to log out and log back to make the current user able to use dock
 
    ```bash
    docker pull ghcr.io/autowarefoundation/autoware-universe:latest
+   ```
+
+2. Launch the Docker container.
+
+   ```bash
    rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
    ```
 
-2. Update the `.repos` file.
+   If you want to run container without using NVIDIA GPU:
+
+   ```bash
+   rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
+   ```
+
+3. Update the `.repos` file.
 
    ```bash
    cd autoware
    git pull
    ```
 
-3. Update the repositories.
+4. Update the repositories.
 
    ```bash
    vcs import src < autoware.repos
    vcs pull
    ```
 
-4. Build the workspace.
+5. Build the workspace.
 
    ```bash
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
