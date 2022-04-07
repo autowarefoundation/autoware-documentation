@@ -5,7 +5,21 @@
 ### CUDA-related errors
 
 When installing CUDA, it may cause errors because of version conflicts.
-To resolve this, try either:
+To resolve this, try either one of the following methods:
+
+- Unhold all CUDA-related libraries and rerun the setup script.
+
+  ```bash
+  sudo apt-mark unhold  \
+    "cuda*"             \
+    "libcudnn*"         \
+    "libnvinfer*"       \
+    "libnvonnxparsers*" \
+    "libnvparsers*"     \
+    "nvidia*"
+
+  ./setup-dev-env.sh
+  ```
 
 - Uninstall all CUDA-related libraries and rerun the setup script.
 
