@@ -20,30 +20,35 @@ sudo apt-get -y install git
    cd autoware
    ```
 
-2. Install the dependencies.
+2. You can install the dependencies either manually or using the provided Ansible script.
 
-   We use [Ansible](https://www.ansible.com/) to simplify the steps.
-   Please see the Ansible playbooks and roles if you want to know exactly what packages are installed.
+> Note: Before installing NVIDIA libraries, confirm and agree with the licenses.
 
-   > Note: Before installing NVIDIA libraries, confirm and agree with the licenses.
+- [CUDA](https://docs.nvidia.com/cuda/eula/index.html)
+- [cuDNN](https://docs.nvidia.com/deeplearning/cudnn/sla/index.html)
+- [TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/sla/index.html)
 
-   - [CUDA](https://docs.nvidia.com/cuda/eula/index.html)
-   - [cuDNN](https://docs.nvidia.com/deeplearning/cudnn/sla/index.html)
-   - [TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/sla/index.html)
+### Installing dependencies manually
 
-   ```bash
-   ./setup-dev-env.sh
-   ```
+- [Install ROS2](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2#manual-installation)
+- [Install ROS2 Dev Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2_dev_tools#manual-installation)
+- [Install the RMW Implementation](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rmw_implementation#manual-installation)
+- [Install pacmod](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/pacmod#manual-installation)
+- [Install Autoware Core dependencies](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/autoware_core#manual-installation)
+- [Install Autoware Universe dependencies](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/autoware_universe#manual-installation)
+- [Install pre-commit dependencies](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/pre_commit#manual-installation)
+- [Install Nvidia CUDA](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/cuda#manual-installation)
+- [Install Nvidia cuDNN and TensorRT](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/tensorrt#manual-installation)
 
-!!!warning
+### Installing dependencies using Ansible
 
-    Be very careful with this method. Make sure you read and confirmed all the steps in the Ansible configuration before using it.
+Be very careful with this method. Make sure you read and confirmed all the steps in the Ansible configuration before using it.
 
-If you want to manually install the dependencies:
+If you've manually installed the dependencies, you can skip this section.
 
-- See the roles in [universe.yaml](https://github.com/autowarefoundation/autoware/blob/main/ansible/playbooks/universe.yaml).
-- Read the READMEs of each role under the [ansible/roles](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles) directory.
-- Install the listed dependencies following the linked resources.
+```bash
+./setup-dev-env.sh
+```
 
 ## How to set up a workspace
 
@@ -61,10 +66,11 @@ If you want to manually install the dependencies:
 
    Autoware requires some ROS 2 packages in addition to the core components.
    The tool `rosdep` allows an automatic search and installation of such dependencies.
+   You might need to run `rosdep update` before `rosdep install`.
 
    ```bash
    source /opt/ros/galactic/setup.bash
-   rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO
+   rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 
 3. Build the workspace.
@@ -105,7 +111,7 @@ If you want to manually install the dependencies:
 
    ```bash
    source /opt/ros/galactic/setup.bash
-   rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO
+   rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 
 4. Build the workspace.
