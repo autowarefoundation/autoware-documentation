@@ -29,8 +29,19 @@ In addition, it is also difficult, if not impossible, to tightly estimate the en
 ## Requirements and roadmap
 
 Goals:
-
 - All open-source
-- Use case driven
+- Use case driven development
+  - We provide multiple models of the reference design for the autonomous driving systems based on a "scalable" platform
+  - The reference design is defined by the form of use cases, including the requirement of hardware specification and acceptance criteria.
+  - The use case implementation is said to be “logically functional”, if it is evaluated by use case scenarios using target hardware.
 - Real-time (predictable) framework with overrun handling
+  - Autoware also provides the profiling tool to measure the required execution time of each component, which is used by the real-time framework to reserve the computation resource and handling overrun.
+  - Real-Time framework with overrun handling: Autoware provides overrun handling to limit the resource use for each component so as to isolate the resource use on the shared computing platform and, hence, enable real-time guarantee.
+  - [Need to confirm] Due to the long tail property of computation workloads, guaranteeing worst-case execution time on real-time schedule usually over-provisions the required resources. In order to better utilize the computation resources on shared platform and isolate the resource use, the real-time framework in Autoware monitors the resources use to handle and prevent overrun when the resources are limited
 - Code quality
+
+Terminology:
+* Component
+* Feature
+* Usecase
+* Scenario
