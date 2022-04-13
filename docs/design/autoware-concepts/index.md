@@ -29,6 +29,7 @@ In addition, it is also difficult, if not impossible, to tightly estimate the en
 ## Requirements and roadmap
 
 Goals:
+
 - All open-source
 - Use case driven development
   - We provide multiple models of the reference design for the autonomous driving systems based on a "scalable" platform
@@ -41,7 +42,8 @@ Goals:
 - Code quality
 
 Terminology:
-* Component
-* Feature
-* Usecase
-* Scenario
+
+- Component
+- Feature
+- Usecase
+- Scenario
