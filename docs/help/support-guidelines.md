@@ -52,6 +52,8 @@ If your question is not answered within a week, then @mention the maintainers to
 Also, there are other discussion types such as [feature requests](https://github.com/autowarefoundation/autoware/discussions/categories/feature-requests) or [design discussions](https://github.com/autowarefoundation/autoware/discussions/categories/design).
 Feel free to open or join such discussions.
 
+Once the problem is resolved, turn the knowledge into the documentation!
+
 ## GitHub Issues
 
 If you have a problem and you have confirmed it is a bug, find the appropriate repository and create a new issue there.
