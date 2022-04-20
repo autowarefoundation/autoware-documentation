@@ -4,9 +4,8 @@
 
 Did you find a software bug? -> Open an issue in the corresponding software repository
 Did you find strange behavior? -> [Ask in Q&A](https://github.com/autowarefoundation/autoware/discussions/categories/q-a)
-Do you have questions about Autoware functionality? ->  [Ask in Q&A](https://github.com/autowarefoundation/autoware/discussions/categories/q-a)
+Do you have questions about Autoware functionality? -> [Ask in Q&A](https://github.com/autowarefoundation/autoware/discussions/categories/q-a)
 Do you want to add new features to Autoware? -> [Make a feature request](https://github.com/autowarefoundation/autoware/discussions/categories/feature-requests)
-
 
 This page explains how to contribute to Autoware.
 
