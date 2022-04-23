@@ -1,6 +1,4 @@
-# Help
-
-This page explains several support resources.
+# Support
 
 - [Support guidelines](support-guidelines.md) pages explain the support mechanisms and guidelines.
 - [Troubleshooting](troubleshooting.md) pages explain solutions for common issues.

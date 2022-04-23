@@ -2,10 +2,13 @@
 
 This page explains the support mechanisms we provide.
 
-!!! warning
+!!! note
 
     Before asking for help, search and read this documentation site carefully.
     Also, follow the [discussion guidelines](../contributing/discussion-guidelines/index.md) for discussions.
+
+!!!note
+    Please do not file an issue to ask a question. Use the resources below instead.
 
 Choose appropriate resources depending on what kind of help you need and read the detailed description in the sections below.
 
@@ -19,9 +22,10 @@ Choose appropriate resources depending on what kind of help you need and read th
 - [GitHub Issues](#github-issues)
   - Confirmed bugs
 - [Discord](#discord)
-  - Instant messaging between contributors
+  - Casual communication between contributors and Autoware Foundation working group members
+  - Not for support!
 - [ROS Discourse](#ros-discourse)
-  - General topics that should be widely announced
+  - General topics to be announced to a wide audience of both Autoware and ROS users
 
 ## Documentation sites
 
@@ -71,15 +75,15 @@ Autoware has a Discord server for casual communication between contributors.
 
 The Autoware Discord server is a good place for the following activities:
 
-- Introduce yourself to the community.
-- Chat with contributors.
-- Take a quick straw poll.
+- Introducing yourself to the community.
+- Chatting with other contributors.
+- Taking a quick straw poll on a potential change or feature request.
 
 Note that it is not the right place to get help for your issues.
 
 ## ROS Discourse
 
-If you want to widely discuss a topic with the general Autoware and ROS community or ask a question not related to Autoware's bugs, post to [the Autoware category on ROS Discourse](https://discourse.ros.org/c/autoware).
+If you want to discuss a topic with the wider Autoware and ROS community, or to ask a question that is not related to a possible Autoware bug, then post to [the Autoware category on ROS Discourse](https://discourse.ros.org/c/autoware).
 
 !!!warning
 
