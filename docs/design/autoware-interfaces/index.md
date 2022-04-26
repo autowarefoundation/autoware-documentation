@@ -86,25 +86,24 @@ In that case, text formats such as JSON where field names are repeated in an arr
 
 ### Naming Convention
 
-The name of the interface must be `/<component name>/api/<version>/<interface name>`,
+The name of the interface must be `/<component name>/api/<interface name>`,
 where `<component name>` is the name of the component. For an AD API component, omit this part and start with `/api`.
-The `<version>` is a major version with `v` such as `v1`. This can provide older interfaces for backward compatibility.
 The `<interface name>` is an arbitrary string separated by slashes.
 Note that this rule causes a restriction that the namespace `api` must not be used as a name other than AD API and Component Interface.
 
 The following are examples of correct interface names for AD API and Component Interface:
 
-- /api/v1/autoware/state
-- /api/v1/autoware/engage
-- /planning/api/v1/route/change
-- /vehicle/api/v1/status
+- /api/autoware/state
+- /api/autoware/engage
+- /planning/api/route/set
+- /vehicle/api/status
 
 The following are examples of incorrect interface names for AD API and Component Interface:
 
-- /api/autoware/state
-- /autoware/state
-- /planning/route/api/v1
-- /vehicle/my_api/v1/status
+- /ad_api/autoware/state
+- /autoware/engage
+- /planning/route/set/api
+- /vehicle/my_api/status
 
 ### Logging
 
