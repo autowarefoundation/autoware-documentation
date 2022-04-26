@@ -66,7 +66,7 @@ To see the schedule for upcoming working group meetings, refer to the [Autoware 
 
 Before you submit an issue, please search the issue tracker for the appropriate repository. It is possible that someone has already reported the same issue and that workarounds exist. If you can't determine the appropriate repository, ask the maintainers for help by creating a new discussion in the [Q&A category](https://github.com/autowarefoundation/autoware/discussions/categories/q-a).
 
-When reporting a bug, you should provide a minimal set of instructions to reproduce the issue. Doing so allows us to quickly confirm and focus on the right problem.```
+When reporting a bug, you should provide a minimal set of instructions to reproduce the issue. Doing so allows us to quickly confirm and focus on the right problem.
 
 If you want to fix the bug by yourself, then that will be appreciated, but you should discuss possible approaches with the maintainers first before submitting a pull request.
 
