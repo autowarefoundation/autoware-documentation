@@ -43,7 +43,8 @@ If you are new to open source projects, we recommend reading GitHub's [How to Co
 Do not open issues for general support questions as we want to keep GitHub issues for confirmed bug reports. Instead, open a discussion in the Q&A category. For more details on our support mechanisms and links to troubleshooting guides, refer to our [Support guidelines](../support/index.md).
 
 !!! note
-Issues created for questions or unconfirmed bugs will be moved to GitHub discussions by the maintainers.
+
+    Issues created for questions or unconfirmed bugs will be moved to GitHub discussions by the maintainers.
 
 ## How can I contribute?
 
