@@ -23,7 +23,7 @@ To ensure the Autoware community stays open and inclusive, please follow our [co
 
 If you believe that someone in the community has violated the code of conduct, please make a report by emailing conduct@autoware.org.
 
-## What Should I Know Before I Get Started?
+## What should I know before I get started?
 
 ### Autoware concepts
 
