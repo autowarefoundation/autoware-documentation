@@ -21,7 +21,10 @@
 
 ### Installing dependencies manually
 
-- [Install Docker and related tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/docker#manual-installation)
+- [Install Docker Engine](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/docker_engine#manual-installation)
+- [Install Docker Compose](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/docker_compose#manual-installation)
+- [Install NVIDIA Container Toolkit](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/nvidia_docker#manual-installation)
+- [Install rocker](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rocker#manual-installation)
 
 ### Installing dependencies using Ansible
 
