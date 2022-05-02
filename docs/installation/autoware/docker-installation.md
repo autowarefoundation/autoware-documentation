@@ -109,7 +109,7 @@ You might need to log out and log back to make the current user able to use dock
 
    ```bash
    vcs import src < autoware.repos
-   vcs pull
+   vcs pull src
    ```
 
 5. Build the workspace.
