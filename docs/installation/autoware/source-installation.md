@@ -95,7 +95,7 @@ If you've manually installed the dependencies, you can skip this section.
 
    ```bash
    vcs import src < autoware.repos
-   vcs pull
+   vcs pull src
    ```
 
    For Git users:
