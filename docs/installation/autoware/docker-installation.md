@@ -21,7 +21,10 @@
 
 ### Installing dependencies manually
 
-- [Install Docker and related tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/docker#manual-installation)
+- [Install Docker Engine](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/docker_engine#manual-installation)
+- [Install Docker Compose](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/docker_compose#manual-installation)
+- [Install NVIDIA Container Toolkit](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/nvidia_docker#manual-installation)
+- [Install rocker](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rocker#manual-installation)
 
 ### Installing dependencies using Ansible
 
@@ -106,7 +109,7 @@ You might need to log out and log back to make the current user able to use dock
 
    ```bash
    vcs import src < autoware.repos
-   vcs pull
+   vcs pull src
    ```
 
 5. Build the workspace.
