@@ -40,7 +40,7 @@ You might need to log out and log back to make the current user able to use dock
 
 ## How to set up a workspace
 
-!!!warning
+!!! warning
 
     Before proceeding, confirm and agree with the [NVIDIA Deep Learning Container license](https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license).
     By pulling and using the Autoware Universe images, you accept the terms and conditions of the license.

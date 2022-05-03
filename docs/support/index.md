@@ -1,4 +1,4 @@
-# Help
+# Support
 
 This page explains several support resources.
 
