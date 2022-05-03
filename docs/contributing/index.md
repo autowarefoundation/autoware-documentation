@@ -71,7 +71,7 @@ When reporting a bug, you should provide a minimal set of instructions to reprod
 
 If you want to fix the bug by yourself that will be appreciated, but you should discuss possible approaches with the maintainers in the issue before submitting a pull request.
 
-[Creating an issue is straightforward])https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-repository), but if you happen to experience any problems then create a Q&A discussion to ask for help. 
+[Creating an issue is straightforward])<https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-repository>), but if you happen to experience any problems then create a Q&A discussion to ask for help.
 
 ### Pull requests
 
