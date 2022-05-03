@@ -59,7 +59,7 @@ You can contribute to Autoware by facilitating and participating in discussions,
 
 ### Working groups
 
-The [various working groups](https://github.com/autowarefoundation/autoware-projects/wiki#working-group-list) within the Autoware Foundation are responsible for managing low level activities as directed by the foundation's Technical Steering Committee. These working groups are open to everyone, and joining a particular working group will allow you to gain an understanding of current projects, see how those projects are managed within each group and contribute to issues that will help progress a particular project.
+The [various working groups](https://github.com/autowarefoundation/autoware-projects/wiki#working-group-list) within the Autoware Foundation are responsible for accomplishing goals set by the Technical Steering Committee. These working groups are open to everyone, and joining a particular working group will allow you to gain an understanding of current projects, see how those projects are managed within each group and to contribute to issues that will help progress a particular project.
 
 To see the schedule for upcoming working group meetings, refer to the [Autoware Foundation events calendar](https://calendar.google.com/calendar/u/0/embed?src=autoware.org_6lol0ho5ft0217h8c60pi1fm30@group.calendar.google.com).
 
