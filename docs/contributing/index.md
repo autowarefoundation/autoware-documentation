@@ -8,7 +8,7 @@ As a contributor, here are the guidelines that we would like you to follow for A
 - [What should I know before I get started?](#what-should-i-know-before-i-get-started)
   - [Autoware concepts](#autoware-concepts)
   - [Contributing to open source projects](#contributing-to-open-source-projects)
-- [How can I get help?](#how-can-I-get-help)
+- [How can I get help?](#how-can-i-get-help)
 - [How can I contribute?](#how-can-i-contribute)
   - [Participate in discussions](#discussions)
   - [Join a working group](#working-groups)
