@@ -47,7 +47,9 @@ For non-default units, use following suffixes:
 | time     | hour (h)         | `_hour` |
 | velocity | km/h             | `_kmph` |
 
-If a unit that you'd like to use doesn't exist here, [create an issue/PR](https://github.com/autowarefoundation/autoware-documentation/issues) to add it to this list.
+!!! tip ""
+
+    If a unit that you'd like to use doesn't exist here, [create an issue/PR](https://github.com/autowarefoundation/autoware-documentation/issues) to add it to this list.
 
 ## Message field types
 
@@ -72,6 +74,15 @@ Also copied here for convenience:
 | `uint64`           | `uint64_t`       |
 | `string`           | `std::string`    |
 | `wstring`          | `std::u16string` |
+
+### Arrays
+
+For arrays, use `unbounded dynamic array` type.
+
+Example: 
+```text
+int32[] unbounded_integer_array
+```
 
 ## Enumerations
 
