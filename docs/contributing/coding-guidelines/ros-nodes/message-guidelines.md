@@ -79,7 +79,8 @@ Also copied here for convenience:
 
 For arrays, use `unbounded dynamic array` type.
 
-Example: 
+Example:
+
 ```text
 int32[] unbounded_integer_array
 ```
