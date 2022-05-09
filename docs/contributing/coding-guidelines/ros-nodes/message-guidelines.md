@@ -132,6 +132,6 @@ uint64 duration
 - Don't prefix the units:
   - Bad: `float32 kmph_velocity_vehicle`
   - Good: `float32 velocity_vehicle_kmph`
-- Use recommended suffixes if available:
+- Use recommended suffixes [if they are available in the table](#non-default-units):
   - Bad: `float32 velocity_vehicle_km_h`
   - Good: `float32 velocity_vehicle_kmph`
