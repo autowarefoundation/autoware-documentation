@@ -20,17 +20,17 @@ Note that the initial focus of this architecture design was solely on driving ca
 
 ## High-level Architecture Design
 
-![Overview](image/AutowareArchitectureOverview.drawio.svg)
+![Overview](image/autoware-architecture-overview.drawio.svg)
 
 This architecture consists of the following six stacks. Each of these design pages contains a more detailed set of requirements and use cases specific to that stack:
 
-- [Sensing Design](Sensing/index.md)
-- [Localization Design](Localization/index.md)
-- [Perception Design](Perception/index.md)
-- [Planning Design](Planning/index.md)
-- [Control Design](Control/index.md)
-- [VehicleInterface Design](Vehicle/index.md)
-- [Map Design](Map/index.md)
+- [Sensing design](sensing/index.md)
+- [Localization design](localization/index.md)
+- [Perception design](perception/index.md)
+- [Planning design](planning/index.md)
+- [Control design](control/index.md)
+- [VehicleInterface design](vehicle/index.md)
+- [Map design](map/index.md)
 
 ## Node Diagram
 
