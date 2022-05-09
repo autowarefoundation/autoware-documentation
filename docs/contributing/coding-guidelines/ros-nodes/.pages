@@ -5,7 +5,7 @@ nav:
   - coordinate-system.md
   - directory-structure.md
   - launch-files.md
-  - Message guidelines: message-guidelines.md
+  - message-guidelines.md
   - naming.md
   - parameters.md
   - task-scheduling.md
