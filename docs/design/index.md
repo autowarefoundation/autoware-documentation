@@ -40,11 +40,24 @@ The downside of the microautonomy architecture is that the computational perform
 
 ### Autoware concepts
 
+The concept of the Autoware is available [here](autoware-concepts/index.md).
+
+- Target readers:
+- Purpose:
+
 ### Autoware architecture
 
-The overall architecture of Autoware and the detailed design of each component are available [here](autoware-architecture/index.md).
+The overall architecture of Autoware and design overview of each component are available [here](autoware-architecture/index.md).
+
+- Target readers: all users and beginner developers
+- Purpose: describe high-level understanding
 
 ### Autoware interfaces
+
+The detailed interface design of each component are available [here](autoware-interfaces/index.md).
+
+- Target readers: intermediate developers
+- Purpose: describe the information of how-to-develop
 
 ### Configuration management
 
