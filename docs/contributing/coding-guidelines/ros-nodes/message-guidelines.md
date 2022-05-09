@@ -47,6 +47,8 @@ For non-default units, use following suffixes:
 | time     | hour (h)         | `_hour` |
 | velocity | km/h             | `_kmph` |
 
+If a unit that you'd like to use doesn't exist here, [create an issue/PR](https://github.com/autowarefoundation/autoware-documentation/issues) to add it to this list.
+
 ## Message field types
 
 For list of types supported by the ROS interfaces [see here](https://docs.ros.org/en/galactic/Concepts/About-ROS-Interfaces.html#field-types).
