@@ -38,11 +38,11 @@ The downside of the microautonomy architecture is that the computational perform
 
     Under Construction
 
+### Autoware concepts
+
 ### Autoware architecture
 
 The overall architecture of Autoware and the detailed design of each component are available [here](autoware-architecture/index.md).
-
-### Autoware concepts
 
 ### Autoware interfaces
 
