@@ -86,6 +86,7 @@ You can submit pull requests for small changes such as:
 If your pull request is a large change, discuss with the maintainers before submission. Doing so ensures that the proposed change is in line with Autoware's design philosophy and current development plans. If you're not sure where to have that conversation, then [create a new Q&A discussion](https://github.com/autowarefoundation/autoware/discussions/new?category=q-a).
 
 Examples of large changes include:
+
 - Adding a new feature to Autoware
 - Adding a new documentation page or section
 
