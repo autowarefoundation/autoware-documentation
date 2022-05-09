@@ -1,8 +1,10 @@
 # Architecture Overview
 
+This page describes the architecture of Autoware.
+
 ## Introduction
 
-This page describes the architecture of Autoware. The current Autoware is defined to be a layered architecture that clarifies each module's role and simplifies the interface between them. By doing so:
+The current Autoware is defined to be a layered architecture that clarifies each module's role and simplifies the interface between them. By doing so:
 
 - Autoware's internal processing becomes more transparent
 - Collaborative development is made easier because of the reduced interdependency between modules
