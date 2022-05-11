@@ -1,4 +1,4 @@
-# Vehicle Component Design
+# Vehicle component design
 
 !!! warning
 

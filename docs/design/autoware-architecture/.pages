@@ -1,10 +1,10 @@
 nav:
   - index.md
-  - control
+  - sensing
+  - map
   - localization
   - perception
   - planning
-  - sensing
+  - control
   - vehicle
-  - map
   - node-diagram

@@ -1,4 +1,4 @@
-# Sensing Component Design
+# Sensing component design
 
 !!! warning
 

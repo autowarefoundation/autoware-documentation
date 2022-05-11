@@ -1,4 +1,4 @@
-# Planning Component Design
+# Planning component design
 
 !!! warning
 

@@ -1,4 +1,4 @@
-# Architecture Overview
+# Architecture overview
 
 This page describes the architecture of Autoware.
 
@@ -18,21 +18,21 @@ Note that the initial focus of this architecture design was solely on driving ca
 - Redundant system
 - State monitoring system
 
-## High-level Architecture Design
+## High-level architecture design
 
 ![Overview](image/autoware-architecture-overview.drawio.svg)
 
 This architecture consists of the following six stacks. Each of these design pages contains a more detailed set of requirements and use cases specific to that stack:
 
 - [Sensing design](sensing/index.md)
+- [Map design](map/index.md)
 - [Localization design](localization/index.md)
 - [Perception design](perception/index.md)
 - [Planning design](planning/index.md)
 - [Control design](control/index.md)
 - [VehicleInterface design](vehicle/index.md)
-- [Map design](map/index.md)
 
-## Node Diagram
+## Node diagram
 
 The Autoware node diagram with the default configuration is described at the page: [node-diagram](node-diagram/index.md).
 

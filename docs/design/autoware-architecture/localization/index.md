@@ -1,4 +1,4 @@
-# Localization Component Design
+# Localization component design
 
 !!! warning
 

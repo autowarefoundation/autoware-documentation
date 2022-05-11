@@ -1,4 +1,4 @@
-# Perception Component Design
+# Perception component design
 
 !!! warning
 

@@ -1,4 +1,4 @@
-# Node Diagram
+# Node diagram
 
 !!! warning
 

@@ -1,4 +1,4 @@
-# Map Component Design
+# Map component design
 
 !!! warning
 

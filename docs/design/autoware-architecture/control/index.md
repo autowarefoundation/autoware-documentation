@@ -1,4 +1,4 @@
-# Control Component Design
+# Control component design
 
 !!! warning
 
