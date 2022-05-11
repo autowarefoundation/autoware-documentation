@@ -33,4 +33,4 @@ See [here](tools-for-users) for how to install the tools.
 
 There are also tools and settings for developers, such as Shells or IDEs.
 
-See [here](tools-for-developers) for how to install the tools.
+See [here](additional-settings-for-developers) for how to install the tools.
