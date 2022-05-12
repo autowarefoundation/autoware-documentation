@@ -2,7 +2,7 @@
 
 ## Abstract
 
-Autoware defines two categories of interfaces. The first one is Autoware AD API for operating the vehicle from outside the autonomous driving system such as the Fleet Management System (FMS) and Human Machine Interface (HMI) for operators or passengers. The second one is Autoware Component Interface for internal components to communicate with each other.
+Autoware defines three categories of interfaces. The first one is Autoware AD API for operating the vehicle from outside the autonomous driving system such as the Fleet Management System (FMS) and Human Machine Interface (HMI) for operators or passengers. The second one is Autoware component interface for components to communicate with each other. The last one is the local interface used inside the component.
 
 ## Concept
 
@@ -32,26 +32,26 @@ Goals:
 - AD API hides differences in version and implementation and absorbs the impact of changes.
 - AD API has a default implementation and can be applied to some simple ODDs with options.
 - The AD API implementation is extensible with the third-party components as long as it meets the specifications.
-- Component Interface provides stable and medium-term specifications. This makes it easier to add components.
-- Component Interface clarifies the public and private parts of a component and improves maintainability.
-- Component Interface is extensible with the third-party design to improve the sub-components' reusability.
+- The component interface provides stable and medium-term specifications. This makes it easier to add components.
+- The component interface clarifies the public and private parts of a component and improves maintainability.
+- The component interface is extensible with the third-party design to improve the sub-components' reusability.
 
 Non-goals:
 
 - AD API does not cover security. Use it with other reliable methods.
-- Component Interface is just a specification, it does not include an implementation.
+- The component interface is just a specification, it does not include an implementation.
 
 ## Architecture
 
-The components of Autoware are connected via Component Interface.
+The components of Autoware are connected via the component interface.
 Each component uses the interface to provide functionality and to access other components.
 AD API implementation is also a component.
-Since the functional elements required for AD API are defined as Component Interface, other components do not need to consider AD API directly.
-Tools for evaluation and debugging, such as simulators, access both AD API and Component Interface.
+Since the functional elements required for AD API are defined as the component interface, other components do not need to consider AD API directly.
+Tools for evaluation and debugging, such as simulators, access both AD API and the component interface.
 
 ![architecture](./general/architecture.drawio.svg)
 
-Component Interface has a hierarchical specification.
+The component interface has a hierarchical specification.
 The top-level architecture consists of some components. Each component has some options of the next-level architecture.
 Developers select one of them when implementing the component. The simplest next-level architecture is monolithic.
 This is an all-in-one and black box implementation, and is suitable for small group development, prototyping, and very complex functions.
@@ -89,16 +89,16 @@ In that case, text formats such as JSON where field names are repeated in an arr
 The name of the interface must be `/<component name>/api/<interface name>`,
 where `<component name>` is the name of the component. For an AD API component, omit this part and start with `/api`.
 The `<interface name>` is an arbitrary string separated by slashes.
-Note that this rule causes a restriction that the namespace `api` must not be used as a name other than AD API and Component Interface.
+Note that this rule causes a restriction that the namespace `api` must not be used as a name other than AD API and the component interface.
 
-The following are examples of correct interface names for AD API and Component Interface:
+The following are examples of correct interface names for AD API and the component interface:
 
 - /api/autoware/state
 - /api/autoware/engage
 - /planning/api/route/set
 - /vehicle/api/status
 
-The following are examples of incorrect interface names for AD API and Component Interface:
+The following are examples of incorrect interface names for AD API and the component interface:
 
 - /ad_api/autoware/state
 - /autoware/engage
@@ -109,7 +109,7 @@ The following are examples of incorrect interface names for AD API and Component
 
 It is recommended to log the interface for analysis of vehicle behavior.
 If logging is needed, rosbag is available for topics, and use logger in rclcpp or rclpy for services.
-Typically, create a wrapper for services and clients that logs when a method is called.
+Typically, create a wrapper for service and client classes that logs when a service is called.
 
 ### Restrictions
 
@@ -136,7 +136,7 @@ Topics:
 ### Data Type Definition
 
 Do not share the types in AD API unless they are obviously the same to avoid changes in one API affecting another.
-Also, implementation-dependent types, including Component Interface, should not be used in AD API for the same reason.
+Also, implementation-dependent types, including the component interface, should not be used in AD API for the same reason.
 Use the type in AD API in implementation, or create the same type and copy the data to convert the type.
 
 ### Constants and Enumeration
@@ -168,7 +168,7 @@ These data are primarily used to provide users with solution tips and to ask the
 
 The typical use of the field `details` is when an interface calls other interfaces.
 That interface stores response statuses in `details`, then merges them and sets the result to `summary`.
-This allows the user to know which component was causing the error by checking `details`.
+This allows the developer to know which component was causing the error by checking `details`.
 
 - ResponseStatus
 
@@ -191,10 +191,10 @@ This allows the user to know which component was causing the error by checking `
   | Group  | Code   | Description   |
   | ------ | ------ | ------------- |
   | 0x0000 | 0x0000 | UNKNOWN       |
-  | 0x1000 | 0x1000 | OK            |
-  | 0x1000 | 0x1001 | SUCCESS       |
-  | 0x1000 | 0x1002 | ACCEPTED      |
-  | 0x1000 | 0x1003 | NO_EFFECT     |
+  | T.B.D. | T.B.D. | OK            |
+  | T.B.D. | T.B.D. | SUCCESS       |
+  | T.B.D. | T.B.D. | ACCEPTED      |
+  | T.B.D. | T.B.D. | NO_EFFECT     |
   | T.B.D. | T.B.D. | UNAVAILABLE   |
   | T.B.D. | T.B.D. | WARNING       |
   | T.B.D. | T.B.D. | ERROR         |
@@ -206,8 +206,8 @@ This allows the user to know which component was causing the error by checking `
 ## Concern, Assumption, and Limitation
 
 - The applications use the version information provided by AD API to check compatibility.
-  Unknown versions are also treated as available as long as the major versions match when it is 1 or later.
-  Compatibility between AD API and Component Interface is assumed to be maintained by the version management system.
+  Unknown versions are also treated as available as long as the major versions match (excluding major version 0).
+  Compatibility between AD API and the component interface is assumed to be maintained by the version management system.
 - If an unintended behavior of AD API is detected, the application should take appropriate action.
   Autoware tries to keep working as long as possible, but it is not guaranteed to be safe.
   Safety should be considered for the entire system, including the applications.
