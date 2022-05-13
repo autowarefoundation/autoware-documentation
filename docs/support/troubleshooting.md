@@ -48,7 +48,7 @@ When installing CUDA, errors may occur because of version conflicts. To resolve 
 
 !!! warning
 
-    Note that some components in Autoware require CUDA.
+    Note that some components in Autoware Universe require CUDA.
 
     Also, although Autoware could work with different versions of CUDA libraries as well,
     remember it is not officially supported and may sometimes be broken.
