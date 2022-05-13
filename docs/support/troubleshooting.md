@@ -1,16 +1,6 @@
 # Troubleshooting
 
-- [Setup script](#setup-script)
-  - [CUDA-related errors](#cuda-related-errors)
-- [Build errors](#build-errors)
-  - [Insufficient memory](#insufficent-memory)
-  - [Errors when using the latest version of Autoware](#errors-when-using-the-latest-version-of-autoware)
-  - [Errors when using a fixed version of Autoware](#errors-when-using-a-fixed-version-of-autoware)
-- [Docker/rocker issues](#dockerrocker-issues)
-- [Runtime problems](#runtime-problems)
-  - [Map does not display when running the Planning Simulator](#map-does-not-display-when-running-the-planning-simulator)
-
-## Setup script
+## Setup issues
 
 ### CUDA-related errors
 
