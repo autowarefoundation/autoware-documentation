@@ -51,7 +51,7 @@ When installing CUDA, errors may occur because of version conflicts. To resolve 
     Note that some components in Autoware Universe require CUDA, and only CUDA 11.4 is supported at this time.
     Autoware may work with other CUDA versions, but those versions are not supported and functionality is not guaranteed.
 
-## Build errors
+## Build issues
 
 ### Insufficient memory
 
