@@ -48,10 +48,8 @@ When installing CUDA, errors may occur because of version conflicts. To resolve 
 
 !!! warning
 
-    Note that some components in Autoware Universe require CUDA.
-
-    Also, although Autoware could work with different versions of CUDA libraries as well,
-    remember it is not officially supported and may sometimes be broken.
+    Note that some components in Autoware Universe require CUDA, and only CUDA 11.4 is supported at this time. 
+    Autoware may work with other CUDA versions, but those versions are not supported and functionality is not guaranteed.
 
 ## Build errors
 
@@ -77,6 +75,8 @@ sudo swapon /swapfile
 free -h
 ```
 
+For more detailed configuration steps, along with an explanation of swap, refer to Digital Ocean's ["How To Add Swap Space on Ubuntu 20.04" tutorial](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-20-04)
+
 ### Errors when using the latest version of Autoware
 
 If you are working with the latest version of Autoware, issues can occur due to out-of-date software or old build files.
@@ -86,7 +86,7 @@ To resolve these types of problems, first try cleaning your build artifacts and 
 ```bash
 rm -rf build/ install/ log/
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
-```
+````
 
 If the error is not resolved, remove `src/` and update your workspace according to installation type ([Docker](../installation/autoware/docker-installation.md#how-to-update-a-workspace) / [source](../installation/autoware/source-installation.md#how-to-update-a-workspace)).
 
