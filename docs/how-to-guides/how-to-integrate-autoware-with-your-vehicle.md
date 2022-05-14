@@ -17,7 +17,7 @@ Prerequisites for the vehicle:
 
 ## 2. Create maps
 
-You need both a pointcloud and a vector map to take full advantage of Autoware. 
+You need both a pointcloud and a vector map to take full advantage of Autoware.
 Since mapping algorithm such as SLAM (simultaneous localization and mapping) is not implemented in the current Autoware, you may need to use 3rd party tools for this step.
 
 ### Create a pointcloud map
@@ -30,7 +30,7 @@ Autoware supports lanelet2 format for a vector map. Use 3rd party tools or [Vect
 
 ## 3. Create your meta-repository
 
-A recommended way to integrate Autoware with your real vehicle is to create a meta-repository for the vehicle. 
+A recommended way to integrate Autoware with your real vehicle is to create a meta-repository for the vehicle.
 Create a forked repository of [autowarefoundation/autoware](https://github.com/autowarefoundation/autoware) (we refer to this as meta-repository) and clone the repository.
 
 ```bash
