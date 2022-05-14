@@ -4,30 +4,22 @@
 
 Prerequisites for the vehicle:
 
-- supported vehicle type: car-like or diff-drive vehicle
-- Ubuntu20.04 installed
-- attached with the following devices:
+- car-like or diff-drive vehicle
+- onboard computer that satisfies the prerequisites (see [here](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#prerequisites))
+- the following devices attached
   - actuator
   - lidar
   - imu (optional)
   - camera (optional)
   - gnss (optional)
-- NVidia GPU (optional)
-  TODO: CUDA に関する記述
-
-software interface for:
-
-- the actuator, like serial, CAN, etc. for driving the vehicle
-- the LiDAR, for getting the pointcloud data
-  -for the above-mentioned devices
 
 ## 2. Create maps
 
-You also need both pointcloud and vector map to take full advantage of Autoware. Since SLAM algorithm is not implemented in the current Autoware, you may need to use 3rd party tools for this step.
+You need both a pointcloud and a vector map to take full advantage of Autoware. Since SLAM (Simultaneous Localization and Mapping) algorithm is not implemented in the current Autoware, you may need to use 3rd party tools for this step.
 
 ### Create pointcloud map
 
-Use 3rd party tools such as LiDAR-based SLAM (Simultaneous Localization and Mapping) package to create pointcloud map. Autoware supports .pcd format for the map.
+Use 3rd party tools such as LiDAR-based SLAM package to create pointcloud map. Autoware supports .pcd format for this map.
 
 ### Create vector map
 
@@ -45,7 +37,8 @@ git clone git@github.com:YOUR_NAME/autoware.YOURS.git
 
 ## 4. Create the description packages of your own vehicle
 
-Next, you need to create description packages that define the vehicle and sensor configuration of your robot. Once you’re done, you can launch your own robot model by specifying vehicle_model:=YOUR_VEHICLE sensor_model:=SAMPLE_SENSOR_KIT in the autoware launchers.
+Next, you need to create description packages that define the vehicle and sensor configuration of your robot.
+Once you’re done, you can launch your own robot model by specifying vehicle_model:=YOUR_VEHICLE sensor_model:=SAMPLE_SENSOR_KIT in the autoware launchers.
 
 Create the following two packages:
 
@@ -83,27 +76,28 @@ Note that you need to calibrate extrinsic parameters for all the sensors beforeh
 Create `launch/sensing.launch.xml` that launches all the sensors on the vehicle [file name matters]. Refer to for example.
 
 At this point, you are now able to run planning_simulator.
-If you want to try, you may install Autoware (follow [here](https://autowarefoundation.github.io/autoware-documentation/pr-86/installation/autoware/)) and run the following command:
+If you want to try, you may install Autoware (follow [here](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/)) and run the following command:
 
 ```bash
 ros2 launch autoware_launch planning_simulator.launch.xml vehicle_model:=YOUR_VEHICLE sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP
 ```
 
-TODO: Put pic here
 
 ## 5. Create a vehicle_interface package
 
 You need to create an interface package for your robot.
-
 The package is expected to provide the following two functions.
 
 1. Receive command messages from vehicle_cmd_gate and drive the robot accordingly
 
 2. Send vehicle status information of the vehicle to autoware
 
-You may refer to [pacmod_interface](https://github.com/tier4/pacmod_interface) as an example.
+You can find the detailed information about the requirements of vehicle_interface [here](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/).
+You can also refer to [pacmod_interface](https://github.com/tier4/pacmod_interface) as an example.
 
 ## 6. Launch Autoware
+
+This section briefly explains how to run your vehicle with Autoware.
 
 ### Install Autoware
 
@@ -129,30 +123,33 @@ ros2 launch autoware_launch autoware.launch.xml vehicle_model:=YOUR_VEHICLE sens
 ### Set initial pose
 
 If GNSS is available, it should automatically initialize its pose.
-If not, you can also set initial pose using GUI on RViz. Click “2D initial pose“ from the top bar, and set the arrow that indicates the robot’s initial pose on your map (x, y, and yaw).
+If not, you can also set initial pose using GUI on RViz.
+1. Click the 2D Pose estimate button in the toolbar, or hit the P key
+2. In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the initial pose.
 
 ### Set goal pose
 
-One of the methods would be to use GUI to set the goal pose.
+Set a goal pose for the ego vehicle.
+1. Click the 2D Nav Goal button in the toolbar, or hit the G key
+2. In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the goal pose.
+If successful, you will see the calculated planning path on RViz.
 
 ### Engage
 
 In your terminal, execute the following command.
 
 ```bash
-ros2 topic pub /autoware/engage 型忘れた "engage: true" -1
+source ~/autoware/install/setup.bash
+ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: true" -1
 ```
 
-You can also use an autoware state panel by adding… TODO：やり方を書く
+You can also engage via RViz with "AutowareStatePanel". 
+The panel can be found in Panels > Add New Panel > tier4_state_rviz_plugin > AutowareStatePanel.
 
 Now the vehicle should drive the calculated path!
 
-## 7. Tune parameters on your own vehicle & environment
+## 7. Tune parameters for your own vehicle & environment
 
-You may need to tune your parameters depending on the domain in which you will operate your robot
-
-Customize parameter files in tier4\_\*\_launch
-
-僕たちの例とかいいかも．obstacle_stop_planner の例とか，
+You may need to tune your parameters depending on the domain in which you will operate your robot.
 
 If you have any issues or questions, feel free to ask in Autoware Foundation Discussion!
