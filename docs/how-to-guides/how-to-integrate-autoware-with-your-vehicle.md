@@ -15,7 +15,7 @@ Prerequisites for the vehicle:
 
 ## 2. Create maps
 
-You need both a pointcloud and a vector map to take full advantage of Autoware. Since SLAM (Simultaneous Localization and Mapping) algorithm is not implemented in the current Autoware, you may need to use 3rd party tools for this step.
+You need both a pointcloud and a vector map to take full advantage of Autoware. Since mapping algorithm such as SLAM (simultaneous localization and mapping) is not implemented in the current Autoware, you may need to use 3rd party tools for this step.
 
 ### Create a pointcloud map
 
@@ -23,13 +23,11 @@ Use 3rd party tools such as the LiDAR-based SLAM package to create a pointcloud 
 
 ### Create vector map
 
-Autoware supports lanelet2 format for a vector map. Use 3rd party tools or [Vector Map Builder](https://tools.tier4.jp/) and get the .osm file.
+Autoware supports lanelet2 format for a vector map. Use 3rd party tools or [Vector Map Builder](https://tools.tier4.jp/) to get the .osm file.
 
 ## 3. Create your meta-repository
 
-A recommended way to integrate Autoware with your real robot is to create a meta-repository for the robot. Create a forked repository of autowarefoundation/autoware (we refer to this as meta-repository).
-
-Clone your forked repository
+A recommended way to integrate Autoware with your real robot is to create a meta-repository for the robot. Create a forked repository of [autowarefoundation/autoware](https://github.com/autowarefoundation/autoware) (we refer to this as meta-repository) and clone the repository.
 
 ```bash
 git clone git@github.com:YOUR_NAME/autoware.YOURS.git
@@ -38,7 +36,7 @@ git clone git@github.com:YOUR_NAME/autoware.YOURS.git
 ## 4. Create the description packages of your vehicle
 
 Next, you need to create description packages that define the vehicle and sensor configuration of your robot.
-Once you’re done, you can launch your robot model by specifying vehicle_model:=YOUR_VEHICLE sensor_model:=SAMPLE_SENSOR_KIT in the autoware launchers.
+Once it is done, you can launch your robot model by specifying vehicle_model:=YOUR_VEHICLE sensor_model:=SAMPLE_SENSOR_KIT in the autoware launchers.
 
 Create the following two packages:
 
@@ -51,29 +49,25 @@ It is recommended you write the above two packages in `autoware.repos` file of y
 
 #### At YOUR_VEHICLE_description
 
-Create `urdf/vehicle.xacro`.
-
-Write the “vehicle_info” parameter in config/vehicle_info.param.yaml in the same way as...
-
-Also, prepare each parameter file following [file name matters]
+Define URDF and parameters in the package (see [here](https://github.com/autowarefoundation/sample_vehicle_launch/sample_vehicle_description) for example).
 
 #### At YOUR_VEHICLE_launch
 
-Create `launch/vehicle_interface.launch`
+Create a launch file (see [here](https://github.com/autowarefoundation/sample_vehicle_launch/sample_vehicle_launch) for example).
+If you have multiple vehicles with similar hardware setup, you can specify `vehicle_id` to distinguish them.
 
 ### Adapt YOUR_SENSOR_KIT for autoware launching system
 
 #### At YOUR_SENSOR_KIT_description
 
-Create `urdf/sensors.xacro` [file name matters]
-
-Write each parameter file under config/ directory [file name matters] (See )
-
+Define URDF and extrinsic parameters for all the sensors here (see [here](https://github.com/autowarefoundation/sample_sensor_kit_launch/sample_sensor_kit_description) for example).
 Note that you need to calibrate extrinsic parameters for all the sensors beforehand.
 
 #### At YOUR_SENSOR_KIT_launch
 
-Create `launch/sensing.launch.xml` that launches all the sensors on the vehicle [file name matters]. Refer to for example.
+Create `launch/sensing.launch.xml` that launches the interfaces of all the sensors on the vehicle. (see [here](https://github.com/autowarefoundation/sample_sensor_kit_launch/sample_sensor_kit_launch) for example).
+
+
 
 At this point, you are now able to run planning_simulator.
 If you want to try, you may install Autoware (follow [here](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/)) and run the following command:
@@ -82,16 +76,15 @@ If you want to try, you may install Autoware (follow [here](https://autowarefoun
 ros2 launch autoware_launch planning_simulator.launch.xml vehicle_model:=YOUR_VEHICLE sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP
 ```
 
-## 5. Create a vehicle_interface package
+## 5. Create a `vehicle_interface` package
 
 You need to create an interface package for your robot.
 The package is expected to provide the following two functions.
 
-1. Receive command messages from vehicle_cmd_gate and drive the robot accordingly
+1. receive command messages from `vehicle_cmd_gate` and drive the robot accordingly
+2. send vehicle status information of the vehicle to Autoware
 
-2. Send vehicle status information of the vehicle to autoware
-
-You can find detailed information about the requirements of vehicle_interface [here](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/).
+You can find detailed information about the requirements of `vehicle_interface` [here](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/).
 You can also refer to [pacmod_interface](https://github.com/tier4/pacmod_interface) as an example.
 
 ## 6. Launch Autoware
