@@ -57,7 +57,24 @@ When installing CUDA, errors may occur because of version conflicts. To resolve 
 
 ### Insufficient memory
 
-Building Autoware requires a lot of memory, and your machine can freeze or crash if memory runs out during a build. To avoid this problem, 16-32GB of swap should be configured. For details on how to configure a swap file, refer to [this Digital Ocean guide](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-20-04).
+Building Autoware requires a lot of memory, and your machine can freeze or crash if memory runs out during a build. To avoid this problem, 16-32GB of swap should be configured.
+
+```bash
+# Optional: Check the current swapfile
+free -h
+
+# Remove the current swapfile
+sudo swapoff /swapfile
+sudo rm /swapfile
+
+# Create a new swapfile
+sudo fallocate -l 32G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+
+# Optional: Check if the change is reflected
+free -h
 
 ### Errors when using the latest version of Autoware
 
