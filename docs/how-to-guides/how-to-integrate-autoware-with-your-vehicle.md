@@ -10,10 +10,10 @@ Prerequisites for the vehicle:
 - onboard computer that satisfies the prerequisites (see [here](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#prerequisites))
 - the following devices attached
   - actuator
-  - lidar
-  - imu (optional)
+  - LiDAR
+  - inertial measurement unit (optional)
   - camera (optional)
-  - gnss (optional)
+  - GNSS (optional)
 
 ## 2. Create maps
 
