@@ -17,19 +17,21 @@ Prerequisites for the vehicle:
 
 ## 2. Create maps
 
-You need both a pointcloud and a vector map to take full advantage of Autoware. Since mapping algorithm such as SLAM (simultaneous localization and mapping) is not implemented in the current Autoware, you may need to use 3rd party tools for this step.
+You need both a pointcloud and a vector map to take full advantage of Autoware. 
+Since mapping algorithm such as SLAM (simultaneous localization and mapping) is not implemented in the current Autoware, you may need to use 3rd party tools for this step.
 
 ### Create a pointcloud map
 
-Use 3rd party tools such as the LiDAR-based SLAM package to create a pointcloud map. Autoware supports the .pcd format for this map.
+Use 3rd party tools such as the LiDAR-based SLAM package to create a pointcloud map. Autoware supports the `.pcd` format for this map.
 
 ### Create vector map
 
-Autoware supports lanelet2 format for a vector map. Use 3rd party tools or [Vector Map Builder](https://tools.tier4.jp/) to get the .osm file.
+Autoware supports lanelet2 format for a vector map. Use 3rd party tools or [Vector Map Builder](https://tools.tier4.jp/) to get the `.osm` file.
 
 ## 3. Create your meta-repository
 
-A recommended way to integrate Autoware with your real vehicle is to create a meta-repository for the vehicle. Create a forked repository of [autowarefoundation/autoware](https://github.com/autowarefoundation/autoware) (we refer to this as meta-repository) and clone the repository.
+A recommended way to integrate Autoware with your real vehicle is to create a meta-repository for the vehicle. 
+Create a forked repository of [autowarefoundation/autoware](https://github.com/autowarefoundation/autoware) (we refer to this as meta-repository) and clone the repository.
 
 ```bash
 git clone git@github.com:YOUR_NAME/autoware.YOURS.git
@@ -38,7 +40,7 @@ git clone git@github.com:YOUR_NAME/autoware.YOURS.git
 ## 4. Create the description packages of your vehicle
 
 Next, you need to create description packages that define the vehicle and sensor configuration of your vehicle.
-Once it is done, you can launch your vehicle model by specifying vehicle_model:=YOUR_VEHICLE sensor_model:=SAMPLE_SENSOR_KIT in the autoware launchers.
+Once it is done, you can launch your vehicle model by specifying `vehicle_model:=YOUR_VEHICLE` `sensor_model:=SAMPLE_SENSOR_KIT` in the autoware launchers.
 
 Create the following two packages:
 
@@ -98,6 +100,7 @@ This section briefly explains how to run your vehicle with Autoware.
 Follow the step [here](https://autowarefoundation.github.io/autoware-documentation/pr-86/installation/autoware/).
 
 ```bash
+cd autoware.YOURS
 ./setup-dev-env.sh
 mkdir src
 vcs import src < autoware.repos
@@ -136,8 +139,8 @@ Set a goal pose for the ego vehicle.
 In your terminal, execute the following command.
 
 ```bash
-source ~/autoware/install/setup.bash
-ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: true" -1
+source ~/autoware.YOURS/install/setup.bash
+ros2 topic pub /autoware.YOURS/engage autoware_auto_vehicle_msgs/msg/Engage "engage: true" -1
 ```
 
 You can also engage via RViz with "AutowareStatePanel".
