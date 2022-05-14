@@ -82,7 +82,6 @@ If you want to try, you may install Autoware (follow [here](https://autowarefoun
 ros2 launch autoware_launch planning_simulator.launch.xml vehicle_model:=YOUR_VEHICLE sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP
 ```
 
-
 ## 5. Create a vehicle_interface package
 
 You need to create an interface package for your robot.
@@ -124,15 +123,17 @@ ros2 launch autoware_launch autoware.launch.xml vehicle_model:=YOUR_VEHICLE sens
 
 If GNSS is available, it should automatically initialize its pose.
 If not, you can also set initial pose using GUI on RViz.
+
 1. Click the 2D Pose estimate button in the toolbar, or hit the P key
 2. In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the initial pose.
 
 ### Set goal pose
 
 Set a goal pose for the ego vehicle.
+
 1. Click the 2D Nav Goal button in the toolbar, or hit the G key
 2. In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the goal pose.
-If successful, you will see the calculated planning path on RViz.
+   If successful, you will see the calculated planning path on RViz.
 
 ### Engage
 
@@ -143,7 +144,7 @@ source ~/autoware/install/setup.bash
 ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: true" -1
 ```
 
-You can also engage via RViz with "AutowareStatePanel". 
+You can also engage via RViz with "AutowareStatePanel".
 The panel can be found in Panels > Add New Panel > tier4_state_rviz_plugin > AutowareStatePanel.
 
 Now the vehicle should drive the calculated path!
