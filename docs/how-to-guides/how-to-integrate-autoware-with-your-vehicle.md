@@ -69,7 +69,6 @@ Note that you need to calibrate extrinsic parameters for all the sensors beforeh
 
 Create `launch/sensing.launch.xml` that launches the interfaces of all the sensors on the vehicle. (see [here](https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_launch) for example).
 
-
 !!! note
 
     At this point, you are now able to run planning_simulator.
