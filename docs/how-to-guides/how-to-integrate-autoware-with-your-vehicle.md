@@ -11,9 +11,9 @@ Prerequisites for the vehicle:
 - The following devices attached
   - Actuator
   - LiDAR
-  - optional: Inertial measurement unit
-  - optional: Camera
-  - optional: GNSS
+  - Optional: Inertial measurement unit
+  - Optional: Camera
+  - Optional: GNSS
 
 ## 2. Create maps
 
