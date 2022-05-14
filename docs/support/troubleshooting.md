@@ -59,7 +59,7 @@ When installing CUDA, errors may occur because of version conflicts. To resolve 
 
 Building Autoware requires a lot of memory, and your machine can freeze or crash if memory runs out during a build. To avoid this problem, 16-32GB of swap should be configured.
 
-````bash
+```bash
 # Optional: Check the current swapfile
 free -h
 
@@ -75,6 +75,7 @@ sudo swapon /swapfile
 
 # Optional: Check if the change is reflected
 free -h
+```
 
 ### Errors when using the latest version of Autoware
 
@@ -85,7 +86,7 @@ To resolve these types of problems, first try cleaning your build artifacts and 
 ```bash
 rm -rf build/ install/ log/
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
-````
+```
 
 If the error is not resolved, remove `src/` and update your workspace according to installation type ([Docker](../installation/autoware/docker-installation.md#how-to-update-a-workspace) / [source](../installation/autoware/source-installation.md#how-to-update-a-workspace)).
 
