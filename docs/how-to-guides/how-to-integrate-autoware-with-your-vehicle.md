@@ -116,8 +116,9 @@ ros2 launch autoware_launch autoware.launch.xml vehicle_model:=YOUR_VEHICLE sens
 
 ### Set initial pose
 
-If GNSS is available, it should automatically initialize its pose.
-If not, you can also set the initial pose using GUI on RViz.
+If GNSS is available, Autoware automatically initializes the vehicle's pose.
+
+If not, you should set the initial pose using GUI on RViz.
 
 1. Click the 2D Pose estimate button in the toolbar, or hit the P key
 2. In the 3D View pane, click and hold the left mouse button, and then drag to set the direction for the initial pose.
