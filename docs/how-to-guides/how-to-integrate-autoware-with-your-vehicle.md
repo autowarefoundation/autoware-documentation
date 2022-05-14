@@ -1,6 +1,6 @@
 # How to integrate Autoware with your vehicle
 
-This page demonstrates how to intagrate Autoware with the real vehicle.
+This page demonstrates how to integrate Autoware with a real vehicle.
 
 ## 1. Prepare your real vehicle hardware
 
