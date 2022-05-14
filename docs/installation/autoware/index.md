@@ -1,4 +1,4 @@
-# Installation of Autoware
+# Installation steps of Autoware
 
 There are two ways to set up Autoware. Choose one according to your preference.
 
