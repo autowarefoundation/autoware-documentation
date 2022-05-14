@@ -6,14 +6,14 @@ This page demonstrates how to integrate Autoware with a real vehicle.
 
 Prerequisites for the vehicle:
 
-- car-like or diff-drive vehicle
-- onboard computer that satisfies the prerequisites (see [here](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#prerequisites))
-- the following devices attached
-  - actuator
+- Car-like or diff-drive vehicle
+- Onboard computer that satisfies the prerequisites (see [here](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#prerequisites))
+- The following devices attached
+  - Actuator
   - LiDAR
-  - inertial measurement unit (optional)
-  - camera (optional)
-  - GNSS (optional)
+  - optional: Inertial measurement unit
+  - optional: Camera
+  - optional: GNSS
 
 ## 2. Create maps
 
@@ -29,7 +29,7 @@ Autoware supports lanelet2 format for a vector map. Use 3rd party tools or [Vect
 
 ## 3. Create your meta-repository
 
-A recommended way to integrate Autoware with your real robot is to create a meta-repository for the robot. Create a forked repository of [autowarefoundation/autoware](https://github.com/autowarefoundation/autoware) (we refer to this as meta-repository) and clone the repository.
+A recommended way to integrate Autoware with your real vehicle is to create a meta-repository for the vehicle. Create a forked repository of [autowarefoundation/autoware](https://github.com/autowarefoundation/autoware) (we refer to this as meta-repository) and clone the repository.
 
 ```bash
 git clone git@github.com:YOUR_NAME/autoware.YOURS.git
@@ -37,8 +37,8 @@ git clone git@github.com:YOUR_NAME/autoware.YOURS.git
 
 ## 4. Create the description packages of your vehicle
 
-Next, you need to create description packages that define the vehicle and sensor configuration of your robot.
-Once it is done, you can launch your robot model by specifying vehicle_model:=YOUR_VEHICLE sensor_model:=SAMPLE_SENSOR_KIT in the autoware launchers.
+Next, you need to create description packages that define the vehicle and sensor configuration of your vehicle.
+Once it is done, you can launch your vehicle model by specifying vehicle_model:=YOUR_VEHICLE sensor_model:=SAMPLE_SENSOR_KIT in the autoware launchers.
 
 Create the following two packages:
 
@@ -47,7 +47,7 @@ Create the following two packages:
 
 It is recommended you write the above two packages in `autoware.repos` file of your meta-repository.
 
-### Adapt YOUR_VEHICLE for autoware launching system
+### Adapt YOUR_VEHICLE_launch for autoware launching system
 
 #### At YOUR_VEHICLE_description
 
@@ -58,7 +58,7 @@ Define URDF and parameters in the package (see [here](https://github.com/autowar
 Create a launch file (see [here](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_launch) for example).
 If you have multiple vehicles with similar hardware setup, you can specify `vehicle_id` to distinguish them.
 
-### Adapt YOUR_SENSOR_KIT for autoware launching system
+### Adapt YOUR_SENSOR_KIT_description for autoware launching system
 
 #### At YOUR_SENSOR_KIT_description
 
@@ -80,11 +80,11 @@ Create `launch/sensing.launch.xml` that launches the interfaces of all the senso
 
 ## 5. Create a `vehicle_interface` package
 
-You need to create an interface package for your robot.
+You need to create an interface package for your vehicle.
 The package is expected to provide the following two functions.
 
-1. receive command messages from `vehicle_cmd_gate` and drive the robot accordingly
-2. send vehicle status information of the vehicle to Autoware
+1. Receive command messages from `vehicle_cmd_gate` and drive the vehicle accordingly
+2. Send vehicle status information of the vehicle to Autoware
 
 You can find detailed information about the requirements of `vehicle_interface` [here](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/).
 You can also refer to [pacmod_interface](https://github.com/tier4/pacmod_interface) as an example.
@@ -146,6 +146,6 @@ Now the vehicle should drive the calculated path!
 
 ## 7. Tune parameters for your vehicle & environment
 
-You may need to tune your parameters depending on the domain in which you will operate your robot.
+You may need to tune your parameters depending on the domain in which you will operate your vehicle.
 
 If you have any issues or questions, feel free to ask in [Autoware Foundation Discussion](https://github.com/orgs/autowarefoundation/discussions)!
