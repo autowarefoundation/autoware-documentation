@@ -1,5 +1,7 @@
 # How to integrate Autoware with your vehicle
 
+This page demonstrates how to intagrate Autoware with the real vehicle.
+
 ## 1. Prepare your real vehicle hardware
 
 Prerequisites for the vehicle:
@@ -146,4 +148,4 @@ Now the vehicle should drive the calculated path!
 
 You may need to tune your parameters depending on the domain in which you will operate your robot.
 
-If you have any issues or questions, feel free to ask in Autoware Foundation Discussion!
+If you have any issues or questions, feel free to ask in [Autoware Foundation Discussion](https://github.com/orgs/autowarefoundation/discussions)!
