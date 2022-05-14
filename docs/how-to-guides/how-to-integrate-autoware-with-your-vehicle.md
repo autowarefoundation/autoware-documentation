@@ -69,12 +69,15 @@ Note that you need to calibrate extrinsic parameters for all the sensors beforeh
 
 Create `launch/sensing.launch.xml` that launches the interfaces of all the sensors on the vehicle. (see [here](https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_launch) for example).
 
-At this point, you are now able to run planning_simulator.
-If you want to try, you may install Autoware (follow [here](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/)) and run the following command:
 
-```bash
-ros2 launch autoware_launch planning_simulator.launch.xml vehicle_model:=YOUR_VEHICLE sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP
-```
+!!! note
+
+    At this point, you are now able to run planning_simulator.
+    If you want to try, you may install Autoware (follow [here](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/)) and run the following command:
+
+    ```bash
+    ros2 launch autoware_launch planning_simulator.launch.xml vehicle_model:=YOUR_VEHICLE sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP
+    ```
 
 ## 5. Create a `vehicle_interface` package
 
