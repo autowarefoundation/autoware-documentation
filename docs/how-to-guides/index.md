@@ -2,7 +2,7 @@
 
 - [Advanced usage of colcon](advanced-usage-of-colcon.md)
 
-- [how-to-integrate-autoware-with-your-own-vehicle](how-to-integrate-autoware-with-your-own-vehicle.md)
+- [Integrate Autoware with your vehicle](how-to-integrate-autoware-with-your-vehicle.md)
 
 TODO: Write the following contents.
 
