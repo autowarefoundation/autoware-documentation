@@ -51,23 +51,23 @@ It is recommended you write the above two packages in `autoware.repos` file of y
 
 #### At YOUR_VEHICLE_description
 
-Define URDF and parameters in the package (see [here](https://github.com/autowarefoundation/sample_vehicle_launch/sample_vehicle_description) for example).
+Define URDF and parameters in the package (see [here](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_description) for example).
 
 #### At YOUR_VEHICLE_launch
 
-Create a launch file (see [here](https://github.com/autowarefoundation/sample_vehicle_launch/sample_vehicle_launch) for example).
+Create a launch file (see [here](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_launch) for example).
 If you have multiple vehicles with similar hardware setup, you can specify `vehicle_id` to distinguish them.
 
 ### Adapt YOUR_SENSOR_KIT for autoware launching system
 
 #### At YOUR_SENSOR_KIT_description
 
-Define URDF and extrinsic parameters for all the sensors here (see [here](https://github.com/autowarefoundation/sample_sensor_kit_launch/sample_sensor_kit_description) for example).
+Define URDF and extrinsic parameters for all the sensors here (see [here](https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_description) for example).
 Note that you need to calibrate extrinsic parameters for all the sensors beforehand.
 
 #### At YOUR_SENSOR_KIT_launch
 
-Create `launch/sensing.launch.xml` that launches the interfaces of all the sensors on the vehicle. (see [here](https://github.com/autowarefoundation/sample_sensor_kit_launch/sample_sensor_kit_launch) for example).
+Create `launch/sensing.launch.xml` that launches the interfaces of all the sensors on the vehicle. (see [here](https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_launch) for example).
 
 
 
