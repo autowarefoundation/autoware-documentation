@@ -6,7 +6,6 @@ This page demonstrates how to integrate Autoware with a real vehicle.
 
 Prerequisites for the vehicle:
 
-- Car-like or diff-drive vehicle
 - Onboard computer that satisfies the prerequisites (see [here](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#prerequisites))
 - The following devices attached
   - Actuator
