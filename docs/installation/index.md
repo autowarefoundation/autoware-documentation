@@ -27,7 +27,7 @@ If any issues occur during installation, refer to the [Support page](https://aut
 ### 1. Docker installation
 
 Docker can ensure that all developers in a project have a common, consistent development environment.
-It is recommended for beginners, light users, people who do not use Ubuntu.
+It is recommended for beginners, casual users, people who are unfamiliar with Ubuntu.
 
 Refer to the [Docker installation guide](https://github.com/autowarefoundation/autoware-documentation/blob/main/docs/installation/autoware/docker-installation.md) for detailed steps.
 
