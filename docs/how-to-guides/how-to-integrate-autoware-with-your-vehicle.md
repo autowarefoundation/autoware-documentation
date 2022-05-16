@@ -20,6 +20,7 @@ You need both a pointcloud map and a vector map in order to use Autoware.
 
 Use third-party tools such as a LiDAR-based SLAM (Simultaneous Localization And Mapping) package to create a pointcloud map in the `.pcd` format.
 Some examples are:
+
 - [HDL](https://github.com/koide3/hdl_graph_slam)
 - [LIO-SAM](https://github.com/TixiaoShan/LIO-SAM)
 - [LiDAR-SLAM (ROS2)](https://github.com/rsasaki0109/lidarslam_ros2)
