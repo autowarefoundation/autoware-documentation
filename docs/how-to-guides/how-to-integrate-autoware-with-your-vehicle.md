@@ -4,7 +4,7 @@
 
 Prerequisites for the vehicle:
 
-- An onboard computer that satisfies the Autoware Installation prerequisites (see [here](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#prerequisites))
+- An onboard computer that satisfies the [Autoware installation prerequisites](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#prerequisites)
 - The following devices attached
   - Drive-by-wire interface
   - LiDAR
