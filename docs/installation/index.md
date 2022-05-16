@@ -18,7 +18,7 @@ The Autoware Foundation provides no support on other platforms than those listed
 
 Refer to [REP-2000](https://www.ros.org/reps/rep-2000.html) for the system dependencies.
 
-## Installation of Autoware
+## Autoware
 
 There are two ways to set up Autoware. Choose one according to your preference.
 
