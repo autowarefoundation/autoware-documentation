@@ -21,7 +21,7 @@ Since mapping algorithm such as SLAM (simultaneous localization and mapping) is 
 
 ### Create a pointcloud map
 
-Use 3rd party tools such as the LiDAR-based SLAM package to create a pointcloud map. Autoware supports the `.pcd` format for this map.
+Use third-party tools such as a LiDAR-based SLAM (simultaneous localization and mapping) package to create a pointcloud map in the `.pcd` format.
 
 ### Create vector map
 
