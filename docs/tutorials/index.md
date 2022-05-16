@@ -49,7 +49,7 @@ Sometimes it is used for endurance tests by repeatedly playing back the data.
 #### Localization
 
 Rosbag simulation performs localization, which is the process of figuring out the vehicle pose on the map or on a reference coordinate system.
-In other words, localization is the process of determining the vehcile pose on a local area map (e.g., map of Tokyo area) or on the earth, or on a specific coordinate system (e.g., the tunnel entrance or the initial pose).
+In other words, localization is the process of determining the vehicle pose on a local area map (e.g., map of Tokyo area) or on the earth, or on a specific coordinate system (e.g., the tunnel entrance or the initial pose).
 Usually, the word "localization" means estimating the position of an object, but in autonomous driving, this word also includes estimating the pose of a vehicle.
 
 ##### Why we need the localization
