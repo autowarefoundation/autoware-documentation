@@ -38,7 +38,7 @@ Note that some problems may occur depending on your local environment.
 
 Refer to the [source installation guide](https://github.com/autowarefoundation/autoware-documentation/blob/main/docs/installation/autoware/source-installation.md) for detailed steps.
 
-## Installation of related tools
+## Related tools
 
 Some other tools are required depending on the evaluation you want to do.
 For example, to run an end-to-end simulation you need to install an appropriate simulator.
