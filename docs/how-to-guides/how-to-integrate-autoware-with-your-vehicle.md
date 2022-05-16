@@ -28,6 +28,7 @@ Use third-party tools such as [TIER IV's Vector Map Builder](https://tools.tier4
 
 Create your Autoware repository.
 One easy way is to fork [autowarefoundation/autoware](https://github.com/autowarefoundation/autoware) and clone it ([how to fork repository on github](https://docs.github.com/en/get-started/quickstart/fork-a-repo)).
+
 ```bash
 git clone https://github.com/YOUR_NAME/autoware.YOURS.git
 ```
@@ -67,8 +68,8 @@ Note that you need to calibrate extrinsic parameters for all the sensors beforeh
 Create `launch/sensing.launch.xml` that launches the interfaces of all the sensors on the vehicle. (refer to the [sample sensor kit launch package](https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_launch) for example).
 
 !!! note
-    At this point, you are now able to run Autoware's Planning Simulator to do a basic test of your vehicle and sensing packages.
-    
+At this point, you are now able to run Autoware's Planning Simulator to do a basic test of your vehicle and sensing packages.
+
     To do so, you need to build and install Autoware using your cloned repository. Follow the [steps for either Docker or source installation](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/)) (starting from the dependency installation step) and then run the following command:
 
     ```bash
