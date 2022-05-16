@@ -43,7 +43,7 @@ In the real-world operation, we need to detect traffic signs and signals to foll
 
 ### Rosbag replay simulation
 
-Rosbag replay simulation is a simulation type that uses Rosbag data and tests mainly perception modules, such as localization.
+Rosbag replay simulation is a simulation type that uses Rosbag data and tests mainly perception modules, such as localization and object recognition.
 Sometimes it is used for endurance tests by repeatedly playing back the data.
 
 #### Localization
