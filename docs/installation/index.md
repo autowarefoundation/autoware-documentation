@@ -30,7 +30,6 @@ Docker can ensure that all developers in a project have a common, consistent dev
 It is recommended for beginners, light users, people who do not use Ubuntu.
 
 Refer to the [Docker installation guide](https://github.com/autowarefoundation/autoware-documentation/blob/main/docs/installation/autoware/docker-installation.md) for detailed steps.  
-Refer to [autowarefoundation/autoware/docker/README.md](https://github.com/autowarefoundation/autoware/blob/main/docker/README.md) as well.
 
 ### 2. Source installation
 
