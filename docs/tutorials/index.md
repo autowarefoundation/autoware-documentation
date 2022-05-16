@@ -31,11 +31,43 @@ Note that it is just a rough classification, and that there are several minor de
 ### Planning simulation
 
 Planning simulation is a simulation type that uses simple dummy data and tests mainly planning/control components.
+It brings the car to the destination while avoiding pedestrians and surrounding cars.
+
+#### How the planning simulation is achieved
+
+* Generates the path to the destination
+* Controls the car along the generated path
+* Detect humans and surrounding cars for the safe operation
+
+In the real-world operation, we need to detect traffic signs and signals to follow the rules, but in this simulation, we only do path generation, path following, and obstacle avoidance.
 
 ### Rosbag replay simulation
 
-Rosbag replay simulation is a simulation type that uses Rosbag data and tests mainly perception modules.
+Rosbag replay simulation is a simulation type that uses Rosbag data and tests mainly perception modules, such as localization.
 Sometimes it is used for endurance tests by repeatedly playing back the data.
+
+#### Localization
+
+Rosbag simulation performs localization, which is the process of figuring out the vehicle pose on the map or on a reference coordinate system.
+In other words, localization is the process of determining the vehcile pose on a local area map (e.g., map of Tokyo area) or on the earth, or on a specific coordinate system (e.g., the tunnel entrance or the initial pose).
+Usually, the word "localization" means estimating the position of an object, but in autonomous driving, this word also includes estimating the pose of a vehicle.
+
+
+##### Why we need the localization
+
+* To know the current location in the path to the destination
+* To facilitate decisions and control in the operation
+  * Exploit preset locations of traffic lights and signs on the map to improve recognition accuracy
+  * Exploit preset locations of stop lines and driving lanes for smooth driving and stopping
+  * Determine if a pedestrian is standing in front of a crosswalk and give way
+  * Determine if another vehicle is waiting in front of a stop line and use this information to control the vehicle
+* To estimate the reliability of GNSS
+  * One can check if the car is in the GNSS-available environment or expect multi path errors caused by the reflection in an urban environment
+
+##### How localization is achieved
+
+The current localization system in Autoware is accomplished by GNSS and NDT.
+GNSS is a satellite based positioning system. NDT (Normal Distribution Transform) is an algorithm that estimates the vehicle pose by matching LiDAR sensor data to a point cloud map.
 
 ### Digital twin simulation
 
