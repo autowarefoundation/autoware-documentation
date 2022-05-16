@@ -35,7 +35,7 @@ It brings the car to the destination while avoiding pedestrians and surrounding 
 
 #### How the planning simulation is achieved
 
-- Generates the path to the destination
+- Generates a path to the goal destination
 - Controls the car along the generated path
 - Detect humans and surrounding cars for the safe operation
 
