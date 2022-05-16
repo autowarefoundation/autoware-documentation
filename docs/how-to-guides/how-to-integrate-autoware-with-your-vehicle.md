@@ -68,10 +68,8 @@ Note that you need to calibrate extrinsic parameters for all the sensors beforeh
 Create `launch/sensing.launch.xml` that launches the interfaces of all the sensors on the vehicle. (refer to the [sample sensor kit launch package](https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_launch) for example).
 
 !!! note
-At this point, you are now able to run Autoware's Planning Simulator to do a basic test of your vehicle and sensing packages.
-
+    At this point, you are now able to run Autoware's Planning Simulator to do a basic test of your vehicle and sensing packages.
     To do so, you need to build and install Autoware using your cloned repository. Follow the [steps for either Docker or source installation](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/)) (starting from the dependency installation step) and then run the following command:
-
     ```bash
     ros2 launch autoware_launch planning_simulator.launch.xml vehicle_model:=YOUR_VEHICLE sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP
     ```
