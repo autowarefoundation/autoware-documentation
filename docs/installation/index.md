@@ -29,7 +29,7 @@ If any issues occur during installation, refer to the [Support page](https://aut
 Docker can ensure that all developers in a project have a common, consistent development environment.
 It is recommended for beginners, light users, people who do not use Ubuntu.
 
-Refer to the [Docker installation guide](https://github.com/autowarefoundation/autoware-documentation/blob/main/docs/installation/autoware/docker-installation.md) for detailed steps.  
+Refer to the [Docker installation guide](https://github.com/autowarefoundation/autoware-documentation/blob/main/docs/installation/autoware/docker-installation.md) for detailed steps.
 
 ### 2. Source installation
 
