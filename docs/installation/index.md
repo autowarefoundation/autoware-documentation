@@ -37,7 +37,6 @@ It is recommended for skilled users or people who want to customize the environm
 Note that some problems may occur depending on your local environment.
 
 Refer to the [source installation guide](https://github.com/autowarefoundation/autoware-documentation/blob/main/docs/installation/autoware/source-installation.md) for detailed steps.
-Refer to the [autowarefoundation/autoware/README.md](https://github.com/autowarefoundation/autoware/blob/main/README.md) as well.
 
 ## Installation of related tools
 
