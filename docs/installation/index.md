@@ -18,7 +18,7 @@ The Autoware Foundation provides no support on other platforms than those listed
 
 Refer to [REP-2000](https://www.ros.org/reps/rep-2000.html) for the system dependencies.
 
-## Autoware
+## Installing Autoware
 
 There are two ways to set up Autoware. Choose one according to your preference.
 
@@ -39,7 +39,7 @@ Note that some problems may occur depending on your local environment.
 
 Refer to the [source installation guide](autoware/source-installation.md) for detailed steps.
 
-## Related tools
+## Installing related tools
 
 Some other tools are required depending on the evaluation you want to do.
 For example, to run an end-to-end simulation you need to install an appropriate simulator.
