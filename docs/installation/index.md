@@ -22,6 +22,8 @@ Refer to [REP-2000](https://www.ros.org/reps/rep-2000.html) for the system depen
 
 There are two ways to set up Autoware. Choose one according to your preference.
 
+If any issues occur during installation, refer to the [Support page](https://autowarefoundation.github.io/autoware-documentation/main/support).
+
 ### 1. Docker installation
 
 Docker can ensure that all developers in a project have a common, consistent development environment.
