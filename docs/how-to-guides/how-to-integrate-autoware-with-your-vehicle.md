@@ -1,14 +1,12 @@
 # How to integrate Autoware with your vehicle
 
-This page demonstrates how to integrate Autoware with a real vehicle.
-
 ## 1. Prepare your real vehicle hardware
 
 Prerequisites for the vehicle:
 
-- Onboard computer that satisfies the prerequisites (see [here](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#prerequisites))
+- An onboard computer that satisfies the Autoware Installation prerequisites (see [here](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#prerequisites))
 - The following devices attached
-  - Actuator
+  - Drive-by-wire interface
   - LiDAR
   - Optional: Inertial measurement unit
   - Optional: Camera
@@ -16,8 +14,7 @@ Prerequisites for the vehicle:
 
 ## 2. Create maps
 
-You need both a pointcloud and a vector map to take full advantage of Autoware.
-Since mapping algorithm such as SLAM (simultaneous localization and mapping) is not implemented in the current Autoware, you may need to use 3rd party tools for this step.
+You need both a pointcloud map and a vector map in order to use Autoware.
 
 ### Create a pointcloud map
 
@@ -25,15 +22,14 @@ Use third-party tools such as a LiDAR-based SLAM (simultaneous localization and 
 
 ### Create vector map
 
-Autoware supports lanelet2 format for a vector map. Use 3rd party tools or [Vector Map Builder](https://tools.tier4.jp/) to get the `.osm` file.
+Use third-party tools such as [TIER IV's Vector Map Builder](https://tools.tier4.jp/) to create a Lanelet2 format `.osm` file.
 
 ## 3. Create your meta-repository
 
-A recommended way to integrate Autoware with your real vehicle is to create a meta-repository for the vehicle.
-Create a forked repository of [autowarefoundation/autoware](https://github.com/autowarefoundation/autoware) (we refer to this as meta-repository) and clone the repository.
-
+Create your Autoware repository.
+One easy way is to fork [autowarefoundation/autoware](https://github.com/autowarefoundation/autoware) and clone it ([how to fork repository on github](https://docs.github.com/en/get-started/quickstart/fork-a-repo)).
 ```bash
-git clone git@github.com:YOUR_NAME/autoware.YOURS.git
+git clone https://github.com/YOUR_NAME/autoware.YOURS.git
 ```
 
 ## 4. Create the description packages of your vehicle
@@ -46,34 +42,34 @@ Create the following two packages:
 - YOUR_VEHICLE_launch (see [here](https://github.com/autowarefoundation/sample_vehicle_launch) for example)
 - YOUR_SENSOR_KIT_launch (see [here](https://github.com/autowarefoundation/sample_sensor_kit_launch) for example)
 
-It is recommended you write the above two packages in `autoware.repos` file of your meta-repository.
+Once created, you need to update the `autoware.repos` file of your cloned Autoware repository to refer to these two description packages.
 
 ### Adapt YOUR_VEHICLE_launch for autoware launching system
 
 #### At YOUR_VEHICLE_description
 
-Define URDF and parameters in the package (see [here](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_description) for example).
+Define URDF and parameters in the vehicle description package (refer to the [sample vehicle description package](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_description) for an example).
 
 #### At YOUR_VEHICLE_launch
 
-Create a launch file (see [here](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_launch) for example).
+Create a launch file (refer to the [sample vehicle launch package](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_launch) for example).
 If you have multiple vehicles with similar hardware setup, you can specify `vehicle_id` to distinguish them.
 
 ### Adapt YOUR_SENSOR_KIT_description for autoware launching system
 
 #### At YOUR_SENSOR_KIT_description
 
-Define URDF and extrinsic parameters for all the sensors here (see [here](https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_description) for example).
+Define URDF and extrinsic parameters for all the sensors here (refer to the [sample sensor kit description package](https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_description) for example).
 Note that you need to calibrate extrinsic parameters for all the sensors beforehand.
 
 #### At YOUR_SENSOR_KIT_launch
 
-Create `launch/sensing.launch.xml` that launches the interfaces of all the sensors on the vehicle. (see [here](https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_launch) for example).
+Create `launch/sensing.launch.xml` that launches the interfaces of all the sensors on the vehicle. (refer to the [sample sensor kit launch package](https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_launch) for example).
 
 !!! note
-
-    At this point, you are now able to run planning_simulator.
-    If you want to try, you may install Autoware (follow [here](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/)) and run the following command:
+    At this point, you are now able to run Autoware's Planning Simulator to do a basic test of your vehicle and sensing packages.
+    
+    To do so, you need to build and install Autoware using your cloned repository. Follow the [steps for either Docker or source installation](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/)) (starting from the dependency installation step) and then run the following command:
 
     ```bash
     ros2 launch autoware_launch planning_simulator.launch.xml vehicle_model:=YOUR_VEHICLE sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP
@@ -85,10 +81,10 @@ You need to create an interface package for your vehicle.
 The package is expected to provide the following two functions.
 
 1. Receive command messages from `vehicle_cmd_gate` and drive the vehicle accordingly
-2. Send vehicle status information of the vehicle to Autoware
+2. Send vehicle status information to Autoware
 
-You can find detailed information about the requirements of `vehicle_interface` [here](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/).
-You can also refer to [pacmod_interface](https://github.com/tier4/pacmod_interface) as an example.
+You can find detailed information about the requirements of the `vehicle_interface` package in the [Vehicle Interface design documentation](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/).
+You can also refer to TIER IV's [pacmod_interface repository](https://github.com/tier4/pacmod_interface) as an example of a vehicle interface package.
 
 ## 6. Launch Autoware
 
@@ -96,21 +92,11 @@ This section briefly explains how to run your vehicle with Autoware.
 
 ### Install Autoware
 
-Follow the step [here](https://autowarefoundation.github.io/autoware-documentation/pr-86/installation/autoware/).
-
-```bash
-cd autoware.YOURS
-./setup-dev-env.sh
-mkdir src
-vcs import src < autoware.repos
-source /opt/ros/galactic/setup.bash
-rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
-colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
-```
+Follow the [installation steps of Autoware](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/).
 
 ### Launch Autoware
 
-Launch autoware with the following command:
+Launch Autoware with the following command:
 
 ```bash
 ros2 launch autoware_launch autoware.launch.xml vehicle_model:=YOUR_VEHICLE sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP
@@ -120,7 +106,7 @@ ros2 launch autoware_launch autoware.launch.xml vehicle_model:=YOUR_VEHICLE sens
 
 If GNSS is available, Autoware automatically initializes the vehicle's pose.
 
-If not, you should set the initial pose using GUI on RViz.
+If not, you need to set the initial pose using the RViz GUI.
 
 1. Click the 2D Pose estimate button in the toolbar, or hit the P key
 2. In the 3D View pane, click and hold the left mouse button, and then drag to set the direction for the initial pose.
@@ -145,10 +131,10 @@ ros2 topic pub /autoware.YOURS/engage autoware_auto_vehicle_msgs/msg/Engage "eng
 You can also engage via RViz with "AutowareStatePanel".
 The panel can be found in Panels > Add New Panel > tier4_state_rviz_plugin > AutowareStatePanel.
 
-Now the vehicle should drive the calculated path!
+Now the vehicle should drive along the calculated path!
 
 ## 7. Tune parameters for your vehicle & environment
 
 You may need to tune your parameters depending on the domain in which you will operate your vehicle.
 
-If you have any issues or questions, feel free to ask in [Autoware Foundation Discussion](https://github.com/orgs/autowarefoundation/discussions)!
+If you have any issues or questions, feel free to create an [Autoware Foundation GitHub Discussion](https://github.com/orgs/autowarefoundation/discussions) in the Q&A category!
