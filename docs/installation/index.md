@@ -42,7 +42,7 @@ Refer to the [autowarefoundation/autoware/README.md](https://github.com/autoware
 ## Installation of related tools
 
 Some other tools are required depending on the evaluation you want to do.
-For example, if you run E2E simulation, you need to install a simulator for that.
+For example, to run an end-to-end simulation you need to install an appropriate simulator.
 
 See [here](related-tools) for how to install the tools.
 
