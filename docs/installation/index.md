@@ -27,7 +27,7 @@ There are two ways to set up Autoware. Choose one according to your preference.
 Docker can ensure that all developers in a project have a common, consistent development environment.
 It is recommended for beginners, light users, people who do not use Ubuntu.
 
-See [here](https://github.com/autowarefoundation/autoware-documentation/blob/main/docs/installation/autoware/docker-installation.md) for the detailed steps.  
+Refer to the [Docker installation guide](https://github.com/autowarefoundation/autoware-documentation/blob/main/docs/installation/autoware/docker-installation.md) for detailed steps.  
 Refer to [autowarefoundation/autoware/docker/README.md](https://github.com/autowarefoundation/autoware/blob/main/docker/README.md) as well.
 
 ### 2. Source installation
