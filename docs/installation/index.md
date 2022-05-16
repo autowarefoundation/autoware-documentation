@@ -29,7 +29,7 @@ If any issues occur during installation, refer to the [Support page](https://aut
 Docker can ensure that all developers in a project have a common, consistent development environment.
 It is recommended for beginners, casual users, people who are unfamiliar with Ubuntu.
 
-Refer to the [Docker installation guide](https://github.com/autowarefoundation/autoware-documentation/blob/main/docs/installation/autoware/docker-installation.md) for detailed steps.
+Refer to the [Docker installation guide](autoware/docker-installation.md) for detailed steps.
 
 ### 2. Source installation
 
@@ -37,7 +37,7 @@ Source installation is for the cases where more granular control of the installa
 It is recommended for experienced users or people who want to customize their environment.  
 Note that some problems may occur depending on your local environment.
 
-Refer to the [source installation guide](https://github.com/autowarefoundation/autoware-documentation/blob/main/docs/installation/autoware/source-installation.md) for detailed steps.
+Refer to the [source installation guide](autoware/source-installation.md) for detailed steps.
 
 ## Related tools
 
