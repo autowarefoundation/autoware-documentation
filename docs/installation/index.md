@@ -33,7 +33,7 @@ Refer to [autowarefoundation/autoware/docker/README.md](https://github.com/autow
 ### 2. Source installation
 
 Source installation is for the cases where more granular control of the installation environment is needed.
-It is recommended for skilled users or people who want to customize the environment.  
+It is recommended for experienced users or people who want to customize their environment.  
 Note that some problems may occur depending on your local environment.
 
 Refer to the [source installation guide](https://github.com/autowarefoundation/autoware-documentation/blob/main/docs/installation/autoware/source-installation.md) for detailed steps.
