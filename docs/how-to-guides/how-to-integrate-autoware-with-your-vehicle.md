@@ -161,7 +161,7 @@ ros2 topic pub /autoware.YOURS/engage autoware_auto_vehicle_msgs/msg/Engage "eng
 
 You can also engage via RViz with "AutowareStatePanel".
 The panel can be found in `Panels > Add New Panel > tier4_state_rviz_plugin > AutowareStatePanel`.
-![Autoware State Panel](images/how-to-integrate-autoware-with-your-vehicle/autoware-state-panel.png){: style="height:360px;width:640px"}
+![](images/how-to-integrate-autoware-with-your-vehicle/autoware-state-panel.png){: style="height:360px;width:640px"}
 
 Now the vehicle should drive along the calculated path!
 
