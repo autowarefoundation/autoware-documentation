@@ -1,4 +1,4 @@
-# Scenario simulation
+# Scenario test simulation
 
    ```bash
    ros2 launch scenario_test_runner scenario_test_runner.launch.py \
