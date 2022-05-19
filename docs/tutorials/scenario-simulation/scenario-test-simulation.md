@@ -1,6 +1,6 @@
 # Scenario test simulation
 
-Before running the test, please follow the [instruction](installation.md) about installation and building of Autoware Universe and Scenario_simulator_v2
+Note: Before running the test, please follow the [instruction](installation.md) about installation and building of Autoware Universe and Scenario_simulator_v2
 
 1. Move to project directory, where the project is build.
 
