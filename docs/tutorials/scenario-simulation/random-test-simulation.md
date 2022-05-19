@@ -19,4 +19,4 @@ Note : Before running the test, please follow the [instruction](installation.md)
    vehicle_model:=sample_vehicle
    ```
 
-To modify paramewters of random testing, please check documentation of ![random_test_runner](https://github.com/tier4/scenario_simulator_v2/blob/master/test_runner/random_test_runner/Readme.md)
+To modify parameters of random testing, please check documentation of ![random_test_runner](https://github.com/tier4/scenario_simulator_v2/blob/master/test_runner/random_test_runner/Readme.md)
