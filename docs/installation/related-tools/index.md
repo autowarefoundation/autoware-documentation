@@ -1,4 +1,4 @@
-# Installation of tools for users
+# Installation of related tools
 
 !!! warning
 

@@ -1,4 +1,4 @@
-# Installation of tools for developers
+# Additional settings for developers
 
 ## ROS 2 settings
 

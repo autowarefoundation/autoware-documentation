@@ -31,7 +31,7 @@ Visit them and see if there is any information related to your problem.
 Note that the documentation sites aren't always up-to-date and perfect.
 If you find out that some information is wrong, unclear, or missing in Autoware docs, feel free to submit a pull request following our [contribution guidelines](../contributing/index.md).
 
-!!!warning
+!!! warning
 
     Since this documentation site is still under construction, there are some empty pages.
 
@@ -57,7 +57,7 @@ Feel free to open or join such discussions.
 If you have a problem and you have confirmed it is a bug, find the appropriate repository and create a new issue there.
 If you can't determine the appropriate repository, ask the maintainers for help by creating a new discussion in the [Q&A category](https://github.com/autowarefoundation/autoware/discussions/categories/q-a).
 
-!!!warning
+!!! warning
 
     Do not create issues for questions or unconfirmed bugs. If such issues are created, maintainers will transfer them to GitHub Discussions.
 
@@ -81,6 +81,6 @@ Note that it is not the right place to get help for your issues.
 
 If you want to widely discuss a topic with the general Autoware and ROS community or ask a question not related to Autoware's bugs, post to [the Autoware category on ROS Discourse](https://discourse.ros.org/c/autoware).
 
-!!!warning
+!!! warning
 
     Do not post questions about bugs to ROS Discourse!

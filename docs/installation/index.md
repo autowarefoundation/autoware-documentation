@@ -18,19 +18,36 @@ The Autoware Foundation provides no support on other platforms than those listed
 
 Refer to [REP-2000](https://www.ros.org/reps/rep-2000.html) for the system dependencies.
 
-## Installation steps of Autoware
+## Installing Autoware
 
-See [here](autoware) for how to install Autoware.
+There are two ways to set up Autoware. Choose one according to your preference.
 
-## Installation steps of tools for users
+If any issues occur during installation, refer to the [Support page](https://autowarefoundation.github.io/autoware-documentation/main/support).
+
+### 1. Docker installation
+
+Docker can ensure that all developers in a project have a common, consistent development environment.
+It is recommended for beginners, casual users, people who are unfamiliar with Ubuntu.
+
+Refer to the [Docker installation guide](autoware/docker-installation.md) for detailed steps.
+
+### 2. Source installation
+
+Source installation is for the cases where more granular control of the installation environment is needed.
+It is recommended for experienced users or people who want to customize their environment.  
+Note that some problems may occur depending on your local environment.
+
+Refer to the [source installation guide](autoware/source-installation.md) for detailed steps.
+
+## Installing related tools
 
 Some other tools are required depending on the evaluation you want to do.
-For example, if you run E2E simulation, you need to install a simulator for that.
+For example, to run an end-to-end simulation you need to install an appropriate simulator.
 
-See [here](tools-for-users) for how to install the tools.
+See [here](related-tools) for how to install the tools.
 
-## Installation steps of tools for developers
+## Additional settings for developers
 
 There are also tools and settings for developers, such as Shells or IDEs.
 
-See [here](tools-for-developers) for how to install the tools.
+See [here](additional-settings-for-developers) for how to install the tools.

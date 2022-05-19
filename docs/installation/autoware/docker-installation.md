@@ -21,7 +21,10 @@
 
 ### Installing dependencies manually
 
-- [Install Docker and related tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/docker#manual-installation)
+- [Install Docker Engine](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/docker_engine#manual-installation)
+- [Install Docker Compose](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/docker_compose#manual-installation)
+- [Install NVIDIA Container Toolkit](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/nvidia_docker#manual-installation)
+- [Install rocker](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rocker#manual-installation)
 
 ### Installing dependencies using Ansible
 
@@ -37,7 +40,7 @@ You might need to log out and log back to make the current user able to use dock
 
 ## How to set up a workspace
 
-!!!warning
+!!! warning
 
     Before proceeding, confirm and agree with the [NVIDIA Deep Learning Container license](https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license).
     By pulling and using the Autoware Universe images, you accept the terms and conditions of the license.
@@ -106,7 +109,7 @@ You might need to log out and log back to make the current user able to use dock
 
    ```bash
    vcs import src < autoware.repos
-   vcs pull
+   vcs pull src
    ```
 
 5. Build the workspace.
