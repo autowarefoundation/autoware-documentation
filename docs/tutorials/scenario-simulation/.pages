@@ -1,5 +1,5 @@
 nav:
   - index.md
-  - planning-simulation.md
-  - rosbag-replay-simulation.md
-  - digital-twin-simulation.md
+  - installation.md
+  - scenario-test-simulation.md
+  - random-test-simulation.md
