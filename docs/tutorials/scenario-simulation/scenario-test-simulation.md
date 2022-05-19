@@ -2,6 +2,8 @@
 
 Note: Before running the test, please follow the [instruction](installation.md) about installation and building of Autoware Universe and Scenario_simulator_v2
 
+## Running steps
+
 1. Move to project directory, where the project is build.
 
 2. Source the workspace setup script
@@ -20,3 +22,5 @@ Note: Before running the test, please follow the [instruction](installation.md) 
    sensor_model:=sample_sensor_kit \
    vehicle_model:=sample_vehicle
    ```
+
+![scenario_test_runner](images/scenario_test_runner.png)
