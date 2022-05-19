@@ -22,7 +22,7 @@ from .markdown import MarkdownTable
 
 def generate():
     parser = argparse.ArgumentParser()
-    parser.add_argument('path', default='docs/design/autoware-interface/prototyping', nargs='?')
+    parser.add_argument('path', default='docs/design/autoware-interfaces/prototyping', nargs='?')
     args = parser.parse_args()
 
     target = pathlib.Path(args.path)
@@ -50,7 +50,7 @@ def generate():
 
 
 def generate_list(target, groups):
-    with target.joinpath('api/list.md').open('w') as fp:
+    with target.joinpath('index.md').open('w') as fp:
         fp.write('# List of Autoware API\n\n')
         for group, specs in groups:
             table = MarkdownTable('Type', 'Name', 'Data')
@@ -65,14 +65,14 @@ def generate_list(target, groups):
 def make_page_link(spec : AutowareAPI):
     if spec.page is None:
         return spec.spec_name
-    spec_link = '../..' + spec.spec_name
+    spec_link = '.' + spec.spec_name + '.md'
     return '[{}]({})'.format(spec.spec_name, spec_link)
 
 
 def make_type_link(spec : AutowareAPI):
     if spec.typedef.page is None:
         return spec.data_type
-    data_link = '../../type/' + spec.data_type
+    data_link = './type/' + spec.data_type + '.md'
     return '[{}]({})'.format(spec.data_type, data_link)
 
 
