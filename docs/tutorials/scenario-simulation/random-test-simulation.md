@@ -1,6 +1,6 @@
 # Random test simulation
 
-Before running the test, please follow the [instruction](installation.md) about installation and building of Autoware Universe and Scenario_simulator_v2
+Note : Before running the test, please follow the [instruction](installation.md) about installation and building of Autoware Universe and Scenario_simulator_v2
 
 1. Move to project directory, where the project is build.
 
@@ -18,3 +18,4 @@ Before running the test, please follow the [instruction](installation.md) about 
    sensor_model:=sample_sensor_kit \
    vehicle_model:=sample_vehicle
    ```
+ To modify paramewters of random testing, please check documentation of ![random_test_runner](https://github.com/tier4/scenario_simulator_v2/blob/master/test_runner/random_test_runner/Readme.md)
