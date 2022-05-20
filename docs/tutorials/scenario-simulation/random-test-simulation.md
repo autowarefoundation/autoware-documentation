@@ -23,4 +23,4 @@ Note : Before running the test, please follow the [instruction](installation.md)
 
 ![random_test_runner](images/random_test_runner.png)
 
-For more information about supported parameters, refer to the ![random_test_runner documentation].(https://github.com/tier4/scenario_simulator_v2/blob/master/test_runner/random_test_runner/Readme.md#node-parameters)
+For more information about supported parameters, refer to the ![random_test_runner documentation].(<https://github.com/tier4/scenario_simulator_v2/blob/master/test_runner/random_test_runner/Readme.md#node-parameters>)
