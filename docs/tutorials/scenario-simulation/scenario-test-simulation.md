@@ -1,6 +1,8 @@
 # Scenario test simulation
 
-Note: Before running the test, please follow the [instruction](installation.md) about installation and building of Autoware Universe and Scenario_simulator_v2
+!!! note
+
+    Running the Scenario Simulator requires some additional steps on top of building and installing Autoware, so make sure that [Scenario Simulator installation](installation.md) has been completed first before proceeding.
 
 ## Running steps
 
