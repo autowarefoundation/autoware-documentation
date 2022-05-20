@@ -4,7 +4,7 @@ Note: Before running the test, please follow the [instruction](installation.md) 
 
 ## Running steps
 
-1. Move to project directory, where the project is build.
+1. Move to the workspace directory where Autoware and the Scenario Simulator have been built.
 
 2. Source the workspace setup script
 
