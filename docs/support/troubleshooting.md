@@ -141,7 +141,7 @@ When running the Planning Simulator, the most common reason for the map not bein
 
 Another possible reason is that map loading is taking a long time due to poor DDS performance. To address this issue, first enable localhost-only communication to reduce network traffic, and then [tune DDS settings](https://docs.ros.org/en/rolling/How-To-Guides/DDS-tuning.html) if the problem continues to occur.
 
-1. [Enable localhost-only communication](../../installation/additional-settings-for-developers/#enabling-localhost-only-communication)
+1. [Enable localhost-only communication](../installation/additional-settings-for-developers/index.md#enabling-localhost-only-communication)
 2. Tune DDS settings
 
 Add the following lines to `/etc/sysctl.conf`
