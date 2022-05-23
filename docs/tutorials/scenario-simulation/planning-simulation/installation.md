@@ -4,7 +4,7 @@ This document contains step-by-step instruction on how to build [AWF Autoware Co
 
 ## Prerequisites
 
-1. [Autoware has been built and installed] (https://autowarefoundation.github.io/autoware-documentation/main/installation/)
+1. [Autoware has been built and installed](https://autowarefoundation.github.io/autoware-documentation/main/installation/)
 
 ## How to build
 
