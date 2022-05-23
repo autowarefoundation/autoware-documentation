@@ -8,13 +8,13 @@
 
 1. Move to the workspace directory where Autoware and the Scenario Simulator have been built.
 
-2. Source the workspace setup script
+2. Source the workspace setup script:
 
    ```bash
    source install/setup.bash
    ```
 
-3. Run
+3. Run the simulation:
 
    ```bash
    ros2 launch random_test_runner random_test.launch.py \
