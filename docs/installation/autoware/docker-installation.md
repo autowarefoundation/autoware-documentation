@@ -8,7 +8,7 @@
 
 - [Git](https://git-scm.com/)
 
-- For NVIDIA Jetson devices, please install [JetPack](https://docs.nvidia.com/jetson/jetpack/install-jetpack/index.html#how-to-install-jetpack) >= 5.0
+- For NVIDIA Jetson devices, install [JetPack](https://docs.nvidia.com/jetson/jetpack/install-jetpack/index.html#how-to-install-jetpack) >= 5.0
 
 ## How to set up a development environment
 
