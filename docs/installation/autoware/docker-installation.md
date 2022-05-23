@@ -61,7 +61,7 @@ You might need to log out and log back to make the current user able to use dock
      rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
      ```
 
-      For detailed reason could be found [here](#docker-with-nvidia-gpu-fails-to-start-autoware-on-arm64-devices)
+     For detailed reason could be found [here](#docker-with-nvidia-gpu-fails-to-start-autoware-on-arm64-devices)
 
    See [here](https://github.com/autowarefoundation/autoware/tree/main/docker/README.md) for more advanced usage.
 
@@ -87,7 +87,7 @@ You might need to log out and log back to make the current user able to use dock
 ## How to update a workspace
 
 1. Update the Docker image.
-   
+
    ```bash
    docker pull ghcr.io/autowarefoundation/autoware-universe:latest
    ```
