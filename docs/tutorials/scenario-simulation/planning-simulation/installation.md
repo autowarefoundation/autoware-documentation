@@ -20,14 +20,14 @@ This document contains step-by-step instruction on how to build [AWF Autoware Co
    vcs import src < simulator.repos
    ```
 
-5. Install dependent ROS packages.
+3. Install dependent ROS packages.
 
    ```bash
    source /opt/ros/galactic/setup.bash
    rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 
-6. Build the workspace.
+4. Build the workspace.
 
    ```bash
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
