@@ -49,7 +49,7 @@ if(BUILD_TESTING)
 endif()
 ```
 
-This automatically links the test with the default main function provided by `gtest`. The code under test is usually in a different CMake target (`${PROJECT_NAME}` in the example)  and its shared object for linking need to be added.
+This automatically links the test with the default main function provided by `gtest`. The code under test is usually in a different CMake target (`${PROJECT_NAME}` in the example) and its shared object for linking need to be added.
 
 To register a new `gtest` item, wrap the test code with the macro `TEST ()`. `TEST ()`
 is a predefined macro that helps generate the final test code, and also registers
@@ -68,7 +68,6 @@ In the demo `CMakeLists.txt`, `ament_add_ros_isolated_gtest` is a predefined mac
 that helps simplify adding `gtest` code. Details can be viewed in
 [ament_add_gtest.cmake](https://github.com/ros2/ament_cmake_ros/tree/master/ament_cmake_ros/cmake).
 
-
 ## Build test
 
 By default, all necessary test files (ELF, CTesttestfile.cmake, etc.) are compiled by `colcon`:
@@ -79,7 +78,6 @@ ade$ colcon build --packages-select my_cool_pkg
 ```
 
 Test files are generated under `~/workspace/build/my_cool_pkg`.
-
 
 ## Run test
 
@@ -160,7 +158,6 @@ xmllint       =   0.47 sec*proc (1 test)
 Total Test time (real) =   7.91 sec
 ...
 ```
-
 
 ## Coverage
 
