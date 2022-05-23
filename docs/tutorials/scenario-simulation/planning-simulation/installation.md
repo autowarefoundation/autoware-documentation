@@ -4,44 +4,20 @@ This document contains step-by-step instruction on how to build [AWF Autoware Co
 
 ## Prerequisites
 
-1. Ubuntu 20.04 machine
-2. Hardware with CUDA 11.1 capable graphics card
-3. ROS2 Galactic Geochelone desktop version [installed](https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html) and sourced:
+1. [Autoware has been built and installed] (https://autowarefoundation.github.io/autoware-documentation/main/installation/)
 
 ## How to build
 
-1. Clone the Autoware Core/Universe repository:
-
-   ```bash
-   git clone git@github.com:autowarefoundation/autoware.git
-   ```
-
-2. Navigate to the source directory:
+1. Navigate to the Autoware workspace:
 
    ```bash
    cd autoware
-   mkdir src
    ```
 
-3. Import Autoware and Simulator dependencies:
+2. Import Simulator dependencies:
 
    ```bash
-   vcs import src < autoware.repos
    vcs import src < simulator.repos
-   ```
-
-4. Install dependencies for Autoware Core/Universe
-
-   > Note. This step is only required during first installation/usage of Autoware Core/Universe
-   >
-   > Note: Before installing NVIDIA libraries, confirm and agree with the licenses.
-
-   - [CUDA](https://docs.nvidia.com/cuda/eula/index.html)
-   - [cuDNN](https://docs.nvidia.com/deeplearning/cudnn/sla/index.html)
-   - [TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/sla/index.html)
-
-   ```bash
-   ./setup-dev-env.sh
    ```
 
 5. Install dependent ROS packages.
