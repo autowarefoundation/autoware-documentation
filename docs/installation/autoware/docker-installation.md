@@ -51,21 +51,21 @@ You might need to log out and log back to make the current user able to use dock
 
    - For amd64 architecture computers with NVIDIA GPU:
 
-      ```bash
-      rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
-      ```
+     ```bash
+     rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
+     ```
 
    - If you want to run container without using NVIDIA GPU:
 
-      ```bash
-      rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
-      ```
+     ```bash
+     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
+     ```
 
-   - For arm64 architecture computers: 
+   - For arm64 architecture computers:
 
-      ```bash
-      rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest-arm64
-      ```
+     ```bash
+     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest-arm64
+     ```
 
    See [here](https://github.com/autowarefoundation/autoware/tree/main/docker/README.md) for more advanced usage.
 
@@ -91,38 +91,38 @@ You might need to log out and log back to make the current user able to use dock
 ## How to update a workspace
 
 1. Update the Docker image.
-   
+
    - For amd64 architecture computers:
 
-      ```bash
-      docker pull ghcr.io/autowarefoundation/autoware-universe:latest
-      ```
+     ```bash
+     docker pull ghcr.io/autowarefoundation/autoware-universe:latest
+     ```
 
    - For arm64 architecture computers:
 
-      ```bash
-      docker pull ghcr.io/autowarefoundation/autoware-universe:latest-arm64
-      ```
+     ```bash
+     docker pull ghcr.io/autowarefoundation/autoware-universe:latest-arm64
+     ```
 
 2. Launch the Docker container.
 
    - For amd64 architecture computers:
-   
-      ```bash
-      rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
-      ```
+
+     ```bash
+     rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
+     ```
 
    - If you want to run container without using NVIDIA GPU:
 
-      ```bash
-      rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
-      ```
+     ```bash
+     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
+     ```
 
    - For arm64 architecture computers:
 
-      ```bash
-      rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
-      ```
+     ```bash
+     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
+     ```
 
 3. Update the `.repos` file.
 
@@ -164,7 +164,7 @@ To fix this, restart your system after installing the new NVIDIA driver.
 ### Docker with NVIDIA gpu fails to start Autoware on arm64 devices
 
 When starting Docker with GPU support enabled for NVIDIA graphics on arm64 devices, e.g. NVIDIA jetson AGX xavier, you may receive the following error:
- 
+
 ```bash
 nvidia@xavier:~$ rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest-arm64
 ...
