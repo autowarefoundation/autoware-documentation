@@ -7,7 +7,7 @@ framework is also used to analyze the test results.
 CMake-based package and to ensure that JUnit-compatible result files are generated. It currently
 supports a few different testing frameworks like `pytest`, `gtest`, and `gmock`.
 
-In order to prevent tests running in parallel to interfere with eachother when publishing and subscribing to ROS topics,
+In order to prevent tests running in parallel to interfere with each other when publishing and subscribing to ROS topics,
 it is recommended to use commands from [`ament_cmake_ros`](https://github.com/ros2/ament_cmake_ros/tree/master/ament_cmake_ros/cmake) to run tests in isolation.
 
 See below for an example of using `ament_add_ros_isolated_gtest` with `colcon test`.
@@ -70,7 +70,7 @@ that helps simplify adding `gtest` code. Details can be viewed in
 
 ## Build test
 
-By default, all necessary test files (ELF, CTesttestfile.cmake, etc.) are compiled by `colcon`:
+By default, all necessary test files (`ELF`, `CTesttestfile.cmake`, etc.) are compiled by `colcon`:
 
 ```{bash}
 ade$ cd ~/workspace/
