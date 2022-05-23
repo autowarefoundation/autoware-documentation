@@ -92,7 +92,7 @@ You might need to log out and log back to make the current user able to use dock
    docker pull ghcr.io/autowarefoundation/autoware-universe:latest
    ```
 
-2. Launch the Docker container.
+2. Launch a Docker container.
 
    - For amd64 architecture computers:
 
