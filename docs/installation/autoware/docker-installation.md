@@ -55,17 +55,13 @@ You might need to log out and log back to make the current user able to use dock
       rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
       ```
 
-   - If you want to run container without using NVIDIA GPU:
+   - If you want to run container without using NVIDIA GPU, or for arm64 architecture computers:
 
       ```bash
       rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
       ```
 
-   - For arm64 architecture computers: 
-
-      ```bash
-      rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest-arm64
-      ```
+      For detailed reason could be found [here](#docker-with-nvidia-gpu-fails-to-start-autoware-on-arm64-devices)
 
    See [here](https://github.com/autowarefoundation/autoware/tree/main/docker/README.md) for more advanced usage.
 
@@ -92,17 +88,9 @@ You might need to log out and log back to make the current user able to use dock
 
 1. Update the Docker image.
    
-   - For amd64 architecture computers:
-
-      ```bash
-      docker pull ghcr.io/autowarefoundation/autoware-universe:latest
-      ```
-
-   - For arm64 architecture computers:
-
-      ```bash
-      docker pull ghcr.io/autowarefoundation/autoware-universe:latest-arm64
-      ```
+   ```bash
+   docker pull ghcr.io/autowarefoundation/autoware-universe:latest
+   ```
 
 2. Launch the Docker container.
 
@@ -112,13 +100,7 @@ You might need to log out and log back to make the current user able to use dock
       rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
       ```
 
-   - If you want to run container without using NVIDIA GPU:
-
-      ```bash
-      rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
-      ```
-
-   - For arm64 architecture computers:
+   - If you want to run container without using NVIDIA GPU, or for arm64 architecture computers:
 
       ```bash
       rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
