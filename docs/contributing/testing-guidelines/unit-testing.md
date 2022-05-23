@@ -1,7 +1,4 @@
-Unit Testing {#unit-testing}
-========
-
-@tableofcontents
+# Unit Testing
 
 Autoware.Auto uses the `ament_cmake` framework to build and run tests. The same
 framework is also used to analyze the test results.
@@ -10,14 +7,13 @@ framework is also used to analyze the test results.
 CMake-based package and to ensure that JUnit-compatible result files are generated. It currently
 supports a few different testing frameworks like `pytest`, `gtest`, and `gmock`.
 
-See below for an example of using `ament_cmake_gtest` with `colcon test`. All other tests follow
-a similar pattern.
+In order to prevent tests running in parallel to interfere with eachother when publishing and subscribing to ROS topics,
+it is recommended to use commands from [`ament_cmake_ros`](https://github.com/ros2/ament_cmake_ros/tree/master/ament_cmake_ros/cmake) to run tests in isolation.
 
-This example assumes that the package `my_cool_pkg` is generated with
-[autoware_auto_create_package](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/tree/master/src/tools/autoware_auto_create_pkg).
+See below for an example of using `ament_add_ros_isolated_gtest` with `colcon test`.
+All other tests follow a similar pattern.
 
-
-# Create a unit test with gtest {#unit-testing-create-with-gtest}
+## Create a unit test with gtest
 
 In `my_cool_pkg/test`, create the `gtest` code file `test_my_cool_pkg.cpp`:
 
@@ -35,7 +31,7 @@ For more examples of `gtest` features, see the
 In `package.xml`, add the following line:
 
 ```{xml}
-<test_depend>ament_cmake_gtest</test_depend>
+<test_depend>ament_cmake_ros</test_depend>
 ```
 
 Next add an entry under `BUILD_TESTING` in the `CMakeLists.txt` to compile the test
@@ -46,16 +42,14 @@ if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
 
-  ament_add_gtest(${TEST_MY_COOL_PKG} test/test_my_cool_pkg.cpp)
+  ament_add_ros_isolated_gtest(${TEST_MY_COOL_PKG} test/test_my_cool_pkg.cpp)
 
-  autoware_set_compile_options(${TEST_MY_COOL_PKG})
-  target_include_directories(${TEST_MY_COOL_PKG} PRIVATE "test/include" "include")
-  target_link_libraries(${TEST_MY_COOL_PKG} ${PROJECT_NAME}) # adapt
+  target_link_libraries(${TEST_MY_COOL_PKG} ${PROJECT_NAME})
 ...
 endif()
 ```
 
-This automatically links the test with the default main function provided by `gtest`. The code under test is usually in a different CMake target (`${PROJECT_NAME}` in the example)  and its shared object for linking and include directories need to be added.
+This automatically links the test with the default main function provided by `gtest`. The code under test is usually in a different CMake target (`${PROJECT_NAME}` in the example)  and its shared object for linking need to be added.
 
 To register a new `gtest` item, wrap the test code with the macro `TEST ()`. `TEST ()`
 is a predefined macro that helps generate the final test code, and also registers
@@ -70,12 +64,12 @@ satisfied, while `EXPECT_*` will mark the test as failed but continue to next te
 condition. More information about `gtest` can be found in the
 [gtest repo](https://github.com/google/googletest).
 
-In the demo `CMakeLists.txt`, `ament_add_gtest` is a predefined macro in `ament_cmake_gtest`
+In the demo `CMakeLists.txt`, `ament_add_ros_isolated_gtest` is a predefined macro in `ament_cmake_ros`
 that helps simplify adding `gtest` code. Details can be viewed in
-[ament_add_gtest.cmake](https://github.com/ament/ament_cmake/blob/master/ament_cmake_gtest/cmake/ament_add_gtest.cmake).
+[ament_add_gtest.cmake](https://github.com/ros2/ament_cmake_ros/tree/master/ament_cmake_ros/cmake).
 
 
-# Build test {#unit-testing-build-test}
+## Build test
 
 By default, all necessary test files (ELF, CTesttestfile.cmake, etc.) are compiled by `colcon`:
 
@@ -87,7 +81,7 @@ ade$ colcon build --packages-select my_cool_pkg
 Test files are generated under `~/workspace/build/my_cool_pkg`.
 
 
-# Run test {#unit-testing-run-test}
+## Run test
 
 To run test on a specific package, call:
 
@@ -109,14 +103,12 @@ ade$ colcon test-result --all
 
 build/my_cool_pkg/test_results/my_cool_pkg/copyright.xunit.xml: 8 tests, 0 errors, 0 failures, 0 skipped
 build/my_cool_pkg/test_results/my_cool_pkg/cppcheck.xunit.xml: 6 tests, 0 errors, 0 failures, 0 skipped
-build/my_cool_pkg/test_results/my_cool_pkg/cpplint.xunit.xml: 6 tests, 0 errors, 0 failures, 0 skipped
 build/my_cool_pkg/test_results/my_cool_pkg/lint_cmake.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped
 build/my_cool_pkg/test_results/my_cool_pkg/my_cool_pkg_exe_integration_test.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped
-build/my_cool_pkg/test_results/my_cool_pkg/pclint.xunit.xml: 0 tests, 0 errors, 0 failures, 0 skipped
 build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml: 1 test, 0 errors, 0 failures, 0 skipped
-build/my_cool_pkg/test_results/my_cool_pkg/uncrustify.xunit.xml: 6 tests, 0 errors, 0 failures, 0 skipped
+build/my_cool_pkg/test_results/my_cool_pkg/xmllint.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped
 
-Summary: 29 tests, 0 errors, 0 failures, 0 skipped
+Summary: 18 tests, 0 errors, 0 failures, 0 skipped
 ```
 
 Look in the `~/workspace/log/test_<date>/<package_name>` directory for all the raw test
@@ -151,70 +143,30 @@ test 1
 1: -- run_test.py: return code 0
 1: -- run_test.py: inject classname prefix into gtest result file '~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml'
 1: -- run_test.py: verify result file '~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml'
-1/8 Test #1: test_my_cool_pkg ...................   Passed    0.09 sec
+1/5 Test #1: test_my_cool_pkg ...................   Passed    0.09 sec
 
 ...
 
-100% tests passed, 0 tests failed out of 8
+100% tests passed, 0 tests failed out of 5
 
 Label Time Summary:
-copyright      =   0.31 sec (1 test)
-cppcheck       =   0.31 sec (1 test)
-cpplint        =   0.38 sec (1 test)
-gtest          =   0.09 sec (1 test)
-integration    =   0.58 sec (1 test)
-lint_cmake     =   0.31 sec (1 test)
-linter         =   7.23 sec (6 tests)
-pclint         =   5.57 sec (1 test)
-uncrustify     =   0.35 sec (1 test)
+copyright     =   0.49 sec*proc (1 test)
+cppcheck      =   0.20 sec*proc (1 test)
+gtest         =   0.05 sec*proc (1 test)
+lint_cmake    =   0.18 sec*proc (1 test)
+linter        =   1.34 sec*proc (4 tests)
+xmllint       =   0.47 sec*proc (1 test)
 
 Total Test time (real) =   7.91 sec
 ...
 ```
 
 
-# Coverage  {#unit-testing-coverage}
+## Coverage
 
 Loosely described, a coverage metric is a measure of how much of the program code
 has been exercised (covered) during testing.
 
-In Autoware.Auto the [lcov tool] (http://ltp.sourceforge.net/documentation/technical_papers/gcov-ols2003.pdf)
-(which uses `gcov` internally) is used to measure:
+In the autoware.universe repository, [Codecov](https://app.codecov.io/gh/autowarefoundation/autoware.universe/) is used to automatically calculate coverage of any open pull request.
 
-1. Statement coverage
-2. Function coverage
-3. Branch coverage
-
-`lcov` also collects the results and generates `html` to visualize the coverage information.
-
-Coverage for the latest successful CI run on the `master` branch is
-[here](https://autowarefoundation.gitlab.io/autoware.auto/AutowareAuto/coverage/index.html).
-
-Use the commands below to generate coverage information for `my_cool_pkg`:
-
-\note `package_coverage.sh` prompts to delete `build`, `install`, and `log` directories, if present. Answer with `y` to
-delete, or clean your build before generating the coverage report.
-
-```{bash}
-ade$ cd AutowareAuto
-ade$ git lfs install
-ade$ git lfs pull --include="*" --exclude=""
-ade$ vcs import < autoware.auto.$ROS_DISTRO.repos
-ade$ ./tools/coverage/package_coverage.sh my_cool_pkg
-ade$ ./tools/coverage/coverage.sh  # coverage of all packages
-```
-
-This produces the high-level coverage report and also generates a coverage folder with an `index.html` file in it
-assuming the build and tests passed successfully. The resulting `lcov/index.html` will have a similar form to the
-following:
-
-@image html images/lcov_result.jpg  "Example lcov output" width=80%
-
-In Autoware.Auto, there is a separate "coverage" job as part of the CI pipeline that measures and reports the test
-coverage of a merge request:
-
-@image html images/coverage-test-job.png "coverage test job" width=80%
-
-and the summary statistics are printed near the end of the log output:
-
-@image html images/coverage-ci-output.png "coverage test job summary" width=40%
+More details about the coverage metrics can be found in the [Codecov documentation](https://docs.codecov.com/docs/about-code-coverage).
