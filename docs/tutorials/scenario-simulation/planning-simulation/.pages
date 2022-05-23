@@ -1,0 +1,4 @@
+nav:
+  - installation.md
+  - scenario-test-simulation.md
+  - random-test-simulation.md
