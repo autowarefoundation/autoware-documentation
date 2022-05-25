@@ -1,7 +1,7 @@
 nav:
   - Introduction: index.md
   - installation
-  - tutorials
+  - simulation-tutorials
   - how-to-guides
   - design
   - contributing

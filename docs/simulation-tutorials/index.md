@@ -1,4 +1,4 @@
-# Tutorials
+# Simulation tutorials
 
 This page explains how to try out Autoware through simulations.
 
