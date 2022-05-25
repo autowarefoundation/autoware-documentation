@@ -28,7 +28,7 @@ Planning simulation uses simple dummy data to test the Planning and Control comp
 
 !!! note
 
-    For real-world operation, we also need to detect and handle traffic lights. 
+    For real-world operation, we also need to detect and handle traffic lights.
     However, planning simulation does not verify this functionality.
 
 ### Rosbag replay simulation
