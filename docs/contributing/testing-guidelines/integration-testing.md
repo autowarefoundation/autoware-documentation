@@ -7,7 +7,7 @@ and evaluate the results of integration tests.
 
 ## Quick reference
 
-1. [colcon](https://github.com/ros2/ros2/wiki/Colcon-Tutorial) is used to build and run test.
+1. [colcon](https://github.com/ros2/ros2/wiki/Colcon-Tutorial) is used to build and run tests.
 2. [launch testing](https://github.com/ros2/launch/tree/master/launch_testing) launches nodes and runs tests.
 3. [Testing in general](testing-in-general.md) describes the big picture of testing.
 
@@ -18,8 +18,8 @@ modules are combined and tested as a group. Integration tests occur after unit t
 validation tests.
 
 The input to an integration test is a set of independent modules that have been unit tested. The set
-of modules are tested against the defined integration test plan, and the output is a set of
-properly integrated software modules that are ready for system testing.
+of modules is tested against the defined integration test plan, and the output is a set of
+properly integrated software modules that is ready for system testing.
 
 ## Value of integration testing
 
@@ -35,7 +35,7 @@ Integration tests help to find the following types of errors:
 
 With ROS 2, it is possible to program complex autonomous-driving applications with a large number
 of nodes. Therefore, a lot of effort has been made to provide an integration-test framework that
-helps developers test the interaction of ROS2 nodes.
+helps developers test the interaction of ROS 2 nodes.
 
 ## Integration-test framework
 
@@ -45,7 +45,7 @@ A typical integration-test framework has three parts:
 2. A series of expected outputs that should match the output of the executables
 3. A launcher that starts the tests, compares the outputs to the expected outputs, and determines if the test passes
 
-In Autoware.Core, we use the [launch_testing](https://github.com/ros2/launch/tree/master/launch_testing) framework.
+In Autoware, we use the [launch_testing](https://github.com/ros2/launch/tree/master/launch_testing) framework.
 
 ### Smoke tests
 
