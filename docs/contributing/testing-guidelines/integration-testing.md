@@ -9,7 +9,7 @@ and evaluate the results of integration tests.
 
 1. [colcon](https://github.com/ros2/ros2/wiki/Colcon-Tutorial) is used to build and run tests.
 2. [launch testing](https://github.com/ros2/launch/tree/master/launch_testing) launches nodes and runs tests.
-3. [Testing in general](testing-in-general.md) describes the big picture of testing.
+3. [Testing guidelines](index.md) describes the different types of tests performed in Autoware and links to the corresponding guidelines.
 
 ## Integration testing
 
@@ -74,12 +74,12 @@ Doing so adds smoke tests that ensure that a node can be:
 1. launched with a default parameter file,
 2. terminated with a standard `SIGTERM` signal,
 
-For the full API documentation, refer to the [package design page](autoware-testing-package-design.md).
+For the full API documentation, refer to the [package design page](https://github.com/autowarefoundation/autoware.universe/blob/main/common/autoware_testing/design/autoware_testing-design.md).
 
 !!! note
 
-This API is not suitable for all smoke test cases. For example, it cannot be used when a specific file location (eg: for a map) is required to be passed to the node, or if some preparation needs to be conducted before node launch.
-In such cases use the manual solution from the [component test section below](#integration-test-with-a-single-node-component-test).
+    This API is not suitable for all smoke test cases. For example, it cannot be used when a specific file location (eg: for a map) is required to be passed to the node, or if some preparation needs to be conducted before node launch.
+    In such cases use the manual solution from the [component test section below](#integration-test-with-a-single-node-component-test).
 
 ### Integration test with a single node: component test
 
@@ -208,7 +208,7 @@ build/lanelet2_map_provider/test_results/lanelet2_map_provider/test_lanelet2_map
 
 ### Next steps
 
-The simple test described in [Integration test with a single node: component test](integration-test-with-a-single-node-component-test) can be extended in numerous directions:
+The simple test described in [Integration test with a single node: component test](#integration-test-with-a-single-node-component-test) can be extended in numerous directions:
 
 #### Testing the output of a node
 
@@ -265,8 +265,3 @@ class TestRunningDataPublisher(unittest.TestCase):
         msg = self.get_message()
         self.assertEqual(msg, "Hello, world")
 ```
-
-#### Running multiple nodes together
-
-To run multiple nodes together, simply add more nodes to the launch description in `*launch.test.py`.
-The lidar stack has more elaborate examples on how to feed input and to test more than just the exit status of nodes; see [point_cloud_filter_transform_tf_publisher.test.py](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/blob/master/src/perception/filters/point_cloud_filter_transform_nodes/test/point_cloud_filter_transform_tf_publisher.test.py) for details.
