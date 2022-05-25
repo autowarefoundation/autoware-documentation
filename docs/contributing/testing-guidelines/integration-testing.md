@@ -78,8 +78,8 @@ For the full API documentation, refer to the [package design page](autoware-test
 
 !!! note
 
-   This API is not suitable for all smoke test cases. For example, it cannot be used when a specific file location (eg: for a map) is required to be passed to the node, or if some preparation needs to be conducted before node launch. 
-   In such cases use the manual solution from the [component test section below](#integration-test-with-a-single-node-component-test).
+This API is not suitable for all smoke test cases. For example, it cannot be used when a specific file location (eg: for a map) is required to be passed to the node, or if some preparation needs to be conducted before node launch.
+In such cases use the manual solution from the [component test section below](#integration-test-with-a-single-node-component-test).
 
 ### Integration test with a single node: component test
 
@@ -109,7 +109,7 @@ endif()
 
 The `TIMEOUT` argument is given in seconds; see [here](https://github.com/ros2/ros_testing/blob/master/ros_testing/cmake/add_ros_test.cmake) for details.
 
-To create a test, either read the [launch_testing quick-start example](https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example), or follow the steps below. 
+To create a test, either read the [launch_testing quick-start example](https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example), or follow the steps below.
 
 Let's look at `test/lanelet2_map_provider_launch.test.py` as an example.
 
