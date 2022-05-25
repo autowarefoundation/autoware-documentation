@@ -12,5 +12,5 @@ Refer to the following links for now:
 
 Also, keep in mind the following concepts.
 
-- Make things consistent.
+- Keep things consistent.
 - Don't stick to the parts that can't be automated.
