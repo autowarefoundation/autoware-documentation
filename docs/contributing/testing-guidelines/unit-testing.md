@@ -7,7 +7,7 @@ framework is also used to analyze the test results.
 CMake-based package and to ensure that JUnit-compatible result files are generated. It currently
 supports a few different testing frameworks like `pytest`, `gtest`, and `gmock`.
 
-In order to prevent tests running in parallel to interfere with each other when publishing and subscribing to ROS topics,
+In order to prevent tests running in parallel from interfering with each other when publishing and subscribing to ROS topics,
 it is recommended to use commands from [`ament_cmake_ros`](https://github.com/ros2/ament_cmake_ros/tree/master/ament_cmake_ros/cmake) to run tests in isolation.
 
 See below for an example of using `ament_add_ros_isolated_gtest` with `colcon test`.
@@ -54,8 +54,7 @@ This automatically links the test with the default main function provided by `gt
 To register a new `gtest` item, wrap the test code with the macro `TEST ()`. `TEST ()`
 is a predefined macro that helps generate the final test code, and also registers
 a `gtest` item to be available for execution.
-Test case name should be in CamelCase.
-This is as gtest inserts an underscore between the fixture name and the class case name when creating the test executable.
+The test case name should be in CamelCase, since gtest inserts an underscore between the fixture name and the class case name when creating the test executable.
 
 `gtest/gtest.h` also contains predefined macros of `gtest` like `ASSERT_TRUE(condition)`,
 `ASSERT_FALSE(condition)`, `ASSERT_EQ(val1,val2)`, `ASSERT_STREQ(str1,str2)`,
@@ -81,7 +80,7 @@ Test files are generated under `~/workspace/build/my_cool_pkg`.
 
 ## Run test
 
-To run test on a specific package, call:
+To run all tests for a specific package, call:
 
 ```{bash}
 colcon test --packages-select my_cool_pkg

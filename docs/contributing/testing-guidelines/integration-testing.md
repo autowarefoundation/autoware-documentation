@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This article motivates developers to adopt integration testing by explaining how to write, run,
+The purpose of this guide is to motivate developers to adopt integration testing best practices with Autoware by explaining how to write, run,
 and evaluate the results of integration tests.
 
 ## Quick reference
@@ -29,9 +29,9 @@ nodes. As a special case, testing a single node can be referred to as component 
 
 Integration tests help to find the following types of errors:
 
-- Incompatible interaction between nodes, such as non-matching topics, different message types, or incompatible QoS settings
-- Reveal edge cases that were not touched with unit tests, such as a critical timing issue, network communication delay, disk I/O failure, and many other problems that can occur in production environments
-- Using tools like `stress` and `udpreplay`, performance of nodes is tested with real data or while the system is under high CPU/memory load, where situations such as `malloc` failures can be detected
+- Incompatible interactions between nodes, such as non-matching topics, different message types, or incompatible QoS settings
+- Edge cases that were not touched by unit testing, such as a critical timing issue, network communication delays, disk I/O failures, and many other problems that can occur in production environments
+- Issues that can occur while the system is under high CPU/memory load, such as `malloc` failures. This can be tested using tools like `stress` and `udpreplay` to test the performance of nodes with real data.```
 
 With ROS 2, it is possible to program complex autonomous-driving applications with a large number
 of nodes. Therefore, a lot of effort has been made to provide an integration-test framework that
@@ -49,7 +49,7 @@ In Autoware, we use the [launch_testing](https://github.com/ros2/launch/tree/mas
 
 ### Smoke tests
 
-Autoware has dedicated API for smoke testing
+Autoware has a dedicated API for smoke testing
 
 To use this framework, in `package.xml` add:
 
@@ -69,15 +69,17 @@ if(BUILD_TESTING)
 endif()
 ```
 
-which adds smoke test that ensures that node can be:
+Doing so adds smoke tests that ensure that a node can be:
 
-1. launched with default parameter file,
+1. launched with a default parameter file,
 2. terminated with a standard `SIGTERM` signal,
 
-For full API documentation see [package design page](autoware-testing-package-design.md).
+For the full API documentation, refer to the [package design page](autoware-testing-package-design.md).
 
-This API is not suitable for all smoke test cases. For example, it can not be used when some specific file location,
-like map, is required to be passed to the node or some preparation need to be conducted before node launch. In such cases use manual solution from [section below](#integration-test-with-a-single-node-component-test).
+!!! note
+
+   This API is not suitable for all smoke test cases. For example, it cannot be used when a specific file location (eg: for a map) is required to be passed to the node, or if some preparation needs to be conducted before node launch. 
+   In such cases use the manual solution from the [component test section below](#integration-test-with-a-single-node-component-test).
 
 ### Integration test with a single node: component test
 
@@ -107,7 +109,7 @@ endif()
 
 The `TIMEOUT` argument is given in seconds; see [here](https://github.com/ros2/ros_testing/blob/master/ros_testing/cmake/add_ros_test.cmake) for details.
 
-To create test follow [launch_testing quick-start example](https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example).
+To create a test, either read the [launch_testing quick-start example](https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example), or follow the steps below. 
 
 Let's look at `test/lanelet2_map_provider_launch.test.py` as an example.
 
@@ -124,7 +126,7 @@ import pytest
 import unittest
 ```
 
-Then a launch description was created to launch the node under test. Note that `test_map.osm` file path is found and passed to the node. This is one of limitation of [smoke test](#integration-testing-smoke-test):
+Then a launch description is created to launch the node under test. Note that the `test_map.osm` file path is found and passed to the node, something that cannot be done with the [smoke testing API](#integration-testing-smoke-test):
 
 ```{python}
 @pytest.mark.launch_test
@@ -158,7 +160,7 @@ def generate_test_description():
     ), context
 ```
 
-and finally the test condition. As before, it is just a smoke test ensures the node can be
+and finally the test condition. As before, it is just a smoke test that ensures the node can be
 
 1. launched with its default parameter file,
 2. terminated with a standard `SIGTERM` signal,
