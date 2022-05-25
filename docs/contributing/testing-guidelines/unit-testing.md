@@ -73,8 +73,8 @@ that helps simplify adding `gtest` code. Details can be viewed in
 By default, all necessary test files (`ELF`, `CTesttestfile.cmake`, etc.) are compiled by `colcon`:
 
 ```{bash}
-ade$ cd ~/workspace/
-ade$ colcon build --packages-select my_cool_pkg
+cd ~/workspace/
+colcon build --packages-select my_cool_pkg
 ```
 
 Test files are generated under `~/workspace/build/my_cool_pkg`.
@@ -84,7 +84,7 @@ Test files are generated under `~/workspace/build/my_cool_pkg`.
 To run test on a specific package, call:
 
 ```{bash}
-ade$ colcon test --packages-select my_cool_pkg
+colcon test --packages-select my_cool_pkg
 
 Starting >>> my_cool_pkg
 Finished <<< my_cool_pkg [7.80s]
@@ -97,7 +97,7 @@ The test command output contains a brief report of all the test results.
 To get job-wise information of all executed tests, call:
 
 ```{bash}
-ade$ colcon test-result --all
+colcon test-result --all
 
 build/my_cool_pkg/test_results/my_cool_pkg/copyright.xunit.xml: 8 tests, 0 errors, 0 failures, 0 skipped
 build/my_cool_pkg/test_results/my_cool_pkg/cppcheck.xunit.xml: 6 tests, 0 errors, 0 failures, 0 skipped
@@ -117,7 +117,7 @@ To print the tests' details while the tests are being run, use the
 `--event-handlers console_cohesion+` option to print the details directly to the console:
 
 ```{bash}
-ade$ colcon test --event-handlers console_cohesion+ --packages-select my_cool_pkg
+colcon test --event-handlers console_cohesion+ --packages-select my_cool_pkg
 
 ...
 test 1

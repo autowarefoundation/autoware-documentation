@@ -179,28 +179,27 @@ class TestProcessOutput(unittest.TestCase):
 Continuing the example from above, first build
 
 ```{bash}
-$ ade enter
-ade$ cd AutowareCore
-ade$ colcon build --packages-up-to lanelet2_map_provider
-ade$ source install/setup.bash
+cd AutowareCore
+colcon build --packages-up-to lanelet2_map_provider
+source install/setup.bash
 ```
 
 then either execute the component test manually
 
 ```{bash}
-ade$ ros2 test src/mapping/had_map/lanelet2_map_provider/test/lanelet2_map_provider_launch.test.py
+ros2 test src/mapping/had_map/lanelet2_map_provider/test/lanelet2_map_provider_launch.test.py
 ```
 
 or as part of testing the entire package:
 
 ```{bash}
-ade$ colcon test --packages-select lanelet2_map_provider
+colcon test --packages-select lanelet2_map_provider
 ```
 
 Verify that the test is executed; e.g.
 
 ```{bash}
-ade$ colcon test-result --all --verbose
+colcon test-result --all --verbose
 ...
 build/lanelet2_map_provider/test_results/lanelet2_map_provider/test_lanelet2_map_provider_launch.test.py.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped
 ```
