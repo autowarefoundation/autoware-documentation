@@ -1,42 +1,41 @@
 # Simulation tutorials
 
-This page explains how to try out Autoware through simulations.
-
-There are some methods and types of simulations.
-Read the following sections and choose a simulation method/type you want
-
-See the left sidebar for how to run each simulation.
-
-!!! warning
-
-    The namings of each simulation are under discussion and would be changed in the near future.
+Simulations provide a way of verifying Autoware's functionality before field testing with an actual vehicle.  
+There are three main types of simulation that can be run ad hoc or via a scenario runner.
 
 ## Simulation methods
 
 ### Ad hoc simulation
 
-Ad hoc simulation is a simulation method that you run simulations flexibly on your local machine.
-It is recommended for your first trial.
+Ad hoc simulation is a flexible method for running basic simulations on your local machine, and is the recommended method for anyone new to Autoware.
 
 ### Scenario simulation
 
-Scenario simulation is a simulation method that a scenario runner runs simulations based on scenarios you defined.
-It is often run automatically on a CI system, but you can also run this simulation on your local machine.
+Scenario simulation uses a scenario runner to run more complex simulations based on predefined scenarios.
+It is often run automatically for continuous integration purposes, but can also be run on a local machine.
 
 ## Simulation types
 
-Autoware supports three types of simulations.  
-Note that it is just a rough classification, and that there are several minor derivative versions.
-
 ### Planning simulation
 
-Planning simulation is a simulation type that uses simple dummy data and tests mainly planning/control components.
+Planning simulation uses simple dummy data to test the Planning and Control components - specifically path generation, path following and obstacle avoidance. It verifies that a vehicle can reach a goal destination while avoiding pedestrians and surrounding cars, and is another method for verifying the validity of Lanelet2 maps.
+
+#### How does planning simulation work?
+
+1. Generate a path to the goal destination
+2. Control the car along the generated path
+3. Detect and avoid any humans or other vehicles on the way to the goal destination
+
+!!! note
+
+    For real-world operation, we also need to detect and handle traffic lights. 
+    However, planning simulation does not verify this functionality.
 
 ### Rosbag replay simulation
 
-Rosbag replay simulation is a simulation type that uses Rosbag data and tests mainly perception modules.
-Sometimes it is used for endurance tests by repeatedly playing back the data.
+Rosbag replay simulation uses prerecorded rosbag data to test aspects of the Localization and Perception components (eg: object recognition).
+By repeatedly playing back the data, this simulation type can also be used for endurance testing.
 
 ### Digital twin simulation
 
-Digital twin simulation is a simulation type that produces realistic data and simulate almost the entire system.
+Digital twin simulation is a simulation type that is able to produce realistic data and simulate almost the entire system. It is also commonly referred to as end-to-end simulation.
