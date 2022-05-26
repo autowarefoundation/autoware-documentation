@@ -1,4 +1,4 @@
-# Using digital twin simulation with scenario test
+# Running scenario test with digital twin simulation
 
 !!! warning
 
