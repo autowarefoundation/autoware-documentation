@@ -1,4 +1,4 @@
-# How-to guides
+# Advanced
 
 - [Running Autoware without CUDA](running-autoware-without-cuda.md)
 - [Advanced usage of colcon](advanced-usage-of-colcon.md)
