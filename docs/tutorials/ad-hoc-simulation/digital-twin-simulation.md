@@ -1,5 +1,4 @@
-# Simulating Autoware in digital twin simulator
-
+# Navigating digital twin simulation
 !!! warning
 
     Under Construction

@@ -1,4 +1,4 @@
-# Simulating Autoware in digital twin simulator with scenario test
+# Navigating digital twin simulation with scenario test
 
 !!! warning
 

@@ -1,5 +1,4 @@
-# Simulating Autoware's planning behaviors
-
+# Navigating planning simulation
 ## Preparation
 
 1. Download and unpack a sample map.

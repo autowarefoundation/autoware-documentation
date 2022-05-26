@@ -1,4 +1,4 @@
-# Simulating Autoware by playing rosbag with scenario test
+# Navigation rosbag replay simulation with scenario test
 
 !!! warning
 
