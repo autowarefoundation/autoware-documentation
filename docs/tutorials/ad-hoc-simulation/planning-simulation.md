@@ -1,4 +1,4 @@
-# Navigating planning simulation
+# Using planning simulation
 ## Preparation
 
 1. Download and unpack a sample map.

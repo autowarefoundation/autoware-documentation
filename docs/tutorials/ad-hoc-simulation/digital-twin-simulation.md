@@ -1,4 +1,4 @@
-# Navigating digital twin simulation
+# Using digital twin simulation
 !!! warning
 
     Under Construction

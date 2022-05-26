@@ -1,4 +1,4 @@
-# Navigating rosbag replay simulation
+# Using rosbag replay simulation
 ## Steps
 
 1. Download and unpack a sample map.
