@@ -1,4 +1,4 @@
-# Using digital twin simulation
+# Using a digital twin simulation
 
 !!! warning
 

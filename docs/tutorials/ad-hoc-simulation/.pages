@@ -1,5 +1,5 @@
 nav:
   - index.md
-  - planning-simulation.md
-  - rosbag-replay-simulation.md
-  - digital-twin-simulation.md
+  - using-a-planning-simulation.md
+  - using-a-rosbag-replay-simulation.md
+  - using-a-digital-twin-simulation.md

@@ -1,4 +1,4 @@
-# Using planning simulation
+# Using a planning simulation
 
 ## Preparation
 

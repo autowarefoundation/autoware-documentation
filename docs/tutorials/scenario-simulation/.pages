@@ -1,4 +1,4 @@
 nav:
-  - running-scenario-test-with-planning-simulation
-  - rosbag-replay-simulation.md
-  - digital-twin-simulation.md
+  - running-a-scenario-test-with-a-planning-simulation
+  - running-a-scenario-test-with-a-rosbag-replay-simulation.md
+  - running-a-scenario-test-with-a-digital-twin-simulation.md
