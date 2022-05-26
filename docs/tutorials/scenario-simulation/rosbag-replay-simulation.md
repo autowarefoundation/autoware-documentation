@@ -1,4 +1,4 @@
-# Using rosbag replay simulation with scenario test
+# Running scenario test with rosbag replay simulation
 
 !!! warning
 
