@@ -2,15 +2,16 @@
 
 ## 1. Integrate Autoware with differential drive vehicle
 
-Currently, Autoware assumes the robot to be driven by Ackermann Command
+Currently, Autoware assumes the robot to be driven by Ackermann Command that mainly consists of steering angle and velocity (see [the definition of AckermannControlCommands.idl](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl) for details)
 
-（編注：Ackermann コマンドの説明少し図とかで簡単に描きたい）
+However, it is also possible to integrate Autoware with differential drive robot, by properly translating Ackermann Command to differential drive command.
 
-However, it is also possible to integrate Autoware with differential drive robot, by properly translating Ackermann Command to diff-drive command
 
 ## 2. How-to
 
 Create a vehicle_interface package that translates Ackermann Command to differential drive commands.
+
+
 
 ## 3. Known issues
 
