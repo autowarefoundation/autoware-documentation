@@ -1,5 +1,4 @@
-# Rosbag replay simulation
-
+# Simulating Autoware by playing rosbag
 ## Steps
 
 1. Download and unpack a sample map.

@@ -1,4 +1,4 @@
-# Digital twin simulation
+# Simulating Autoware in digital twin simulator
 
 !!! warning
 

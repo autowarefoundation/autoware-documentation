@@ -1,4 +1,4 @@
-# Planning simulation
+# Simulating Autoware's planning behaviors
 
 ## Preparation
 
