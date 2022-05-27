@@ -30,7 +30,6 @@ where `l` denotes wheel tread.
 
 For general requirements for `vehicle_interface` package, please refer to [the description of `vehicle_interface`](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/) for detail.
 
-
 ## 3. Known issues
 
 ### Motion model incompatibility
