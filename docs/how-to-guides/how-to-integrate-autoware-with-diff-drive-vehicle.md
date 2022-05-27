@@ -14,19 +14,22 @@ This section briefly explains one of the ways to use Autoware for differential d
 One simple way is to create a `vehicle_interface` package that translate Ackermann command to differential drive command.
 Ackermann command in Autoware mainly consists of two main control inputs:
 
-- steering angle (w)
-- velocity (v)
+- steering angle ($\omega$)
+- velocity ($v$)
 
 while the typical differential drive command consists of the following inputs:
 
-- left wheel velocity (v_l)
-- right wheel velocity (v_r)
+- left wheel velocity ($v_l$)
+- right wheel velocity ($v_r$)
 
 For example, Ackermann command can be converted to differential drive command with the following equations:
 
-![Ackermann command to diff-drive command](images/how-to-integrate-autoware-with-diff-drive-vehicle/ackermann_to_diff_drive.png){: style="height:180px;width:320px"}
+$$
+v_l = v - \frac{l\omega}{2}, 
+v_r = v + \frac{l\omega}{2}
+$$
 
-where `l` denotes wheel tread.
+where $l$ denotes wheel tread.
 
 For general requirements for `vehicle_interface` package, please refer to [the description of `vehicle_interface`](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/) for detail.
 
