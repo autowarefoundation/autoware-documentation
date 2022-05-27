@@ -1,4 +1,4 @@
 nav:
   - index.md
-  - ad-hoc-simulation
-  - scenario-simulation
+  - Simulating-Autoware
+  - running-scenario-test

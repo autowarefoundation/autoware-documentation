@@ -1,4 +1,4 @@
-# Using rosbag replay simulation
+# Using a rosbag replay simulation
 
 ## Steps
 
