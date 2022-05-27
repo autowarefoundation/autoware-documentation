@@ -12,7 +12,7 @@ While it was successful in attracting many developers and contributions, there w
 From the lessons learned from Autoware.AI development, a different development process was taken for Autoware.Auto to develop a ROS 2 version of Autoware.
 
 !!! warning
-    Autoware.AI is currently in maintenance mode and will reach end-of-life at the end of 2022.
+Autoware.AI is currently in maintenance mode and will reach end-of-life at the end of 2022.
 
 ## Autoware.Auto
 
@@ -24,7 +24,7 @@ Autoware.Auto development seemed to work fine initially, but after completing th
   - A lot of work was required to merge new features into Autoware.Auto, and so it was difficult for researchers and students to contribute to development.
   - As a consequence, most Autoware.Auto developers were from companies in the Autoware Foundation and so there were very few people who were able to add state-of-the-art features from research papers.
 - Making large scale architecture changes was too difficult
-   - To try out experimental architecture, there was a very large overhead involved in keeping the main branch stable whilst also making sure that every change satisfied the continuous integration requirements.
+  - To try out experimental architecture, there was a very large overhead involved in keeping the main branch stable whilst also making sure that every change satisfied the continuous integration requirements.
 
 ## Autoware Core/Universe
 
