@@ -1,19 +1,22 @@
 # How is Autoware Core/Universe Different from Autoware.AI and Autoware.Auto
 
-Autoware is the world's first "all-in-one" open-source software for self-driving vehicles. Since it was released in 2015, we had multiple releases with different concepts to improve our software.　
-
+Autoware is the world's first "all-in-one" open-source software for self-driving vehicles. Since it was released in 2015, we had multiple releases with different concepts to improve our software.
 
 ## Autoware.AI
-[Autoware.AI](https://github.com/Autoware-AI/autoware.ai) is the first distribution of Autoｗare that was released based on ROS1. The repository contains different packages to cover different aspects of autonomous driving technologies, including sensing, actuation, localization, mapping, perception, planning, and so on. While it successfully attracted many developers and had many contributions, we did not have particular use-cases or ODD defined for the software. It also lacked design documents to specify architecture, and each packages had different coding standards with very low test coverage. From the lessons learned from Autoware.AI development, we have decided to take different development process for Autoware.Auto to develop ROS2 version of Autoware.
+
+[Autoware.AI](https://github.com/Autoware-AI/autoware.ai) is the first distribution of Auto ｗ are that was released based on ROS1. The repository contains different packages to cover different aspects of autonomous driving technologies, including sensing, actuation, localization, mapping, perception, planning, and so on. While it successfully attracted many developers and had many contributions, we did not have particular use-cases or ODD defined for the software. It also lacked design documents to specify architecture, and each packages had different coding standards with very low test coverage. From the lessons learned from Autoware.AI development, we have decided to take different development process for Autoware.Auto to develop ROS2 version of Autoware.
 
 Note that Autoware.AI is currently in maintenance mode and is planning to finish commitment to the repository after end of 2022.
 
 ## Autoware.Auto
+
 [Autoware.Auto](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto) is an autononous driving software based on ROS2. When we did transition to ROS2, we decided not to do simple porting of ROS1 to ROS2 of Autoware.AI. Instead, we went for rewriting the code basically from scratch with proper engineering practices, including defining target use case (AVP, cargo delivery, etc), designing architecture, writing design documents and test codes.
 
 Autoware.Auto seemed to work fine initially, but after going under development of AVP and Cargo Delivery, we started to see some of the following issues:
-* The requirement set for merging features into Autoware.Auto is high, and it became difficult for researchers and students to join in to the development. Most of the developers of Autoware.Auto is from the companies who are in AWF organization. As a result, lacked place to have state-of-the-art features from papers.
-* What we also saw was that when we were trying to make a relatively large change to the code in architecture level, it was difficult to do on main branch of Autoware.Auto. To try out experimental architecture, we had very large overhead to keep main branch stable and also making sure every change satisfied the CI.
+
+- The requirement set for merging features into Autoware.Auto is high, and it became difficult for researchers and students to join in to the development. Most of the developers of Autoware.Auto is from the companies who are in AWF organization. As a result, lacked place to have state-of-the-art features from papers.
+- What we also saw was that when we were trying to make a relatively large change to the code in architecture level, it was difficult to do on main branch of Autoware.Auto. To try out experimental architecture, we had very large overhead to keep main branch stable and also making sure every change satisfied the CI.
 
 ## Autoware.Core/Unvierse
+
 In order to address issues we had in Autoware.Auto, we have decided to maintain code base with Autoware Core/Universe architecture. Autoware.Core would carry-over the policy of Autoware.Auto with a stable, well-tested code. In addition to that, we have created new repository Autoware.Universe which would act as an extension of Autoware.Core, where users can choose to replace a component (e.g. localization module) of Core with Universe component if they wish to use experimental features. Universe would have more relexed code quality requirements compared to Core, but wouldn't be as loose as Autoware.AI. If we find features in Universe to be useful, we could also have AWF engineers porting those codes to be merged into Core as well. This way, we aim to achieve both requirements to have a stable and safe autonomous driving system while enabling access to state-of-the-art features generated by third-party contributors.
