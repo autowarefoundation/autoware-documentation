@@ -30,8 +30,8 @@ sudo apt-get -y install git
 
 ### Installing dependencies manually
 
-- [Install ROS2](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2#manual-installation)
-- [Install ROS2 Dev Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2_dev_tools#manual-installation)
+- [Install ROS 2](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2#manual-installation)
+- [Install ROS 2 Dev Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2_dev_tools#manual-installation)
 - [Install the RMW Implementation](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rmw_implementation#manual-installation)
 - [Install pacmod](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/pacmod#manual-installation)
 - [Install Autoware Core dependencies](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/autoware_core#manual-installation)
