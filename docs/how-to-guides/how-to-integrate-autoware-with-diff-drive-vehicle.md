@@ -25,7 +25,7 @@ while the typical differential drive command consists of the following inputs:
 For example, Ackermann command can be converted to differential drive command with the following equations:
 
 $$
-v_l = v - \frac{l\omega}{2}, 
+v_l = v - \frac{l\omega}{2},
 v_r = v + \frac{l\omega}{2}
 $$
 
