@@ -7,12 +7,6 @@ Thus, the Autoware interfaces adopts Ackermann commands format for the output of
 
 However, it is possible to integrate Autoware with a vehicle that follows a differential drive kinematic model, which is common especially for small mobile robots.
 
-<<<<<<< HEAD
-
-## 2. How-to
-
-=======
-
 ## 2. Procedure
 
 This section briefly explains one of the ways to use Autoware for differential drive vehicles.
@@ -23,14 +17,10 @@ Ackermann command in Autoware mainly consists of two main control inputs:
 - steering angle (w)
 - velocity (v)
 
-> > > > > > > 13cdc82 (added equation and some more descriptions)
-
 while the typical differential drive command consists of the following inputs:
 
 - left wheel velocity (v_l)
 - right wheel velocity (v_r)
-
-# <<<<<<< HEAD
 
 For example, Ackermann command can be converted to differential drive command with the following equations:
 
@@ -40,7 +30,6 @@ where `l` denotes wheel tread.
 
 For general requirements for `vehicle_interface` package, please refer to [the description of `vehicle_interface`](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/) for detail.
 
-> > > > > > > 13cdc82 (added equation and some more descriptions)
 
 ## 3. Known issues
 
