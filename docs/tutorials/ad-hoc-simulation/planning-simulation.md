@@ -17,53 +17,77 @@
 
 ## How to run a planning simulation
 
-1. Launch Autoware.
+### Launch Autoware
 
-   ```sh
-   source ~/autoware/install/setup.bash
-   ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/Downloads/sample-map-planning vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
-   ```
+```sh
+source ~/autoware/install/setup.bash
+ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/Downloads/sample-map-planning vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+```
 
-   Note that you cannot use `~` instead of `$HOME` here.
+Note that you cannot use `~` instead of `$HOME` here.
 
-   ![after-autoware-launch](images/planning/lane-following/after-autoware-launch.png)
+![after-autoware-launch](images/planning/lane-following/after-autoware-launch.png)
 
-2. Set an initial pose for the ego vehicle.
+### Open Autoware State Panel
 
-   - a) Click the `2D Pose estimate` button in the toolbar, or hit the `P` key
-   - b) In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the initial pose.
+This panel is useful when we start planning simulation. Click `Panels -> Add new panel`, select `AutowareStatePanel`, and then press `OK`.
 
-   ![set-initial-pose](images/planning/lane-following/set-initial-pose.png)
+![after-autoware-launch](images/planning/lane-following/open-autoware-state-panel.png)
 
-3. Set a goal pose for the ego vehicle.
+### Set an initial pose for the ego vehicle
 
-   - a) Click the `2D Nav Goal` button in the toolbar, or hit the `G` key
-   - b) In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the goal pose.
+1. Click the `2D Pose estimate` button in the toolbar, or hit the `P` key.
+2. In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the initial pose. The car should be placed in the right direction according to the lane(you can check the arrow on the lane). Now you will see a car on the Rviz.
 
-   ![set-goal-pose](images/planning/lane-following/set-goal-pose.png)
+![set-initial-pose](images/planning/lane-following/set-initial-pose.png)
 
-4. To place a dummy object such as a pedestrian, click the `2D Dummy Pedestrian` button in the toolbar.
+### Set a goal pose for the ego vehicle
 
-   ![set-dummy-pedestrian](images/planning/lane-following/set-dummy-pedestrian.png)
+1. Click the `2D Nav Goal` button in the toolbar, or hit the `G` key
+2. In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the goal pose. Keep in mind to set the goal pose aligned with the lane direction. Otherwise the path will not be planned. Now you will see a planned path.
 
-5. Engage the ego vehicle.
+![set-goal-pose](images/planning/lane-following/set-goal-pose.png)
 
-   ```bash
-   source ~/autoware/install/setup.bash
-   ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: true" -1
-   ```
+### Place a dummy object
 
-   ![start-driving](images/planning/lane-following/start-driving.png)
+You can skip this step.
 
-6. To delete objects, click the `Delete All Objects` button in the toolbar.
+To place a dummy car/pedestrian, click the `2D Dummy Car` and/or `2D Dummy Pedestrian` button in the toolbar, and then set its pose by dragging on the map. You can set its velocity in `Tool Properties -> 2D Dummy Car/Pedestrian` panel. In the image the velocity is set to 0.
 
-   ![delete-objects](images/planning/lane-following/delete-objects.png)
+![set-dummy-car](images/planning/lane-following/place-dummy-car.png)
 
-7. After that, the vehicle will restart driving and reach the goal.
+To delete those objects, click the `Delete All Objects` button in the toolbar.
 
-   ![restart-driving](images/planning/lane-following/restart-driving.png)
+### Set traffic light
 
-   ![reach-goal](images/planning/lane-following/reach-goal.png)
+You can skip this step.
+
+To simulate traffic light recognition, go to `Panels -> Add new panel`, select `TrafficLightPublishPanel`, and then press `OK`. Then in the panel you need to set the `ID` and color of the traffic light.
+
+You can check the `ID` of the traffic light by searching for `traffic` tag in `lanelet2_map.osm`. In the image there is one traffic light whose `ID` is 34836 and its color is `SET` to `RED`.
+
+![set-traffic-light](images/planning/lane-following/set-traffic-light.png)
+
+By clicking `PUBLISH` button the traffic light status is sent to the simulator, and the planned path changes accordingly.
+
+![send-traffic-light-color](images/planning/lane-following/send-traffic-light-color.png)
+
+### Engage the ego vehicle
+
+Now you can start driving by clicking `Engage` button in `AutowareStatePanel`. Or you can also manually `engage` the vehicle by running this command.
+
+```bash
+source ~/autoware/install/setup.bash
+ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: true" -1
+```
+
+![start-driving](images/planning/lane-following/engage-and-start-planning.png)
+
+### Reset traffic light
+
+You can reset the color of the traffic light and let the vehicle make a turn at the intersection.
+
+![after-traffic-light-color-update](images/planning/lane-following/after-traffic-light-color-update.png)
 
 ## How to simulate parking maneuvers
 

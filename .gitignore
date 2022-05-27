@@ -10,3 +10,4 @@
 .history/
 *.code-workspace
 *.vsix
+site/
