@@ -12,7 +12,8 @@ While it was successful in attracting many developers and contributions, there w
 From the lessons learned from Autoware.AI development, a different development process was taken for Autoware.Auto to develop a ROS 2 version of Autoware.
 
 !!! warning
-Autoware.AI is currently in maintenance mode and will reach end-of-life at the end of 2022.
+
+    Autoware.AI is currently in maintenance mode and will reach end-of-life at the end of 2022.
 
 ## Autoware.Auto
 
