@@ -18,4 +18,4 @@ While performing integration testing, the following subtypes of tests are writte
 4. Anomaly detection during integration testing
 5. Random input testing
 
-[Integration testing guidelines](integration-testing.md)
+For details, see the [Integration testing guidelines](integration-testing.md).
