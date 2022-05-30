@@ -10,4 +10,6 @@
 .history/
 *.code-workspace
 *.vsix
+
+# MkDocs
 site/
