@@ -53,13 +53,13 @@ Autoware has a dedicated API for smoke testing
 
 To use this framework, in `package.xml` add:
 
-```{xml}
+```xml
 <test_depend>autoware_testing</test_depend>
 ```
 
 and in `CMakeLists.txt` add:
 
-```{cmake}
+```cmake
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
@@ -89,13 +89,13 @@ To add a component test to an existing node, follow the example of the `lanelet2
 
 In `package.xml`, add
 
-```{xml}
+```xml
 <test_depend>ros_testing</test_depend>
 ```
 
 In `CMakeLists.txt`, add or modify the `BUILD_TESTING` section:
 
-```{cmake}
+```cmake
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
@@ -115,7 +115,7 @@ Let's look at `test/lanelet2_map_provider_launch.test.py` as an example.
 
 The essential content is to first import dependencies:
 
-```{python}
+```python
 from ament_index_python import get_package_share_directory
 from launch import LaunchDescription
 from launch_ros.actions import Node
@@ -128,7 +128,7 @@ import unittest
 
 Then a launch description is created to launch the node under test. Note that the `test_map.osm` file path is found and passed to the node, something that cannot be done with the [smoke testing API](#smoke-tests):
 
-```{python}
+```python
 @pytest.mark.launch_test
 def generate_test_description():
 
@@ -167,7 +167,7 @@ and finally the test condition. As before, it is just a smoke test that ensures 
 
 so the test code is executed after the node executable has been shut down (`post_shutdown_test`):
 
-```{python}
+```python
 @launch_testing.post_shutdown_test()
 class TestProcessOutput(unittest.TestCase):
 
@@ -180,27 +180,26 @@ class TestProcessOutput(unittest.TestCase):
 
 Continuing the example from above, first build
 
-```{bash}
-cd AutowareCore
+```bash
 colcon build --packages-up-to lanelet2_map_provider
 source install/setup.bash
 ```
 
 then either execute the component test manually
 
-```{bash}
+```bash
 ros2 test src/mapping/had_map/lanelet2_map_provider/test/lanelet2_map_provider_launch.test.py
 ```
 
 or as part of testing the entire package:
 
-```{bash}
+```bash
 colcon test --packages-select lanelet2_map_provider
 ```
 
 Verify that the test is executed; e.g.
 
-```{bash}
+```bash
 colcon test-result --all --verbose
 ...
 build/lanelet2_map_provider/test_results/lanelet2_map_provider/test_lanelet2_map_provider_launch.test.py.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped
@@ -214,7 +213,7 @@ The simple test described in [Integration test with a single node: component tes
 
 To test while the node is running, create an [_active test_](https://github.com/ros2/launch/tree/foxy/launch_testing#active-tests) by adding a subclass of Python's `unittest.TestCase` to `*launch.test.py`. Some boilerplate code is required to access output by creating a node and a subscription to a particular topic; e.g.
 
-```{python}
+```python
 import unittest
 
 class TestRunningDataPublisher(unittest.TestCase):
