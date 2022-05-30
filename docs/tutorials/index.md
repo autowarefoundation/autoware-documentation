@@ -33,6 +33,7 @@ Planning simulation uses simple dummy data to test the Planning and Control comp
 ### Rosbag replay simulation
 
 Rosbag replay simulation uses prerecorded rosbag data to test the following aspects of the Localization and Perception components:
+
 - Localization: Estimatation of the vehicle's location on the map by matching sensor and vehicle feedback data to the map.
 - Perception: Using sensor data to detect, track and predict dynamic objects such as surrounding cars, pedestrians, and other objects
 
