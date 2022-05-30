@@ -126,7 +126,7 @@ import pytest
 import unittest
 ```
 
-Then a launch description is created to launch the node under test. Note that the `test_map.osm` file path is found and passed to the node, something that cannot be done with the [smoke testing API](#integration-testing-smoke-test):
+Then a launch description is created to launch the node under test. Note that the `test_map.osm` file path is found and passed to the node, something that cannot be done with the [smoke testing API](#smoke-tests):
 
 ```{python}
 @pytest.mark.launch_test
