@@ -87,7 +87,7 @@ int32[] unbounded_integer_array
 
 ## Enumerations
 
-ROS2 interfaces don't support enumerations directly.
+ROS 2 interfaces don't support enumerations directly.
 
 It is possible to define integers constants and assign them to a non-constant integer parameter.
 
