@@ -17,7 +17,7 @@ All other tests follow a similar pattern.
 
 In `my_cool_pkg/test`, create the `gtest` code file `test_my_cool_pkg.cpp`:
 
-```{cpp}
+```cpp
 #include "gtest/gtest.h"
 #include "my_cool_pkg/my_cool_pkg.hpp"
 TEST(TestMyCoolPkg, TestHello) {
@@ -30,14 +30,14 @@ For more examples of `gtest` features, see the
 
 In `package.xml`, add the following line:
 
-```{xml}
+```xml
 <test_depend>ament_cmake_ros</test_depend>
 ```
 
 Next add an entry under `BUILD_TESTING` in the `CMakeLists.txt` to compile the test
 source files:
 
-```{cmake}
+```cmake
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
@@ -71,7 +71,7 @@ that helps simplify adding `gtest` code. Details can be viewed in
 
 By default, all necessary test files (`ELF`, `CTesttestfile.cmake`, etc.) are compiled by `colcon`:
 
-```{bash}
+```bash
 cd ~/workspace/
 colcon build --packages-select my_cool_pkg
 ```
@@ -82,7 +82,7 @@ Test files are generated under `~/workspace/build/my_cool_pkg`.
 
 To run all tests for a specific package, call:
 
-```{bash}
+```bash
 colcon test --packages-select my_cool_pkg
 
 Starting >>> my_cool_pkg
@@ -95,7 +95,7 @@ The test command output contains a brief report of all the test results.
 
 To get job-wise information of all executed tests, call:
 
-```{bash}
+```bash
 colcon test-result --all
 
 build/my_cool_pkg/test_results/my_cool_pkg/copyright.xunit.xml: 8 tests, 0 errors, 0 failures, 0 skipped
@@ -115,7 +115,7 @@ containing symbolic links to the most recent package-level build and test output
 To print the tests' details while the tests are being run, use the
 `--event-handlers console_cohesion+` option to print the details directly to the console:
 
-```{bash}
+```bash
 colcon test --event-handlers console_cohesion+ --packages-select my_cool_pkg
 
 ...
