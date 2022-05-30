@@ -1,6 +1,6 @@
-# Unit Testing
+# Unit testing
 
-Autoware.Auto uses the `ament_cmake` framework to build and run tests. The same
+Autoware uses the `ament_cmake` framework to build and run tests. The same
 framework is also used to analyze the test results.
 
 `ament_cmake` provides several convenience functions to make it easy to register tests in a
@@ -69,7 +69,7 @@ that helps simplify adding `gtest` code. Details can be viewed in
 
 ## Build test
 
-By default, all necessary test files (`ELF`, `CTesttestfile.cmake`, etc.) are compiled by `colcon`:
+By default, all necessary test files (`ELF`, `CTestTestfile.cmake`, etc.) are compiled by `colcon`:
 
 ```bash
 cd ~/workspace/

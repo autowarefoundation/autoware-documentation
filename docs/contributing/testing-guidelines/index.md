@@ -1,12 +1,11 @@
 # Testing guidelines
 
-## Unit tests
+## Unit testing
 
-Unit Testing is a software testing method by which individual units of source code are tested to determine whether they are fit for use.
+Unit testing is a software testing method that tests individual units of source code to determine whether they satisfy the specification.
 
-The tool used for unit testing in Autoware is `gtest`.
 
-[Unit testing guidelines](unit-testing.md)
+For details, see the [Unit testing guidelines](unit-testing.md).
 
 ## Integration tests
 
@@ -15,9 +14,9 @@ Integration Testing combines and tests the individual software modules as a grou
 While performing integration testing, the following subtypes of tests are written:
 
 1. Fault injection testing
-1. Back-to-back comparison between a model and code
-1. Requirements-based testing
-1. Anomaly detection during integration testing
-1. Random input testing
+2. Back-to-back comparison between a model and code
+3. Requirements-based testing
+4. Anomaly detection during integration testing
+5. Random input testing
 
 [Integration testing guidelines](integration-testing.md)
