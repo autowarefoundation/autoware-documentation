@@ -36,8 +36,10 @@ Autoware.Auto development seemed to work fine initially, but after completing th
 
 In order to address the issues with Autoware.Auto development, the Autoware Foundation decided to create a new architecture called Autoware Core/Universe.
 
-Autoware Core carries over the original policy of Autoware.Auto to be a stable and well-tested codebase. Alongside Autoware Core is a new concept called Autoware Universe which acts as an extension of Autoware Core. Autoware Universe allows users to replace a component (e.g. the Localization module) of Core with a Universe component in order to use more advanced features.
+Autoware Core carries over the original policy of Autoware.Auto to be a stable and well-tested codebase. Alongside Autoware Core is a new concept called Autoware Universe, which acts as an extension of Autoware Core with the following benefits:
 
-Universe has a more relaxed code quality requirements compared to Core, but will not be as loose as that of Autoware.AI. Also, if any features added to Universe are deemed to be useful to the wider community, AWF engineers could potential port that code for merging into Core.
+- Users can easily replace a Core component with a Universe equivalent in order to use more advanced features, such as a new Localization or Perception algorithm.
+- Code quality requirements for Universe are more relaxed to make it easier for new developers, students and researchers to contribute, but will still be stricter than the requirements for Autoware.AI.
+- Any advanced features added to Universe that are useful to the wider Autoware community will be reviewed and considered for potential inclusion in the main Autoware Core codebase.
 
-This way, the primary requirement of having a stable and safe autonomous driving system can be achieved, whilst simultaneously enabling access to state-of-the-art features created by third-party contributors.
+This way, the primary requirement of having a stable and safe autonomous driving system can be achieved, whilst simultaneously enabling access to state-of-the-art features created by third-party contributors. For more details about  the design of Autoware Core/Universe, refer to the [Autoware concepts documentation page]( https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts/).
