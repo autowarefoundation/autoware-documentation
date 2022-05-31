@@ -3,7 +3,6 @@
 ## Prerequisites
 
 - OS
-
   - [Ubuntu 20.04](https://releases.ubuntu.com/20.04/) (**active development**)
   - [Ubuntu 22.04](https://releases.ubuntu.com/22.04/) (**will be supported in 2022**)
 
