@@ -22,7 +22,7 @@ From the lessons learned from Autoware.AI development, a different development p
 
 ## Autoware.Auto
 
-[Autoware.Auto](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto) is an autonomous driving software based on ROS 2. As part of the transition to ROS 2, it was decided to avoid simply porting Autoware.AI from ROS 1 to ROS 2. Instead, the codebase was rewritten from scratch with proper engineering practices, including defining target use cases and ODDs (eg: Autonomous Valet Parking [AVP], Cargo Delivery, etc.), designing a proper architecture, writing design documents and test code.
+[Autoware.Auto](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto) is the second distribution of Autoware that was released based on ROS 2. As part of the transition to ROS 2, it was decided to avoid simply porting Autoware.AI from ROS 1 to ROS 2. Instead, the codebase was rewritten from scratch with proper engineering practices, including defining target use cases and ODDs (eg: Autonomous Valet Parking [AVP], Cargo Delivery, etc.), designing a proper architecture, writing design documents and test code.
 
 Autoware.Auto development seemed to work fine initially, but after completing the AVP and and Cargo Delivery ODD projects, we started to see the following issues:
 
