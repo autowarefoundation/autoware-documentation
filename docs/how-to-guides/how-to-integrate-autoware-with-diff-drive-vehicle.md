@@ -12,11 +12,12 @@ However, it is possible to integrate Autoware with a vehicle that follows a diff
 This section briefly explains one of the ways to use Autoware for differential drive vehicles.
 One simple way is to create a `vehicle_interface` package that translates the Ackermann command to the differential drive command.
 Here are two points that you need to consider:
+
 - Create `vehicle_interface` package for differential drive vehicle
 - Set an appropriate `wheel_base`
 
-
 ### 2.1 Create `vehicle_interface` package for differential drive vehicle
+
 Ackermann command in Autoware mainly consists of two main control inputs:
 
 - steering angle ($\omega$)
@@ -39,13 +40,13 @@ where $l$ denotes wheel tread.
 For general requirements for `vehicle_interface` package, please refer to [the description of `vehicle_interface`](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/) for detail.
 
 ### 2.2 Set an appropriate `wheel_base`
+
 Differential drive robot does not necessarily have front and rear wheels, which means that the wheel base may not exist, although Autoware currently requires `wheel_base` to be given in `vehicle_info.param.yaml`.
-Thus, you need to set a pseudo value for `wheel_base`. 
+Thus, you need to set a pseudo value for `wheel_base`.
 
 Recommended value for `wheel_base` depends on the size of your vehicle. Setting it as the same value as `wheel_tread` would be one of the choices.
 
 Note that setting the `wheel_base` too large may end up in unflexible control. Also, current autoware.universe is not guaranteed to work when the value is set too small.
-
 
 ## 3. Known issues
 
