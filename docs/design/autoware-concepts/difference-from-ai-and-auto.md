@@ -7,7 +7,12 @@ Since it was first released in 2015, there have been multiple releases made with
 
 [Autoware.AI](https://github.com/Autoware-AI/autoware.ai) is the first distribution of Autoware that was released based on ROS 1. The repository contains a variety of packages covering different aspects of autonomous driving technologies - sensing, actuation, localization, mapping, perception and planning.
 
-While it was successful in attracting many developers and contributions, there were no particular use-cases nor an ODD defined for the software. It also lacked design documents to specify architecture, and each package had different coding standards with very low test coverage.
+While it was successful in attracting many developers and contributions, it was difficult to improve Autoware.AI's capabilities for a number of reasons:
+
+- A lack of concrete architecture design leading to a lot of built-up technical debt, such as tight coupling between modules and unclear module responsibility.
+- Differing coding standards for each package, with very low test coverage.
+
+Furthermore, there was no clear definition of the conditions under which an Autoware-enabled autonomous vehicle could operate, nor of the use cases or situations supported (eg: the ability to overtake a stationary vehicle). 
 
 From the lessons learned from Autoware.AI development, a different development process was taken for Autoware.Auto to develop a ROS 2 version of Autoware.
 
