@@ -109,3 +109,9 @@ external/set/rosbag_logging_mode:
 external/get/rosbag_logging_mode:
   behavior: topic
   type: tier4_external_api_msgs/msg/RosbagLoggingMode
+external/get/calibration_status:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/CalibrationStatusArray
+external/get/accel_brake_map_calibrator/data:
+  behavior: service
+  type: tier4_external_api_msgs/srv/GetAccelBrakeMapCalibrationData
