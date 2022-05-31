@@ -36,7 +36,7 @@ Autoware.Auto development seemed to work fine initially, but after completing th
 
 In order to address the issues with Autoware.Auto development, the Autoware Foundation decided to create a new architecture called Autoware Core/Universe.
 
-Autoware Core carries over the original policy of Autoware.Auto to be a stable and well-tested codebase. Alongside Autoware Core is a new repository called Autoware Universe which acts as an extension of Autoware Core that allows users to replace a component (e.g. the Localization module) of Core with a Universe component in order to use more experimental features.
+Autoware Core carries over the original policy of Autoware.Auto to be a stable and well-tested codebase. Alongside Autoware Core is a new concept called Autoware Universe which acts as an extension of Autoware Core. Autoware Universe allows users to replace a component (e.g. the Localization module) of Core with a Universe component in order to use more advanced features.
 
 Universe has a more relaxed code quality requirements compared to Core, but will not be as loose as that of Autoware.AI. Also, if any features added to Universe are deemed to be useful to the wider community, AWF engineers could potential port that code for merging into Core.
 
