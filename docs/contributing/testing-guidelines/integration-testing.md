@@ -1,4 +1,4 @@
-# Integration Testing
+# Integration testing
 
 ## Introduction
 
