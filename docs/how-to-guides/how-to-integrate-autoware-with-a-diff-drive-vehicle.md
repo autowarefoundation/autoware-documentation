@@ -27,7 +27,7 @@ Conversely, a typical differential drive command consists of the following input
 - left wheel velocity ($v_l$)
 - right wheel velocity ($v_r$)
 
-For example, the Ackermann command can be converted to the differential drive command with the following equations:
+So, one way in which an Ackermann command can be converted to a differential drive command is by using the following equations:
 
 $$
 v_l = v - \frac{l\omega}{2},
@@ -36,7 +36,7 @@ $$
 
 where $l$ denotes wheel tread.
 
-For general requirements for `vehicle_interface` package, please refer to [the description of `vehicle_interface`](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/) for detail.
+For information about other factors that need to be considered when creating a `vehicle_interface` package, refer to the [`vehicle_interface` component page](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/).
 
 ### 2.2 Set an appropriate `wheel_base`
 
