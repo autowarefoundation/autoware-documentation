@@ -12,7 +12,7 @@ The state transition for driving state is illustrated in the diagram below.
 In a normal operation, this state will transition as follows:
 
 1. Driving state is initialized as NOT_READY
-2. State transitions to READY when Autoware components are launched sucesffuly and is ready to start driving.
+2. State transitions to READY when Autoware components are launched successfully and is ready to start driving.
 3. The state becomes DRIVING if the engage API is called and the vehicle starts driving.
 4. When the vehicle reaches to the destination, the state returns to NOT_READY.
 5. The state can be manually returned to NOT_READY whenever disengage API is called
