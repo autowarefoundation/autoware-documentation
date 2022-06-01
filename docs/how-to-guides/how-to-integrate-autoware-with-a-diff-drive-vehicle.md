@@ -48,8 +48,8 @@ Setting it to be the same value as `wheel_tread` is one possible choice.
 
 !!! warning
 
-    - If `wheel_base` is too large, the vehicle's motion may be restricted.
-    - Conversely, Autoware Universe is not guaranteed to work properly when the `wheel_base` value is too small.
+    - If the wheel_base value is too small then the vehicle may behave unexpectedly. For example, the vehicle may drive beyond the bounds of a calculated path.
+    - Conversely, if `wheel_base` is too large, the vehicle's motion may be restricted.
 
 ## 3. Known issues
 
