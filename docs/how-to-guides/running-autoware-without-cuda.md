@@ -5,13 +5,15 @@ The following subsections briefly explain how to run each algorithm in such an e
 
 ## Running 2D/3D object detection without CUDA
 
-The following three object detection modules require CUDA:
+Autoware Universe's object detection can be run using one of five possible configurations:
 
 - `lidar_centerpoint`
 - `lidar_apollo_instance_segmentation`
-- `tensorrt_yolo`
+- `lidar-apollo` + `tensorrt_yolo`
+- `lidar-centerpoint` + `tensorrt_yolo`
+- `euclidean_cluster`
 
-Instead of these modules, you can use the `euclidean_cluster` module which contains a 3D object detection algorithm that does not require CUDA. For more details, refer to the [`euclidean_cluster` module's README file](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/euclidean_cluster).
+Of these five configurations, only the last one (`euclidean_cluster`) can be run without CUDA. For more details, refer to the [`euclidean_cluster` module's README file](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/euclidean_cluster).
 
 ## Running traffic light detection without CUDA
 
