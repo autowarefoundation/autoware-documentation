@@ -2,4 +2,4 @@ nav:
   - index.md
   - advanced-usage-of-colcon.md
   - how-to-integrate-autoware-with-your-vehicle.md
-  - how-to-integrate-autoware-with-diff-drive-vehicle.md
+  - how-to-integrate-autoware-with-a-diff-drive-vehicle.md
