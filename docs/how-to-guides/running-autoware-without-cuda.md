@@ -1,6 +1,6 @@
 # Running Autoware without CUDA
 
-Although CUDA installation is recommended to achieve better performance for object detection and traffic light recognition in Autoware Universe, it is possible to run these algorithms without CUDA. 
+Although CUDA installation is recommended to achieve better performance for object detection and traffic light recognition in Autoware Universe, it is possible to run these algorithms without CUDA.
 The following subsections briefly explain how to run each algorithm in such an environment.
 
 ## Running 2D/3D object detection without CUDA
