@@ -3,7 +3,7 @@
 ## 1. Introduction
 
 Currently, Autoware assumes that vehicles use an Ackermann kinematic model with Ackermann steering.
-Thus, the Autoware interfaces adopt the Ackermann commands format for the output of the control module (see [the definition of AckermannControlCommands.idl](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl) for details).
+Thus, the Autoware interfaces adopt the Ackermann commands format for the output of the control module (see [the ROS definition](http://docs.ros.org/en/api/ackermann_msgs/html/msg/AckermannDrive.html) for general understanding, and [the definition of AckermannControlCommands.idl](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl) for Autoware implementation).
 
 However, it is possible to integrate Autoware with a vehicle that follows a differential drive kinematic model, as commonly used by small mobile robots.
 
