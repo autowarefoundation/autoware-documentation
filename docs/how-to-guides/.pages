@@ -1,4 +1,5 @@
 nav:
   - index.md
+  - running-autoware-without-cuda.md
   - advanced-usage-of-colcon.md
   - how-to-integrate-autoware-with-your-vehicle.md
