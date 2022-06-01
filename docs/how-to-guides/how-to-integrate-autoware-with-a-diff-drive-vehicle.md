@@ -46,7 +46,12 @@ Thus, you need to set a pseudo value for `wheel_base`.
 The appropriate pseudo value for `wheel_base` depends on the size of your vehicle.
 Setting it to be the same value as `wheel_tread` is one possible choice.
 
-!!! warning - If `wheel_base` is too large, the vehicle may restrict the vehicle's motion. - Conversely, Autoware Universe is not guaranteed to work properly when the `wheel_base` value is too small.
+!!! warning 
+
+
+    - If `wheel_base` is too large, the vehicle's motion may be restricted.
+    - Conversely, Autoware Universe is not guaranteed to work properly when the `wheel_base` value is too small.
+
 
 ## 3. Known issues
 
