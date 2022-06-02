@@ -18,17 +18,13 @@ It is often run automatically for continuous integration purposes, but can also 
 
 ### Planning simulation
 
-Planning simulation uses simple dummy data to test the Planning and Control components - specifically path generation, path following and obstacle avoidance. It verifies that a vehicle can reach a goal destination while avoiding pedestrians and surrounding cars, and is another method for verifying the validity of Lanelet2 maps.
+Planning simulation uses simple dummy data to test the Planning and Control components - specifically path generation, path following and obstacle avoidance. It verifies that a vehicle can reach a goal destination while avoiding pedestrians and surrounding cars, and is another method for verifying the validity of Lanelet2 maps. It also allows for testing of traffic light handling.
 
 #### How does planning simulation work?
 
 1. Generate a path to the goal destination
 2. Control the car along the generated path
 3. Detect and avoid any humans or other vehicles on the way to the goal destination
-
-!!! note
-
-    Traffic light handling functionality can also be tested with the Planning Simulator, but only via scenario simulation.
 
 ### Rosbag replay simulation
 
