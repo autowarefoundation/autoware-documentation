@@ -18,7 +18,7 @@ You should take care of this especially when you have multiple workspaces.
 Run `echo $COLCON_PREFIX_PATH` to check whether workspaces are overlaid.
 If you find some workspaces are unnecessarily overlaid, remove all built files, restart the terminal to clean environment variables, and re-build the workspace.
 
-For more details about `workspace overlaying`, refer to the [ROS2 documentation](https://docs.ros.org/en/rolling/Tutorials/Workspace/Creating-A-Workspace.html#source-the-overlay).
+For more details about `workspace overlaying`, refer to the [ROS 2 documentation](https://docs.ros.org/en/rolling/Tutorials/Workspace/Creating-A-Workspace.html#source-the-overlay).
 
 ## Cleaning up the build artifacts
 
