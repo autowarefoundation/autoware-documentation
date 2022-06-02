@@ -30,7 +30,7 @@ Autoware's architecture consists of the following six stacks. Each linked page c
 - [Perception design](perception/index.md)
 - [Planning design](planning/index.md)
 - [Control design](control/index.md)
-- [VehicleInterface design](vehicle/index.md)
+- [Vehicle Interface design](vehicle/index.md)
 
 ## Node diagram
 
