@@ -13,7 +13,7 @@ The current Autoware is defined to be a layered architecture that clarifies each
 Note that the initial focus of this architecture design was solely on driving capability, and so the following features were left as future work:
 
 - Fail safe
-- HMI
+- Human Machine Interface
 - Real-time processing
 - Redundant system
 - State monitoring system
@@ -22,7 +22,7 @@ Note that the initial focus of this architecture design was solely on driving ca
 
 ![Overview](image/autoware-architecture-overview.drawio.svg)
 
-This architecture consists of the following six stacks. Each of these design pages contains a more detailed set of requirements and use cases specific to that stack:
+Autoware's architecture consists of the following six stacks. Each linked page contains a more detailed set of requirements and use cases specific to that stack:
 
 - [Sensing design](sensing/index.md)
 - [Map design](map/index.md)
@@ -34,7 +34,7 @@ This architecture consists of the following six stacks. Each of these design pag
 
 ## Node diagram
 
-The Autoware node diagram with the default configuration is described at the page: [node-diagram](node-diagram/index.md). Detailed documents for each nodes are available in the [autoware.universe docs](https://autowarefoundation.github.io/autoware.universe/main/).
+A diagram showing Autoware's nodes in the default configuration can be found on the [Node diagram](node-diagram/index.md) page. Detailed documents for each node are available in the [Autoware Universe docs](https://autowarefoundation.github.io/autoware.universe/main/).
 
 Note that Autoware configurations are scalable / selectable and will vary depending on the environment and required use cases.
 
