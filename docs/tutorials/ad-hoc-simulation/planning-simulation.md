@@ -92,11 +92,11 @@ To delete any dummy objects placed in the view, click the `Delete All Objects` b
 
 To simulate traffic light recognition, go to `Panels -> Add new panel`, select `TrafficLightPublishPanel`, and then press `OK`. Then in the panel you need to set the `ID` and color of the traffic light.
 
-You can check the ID of each traffic light on Rviz. If the IDs do not pop up, select `Map/Lanelet2VectorMap/Namespaces/traffic_light_id` topic, check the checkbox, and then **reload** this topic by clicking the checkbox of `Map` twice to re-visualize the IDs (see the image below). You can have a closer look at the IDs by zooming in the region or by chaning the View type.
+You can check the ID of each traffic light on Rviz. If the IDs do not pop up, select `Map/Lanelet2VectorMap/Namespaces/traffic_light_id` topic, check the checkbox, and then **reload** this topic by clicking the checkbox of `Map` twice to re-visualize the IDs (see the image below). You can have a closer look at the IDs by zooming in the region or by changing the View type.
 
 ![see-traffic-light-ID](images/planning/lane-following/see-traffic-light-ID.png)
 
-And then you can select the ID of the desired traffic light from the `ID` _Comobobox_. The image below shows a traffic light whose `ID` is 34836 and its color is set to `RED`.
+And then you can select the ID of the desired traffic light from the `ID` _Combobox_. The image below shows a traffic light whose `ID` is 34836 and its color is set to `RED`.
 
 ![set-traffic-light](images/planning/lane-following/set-traffic-light.png)
 
