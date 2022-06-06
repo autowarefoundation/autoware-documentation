@@ -154,13 +154,9 @@ def generate_test_description():
     ), context
 ```
 
-Finally the test condition.
-As before, it is just a smoke test that ensures the node can be
-
-1. Launched with its default parameter file.
-2. Terminated with a standard `SIGTERM` signal.
-
-So the test code is executed after the node executable has been shut down (`post_shutdown_test`):
+Finally, a test is executed after the node executable has been shut down (`post_shutdown_test`).
+Here we make sure the node terminated with a standard `SIGTERM` signal,
+ensuring that it was launched without error and exited cleanly.
 
 ```python
 @launch_testing.post_shutdown_test()
