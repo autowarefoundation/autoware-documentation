@@ -88,9 +88,11 @@ To delete any dummy objects placed in the view, click the `Delete All Objects` b
 
 ### Traffic light simulation
 
+#### Set traffic light
+
 To simulate traffic light recognition, go to `Panels -> Add new panel`, select `TrafficLightPublishPanel`, and then press `OK`. Then in the panel you need to set the `ID` and color of the traffic light.
 
-You can check the ID of each traffic light on Rviz. If you can not see the ID, select `Map/Lanelet2VectorMap/Namespaces/traffic_light_id` topic, check the checkbox, and then reload this topic by clicking the checkbox of `Map` twice to re-visualize the traffic light IDs (see the image below). You can have a closer look at the IDs by zooming in the region or by chaning the View type.
+You can check the ID of each traffic light on Rviz. If the IDs do not pop up, select `Map/Lanelet2VectorMap/Namespaces/traffic_light_id` topic, check the checkbox, and then **reload** this topic by clicking the checkbox of `Map` twice to re-visualize the IDs (see the image below). You can have a closer look at the IDs by zooming in the region or by chaning the View type.
 
 ![see-traffic-light-ID](images/planning/lane-following/see-traffic-light-ID.png)
 
@@ -102,7 +104,7 @@ Finally, click the `PUBLISH` button to send the traffic light status to the simu
 
 ![send-traffic-light-color](images/planning/lane-following/send-traffic-light-color.png)
 
-#### Reset traffic light (optinal)
+#### Reset traffic light
 
 If you previously set a traffic light to `RED` or `AMBER`, you can reset the color of the traffic light to `GREEN` and let the ego vehicle make a turn at the intersection.
 
