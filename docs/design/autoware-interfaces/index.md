@@ -162,46 +162,8 @@ Currently, there is no required header.
 
 The interfaces whose communication method is Function Call use a common response status to unify the error format.
 For those interfaces, include the ResponseStatus shown below in the response with the name status.
-The data `status.summary.code` is the execution result of the interface, and the caller branches the process according to this value.
-Others are for the users and should not be used directly by the program.
-These data are primarily used to provide users with solution tips and to ask the developer for the cause of the error.
-
-The typical use of the field `details` is when an interface calls other interfaces.
-That interface stores response statuses in `details`, then merges them and sets the result to `summary`.
-This allows the developer to know which component was causing the error by checking `details`.
-
-- ResponseStatus
-
-  | Name    | Type                       | Description    |
-  | ------- | -------------------------- | -------------- |
-  | summary | ResponseStatusDetail       | status summary |
-  | details | ResponseStatusDetail Array | status details |
-
-- ResponseStatusDetail
-
-  | Name        | Type   | Description                                                 |
-  | ----------- | ------ | ----------------------------------------------------------- |
-  | code        | uint32 | response status code                                        |
-  | component   | string | the component that caused the error                         |
-  | message     | string | error message                                               |
-  | description | string | error information such as detailed message and document URL |
-
-- ResponseStatusCode
-
-  | Group  | Code   | Description   |
-  | ------ | ------ | ------------- |
-  | 0x0000 | 0x0000 | UNKNOWN       |
-  | T.B.D. | T.B.D. | OK            |
-  | T.B.D. | T.B.D. | SUCCESS       |
-  | T.B.D. | T.B.D. | ACCEPTED      |
-  | T.B.D. | T.B.D. | NO_EFFECT     |
-  | T.B.D. | T.B.D. | UNAVAILABLE   |
-  | T.B.D. | T.B.D. | WARNING       |
-  | T.B.D. | T.B.D. | ERROR         |
-  | T.B.D. | T.B.D. | FORBIDDEN     |
-  | T.B.D. | T.B.D. | BAD_REQUEST   |
-  | T.B.D. | T.B.D. | NOT_SUPPORTED |
-  | T.B.D. | T.B.D. | TIMEOUT       |
+The `level` is a classification of results. It indicates whether the API was successful.
+The `code` is a number to identify the error cause for each API. The `message` is text for users.
 
 ## Concern, Assumption, and Limitation
 
