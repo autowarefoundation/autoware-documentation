@@ -4,7 +4,7 @@
 
 Unit testing is a software testing method that tests individual units of source code to determine whether they satisfy the specification.
 
-For details,see the [Unit testing guidelines](unit-testing.md).
+For details, see the [Unit testing guidelines](unit-testing.md).
 
 ## Integration testing
 
