@@ -36,8 +36,6 @@ Next add an entry under `BUILD_TESTING` in the `CMakeLists.txt` to compile the t
 
 ```cmake
 if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  ament_lint_auto_find_test_dependencies()
 
   ament_add_ros_isolated_gtest(${TEST_MY_COOL_PKG} test/test_my_cool_pkg.cpp)
 
