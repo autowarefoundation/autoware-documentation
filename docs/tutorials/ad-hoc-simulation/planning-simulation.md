@@ -1,4 +1,4 @@
-# Planning simulation
+ # Planning simulation
 
 ## Preparation
 
@@ -73,14 +73,9 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: t
    ![after-set-goal-pose](images/planning/parking/after-set-goal-pose.png)
 
 2. When the vehicle approaches the goal, it will change to the parking mode.
-
-   ![change-to-parking-mode](images/planning/parking/change-to-parking-mode.png)
-
 3. After that, the vehicle will start driving backwards and park at the destination parking spot.
 
-   ![backward-driving](images/planning/parking/backward-driving.png)
-
-   ![reach-goal](images/planning/parking/reach-goal.png)
+   ![parking-maneuver](images/planning/parking/parking-maneuver.png)
 
 ## Advanced Simulations
 
@@ -96,7 +91,11 @@ To delete any dummy objects placed in the view, click the `Delete All Objects` b
 
 To simulate traffic light recognition, go to `Panels -> Add new panel`, select `TrafficLightPublishPanel`, and then press `OK`. Then in the panel you need to set the `ID` and color of the traffic light.
 
-You can find the `ID` of the desired traffic light by searching for the `traffic` tag in the `lanelet2_map.osm` file. The image below shows a traffic light whose `ID` is 34836 and its color is set to `RED`.
+You can check the ID of each traffic light on Rviz. If you can not see the ID, select `Map/Lanelet2VectorMap/Namespaces/traffic_light_id` topic, check the checkbox, and then reload this topic by clicking the checkbox of `Map` twice to re-visualize the traffic light IDs (see the image below). You can have a closer look at the IDs by zooming in the region or by chaning the View type.
+
+![see-traffic-light-ID](images/planning/lane-following/see-traffic-light-ID.png)
+
+And then you can select the ID of the desired traffic light from the `ID` *Comobobox*. The image below shows a traffic light whose `ID` is 34836 and its color is set to `RED`.
 
 ![set-traffic-light](images/planning/lane-following/set-traffic-light.png)
 
