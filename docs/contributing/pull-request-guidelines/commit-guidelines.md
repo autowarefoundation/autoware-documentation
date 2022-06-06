@@ -1,7 +1,5 @@
 # Commit guidelines
 
-This page explains our guidelines related to committing.
-
 ## Branch rules
 
 ### Start branch names with the corresponding issue numbers (advisory, non-automated)

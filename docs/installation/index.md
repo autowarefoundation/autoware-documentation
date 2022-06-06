@@ -41,7 +41,7 @@ If any issues occur during installation, refer to the [Support page](https://aut
 Docker can ensure that all developers in a project have a common, consistent development environment.
 It is recommended for beginners, casual users, people who are unfamiliar with Ubuntu.
 
-For detailed steps, refer to the [Docker installation guide](autoware/docker-installation.md) .
+For more information, refer to the [Docker installation guide](autoware/docker-installation.md).
 
 ### 2. Source installation
 
@@ -49,17 +49,17 @@ Source installation is for the cases where more granular control of the installa
 It is recommended for experienced users or people who want to customize their environment.  
 Note that some problems may occur depending on your local environment.
 
-For detailed steps，refer to the [Source installation guide](autoware/source-installation.md) .
+For more information, refer to the [source installation guide](autoware/source-installation.md).
 
 ## Installing related tools
 
 Some other tools are required depending on the evaluation you want to do.
 For example, to run an end-to-end simulation you need to install an appropriate simulator.
 
-To install the tools, refer to [Related tools](related-tools).
+For more information, see [here](related-tools).
 
 ## Additional settings for developers
 
 There are also tools and settings for developers, such as Shells or IDEs.
 
-For the tools and settings, refer to [Additional settings for developers](additional-settings-for-developers).
+For more information, see [here](additional-settings-for-developers).
