@@ -2,13 +2,18 @@
 
 ## Introduction
 
-An integration test is defined as the phase in software testing where individual software modules are combined and tested as a group. Integration tests occur after unit tests, and before validation tests.
+An integration test is defined as the phase in software testing where individual software modules are combined and tested as a group.
+Integration tests occur after unit tests, and before validation tests.
 
-The input to an integration test is a set of independent modules that have been unit tested. The set of modules is tested against the defined integration test plan, and the output is a set of properly integrated software modules that is ready for system testing.
+The input to an integration test is a set of independent modules that have been unit tested.
+The set of modules is tested against the defined integration test plan,
+and the output is a set of properly integrated software modules that is ready for system testing.
 
 ## Value of integration testing
 
-Integration tests determine if independently developed software modules work correctly when the modules are connected to each other. In ROS 2, the software modules are called nodes. As a special case, testing a single node can be referred to as component testing.
+Integration tests determine if independently developed software modules work correctly when the modules are connected to each other.
+In ROS 2, the software modules are called nodes.
+As a special case, testing a single node can be referred to as component testing.
 
 Integration tests help to find the following types of errors:
 
@@ -16,7 +21,8 @@ Integration tests help to find the following types of errors:
 - Edge cases that were not touched by unit testing, such as a critical timing issue, network communication delays, disk I/O failures, and many other problems that can occur in production environments.
 - Issues that can occur while the system is under high CPU/memory load, such as `malloc` failures. This can be tested using tools like `stress` and `udpreplay` to test the performance of nodes with real data.
 
-With ROS 2, it is possible to program complex autonomous-driving applications with a large number of nodes. Therefore, a lot of effort has been made to provide an integration-test framework that helps developers test the interaction of ROS 2 nodes.
+With ROS 2, it is possible to program complex autonomous-driving applications with a large number of nodes.
+Therefore, a lot of effort has been made to provide an integration-test framework that helps developers test the interaction of ROS 2 nodes.
 
 ## Integration-test framework
 
@@ -30,7 +36,8 @@ In Autoware, we use the [launch_testing](https://github.com/ros2/launch/tree/mas
 
 ### Smoke tests
 
-Autoware has a dedicated API for smoke testing. To use this framework, in `package.xml` add:
+Autoware has a dedicated API for smoke testing.
+To use this framework, in `package.xml` add:
 
 ```xml
 <test_depend>autoware_testing</test_depend>
@@ -53,7 +60,8 @@ Doing so adds smoke tests that ensure that a node can be:
 1. Launched with a default parameter file.
 2. Terminated with a standard `SIGTERM` signal.
 
-For the full API documentation, refer to the [package design page](https://github.com/autowarefoundation/autoware.universe/blob/main/common/autoware_testing/design/autoware_testing-design.md).
+For the full API documentation,
+refer to the [package design page](https://github.com/autowarefoundation/autoware.universe/blob/main/common/autoware_testing/design/autoware_testing-design.md).
 
 !!! note
 
@@ -63,9 +71,11 @@ For the full API documentation, refer to the [package design page](https://githu
 
 ### Integration test with a single node: component test
 
-The simplest scenario is a single node. In this case, the integration test is commonly referred to as a component test.
+The simplest scenario is a single node.
+In this case, the integration test is commonly referred to as a component test.
 
-To add a component test to an existing node, follow the example of the `lanelet2_map_provider` package that has an executable named `lanelet2_map_provider_exe`.
+To add a component test to an existing node,
+follow the example of the `lanelet2_map_provider` package that has an executable named `lanelet2_map_provider_exe`.
 
 In `package.xml`, add:
 
@@ -91,7 +101,9 @@ endif()
 
     The `TIMEOUT` argument is given in seconds; see the [add_ros_test.cmake file](https://github.com/ros2/ros_testing/blob/master/ros_testing/cmake/add_ros_test.cmake) for details.
 
-To create a test, either read the [launch_testing quick-start example](https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example), or follow the steps below.
+To create a test,
+either read the [launch_testing quick-start example](https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example),
+or follow the steps below.
 
 Taking `test/lanelet2_map_provider_launch.test.py` as an example, first dependencies are imported:
 
@@ -106,7 +118,9 @@ import pytest
 import unittest
 ```
 
-Then a launch description is created to launch the node under test. Note that the `test_map.osm` file path is found and passed to the node, something that cannot be done with the [smoke testing API](#smoke-tests):
+Then a launch description is created to launch the node under test.
+Note that the `test_map.osm` file path is found and passed to the node,
+something that cannot be done with the [smoke testing API](#smoke-tests):
 
 ```python
 @pytest.mark.launch_test
@@ -140,7 +154,8 @@ def generate_test_description():
     ), context
 ```
 
-Finally the test condition. As before, it is just a smoke test that ensures the node can be
+Finally the test condition.
+As before, it is just a smoke test that ensures the node can be
 
 1. Launched with its default parameter file.
 2. Terminated with a standard `SIGTERM` signal.
@@ -191,7 +206,9 @@ The simple test described in [Integration test with a single node: component tes
 
 #### Testing the output of a node
 
-To test while the node is running, create an [_active test_](https://github.com/ros2/launch/tree/foxy/launch_testing#active-tests) by adding a subclass of Python's `unittest.TestCase` to `*launch.test.py`. Some boilerplate code is required to access output by creating a node and a subscription to a particular topic; e.g.
+To test while the node is running,
+create an [_active test_](https://github.com/ros2/launch/tree/foxy/launch_testing#active-tests) by adding a subclass of Python's `unittest.TestCase` to `*launch.test.py`.
+Some boilerplate code is required to access output by creating a node and a subscription to a particular topic, e.g.
 
 ```python
 import unittest
