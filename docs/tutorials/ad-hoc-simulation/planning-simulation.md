@@ -50,8 +50,7 @@ This panel is useful when running planning simulations. To add the panel, click 
 #### Set a goal pose for the ego vehicle
 
 1. Click the `2D Goal Pose` button in the toolbar, or hit the `G` key.
-2. In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the goal pose.  If done correctly, you will see a planned path from initial pose to goal pose.
-
+2. In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the goal pose. If done correctly, you will see a planned path from initial pose to goal pose.
 
 ![set-goal-pose](images/planning/lane-following/set-goal-pose.png)
 
