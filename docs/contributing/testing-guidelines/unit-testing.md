@@ -37,9 +37,8 @@ Next add an entry under `BUILD_TESTING` in the `CMakeLists.txt` to compile the t
 ```cmake
 if(BUILD_TESTING)
 
-  ament_add_ros_isolated_gtest(${TEST_MY_COOL_PKG} test/test_my_cool_pkg.cpp)
-
-  target_link_libraries(${TEST_MY_COOL_PKG} ${PROJECT_NAME})
+  ament_add_ros_isolated_gtest(test_my_cool_pkg test/test_my_cool_pkg.cpp)
+  target_link_libraries(test_my_cool_pkg ${PROJECT_NAME})
 ...
 endif()
 ```
@@ -62,6 +61,8 @@ In the demo `CMakeLists.txt`, `ament_add_ros_isolated_gtest` is a predefined mac
 Details can be viewed in [ament_add_gtest.cmake](https://github.com/ros2/ament_cmake_ros/tree/master/ament_cmake_ros/cmake).
 
 ## Build test
+
+<!-- cspell:ignore Testfile -->
 
 By default, all necessary test files (`ELF`, `CTestTestfile.cmake`, etc.) are compiled by `colcon`:
 
