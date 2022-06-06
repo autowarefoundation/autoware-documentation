@@ -2,62 +2,41 @@
 
 ## Introduction
 
-The purpose of this guide is to motivate developers to adopt integration testing best practices with Autoware by explaining how to write, run,
-and evaluate the results of integration tests.
+An integration test is defined as the phase in software testing where individual software modules are combined and tested as a group. Integration tests occur after unit tests, and before validation tests.
 
-## Quick reference
-
-1. [colcon](https://github.com/ros2/ros2/wiki/Colcon-Tutorial) is used to build and run tests.
-2. [launch testing](https://github.com/ros2/launch/tree/master/launch_testing) launches nodes and runs tests.
-3. [Testing guidelines](index.md) describes the different types of tests performed in Autoware and links to the corresponding guidelines.
-
-## Integration testing
-
-An integration test is defined as the phase in software testing where individual software
-modules are combined and tested as a group. Integration tests occur after unit tests, and before
-validation tests.
-
-The input to an integration test is a set of independent modules that have been unit tested. The set
-of modules is tested against the defined integration test plan, and the output is a set of
-properly integrated software modules that is ready for system testing.
+The input to an integration test is a set of independent modules that have been unit tested. The set of modules is tested against the defined integration test plan, and the output is a set of properly integrated software modules that is ready for system testing.
 
 ## Value of integration testing
 
-Integration tests determine if independently developed software modules work correctly
-when the modules are connected to each other. In ROS 2, the software modules are called
-nodes. As a special case, testing a single node can be referred to as component testing.
+Integration tests determine if independently developed software modules work correctly when the modules are connected to each other. In ROS 2, the software modules are called nodes. As a special case, testing a single node can be referred to as component testing.
 
 Integration tests help to find the following types of errors:
 
-- Incompatible interactions between nodes, such as non-matching topics, different message types, or incompatible QoS settings
-- Edge cases that were not touched by unit testing, such as a critical timing issue, network communication delays, disk I/O failures, and many other problems that can occur in production environments
-- Issues that can occur while the system is under high CPU/memory load, such as `malloc` failures. This can be tested using tools like `stress` and `udpreplay` to test the performance of nodes with real data.```
+- Incompatible interactions between nodes, such as non-matching topics, different message types, or incompatible QoS settings.
+- Edge cases that were not touched by unit testing, such as a critical timing issue, network communication delays, disk I/O failures, and many other problems that can occur in production environments.
+- Issues that can occur while the system is under high CPU/memory load, such as `malloc` failures. This can be tested using tools like `stress` and `udpreplay` to test the performance of nodes with real data.
 
-With ROS 2, it is possible to program complex autonomous-driving applications with a large number
-of nodes. Therefore, a lot of effort has been made to provide an integration-test framework that
-helps developers test the interaction of ROS 2 nodes.
+With ROS 2, it is possible to program complex autonomous-driving applications with a large number of nodes. Therefore, a lot of effort has been made to provide an integration-test framework that helps developers test the interaction of ROS 2 nodes.
 
 ## Integration-test framework
 
 A typical integration-test framework has three parts:
 
-1. A series of executables with arguments that work together and generate outputs
-2. A series of expected outputs that should match the output of the executables
-3. A launcher that starts the tests, compares the outputs to the expected outputs, and determines if the test passes
+1. A series of executables with arguments that work together and generate outputs.
+2. A series of expected outputs that should match the output of the executables.
+3. A launcher that starts the tests, compares the outputs to the expected outputs, and determines if the test passes.
 
 In Autoware, we use the [launch_testing](https://github.com/ros2/launch/tree/master/launch_testing) framework.
 
 ### Smoke tests
 
-Autoware has a dedicated API for smoke testing
-
-To use this framework, in `package.xml` add:
+Autoware has a dedicated API for smoke testing. To use this framework, in `package.xml` add:
 
 ```xml
 <test_depend>autoware_testing</test_depend>
 ```
 
-and in `CMakeLists.txt` add:
+And in `CMakeLists.txt` add:
 
 ```cmake
 if(BUILD_TESTING)
@@ -71,14 +50,15 @@ endif()
 
 Doing so adds smoke tests that ensure that a node can be:
 
-1. launched with a default parameter file,
-2. terminated with a standard `SIGTERM` signal,
+1. Launched with a default parameter file.
+2. Terminated with a standard `SIGTERM` signal.
 
 For the full API documentation, refer to the [package design page](https://github.com/autowarefoundation/autoware.universe/blob/main/common/autoware_testing/design/autoware_testing-design.md).
 
 !!! note
 
-    This API is not suitable for all smoke test cases. For example, it cannot be used when a specific file location (eg: for a map) is required to be passed to the node, or if some preparation needs to be conducted before node launch.
+    This API is not suitable for all smoke test cases. 
+    It cannot be used when a specific file location (eg: for a map) is required to be passed to the node, or if some preparation needs to be conducted before node launch.
     In such cases use the manual solution from the [component test section below](#integration-test-with-a-single-node-component-test).
 
 ### Integration test with a single node: component test
@@ -87,7 +67,7 @@ The simplest scenario is a single node. In this case, the integration test is co
 
 To add a component test to an existing node, follow the example of the `lanelet2_map_provider` package that has an executable named `lanelet2_map_provider_exe`.
 
-In `package.xml`, add
+In `package.xml`, add:
 
 ```xml
 <test_depend>ros_testing</test_depend>
@@ -107,13 +87,13 @@ if(BUILD_TESTING)
 endif()
 ```
 
-The `TIMEOUT` argument is given in seconds; see [here](https://github.com/ros2/ros_testing/blob/master/ros_testing/cmake/add_ros_test.cmake) for details.
+!!! note
+
+    The `TIMEOUT` argument is given in seconds; see the [add_ros_test.cmake file](https://github.com/ros2/ros_testing/blob/master/ros_testing/cmake/add_ros_test.cmake) for details.
 
 To create a test, either read the [launch_testing quick-start example](https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example), or follow the steps below.
 
-Let's look at `test/lanelet2_map_provider_launch.test.py` as an example.
-
-The essential content is to first import dependencies:
+Taking `test/lanelet2_map_provider_launch.test.py` as an example, first dependencies are imported:
 
 ```python
 from ament_index_python import get_package_share_directory
@@ -160,12 +140,12 @@ def generate_test_description():
     ), context
 ```
 
-and finally the test condition. As before, it is just a smoke test that ensures the node can be
+Finally the test condition. As before, it is just a smoke test that ensures the node can be
 
-1. launched with its default parameter file,
-2. terminated with a standard `SIGTERM` signal,
+1. Launched with its default parameter file.
+2. Terminated with a standard `SIGTERM` signal.
 
-so the test code is executed after the node executable has been shut down (`post_shutdown_test`):
+So the test code is executed after the node executable has been shut down (`post_shutdown_test`):
 
 ```python
 @launch_testing.post_shutdown_test()
@@ -178,20 +158,20 @@ class TestProcessOutput(unittest.TestCase):
 
 ## Running the test
 
-Continuing the example from above, first build
+Continuing the example from above, first build your package:
 
 ```bash
 colcon build --packages-up-to lanelet2_map_provider
 source install/setup.bash
 ```
 
-then either execute the component test manually
+Then either execute the component test manually:
 
 ```bash
 ros2 test src/mapping/had_map/lanelet2_map_provider/test/lanelet2_map_provider_launch.test.py
 ```
 
-or as part of testing the entire package:
+Or as part of testing the entire package:
 
 ```bash
 colcon test --packages-select lanelet2_map_provider
@@ -264,3 +244,10 @@ class TestRunningDataPublisher(unittest.TestCase):
         msg = self.get_message()
         self.assertEqual(msg, "Hello, world")
 ```
+
+
+## References
+
+- [colcon](https://github.com/ros2/ros2/wiki/Colcon-Tutorial) is used to build and run tests.
+- [launch testing](https://github.com/ros2/launch/tree/master/launch_testing) launches nodes and runs tests.
+- [Testing guidelines](index.md) describes the different types of tests performed in Autoware and links to the corresponding guidelines.
