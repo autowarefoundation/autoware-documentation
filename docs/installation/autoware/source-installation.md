@@ -75,8 +75,8 @@ If you've manually installed the dependencies, you can skip this section.
 
 3. Build the workspace.
 
-   Autoware uses [colcon](https://colcon.readthedocs.io/en/released/index.html) to build workspaces.
-   Refer to the documentation for more advanced options.
+   Autoware uses [colcon](https://github.com/colcon) to build workspaces.
+   For more advanced options, refer to the [documentation](https://colcon.readthedocs.io/).
 
    ```bash
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
@@ -105,7 +105,7 @@ If you've manually installed the dependencies, you can skip this section.
    - `vcs pull` is similar to `git pull`.
      - Note that it doesn't switch branches.
 
-   Refer to the [official documentation](https://github.com/dirk-thomas/vcstool) for more information.
+   For more information, refer to the [official documentation](https://github.com/dirk-thomas/vcstool).
 
 3. Install dependent ROS packages.
 

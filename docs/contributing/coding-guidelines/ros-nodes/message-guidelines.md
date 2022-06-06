@@ -114,7 +114,7 @@ uint8 type
 
 ## Comments
 
-On top of the message, briefly explain what the message contains and/or what it is used for. See [sensor_msgs/msg/Imu.msg](https://github.com/ros2/common_interfaces/blob/master/sensor_msgs/msg/Imu.msg#L1-L13) for an example.
+On top of the message, briefly explain what the message contains and/or what it is used for. For an example, see [sensor_msgs/msg/Imu.msg](https://github.com/ros2/common_interfaces/blob/master/sensor_msgs/msg/Imu.msg#L1-L13).
 
 !!! tip ""
 

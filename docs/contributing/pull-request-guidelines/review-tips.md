@@ -1,12 +1,10 @@
-# Tips
-
-This page introduces tips around pull requests or reviews.
+# Review tips
 
 ## Toggle annotations or review comments in the diff view
 
-There will be some annotations or review comments in the diff view during your review.
+There might be some annotations or review comments in the diff view during your review.
 
-Press the `A` key to toggle annotations.
+To toggle annotations, press the `A` key.
 
 Before:
 
@@ -16,16 +14,16 @@ After:
 
 ![after-press-a](images/after-press-a.png)
 
-Also, press the `I` key to toggle review comments.
+To toggle review comments, press the `I` key.
 
-Refer to [GitHub Docs](https://docs.github.com/en/get-started/using-github/keyboard-shortcuts) for other keyboard shortcuts.
+For other keyboard shortcuts, refer to [GitHub Docs](https://docs.github.com/en/get-started/using-github/keyboard-shortcuts).
 
 ## View code in the web-based Visual Studio Code
 
 You can open `Visual Studio Code` from your browser to view code in a rich UI.
-Press the `.` key on any repository or pull request.
+To use it, press the `.` key on any repository or pull request.
 
-Refer to [github/dev](https://github.com/github/dev) for more detailed usage.
+For more detailed usage, refer to [github/dev](https://github.com/github/dev).
 
 ## Check out the branch of a pull request quickly
 

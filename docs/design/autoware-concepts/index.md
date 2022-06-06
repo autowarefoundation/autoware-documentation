@@ -18,7 +18,7 @@ The Universe modules are extensions to the Core module that can be provided by t
 
 ## Interface design
 
-The interface design is the most essential piece of the microautonomy architecture, which is classified into internal and external interfaces. The component interface is designed for the components in a Universe module to communicate with those in other modules, including the Core module, within Autoware internally. The AD(Autonomous Driving) API, on the other hand, is designed for the applications of Autoware to access the technology components in the Core and Universe modules of Autoware externally. Designing solid interfaces, the microautonomy architecture is made possible with our partners, and at the same time is made feasible for our partners.
+The interface design is the most essential piece of the microautonomy architecture, which is classified into internal and external interfaces. The component interface is designed for the components in a Universe module to communicate with those in other modules, including the Core module, within Autoware internally. The AD(Autonomous Driving) API, on the other hand, is designed for the applications of Autoware to access the technology components in the Core and Universe modules of Autoware externally. Designing solid interfaces, the microautonomy architecture is made possible with AWF's partners, and at the same time is made feasible for the partners.
 
 ## Challenges
 
