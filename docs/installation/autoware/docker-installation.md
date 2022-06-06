@@ -62,7 +62,7 @@ You might need to log out and log back to make the current user able to use dock
 
      For detailed reason could be found [here](#docker-with-nvidia-gpu-fails-to-start-autoware-on-arm64-devices)
 
-   See [here](https://github.com/autowarefoundation/autoware/tree/main/docker/README.md) for more advanced usage.
+   For more advanced usage, see [here](https://github.com/autowarefoundation/autoware/tree/main/docker/README.md).
 
    After that, move to the workspace in the container:
 

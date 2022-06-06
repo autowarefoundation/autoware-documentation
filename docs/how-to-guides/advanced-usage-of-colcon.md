@@ -85,7 +85,7 @@ cat << EOS > ~/.colcon/defaults.yaml
 }
 ```
 
-See [here](https://colcon.readthedocs.io/en/released/user/configuration.html#defaults-yaml) for more details.
+For more details, see [here](https://colcon.readthedocs.io/en/released/user/configuration.html#defaults-yaml).
 
 ## Generating compile_commands.json
 
@@ -105,7 +105,7 @@ To see the compiler and linker invocations for a package, use `VERBOSE=1` and `-
 VERBOSE=1 colcon build --packages-up-to <package_name> --event-handlers console_cohesion+
 ```
 
-See [here](https://colcon.readthedocs.io/en/released/reference/event-handler-arguments.html) for other options.
+For other options, see [here](https://colcon.readthedocs.io/en/released/reference/event-handler-arguments.html).
 
 ## Using Ccache
 

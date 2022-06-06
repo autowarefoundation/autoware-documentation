@@ -3,20 +3,20 @@
 ## General pull request workflow
 
 Autoware uses the fork-and-pull model.
-Refer to [GitHub Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests) for the detailed explanation of the model.
+For the detailed explanation of the model, refer to [GitHub Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests).
 
-The following is a general example of our pull request workflow.
+The following is a general example of the pull request workflow.
 
 1. Create a fork. (for the first time only)
 2. Create an issue.
    - Discuss the approach to the issue with maintainers.
 3. Write code in the agreed approach.
    - Write the tests and documentation if necessary.
-   - Follow our guidelines when you write code, tests, and documentation.
+   - Follow the guidelines when you write code, tests, and documentation.
      - [Coding guidelines](../coding-guidelines/index.md)
      - [Testing guidelines](../testing-guidelines/index.md)
      - [Documentation guidelines](../documentation-guidelines/index.md)
-   - Follow our [Commit guidelines](commit-guidelines.md) when commit your change.
+   - Follow the [Commit guidelines](commit-guidelines.md) when commit your change.
 4. Test the code.
    - In the later review process, you will need to write what tests you have done.
 5. Create a pull request.
@@ -25,7 +25,7 @@ The following is a general example of our pull request workflow.
      - If you have no rights to assign reviewers, just mention them instead.
      - If you are not sure who to set reviewers, contact to the people written as the `maintainer` tag in `package.xml`.
 6. Wait for the pull request to be reviewed.
-   - The reviewers will review your code following our [review guidelines](review-guidelines.md).
+   - The reviewers will review your code following the [review guidelines](review-guidelines.md).
      - Take a look at the guidelines as well because it is good to understand the thoughts of the reviewer's side.
    - If [CI checks](#ci-checks) have failed, fix the errors.
 7. Address the review comments pointed out by the reviewers.
@@ -63,7 +63,7 @@ The Developer Certificate of Origin (DCO) is a lightweight way for contributors 
 This workflow checks whether the pull request fulfills `DCO`.  
 You need to confirm the [required items](https://developercertificate.org/) and commit with `git commit -s`.
 
-Refer to the [GitHub App page](https://github.com/apps/dco) for more information.
+For more information, refer to the [GitHub App page](https://github.com/apps/dco).
 
 ### semantic-pull-request
 
@@ -75,9 +75,9 @@ Note that if there is only one commit in the pull request, you need to make the 
 This is due to GitHub's non-intuitive behavior when there is only one commit.
 GitHub uses the commit title for the squashed commit message, instead of the pull request title.
 
-Refer to [amannn/action-semantic-pull-request](https://github.com/amannn/action-semantic-pull-request) for more detailed behaviors of this workflow.
+For more detailed behaviors of this workflow, refer to [amannn/action-semantic-pull-request](https://github.com/amannn/action-semantic-pull-request).
 
-See our [commit guidelines](commit-guidelines.md) for the detailed rules.
+For the detailed rules, see the [commit guidelines](commit-guidelines.md).
 
 ### pre-commit
 
@@ -125,7 +125,7 @@ This workflow is the `ARM64` version of `build-and-test-differential`.
 You need to add the `ARM64` label to run this workflow.
 
 For reference information, since ARM machines are not supported by GitHub-hosted runners, we use self-hosted runners prepared by the AWF.  
-Refer to [GitHub Docs](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners) for the details about self-hosted runners.
+For the details about self-hosted runners, refer to [GitHub Docs](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners).
 
 ### deploy-docs
 
