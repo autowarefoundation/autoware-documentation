@@ -57,7 +57,7 @@ For the full API documentation, refer to the [package design page](https://githu
 
 !!! note
 
-    This API is not suitable for all smoke test cases. 
+    This API is not suitable for all smoke test cases.
     It cannot be used when a specific file location (eg: for a map) is required to be passed to the node, or if some preparation needs to be conducted before node launch.
     In such cases use the manual solution from the [component test section below](#integration-test-with-a-single-node-component-test).
 
@@ -244,7 +244,6 @@ class TestRunningDataPublisher(unittest.TestCase):
         msg = self.get_message()
         self.assertEqual(msg, "Hello, world")
 ```
-
 
 ## References
 
