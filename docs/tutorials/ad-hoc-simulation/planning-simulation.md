@@ -1,4 +1,4 @@
- # Planning simulation
+# Planning simulation
 
 ## Preparation
 
@@ -50,8 +50,7 @@ This panel is useful when running planning simulations. To add the panel, click 
 #### Set a goal pose for the ego vehicle
 
 1. Click the `2D Goal Pose` button in the toolbar, or hit the `G` key.
-2. In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the goal pose.  If done correctly, you will see a planned path from initial pose to goal pose.
-
+2. In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the goal pose. If done correctly, you will see a planned path from initial pose to goal pose.
 
 ![set-goal-pose](images/planning/lane-following/set-goal-pose.png)
 
@@ -95,7 +94,7 @@ You can check the ID of each traffic light on Rviz. If you can not see the ID, s
 
 ![see-traffic-light-ID](images/planning/lane-following/see-traffic-light-ID.png)
 
-And then you can select the ID of the desired traffic light from the `ID` *Comobobox*. The image below shows a traffic light whose `ID` is 34836 and its color is set to `RED`.
+And then you can select the ID of the desired traffic light from the `ID` _Comobobox_. The image below shows a traffic light whose `ID` is 34836 and its color is set to `RED`.
 
 ![set-traffic-light](images/planning/lane-following/set-traffic-light.png)
 
