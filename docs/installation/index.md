@@ -41,7 +41,7 @@ For details of how to enable object detection and traffic light detection/classi
 
 - [Optional] NVIDIA GPU (4GB RAM)
 
-> Although GPU is not required to run basic functionality, it is mandatory to enable the following nerual network related functions:
+> Although GPU is not required to run basic functionality, it is mandatory to enable the following neural network related functions:
 >
 > - LiDAR based object detection
 > - Camera based object detection
