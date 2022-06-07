@@ -29,7 +29,7 @@ ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/Downlo
 !!! warning
 
     Note that you cannot use `~` instead of `$HOME` here.
-    
+
     If `~` is used, the map will fail to load.
 
 ![after-autoware-launch](images/planning/lane-following/after-autoware-launch.png)
@@ -51,7 +51,7 @@ b) In the 3D View pane, click and hold the left-mouse button, and then drag to s
 !!! warning
 
     Remember to set the initial pose of the car in the same direction as the lane.
-    
+
     To confirm the direction of the lane, check the arrowheads displayed on the map.
 
 #### 4. Set a goal pose for the ego vehicle
