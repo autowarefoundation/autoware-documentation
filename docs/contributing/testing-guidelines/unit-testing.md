@@ -1,5 +1,9 @@
 # Unit testing
 
+Unit testing is the first phase of testing and is used to validate units of source code such as classes and functions.
+Typically, a unit of code is tested by validating its output for various inputs.
+Unit testing helps ensure that the code behaves as intended and prevents accidental change of behavior.
+
 Autoware uses the `ament_cmake` framework to build and run tests.
 The same framework is also used to analyze the test results.
 
