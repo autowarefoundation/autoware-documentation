@@ -3,10 +3,12 @@
 ## Prerequisites
 
 - OS
+
   - [Ubuntu 20.04](https://releases.ubuntu.com/20.04/) (**active development**)
   - [Ubuntu 22.04](https://releases.ubuntu.com/22.04/) (**will be supported in 2022**)
 
 - ROS
+
   - ROS 2 Galactic (**active development**)
   - ROS 2 Humble (**will be supported in 2022**)  
     For the system dependencies, refer to [REP-2000](https://www.ros.org/reps/rep-2000.html) .
