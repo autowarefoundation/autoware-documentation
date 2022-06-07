@@ -22,7 +22,7 @@ The Autoware Foundation provides no support on other platforms than those listed
 > Performance will be improved with more cores, RAM and a higher-spec graphics card or GPU core.
 
 - [Optional] NVIDIA GPU (4GB RAM)
-> Although GPU is not required to run basic functionality, it is mandatory to enable the following nerual network related functions:
+> Although GPU is not required to run basic functionality, it is mandatory to enable the following neural network related functions:
 > - LiDAR based object detection
 > - Camera based object detection
 > - Traffic light detection and classification
@@ -38,7 +38,7 @@ If any issues occur during installation, refer to the [Support page](https://aut
 Docker can ensure that all developers in a project have a common, consistent development environment.
 It is recommended for beginners, casual users, people who are unfamiliar with Ubuntu.
 
-Refer to the [Docker installation guide](autoware/docker-installation.md) for detailed steps.
+For detailed steps, refer to the [Docker installation guide](autoware/docker-installation.md) .
 
 ### 2. Source installation
 
@@ -46,17 +46,17 @@ Source installation is for the cases where more granular control of the installa
 It is recommended for experienced users or people who want to customize their environment.  
 Note that some problems may occur depending on your local environment.
 
-Refer to the [source installation guide](autoware/source-installation.md) for detailed steps.
+For detailed steps，refer to the [Source installation guide](autoware/source-installation.md) .
 
 ## Installing related tools
 
 Some other tools are required depending on the evaluation you want to do.
 For example, to run an end-to-end simulation you need to install an appropriate simulator.
 
-See [here](related-tools) for how to install the tools.
+To install the tools, refer to [Related tools](related-tools).
 
 ## Additional settings for developers
 
 There are also tools and settings for developers, such as Shells or IDEs.
 
-See [here](additional-settings-for-developers) for how to install the tools.
+For the tools and settings, refer to [Additional settings for developers](additional-settings-for-developers).
