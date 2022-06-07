@@ -15,7 +15,7 @@ The Autoware Foundation provides no support on other platforms than those listed
 
 !!! info
 
-    Autoware is scalable and can be customized to work with distributed or less powerful hardware. 
+    Autoware is scalable and can be customized to work with distributed or less powerful hardware.
     The minimum hardware requirements given below are just a general recommendation.
     However, performance will be improved with more cores, RAM and a higher-spec graphics card or GPU core.
 
