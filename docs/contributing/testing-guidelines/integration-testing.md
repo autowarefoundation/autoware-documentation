@@ -1,7 +1,5 @@
 # Integration testing
 
-## Introduction
-
 An integration test is defined as the phase in software testing where individual software modules are combined and tested as a group.
 Integration tests occur after unit tests, and before validation tests.
 
