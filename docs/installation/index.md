@@ -15,20 +15,21 @@ The Autoware Foundation provides no support on other platforms than those listed
 
 !!! info
 
-    Autoware is scalable and may work with less powerful hardware or distributed hardware under customization. The below minimum hardware requirements are just recommendation in general.
+    Autoware is scalable and can be customized to work with distributed or less powerful hardware. 
+    The minimum hardware requirements given below are just a general recommendation.
+    However, performance will be improved with more cores, RAM and a higher-spec graphics card or GPU core.
 
 - CPU with 8 cores
 - 16GB RAM
-
-> Performance will be improved with more cores, RAM and a higher-spec graphics card or GPU core.
-
 - [Optional] NVIDIA GPU (4GB RAM)
 
-> Although GPU is not required to run basic functionality, it is mandatory to enable the following neural network related functions:
->
-> - LiDAR based object detection
-> - Camera based object detection
-> - Traffic light detection and classification
+Although not required to run basic Autoware functionality, a GPU is mandatory to enable the following neural network related functions:
+
+- LiDAR based object detection
+- Camera based object detection
+- Traffic light detection and classification
+
+For details of how to enable object detection and traffic light detection/classification without a GPU, refer to the [Running Autoware without CUDA how-to guide](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/running-autoware-without-cuda/)
 
 ## Installing Autoware
 
