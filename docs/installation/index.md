@@ -11,12 +11,25 @@ The Autoware Foundation provides no support on other platforms than those listed
 - amd64
 - arm64
 
-### ROS version
+### Minimum hardware requirements
 
-- ROS 2 Galactic (**active development**)
-- ROS 2 Humble (**will be supported in 2022**)
+!!! info
 
-For the system dependencies, refer to [REP-2000](https://www.ros.org/reps/rep-2000.html).
+    Autoware is scalable and can be customized to work with distributed or less powerful hardware.
+    The minimum hardware requirements given below are just a general recommendation.
+    However, performance will be improved with more cores, RAM and a higher-spec graphics card or GPU core.
+
+- CPU with 8 cores
+- 16GB RAM
+- [Optional] NVIDIA GPU (4GB RAM)
+
+> Although GPU is not required to run basic functionality, it is mandatory to enable the following neural network related functions:
+>
+> - LiDAR based object detection
+> - Camera based object detection
+> - Traffic light detection and classification
+
+For details of how to enable object detection and traffic light detection/classification without a GPU, refer to the [Running Autoware without CUDA](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/running-autoware-without-cuda/).
 
 ## Installing Autoware
 

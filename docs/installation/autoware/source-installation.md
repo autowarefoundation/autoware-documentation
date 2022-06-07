@@ -2,7 +2,18 @@
 
 ## Prerequisites
 
-- [Ubuntu 20.04](https://releases.ubuntu.com/20.04/)
+- OS
+
+  - [Ubuntu 20.04](https://releases.ubuntu.com/20.04/)
+  - [Ubuntu 22.04](https://releases.ubuntu.com/22.04/) (**will be supported from Q3 2022**)
+
+- ROS
+
+  - ROS 2 Galactic
+  - ROS 2 Humble (**will be supported from Q3 2022**)
+
+  For ROS 2 system dependencies, refer to [REP-2000](https://www.ros.org/reps/rep-2000.html) .
+
 - [Git](https://git-scm.com/)
   - [Registering SSH keys to GitHub](https://github.com/settings/keys) is preferable.
 
