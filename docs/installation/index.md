@@ -29,7 +29,7 @@ The Autoware Foundation provides no support on other platforms than those listed
 > - Camera based object detection
 > - Traffic light detection and classification
 
-For details of how to enable object detection and traffic light detection/classification without a GPU, refer to the [Running Autoware without CUDA how-to guide](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/running-autoware-without-cuda/)
+For details of how to enable object detection and traffic light detection/classification without a GPU, refer to the [Running Autoware without CUDA](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/running-autoware-without-cuda/).
 
 ## Installing Autoware
 
