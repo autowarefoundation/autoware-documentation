@@ -23,7 +23,7 @@ During normal operation, the flow of driving state transitions is as follows:
 | --------- | ------------------------------------------------- |
 | NOT_READY | The vehicle is not ready to start driving. |
 | READY     | The vehicle is ready to start driving             |
-| DRIVING   | The vehicle is driving toward the destination.    |
+| DRIVING   | The vehicle is driving towards the destination.    |
 
 ## Related API
 
