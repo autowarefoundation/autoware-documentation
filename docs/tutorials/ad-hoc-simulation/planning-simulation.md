@@ -94,8 +94,7 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: t
 
 3. Set the velocity of the object in `Tool Properties -> 2D Dummy Car/Pedestrian` panel.
 
-![set-dummy-car](images/planning/lane-following/place-dummy-car.png)
-4. Delete any dummy objects placed in the view by clicking the `Delete All Objects` button in the toolbar.
+![set-dummy-car](images/planning/lane-following/place-dummy-car.png) 4. Delete any dummy objects placed in the view by clicking the `Delete All Objects` button in the toolbar.
 
 ### Traffic light recognition simulation
 
@@ -107,8 +106,7 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: t
 
 3. Click the `SET` button.
 
-![set-traffic-light](images/planning/lane-following/set-traffic-light.png)
-4. Finally, click the `PUBLISH` button to send the traffic light status to the simulator. Any planned path that goes past the selected traffic light will then change accordingly.
+![set-traffic-light](images/planning/lane-following/set-traffic-light.png) 4. Finally, click the `PUBLISH` button to send the traffic light status to the simulator. Any planned path that goes past the selected traffic light will then change accordingly.
 
 ![send-traffic-light-color](images/planning/lane-following/send-traffic-light-color.png)
 
