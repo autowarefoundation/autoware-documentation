@@ -14,7 +14,7 @@ During normal operation, the flow of driving state transitions is as follows:
 1. Driving state is initialized as NOT_READY
 2. State transitions to READY when Autoware components are launched successfully and is ready to start driving.
 3. The state becomes DRIVING if the engage API is called and the vehicle starts driving.
-4. When the vehicle reaches to the destination, the state returns to NOT_READY.
+4. When the vehicle reaches its destination, the state transitions returns to NOT_READY.
 5. The state can be manually returned to NOT_READY whenever disengage API is called
 
 ![driving-state](./driving-state.drawio.svg)
