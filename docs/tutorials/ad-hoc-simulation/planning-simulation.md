@@ -15,13 +15,13 @@ unzip -d ~/Downloads/ ~/Downloads/sample-map-planning.zip
 
     Sample map: Copyright 2020 TIER IV, Inc.
 
-## Basic Simulations
+## Basic simulations
 
-### Lane Driving
+### Lane driving scenario
 
 #### 1. Launch Autoware
 
-```sh
+```bash
 source ~/autoware/install/setup.bash
 ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/Downloads/sample-map-planning vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
 ```
@@ -73,7 +73,7 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: t
 
 ![start-driving](images/planning/lane-following/engage-and-start-planning.png)
 
-### Parking maneuvers
+### Parking scenario
 
 1. Set an initial pose and a goal pose, and engage the ego vehicle.
 
@@ -86,31 +86,29 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: t
 
 ## Advanced Simulations
 
-### Placing Dummy objects
+### Placing dummy objects
 
-a) Click the `2D Dummy Car` or `2D Dummy Pedestrian` button in the toolbar.
+1. Click the `2D Dummy Car` or `2D Dummy Pedestrian` button in the toolbar.
 
-b) Set the pose of the dummy object by clicking and dragging on the map.
+2. Set the pose of the dummy object by clicking and dragging on the map.
 
-c) Set the velocity of the object in `Tool Properties -> 2D Dummy Car/Pedestrian` panel.
+3. Set the velocity of the object in `Tool Properties -> 2D Dummy Car/Pedestrian` panel.
 
 ![set-dummy-car](images/planning/lane-following/place-dummy-car.png)
-
-d) Delete any dummy objects placed in the view by clicking the `Delete All Objects` button in the toolbar.
+4. Delete any dummy objects placed in the view by clicking the `Delete All Objects` button in the toolbar.
 
 ### Traffic light recognition simulation
 
 #### Set traffic light
 
-a) Go to `Panels -> Add new panel`, select `TrafficLightPublishPanel`, and then press `OK`.
+1. Go to `Panels -> Add new panel`, select `TrafficLightPublishPanel`, and then press `OK`.
 
-b) In `TrafficLightPublishPanel`, set the `ID` and color of the traffic light.
+2. In `TrafficLightPublishPanel`, set the `ID` and color of the traffic light.
 
-c) Click the `SET` button.
+3. Click the `SET` button.
 
 ![set-traffic-light](images/planning/lane-following/set-traffic-light.png)
-
-d) Finally, click the `PUBLISH` button to send the traffic light status to the simulator. Any planned path that goes past the selected traffic light will then change accordingly.
+4. Finally, click the `PUBLISH` button to send the traffic light status to the simulator. Any planned path that goes past the selected traffic light will then change accordingly.
 
 ![send-traffic-light-color](images/planning/lane-following/send-traffic-light-color.png)
 
