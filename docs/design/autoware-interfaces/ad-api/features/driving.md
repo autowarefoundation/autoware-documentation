@@ -9,7 +9,7 @@ This state is mainly used to show the users whether the vehicle can start drivin
 ## Driving State
 
 The state transition for driving state is illustrated in the diagram below.
-In a normal operation, this state will transition as follows:
+During normal operation, the flow of driving state transitions is as follows:
 
 1. Driving state is initialized as NOT_READY
 2. State transitions to READY when Autoware components are launched successfully and is ready to start driving.
