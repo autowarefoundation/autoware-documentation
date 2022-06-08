@@ -165,7 +165,7 @@ For those interfaces, include the ResponseStatus shown below in the response wit
 The `level` is a classification of results. It indicates whether the API was successful.
 The `code` is a number to identify the error cause for each API. The `message` is text for users.
 
-## Concern, Assumption, and Limitation
+## Concerns, assumptions and limitations
 
 - The applications use the version information provided by AD API to check compatibility.
   Unknown versions are also treated as available as long as the major versions match (excluding major version 0).
