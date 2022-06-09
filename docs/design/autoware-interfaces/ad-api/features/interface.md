@@ -1,4 +1,4 @@
-# Interface API
+# Interface feature
 
 ## Description
 

@@ -1,14 +1,14 @@
-# Driving API
+# Driving feature
 
 ## Description
 
-The driving feature manages whether the vehicle is driving or can start driving.
-The vehicle holds a stop when the state is not DRIVING.
-This state is mainly used to show the users whether the vehicle can start driving and to implement an HMI for departure.
+This feature manages whether the vehicle is driving or can start driving.
+The user can use this function to check if the vehicle can start driving and instruct it to depart.
 
-## Driving State
+## States
 
 The state transition for driving state is illustrated in the diagram below.
+The vehicle holds a stop when the state is not DRIVING.
 During normal operation, the flow of driving state transitions is as follows:
 
 1. Driving state is initialized as NOT_READY
@@ -19,11 +19,11 @@ During normal operation, the flow of driving state transitions is as follows:
 
 ![driving-state](./driving-state.drawio.svg)
 
-| State     | Description                                       |
-| --------- | ------------------------------------------------- |
-| NOT_READY | The vehicle is not ready to start driving. |
-| READY     | The vehicle is ready to start driving             |
-| DRIVING   | The vehicle is driving towards the destination.    |
+| State     | Description                                     |
+| --------- | ----------------------------------------------- |
+| NOT_READY | The vehicle is not ready to start driving.      |
+| READY     | The vehicle is ready to start driving           |
+| DRIVING   | The vehicle is driving towards the destination. |
 
 ## Related API
 
