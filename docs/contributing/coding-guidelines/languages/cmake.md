@@ -6,7 +6,7 @@
 
 Refer to the following links for now:
 
-- <https://docs.ros.org/en/foxy/Contributing/Code-Style-Language-Versions.html#cmake>
+- <https://docs.ros.org/en/humble/Contributing/Code-Style-Language-Versions.html#cmake>
 
 ## Use the autoware_package macro
 
