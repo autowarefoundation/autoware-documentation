@@ -48,13 +48,12 @@ Apart from creating HD maps yourself, you can also use a mapping service from th
 - [AISAN TECHNOLOGY CO., LTD.](https://www.aisantec.co.jp/)
 - [TomTom](https://www.tomtom.com/)
 
-
 The table below shows each company's mapping technology and the types of HD maps they support.
 
-| **Company** | **Mapping technology** | **Available maps** |
-| --- | --- | --- |
-| [MAP IV, Inc.](https://www.map4.jp/) | SLAM | Point cloud and Vector maps |
-| [AISAN TECHNOLOGY CO., LTD.](https://www.aisantec.co.jp/) | MMS | Point cloud and Vector maps |
-| [TomTom](https://www.tomtom.com/) | MMS | Vector map\* |
+| **Company**                                               | **Mapping technology** | **Available maps**          |
+| --------------------------------------------------------- | ---------------------- | --------------------------- |
+| [MAP IV, Inc.](https://www.map4.jp/)                      | SLAM                   | Point cloud and Vector maps |
+| [AISAN TECHNOLOGY CO., LTD.](https://www.aisantec.co.jp/) | MMS                    | Point cloud and Vector maps |
+| [TomTom](https://www.tomtom.com/)                         | MMS                    | Vector map\*                |
 
 \*TomTom provides a road network map in their AutoStream format, not Lanelet2. However, you can use this open-source [converter](https://github.com/tomtom-international/AutoStreamForAutoware) to convert it to a suitable format for Autoware. Note that the converter is still in a very early stage and may not be able to convert all available information to Lanelet2 format.
