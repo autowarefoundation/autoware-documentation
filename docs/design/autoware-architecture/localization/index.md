@@ -202,7 +202,7 @@ We define two architectures: "Required" and "Recommended." Only input and output
   - Acceleration, covariance, and timestamp on the base_link coordinate
   - 50Hz~ frequency
 - Diagnostics
-  - Diagnostics information that indicates if the localization module works properly 
+  - Diagnostics information that indicates if the localization module works properly
 - tf
   - tf of map to base_link
 
@@ -257,7 +257,7 @@ Developers can optionally add other frames such as odom or base_footprint while 
 - The localization module should produce the pose on a fixed coordinate frame
 - Sensors should be independent of each other and keep the replaceability
 - The localization module should provide the status indicating if the autonomous vehicle can operate or not with the self-contained function or map information.
-- Tools or manuals should describe how to set proper parameters for the localization module  <!-- TODO  原文にある「適切な位置推定」とはなんだ！！！ -->
+- Tools or manuals should describe how to set proper parameters for the localization module <!-- TODO  原文にある「適切な位置推定」とはなんだ！！！ -->
 - If provided maps or estimated poses for localization modules have different reference coordinate frames or distortion between each map or pose, valid transfer evaluation functions should be provided. This checks if the map has sufficient information to realize stable and reliable localization.
 - If the map information should be supplied to absorb them
 
