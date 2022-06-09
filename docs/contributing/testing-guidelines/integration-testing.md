@@ -73,96 +73,112 @@ The simplest scenario is a single node.
 In this case, the integration test is commonly referred to as a component test.
 
 To add a component test to an existing node,
-follow the example of the `lanelet2_map_provider` package that has an executable named `lanelet2_map_provider_exe`.
+you can follow the example of the `lanelet2_map_loader` in the [`map_loader` package](https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_loader)
+(added in [this PR](https://github.com/autowarefoundation/autoware.universe/pull/1056)).
 
-In `package.xml`, add:
+In [`package.xml`](https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/package.xml), add:
 
 ```xml
 <test_depend>ros_testing</test_depend>
 ```
 
-In `CMakeLists.txt`, add or modify the `BUILD_TESTING` section:
+In [`CMakeLists.txt`](https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/CMakeLists.txt),
+add or modify the `BUILD_TESTING` section:
 
 ```cmake
 if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  ament_lint_auto_find_test_dependencies()
-
   add_ros_test(
-    test/lanelet2_map_provider_launch.test.py
+    test/lanelet2_map_loader_launch.test.py
     TIMEOUT "30"
+  )
+  install(DIRECTORY
+    test/data/
+    DESTINATION share/${PROJECT_NAME}/test/data/
   )
 endif()
 ```
+In addition to the command `add_ros_test`, we also install any data that is required by the test using the `install` command.
 
 !!! note
 
     The `TIMEOUT` argument is given in seconds; see the [add_ros_test.cmake file](https://github.com/ros2/ros_testing/blob/master/ros_testing/cmake/add_ros_test.cmake) for details.
 
+!!! note
+
+    The `add_ros_test` command will run the test in a unique `ROS_DOMAIN_ID` which avoids interference between tests running in parallel.
+
 To create a test,
 either read the [launch_testing quick-start example](https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example),
 or follow the steps below.
 
-Taking `test/lanelet2_map_provider_launch.test.py` as an example, first dependencies are imported:
+Taking [`test/lanelet2_map_loader_launch.test.py`](https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/test/lanelet2_map_loader_launch.test.py) as an example,
+first dependencies are imported:
 
 ```python
+import os
+import unittest
+
 from ament_index_python import get_package_share_directory
+import launch
 from launch import LaunchDescription
 from launch_ros.actions import Node
 import launch_testing
-
-import os
 import pytest
-import unittest
 ```
 
 Then a launch description is created to launch the node under test.
-Note that the `test_map.osm` file path is found and passed to the node,
+Note that the [`test_map.osm`](https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/test/data/test_map.osm) file path is found and passed to the node,
 something that cannot be done with the [smoke testing API](#smoke-tests):
 
 ```python
 @pytest.mark.launch_test
 def generate_test_description():
 
-    map_osm_file = os.path.join(
-        get_package_share_directory('lanelet2_map_provider'),
-        'data/test_map.osm'
+    lanelet2_map_path = os.path.join(
+        get_package_share_directory("map_loader"), "test/data/test_map.osm"
     )
 
-    lanelet2_map_provider = Node(
-        package='lanelet2_map_provider',
-        executable='lanelet2_map_provider_exe',
-        namespace='had_maps',
-        parameters=[
-            os.path.join(
-                get_package_share_directory('lanelet2_map_provider'),
-                'param/test.param.yaml'
-            ),
-            {
-                'map_osm_file': map_osm_file
-            }]
+    lanelet2_map_loader = Node(
+        package="map_loader",
+        executable="lanelet2_map_loader",
+        parameters=[{"lanelet2_map_path": lanelet2_map_path}],
     )
 
-    context = {'lanelet2_map_provider': lanelet2_map_provider}
+    context = {}
 
-    return LaunchDescription([
-        lanelet2_map_provider,
-        # Start tests right away - no need to wait for anything
-        launch_testing.actions.ReadyToTest()]
-    ), context
+    return (
+        LaunchDescription(
+            [
+                lanelet2_map_loader,
+                # Start test after 1s - gives time for the map_loader to finish initialization
+                launch.actions.TimerAction(
+                    period=1.0, actions=[launch_testing.actions.ReadyToTest()]
+                ),
+            ]
+        ),
+        context,
+    )
 ```
 
+!!! note
+
+    Since the node need time to process the input lanelet2 map,
+    we use a `TimerAction` to delay the start of the test by 1s.
+
+!!! note
+
+    Here the `context` is empty but could be used to pass objects to the test cases.
+    You can find an example of using the `context`[here](https://github.com/ros2/launch/blob/humble/launch_testing/test/launch_testing/examples/context_launch_test.py)
+
 Finally, a test is executed after the node executable has been shut down (`post_shutdown_test`).
-Here we make sure the node terminated with a standard `SIGTERM` signal,
-ensuring that it was launched without error and exited cleanly.
+Here we ensure that the node was launched without error and exited cleanly.
 
 ```python
 @launch_testing.post_shutdown_test()
 class TestProcessOutput(unittest.TestCase):
-
-    def test_exit_code(self, proc_output, proc_info, ndt_mapper):
-        # Check that process exits with code -15 code: termination request, sent to the program
-        launch_testing.asserts.assertExitCodes(proc_info, [-15], process=ndt_mapper)
+    def test_exit_code(self, proc_info):
+        # Check that process exits with code 0: no error
+        launch_testing.asserts.assertExitCodes(proc_info)
 ```
 
 ## Running the test
@@ -170,7 +186,7 @@ class TestProcessOutput(unittest.TestCase):
 Continuing the example from above, first build your package:
 
 ```bash
-colcon build --packages-up-to lanelet2_map_provider
+colcon build --packages-up-to map_loader
 source install/setup.bash
 ```
 
@@ -183,7 +199,7 @@ ros2 test src/mapping/had_map/lanelet2_map_provider/test/lanelet2_map_provider_l
 Or as part of testing the entire package:
 
 ```bash
-colcon test --packages-select lanelet2_map_provider
+colcon test --packages-select map_loader
 ```
 
 Verify that the test is executed; e.g.
