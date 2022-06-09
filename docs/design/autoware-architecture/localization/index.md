@@ -27,10 +27,12 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 ### 3D-LiDAR + PointCloud Map
 
 #### Expected environment
+
 - Structure-rich environment
   - e.g., urban areas
 
 #### Environment where the system becomes unstable
+
 - Structure-less environment
   - e.g., rural landscapes, highways, tunnels
 - Environment that has changed from when the map is created
@@ -41,16 +43,19 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 - Environment with lasers in the same frequency as LiDAR
 
 #### Functionalities
+
 - The system can estimate the vehicle location on the point cloud map with the error of ~10cm
 - Operable at the night
 
 ### 3D-LiDAR or Camera + Vector Map
 
 #### Expected environment
+
 - Road with a clear white line and loose curvature
   - e.g., highways, ordinary local roads
 
 #### Environment where the system becomes unstable
+
 - Less or blurred white lines or covered by rain or snow
 - Tight curvature such as intersections
 - Large reflection change of the road surface because of rain or paint
@@ -63,14 +68,17 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 ### GNSS
 
 #### Expected environment
+
 - Open environment with no or few surrounding objects
   - e.g. rural landscapes
 
 #### Environment where the system becomes unstable
+
 - Environments where GNSS signals are intercepted
   - e.g. tunnels, urban areas
 
 #### Functionalities
+
 - The system can estimate the vehicle position with an error of ~10m in the world coordinate
 - With RTK attached, the accuracy can be improved to ~10cm
 - This can work without environmental maps
@@ -78,10 +86,12 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 ### Camera (Visual Odometry, Visual SLAM)
 
 #### Expected environment
+
 - Texture-rich environment
   - Urban areas
 
 #### Environment where the system becomes unstable
+
 - Texture-less environment
 - Surrounded by other objects
 - Large illumination changes
@@ -89,52 +99,66 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 - Insufficient illumination
 
 #### Functionalities
+
 - Odometry can be estimated by tracking visual features
 
 ### Wheel speed sensor
 
 #### Expected environment
+
 - Ordinary roads
 
 #### Environment where the system becomes unstable
+
 - Slippy or bumpy roads or places where wheel speed cannot be correctly obtained
 
 #### Functionalities
+
 - It can obtain the vehicle velocity and estimate the distance traveled
 - By fusing with external sensors, it can estimate a more accurate pose in a higher frequency
 
 ### IMU
 
 #### Expected environments
+
 - Ordinary roads
 
 #### Environment where the system becomes unstable
+
 - Temperature change
 
 #### Functionalities
+
 - It can obtain acceleration and angular velocity and can calculate the local vehicle rotation change by dead-reckoning
 - By fusing with external sensors, it can estimate a more accurate pose in a higher frequency
 
 ### Geomagnetic sensor
 
 #### Expected environment
+
 - Environment with low magnetic noise
 
 #### Environment where the system becomes unstable
+
 - Environment with high magnetic noise
 - e.g., buildings or structures with reinforced steel, materials that generate electromagnetic waves
 
 #### Functionalities
+
 - Direction can be estimated in the world coordinate system
 
 ### Magnetic markers
 
 #### Expected environment
+
 - Environment with magnetic markers installed
+
 #### Environment where the system becomes unstable
+
 - Environment with markers installed but without maintenance
 
 #### Functionalities
+
 - Vehicle location can be obtained on the world coordinate by detecting the magnetic markers
 - This system can work even if the road is covered with snow
 
@@ -191,6 +215,7 @@ We define two architectures: "Required" and "Recommended." Only input and output
 ![](media/image3.png)
 
 #### Pose Estimator
+
 - Estimate the vehicle pose on the map coordinate by matching external sensor observation to the map
 - Provide the obtained pose and its covariance to PoseTwistFusionFilter
 
@@ -209,7 +234,8 @@ We define two architectures: "Required" and "Recommended." Only input and output
 - Produce tf of map to base_link according to the pose estimation result
 
 #### Localization Diagnostics
-  - This monitors and guarantees the stability and reliability of pose estimation by fusing information obtained from multiple localization modules and reports the status to the error monitor
+
+- This monitors and guarantees the stability and reliability of pose estimation by fusing information obtained from multiple localization modules and reports the status to the error monitor
 
 <!-- -->
 
@@ -217,13 +243,13 @@ We define two architectures: "Required" and "Recommended." Only input and output
 
 ![](media/image1.png){width="2.6666666666666665in" height="2.8125in"}
 
-| frame     | meaning                                                                                           |
-|:---------:|:--------------------------------------------------------------------------------------------------|
-| earth     | ECEF (Earth Centered Earth Fixed）                                                                |
-| map       | Origin of the map coordinate (ex. MGRS origin)                                                    |
-| viewer    | User-defined frame for rviz                                                                       |
-| base_link | Reference pose of the ego-vehicle (projection of the rear-axle center onto the ground surface)    |
-| sensor    | Reference pose of each sensor                                                                     |
+|   frame   | meaning                                                                                        |
+| :-------: | :--------------------------------------------------------------------------------------------- |
+|   earth   | ECEF (Earth Centered Earth Fixed）                                                             |
+|    map    | Origin of the map coordinate (ex. MGRS origin)                                                 |
+|  viewer   | User-defined frame for rviz                                                                    |
+| base_link | Reference pose of the ego-vehicle (projection of the rear-axle center onto the ground surface) |
+|  sensor   | Reference pose of each sensor                                                                  |
 
 Developers can optionally add other frames such as odom or base_footprint while keeping the tf structure above
 
