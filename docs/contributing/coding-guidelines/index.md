@@ -8,7 +8,7 @@
 
 Refer to the following links for now:
 
-- <https://docs.ros.org/en/foxy/Contributing/Developer-Guide.html>
+- <https://docs.ros.org/en/humble/Contributing/Developer-Guide.html>
 
 Also, keep in mind the following concepts.
 
