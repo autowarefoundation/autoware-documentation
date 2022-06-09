@@ -16,7 +16,7 @@ Non-goals:
 
 - We do not try to develop a localization system that
   - does not fail in any environment
-  - works outside of pre-defined ODD (Operational Design Domain)
+  - works outside of the pre-defined ODD (Operational Design Domain)
   - has unnecessarily better performance than required in autonomous driving
 
 ## 2. Sensor Configuration Examples
@@ -26,96 +26,90 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 
 ### 3D-LiDAR + PointCloud Map
 
-#### Expected environment
+#### Expected situation
 
-- Structure-rich environment
-  - e.g., urban areas
+- The vehicle is located in a structure-rich environment, such as an urban area
 
-#### Environment where the system becomes unstable
+#### Situation that can make the system unstable
 
-- Structure-less environment
-  - e.g., rural landscapes, highways, tunnels
-- Environment that has changed from when the map is created
-  - e.g. construction or destruction of buildings, snow cover
-- Occlusion by surrounding objects
-- Surrounded by objects undetectable by LiDAR
-  - Glass windows, reflections, absorption (dark objects)
-- Environment with lasers in the same frequency as LiDAR
+- The vehicle is placed in a structure-less environment, such as rural landscape, highway or a tunnel
+- Environment change from when the map is created e.g. construction or destruction of buildings, or snow cover
+- Surrounding objects are occluded
+- The car is surrounded by objects undetectable by LiDAR, e.g., glass windows, reflections, or absorption (dark objects)
+- The environment has laser beams of the same frequency as LiDAR
 
 #### Functionalities
 
 - The system can estimate the vehicle location on the point cloud map with the error of ~10cm
-- Operable at the night
+- The system is Operable at the night
 
 ### 3D-LiDAR or Camera + Vector Map
 
-#### Expected environment
+#### Expected situation
 
-- Road with a clear white line and loose curvature
-  - e.g., highways, ordinary local roads
+- Road with a clear white line and loose curvature, such as highway or ordinary local road
 
-#### Environment where the system becomes unstable
+#### Situation that can make the system unstable
 
-- Less or blurred white lines or covered by rain or snow
+- White lines are scratchy, or covered by rain or snow
 - Tight curvature such as intersections
-- Large reflection change of the road surface because of rain or paint
+- Large reflection change of the road surface caused by rain or paint
 
 #### Functionalities
 
 - Correct vehicle positions along the lateral direction
-  - Pose correction along the longitudinal becomes uncertain. This can be improved by fusing with GNSS
+- Pose correction along the longitudinal can be in accurate. But we can resolve this by fusing with GNSS
 
 ### GNSS
 
-#### Expected environment
+#### Expected situation
 
-- Open environment with no or few surrounding objects
-  - e.g. rural landscapes
+- The vehicle is placed in an open environment with no or few surrounding objects, such as rural landscape
 
-#### Environment where the system becomes unstable
+#### Situation that can make the system unstable
 
-- Environments where GNSS signals are intercepted
-  - e.g. tunnels, urban areas
+- GNSS signals are intercepted by surrounding objects, e.g., tunnels or buildings
 
 #### Functionalities
 
 - The system can estimate the vehicle position with an error of ~10m in the world coordinate
 - With RTK attached, the accuracy can be improved to ~10cm
-- This can work without environmental maps
+- The system with this configuration can work without environment maps
 
 ### Camera (Visual Odometry, Visual SLAM)
 
-#### Expected environment
+#### Expected situation
 
-- Texture-rich environment
-  - Urban areas
+- The vehicle is placed in a texture-rich environment, such as urban areas
 
-#### Environment where the system becomes unstable
+#### Situation that can make the system unstable
 
-- Texture-less environment
-- Surrounded by other objects
-- Large illumination changes
-  - e.g. sunshine, headlight, exit of tunnels
-- Insufficient illumination
+- The vehicle is placed in a Texture-less environment
+- The vehicle is surrounded by other objects
+- The camera observes large illumination changes such as sunshine, headlight, or brigthness change at the exit of a tunnel
+- The vehicle is placed in a dark environment
 
 #### Functionalities
 
-- Odometry can be estimated by tracking visual features
+- The system can estimated the odometry by tracking visual features
 
 ### Wheel speed sensor
 
-#### Expected environment
+#### Expected situation
 
-- Ordinary roads
+- The vehicle is running on an ordinary road
 
-#### Environment where the system becomes unstable
+#### Situation that can make the system unstable
 
-- Slippy or bumpy roads or places where wheel speed cannot be correctly obtained
+- The vehicle is running on a slippy or bumpy road
+- The vehicle cannot observe the correct wheel speed because of poor road surface conditions such as bumps or slips
 
 #### Functionalities
 
-- It can obtain the vehicle velocity and estimate the distance traveled
-- By fusing with external sensors, it can estimate a more accurate pose in a higher frequency
+- The system can acquire the vehicle velocity and estimate the traveled distance
+- The system can estimate can estimate a more accurate pose in a higher frequency by fusing with external sensors
+
+<!-- NOTE: Is the second item necessary? Because it is general for any other sensors -->
 
 ### IMU
 
@@ -123,39 +117,43 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 
 - Ordinary roads
 
-#### Environment where the system becomes unstable
+<!-- NOTE: The availability of IMU is highest among the sensors attached to vehicles. Therefore we should list more situations or say we can use the IMU almost anywhere -->
 
-- Temperature change
+#### Situation that can make the system unstable
+
+- IMUs have bias that is dependent on the surrounding temperature. This can cause incorrect sensor observation or odometry drift
 
 #### Functionalities
 
-- It can obtain acceleration and angular velocity and can calculate the local vehicle rotation change by dead-reckoning
+- The system can observe acceleration and angular velocity.
+- By integrating these observation, the system can estimate the local pose change, and realize dead-reckoning
 - By fusing with external sensors, it can estimate a more accurate pose in a higher frequency
+
+<!-- NOTE: The third items says "it can estimate a more accurate pose in a higher frequency" but the IMU already has very frequent observation -->
 
 ### Geomagnetic sensor
 
-#### Expected environment
+#### Expected situation
 
-- Environment with low magnetic noise
+- The vehicle is placed in an environment with low magnetic noise
 
-#### Environment where the system becomes unstable
+#### Situation that can make the system unstable
 
-- Environment with high magnetic noise
-- e.g., buildings or structures with reinforced steel, materials that generate electromagnetic waves
+- The vehicle is palced in an environment with high magnetic noise, such as buildings or structures with reinforced steel, or materials that generate electromagnetic waves
 
 #### Functionalities
 
-- Direction can be estimated in the world coordinate system
+- The system can estimate the vehicle's direction in the world coordinate system
 
 ### Magnetic markers
 
 #### Expected environment
 
-- Environment with magnetic markers installed
+- The car is placed in an environment with magnetic markers installed
 
 #### Environment where the system becomes unstable
 
-- Environment with markers installed but without maintenance
+- The markers are not maintained
 
 #### Functionalities
 
@@ -165,7 +163,7 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 ## 3. Requirements
 
 - By allowing to implement different modules, we accept various sensor configurations and algorithms.
-- The localization system can start the pose estimation from an ambiguous initial location
+- The localization system can start pose estimation from an ambiguous initial location
 - The system can produce the reliability of the initial location estimation
 - The system can manage the state of the initial location estimation (uninitialized, initializable or not) and can report to the error monitor
 
@@ -181,10 +179,10 @@ We define two architectures: "Required" and "Recommended." Only input and output
 
 #### Input
 
-- sensor message
+- Sensor message
   - e.g., LiDAR, camera, GNSS, IMU, CANBus, etc.
-  - To keep reusability, data types should be ROS primitive
-- map data
+  - Data types should be ROS primitive to keep reusability
+- Map data
   - e.g., point cloud map, lanelet2 map, feature map, etc.
   - Choose a map format based on the use case and sensor configuration
   - Map data is not required in some specific cases. (e.g., GNSS-only localization)
@@ -194,17 +192,17 @@ We define two architectures: "Required" and "Recommended." Only input and output
 
 #### Output
 
-- pose with covariance stamped
+- Pose with covariance stamped
   - Vehicle pose, covariance, and timestamp on the map coordinate
   - 50Hz~ frequency (depends on the requirement by planning/control)
-- twist with covariance stamped
+- Twist with covariance stamped
   - Vehicle velocity, covariance, and timestamp on the base_link coordinate
   - 50Hz~ frequency
-- accel with covariance stamped
+- Accel with covariance stamped
   - Acceleration, covariance, and timestamp on the base_link coordinate
   - 50Hz~ frequency
-- diagnostics
-  - Diagnostics information of whether the localization module works properly or not
+- Diagnostics
+  - Diagnostics information that indicates if the localization module works properly 
 - tf
   - tf of map to base_link
 
@@ -216,26 +214,25 @@ We define two architectures: "Required" and "Recommended." Only input and output
 
 #### Pose Estimator
 
-- Estimate the vehicle pose on the map coordinate by matching external sensor observation to the map
-- Provide the obtained pose and its covariance to PoseTwistFusionFilter
+- The pose estimator estimates the vehicle pose on the map coordinate by matching external sensor observation to the map
+- The pose estimator also provides the obtained pose and its covariance to `PoseTwistFusionFilter`
 
 #### Twist-Accel Estimator
 
-- Produce vehicle velocity, angular velocity, acceleration, angular acceleration, and their covariances
-- Developers can create one module for both twist and acceleration or can create one module for each of them
-- Twist estimator
-  - Produce velocity and angular velocity from internal sensor observation
-- Accel estimator
-  - Produce acceleration and angular acceleration from internal sensor observations
+- The twist-accel estimator produces the vehicle velocity, angular velocity, acceleration, angular acceleration, and their covariances
+- Developers can choose the architecture. It is possible to create one module for both twist and acceleration, or also possible to create one module for each
+- The twist estimator produces velocity and angular velocity from internal sensor observation
+- The accel estimator produces acceleration and angular acceleration from internal sensor observations
 
 #### Kinematics Fusion Filter
 
-- Produce the most likely pose, velocity, acceleration, and their covariances by fusing the pose obtained from the pose estimator and velocity and acceleration obtained from the twist-accel estimator
-- Produce tf of map to base_link according to the pose estimation result
+- The kinematics fusion filter produces the likeliest pose, velocity, acceleration, and their covariances. This is computed by fusing two information. Ono is the pose obtained from the pose estimator. The other one is velocity and acceleration obtained from the twist-accel estimator
+- The kinematics fusion filter also produces tf of map to base_link according to the pose estimation result
 
 #### Localization Diagnostics
 
-- This monitors and guarantees the stability and reliability of pose estimation by fusing information obtained from multiple localization modules and reports the status to the error monitor
+- The diagnostics module monitors and guarantees the stability and reliability of pose estimation by fusing information obtained from multiple localization modules
+- The diagnostics module reports the error status to the error monitor
 
 <!-- -->
 
@@ -253,14 +250,14 @@ We define two architectures: "Required" and "Recommended." Only input and output
 
 Developers can optionally add other frames such as odom or base_footprint while keeping the tf structure above
 
-### Ideal localization functionality
+### The localization module's ideal functionality
 
-- Localization module should provide pose, velocity, and acceleration for control, planning, and perception
-- Latency and stagger should be sufficiently small or adjustable so that the estimated values can be used for control in ODD(Operational Design Domain)
-- Localization module should produce the pose on a fixed coordinate frame
+- The localization module should provide pose, velocity, and acceleration for control, planning, and perception
+- Latency and stagger should be sufficiently small or adjustable so that the estimated values can be used for control within the ODD(Operational Design Domain)
+- The localization module should produce the pose on a fixed coordinate frame
 - Sensors should be independent of each other and keep the replaceability
-- Localization modules should output the status indicating if the autonomous vehicle can operate or not with the self-contained function or map information.
-- The ways to set proper parameters for the localization module should be provided by tools or manuals with proper criteria.
+- The localization module should provide the status indicating if the autonomous vehicle can operate or not with the self-contained function or map information.
+- Tools or manuals should describe how to set proper parameters for the localization module  <!-- TODO  原文にある「適切な位置推定」とはなんだ！！！ -->
 - If provided maps or estimated poses for localization modules have different reference coordinate frames or distortion between each map or pose, valid transfer evaluation functions should be provided. This checks if the map has sufficient information to realize stable and reliable localization.
 - If the map information should be supplied to absorb them
 
