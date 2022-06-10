@@ -184,20 +184,20 @@ class TestProcessOutput(unittest.TestCase):
 Continuing the example from above, first build your package:
 
 ```console
-$ colcon build --packages-up-to map_loader
-$ source install/setup.bash
+colcon build --packages-up-to map_loader
+source install/setup.bash
 ```
 
 Then either execute the component test manually:
 
 ```console
-$ ros2 test src/universe/autoware.universe/map/map_loader/test/lanelet2_map_loader_launch.test.py
+ros2 test src/universe/autoware.universe/map/map_loader/test/lanelet2_map_loader_launch.test.py
 ```
 
 Or as part of testing the entire package:
 
 ```console
-$ colcon test --packages-select map_loader
+colcon test --packages-select map_loader
 ```
 
 Verify that the test is executed; e.g.

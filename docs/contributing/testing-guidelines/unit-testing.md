@@ -71,8 +71,8 @@ Details can be viewed in [ament_add_gtest.cmake](https://github.com/ros2/ament_c
 By default, all necessary test files (`ELF`, `CTestTestfile.cmake`, etc.) are compiled by `colcon`:
 
 ```console
-$ cd ~/workspace/
-$ colcon build --packages-select my_cool_pkg
+cd ~/workspace/
+colcon build --packages-select my_cool_pkg
 ```
 
 Test files are generated under `~/workspace/build/my_cool_pkg`.
