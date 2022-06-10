@@ -70,9 +70,9 @@ Details can be viewed in [ament_add_gtest.cmake](https://github.com/ros2/ament_c
 
 By default, all necessary test files (`ELF`, `CTestTestfile.cmake`, etc.) are compiled by `colcon`:
 
-```bash
-cd ~/workspace/
-colcon build --packages-select my_cool_pkg
+```console
+$ cd ~/workspace/
+$ colcon build --packages-select my_cool_pkg
 ```
 
 Test files are generated under `~/workspace/build/my_cool_pkg`.
@@ -81,8 +81,8 @@ Test files are generated under `~/workspace/build/my_cool_pkg`.
 
 To run all tests for a specific package, call:
 
-```bash
-colcon test --packages-select my_cool_pkg
+```console
+$ colcon test --packages-select my_cool_pkg
 
 Starting >>> my_cool_pkg
 Finished <<< my_cool_pkg [7.80s]
@@ -94,8 +94,8 @@ The test command output contains a brief report of all the test results.
 
 To get job-wise information of all executed tests, call:
 
-```bash
-colcon test-result --all
+```console
+$ colcon test-result --all
 
 build/my_cool_pkg/test_results/my_cool_pkg/copyright.xunit.xml: 8 tests, 0 errors, 0 failures, 0 skipped
 build/my_cool_pkg/test_results/my_cool_pkg/cppcheck.xunit.xml: 6 tests, 0 errors, 0 failures, 0 skipped
@@ -112,8 +112,8 @@ There is also the `~/workspace/log/latest_*/` directory containing symbolic link
 
 To print the tests' details while the tests are being run, use the `--event-handlers console_cohesion+` option to print the details directly to the console:
 
-```bash
-colcon test --event-handlers console_cohesion+ --packages-select my_cool_pkg
+```console
+$ colcon test --event-handlers console_cohesion+ --packages-select my_cool_pkg
 
 ...
 test 1

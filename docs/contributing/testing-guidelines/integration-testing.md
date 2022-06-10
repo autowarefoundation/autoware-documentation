@@ -183,27 +183,27 @@ class TestProcessOutput(unittest.TestCase):
 
 Continuing the example from above, first build your package:
 
-```bash
-colcon build --packages-up-to map_loader
-source install/setup.bash
+```console
+$ colcon build --packages-up-to map_loader
+$ source install/setup.bash
 ```
 
 Then either execute the component test manually:
 
-```bash
-ros2 test src/universe/autoware.universe/map/map_loader/test/lanelet2_map_loader_launch.test.py
+```console
+$ ros2 test src/universe/autoware.universe/map/map_loader/test/lanelet2_map_loader_launch.test.py
 ```
 
 Or as part of testing the entire package:
 
-```bash
-colcon test --packages-select map_loader
+```console
+$ colcon test --packages-select map_loader
 ```
 
 Verify that the test is executed; e.g.
 
-```bash
-colcon test-result --all --verbose
+```console
+$ colcon test-result --all --verbose
 ...
 build/map_loader/test_results/map_loader/test_lanelet2_map_loader_launch.test.py.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped
 ```
