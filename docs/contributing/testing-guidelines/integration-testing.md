@@ -45,9 +45,6 @@ And in `CMakeLists.txt` add:
 
 ```cmake
 if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  ament_lint_auto_find_test_dependencies()
-
   find_package(autoware_testing REQUIRED)
   add_smoke_test(${PROJECT_NAME} ${NODE_NAME})
 endif()
@@ -194,7 +191,7 @@ source install/setup.bash
 Then either execute the component test manually:
 
 ```bash
-ros2 test src/mapping/had_map/lanelet2_map_provider/test/lanelet2_map_provider_launch.test.py
+ros2 test src/universe/autoware.universe/map/map_loader/test/lanelet2_map_loader_launch.test.py
 ```
 
 Or as part of testing the entire package:
@@ -208,7 +205,7 @@ Verify that the test is executed; e.g.
 ```bash
 colcon test-result --all --verbose
 ...
-build/lanelet2_map_provider/test_results/lanelet2_map_provider/test_lanelet2_map_provider_launch.test.py.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped
+build/map_loader/test_results/map_loader/test_lanelet2_map_loader_launch.test.py.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped
 ```
 
 ### Next steps
