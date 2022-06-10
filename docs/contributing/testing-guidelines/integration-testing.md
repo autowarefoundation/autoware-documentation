@@ -158,7 +158,7 @@ def generate_test_description():
 !!! note
 
     - Since the node need time to process the input lanelet2 map, we use a `TimerAction` to delay the start of the test by 1s.
-    - Here the `context` is empty but could be used to pass objects to the test cases.
+    - In the example above, the `context` is empty but it can be used to pass objects to the test cases.
     - You can find an example of using the `context` in the [ROS 2 context_launch_test.py](https://github.com/ros2/launch/blob/humble/launch_testing/test/launch_testing/examples/context_launch_test.py) test example.
 
 Finally, a test is executed after the node executable has been shut down (`post_shutdown_test`).
