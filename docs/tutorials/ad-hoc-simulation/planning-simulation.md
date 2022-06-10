@@ -95,7 +95,8 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: t
 3. Set the velocity of the object in `Tool Properties -> 2D Dummy Car/Pedestrian` panel.
 
 !!! note
-Changes to the `velocity` parameter will only affect objects placed after the parameter is changed.
+
+    Changes to the `velocity` parameter will only affect objects placed after the parameter is changed.
 
 ![set-dummy-car](images/planning/lane-following/place-dummy-car.png) 4. Delete any dummy objects placed in the view by clicking the `Delete All Objects` button in the toolbar.
 
