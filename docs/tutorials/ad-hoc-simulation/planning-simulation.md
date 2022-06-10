@@ -113,8 +113,7 @@ The following steps explain how to set and reset traffic lights in order to test
 2. In `TrafficLightPublishPanel`, set the `ID` and color of the traffic light.
 
 3. Click the `SET` button.
-
-![set-traffic-light](images/planning/lane-following/set-traffic-light.png)
+   ![set-traffic-light](images/planning/lane-following/set-traffic-light.png)
 
 4. Finally, click the `PUBLISH` button to send the traffic light status to the simulator. Any planned path that goes past the selected traffic light will then change accordingly.
 
