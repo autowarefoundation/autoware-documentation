@@ -161,10 +161,8 @@ Currently, there is no required header.
 ### Response status
 
 The interfaces whose communication method is Function Call use a common response status to unify the error format.
-For these interfaces, include a variable of type ResponseStatus with the name status in the response.
-ResponseStatus has three members, level, code and message.
-The level is a classification of results. It indicates whether the API was successful.
-The code is a number to identify the error cause for each API. The message is text for users.
+These interfaces should include a variable of ResponseStatus with the name status in the response.
+See [autoware_ad_api_msgs/msg/ResponseStatus](https://github.com/autowarefoundation/autoware.universe/blob/main/common/autoware_ad_api_msgs/README.md#responsestatus) for details.
 
 ## Concerns, assumptions and limitations
 
