@@ -11,12 +11,12 @@ and the output is a set of properly integrated software modules that is ready fo
 
 Integration tests determine if independently developed software modules work correctly when the modules are connected to each other.
 In ROS 2, the software modules are called nodes.
-As a special case, testing a single node can be referred to as component testing.
+Testing a single node is a special type of integration test that is commonly referred to as component testing.
 
 Integration tests help to find the following types of errors:
 
 - Incompatible interactions between nodes, such as non-matching topics, different message types, or incompatible QoS settings.
-- Edge cases that were not touched by unit testing, such as a critical timing issue, network communication delays, disk I/O failures, and many other problems that can occur in production environments.
+- Edge cases that were not touched by unit testing, such as a critical timing issue, network communication delays, disk I/O failures, and other such problems that can occur in production environments.
 - Issues that can occur while the system is under high CPU/memory load, such as `malloc` failures. This can be tested using tools like `stress` and `udpreplay` to test the performance of nodes with real data.
 
 With ROS 2, it is possible to program complex autonomous-driving applications with a large number of nodes.
@@ -99,11 +99,8 @@ In addition to the command `add_ros_test`, we also install any data that is requ
 
 !!! note
 
-    The `TIMEOUT` argument is given in seconds; see the [add_ros_test.cmake file](https://github.com/ros2/ros_testing/blob/master/ros_testing/cmake/add_ros_test.cmake) for details.
-
-!!! note
-
-    The `add_ros_test` command will run the test in a unique `ROS_DOMAIN_ID` which avoids interference between tests running in parallel.
+    - The `TIMEOUT` argument is given in seconds; see the [add_ros_test.cmake file](https://github.com/ros2/ros_testing/blob/master/ros_testing/cmake/add_ros_test.cmake) for details.
+    - The `add_ros_test` command will run the test in a unique `ROS_DOMAIN_ID` which avoids interference between tests running in parallel.
 
 To create a test,
 either read the [launch_testing quick-start example](https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example),
@@ -160,13 +157,9 @@ def generate_test_description():
 
 !!! note
 
-    Since the node need time to process the input lanelet2 map,
-    we use a `TimerAction` to delay the start of the test by 1s.
-
-!!! note
-
-    Here the `context` is empty but could be used to pass objects to the test cases.
-    You can find an example of using the `context`[here](https://github.com/ros2/launch/blob/humble/launch_testing/test/launch_testing/examples/context_launch_test.py)
+    - Since the node need time to process the input lanelet2 map, we use a `TimerAction` to delay the start of the test by 1s.
+    - In the example above, the `context` is empty but it can be used to pass objects to the test cases.
+    - You can find an example of using the `context` in the [ROS 2 context_launch_test.py](https://github.com/ros2/launch/blob/humble/launch_testing/test/launch_testing/examples/context_launch_test.py) test example.
 
 Finally, a test is executed after the node executable has been shut down (`post_shutdown_test`).
 Here we ensure that the node was launched without error and exited cleanly.
@@ -210,7 +203,7 @@ build/map_loader/test_results/map_loader/test_lanelet2_map_loader_launch.test.py
 
 ### Next steps
 
-The simple test described in [Integration test with a single node: component test](#integration-test-with-a-single-node-component-test) can be extended in numerous directions:
+The simple test described in [Integration test with a single node: component test](#integration-test-with-a-single-node-component-test) can be extended in numerous directions, such as testing a node's output.
 
 #### Testing the output of a node
 
