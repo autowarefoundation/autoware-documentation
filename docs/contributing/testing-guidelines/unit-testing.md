@@ -2,7 +2,7 @@
 
 Unit testing is the first phase of testing and is used to validate units of source code such as classes and functions.
 Typically, a unit of code is tested by validating its output for various inputs.
-Unit testing helps ensure that the code behaves as intended and prevents accidental change of behavior.
+Unit testing helps ensure that the code behaves as intended and prevents accidental changes of behavior.
 
 Autoware uses the `ament_cmake` framework to build and run tests.
 The same framework is also used to analyze the test results.
@@ -28,8 +28,6 @@ TEST(TestMyCoolPkg, TestHello) {
 }
 ```
 
-For more examples of `gtest` features, see the [gtest repo](https://github.com/google/googletest).
-
 In `package.xml`, add the following line:
 
 ```xml
@@ -48,7 +46,7 @@ endif()
 ```
 
 This automatically links the test with the default main function provided by `gtest`.
-The code under test is usually in a different CMake target (`${PROJECT_NAME}` in the example) and its shared object for linking need to be added.
+The code under test is usually in a different CMake target (`${PROJECT_NAME}` in the example) and its shared object for linking needs to be added.
 
 To register a new `gtest` item, wrap the test code with the macro `TEST ()`.
 `TEST ()` is a predefined macro that helps generate the final test code,
@@ -58,8 +56,11 @@ The test case name should be in CamelCase, since gtest inserts an underscore bet
 `gtest/gtest.h` also contains predefined macros of `gtest` like `ASSERT_TRUE(condition)`,
 `ASSERT_FALSE(condition)`, `ASSERT_EQ(val1,val2)`, `ASSERT_STREQ(str1,str2)`, `EXPECT_EQ()`, etc.
 `ASSERT_*` will abort the test if the condition is not satisfied,
-while `EXPECT_*` will mark the test as failed but continue to next test condition.
-More information about `gtest` can be found in the [gtest repo](https://github.com/google/googletest).
+while `EXPECT_*` will mark the test as failed but continue on to the next test condition.
+
+!!! info
+
+    More information about `gtest` and its features can be found in the [gtest repo](https://github.com/google/googletest).
 
 In the demo `CMakeLists.txt`, `ament_add_ros_isolated_gtest` is a predefined macro in `ament_cmake_ros` that helps simplify adding `gtest` code.
 Details can be viewed in [ament_add_gtest.cmake](https://github.com/ros2/ament_cmake_ros/tree/master/ament_cmake_ros/cmake).
