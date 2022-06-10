@@ -79,8 +79,8 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: t
 
    ![after-set-goal-pose](images/planning/parking/after-set-goal-pose.png)
 
-2. When the vehicle approaches the goal, it will change to the parking mode.
-3. After that, the vehicle will start driving backwards and park at the destination parking spot.
+2. When the vehicle approaches the goal, it will switch from lane driving mode to parking mode.
+3. After that, the vehicle will reverse into the destination parking spot.
 
    ![parking-maneuver](images/planning/parking/parking-maneuver.png)
 
@@ -94,9 +94,16 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: t
 
 3. Set the velocity of the object in `Tool Properties -> 2D Dummy Car/Pedestrian` panel.
 
+!!! note
+    Changes to the `velocity` parameter will only affect objects placed after the parameter is changed.
+
 ![set-dummy-car](images/planning/lane-following/place-dummy-car.png) 4. Delete any dummy objects placed in the view by clicking the `Delete All Objects` button in the toolbar.
 
 ### Traffic light recognition simulation
+
+By default, traffic lights on the map are all treated as if they are set to green. As a result, when a path is created that passed through an intersection with a traffic light, the ego vehicle will drive through the intersection without stopping. 
+
+The following steps explain how to set and reset traffic lights in order to test how the Planning component will respond.
 
 #### Set traffic light
 
@@ -106,7 +113,8 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: t
 
 3. Click the `SET` button.
 
-![set-traffic-light](images/planning/lane-following/set-traffic-light.png) 4. Finally, click the `PUBLISH` button to send the traffic light status to the simulator. Any planned path that goes past the selected traffic light will then change accordingly.
+![set-traffic-light](images/planning/lane-following/set-traffic-light.png)
+4. Finally, click the `PUBLISH` button to send the traffic light status to the simulator. Any planned path that goes past the selected traffic light will then change accordingly.
 
 ![send-traffic-light-color](images/planning/lane-following/send-traffic-light-color.png)
 
@@ -128,4 +136,4 @@ You can update the color of the traffic light by selecting the next color (in th
 
 ![after-traffic-light-color-update](images/planning/lane-following/after-traffic-light-color-update.png)
 
-To delete a traffic light, use `RESET` button.
+To remove a traffic light from `TrafficLightPublishPanel`, click the `RESET` button.
