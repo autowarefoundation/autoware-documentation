@@ -23,7 +23,7 @@ Traditionally, a Mobile Mapping System (MMS) is used in order to create highly a
 
 It is important to note that apart from [lidarslam-ros2](https://github.com/rsasaki0109/lidarslam_ros2), these open-source SLAM implementations are based on ROS 1. Therefore, it could be problematic if you want to install them on the same machine that runs Autoware, which is based on ROS 2. To avoid this problem, you can use Docker or install them on a different machine. Another problem is the ROSBAG version, as many of these SLAM implementations require ROSBAG 1 instead of ROSBAG 2 used by Autoware. For the ROSBAG version problem, you may use this [stand-alone converter](https://gitlab.com/MapIV/rosbags) to convert a ROSBAG 2 file to a ROSBAG 1 file and vice versa.
 
-If you prefer proprietary software that is easy to use, you can try a fully automatic mapping tool from [MAP IV, Inc.](https://www.map4.jp/), [_MapIV Engine_](https://www.map4.jp/map4_engine_en/). They currently provide a trial license for Autoware users free of charge.
+If you prefer proprietary software that is easy to use, you can try a fully automatic mapping tool from [MAP IV, Inc.](https://www.map4.jp/), [_MapIV Engine_](https://www.map4.jp/map4_engine_en). They currently provide a trial license for Autoware users free of charge.
 
 ### Creating a vector map
 
