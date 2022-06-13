@@ -202,7 +202,7 @@ We define two architectures: "Required" and "Recommended." Only input and output
   - Acceleration, covariance, and timestamp on the base_link coordinate
   - 50Hz~ frequency
 - Diagnostics
-  - Diagnostics information that indicates if the localization module works properly 
+  - Diagnostics information that indicates if the localization module works properly
 - tf
   - tf of map to base_link
 
