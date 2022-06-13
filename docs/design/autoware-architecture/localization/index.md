@@ -32,8 +32,8 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 
 #### Situation that can make the system unstable
 
-- The vehicle is placed in a structure-less environment, such as rural landscape, highway or a tunnel
-- Environment change from when the map is created e.g. construction or destruction of buildings, or snow cover
+- The vehicle is placed in a structure-less environment, such as a rural landscape, highway, or a tunnel
+- Environment changes from when the map is created. e.g., construction or destruction of buildings, snow cover
 - Surrounding objects are occluded
 - The car is surrounded by objects undetectable by LiDAR, e.g., glass windows, reflections, or absorption (dark objects)
 - The environment has laser beams of the same frequency as LiDAR
@@ -47,24 +47,24 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 
 #### Expected situation
 
-- Road with a clear white line and loose curvature, such as highway or ordinary local road
+- Road with clear white lines and loose curvatures, such as highway or ordinary local road
 
 #### Situation that can make the system unstable
 
-- White lines are scratchy, or covered by rain or snow
+- White lines are scratchy or covered by rain or snow
 - Tight curvature such as intersections
 - Large reflection change of the road surface caused by rain or paint
 
 #### Functionalities
 
 - Correct vehicle positions along the lateral direction
-- Pose correction along the longitudinal can be in accurate. But we can resolve this by fusing with GNSS
+- Pose correction along the longitudinal can be inaccurate. But we can resolve this by fusing with GNSS
 
 ### GNSS
 
 #### Expected situation
 
-- The vehicle is placed in an open environment with no or few surrounding objects, such as rural landscape
+- The vehicle is placed in an open environment with no or few surrounding objects, such as a rural landscape
 
 #### Situation that can make the system unstable
 
@@ -86,12 +86,12 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 
 - The vehicle is placed in a Texture-less environment
 - The vehicle is surrounded by other objects
-- The camera observes large illumination changes such as sunshine, headlight, or brigthness change at the exit of a tunnel
+- The camera observes significant illumination changes such as sunshine, headlight, or brightness change at the exit of a tunnel
 - The vehicle is placed in a dark environment
 
 #### Functionalities
 
-- The system can estimated the odometry by tracking visual features
+- The system can estimate the odometry by tracking visual features
 
 ### Wheel speed sensor
 
@@ -107,7 +107,7 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 #### Functionalities
 
 - The system can acquire the vehicle velocity and estimate the traveled distance
-- The system can estimate can estimate a more accurate pose in a higher frequency by fusing with external sensors
+- The system can estimate more accurate poses in a higher frequency by fusing with external sensors
 
 <!-- NOTE: Is the second item necessary? Because it is general for any other sensors -->
 
@@ -121,15 +121,15 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 
 #### Situation that can make the system unstable
 
-- IMUs have bias that is dependent on the surrounding temperature. This can cause incorrect sensor observation or odometry drift
+- IMUs have a bias that is dependent on the surrounding temperature. This can cause incorrect sensor observation or odometry drift
 
 #### Functionalities
 
 - The system can observe acceleration and angular velocity.
-- By integrating these observation, the system can estimate the local pose change, and realize dead-reckoning
-- By fusing with external sensors, it can estimate a more accurate pose in a higher frequency
+- By integrating these observations, the system can estimate the local pose change and realize dead-reckoning
+- By fusing with external sensors, it can estimate more accurate poses in a higher frequency
 
-<!-- NOTE: The third items says "it can estimate a more accurate pose in a higher frequency" but the IMU already has very frequent observation -->
+<!-- NOTE: The third item says "it can estimate more accurate poses in a higher frequency," but the IMU already has very frequent observation -->
 
 ### Geomagnetic sensor
 
@@ -139,7 +139,7 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 
 #### Situation that can make the system unstable
 
-- The vehicle is palced in an environment with high magnetic noise, such as buildings or structures with reinforced steel, or materials that generate electromagnetic waves
+- The vehicle is placed in an environment with high magnetic noise, such as buildings or structures with reinforced steel or materials that generate electromagnetic waves
 
 #### Functionalities
 
@@ -162,16 +162,16 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 
 ## 3. Requirements
 
-- By allowing to implement different modules, we accept various sensor configurations and algorithms.
+- By implementing different modules, we accept various sensor configurations and algorithms.
 - The localization system can start pose estimation from an ambiguous initial location
 - The system can produce the reliability of the initial location estimation
-- The system can manage the state of the initial location estimation (uninitialized, initializable or not) and can report to the error monitor
+- The system can manage the state of the initial location estimation (uninitialized, initializable, or not) and can report to the error monitor
 
 ## 4. Architecture
 
 ### Abstract
 
-We define two architectures: "Required" and "Recommended." Only input and output are defined in the "Required" architecture to accept various kinds of localization algorithms. Also, to improve the reusability of each module, we define more detailed parts in the "Recommended" architecture.
+We define two architectures: "Required" and "Recommended." Only input and output are defined in the "Required" architecture to accept various localization algorithms. Also, to improve the reusability of each module, we describe more detailed parts in the "Recommended" architecture.
 
 ### Required Architecture
 
@@ -220,13 +220,13 @@ We define two architectures: "Required" and "Recommended." Only input and output
 #### Twist-Accel Estimator
 
 - The twist-accel estimator produces the vehicle velocity, angular velocity, acceleration, angular acceleration, and their covariances
-- Developers can choose the architecture. It is possible to create one module for both twist and acceleration, or also possible to create one module for each
+- Developers can choose the architecture. It is possible to create one module for both twist and acceleration or create one module for each
 - The twist estimator produces velocity and angular velocity from internal sensor observation
 - The accel estimator produces acceleration and angular acceleration from internal sensor observations
 
 #### Kinematics Fusion Filter
 
-- The kinematics fusion filter produces the likeliest pose, velocity, acceleration, and their covariances. This is computed by fusing two information. Ono is the pose obtained from the pose estimator. The other one is velocity and acceleration obtained from the twist-accel estimator
+- The kinematics fusion filter produces the likeliest pose, velocity, acceleration, and their covariances. This is computed by fusing two kinds of information. Ono is the pose obtained from the pose estimator. The other one is velocity and acceleration obtained from the twist-accel estimator
 - The kinematics fusion filter also produces tf of map to base_link according to the pose estimation result
 
 #### Localization Diagnostics
@@ -248,7 +248,7 @@ We define two architectures: "Required" and "Recommended." Only input and output
 | base_link | Reference pose of the ego-vehicle (projection of the rear-axle center onto the ground surface) |
 |  sensor   | Reference pose of each sensor                                                                  |
 
-Developers can optionally add other frames such as odom or base_footprint while keeping the tf structure above
+Developers can optionally add other frames such as odom or base_footprint while keeping the tf structure above.
 
 ### The localization module's ideal functionality
 
@@ -262,14 +262,14 @@ Developers can optionally add other frames such as odom or base_footprint while 
 
 ### KPI
 
-If the system keeps sufficient pose estimation performance for safe operation, we jointly consider these metrics
+We jointly consider these metrics if the system keeps sufficient pose estimation performance for safe operation.
 
 - Safety
     - The percentage of distance which the pose estimation satisfies the required accuracy per the overall distances defined in ODD
     - The anomaly detection rate of the case that the localization module cannot estimate the pose within ODD
     - The accuracy of out-of-ODD detection
 - Computational load
-- Latancy
+- Latency
 
 ## 5. Interface and Data Structure
 
@@ -285,10 +285,10 @@ If the system keeps sufficient pose estimation performance for safe operation, w
 
 #### Map prerequisites
 
-- Pose estimation might be unstable If there is no sufficient information necessary on the map. A testing framework is demanded to check if the map has sufficient information for pose estimation.
+- Pose estimation might be unstable if there is no sufficient information on the map. A testing framework is demanded to check if the map has adequate information for pose estimation.
 - Pose estimation might be unstable if the actual environment has different objects from the map. Maps need updates according to new objects and seasonal changes.
-- If multiple maps that have different coordinate systems each other are used, the misalignment between them can affect the localization performance. Maps have to be aligned to a uniform coordinate, or we require an alignment framework.
+- If multiple maps with different coordinate systems are used, the misalignment between them can affect the localization performance. Maps have to be aligned to a uniform coordinate, or we require an alignment framework.
 
 #### Computational resources
 
-- Sufficient computational resources should be provided to keep the accuracy and computation speed.
+- Sufficient computational resources should be provided to maintain accuracy and computation speed.
