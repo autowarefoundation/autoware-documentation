@@ -5,7 +5,9 @@ To create point cloud and vector maps you can use various software, both open-so
 
 ### Creating a point cloud map
 
-A 3D point cloud map is primarily used for LiDAR-based localization in Autoware. In order to determine the current position and orientation of the vehicle, a live scan captured from LiDAR unit(s) is matched against a pre-generated 3D point cloud map. Therefore, an accurate point cloud map is crucial for good localization results. Specifications of an Autoware-compatible point cloud map are as follows:
+A 3D point cloud map is primarily used for LiDAR-based localization in Autoware. In order to determine the current position and orientation of the vehicle, a live scan captured from one or more LiDAR units is matched against a pre-generated 3D point cloud map. Therefore, an accurate point cloud map is crucial for good localization results. 
+
+The specifications of an Autoware-compatible point cloud map are as follows:
 
 - A map must cover the entire operational area of the vehicle and should include an additional buffer zone of at least 200 m in all directions.
 - A map is saved using [PCD (Point Cloud Data) file format](https://pointclouds.org/documentation/tutorials/pcd_file_format.html).
