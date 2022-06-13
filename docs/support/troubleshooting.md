@@ -163,13 +163,8 @@ net.core.rmem_default=8388608 // only add if CycloneDDS is confgured
 
 ### Multicast is disabled
 
-If you get the error message `selected interface "lo" is not multicast-capable: disabling multicast`, run the following command to allow multicast.
+If you get the error message `selected interface "{your-interface-name}" is not multicast-capable: disabling multicast`, run the following command to allow multicast.
 
 ```bash
-sudo ip link set multicast on lo
+sudo ip link set multicast on {your-interface-name}
 ```
-
-!!! note
-
-    You might have to change the interface name. In this case, it's `lo`.
-    Adjust the interface name based on your environment and the error message.
