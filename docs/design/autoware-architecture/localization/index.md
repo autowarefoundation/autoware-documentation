@@ -257,7 +257,7 @@ Developers can optionally add other frames such as odom or base_footprint while 
 - The localization module should produce the pose on a fixed coordinate frame
 - Sensors should be independent of each other and keep the replaceability
 - The localization module should provide the status indicating if the autonomous vehicle can operate or not with the self-contained function or map information.
-- Tools or manuals should describe how to set proper parameters for the localization module  <!-- TODO  原文にある「適切な位置推定」とはなんだ！！！ -->
+- Tools or manuals should describe how to set proper parameters for the localization module <!-- TODO  原文にある「適切な位置推定」とはなんだ！！！ -->
 - Valid calibration parameters should be provided to align different frame or pose coordinates and sensor timestamps.
 
 ### KPI
@@ -265,9 +265,9 @@ Developers can optionally add other frames such as odom or base_footprint while 
 We jointly consider these metrics if the system keeps sufficient pose estimation performance for safe operation.
 
 - Safety
-    - The percentage of distance which the pose estimation satisfies the required accuracy per the overall distances defined in ODD
-    - The anomaly detection rate of the case that the localization module cannot estimate the pose within ODD
-    - The accuracy of out-of-ODD detection
+  - The percentage of distance which the pose estimation satisfies the required accuracy per the overall distances defined in ODD
+  - The anomaly detection rate of the case that the localization module cannot estimate the pose within ODD
+  - The accuracy of out-of-ODD detection
 - Computational load
 - Latency
 
