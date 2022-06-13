@@ -14,7 +14,7 @@ The specifications of an Autoware-compatible point cloud map are as follows:
 - A map can be saved as a single PCD file or divided into multiple PCD files.
 - Each point in a map must contain X, Y, and Z coordinates.
 - An intensity or RGB value of each point can be included in the PCD file but is optional.
-- A map must be smaller than 1 GB as it is limited by ROS message size.
+- A map must be smaller than 1 GB, [as per the current ROS message size limit](https://github.com/ros/ros_comm/issues/902). 
 - A map resolution should be at least 0.2 m to yield reliable localization results.
 - Although a map can generally be in either local or global coordinates, it must be in global coordinates (georeferenced) if you want to use GNSS data for localization.
 - [Military Grid Reference System (MGRS)](https://en.wikipedia.org/wiki/Military_Grid_Reference_System) is used as a coordinate system for a georeferenced map. In a georeferenced map, the X and Y coordinates of each point represent the point's location within a 100 km MGRS grid, while the Z coordinate represents the point's elevation.
