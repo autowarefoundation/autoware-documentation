@@ -1,11 +1,11 @@
-# How to create maps for Autoware 
+# How to create maps for Autoware
 
 Autoware relies on high-definition maps (HD maps), both point cloud maps and vector maps, to perform various tasks such as localization, route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians. In order to use these functionalities in Autoware, compatible HD maps of the driving environment need to be created.
 To create point cloud and vector maps you can use various software, both open-source and proprietary. However, you need to ensure that the created maps are compatible with Autoware. Specifications of point cloud and vector maps that Autoware requires are given below, along with examples of software you can use to create them.
 
 ### Creating a point cloud map
 
-A 3D point cloud map is primarily used for LiDAR-based localization in Autoware. In order to determine the current position and orientation of the vehicle, a live scan captured from one or more LiDAR units is matched against a pre-generated 3D point cloud map. Therefore, an accurate point cloud map is crucial for good localization results. 
+A 3D point cloud map is primarily used for LiDAR-based localization in Autoware. In order to determine the current position and orientation of the vehicle, a live scan captured from one or more LiDAR units is matched against a pre-generated 3D point cloud map. Therefore, an accurate point cloud map is crucial for good localization results.
 
 The specifications of an Autoware-compatible point cloud map are as follows:
 
@@ -14,7 +14,7 @@ The specifications of an Autoware-compatible point cloud map are as follows:
 - A map can be saved as a single PCD file or divided into multiple PCD files.
 - Each point in a map must contain X, Y, and Z coordinates.
 - An intensity or RGB value of each point can be included in the PCD file but is optional.
-- A map must be smaller than 1 GB, [as per the current ROS message size limit](https://github.com/ros/ros_comm/issues/902). 
+- A map must be smaller than 1 GB, [as per the current ROS message size limit](https://github.com/ros/ros_comm/issues/902).
 - A map resolution should be at least 0.2 m to yield reliable localization results.
 - A map can be in either local or global coordinates, but must be in global coordinates (georeferenced) to use GNSS data for localization.
 - [Military Grid Reference System (MGRS)](https://en.wikipedia.org/wiki/Military_Grid_Reference_System) is used as a coordinate system for a georeferenced map. In a georeferenced map, the X and Y coordinates of each point represent the point's location within a 100 km MGRS grid, while the Z coordinate represents the point's elevation.
@@ -27,7 +27,7 @@ If you prefer proprietary software that is easy to use, you can try a fully auto
 
 ### Creating a vector map
 
-A vector map is required for route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians. 
+A vector map is required for route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians.
 
 The specifications of an Autoware-compatible vector map are as follows:
 
