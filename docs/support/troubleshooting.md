@@ -133,7 +133,7 @@ Next, confirm that you are able to access the base Autoware image that is stored
 docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:latest
 ```
 
-## Runtime errors
+## Runtime issues
 
 ### Map does not display when running the Planning Simulator
 
@@ -160,3 +160,11 @@ net.core.rmem_default=8388608 // only add if CycloneDDS is confgured
     ```bash
     echo $RMW_IMPLEMENTATION  // if Cyclone DDS is configured, this command will return "rmw_cyclonedds_cpp"
     ```
+
+### Multicast is disabled
+
+If you get the error message `selected interface "{your-interface-name}" is not multicast-capable: disabling multicast`, run the following command to allow multicast.
+
+```bash
+sudo ip link set multicast on {your-interface-name}
+```
