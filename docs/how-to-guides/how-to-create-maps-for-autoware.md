@@ -41,7 +41,7 @@ However, the easiest way to create a complete road network map that is compatibl
 
 ## Autoware-compatible map providers
 
-Apart from creating HD maps yourself, you can also use a mapping service from the following Autoware-compatible map providers:
+If it is not possible to create HD maps yourself, you can use a mapping service from the following Autoware-compatible map providers instead:
 
 - [MAP IV, Inc.](https://www.map4.jp/)
 - [AISAN TECHNOLOGY CO., LTD.](https://www.aisantec.co.jp/)
