@@ -27,7 +27,9 @@ If you prefer proprietary software that is easy to use, you can try a fully auto
 
 ### Creating a vector map
 
-Another type of map used in Autoware is a vector map. A vector map or road network map is required for route planning, traffic light detection, and other traffic participants' trajectory prediction. Specifications of an Autoware-compatible road network map are as follows:
+A vector map is required for route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians. 
+
+The specifications of an Autoware-compatible vector map are as follows:
 
 - A map must cover the entire operational area of the vehicle and should include an additional buffer zone of at least 200 m in all directions.
 - A map is in [Lanelet2](https://github.com/fzi-forschungszentrum-informatik/Lanelet2) format with[additional modifications](https://github.com/autowarefoundation/autoware.universe/blob/main/map/lanelet2_extension/docs/lanelet2_format_extension.md).
