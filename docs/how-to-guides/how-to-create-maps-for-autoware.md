@@ -1,4 +1,4 @@
-# Map data for Autoware
+# How to create maps for Autoware 
 
 Autoware relies on high-definition maps (HD maps), including both point cloud and vector maps, to perform various tasks such as localization, route planning, traffic light detection, and other traffic participants' trajectory prediction. In order to use these functionalities in Autoware, compatible HD maps of the driving environment need to be created.
 
