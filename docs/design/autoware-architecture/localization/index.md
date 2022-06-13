@@ -258,18 +258,18 @@ Developers can optionally add other frames such as odom or base_footprint while 
 - Sensors should be independent of each other and keep the replaceability
 - The localization module should provide the status indicating if the autonomous vehicle can operate or not with the self-contained function or map information.
 - Tools or manuals should describe how to set proper parameters for the localization module  <!-- TODO  原文にある「適切な位置推定」とはなんだ！！！ -->
-- If provided maps or estimated poses for localization modules have different reference coordinate frames or distortion between each map or pose, valid transfer evaluation functions should be provided. This checks if the map has sufficient information to realize stable and reliable localization.
-- If the map information should be supplied to absorb them
-
-<!-- -->
+- Valid calibration parameters should be provided to align different frame or pose coordinates and sensor timestamps.
 
 ### KPI
 
-- If the vehicle keeps sufficient pose estimation for safe operation, we jointly consider these metrics
-- The percentage of distance which the vehicle pose estimation satisfies the required accuracy to the overall distances defined in ODD
-- The anomaly detection rate of when the localization module cannot estimate the pose within ODD
-- The accuracy of out-of-ODD detection
-- Additionally, we should save computational load
+If the system keeps sufficient pose estimation performance for safe operation, we jointly consider these metrics
+
+- Safety
+    - The percentage of distance which the pose estimation satisfies the required accuracy per the overall distances defined in ODD
+    - The anomaly detection rate of the case that the localization module cannot estimate the pose within ODD
+    - The accuracy of out-of-ODD detection
+- Computational load
+- Latancy
 
 ## 5. Interface and Data Structure
 
@@ -280,14 +280,14 @@ Developers can optionally add other frames such as odom or base_footprint while 
 #### Sensor prerequisites
 
 - Input data is not defective. Internal sensor observation such as IMU continuously keeps the proper frequency
-- Input data has correct and exact time stamps. Estimated poses might be inaccurate or unstable if the timestamps are not exact
-- Sensors are correctly mounted on exact positions and accessible from TF. If the sensor positions are inaccurate, estimation results may be incorrect or unstable. To properly obtain sensor positions, a sensor calibration framework is going to be required.
+- Input data has correct and exact time stamps. Estimated poses can be inaccurate or unstable if the timestamps are not exact
+- Sensors are correctly mounted on the exact positions and accessible from TF. If the sensor positions are inaccurate, estimation results may be incorrect or unstable. A sensor calibration framework is required to properly obtain the sensor positions.
 
 #### Map prerequisites
 
 - Pose estimation might be unstable If there is no sufficient information necessary on the map. A testing framework is demanded to check if the map has sufficient information for pose estimation.
-- Pose estimation might be unstable if the actual environment has different objects than the map. Maps need updates according to new objects and seasonal changes.
-- If multiple maps or maps that have different coordinate systems each other are used, the misalignment between them can affect the localization performance. Maps have to be aligned to a uniform coordinate or require a system for alignment.
+- Pose estimation might be unstable if the actual environment has different objects from the map. Maps need updates according to new objects and seasonal changes.
+- If multiple maps that have different coordinate systems each other are used, the misalignment between them can affect the localization performance. Maps have to be aligned to a uniform coordinate, or we require an alignment framework.
 
 #### Computational resources
 
