@@ -58,8 +58,8 @@ The table below shows each company's mapping technology and the types of HD maps
 
 | **Company**                                               | **Mapping technology** | **Available maps**          |
 | --------------------------------------------------------- | ---------------------- | --------------------------- |
-| [MAP IV, Inc.](https://www.map4.jp/)                      | SLAM                   | Point cloud and Vector maps |
-| [AISAN TECHNOLOGY CO., LTD.](https://www.aisantec.co.jp/) | MMS                    | Point cloud and Vector maps |
+| [MAP IV, Inc.](https://www.map4.jp/)                      | SLAM                   | Point cloud and vector maps |
+| [AISAN TECHNOLOGY CO., LTD.](https://www.aisantec.co.jp/) | MMS                    | Point cloud and vector maps |
 | [TomTom](https://www.tomtom.com/)                         | MMS                    | Vector map\*                |
 
 !!! note
