@@ -39,11 +39,11 @@ A vector map contains highly accurate information about a road network, lane geo
 
 ### Vector map specifications
 
-- A map must cover the entire operational area of the vehicle and should include an additional buffer zone of at least 200 m in all directions.
-- A map is in [Lanelet2](https://github.com/fzi-forschungszentrum-informatik/Lanelet2) format with[additional modifications](https://github.com/autowarefoundation/autoware.universe/blob/main/map/lanelet2_extension/docs/lanelet2_format_extension.md).
-- A map must contain the shape and position information of lanes, traffic lights, stop lines, crosswalks, parking spaces, and parking lots.
-- Each lanelet must contain information regarding its right of way, speed limit, traffic direction, and associated traffic lights, stop lines, and traffic signs.
-- Unless it is the end/beginning of a road, each lanelet must be correctly connected to its predecessor, successors, left neighbor, and right neighbor for routing planning to be working.
+- It must cover the entire operational area of the vehicle and should include an additional buffer zone of at least 200 m in all directions.
+- It must be in [Lanelet2](https://github.com/fzi-forschungszentrum-informatik/Lanelet2) format, with [additional modifications required by Autoware](https://github.com/autowarefoundation/autoware.universe/blob/main/map/lanelet2_extension/docs/lanelet2_format_extension.md).
+- It must contain the shape and position information of lanes, traffic lights, stop lines, crosswalks, parking spaces, and parking lots.
+- Each lanelet in the map must contain information regarding its right of way, speed limit, traffic direction, associated traffic lights, stop lines, and traffic signs.
+- Except at the beginning or end of a road, each lanelet in the map must be correctly connected to its predecessor, successors, left neighbor, and right neighbor.
 
 ### Creating a vector map
 
