@@ -3,11 +3,12 @@
 Autoware relies on high-definition point cloud maps and vector maps of the driving environment to perform various tasks such as localization, route planning, traffic light detection, and predicting the trajectories of pedestrians and other vehicles.
 
 The specifications for point cloud and vector maps required by Autoware are given below, along with examples of both open-source and proprietary software that you can use to create them.
-### Creating a point cloud map
+
+## Point cloud maps
 
 A 3D point cloud map is primarily used for LiDAR-based localization in Autoware. In order to determine the current position and orientation of the vehicle, a live scan captured from one or more LiDAR units is matched against a pre-generated 3D point cloud map. Therefore, an accurate point cloud map is crucial for good localization results.
 
-The specifications of an Autoware-compatible point cloud map are as follows:
+### Point cloud map specifications
 
 - A map must cover the entire operational area of the vehicle and should include an additional buffer zone of at least 200 m in all directions.
 - A map is saved using [PCD (Point Cloud Data) file format](https://pointclouds.org/documentation/tutorials/pcd_file_format.html).
@@ -18,6 +19,8 @@ The specifications of an Autoware-compatible point cloud map are as follows:
 - A map resolution should be at least 0.2 m to yield reliable localization results.
 - A map can be in either local or global coordinates, but must be in global coordinates (georeferenced) to use GNSS data for localization.
 - [Military Grid Reference System (MGRS)](https://en.wikipedia.org/wiki/Military_Grid_Reference_System) is used as a coordinate system for a georeferenced map. In a georeferenced map, the X and Y coordinates of each point represent the point's location within a 100 km MGRS grid, while the Z coordinate represents the point's elevation.
+
+### Creating a point cloud map
 
 Traditionally, a Mobile Mapping System (MMS) is used in order to create highly accurate large-scale point cloud maps. However, since a MMS requires high-end sensors for precise positioning, its operational cost can be very expensive and may not be suitable for a relatively small driving environment.
 
@@ -30,17 +33,19 @@ Since Autoware is based on ROS 2, it could be problematic if you want to install
 
 If you prefer proprietary software that is easy to use, you can try a fully automatic mapping tool from [MAP IV, Inc.](https://www.map4.jp/), [_MapIV Engine_](https://www.map4.jp/map4_engine_en). They currently provide a trial license for Autoware users free of charge.
 
-### Creating a vector map
+## Vector maps
 
 A vector map contains highly accurate information about a road network, lane geometry, and traffic lights. It is required for route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians.
 
-The specifications of an Autoware-compatible vector map are as follows:
+### Vector map specifications
 
 - A map must cover the entire operational area of the vehicle and should include an additional buffer zone of at least 200 m in all directions.
 - A map is in [Lanelet2](https://github.com/fzi-forschungszentrum-informatik/Lanelet2) format with[additional modifications](https://github.com/autowarefoundation/autoware.universe/blob/main/map/lanelet2_extension/docs/lanelet2_format_extension.md).
 - A map must contain the shape and position information of lanes, traffic lights, stop lines, crosswalks, parking spaces, and parking lots.
 - Each lanelet must contain information regarding its right of way, speed limit, traffic direction, and associated traffic lights, stop lines, and traffic signs.
 - Unless it is the end/beginning of a road, each lanelet must be correctly connected to its predecessor, successors, left neighbor, and right neighbor for routing planning to be working.
+
+### Creating a vector map
 
 The easiest way to create a vector map that is compatible with Autoware is to use [Vector Map Builder](https://tools.tier4.jp/vector_map_builder/), a web-based tool provided by [TIER IV, Inc.](https://www.tier4.jp/) Vector Map Builder allows you to directly create lanes and add additional regulatory elements such as stop signs or traffic lights in the correct format required by Autoware while using a point cloud map as a reference.
 
