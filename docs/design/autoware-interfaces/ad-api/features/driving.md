@@ -6,7 +6,7 @@
 ## Description
 
 This API manages whether the vehicle is driving or can start driving.
-The user can use these APIs to check if the vehicle is ready to drive and instruct it to depart.
+The user can use this API to check if the vehicle is ready to drive and instruct it to depart.
 
 ## States
 

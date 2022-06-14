@@ -1,4 +1,4 @@
-# Features of Autoware AD API
+# List of Autoware AD API
 
 - [Interface](./interface.md)
 - [Driving](./driving.md)
