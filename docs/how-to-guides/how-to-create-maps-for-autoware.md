@@ -10,14 +10,13 @@ A 3D point cloud map is primarily used for LiDAR-based localization in Autoware.
 
 ### Point cloud map specifications
 
-- A map must cover the entire operational area of the vehicle and should include an additional buffer zone of at least 200 m in all directions.
-- A map is saved using [PCD (Point Cloud Data) file format](https://pointclouds.org/documentation/tutorials/pcd_file_format.html).
-- A map can be saved as a single PCD file or divided into multiple PCD files.
-- Each point in a map must contain X, Y, and Z coordinates.
-- An intensity or RGB value of each point can be included in the PCD file but is optional.
-- A map must be smaller than 1 GB, [as per the current ROS message size limit](https://github.com/ros/ros_comm/issues/902).
-- A map resolution should be at least 0.2 m to yield reliable localization results.
-- A map can be in either local or global coordinates, but must be in global coordinates (georeferenced) to use GNSS data for localization.
+- It must cover the entire operational area of the vehicle and should include an additional buffer zone of at least 200 m in all directions.
+- It must be saved using the [PCD (Point Cloud Data) file format](https://pointclouds.org/documentation/tutorials/pcd_file_format.html), but can be a single PCD file or divided into multiple PCD files.
+- Each point in the map must contain X, Y, and Z coordinates.
+- An intensity or RGB value for each point may be optionally included.
+- Its file size must be smaller than 1 GB, [as per the current ROS message size limit](https://github.com/ros/ros_comm/issues/902).
+- Its resolution should be at least 0.2 m to yield reliable localization results.
+- It can be in either local or global coordinates, but must be in global coordinates (georeferenced) to use GNSS data for localization.
 - [Military Grid Reference System (MGRS)](https://en.wikipedia.org/wiki/Military_Grid_Reference_System) is used as a coordinate system for a georeferenced map. In a georeferenced map, the X and Y coordinates of each point represent the point's location within a 100 km MGRS grid, while the Z coordinate represents the point's elevation.
 
 ### Creating a point cloud map
