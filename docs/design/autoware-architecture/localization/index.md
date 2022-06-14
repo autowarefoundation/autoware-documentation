@@ -175,7 +175,7 @@ We define two architectures: "Required" and "Recommended." Only input and output
 
 ### Required Architecture
 
-![](../image/localization/required-architecture.png)
+![required-architecture](../image/localization/required-architecture.png)
 
 #### Input
 
@@ -210,7 +210,7 @@ We define two architectures: "Required" and "Recommended." Only input and output
 
 ### Recommended Architecture
 
-![](../image/localization/recommended-architecture.png)
+![recommended-architecture](../image/localization/recommended-architecture.png)
 
 #### Pose Estimator
 
