@@ -46,7 +46,7 @@ A vector map contains highly accurate information about a road network, lane geo
 
 ### Creating a vector map
 
-The easiest way to create an Autoware-compatible vector map is to use [Vector Map Builder](https://tools.tier4.jp/vector_map_builder/), a free web-based tool provided by [TIER IV, Inc.](https://www.tier4.jp/). 
+The easiest way to create an Autoware-compatible vector map is to use [Vector Map Builder](https://tools.tier4.jp/vector_map_builder/), a free web-based tool provided by [TIER IV, Inc.](https://www.tier4.jp/).
 Vector Map Builder allows you to create lanes and add additional regulatory elements such as stop signs or traffic lights using a point cloud map as a reference.
 
 For open-source software options, [MapToolbox](https://github.com/autocore-ai/MapToolbox) is a plugin for [Unity](https://unity.com/) specifically designed to create Lanelet2 maps for Autoware.
