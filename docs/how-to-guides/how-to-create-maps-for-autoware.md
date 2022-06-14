@@ -47,7 +47,8 @@ A vector map contains highly accurate information about a road network, lane geo
 
 ### Creating a vector map
 
-The easiest way to create a vector map that is compatible with Autoware is to use [Vector Map Builder](https://tools.tier4.jp/vector_map_builder/), a web-based tool provided by [TIER IV, Inc.](https://www.tier4.jp/) Vector Map Builder allows you to directly create lanes and add additional regulatory elements such as stop signs or traffic lights in the correct format required by Autoware while using a point cloud map as a reference.
+The easiest way to create an Autoware-compatible vector map is to use [Vector Map Builder](https://tools.tier4.jp/vector_map_builder/), a free web-based tool provided by [TIER IV, Inc.](https://www.tier4.jp/). 
+Vector Map Builder allows you to create lanes and add additional regulatory elements such as stop signs or traffic lights using a point cloud map as a reference.
 
 Technically, you can also use open-source software such as [JOSM](https://josm.openstreetmap.de/) to create Lanelet2 primitives, including point and linestring, and save the map as an OSM file. However, various modifications, e.g., adding mandatory tags and relations, must be done manually to make the map compatible with Autoware. This process can be very tedious and time-consuming. Another open-source option worth mentioning is [MapToolbox](https://github.com/autocore-ai/MapToolbox), a plugin for [Unity](https://unity.com/) designed to create a Lanelet2 map for Autoware.
 
