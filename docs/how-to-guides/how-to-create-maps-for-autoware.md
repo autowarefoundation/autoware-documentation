@@ -32,7 +32,7 @@ If you prefer proprietary software that is easy to use, you can try a fully auto
 
 ### Creating a vector map
 
-A vector map is required for route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians.
+A vector map contains highly accurate information about a road network, lane geometry, and traffic lights. It is required for route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians.
 
 The specifications of an Autoware-compatible vector map are as follows:
 
