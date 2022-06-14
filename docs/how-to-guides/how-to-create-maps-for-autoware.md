@@ -1,8 +1,8 @@
 # How to create maps for Autoware
 
-Autoware relies on high-definition maps (HD maps), both point cloud maps and vector maps, to perform various tasks such as localization, route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians. In order to use these functionalities in Autoware, compatible HD maps of the driving environment need to be created.
-To create point cloud and vector maps you can use various software, both open-source and proprietary. However, you need to ensure that the created maps are compatible with Autoware. Specifications of point cloud and vector maps that Autoware requires are given below, along with examples of software you can use to create them.
+Autoware relies on high-definition point cloud maps and vector maps of the driving environment to perform various tasks such as localization, route planning, traffic light detection, and predicting the trajectories of pedestrians and other vehicles.
 
+The specifications for point cloud and vector maps required by Autoware are given below, along with examples of both open-source and proprietary software that you can use to create them.
 ### Creating a point cloud map
 
 A 3D point cloud map is primarily used for LiDAR-based localization in Autoware. In order to determine the current position and orientation of the vehicle, a live scan captured from one or more LiDAR units is matched against a pre-generated 3D point cloud map. Therefore, an accurate point cloud map is crucial for good localization results.
