@@ -1,5 +1,4 @@
 nav:
-  - index.md
   - class-design.md
   - console-logging.md
   - coordinate-system.md

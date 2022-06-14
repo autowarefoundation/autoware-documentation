@@ -129,7 +129,7 @@ A sequence of space and velocity points to be followed by the controller.
 
 ### Vehicle Signal Commands
 
-Commands for various elements of the vehicle unrelated to motion. Sent to the Vehicle Interface. (See [autoware_auto_vehicle_msgs](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/tree/master/autoware_auto_vehicle_msgs/msg) for the definition.)
+Commands for various elements of the vehicle unrelated to motion. Sent to the Vehicle Interface. (For the definition, see [autoware_auto_vehicle_msgs](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/tree/master/autoware_auto_vehicle_msgs/msg).)
 
 - HandBrake Command
 - Hazard Lights Command

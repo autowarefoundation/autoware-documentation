@@ -2,7 +2,18 @@
 
 ## Prerequisites
 
-- [Ubuntu 20.04](https://releases.ubuntu.com/20.04/)
+- OS
+
+  - [Ubuntu 20.04](https://releases.ubuntu.com/20.04/)
+  - [Ubuntu 22.04](https://releases.ubuntu.com/22.04/) (**will be supported from Q3 2022**)
+
+- ROS
+
+  - ROS 2 Galactic
+  - ROS 2 Humble (**will be supported from Q3 2022**)
+
+  For ROS 2 system dependencies, refer to [REP-2000](https://www.ros.org/reps/rep-2000.html) .
+
 - [Git](https://git-scm.com/)
   - [Registering SSH keys to GitHub](https://github.com/settings/keys) is preferable.
 
@@ -75,8 +86,8 @@ If you've manually installed the dependencies, you can skip this section.
 
 3. Build the workspace.
 
-   Autoware uses [colcon](https://colcon.readthedocs.io/en/released/index.html) to build workspaces.
-   Refer to the documentation for more advanced options.
+   Autoware uses [colcon](https://github.com/colcon) to build workspaces.
+   For more advanced options, refer to the [documentation](https://colcon.readthedocs.io/).
 
    ```bash
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
@@ -105,7 +116,7 @@ If you've manually installed the dependencies, you can skip this section.
    - `vcs pull` is similar to `git pull`.
      - Note that it doesn't switch branches.
 
-   Refer to the [official documentation](https://github.com/dirk-thomas/vcstool) for more information.
+   For more information, refer to the [official documentation](https://github.com/dirk-thomas/vcstool).
 
 3. Install dependent ROS packages.
 

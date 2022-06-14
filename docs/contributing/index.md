@@ -19,7 +19,7 @@ Like Autoware itself, these guidelines are being actively developed and suggesti
 
 ## Code of Conduct
 
-To ensure the Autoware community stays open and inclusive, please follow our [code of conduct](https://github.com/autowarefoundation/autoware/blob/main/CODE_OF_CONDUCT.md).
+To ensure the Autoware community stays open and inclusive, please follow the [code of conduct](https://github.com/autowarefoundation/autoware/blob/main/CODE_OF_CONDUCT.md).
 
 If you believe that someone in the community has violated the code of conduct, please make a report by emailing conduct@autoware.org.
 
@@ -90,4 +90,4 @@ Examples of large changes include:
 - Adding a new feature to Autoware
 - Adding a new documentation page or section
 
-For more information on how to submit a good pull request, have a read of our [pull request guidelines](pull-request-guidelines/index.md) and don't forget to review the required [license notations](license.md)!
+For more information on how to submit a good pull request, have a read of the [pull request guidelines](pull-request-guidelines/index.md) and don't forget to review the required [license notations](license.md)!
