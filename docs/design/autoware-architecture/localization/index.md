@@ -175,7 +175,7 @@ We define two architectures: "Required" and "Recommended." Only input and output
 
 ### Required Architecture
 
-![](media/image2.png)
+![](../image/localization/required-architecture.png)
 
 #### Input
 
@@ -210,7 +210,7 @@ We define two architectures: "Required" and "Recommended." Only input and output
 
 ### Recommended Architecture
 
-![](media/image3.png)
+![](../image/localization/recommended-architecture.png)
 
 #### Pose Estimator
 
@@ -238,7 +238,7 @@ We define two architectures: "Required" and "Recommended." Only input and output
 
 #### TF tree
 
-![](media/image1.png){width="2.6666666666666665in" height="2.8125in"}
+![tf-tree](../image/localization/tf-tree.png)
 
 |   frame   | meaning                                                                                        |
 | :-------: | :--------------------------------------------------------------------------------------------- |
