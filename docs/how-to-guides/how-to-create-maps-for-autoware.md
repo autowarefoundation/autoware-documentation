@@ -33,7 +33,7 @@ Commonly used open-source SLAM implementations are [lidarslam-ros2](https://gith
 The notable open-source SLAM implementations that are based on ROS 1 include [hdl-graph-slam](https://github.com/koide3/hdl_graph_slam) (LiDAR, IMU\*, GNSS\*), [LeGO-LOAM](https://github.com/facontidavide/LeGO-LOAM-BOR) (LiDAR, IMU\*), [LeGO-LOAM-BOR](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM) (LiDAR), and [LIO-SAM](https://github.com/TixiaoShan/LIO-SAM) (LiDAR, IMU, GNSS).
 Most of these algorithms already have a built-in loop-closure and pose graph optimization. However, if the built-in, automatic loop-closure fails or does not work correctly, you can use [Interactive SLAM](https://github.com/SMRT-AIST/interactive_slam) to adjust and optimize a pose graph manually.
 
-Since Autoware is based on ROS 2, it could be problematic if you want to install ROS 1-based SLAM implementations on the same machine. To avoid this problem, you can use [Docker](https://www.docker.com/) or install simply them on a different machine. Another problem is the ROSBAG version, these SLAM implementations require ROSBAG 1 instead of ROSBAG 2 used by Autoware. For the ROSBAG version problem, you may use this [stand-alone converter](https://gitlab.com/MapIV/rosbags) to convert a ROSBAG 2 file to a ROSBAG 1 file and vice versa.
+Since Autoware is based on ROS 2, it could be problematic if you want to install ROS 1-based SLAM implementations on the same machine. To avoid this problem, you can use [Docker](https://www.docker.com/) or simply install them on a different machine. Another problem is the ROSBAG version; these SLAM implementations require ROSBAG 1 instead of ROSBAG 2 used by Autoware. For the ROSBAG version problem, you may use this [stand-alone converter](https://gitlab.com/MapIV/rosbags) to convert a ROSBAG 2 file to a ROSBAG 1 file and vice versa.
 
 If you prefer proprietary software that is easy to use, you can try a fully automatic mapping tool from [MAP IV, Inc.](https://www.map4.jp/), [_MapIV Engine_](https://www.map4.jp/map4_engine_en). They currently provide a trial license for Autoware users free of charge.
 
@@ -55,7 +55,7 @@ The easiest way to create an Autoware-compatible vector map is to use [Vector Ma
 Vector Map Builder allows you to create lanes and add additional regulatory elements such as stop signs or traffic lights using a point cloud map as a reference.
 
 For open-source software options, [MapToolbox](https://github.com/autocore-ai/MapToolbox) is a plugin for [Unity](https://unity.com/) specifically designed to create Lanelet2 maps for Autoware.
-Although [JOSM](https://josm.openstreetmap.de/) is another open-source tool that can be used to create Lanelet2 maps, be aware that a number of modifications must be done manually to make the map compatible with Autoware. This process can be tedious and time-consuming and so use of JOSM is not recommended.
+Although [JOSM](https://josm.openstreetmap.de/) is another open-source tool that can be used to create Lanelet2 maps, be aware that a number of modifications must be done manually to make the map compatible with Autoware. This process can be tedious and time-consuming, so the use of JOSM is not recommended.
 
 ## Autoware-compatible map providers
 
