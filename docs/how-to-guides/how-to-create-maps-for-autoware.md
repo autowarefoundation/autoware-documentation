@@ -17,7 +17,12 @@ A 3D point cloud map is primarily used for LiDAR-based localization in Autoware.
 - Its file size must be smaller than 1 GB, [as per the current ROS message size limit](https://github.com/ros/ros_comm/issues/902).
 - Its resolution should be at least 0.2 m to yield reliable localization results.
 - It can be in either local or global coordinates, but must be in global coordinates (georeferenced) to use GNSS data for localization.
-- [Military Grid Reference System (MGRS)](https://en.wikipedia.org/wiki/Military_Grid_Reference_System) is used as a coordinate system for a georeferenced map. In a georeferenced map, the X and Y coordinates of each point represent the point's location within a 100 km MGRS grid, while the Z coordinate represents the point's elevation.
+
+!!! note
+
+    Three global coordinate systems are supported by Autoware, including [Military Grid Reference System (MGRS)](https://en.wikipedia.org/wiki/Military_Grid_Reference_System), [Universal Transverse Mercator (UTM)](https://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system), and [Japan Rectangular Coordinate System](https://ja.wikipedia.org/wiki/%E5%B9%B3%E9%9D%A2%E7%9B%B4%E8%A7%92%E5%BA%A7%E6%A8%99%E7%B3%BB).
+    However, MGRS is a preferred coordinate system for georeferenced maps.
+    In a map with MGRS coordinate system, the X and Y coordinates of each point represent the point's location within the 100,000-meter square, while the Z coordinate represents the point's elevation.
 
 ### Creating a point cloud map
 
