@@ -1,6 +1,6 @@
 # Interface API
 
-- [/api/interface/version](../list/api/interface/version.md)
+- {{ link_ad_api('/api/interface/version') }}
 
 ## Description
 

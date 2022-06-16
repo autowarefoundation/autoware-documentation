@@ -1,7 +1,7 @@
 # Driving API
 
-- [/api/driving/state](../list/api/driving/state.md)
-- [/api/driving/engage](../list/api/driving/engage.md)
+- {{ link_ad_api('/api/driving/state') }}
+- {{ link_ad_api('/api/driving/engage') }}
 
 ## Description
 
