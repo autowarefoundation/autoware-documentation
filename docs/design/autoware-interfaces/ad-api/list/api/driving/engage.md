@@ -5,7 +5,7 @@
 
 ## Description
 
-Engage or disengage the vehicle. For details, see the [driving state](../../../features/driving.md).
+Engage or disengage the vehicle. For details, see the [driving state](index.md).
 
 ## Request
 

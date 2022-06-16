@@ -20,7 +20,7 @@ During normal operation, the flow of driving state transitions is as follows:
 4. The state returns to NOT_READY when the vehicle reaches its destination.
 5. The state can be manually returned to NOT_READY by calling the disengage API.
 
-![driving-state](./driving-state.drawio.svg)
+![driving-state](./state.drawio.svg)
 
 | State     | Description                                     |
 | --------- | ----------------------------------------------- |
