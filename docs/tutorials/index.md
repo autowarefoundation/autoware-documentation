@@ -38,3 +38,7 @@ By repeatedly playing back the data, this simulation type can also be used for e
 ### Digital twin simulation
 
 Digital twin simulation is a simulation type that is able to produce realistic data and simulate almost the entire system. It is also commonly referred to as end-to-end simulation.
+
+## Advanced
+
+This page explains advanced topics that you should read after you get used to Autoware.

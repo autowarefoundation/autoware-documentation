@@ -10,7 +10,6 @@ Please see [here](https://www.autoware.org/autoware) for more details.
 
 - [Installation](installation) pages explain the installation steps of Autoware and related tools.
 - [Tutorials](tutorials) pages explain several tutorials that you should try after installation.
-- [Advanced](advanced) pages explain advanced topics that you should read after you get used to Autoware.
 - [Design](design) pages explain the design concept of Autoware.
 - [Contributing](contributing) pages explain how to contribute to Autoware.
 - [Support](support) pages explain several support resources.
