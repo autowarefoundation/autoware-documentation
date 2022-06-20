@@ -40,7 +40,15 @@ The downside of the microautonomy architecture is that the computational perform
 
 ### Autoware concepts
 
+The [Autoware concepts page](autoware-concepts/index.md) describes the design philosophy of Autoware. Readers (service providers and all Autoware users) will learn the basic concepts underlying Autoware development, such as microautonomy and the Core/Universe architecture.
+
+### Autoware architecture
+
+The [Autoware architecture page](autoware-architecture/index.md) describes an overview of each module that makes up Autoware. Readers (all Autoware users) will gain a high-level picture of how each module that composes Autoware works.
+
 ### Autoware interfaces
+
+The [Autoware interfaces page](autoware-interfaces/index.md) describes in detail the interface of each module that makes up Autoware. Readers (intermediate developers) will learn how to add new functionality to Autoware and how to integrate their own modules with Autoware.
 
 ### Configuration management
 

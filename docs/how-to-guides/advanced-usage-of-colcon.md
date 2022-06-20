@@ -18,7 +18,7 @@ You should take care of this especially when you have multiple workspaces.
 Run `echo $COLCON_PREFIX_PATH` to check whether workspaces are overlaid.
 If you find some workspaces are unnecessarily overlaid, remove all built files, restart the terminal to clean environment variables, and re-build the workspace.
 
-For more details about `workspace overlaying`, refer to the [ROS2 documentation](https://docs.ros.org/en/rolling/Tutorials/Workspace/Creating-A-Workspace.html#source-the-overlay).
+For more details about `workspace overlaying`, refer to the [ROS 2 documentation](https://docs.ros.org/en/rolling/Tutorials/Workspace/Creating-A-Workspace.html#source-the-overlay).
 
 ## Cleaning up the build artifacts
 
@@ -85,7 +85,7 @@ cat << EOS > ~/.colcon/defaults.yaml
 }
 ```
 
-See [here](https://colcon.readthedocs.io/en/released/user/configuration.html#defaults-yaml) for more details.
+For more details, see [here](https://colcon.readthedocs.io/en/released/user/configuration.html#defaults-yaml).
 
 ## Generating compile_commands.json
 
@@ -105,7 +105,7 @@ To see the compiler and linker invocations for a package, use `VERBOSE=1` and `-
 VERBOSE=1 colcon build --packages-up-to <package_name> --event-handlers console_cohesion+
 ```
 
-See [here](https://colcon.readthedocs.io/en/released/reference/event-handler-arguments.html) for other options.
+For other options, see [here](https://colcon.readthedocs.io/en/released/reference/event-handler-arguments.html).
 
 ## Using Ccache
 

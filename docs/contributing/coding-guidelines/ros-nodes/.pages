@@ -1,10 +1,10 @@
 nav:
-  - index.md
   - class-design.md
   - console-logging.md
   - coordinate-system.md
   - directory-structure.md
   - launch-files.md
+  - message-guidelines.md
   - naming.md
   - parameters.md
   - task-scheduling.md
