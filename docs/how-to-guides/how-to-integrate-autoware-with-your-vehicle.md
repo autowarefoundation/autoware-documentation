@@ -23,7 +23,7 @@ Some examples are:
 
 - [HDL](https://github.com/koide3/hdl_graph_slam)
 - [LIO-SAM](https://github.com/TixiaoShan/LIO-SAM)
-- [LiDAR-SLAM (ROS2)](https://github.com/rsasaki0109/lidarslam_ros2)
+- [LiDAR-SLAM (ROS 2)](https://github.com/rsasaki0109/lidarslam_ros2)
 
 ### Create vector map
 
@@ -123,7 +123,7 @@ This section briefly explains how to run your vehicle with Autoware.
 
 ### Install Autoware
 
-Follow the [installation steps of Autoware](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/).
+Follow the [installation steps of Autoware](https://autowarefoundation.github.io/autoware-documentation/main/installation/).
 
 ### Launch Autoware
 
