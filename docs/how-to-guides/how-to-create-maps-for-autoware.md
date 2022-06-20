@@ -76,5 +76,5 @@ The table below shows each company's mapping technology and the types of HD maps
 !!! note
 
     Maps provided by TomTom use their proprietary AutoStream format, not Lanelet2.
-    The open-source [AutostreamForAutoware tool](https://github.com/tomtom-international/AutoStreamForAutoware) can be used to convert an AutoStream map to a Lanelet2 map.
+    The open-source [AutoStreamForAutoware tool](https://github.com/tomtom-international/AutoStreamForAutoware) can be used to convert an AutoStream map to a Lanelet2 map.
     However, the converter is still in its early stages and has some [known limitations](https://github.com/tomtom-international/AutoStreamForAutoware/blob/main/docs/known-issues.md).
