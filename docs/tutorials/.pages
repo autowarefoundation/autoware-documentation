@@ -1,4 +1,4 @@
 nav:
   - index.md
-  - Autoware Simulations
-  - Autoware Scenario Tests
+  - autoware-simulations
+  - autoware-scenario-tests
