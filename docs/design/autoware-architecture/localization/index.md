@@ -21,7 +21,7 @@ Non-goals:
 
 ## 2. Sensor Configuration Examples
 
-This section shows example sensor configurations and their expected performances. 
+This section shows example sensor configurations and their expected performances.
 Each sensor has its own advantages and disadvantages, but overall performance can be improved by fusing multiple sensors.
 
 ### 3D-LiDAR + PointCloud Map
@@ -206,7 +206,6 @@ We define two architectures: "Required" and "Recommended." Only input and output
 - tf
   - tf of map to base_link
 
-
 ### Recommended Architecture
 
 ![recommended-architecture](../image/localization/recommended-architecture.png)
@@ -225,8 +224,8 @@ We define two architectures: "Required" and "Recommended." Only input and output
 
 #### Kinematics Fusion Filter
 
-- Produces the likeliest pose, velocity, acceleration, and their covariances, computed by fusing two kinds of information: 
-  - The pose obtained from the pose estimator. 
+- Produces the likeliest pose, velocity, acceleration, and their covariances, computed by fusing two kinds of information:
+  - The pose obtained from the pose estimator.
   - The velocity and acceleration obtained from the twist-accel estimator
 - Produces tf of map to base_link according to the pose estimation result
 
@@ -234,7 +233,6 @@ We define two architectures: "Required" and "Recommended." Only input and output
 
 - Monitors and guarantees the stability and reliability of pose estimation by fusing information obtained from multiple localization modules
 - Reports error status to the error monitor
-
 
 #### TF tree
 
@@ -279,23 +277,23 @@ To maintain sufficient pose estimation performance for safe operation, the follo
 
 #### Sensor prerequisites
 
-- Input data is not defective. 
+- Input data is not defective.
   - Internal sensor observation such as IMU continuously keeps the proper frequency.
-- Input data has correct and exact time stamps. 
+- Input data has correct and exact time stamps.
   - Estimated poses can be inaccurate or unstable if the timestamps are not exact.
-- Sensors are correctly mounted with exact positioning and accessible from TF. 
-  - If the sensor positions are inaccurate, estimation results may be incorrect or unstable. 
+- Sensors are correctly mounted with exact positioning and accessible from TF.
+  - If the sensor positions are inaccurate, estimation results may be incorrect or unstable.
   - A sensor calibration framework is required to properly obtain the sensor positions.
 
 #### Map prerequisites
 
 - Sufficient information is contained within the map.
-  - Pose estimation might be unstable if there is insufficient information in the map. 
+  - Pose estimation might be unstable if there is insufficient information in the map.
   - A testing framework is necessary to check if the map has adequate information for pose estimation.
 - Map does not differ greatly from the actual environment.
-  - Pose estimation might be unstable if the actual environment has different objects from the map. 
+  - Pose estimation might be unstable if the actual environment has different objects from the map.
   - Maps need updates according to new objects and seasonal changes.
-- Maps must be aligned to a uniform coordinate, or an alignment framework is in place. 
+- Maps must be aligned to a uniform coordinate, or an alignment framework is in place.
   - If multiple maps with different coordinate systems are used, the misalignment between them can affect the localization performance.
 
 #### Computational resources
