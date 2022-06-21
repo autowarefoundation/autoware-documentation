@@ -15,9 +15,3 @@ TBD
 ## Lidar-camera calibration
 
 TBD
-
-## Lidar-IMU calibration
-
-Developed by [APRIL Lab](https://github.com/APRIL-ZJU) in Zhejiang University in China, the LI-Calib calibration tool is a toolkit for calibrating the 6DoF rigid transformation and the time offset between a 3D LiDAR and an IMU. It's based on continuous-time batch optimization. IMU-based cost and LiDAR point-to-surfel (surfel = surface element) distance are minimized jointly, which renders the calibration problem well-constrained in general scenarios.
-
-[AutoCore](https://autocore.ai/) has forked the original LI-Calib tool and overwritten the Lidar input for more general usage. Information on how to use the tool, troubleshooting tips and example rosbags can be found at the [LI-Calib fork on GitLab](https://gitlab.com/JianKang_Egon/li_calib).
