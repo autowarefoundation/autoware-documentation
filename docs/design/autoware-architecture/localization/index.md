@@ -84,7 +84,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 
 #### Situations that can make the system unstable
 
-- The vehicle is placed in a Texture-less environment
+- The vehicle is placed in a texture-less environment.
 - The vehicle is surrounded by other objects.
 - The camera observes significant illumination changes, such as those caused by sunshine, headlights from other vehicles or when approaching the exit of a tunnel.
 - The vehicle is placed in a dark environment.
