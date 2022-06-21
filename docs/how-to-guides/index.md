@@ -1,4 +1,4 @@
-# Advanced tutorials
+# How-to guides
 
 - [Advanced usage of colcon](advanced-usage-of-colcon.md)
 - [How to create maps for Autoware](how-to-create-maps-for-autoware.md)
