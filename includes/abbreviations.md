@@ -1,16 +1,16 @@
-*[AVP]: Autonomous Valet Parking
-*[AWF]: Autoware Foundation
-*[DBW]: Drive-By-Wire
-*[ECU]: Electronic Control Unit
-*[FMS]: Fleet Management System
-*[GNSS]: Global Navigation Satellite System
-*[GPU]: Graphics Processing Unit
-*[HMI]: Human Machine Interface
-*[IMU]: Inertial Measurement Unit
-*[MMS]: Mobile Mapping System
-*[ODD]: Operational Design Domain
-*[OTA]: Over The Air
-*[PCD]: Point Cloud Data
-*[ROS]: Robot Operating System
-*[SLAM]: Simultaneous Localization And Mapping
-*[URDF]: Universal Robotic Description Format
+_[AVP]: Autonomous Valet Parking
+_[AWF]: Autoware Foundation
+_[DBW]: Drive-By-Wire
+_[ECU]: Electronic Control Unit
+_[FMS]: Fleet Management System
+_[GNSS]: Global Navigation Satellite System
+_[GPU]: Graphics Processing Unit
+_[HMI]: Human Machine Interface
+_[IMU]: Inertial Measurement Unit
+_[MMS]: Mobile Mapping System
+_[ODD]: Operational Design Domain
+_[OTA]: Over The Air
+_[PCD]: Point Cloud Data
+_[ROS]: Robot Operating System
+_[SLAM]: Simultaneous Localization And Mapping
+_[URDF]: Universal Robotic Description Format
