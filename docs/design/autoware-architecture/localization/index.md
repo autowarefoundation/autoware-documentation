@@ -30,7 +30,7 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 
 - The vehicle is located in a structure-rich environment, such as an urban area
 
-#### Situation that can make the system unstable
+#### Situations that can make the system unstable
 
 - The vehicle is placed in a structure-less environment, such as a rural landscape, highway, or a tunnel
 - Environment changes from when the map is created. e.g., construction or destruction of buildings, snow cover
@@ -38,7 +38,7 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 - The car is surrounded by objects undetectable by LiDAR, e.g., glass windows, reflections, or absorption (dark objects)
 - The environment has laser beams of the same frequency as LiDAR
 
-#### Functionalities
+#### Functionality
 
 - The system can estimate the vehicle location on the point cloud map with the error of ~10cm
 - The system is Operable at the night
@@ -49,7 +49,7 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 
 - Road with clear white lines and loose curvatures, such as highway or ordinary local road
 
-#### Situation that can make the system unstable
+#### Situations that can make the system unstable
 
 - White lines are scratchy or covered by rain or snow
 - Tight curvature such as intersections
@@ -70,7 +70,7 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 
 - GNSS signals are intercepted by surrounding objects, e.g., tunnels or buildings
 
-#### Functionalities
+#### Functionality
 
 - The system can estimate the vehicle position with an error of ~10m in the world coordinate
 - With RTK attached, the accuracy can be improved to ~10cm
@@ -82,14 +82,14 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 
 - The vehicle is placed in a texture-rich environment, such as urban areas
 
-#### Situation that can make the system unstable
+#### Situations that can make the system unstable
 
 - The vehicle is placed in a Texture-less environment
 - The vehicle is surrounded by other objects
 - The camera observes significant illumination changes such as sunshine, headlight, or brightness change at the exit of a tunnel
 - The vehicle is placed in a dark environment
 
-#### Functionalities
+#### Functionality
 
 - The system can estimate the odometry by tracking visual features
 
@@ -99,12 +99,12 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 
 - The vehicle is running on an ordinary road
 
-#### Situation that can make the system unstable
+#### Situations that can make the system unstable
 
 - The vehicle is running on a slippy or bumpy road
 - The vehicle cannot observe the correct wheel speed because of poor road surface conditions such as bumps or slips
 
-#### Functionalities
+#### Functionality
 
 - The system can acquire the vehicle velocity and estimate the traveled distance
 - The system can estimate more accurate poses in a higher frequency by fusing with external sensors
@@ -119,11 +119,11 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 
 <!-- NOTE: The availability of IMU is highest among the sensors attached to vehicles. Therefore we should list more situations or say we can use the IMU almost anywhere -->
 
-#### Situation that can make the system unstable
+#### Situations that can make the system unstable
 
 - IMUs have a bias that is dependent on the surrounding temperature. This can cause incorrect sensor observation or odometry drift
 
-#### Functionalities
+#### Functionality
 
 - The system can observe acceleration and angular velocity.
 - By integrating these observations, the system can estimate the local pose change and realize dead-reckoning
@@ -137,25 +137,25 @@ performances. Each sensor has advantages and disadvantages. Therefore, by fusing
 
 - The vehicle is placed in an environment with low magnetic noise
 
-#### Situation that can make the system unstable
+#### Situations that can make the system unstable
 
 - The vehicle is placed in an environment with high magnetic noise, such as buildings or structures with reinforced steel or materials that generate electromagnetic waves
 
-#### Functionalities
+#### Functionality
 
 - The system can estimate the vehicle's direction in the world coordinate system
 
 ### Magnetic markers
 
-#### Expected environment
+#### Expected situation
 
 - The car is placed in an environment with magnetic markers installed
 
-#### Environment where the system becomes unstable
+#### Situations where the system becomes unstable
 
 - The markers are not maintained
 
-#### Functionalities
+#### Functionality
 
 - Vehicle location can be obtained on the world coordinate by detecting the magnetic markers
 - This system can work even if the road is covered with snow
