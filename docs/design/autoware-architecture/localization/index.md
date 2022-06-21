@@ -106,9 +106,6 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 #### Functionality
 
 - The system can acquire the vehicle velocity and estimate distance traveled.
-- The system can estimate more accurate poses at a higher frequency by fusing with external sensors.
-
-<!-- NOTE: Is the second item necessary? Because it is general for any other sensors -->
 
 ### IMU
 
