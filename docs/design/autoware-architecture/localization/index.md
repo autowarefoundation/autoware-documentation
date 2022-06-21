@@ -33,7 +33,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 #### Situations that can make the system unstable
 
 - The vehicle is placed in a structure-less environment, such as a rural landscape, highway, or tunnel
-- Environment changes from when the map is created. e.g., construction or destruction of buildings, snow cover
+- Environmental changes have occurred since the map was created, such as snow cover or the construction/destruction of buildings.
 - Surrounding objects are occluded
 - The car is surrounded by objects undetectable by LiDAR, e.g., glass windows, reflections, or absorption (dark objects)
 - The environment contains laser beams at the same frequency as the car's LiDAR sensor(s)
@@ -72,7 +72,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 
 #### Functionality
 
-- The system can estimate the vehicle position with an error of ~10m in the world coordinate
+- The system can estimate vehicle position in the world coordinate within an error of ~10m.
 - With RTK attached, the accuracy can be improved to ~10cm
 - The system with this configuration can work without environment maps
 
@@ -101,12 +101,11 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 
 #### Situations that can make the system unstable
 
-- The vehicle is running on a slippy or bumpy road
-- The vehicle cannot observe the correct wheel speed because of poor road surface conditions such as bumps or slips
+- The vehicle is running on a slippery or bumpy road, which can cause incorrect observations of wheel speed.
 
 #### Functionality
 
-- The system can acquire the vehicle velocity and estimate distance travelled.
+- The system can acquire the vehicle velocity and estimate distance traveled.
 - The system can estimate more accurate poses at a higher frequency by fusing with external sensors.
 
 <!-- NOTE: Is the second item necessary? Because it is general for any other sensors -->
@@ -139,7 +138,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 
 #### Situations that can make the system unstable
 
-- The vehicle is placed in an environment with high magnetic noise, such as buildings or structures with reinforced steel or materials that generate electromagnetic waves
+- The vehicle is placed in an environment with high magnetic noise, such as one containing buildings or structures with reinforced steel or other materials that generate electromagnetic waves.
 
 #### Functionality
 
