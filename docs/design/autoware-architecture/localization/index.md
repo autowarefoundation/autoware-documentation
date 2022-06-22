@@ -161,7 +161,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 - By implementing different modules, various sensor configurations and algorithms can be used.
 - The localization system can start pose estimation from an ambiguous initial location.
 - The system can produce a reliable initial location estimation.
-- The system can manage the state of the initial location estimation (uninitialized, initializable, or not) and can report to the error monitor
+- The system can manage the state of the initial location estimation (uninitialized, initializable, or non-initializable) and can report to the error monitor.
 
 ## 4. Architecture
 
