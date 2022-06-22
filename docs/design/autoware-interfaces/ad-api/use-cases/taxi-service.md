@@ -1,8 +1,8 @@
-# Use cases of bus service
+# User story of bus service
 
 ## Overview
 
-This use case is a taxi service that picks up passengers and drives them to their destination.
+This user story is a taxi service that picks up passengers and drives them to their destination.
 
 ## Scenario
 

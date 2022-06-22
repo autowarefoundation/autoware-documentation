@@ -1,8 +1,8 @@
-# Drive manually
+# Change the operation mode
 
 ## Related API
 
-- Operation Mode
+- Operation mode
 
 ## Sequence
 
