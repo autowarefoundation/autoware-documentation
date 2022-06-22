@@ -1,0 +1,15 @@
+@startuml
+
+skinparam ParticipantPadding 25
+participant "GUI" as gui
+participant "Application" as system
+participant "AD API" as api
+participant "Autoware" as autoware
+
+gui --> system: pose
+system -> api ++: initialize pose using input
+api -> autoware ++: initialize pose
+return
+return
+
+@enduml
