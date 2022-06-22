@@ -1,4 +1,4 @@
-# Use Case of Bus Service
+# Use case of bus service
 
 ## Overview
 
