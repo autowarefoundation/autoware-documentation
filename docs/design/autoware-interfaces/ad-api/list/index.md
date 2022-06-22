@@ -2,3 +2,4 @@
 
 - [Interface](./api/interface/index.md)
 - [Driving](./api/driving/index.md)
+- [Pose](./api/pose/index.md)
