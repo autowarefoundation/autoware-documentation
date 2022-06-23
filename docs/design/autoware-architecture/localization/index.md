@@ -8,9 +8,9 @@ Localization aims to estimate vehicle pose, velocity, and acceleration.
 
 Goals:
 
-- Proposition of a system that can estimate the vehicle pose, velocity, and acceleration as long as possible
-- Proposition of a system that can diagnose the stability of estimation and send a warning message to the error-monitoring system if the estimation result is unreliable
-- Vehicle localization function can adequately work with various sensor configurations
+- Propose a system that can estimate vehicle pose, velocity, and acceleration for as long as possible.
+- Propose a system that can diagnose the stability of estimation and send a warning message to the error-monitoring system if the estimation result is unreliable.
+- Design a vehicle localization function that can work with various sensor configurations.
 
 Non-goals:
 
