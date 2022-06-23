@@ -248,7 +248,7 @@ Developers can optionally add other frames such as odom or base_footprint as lon
 - The localization module should produce the pose on a fixed coordinate frame.
 - Sensors should be independent of each other so that they can be easily replaced.
 - The localization module should provide a status indicating whether or not the autonomous vehicle can operate with the self-contained function or map information.
-- Tools or manuals should describe how to set proper parameters for the localization module <!-- TODO  原文にある「適切な位置推定」とはなんだ！！！ -->
+- Tools or manuals should describe how to set proper parameters for the localization module
 - Valid calibration parameters should be provided to align different frame or pose coordinates and sensor timestamps.
 
 ### KPI
