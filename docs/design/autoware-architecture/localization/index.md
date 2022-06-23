@@ -74,13 +74,13 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 
 - The system can estimate vehicle position in the world coordinate within an error of ~10m.
 - With RTK attached, the accuracy can be improved to ~10cm
-- The system with this configuration can work without environment maps
+- A system with this configuration can work without environment maps (both point cloud and vector map types).
 
 ### Camera (Visual Odometry, Visual SLAM)
 
 #### Expected situation
 
-- The vehicle is placed in a texture-rich environment, such as urban areas
+- The vehicle is placed in an environment with rich visual features, such as an urban area.
 
 #### Situations that can make the system unstable
 
@@ -97,7 +97,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 
 #### Expected situation
 
-- The vehicle is running on an ordinary road
+- The vehicle is running on a flat and smooth road.
 
 #### Situations that can make the system unstable
 
