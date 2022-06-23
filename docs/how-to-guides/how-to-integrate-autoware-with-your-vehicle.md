@@ -33,7 +33,7 @@ Use third-party tools such as [TIER IV's Vector Map Builder](https://tools.tier4
 
 Create your Autoware meta-repository.
 One easy way is to fork [autowarefoundation/autoware](https://github.com/autowarefoundation/autoware) and clone it.
-Refer to [GitHub Docs](https://docs.github.com/en/get-started/quickstart/fork-a-repo) for how to fork a repository.
+For how to fork a repository, refer to [GitHub Docs](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
 
 ```bash
 git clone https://github.com/YOUR_NAME/autoware.git

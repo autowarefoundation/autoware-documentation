@@ -20,7 +20,7 @@ To customize it, write the following in your `.bashrc`:
 export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})"
 ```
 
-See [here](https://docs.ros.org/en/rolling/Tutorials/Logging-and-logger-configuration.html#console-output-formatting) for more options.
+For more options, see [here](https://docs.ros.org/en/rolling/Tutorials/Logging-and-logger-configuration.html#console-output-formatting).
 
 ### Enabling localhost-only communication
 
@@ -44,4 +44,4 @@ To avoid it, set a different domain ID for each group in your `.bashrc`:
 export ROS_DOMAIN_ID=X
 ```
 
-See [here](https://docs.ros.org/en/foxy/Concepts/About-Domain-ID.html#the-ros-domain-id) for more information.
+For more information, see [here](https://docs.ros.org/en/foxy/Concepts/About-Domain-ID.html#the-ros-domain-id).
