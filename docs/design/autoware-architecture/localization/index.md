@@ -123,9 +123,6 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 
 - The system can observe acceleration and angular velocity.
 - By integrating these observations, the system can estimate the local pose change and realize dead-reckoning
-- By fusing with external sensors, it can estimate more accurate poses in a higher frequency
-
-<!-- NOTE: The third item says "it can estimate more accurate poses in a higher frequency," but the IMU already has very frequent observation -->
 
 ### Geomagnetic sensor
 
