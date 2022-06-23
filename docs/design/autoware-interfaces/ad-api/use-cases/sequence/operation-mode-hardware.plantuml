@@ -1,0 +1,16 @@
+@startuml
+
+skinparam ParticipantPadding 25
+participant "Operator" as operator
+participant "Application" as system
+participant "AD API" as api
+participant "Vehicle" as vehicle
+
+operator -> vehicle ++: change the control mode
+return
+
+vehicle --> api: notify the current control mode
+api --> system: notify the current operation mode
+system --> operator: show the current operation mode
+
+@enduml

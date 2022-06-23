@@ -1,0 +1,22 @@
+@startuml
+
+skinparam ParticipantPadding 25
+participant "Application" as system
+participant "AD API" as api
+participant "Vehicle" as vehicle
+participant "Passengers" as passengers
+
+system -> api ++: open the doors to get on/off
+api -> vehicle ++: open the specific doors
+return
+return
+
+passengers -> vehicle ++: get on/off
+return
+
+system -> api ++: close the doors
+api -> vehicle ++: close the all doors
+return
+return
+
+@enduml

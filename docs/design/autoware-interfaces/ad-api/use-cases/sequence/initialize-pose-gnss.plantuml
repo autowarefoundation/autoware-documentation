@@ -1,0 +1,15 @@
+@startuml
+
+skinparam ParticipantPadding 25
+participant "Application" as system
+participant "AD API" as api
+participant "Autoware" as autoware
+participant "GNSS" as gnss
+
+system -> api ++: initialize pose using GNSS
+gnss --> api: pose
+api -> autoware ++: initialize pose
+return
+return
+
+@enduml
