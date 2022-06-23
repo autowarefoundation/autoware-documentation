@@ -14,10 +14,10 @@ Goals:
 
 Non-goals:
 
-- We do not try to develop a localization system that
-  - does not fail in any environment
+- This design document does not aim to develop a localization system that
+  - is infallible in all environments
   - works outside of the pre-defined ODD (Operational Design Domain)
-  - has unnecessarily better performance than required in autonomous driving
+  - has better performance than is required for autonomous driving
 
 ## 2. Sensor Configuration Examples
 
