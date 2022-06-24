@@ -115,3 +115,18 @@ external/get/calibration_status:
 external/get/accel_brake_map_calibrator/data:
   behavior: service
   type: tier4_external_api_msgs/srv/GetAccelBrakeMapCalibrationData
+iv_msgs/autoware/state:
+  behavior: topic
+  type: tier4_system_msgs/msg/AutowareState
+iv_msgs/vehicle/status/control_mode:
+  behavior: topic
+  type: tier4_vehicle_msgs/msg/ControlMode
+iv_msgs/planning/scenario_planning/trajectory:
+  behavior: topic
+  type: tier4_planning_msgs/msg/Trajectory
+iv_msgs/perception/object_recognition/tracking/objects:
+  behavior: topic
+  type: tier4_perception_msgs/msg/DynamicObjectArray
+autoware/set/start_request:
+  behavior: service
+  type: std_srvs/srv/Trigger
