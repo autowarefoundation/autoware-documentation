@@ -26,11 +26,11 @@ The DBW component consists of the following components:
 
 Each component contains static nodes of Autoware, while each module can be dynamically loaded and unloaded (corresponding to C++ classes). The mechanism of the DBW component is depicted by the following figures:
 
-<!-- insert vehicle component architecture diagram here 
+<!-- insert vehicle component architecture diagram here
 ![alt_text](images/image1.png "image_tooltip")
 -->
 
-<!-- insert vehicle component overview diagram here 
+<!-- insert vehicle component overview diagram here
 ![alt_text](images/image1.png "image_tooltip")
 -->
 
@@ -45,7 +45,7 @@ The DBW component can provide the following features in functionality and capabi
 Additional functionality and capability features may be added, depending on the vehicle hardware. Some example features are listed below:
 
 - Safety features
-  - Disengage autonomous driving via manual intervention. 
+  - Disengage autonomous driving via manual intervention.
     - This can be done through the use of an emergency disengage button, or by a safety driver manually turning the steering wheel or pressing the brake
 - Optional controls
   - Turn indicator
@@ -94,7 +94,7 @@ The output interface of the DBW component:
 - Vehicle odometry (output to Localization)
   - Vehicle twist information
 - Control mode
-  - Information about whether the vehicle is under autonomous control or manual control 
+  - Information about whether the vehicle is under autonomous control or manual control
 - Shift status (optional)
   - Vehicle shift status
 - Turn signal status (optional)
