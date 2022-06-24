@@ -73,7 +73,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 #### Functionality
 
 - The system can estimate vehicle position in the world coordinate within an error of ~10m.
-- With RTK attached, the accuracy can be improved to ~10cm
+- With a RKT-GNSS (Real Time Kinematic Global Navigation Satellite System) attached, the accuracy can be improved to ~10cm.
 - A system with this configuration can work without environment maps (both point cloud and vector map types).
 
 ### Camera (Visual Odometry, Visual SLAM)
@@ -164,7 +164,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 
 ### Abstract
 
-We define two architectures: "Required" and "Recommended." Only input and output are defined in the "Required" architecture to accept various localization algorithms. Also, to improve the reusability of each module, we describe more detailed parts in the "Recommended" architecture.
+Two architectures are defined, "Required" and "Recommended".  However, the "Required" architecture only contains the inputs and outputs necessary to accept various localization algorithms. To improve the reusability of each module, the required components are defined in the "Recommended" architecture section along with a more detailed explanation.
 
 ### Required Architecture
 
