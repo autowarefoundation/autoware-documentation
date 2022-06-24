@@ -164,7 +164,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 
 ### Abstract
 
-Two architectures are defined, "Required" and "Recommended".  However, the "Required" architecture only contains the inputs and outputs necessary to accept various localization algorithms. To improve the reusability of each module, the required components are defined in the "Recommended" architecture section along with a more detailed explanation.
+Two architectures are defined, "Required" and "Recommended". However, the "Required" architecture only contains the inputs and outputs necessary to accept various localization algorithms. To improve the reusability of each module, the required components are defined in the "Recommended" architecture section along with a more detailed explanation.
 
 ### Required Architecture
 
