@@ -1,0 +1,36 @@
+@startuml
+
+skinparam ParticipantPadding 25
+participant "User" as user
+participant "Application" as system
+participant "AD API (drive)" as api_drive
+participant "AD API (route)" as api_route
+
+api_drive --> system: notify that the vehicle is not driving
+system --> user --: show that the vehicle is not ready to start
+
+system -> api_route ++: set the route
+return
+api_route --> api_drive: notify that the route is set
+api_drive --> system: notify that the vehicle is ready to start
+system --> user: show that the vehicle is ready to start
+
+user -> system ++: request to start
+system -> api_drive ++: engage
+return
+return
+api_drive --> system: notify that the vehicle is driving
+
+|||
+note over user, api_route: Driving
+|||
+
+api_route --> api_drive: notify that the vehicle has arrived at the goal
+api_drive --> system: notify that the vehicle is not driving
+system --> user --: show that the vehicle is not ready to start
+
+system -> api_route ++: clear the route
+return
+api_route --> api_drive: notify that the route is not set
+
+@enduml
