@@ -22,7 +22,7 @@ trajectory to be followed by the controller. See Outputs of Planning.
 
 Current steering of the ego vehicle. Published by the Vehicle Interface.
 
-- Steering message ([github discussion](https://github.com/autowarefoundation/autoware/discussions/36)).
+- Steering message ([github discussion](https://github.com/autowarefoundation/autoware/discussions/2462)).
   - builtin_interfaces::msg::Time stamp
   - float32 steering_angle
 
@@ -32,7 +32,7 @@ Actuation status of the ego vehicle for acceleration, steering, and brake.
 
 TODO This represents the reported physical efforts exerted by the vehicle actuators. Published by the Vehicle Interface.
 
-- ActuationStatus ([github discussion](https://github.com/autowarefoundation/autoware/discussions/36)).
+- ActuationStatus ([github discussion](https://github.com/autowarefoundation/autoware/discussions/2462)).
   - builtin_interfaces::msg::Time stamp
   - float32 acceleration
   - float32 steering
