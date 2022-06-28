@@ -113,8 +113,6 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 
 - Flat, smooth roads
 
-<!-- NOTE: The availability of IMU is highest among the sensors attached to vehicles. Therefore we should list more situations or say we can use the IMU almost anywhere -->
-
 #### Situations that can make the system unstable
 
 - IMUs have a bias that is dependent on the surrounding temperature. This can cause incorrect sensor observation or odometry drift
