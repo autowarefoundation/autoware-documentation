@@ -254,7 +254,7 @@ Developers can optionally add other frames such as odom or base_footprint as lon
 To maintain sufficient pose estimation performance for safe operation, the following metrics are considered:
 
 - Safety
-  - The distance travelled within the ODD where pose estimation met the required accuracy, divided by the overall distance travelled within the ODD, as a percentage.
+  - The distance traveled within the ODD where pose estimation met the required accuracy, divided by the overall distance traveled within the ODD, as a percentage.
   - The anomaly detection rate for situations where the localization module cannot estimate pose within the ODD
   - The accuracy of detecting when the vehicle goes outside of the ODD, as a percentage.
 - Computational load
