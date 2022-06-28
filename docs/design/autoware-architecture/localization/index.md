@@ -115,7 +115,10 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 
 #### Situations that can make the system unstable
 
-- IMUs have a bias that is dependent on the surrounding temperature. This can cause incorrect sensor observation or odometry drift
+- IMUs have a bias[^1] that is dependent on the surrounding temperature, and can cause incorrect sensor observation or odometry drift. 
+
+[^1]:
+    For more details about bias, refer to the [VectorNav IMU specifications page](https://www.vectornav.com/resources/inertial-navigation-primer/specifications--and--error-budgets/specs-imuspecs).
 
 #### Functionality
 
