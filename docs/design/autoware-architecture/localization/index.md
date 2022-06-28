@@ -111,7 +111,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 
 #### Expected environments
 
-- Ordinary roads
+- Flat, smooth roads
 
 <!-- NOTE: The availability of IMU is highest among the sensors attached to vehicles. Therefore we should list more situations or say we can use the IMU almost anywhere -->
 
