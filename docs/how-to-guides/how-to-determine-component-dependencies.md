@@ -12,7 +12,7 @@ To generate a graph of package dependencies, use the following `colcon` command:
 colcon graph --dot --packages-up-to tier4_perception_launch | dot -Tpng -o graph.png
 ```
 
-<!-- TODO add image link here once added to the repository -->
+![colon graph output](images/how-to-determine-component-dependencies/perception_stack_dependencies.png){ width="600" }
 
 To generate a list of dependencies, use:
 
