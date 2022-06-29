@@ -20,8 +20,9 @@ To generate a list of dependencies, use:
 colcon list --packages-up-to tier4_perception_launch --names-only
 ```
 
-??? colcon list output
+??? example "colcon list output"
 
+    ```txt
     autoware_auto_geometry_msgs
     autoware_auto_mapping_msgs
     autoware_auto_perception_msgs
@@ -68,6 +69,7 @@ colcon list --packages-up-to tier4_perception_launch --names-only
     traffic_light_ssd_fine_detector
     traffic_light_visualization
     vehicle_info_util
+    ```
 
 !!! tip
 
