@@ -1,6 +1,6 @@
 # How to determine component dependencies
 
-For any developers who wish to try and deploy Autoware as a microservices architecture, it is necessary to understand the software dependencies, communication and implemented features of each ROS package/node.
+For any developers who wish to try and deploy Autoware as a microservices architecture, it is necessary to understand the software dependencies, communication, and implemented features of each ROS package/node.
 
 As an example, the commands necessary to determine the dependencies for the Perception component are shown below.
 
@@ -75,4 +75,4 @@ ros2 launch tier4_perception_launch perception.launch.xml mode:=lidar
 ros2 run rqt_graph rqt_graph
 ```
 
-TODO: Add a way of determining software dependencies
+<!-- TODO: Add a way of determining software dependencies -->
