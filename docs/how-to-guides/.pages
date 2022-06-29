@@ -5,5 +5,5 @@ nav:
   - how-to-determine-component-dependencies.md
   - how-to-integrate-autoware-with-your-vehicle.md
   - how-to-integrate-autoware-with-a-diff-drive-vehicle.md
-  - running-autoware-without-cuda.md  
+  - running-autoware-without-cuda.md
   - sensor-calibration.md
