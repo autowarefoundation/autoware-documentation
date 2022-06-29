@@ -12,7 +12,7 @@ To generate a graph of package dependencies, use the following `colcon` command:
 colcon graph --dot --packages-up-to tier4_perception_launch | dot -Tpng -o graph.png
 ```
 
-<!-- TODO add image link here once added to the repository>
+<!-- TODO add image link here once added to the repository -->
 
 To generate a list of dependencies, use:
 
@@ -68,9 +68,11 @@ colcon list --packages-up-to tier4_perception_launch
     traffic_light_visualization
     vehicle_info_util
 
-To see which ROS topics are being subscribed and published to, use the following:
+To see which ROS topics are being subscribed and published to, use `rqt_graph` as follows:
 
 ```bash
 ros2 launch tier4_perception_launch perception.launch.xml mode:=lidar
 ros2 run rqt_graph rqt_graph
 ```
+
+TODO: Add a way of determining software dependencies
