@@ -1,7 +1,7 @@
-# /api/route/set
+# /api/routing/set_route_points
 
 - Method: function call
-- Type: [autoware_ad_api_msgs/srv/RouteSet](../../../types/autoware_ad_api_msgs/srv/route_set.md)
+- Type: [autoware_ad_api_msgs/srv/SetRoutePoints](../../../types/autoware_ad_api_msgs/srv/set_route_points.md)
 
 ## Description
 

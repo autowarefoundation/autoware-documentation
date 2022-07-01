@@ -1,4 +1,4 @@
-# autoware_ad_api_msgs/msg/LaneletPrimitive
+# autoware_ad_api_msgs/msg/RoutePrimitive
 
 ## Definition
 

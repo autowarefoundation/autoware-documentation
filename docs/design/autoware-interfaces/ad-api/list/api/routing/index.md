@@ -1,10 +1,10 @@
 # Route API
 
-- {{ link_ad_api('/api/route/state') }}
-- {{ link_ad_api('/api/route/clear') }}
-- {{ link_ad_api('/api/route/set') }}
-- {{ link_ad_api('/api/route/lanelet/set') }}
-- {{ link_ad_api('/api/route/lanelet/notice') }}
+- {{ link_ad_api('/api/routing/state') }}
+- {{ link_ad_api('/api/routing/route') }}
+- {{ link_ad_api('/api/routing/set_route_points') }}
+- {{ link_ad_api('/api/routing/set_route') }}
+- {{ link_ad_api('/api/routing/clear_route') }}
 
 ## Description
 

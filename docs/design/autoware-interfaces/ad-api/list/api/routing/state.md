@@ -1,4 +1,4 @@
-# /api/route/state
+# /api/routing/state
 
 - Method: notification
 - Type: [autoware_ad_api_msgs/msg/RouteState](../../../types/autoware_ad_api_msgs/msg/route_state.md)
