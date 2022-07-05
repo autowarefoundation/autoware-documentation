@@ -9,6 +9,6 @@ Get the route with the waypoint segments in lanelet format. It is empty if route
 
 ## Message
 
-| Name  | Type                           | Description                 |
-| ----- | ------------------------------ | --------------------------- |
-| route | autoware_ad_api_msgs/msg/Route | The route in lanelet format |
+| Name  | Type                                | Description                 |
+| ----- | ----------------------------------- | --------------------------- |
+| route | autoware_ad_api_msgs/msg/Route[<=1] | The route in lanelet format |

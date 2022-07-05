@@ -4,7 +4,7 @@
 
 ```txt
 int64 id
-string type
+string type  # The same id may be used for each type.
 ```
 
 ## This type uses
