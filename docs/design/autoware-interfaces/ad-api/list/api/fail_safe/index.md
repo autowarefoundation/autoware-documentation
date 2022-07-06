@@ -1,4 +1,4 @@
-# Fail Safe API
+# Fail-safe API
 
 - {{ link_ad_api('/api/fail_safe/state') }}
 
