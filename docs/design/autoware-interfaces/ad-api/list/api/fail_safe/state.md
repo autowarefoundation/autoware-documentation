@@ -11,5 +11,5 @@ Get the fail-safe state. For details, see the [fail-safe state](./index.md).
 
 | Name          | Type   | Description                                         |
 | ------------- | ------ | --------------------------------------------------- |
-| state         | uint16 | A value of the [fail safe state](./index.md).       |
+| state         | uint16 | A value of the [fail-safe state](./index.md).       |
 | auto_recovery | bool   | Whether the fail-safe state recovers automatically. |
