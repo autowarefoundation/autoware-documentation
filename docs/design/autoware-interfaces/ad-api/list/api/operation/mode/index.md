@@ -25,7 +25,7 @@ Stop mode is used to keep the vehicle stopped. Autonomous mode is for driving wi
 ### Autoware control flag
 
 The flag `is_in_autoware_control` indicates if the vehicle is controlled by Autoware.
-The engage and disenage APIs can be used if the mode can be switched by software.
+The engage and disengage APIs can be used if the mode can be switched by software.
 These APIs will always fail if the vehicle does not support mode switching or is switched by hardware.
 
 ### Operation mode and change flags
