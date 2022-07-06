@@ -1,40 +1,40 @@
 # Operation Mode
 
-- {{ link_ad_api('/api/operation/mode/notice') }}
-- {{ link_ad_api('/api/operation/mode/change') }}
+- {{ link_ad_api('/api/operation/mode/state') }}
+- {{ link_ad_api('/api/operation/mode/change_to_autonomous') }}
+- {{ link_ad_api('/api/operation/mode/change_to_stop') }}
+- {{ link_ad_api('/api/operation/mode/change_to_local') }}
+- {{ link_ad_api('/api/operation/mode/change_to_remote') }}
+- {{ link_ad_api('/api/operation/mode/engage') }}
+- {{ link_ad_api('/api/operation/mode/disengage') }}
 
 ## Description
 
-As shown below, Autoware has five operation modes, driver, local, remote, stop and autonomous.
-Driver mode is supported on some vehicles that have an interface to operate directly, such as steering and pedals, etc.
-The other modes are controlled by software. Typically, local mode is a joystick and remote mode is web application.
-Stop mode is used to stop the vehicle when changing modes. Autonomous mode is for driving with Autoware.
+As shown below, Autoware assumes that the vehicle interface has two modes, Autoware control and direct control.
+In direct control mode, the vehicle is operated using devices such as steering and pedals.
+If the vehicle does not support direct control mode, it is always treated as Autoware control mode.
 
-![operation-architecture](./architecture.drawio.svg)
+Autoware control mode has four operation modes. driver, local, remote, stop and autonomous.
+Typically, local mode is a joystick and remote mode is web application.
+Stop mode is used to keep the vehicle stopped. Autonomous mode is for driving with Autoware.
 
-## Mode
+![operation-mode-architecture](./architecture.drawio.svg)
 
-The selector mode indicates the command source during software control.
-The flag `is_driver_control` indicates whether direct control by the driver is enabled.
+## States
+
+### Autoware control flag
+
+The flag `is_in_autoware_control` indicates if the vehicle is controlled by Autoware.
+The engage and disenage APIs can be used if the mode can be switched by software.
+These APIs will always fail if the vehicle does not support mode switching or is switched by hardware.
+
+### Operation mode and change flags
+
+The state `operation_mode` indicates what command is used when Autoware control is enabled.
+The flags `change_to_*` can be used to check if it is possible to transition to each mode.
+
+### Transition flag
 
 Since Autoware may not be able to guarantee safety, such as switching to autonomous mode during overspeed.
 There is the flag `is_in_transition` for this situation and it will be true when changing modes.
 The operator who changed the mode should ensure safety while this flag is true. The flag will be false when the mode change is complete.
-
-![operation-mode](./mode.drawio.svg)
-
-### Selector
-
-| Name       | Description                                                |
-| ---------- | ---------------------------------------------------------- |
-| STOP       | The stop command is selected to stop the vehicle.          |
-| AUTONOMOUS | The autonomous command is selected for autonomous driving. |
-| LOCAL      | The local command is selected.                             |
-| REMOTE     | The remote command is selected.                            |
-
-### Variables
-
-| Name              | Type | Description                                      |
-| ----------------- | ---- | ------------------------------------------------ |
-| is_driver_control | bool | True if direct control by the driver is enabled. |
-| is_in_transition  | bool | True if the operation mode is in transition.     |
