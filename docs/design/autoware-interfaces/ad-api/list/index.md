@@ -2,3 +2,4 @@
 
 - [Interface](./api/interface/index.md)
 - [Operation Mode](./api/operation/mode/index.md)
+- [Fail-safe](./api/fail_safe/index.md)
