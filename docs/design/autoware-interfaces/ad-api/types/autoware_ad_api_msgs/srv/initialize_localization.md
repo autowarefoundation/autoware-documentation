@@ -1,4 +1,4 @@
-# autoware_ad_api_msgs/srv/PoseInitialize
+# autoware_ad_api_msgs/srv/InitializeLocalization
 
 ## Definition
 
