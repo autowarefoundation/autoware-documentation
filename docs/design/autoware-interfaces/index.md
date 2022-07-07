@@ -1,4 +1,4 @@
-# Autoware Interface Design
+# Autoware interface design
 
 ## Abstract
 
@@ -64,7 +64,7 @@ It is desirable to propose them for standardization if they are sufficiently eva
 
 ## Features
 
-### Communication Method
+### Communication methods
 
 As shown in the table below, interfaces are classified into four communication methods to define their behavior.
 Function Call is a request-response communication and is used for processing that requires immediate results. The others are publish-subscribe communication.
@@ -84,7 +84,7 @@ It is wasteful for each of these applications to have an adapter for Autoware, a
 HTTP and MQTT are suggested as additional options because these protocols are widely used and can substitute the behavior of services and topics.
 In that case, text formats such as JSON where field names are repeated in an array of objects, are inefficient and it is necessary to consider the serialization.
 
-### Naming Convention
+### Naming convention
 
 The name of the interface must be `/<component name>/api/<interface name>`,
 where `<component name>` is the name of the component. For an AD API component, omit this part and start with `/api`.
@@ -131,15 +131,15 @@ Topics:
 - minimum frequency
 - default frequency
 
-## Data Structure
+## Data structure
 
-### Data Type Definition
+### Data type definition
 
 Do not share the types in AD API unless they are obviously the same to avoid changes in one API affecting another.
 Also, implementation-dependent types, including the component interface, should not be used in AD API for the same reason.
 Use the type in AD API in implementation, or create the same type and copy the data to convert the type.
 
-### Constants and Enumeration
+### Constants and enumeration
 
 Since ROS don't support enumeration, use constants instead.
 The default value of type such as zero and empty string should not be used to detect that a variable is unassigned.
@@ -148,62 +148,23 @@ If one type has multiple enumerations, comment on the correspondence between con
 Assign unique values to all constants so that it can be distinguished from other enumerations.
 Do not use enumeration values directly, as assignments are subject to change when the version is updated.
 
-### Time Stamp
+### Time stamp
 
 Clarify what the timestamp indicates. for example, send time, measurement time, update time, etc. Consider having multiple timestamps if necessary.
 Use `std_msgs/msg/Header` when using ROS transform.
 Also consider whether the header is common to all data, independent for each data, or additional timestamp is required.
 
-### Request Header
+### Request header
 
 Currently, there is no required header.
 
-### Response Status
+### Response status
 
 The interfaces whose communication method is Function Call use a common response status to unify the error format.
-For those interfaces, include the ResponseStatus shown below in the response with the name status.
-The data `status.summary.code` is the execution result of the interface, and the caller branches the process according to this value.
-Others are for the users and should not be used directly by the program.
-These data are primarily used to provide users with solution tips and to ask the developer for the cause of the error.
+These interfaces should include a variable of ResponseStatus with the name status in the response.
+See [autoware_ad_api_msgs/msg/ResponseStatus](https://github.com/autowarefoundation/autoware.universe/blob/main/common/autoware_ad_api_msgs/README.md#responsestatus) for details.
 
-The typical use of the field `details` is when an interface calls other interfaces.
-That interface stores response statuses in `details`, then merges them and sets the result to `summary`.
-This allows the developer to know which component was causing the error by checking `details`.
-
-- ResponseStatus
-
-  | Name    | Type                       | Description    |
-  | ------- | -------------------------- | -------------- |
-  | summary | ResponseStatusDetail       | status summary |
-  | details | ResponseStatusDetail Array | status details |
-
-- ResponseStatusDetail
-
-  | Name        | Type   | Description                                                 |
-  | ----------- | ------ | ----------------------------------------------------------- |
-  | code        | uint32 | response status code                                        |
-  | component   | string | the component that caused the error                         |
-  | message     | string | error message                                               |
-  | description | string | error information such as detailed message and document URL |
-
-- ResponseStatusCode
-
-  | Group  | Code   | Description   |
-  | ------ | ------ | ------------- |
-  | 0x0000 | 0x0000 | UNKNOWN       |
-  | T.B.D. | T.B.D. | OK            |
-  | T.B.D. | T.B.D. | SUCCESS       |
-  | T.B.D. | T.B.D. | ACCEPTED      |
-  | T.B.D. | T.B.D. | NO_EFFECT     |
-  | T.B.D. | T.B.D. | UNAVAILABLE   |
-  | T.B.D. | T.B.D. | WARNING       |
-  | T.B.D. | T.B.D. | ERROR         |
-  | T.B.D. | T.B.D. | FORBIDDEN     |
-  | T.B.D. | T.B.D. | BAD_REQUEST   |
-  | T.B.D. | T.B.D. | NOT_SUPPORTED |
-  | T.B.D. | T.B.D. | TIMEOUT       |
-
-## Concern, Assumption, and Limitation
+## Concerns, assumptions and limitations
 
 - The applications use the version information provided by AD API to check compatibility.
   Unknown versions are also treated as available as long as the major versions match (excluding major version 0).
