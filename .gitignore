@@ -1,6 +1,9 @@
 # JetBrains IDEs
 /.idea/
 
+# Python
+*.pyc
+
 # Vim
 *.swp
 *.swo

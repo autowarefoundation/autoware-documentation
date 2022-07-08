@@ -57,6 +57,7 @@ plugins:
   - search
 
 markdown_extensions:
+  - abbr
   - admonition
   - attr_list
   - codehilite:
@@ -70,7 +71,11 @@ markdown_extensions:
       server: http://www.plantuml.com/plantuml
       format: svg
   - pymdownx.arithmatex
+  - pymdownx.details
   - pymdownx.highlight
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
