@@ -5,8 +5,8 @@
 - {{ link_ad_api('/api/operation/mode/change_to_stop') }}
 - {{ link_ad_api('/api/operation/mode/change_to_local') }}
 - {{ link_ad_api('/api/operation/mode/change_to_remote') }}
-- {{ link_ad_api('/api/operation/mode/engage') }}
-- {{ link_ad_api('/api/operation/mode/disengage') }}
+- {{ link_ad_api('/api/operation/mode/enable_autoware_control') }}
+- {{ link_ad_api('/api/operation/mode/disable_autoware_control') }}
 
 ## Description
 

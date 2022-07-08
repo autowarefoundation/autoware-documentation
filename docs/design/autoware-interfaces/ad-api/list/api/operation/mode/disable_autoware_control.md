@@ -1,4 +1,4 @@
-# /api/operation/mode/disengage
+# /api/operation/mode/disable_autoware_control
 
 - Method: function call
 - Type: [autoware_ad_api_msgs/srv/ChangeOperationMode](../../../../types/autoware_ad_api_msgs/srv/change_operation_mode.md)
