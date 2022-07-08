@@ -1,0 +1,47 @@
+@startuml
+
+skinparam ParticipantPadding 25
+participant "User" as actor
+participant "OS" as os
+participant "Application" as script
+participant "AD API" as ad_api
+participant "Autoware" as autoware
+
+actor -> os ++: power on
+os -> script ++: service start
+script -> script: update system
+
+script -> os ++: service start
+os -> ad_api
+activate ad_api
+os --> script --
+
+script -> ad_api ++: get version
+return
+
+script -> ad_api ++: launch
+ad_api -> autoware ++: start
+autoware --> ad_api
+ad_api --> script --
+
+|||
+
+note over actor, autoware: In service
+
+|||
+
+actor -> script: power off
+script -> ad_api ++: terminate
+ad_api -> autoware: stop
+autoware --> ad_api --
+ad_api --> script --
+
+script -> os ++: service stop
+os -> ad_api
+deactivate ad_api
+os --> script --
+
+script -> os: shutdown
+deactivate script
+
+@enduml
