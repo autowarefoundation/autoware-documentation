@@ -12,7 +12,7 @@ Get the operation mode state. For details, see the [operation mode](./index.md).
 | Name                        | Type   | Description                                              |
 | --------------------------- | ------ | -------------------------------------------------------- |
 | operation_mode              | uint16 | The selected command for Autoware control.               |
-| is_autoware_control_enabled | bool   | True if direct control by the driver is enabled.         |
+| is_autoware_control_enabled | bool   | True if vehicle control by Autoware is enabled.          |
 | is_in_transition            | bool   | True if the operation mode is in transition.             |
 | change_to_stop              | bool   | True if the operation mode can be changed to stop.       |
 | change_to_autonomous        | bool   | True if the operation mode can be changed to autonomous. |
