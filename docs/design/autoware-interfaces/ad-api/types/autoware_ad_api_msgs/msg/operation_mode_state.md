@@ -12,7 +12,7 @@ uint16 REMOTE = 4
 
 # variables
 uint16 operation_mode
-bool is_in_autoware_control
+bool is_autoware_control_enabled
 bool is_in_transition
 bool change_to_stop
 bool change_to_autonomous
