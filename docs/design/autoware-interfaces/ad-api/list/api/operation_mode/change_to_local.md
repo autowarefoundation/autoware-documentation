@@ -1,7 +1,7 @@
-# /api/operation/mode/change_to_local
+# /api/operation_mode/change_to_local
 
 - Method: function call
-- Type: [autoware_ad_api_msgs/srv/ChangeOperationMode](../../../../types/autoware_ad_api_msgs/srv/change_operation_mode.md)
+- Type: [autoware_ad_api_msgs/srv/ChangeOperationMode](../../../types/autoware_ad_api_msgs/srv/change_operation_mode.md)
 
 ## Description
 

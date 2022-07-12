@@ -1,12 +1,12 @@
 # Operation Mode
 
-- {{ link_ad_api('/api/operation/mode/state') }}
-- {{ link_ad_api('/api/operation/mode/change_to_autonomous') }}
-- {{ link_ad_api('/api/operation/mode/change_to_stop') }}
-- {{ link_ad_api('/api/operation/mode/change_to_local') }}
-- {{ link_ad_api('/api/operation/mode/change_to_remote') }}
-- {{ link_ad_api('/api/operation/mode/enable_autoware_control') }}
-- {{ link_ad_api('/api/operation/mode/disable_autoware_control') }}
+- {{ link_ad_api('/api/operation_mode/state') }}
+- {{ link_ad_api('/api/operation_mode/change_to_autonomous') }}
+- {{ link_ad_api('/api/operation_mode/change_to_stop') }}
+- {{ link_ad_api('/api/operation_mode/change_to_local') }}
+- {{ link_ad_api('/api/operation_mode/change_to_remote') }}
+- {{ link_ad_api('/api/operation_mode/enable_autoware_control') }}
+- {{ link_ad_api('/api/operation_mode/disable_autoware_control') }}
 
 ## Description
 

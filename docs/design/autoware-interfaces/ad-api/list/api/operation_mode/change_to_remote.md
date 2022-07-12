@@ -1,11 +1,11 @@
-# /api/operation/mode/change_to_autonomous
+# /api/operation_mode/change_to_remote
 
 - Method: function call
-- Type: [autoware_ad_api_msgs/srv/ChangeOperationMode](../../../../types/autoware_ad_api_msgs/srv/change_operation_mode.md)
+- Type: [autoware_ad_api_msgs/srv/ChangeOperationMode](../../../types/autoware_ad_api_msgs/srv/change_operation_mode.md)
 
 ## Description
 
-Change the operation mode to autonomous. For details, see the [operation mode](./index.md).
+Change the operation mode to remote. For details, see the [operation mode](./index.md).
 
 ## Request
 

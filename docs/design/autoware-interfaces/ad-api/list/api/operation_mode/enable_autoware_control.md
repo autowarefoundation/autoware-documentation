@@ -1,7 +1,7 @@
-# /api/operation/mode/enable_autoware_control
+# /api/operation_mode/enable_autoware_control
 
 - Method: function call
-- Type: [autoware_ad_api_msgs/srv/ChangeOperationMode](../../../../types/autoware_ad_api_msgs/srv/change_operation_mode.md)
+- Type: [autoware_ad_api_msgs/srv/ChangeOperationMode](../../../types/autoware_ad_api_msgs/srv/change_operation_mode.md)
 
 ## Description
 
