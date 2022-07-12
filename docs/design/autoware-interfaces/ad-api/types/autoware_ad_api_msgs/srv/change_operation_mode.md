@@ -1,9 +1,8 @@
-# autoware_ad_api_msgs/srv/DrivingEngage
+# autoware_ad_api_msgs/srv/ChangeOperationMode
 
 ## Definition
 
 ```txt
-bool engage
 ---
 autoware_ad_api_msgs/ResponseStatus status
 ```
