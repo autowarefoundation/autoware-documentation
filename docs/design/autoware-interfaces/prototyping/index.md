@@ -1,5 +1,7 @@
 # List of TIER IV API
 
+これらは TIER IV の独自実装であり、段階的に [AD API](../ad-api/list/index.md) に統合する予定です。
+
 | Type    | Name                                                                                                                           | Data                                                                                                                                 |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
 | service | [/api/external/get/version](./api/external/get/version.md)                                                                     | [autoware_external_api_msgs/srv/GetVersion](./type/autoware_external_api_msgs/srv/GetVersion.md)                                     |
@@ -16,6 +18,7 @@
 | topic   | [/api/external/get/vehicle/status](./api/external/get/vehicle/status.md)                                                       | [tier4_external_api_msgs/msg/VehicleStatusStamped](./type/tier4_external_api_msgs/msg/VehicleStatusStamped.md)                       |
 | service | [/api/external/set/initialize_pose](./api/external/set/initialize_pose.md)                                                     | [tier4_external_api_msgs/srv/InitializePose](./type/tier4_external_api_msgs/srv/InitializePose.md)                                   |
 | service | [/api/external/set/initialize_pose_auto](./api/external/set/initialize_pose_auto.md)                                           | [tier4_external_api_msgs/srv/InitializePoseAuto](./type/tier4_external_api_msgs/srv/InitializePoseAuto.md)                           |
+| topic   | [/api/external/get/localization_scores](./api/external/get/localization_scores.md)                                             | [tier4_external_api_msgs/msg/LocalizationScoreArray](./type/tier4_external_api_msgs/msg/LocalizationScoreArray.md)                   |
 | service | [/api/external/set/route](./api/external/set/route.md)                                                                         | [tier4_external_api_msgs/srv/SetRoute](./type/tier4_external_api_msgs/srv/SetRoute.md)                                               |
 | topic   | [/api/external/get/route](./api/external/get/route.md)                                                                         | [tier4_external_api_msgs/msg/Route](./type/tier4_external_api_msgs/msg/Route.md)                                                     |
 | service | [/api/external/set/clear_route](./api/external/set/clear_route.md)                                                             | [tier4_external_api_msgs/srv/ClearRoute](./type/tier4_external_api_msgs/srv/ClearRoute.md)                                           |

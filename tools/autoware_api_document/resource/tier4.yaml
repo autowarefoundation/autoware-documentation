@@ -40,6 +40,9 @@ external/set/initialize_pose:
 external/set/initialize_pose_auto:
   behavior: service
   type: tier4_external_api_msgs/srv/InitializePoseAuto
+external/get/localization_scores:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/LocalizationScoreArray
 external/set/route:
   behavior: service
   type: tier4_external_api_msgs/srv/SetRoute
