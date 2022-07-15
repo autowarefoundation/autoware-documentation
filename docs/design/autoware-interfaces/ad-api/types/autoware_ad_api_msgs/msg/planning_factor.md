@@ -4,8 +4,8 @@
 
 ```txt
 # constants for type
-uint16 SURROUND_OBSTACLE = 1
-uint16 FRONT_OBSTACLE = 2
+uint16 SURROUNDING_OBSTACLE = 1
+uint16 ROUTE_OBSTACLE = 2
 uint16 INTERSECTION = 3
 uint16 CROSSWALK = 4
 uint16 REAR_CHECK = 5

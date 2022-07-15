@@ -34,25 +34,25 @@ See the description of each behavior below for pose and status. And see the desc
 
 ![planning-factors](./docs/factors.drawio.svg)
 
-| Factor Type                 | Behavior         | Description                                            |
-| --------------------------- | ---------------- | ------------------------------------------------------ |
-| SURROUND_OBSTACLE           | immediate stop   | There are obstacles nearby.                            |
-| FRONT_OBSTACLE              | planned stop     | There are obstacles ahead.                             |
-| INTERSECTION                | planned stop     | There are obstacles in other lanes in the path.        |
-| CROSSWALK                   | planned stop     | There are obstacles on the crosswalk.                  |
-| REAR_CHECK                  | planned stop     | There are obstacles behind that would be in a human driver's blind spot.       |
-| USER_DEFINED_DETECTION_AREA | planned stop     | There are obstacles in the predefined detection area.  |
-| NO_STOPPING_AREA            | planned stop     | There is not enough space beyond the no stopping area. |
-| STOP_SIGN                   | planned stop     | A stop by a stop sign.                                 |
-| TRAFFIC_SIGNAL              | planned stop     | A stop by a traffic signal.                            |
-| V2I_GATE_CONTROL            | planned stop     | A stop by a V2I gate.                                  |
-| FROM_PRIVATE_ROAD           | planned stop     | A stop before merging from private area.               |
-| SIDEWALK                    | planned stop     | A stop before crossing the sidewalk.                   |
-| LANE_CHANGE                 | lane change      | A lane change.                                         |
-| AVOIDANCE1                  | lane change      | A lane change to avoid an obstacle in the current lane.        |
-| AVOIDANCE2                  | lane change      | A lane change to return to the original lane after avoiding an obstacle.       |
-| DIRECTION_CHANGE            | direction change | A direction change such as turning left or right.      |
-| EMERGENCY_STOP_OPERATION    | T.B.D.           | A stop by emergency instruction from the operator.     |
+| Factor Type                 | Behavior         | Description                                                              |
+| --------------------------- | ---------------- | ------------------------------------------------------------------------ |
+| SURROUNDING_OBSTACLE        | immediate stop   | There are obstacles immediately around the vehicle.                      |
+| ROUTE_OBSTACLE              | planned stop     | There are obstacles along the route ahead.                               |
+| INTERSECTION                | planned stop     | There are obstacles in other lanes in the path.                          |
+| CROSSWALK                   | planned stop     | There are obstacles on the crosswalk.                                    |
+| REAR_CHECK                  | planned stop     | There are obstacles behind that would be in a human driver's blind spot. |
+| USER_DEFINED_DETECTION_AREA | planned stop     | There are obstacles in the predefined detection area.                    |
+| NO_STOPPING_AREA            | planned stop     | There is not enough space beyond the no stopping area.                   |
+| STOP_SIGN                   | planned stop     | A stop by a stop sign.                                                   |
+| TRAFFIC_SIGNAL              | planned stop     | A stop by a traffic signal.                                              |
+| V2I_GATE_CONTROL            | planned stop     | A stop by a V2I gate.                                                    |
+| FROM_PRIVATE_ROAD           | planned stop     | A stop before merging from private area.                                 |
+| SIDEWALK                    | planned stop     | A stop before crossing the sidewalk.                                     |
+| LANE_CHANGE                 | lane change      | A lane change.                                                           |
+| AVOIDANCE1                  | lane change      | A lane change to avoid an obstacle in the current lane.                  |
+| AVOIDANCE2                  | lane change      | A lane change to return to the original lane after avoiding an obstacle. |
+| DIRECTION_CHANGE            | direction change | A direction change such as turning left or right.                        |
+| EMERGENCY_STOP_OPERATION    | T.B.D.           | A stop by emergency instruction from the operator.                       |
 
 ### Planned stop
 
@@ -76,7 +76,7 @@ The pose indicates the vehicle head or the predicted stop position if possible.
 ### Direction change
 
 The direction change is a maneuver that requires use of turn indicators, such as when turning left or right.
-As the vehicle approaches the position to start steering, this factor appears with status APPROACHING.
+As the vehicle approaches the position to start steering, this factor appears with a status of APPROACHING.
 And when the vehicle reaches that position, the status will be ACTIVATED.
 The pose indicates the start position when APPROACHING and the end position when ACTIVATED.
 
