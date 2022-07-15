@@ -57,7 +57,7 @@ See the description of each behavior below for pose and status. And see the desc
 ### Planned stop
 
 The planned stop is a ordinary and predictable stop at the target position.
-As the vehicle approaches the stop position, this factor appears with status APPROACHING.
+As the vehicle approaches the stop position, this factor appears with a status of APPROACHING.
 And when the vehicle reaches that position and stops, the status will be STOPPED.
 The pose always indicates the stop position.
 
