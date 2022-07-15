@@ -49,8 +49,8 @@ See the description of each behavior below for pose and status. And see the desc
 | FROM_PRIVATE_ROAD           | planned stop     | A stop before merging from private area.               |
 | SIDEWALK                    | planned stop     | A stop before crossing the sidewalk.                   |
 | LANE_CHANGE                 | lane change      | A lane change.                                         |
-| AVOIDANCE1                  | lane change      | A lane change to avoid obstacles when avoiding.        |
-| AVOIDANCE2                  | lane change      | A lane change to avoid obstacles when returning.       |
+| AVOIDANCE1                  | lane change      | A lane change to avoid an obstacle in the current lane.        |
+| AVOIDANCE2                  | lane change      | A lane change to return to the original lane after avoiding an obstacle.       |
 | DIRECTION_CHANGE            | direction change | A direction change such as turning left or right.      |
 | EMERGENCY_STOP_OPERATION    | T.B.D.           | A stop by emergency instruction from the operator.     |
 
