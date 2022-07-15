@@ -86,7 +86,7 @@ The pose indicates the start position when APPROACHING and the end position when
 
 The lane change is basically the same as the direction change.
 But the vehicle will start steering at any position in the range depending on the situation.
-As the vehicle approaches the start position of the range, this factor appears with status APPROACHING.
+As the vehicle approaches the start position of the range, this factor appears with a status of APPROACHING.
 And when the vehicle reaches that position, the status will be ACTIVATING.
 Then, when it becomes possible to change lanes, the vehicle will start steering and the status will be ACTIVATED.
 If the vehicle reaches the end position of the range, it will stop and the status will be STOPPED.
