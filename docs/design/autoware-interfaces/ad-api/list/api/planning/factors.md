@@ -5,7 +5,7 @@
 
 ## Description
 
-Get the planning factors. They are sorted in ascending order of distance.
+Get the planning factors, sorted in ascending order of distance.
 For details, see the [planning factors](./index.md).
 
 ## Message
