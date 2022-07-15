@@ -46,7 +46,7 @@ See the description of each behavior below for pose and status. And see the desc
 | STOP_SIGN                   | planned stop     | A stop by a stop sign.                                                   |
 | TRAFFIC_SIGNAL              | planned stop     | A stop by a traffic signal.                                              |
 | V2I_GATE_CONTROL            | planned stop     | A stop by a V2I gate.                                                    |
-| FROM_PRIVATE_ROAD           | planned stop     | A stop before merging from private area.                                 |
+| MERGE                       | planned stop     | A stop before merging lanes.                                             |
 | SIDEWALK                    | planned stop     | A stop before crossing the sidewalk.                                     |
 | LANE_CHANGE                 | lane change      | A lane change.                                                           |
 | AVOIDANCE1                  | lane change      | A lane change to avoid an obstacle in the current lane.                  |
