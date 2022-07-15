@@ -29,7 +29,7 @@ Depending on the configuration, the state may transition directly from STOPPED t
 ## Factors
 
 The planning factors is an array of information on the behavior that the vehicle plans.
-Each factor has type shown below, pose, distance from the vehicle head to that pose, status, and detailed data depending on its type.
+Each factor has a type (shown below), pose, distance from the vehicle head to that pose, status, and detailed data depending on its type.
 See the description of each behavior below for pose and status. And see the description of factor types for detailed data.
 
 ![planning-factors](./docs/factors.drawio.svg)
