@@ -1,4 +1,4 @@
-# autoware_ad_api_msgs/msg/MotionState
+# autoware_ad_api_msgs/msg/PlanningState
 
 ## Definition
 
