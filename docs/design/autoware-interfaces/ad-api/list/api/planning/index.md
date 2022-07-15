@@ -65,7 +65,7 @@ The pose always indicates the stop position.
 
 ### Immediate stop
 
-The immediate stop does not have the specified stop position.
+The immediate stop does not have a specified stop position.
 Usually the vehicle stop as soon as possible under the permitted conditions.
 This factor will appear with a status of STOPPING when a stop is needed.
 And when the vehicle stops, the status will be STOPPED.
