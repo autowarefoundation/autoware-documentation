@@ -88,9 +88,9 @@ The lane change is basically the same as the direction change.
 But the vehicle will start steering at any position in the range depending on the situation.
 As the vehicle approaches the start position of the range, this factor appears with status APPROACHING.
 And when the vehicle reaches that position, the status will be ACTIVATING.
-Then, when it becomes possible to change lanes, the vehicle will start steering and the status will be ACTIVATED.
+Then, when it is possible to change lanes, the vehicle will start steering and the status will be ACTIVATED.
 If the vehicle reaches the end position of the range, it will stop and the status will be STOPPED.
-The pose indicates the start of the range (A) when APPROACHING and the start of the range (B) when ACTIVATING or STOPPED.
+The pose indicates the start of the range (A) when APPROACHING and the end of the range (B) when ACTIVATING or STOPPED.
 The position to end steering (C and D) for ACTIVATED depends on the position to start steering.
 
 ![lane-change-factor](./docs/factors-lane-change.drawio.svg)
