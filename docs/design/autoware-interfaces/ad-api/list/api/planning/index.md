@@ -44,14 +44,14 @@ See the description of each behavior below for pose and status. And see the desc
 | USER_DEFINED_DETECTION_AREA | planned stop     | There are obstacles in the predefined detection area.  |
 | NO_STOPPING_AREA            | planned stop     | There is not enough space beyond the no stopping area. |
 | STOP_SIGN                   | planned stop     | A stop by a stop sign.                                 |
-| TRAFFIC_LIGHT               | planned stop     | A stop by a traffic signal                             |
+| TRAFFIC_SIGNAL              | planned stop     | A stop by a traffic signal.                            |
 | V2I_GATE_CONTROL            | planned stop     | A stop by a V2I gate.                                  |
 | FROM_PRIVATE_ROAD           | planned stop     | A stop before merging from private area.               |
 | SIDEWALK                    | planned stop     | A stop before crossing the sidewalk.                   |
 | LANE_CHANGE                 | lane change      | A lane change.                                         |
 | AVOIDANCE1                  | lane change      | A lane change to avoid obstacles when avoiding.        |
 | AVOIDANCE2                  | lane change      | A lane change to avoid obstacles when returning.       |
-| DIRECTION_CHANGE            | direction change | A direction change such as turning left or right       |
+| DIRECTION_CHANGE            | direction change | A direction change such as turning left or right.      |
 | EMERGENCY_STOP_OPERATION    | T.B.D.           | A stop by emergency instruction from the operator.     |
 
 ### Planned stop
