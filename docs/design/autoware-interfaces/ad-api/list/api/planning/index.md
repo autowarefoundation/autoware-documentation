@@ -67,7 +67,7 @@ The pose always indicates the stop position.
 
 The immediate stop does not have the specified stop position.
 Usually the vehicle stop as soon as possible under the permitted conditions.
-This factor will appear with status STOPPING when a stop is needed.
+This factor will appear with a status of STOPPING when a stop is needed.
 And when the vehicle stops, the status will be STOPPED.
 The pose indicates the vehicle head or the predicted stop position if possible.
 
