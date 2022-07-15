@@ -40,7 +40,7 @@ See the description of each behavior below for pose and status. And see the desc
 | FRONT_OBSTACLE              | planned stop     | There are obstacles ahead.                             |
 | INTERSECTION                | planned stop     | There are obstacles in other lanes in the path.        |
 | CROSSWALK                   | planned stop     | There are obstacles on the crosswalk.                  |
-| REAR_CHECK                  | planned stop     | There are obstacles behind like shoulder checks.       |
+| REAR_CHECK                  | planned stop     | There are obstacles behind that would be in a human driver's blind spot.       |
 | USER_DEFINED_DETECTION_AREA | planned stop     | There are obstacles in the predefined detection area.  |
 | NO_STOPPING_AREA            | planned stop     | There is not enough space beyond the no stopping area. |
 | STOP_SIGN                   | planned stop     | A stop by a stop sign.                                 |
