@@ -75,7 +75,7 @@ The pose indicates the vehicle head or the predicted stop position if possible.
 
 ### Direction change
 
-The direction change is a steering that requires turn indicators such as turning left or right.
+The direction change is a maneuver that requires use of turn indicators, such as when turning left or right.
 As the vehicle approaches the position to start steering, this factor appears with status APPROACHING.
 And when the vehicle reaches that position, the status will be ACTIVATED.
 The pose indicates the start position when APPROACHING and the end position when ACTIVATED.
