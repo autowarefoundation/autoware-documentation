@@ -1,6 +1,6 @@
 # Fail-safe API
 
-- {{ link_ad_api('/api/fail_safe/mrm/state') }}
+- {{ link_ad_api('/api/fail_safe/mrm_state') }}
 
 ## Description
 

@@ -1,4 +1,4 @@
-# autoware_ad_api_msgs/msg/FailSafeState
+# autoware_ad_api_msgs/msg/MrmState
 
 ## Definition
 
