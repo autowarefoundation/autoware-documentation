@@ -4,4 +4,5 @@
 - [Operation Mode](./api/operation_mode/index.md)
 - [Routing](./api/routing/index.md)
 - [Localization](./api/localization/index.md)
+- [Planning](./api/planning/index.md)
 - [Fail-safe](./api/fail_safe/index.md)
