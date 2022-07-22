@@ -4,7 +4,7 @@
 
 ![Vehicle Axes](images/vehicle_axes.svg){: style="width:500px"}
 
-The `base_link` frame is used very frequently throughout the stack, and is in the center of the rear axle.
+The `base_link` frame is used very frequently throughout the stack, and is a projection of the rear-axle center onto the ground surface.
 
 - Localization module outputs the `map` to `base_link` transformation.
 - Planning module plans the poses for where the `base_link` frame should be in the future.
