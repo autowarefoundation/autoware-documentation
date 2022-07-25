@@ -27,18 +27,19 @@ The properly working simulator should have the lidar rays visible and the data t
 #### Simulator Shourtcuts
 
 It is possible to adjust/control the simulation through the shortcuts listed below:
+
 - v - turn on/off lidar points visualization
 - m - enter/exit manual operation mode (Ego listens to keyboard)
-    - In manual mode:
-        - d - drive
-        - p - parking brake
-        - r - reverse
-        - arrows - acceleration and steering
-        - lights:
-            - 1 - left blinker
-            - 2- right blinker
-            - 3 - emergency lights
-            - 4- turning the lights off
+  - In manual mode:
+    - d - drive
+    - p - parking brake
+    - r - reverse
+    - arrows - acceleration and steering
+    - lights:
+      - 1 - left blinker
+      - 2- right blinker
+      - 3 - emergency lights
+      - 4- turning the lights off
 
 ### Autoware
 
@@ -53,13 +54,13 @@ To run the Autoware, please:
         source install/setup.bash
         ros2 launch autoware_launch autoware.launch.xml map_path:=<PATH_TO_EXTRACTED_FOLDER_WITH_MAP> vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit use_sim_time:=true launch_sensing_driver:=false
 
-*NOTE: The map_path has to start with /home/... , relative path will not work properly*
+_NOTE: The map_path has to start with /home/... , relative path will not work properly_
 
 - the RViZ with the map should appear. The ego can localize itself at the beginning however the localization can be inaccurate. It is advised to place the `2D Pose Estimate` marker as shown on the image below.
 
 ![how to initialize autoware](./images/initializeAutoware.png)
 
-- to make the Autoware plan the route please place the `2D Goal Pose` marker somewhere within the lanelet2 road lanes. *NOTE: The plan can be not visible due to problem with plan visualization plugin which was omitted during the Autoware build process*
+- to make the Autoware plan the route please place the `2D Goal Pose` marker somewhere within the lanelet2 road lanes. _NOTE: The plan can be not visible due to problem with plan visualization plugin which was omitted during the Autoware build process_
 
 - to make the Autoware execute plan please open new terminal and send the engage message:
 
