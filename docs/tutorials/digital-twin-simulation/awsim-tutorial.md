@@ -1,0 +1,77 @@
+# AWSIM Simulator Setup
+
+This instruction presents how to run Tier IVs AWSIM with Autoware.
+
+## Preparation
+
+- Install Autoware following the official instruciton : [link](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/)
+- Download and extract AWSIM binary : [link](https://drive.google.com/file/d/1jgB_A5cSso9dzcNffQYthe07GG07QLQh/view?usp=sharing)
+- Download and extract map folder : [link](https://drive.google.com/file/d/1vGFI0o0zQ-gRZYqKrPbnrtCN3c3-92Fy/view?usp=sharing)
+
+## Running steps
+
+### AWSIM Simulator
+
+The AWSIM Simulator can be run without any further preparation. To run the simulator:
+
+- open the terminal navigate to the simulation directory and run:
+
+        source /opt/ros/galactic/setup.bash
+        cd <PATH_TO_EXTRACTED_FOLDER_WITH_AWSIM>
+        ./AWSIM.x86_64
+
+The properly working simulator should have the lidar rays visible and the data topics should appear when discovering using `ros2 topic list`.
+
+![correctly working simulator](./images/workingSim.png)
+
+#### Simulator Shourtcuts
+
+It is possible to adjust/control the simulation through the shortcuts listed below:
+- v - turn on/off lidar points visualization
+- m - enter/exit manual operation mode (Ego listens to keyboard)
+    - In manual mode:
+        - d - drive
+        - p - parking brake
+        - r - reverse
+        - arrows - acceleration and steering
+        - lights:
+            - 1 - left blinker
+            - 2- right blinker
+            - 3 - emergency lights
+            - 4- turning the lights off
+
+### Autoware
+
+To run the Autoware, please:
+
+- open the terminal and go to Autoware directory
+
+        cd <YOUR_WORKSPACE>/autoware
+
+- source the installation and run the solution
+
+        source install/setup.bash
+        ros2 launch autoware_launch autoware.launch.xml map_path:=<PATH_TO_EXTRACTED_FOLDER_WITH_MAP> vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit use_sim_time:=true launch_sensing_driver:=false
+
+*NOTE: The map_path has to start with /home/... , relative path will not work properly*
+
+- the RViZ with the map should appear. The ego can localize itself at the beginning however the localization can be inaccurate. It is advised to place the `2D Pose Estimate` marker as shown on the image below.
+
+![how to initialize autoware](./images/initializeAutoware.png)
+
+- to make the Autoware plan the route please place the `2D Goal Pose` marker somewhere within the lanelet2 road lanes. *NOTE: The plan can be not visible due to problem with plan visualization plugin which was omitted during the Autoware build process*
+
+- to make the Autoware execute plan please open new terminal and send the engage message:
+
+        cd <YOUR_WORKSPACE>/autoware
+        source install/setup.bash
+        ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: true"
+
+From now on the Autoware will execute the path and operate the AWSIM Simulator.
+
+![AWSIM with autoware](./images/awf_awsim.png)
+
+
+#### Troubleshooting
+
+If the data on topics is not produced or the poincloud is not visible on the simulation screen please find a `Player.log` file and provide it to the simulation suppliers (the file can be found under `~/.config/unity3d/Tier\ IV/E2ESimulator` directory).
