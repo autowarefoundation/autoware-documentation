@@ -61,9 +61,10 @@ _NOTE: The map_path has to start with /home/... , relative path will not work pr
 
 - To make Autoware execute the planned route, open a new terminal and send the engage message:
 
-        cd <YOUR_WORKSPACE>/autoware
-        source install/setup.bash
-        ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: true"
+```console
+cd <YOUR_WORKSPACE>/autoware
+source install/setup.bash
+ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: true"
 
 From now on the Autoware will execute the path and operate the AWSIM Simulator.
 
