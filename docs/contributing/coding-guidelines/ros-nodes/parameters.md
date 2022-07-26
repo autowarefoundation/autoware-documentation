@@ -2,11 +2,11 @@
 
 Autoware has following parameters
 
-- `p1`: reference parameter for the node package
+- `p1`: the reference parameter for the node package
   - e.g., [the parameter for the `behavior_path_planner` package](https://github.com/autowarefoundation/autoware.universe/tree/main/planning/behavior_path_planner/config)
-- `p2`: reference parameter for the module launch
+- `p2`: the reference parameter for the module launch
   - e.g., [the parameter for the `tier4_planning_launch` package](https://github.com/autowarefoundation/autoware.universe/tree/main/launch/tier4_planning_launch/config/)
-- `p3`: [reference parameter for the `autoware_launch` package](https://github.com/autowarefoundation/autoware_launch/tree/main/autoware_launch/config)
+- `p3`: [the reference parameter for the `autoware_launch` package](https://github.com/autowarefoundation/autoware_launch/tree/main/autoware_launch/config)
 
 `p3` contains the same parameters as `p2`.
 `p2` contains all the parameters of `p1`, and also parameters of multiple node instances from a single node package with different parameters.
@@ -33,9 +33,14 @@ Therefore, parameters in the `tier4_planning_launch` package (`p2`) are used.
 <arg name="tier4_planning_launch_param_path" default="$(find-pkg-share tier4_planning_launch)/config" description="tier4_planning_launch parameter path"/>
 ```
 
-## Automatic Synchronization of parameters
+## Automatic synchronization of parameters
 
 There is a PR generated automatically to synchronize `p3` with `p2`.
+
+You can see the synchronization setting file [here](https://github.com/autowarefoundation/autoware_launch/blob/main/.github/sync-param-files.yaml).
+Note that all parameter files are listed one by one.
+
+![parameter-architecture](images/parameter-architecture.svg)
 
 ## How to manage parameters
 
