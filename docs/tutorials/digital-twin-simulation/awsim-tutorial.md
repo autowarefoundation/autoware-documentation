@@ -55,7 +55,11 @@ ros2 launch autoware_launch autoware.launch.xml map_path:=<PATH_TO_EXTRACTED_FOL
 
 ![how to initialize autoware](./images/initializeAutoware.png)
 
-- to make the Autoware plan the route please place the `2D Goal Pose` marker somewhere within the lanelet2 road lanes. _NOTE: The plan can be not visible due to problem with plan visualization plugin which was omitted during the Autoware build process_
+- To make Autoware plan the route, use the `2D Goal Pose` button to set a goal pose somewhere within the Lanelet2 road lanes. 
+
+!!! note
+
+    Note that the planned route will not be shown due to a problem with the plan visualization plugin that was omitted during the Autoware build process.
 
 - To make Autoware execute the planned route, open a new terminal and send the engage message:
 
