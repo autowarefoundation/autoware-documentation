@@ -12,9 +12,10 @@
 
 To run the AWSIM simulator, open a terminal window, navigate to the simulation directory and run:
 
-        source /opt/ros/galactic/setup.bash
-        cd <PATH_TO_EXTRACTED_FOLDER_WITH_AWSIM>
-        ./AWSIM.x86_64
+```console
+source /opt/ros/galactic/setup.bash
+cd <PATH_TO_EXTRACTED_FOLDER_WITH_AWSIM>
+./AWSIM.x86_64
 
 The properly working simulator should have the lidar rays visible and the data topics should appear when discovering using `ros2 topic list`.
 
