@@ -55,7 +55,7 @@ ros2 launch autoware_launch autoware.launch.xml map_path:=<PATH_TO_EXTRACTED_FOL
 
 ![how to initialize autoware](./images/initializeAutoware.png)
 
-- To make Autoware plan the route, use the `2D Goal Pose` button to set a goal pose somewhere within the Lanelet2 road lanes. 
+- To make Autoware plan the route, use the `2D Goal Pose` button to set a goal pose somewhere within the Lanelet2 road lanes.
 
 !!! note
 
