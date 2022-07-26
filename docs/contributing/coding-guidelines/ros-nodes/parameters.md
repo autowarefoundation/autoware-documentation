@@ -11,7 +11,7 @@ Autoware has the following types of parameters:
 `Launch Parameter` contains the same parameters as `Component Parameter`.
 `Component Parameter` contains all the parameters of `Launch Parameter`, and also parameters of multiple node instances from a single node package with different parameters.
 
-![parameter-architecture](images/parameter-architecture.svg)
+![parameter-architecture](images/parameter-architecture.svg){: style="width:900px"}
 
 ## Parameters to be used
 
@@ -35,7 +35,7 @@ Therefore, parameters in the `tier4_planning_launch` package (`Component Paramet
 <arg name="tier4_planning_launch_param_path" default="$(find-pkg-share tier4_planning_launch)/config" description="tier4_planning_launch parameter path"/>
 ```
 
-![parameters-to-be-used](images/parameters-to-be-used.svg)
+![parameters-to-be-used](images/parameters-to-be-used.svg){: style="width:1200px"}
 
 ## Automatic synchronization of parameters
 
@@ -44,7 +44,7 @@ There is a PR generated automatically to synchronize `Launch Parameter` with `Co
 You can see the synchronization setting file [here](https://github.com/autowarefoundation/autoware_launch/blob/main/.github/sync-param-files.yaml).
 Note that all parameter files are listed one by one.
 
-![parameter-sync](images/parameter-sync.svg)
+![parameter-sync](images/parameter-sync.svg){: style="width:900px"}
 
 ## How to manage parameters
 
