@@ -62,7 +62,7 @@ cd <YOUR_WORKSPACE>/autoware
 source install/setup.bash
 ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: true"
 
-From now on the Autoware will execute the path and operate the AWSIM Simulator.
+From now on, Autoware will execute the planned route and operate the AWSIM Simulator.
 
 ![AWSIM with autoware](./images/awf_awsim.png)
 
