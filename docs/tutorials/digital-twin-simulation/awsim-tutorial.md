@@ -1,6 +1,5 @@
 # AWSIM simulator setup
 
-
 ## Preparation
 
 - Install Autoware following the [official guide](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/)
