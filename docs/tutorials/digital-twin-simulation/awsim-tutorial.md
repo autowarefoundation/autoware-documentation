@@ -1,4 +1,4 @@
-# AWSIM Simulator Setup
+# AWSIM simulator setup
 
 This instruction presents how to run Tier IVs AWSIM with Autoware.
 
