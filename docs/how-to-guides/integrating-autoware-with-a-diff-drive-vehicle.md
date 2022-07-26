@@ -1,4 +1,4 @@
-# Integrate Autoware with a differential drive vehicle
+# Integrating Autoware with a differential drive vehicle
 
 ## 1. Introduction
 

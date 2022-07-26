@@ -1,4 +1,4 @@
-# Calibrate your sensors
+# Calibrating your sensors
 
 ## Overview
 
