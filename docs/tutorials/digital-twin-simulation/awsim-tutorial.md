@@ -95,3 +95,4 @@ To run NPCs from rosbag, follow the steps:
 ### Troubleshooting
 
 If the data on topics is not produced or the poincloud is not visible on the simulation screen please find a `Player.log` file and provide it to the simulation suppliers (the file can be found under `~/.config/unity3d/Tier\ IV/E2ESimulator` directory).
+```
