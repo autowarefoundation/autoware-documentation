@@ -9,7 +9,7 @@ Autoware has following parameters
 - `p3`: [reference parameter for the `autoware_launch` package](https://github.com/autowarefoundation/autoware_launch/tree/main/autoware_launch/config)
 
 `p3` contains the same parameters as `p2`.
-`p2` contains all the parameters of `p1`, and also [parameters involving multiple nodes]().
+`p2` contains all the parameters of `p1`, and also [parameters involving multiple nodes](TODO).
 
 ## Parameters to be used
 
@@ -19,7 +19,6 @@ In [`autoware.launch.xml`](https://github.com/autowarefoundation/autoware_launch
 For example, the `tier4_planning_launch` package receives `$(find-pkg-share autoware_launch)/config/tier4_planning_launch` as the `tier4_planning_launch_param_path` argument as follows.
 
 ```xml
-<!-- Planning -->
 <include file="$(find-pkg-share tier4_planning_launch)/launch/planning.launch.xml">
   <arg name="tier4_planning_launch_param_path" value="$(find-pkg-share autoware_launch)/config/tier4_planning_launch"/>
 </include>
@@ -28,6 +27,7 @@ For example, the `tier4_planning_launch` package receives `$(find-pkg-share auto
 ### When launching autoware via the module launch
 
 In [`planning.launch.xml`](https://github.com/autowarefoundation/autoware.universe/blob/main/launch/tier4_planning_launch/launch/planning.launch.xml) of the `tier4_planning_launch` package, the default variable for the `tier4_planning_launch_param_path` argument is `$(find-pkg-share tier4_planning_launch)/config`.
+Therefore, parameters in the `tier4_planning_launch` package (`p2`) are used.
 
 ```xml
 <arg name="tier4_planning_launch_param_path" default="$(find-pkg-share tier4_planning_launch)/config" description="tier4_planning_launch parameter path"/>
@@ -39,27 +39,29 @@ There is a PR generated automatically to synchronize `p3` with `p2`.
 
 ## How to manage parameters
 
-We explain how to manage parameters in various use cases
+We explain how to manage parameters in some use cases.
 
-### Create a new package
+### When creating a new package
 
 - Locates the parameters of `p1` and `p2` for the new package in `autowarefoundation/autoware.universe`.
 - Create a PR to `autowarefoundation/autoware.universe`.
+- Update [a synchronization setting file](TODO).
 - Sync PR to `autowarefoundation/autoware_launch` is created automatically.
   - Or you can create this PR manually.
 - Merge both PRs.
 
-### Modify general parameters
+### When modifying general parameters
 
 - Modify the parameters of `p1` and `p2` in `autowarefoundation/autoware.universe`.
 - Create a PR to `autowarefoundation/autoware.universe`.
+- If you add a new config file, update [a synchronization setting file](TODO).
 - Sync PR to `autowarefoundation/autoware_launch` is created automatically.
   - Or you can create this PR manually.
 - Merge both PRs.
 
-### Modify integrated parameters
+### When modifying integrated parameters
 
-Assuming that there is your forked repositories of `autowarefoundation/autoware` and `autowarefoundation/autoware_launch`.
+Note: Assuming that there are your forked repositories of `autowarefoundation/autoware` and `autowarefoundation/autoware_launch`.
 
 This change does not affect the Autoware Foundation's repository.
 Therefore, just modifying your forked repository is fine.
