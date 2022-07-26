@@ -194,6 +194,10 @@ Now the vehicle should drive along the calculated path!
 
 ## 8. Tune parameters for your vehicle & environment
 
-You may need to tune your parameters in your forked Autoware Launch repository depending on the domain in which you will operate your vehicle.
+You may need to tune your parameters depending on the domain in which you will operate your vehicle.
+
+Note that there are some kinds of parameter files in Autoware.
+The parameter files you should modify for integration is in your forked Autoware Launch repository cloned in Section. 4.
+You can see more deail about the parameter management in Autoware [here](https://autowarefoundation.github.io/autoware-documentation/pr-171/contributing/coding-guidelines/ros-nodes/parameters/).
 
 If you have any issues or questions, feel free to create an [Autoware Foundation GitHub Discussion](https://github.com/orgs/autowarefoundation/discussions) in the Q&A category!
