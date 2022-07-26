@@ -71,7 +71,30 @@ From now on the Autoware will execute the path and operate the AWSIM Simulator.
 
 ![AWSIM with autoware](./images/awf_awsim.png)
 
+### NPC Control (optional)
 
-#### Troubleshooting
+Currently the only supported way to add NPCs to the simulation is using prerecorded rosbags.
+
+#### Preparation
+
+- Download and extract npc_msgs : [link](https://drive.google.com/file/d/1fMvjOnz7Z0cGXotwdOAhBfLPYO52ssp0/view?usp=sharing)
+- Download and extract sample rosbags : [link](to be filled)
+
+#### Run NPCs from rosbag
+
+To run NPCs from rosbag, follow the steps:
+
+- navigate to the directory with extracted npc_msgs
+- build and source npc_msgs:
+
+        colcon build
+        source install/setup.bash
+
+- play sample rosbag while AWSIM is running:
+
+        ros2 bag play <ROSBAG_NAME>
+
+
+### Troubleshooting
 
 If the data on topics is not produced or the poincloud is not visible on the simulation screen please find a `Player.log` file and provide it to the simulation suppliers (the file can be found under `~/.config/unity3d/Tier\ IV/E2ESimulator` directory).
