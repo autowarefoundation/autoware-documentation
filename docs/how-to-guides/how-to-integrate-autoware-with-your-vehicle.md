@@ -52,7 +52,7 @@ git clone https://github.com/YOUR_NAME/autoware_launch.git
 This repository has a lot of config files to tune Autoware for your vehicle.
 You will modify the forked repository.
 
-![integrated_autoware_launch](images/how-to-integrate-autoware-with-your-vehicle/integrated_autoware_launch.svg){: style="height:360px;width:600px"}
+![integrated_autoware_launch](images/how-to-integrate-autoware-with-your-vehicle/integrated_autoware_launch.svg){: style="width:600px"}
 
 You need to update the `autoware.repos` file of your cloned Autoware meta-repository to refer to the forked Autoware Launch repository.
 
