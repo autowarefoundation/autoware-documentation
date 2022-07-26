@@ -42,14 +42,10 @@ It is possible to adjust/control the simulation through the shortcuts listed bel
 
 To run Autoware, open a terminal and run the following commands:
 
-- open the terminal and go to Autoware directory
-
-        cd <YOUR_WORKSPACE>/autoware
-
-- source the installation and run the solution
-
-        source install/setup.bash
-        ros2 launch autoware_launch autoware.launch.xml map_path:=<PATH_TO_EXTRACTED_FOLDER_WITH_MAP> vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit use_sim_time:=true launch_sensing_driver:=false
+```console
+cd <YOUR_WORKSPACE>/autoware
+source install/setup.bash
+ros2 launch autoware_launch autoware.launch.xml map_path:=<PATH_TO_EXTRACTED_FOLDER_WITH_MAP> vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit use_sim_time:=true launch_sensing_driver:=false
 
 _NOTE: The map_path has to start with /home/... , relative path will not work properly_
 
