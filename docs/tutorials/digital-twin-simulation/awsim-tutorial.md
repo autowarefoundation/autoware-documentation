@@ -38,7 +38,7 @@ It is possible to adjust/control the simulation through the shortcuts listed bel
       - 3 - emergency lights
       - 4- turning the lights off
 
-### Autoware
+### Running utoware to control AWSIM
 
 To run Autoware, open a terminal and run the following commands:
 
@@ -56,10 +56,6 @@ ros2 launch autoware_launch autoware.launch.xml map_path:=<PATH_TO_EXTRACTED_FOL
 ![how to initialize autoware](./images/initializeAutoware.png)
 
 - To make Autoware plan the route, use the `2D Goal Pose` button to set a goal pose somewhere within the Lanelet2 road lanes.
-
-!!! note
-
-    Note that the planned route will not be shown due to a problem with the plan visualization plugin that was omitted during the Autoware build process.
 
 - To make Autoware execute the planned route, open a new terminal and send the engage message:
 
@@ -97,5 +93,5 @@ To run NPCs from rosbag, follow the steps:
 
 ### Troubleshooting
 
-If the data on topics is not produced or the poincloud is not visible on the simulation screen please find a `Player.log` file and provide it to the simulation suppliers (the file can be found under `~/.config/unity3d/Tier\ IV/E2ESimulator` directory).
+If the data on topics is not produced or the poincloud is not visible on the simulation screen please report a problem in autoware [Q&A discussion](https://github.com/autowarefoundation/autoware/discussions/). To make analysis of the problem easier, please share a `Player.log` file (the file can be found under `~/.config/unity3d/Tier\ IV/E2ESimulator/Player.log` directory).
 ````
