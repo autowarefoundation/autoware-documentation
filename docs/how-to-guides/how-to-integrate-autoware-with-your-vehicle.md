@@ -41,7 +41,33 @@ git clone https://github.com/YOUR_NAME/autoware.git
 
 If you set up multiple types of vehicles, adding a suffix like "autoware.vehicle_A" or "autoware.vehicle_B" is recommended.
 
-## 4. Create the description packages of your vehicle
+## 4. Create your Autoware Launch repository
+
+In the same way as the previous section, fork [autowarefoundation/autoware_launch](https://github.com/autowarefoundation/autoware_launch) and clone it.
+
+```bash
+git clone https://github.com/YOUR_NAME/autoware_launch.git
+```
+
+This repository has a lot of config files to tune Autoware for your vehicle.
+You will modify the forked repository.
+
+![integrated_autoware_launch](images/how-to-integrate-autoware-with-your-vehicle/integrated_autoware_launch.svg){: style="height:360px;width:600px"}
+
+You need to update the `autoware.repos` file of your cloned Autoware meta-repository to refer to the forked Autoware Launch repository.
+
+```diff
+-  launcher/autoware_launch:
+-    type: git
+-    url: https://github.com/autowarefoundation/autoware_launch.git
+-    version: main
++  launcher/autoware_launch:
++    type: git
++    url: https://github.com/YOUR_NAME/autoware_launch.git
++    version: main
+```
+
+## 5. Create the description packages of your vehicle
 
 Next, you need to create description packages that define the vehicle and sensor configuration of your vehicle.
 
@@ -50,7 +76,7 @@ Create the following two packages:
 - YOUR_VEHICLE_launch (see [here](https://github.com/autowarefoundation/sample_vehicle_launch) for example)
 - YOUR_SENSOR_KIT_launch (see [here](https://github.com/autowarefoundation/sample_sensor_kit_launch) for example)
 
-Once created, you need to update the `autoware.repos` file of your cloned Autoware repository to refer to these two description packages.
+Once created, you need to update the `autoware.repos` file of your cloned Autoware meta-repository to refer to these two description packages.
 
 ```diff
 -  # sensor_kit
@@ -106,7 +132,7 @@ Create `launch/sensing.launch.xml` that launches the interfaces of all the senso
     ros2 launch autoware_launch planning_simulator.launch.xml vehicle_model:=YOUR_VEHICLE sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP
     ```
 
-## 5. Create a `vehicle_interface` package
+## 6. Create a `vehicle_interface` package
 
 You need to create an interface package for your vehicle.
 The package is expected to provide the following two functions.
@@ -117,7 +143,7 @@ The package is expected to provide the following two functions.
 You can find detailed information about the requirements of the `vehicle_interface` package in the [Vehicle Interface design documentation](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/).
 You can also refer to TIER IV's [pacmod_interface repository](https://github.com/tier4/pacmod_interface) as an example of a vehicle interface package.
 
-## 6. Launch Autoware
+## 7. Launch Autoware
 
 This section briefly explains how to run your vehicle with Autoware.
 
@@ -166,8 +192,8 @@ The panel can be found in `Panels > Add New Panel > tier4_state_rviz_plugin > Au
 
 Now the vehicle should drive along the calculated path!
 
-## 7. Tune parameters for your vehicle & environment
+## 8. Tune parameters for your vehicle & environment
 
-You may need to tune your parameters depending on the domain in which you will operate your vehicle.
+You may need to tune your parameters in your forked Autoware Launch repository depending on the domain in which you will operate your vehicle.
 
 If you have any issues or questions, feel free to create an [Autoware Foundation GitHub Discussion](https://github.com/orgs/autowarefoundation/discussions) in the Q&A category!
