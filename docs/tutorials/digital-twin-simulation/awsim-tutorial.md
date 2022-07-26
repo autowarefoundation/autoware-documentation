@@ -51,7 +51,7 @@ ros2 launch autoware_launch autoware.launch.xml map_path:=<PATH_TO_EXTRACTED_FOL
 
     Note that `map_path` must be a full path. Relative paths will not work.
 
-- the RViZ with the map should appear. The ego can localize itself at the beginning however the localization can be inaccurate. It is advised to place the `2D Pose Estimate` marker as shown on the image below.
+- RViz should appear with the Lanelet2 map displayed. Although the ego vehicle can localize itself at the beginning, the localization can be inaccurate. It is recommended to explicitly set the vehicle's initial pose using the `2D Pose Estimate` button as shown in the image below.
 
 ![how to initialize autoware](./images/initializeAutoware.png)
 
