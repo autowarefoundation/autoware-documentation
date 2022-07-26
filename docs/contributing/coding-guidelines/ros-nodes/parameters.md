@@ -9,7 +9,7 @@ Autoware has following parameters
 - `p3`: [reference parameter for the `autoware_launch` package](https://github.com/autowarefoundation/autoware_launch/tree/main/autoware_launch/config)
 
 `p3` contains the same parameters as `p2`.
-`p2` contains all the parameters of `p1`, and also [parameters involving multiple nodes](TODO).
+`p2` contains all the parameters of `p1`, and also parameters of multiple node instances from a single node package with different parameters.
 
 ## Parameters to be used
 
@@ -45,7 +45,7 @@ We explain how to manage parameters in some use cases.
 
 - Locates the parameters of `p1` and `p2` for the new package in `autowarefoundation/autoware.universe`.
 - Create a PR to `autowarefoundation/autoware.universe`.
-- Update [a synchronization setting file](TODO).
+- Update [a synchronization setting file](https://github.com/autowarefoundation/autoware_launch/blob/main/.github/sync-param-files.yaml).
 - Sync PR to `autowarefoundation/autoware_launch` is created automatically.
   - Or you can create this PR manually.
 - Merge both PRs.
@@ -54,7 +54,7 @@ We explain how to manage parameters in some use cases.
 
 - Modify the parameters of `p1` and `p2` in `autowarefoundation/autoware.universe`.
 - Create a PR to `autowarefoundation/autoware.universe`.
-- If you add a new config file, update [a synchronization setting file](TODO).
+- If you add a new config file, update [a synchronization setting file](https://github.com/autowarefoundation/autoware_launch/blob/main/.github/sync-param-files.yaml).
 - Sync PR to `autowarefoundation/autoware_launch` is created automatically.
   - Or you can create this PR manually.
 - Merge both PRs.
