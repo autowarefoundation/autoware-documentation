@@ -40,7 +40,7 @@ It is possible to adjust/control the simulation through the shortcuts listed bel
 
 ### Autoware
 
-To run the Autoware, please:
+To run Autoware, open a terminal and run the following commands:
 
 - open the terminal and go to Autoware directory
 
