@@ -24,7 +24,7 @@ The properly working simulator should have the lidar rays visible and the data t
 
 ![correctly working simulator](./images/workingSim.png)
 
-#### Simulator Shourtcuts
+#### Simulator shortcuts
 
 It is possible to adjust/control the simulation through the shortcuts listed below:
 
