@@ -60,7 +60,7 @@ _NOTE: The map_path has to start with /home/... , relative path will not work pr
 
 - to make the Autoware plan the route please place the `2D Goal Pose` marker somewhere within the lanelet2 road lanes. _NOTE: The plan can be not visible due to problem with plan visualization plugin which was omitted during the Autoware build process_
 
-- to make the Autoware execute plan please open new terminal and send the engage message:
+- To make Autoware execute the planned route, open a new terminal and send the engage message:
 
         cd <YOUR_WORKSPACE>/autoware
         source install/setup.bash
