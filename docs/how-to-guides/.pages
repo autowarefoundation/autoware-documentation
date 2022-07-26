@@ -1,9 +1,9 @@
 nav:
   - index.md
   - advanced-usage-of-colcon.md
-  - how-to-create-maps-for-autoware.md
-  - how-to-determine-component-dependencies.md
-  - how-to-integrate-autoware-with-your-vehicle.md
-  - how-to-integrate-autoware-with-a-diff-drive-vehicle.md
+  - create-maps-for-autoware.md
+  - determine-component-dependencies.md
+  - integrate-autoware-with-your-vehicle.md
+  - integrate-autoware-with-a-diff-drive-vehicle.md
   - running-autoware-without-cuda.md
   - sensor-calibration.md
