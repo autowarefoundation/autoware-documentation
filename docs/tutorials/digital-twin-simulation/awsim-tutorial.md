@@ -18,7 +18,6 @@ cd <PATH_TO_EXTRACTED_FOLDER_WITH_AWSIM>
 ./AWSIM.x86_64
 ```
 
-
 If the simulator is working properly, Lidar rays should be visible and the [expected data topics](https://github.com/autowarefoundation/autoware-projects/wiki/Bus-ODD-Simulation-requirements#integration-interface-with-autoware-universe) should appear when `ros2 topic list` is run.
 
 ![correctly working simulator](./images/workingSim.png)
@@ -27,19 +26,19 @@ If the simulator is working properly, Lidar rays should be visible and the [expe
 
 It is possible to adjust/control the simulation through the shortcuts listed below:
 
-| Shortcut | Description |
-|---|---|
-| v | turn on/off lidar points visualization |
-| m | enter/exit manual operation mode (Ego listens to keyboard) |
-| | <b> In manual mode: </b> |
-| d | drive |
-| p | parking brake |
-| r | reverse |
-| arrows | acceleration and steering |
-| 1 | left blinker |
-| 2 | right blinker |
-| 3 | emergency lights |
-| 4 | turning the lights off |
+| Shortcut | Description                                                |
+| -------- | ---------------------------------------------------------- |
+| v        | turn on/off lidar points visualization                     |
+| m        | enter/exit manual operation mode (Ego listens to keyboard) |
+|          | <b> In manual mode: </b>                                   |
+| d        | drive                                                      |
+| p        | parking brake                                              |
+| r        | reverse                                                    |
+| arrows   | acceleration and steering                                  |
+| 1        | left blinker                                               |
+| 2        | right blinker                                              |
+| 3        | emergency lights                                           |
+| 4        | turning the lights off                                     |
 
 ### Running Autoware to control AWSIM
 
