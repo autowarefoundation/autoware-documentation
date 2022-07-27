@@ -105,4 +105,3 @@ ros2 bag play <ROSBAG_NAME>
 ### Troubleshooting
 
 If the data on topics is not produced or the poincloud is not visible on the simulation screen please report a problem in autoware [Q&A discussion](https://github.com/autowarefoundation/autoware/discussions/). To make analysis of the problem easier, please share a `Player.log` file (the file can be found under `~/.config/unity3d/Tier\ IV/E2ESimulator/Player.log` directory).
-````
