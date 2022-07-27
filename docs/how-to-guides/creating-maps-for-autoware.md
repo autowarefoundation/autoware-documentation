@@ -1,4 +1,4 @@
-# How to create maps for Autoware
+# Creating maps for Autoware
 
 Autoware relies on high-definition point cloud maps and vector maps of the driving environment to perform various tasks such as localization, route planning, traffic light detection, and predicting the trajectories of pedestrians and other vehicles.
 

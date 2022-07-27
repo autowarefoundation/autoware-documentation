@@ -1,4 +1,4 @@
-# How to determine component dependencies
+# Determining component dependencies
 
 For any developers who wish to try and deploy Autoware as a microservices architecture, it is necessary to understand the software dependencies, communication, and implemented features of each ROS package/node.
 
@@ -12,7 +12,7 @@ To generate a graph of package dependencies, use the following `colcon` command:
 colcon graph --dot --packages-up-to tier4_perception_launch | dot -Tpng -o graph.png
 ```
 
-![colon graph output](images/how-to-determine-component-dependencies/perception_stack_dependencies.png){ width="600" }
+![colon graph output](images/determining-component-dependencies/perception_stack_dependencies.png){ width="600" }
 
 To generate a list of dependencies, use:
 
