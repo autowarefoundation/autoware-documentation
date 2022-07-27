@@ -12,12 +12,14 @@
 
 To run the AWSIM simulator, open a terminal window, navigate to the simulation directory and run:
 
-````console
+```bash
 source /opt/ros/galactic/setup.bash
 cd <PATH_TO_EXTRACTED_FOLDER_WITH_AWSIM>
 ./AWSIM.x86_64
+```
 
-The properly working simulator should have the lidar rays visible and the data topics should appear when discovering using `ros2 topic list`.
+
+If the simulator is working properly, Lidar rays should be visible and the [expected data topics](https://github.com/autowarefoundation/autoware-projects/wiki/Bus-ODD-Simulation-requirements#integration-interface-with-autoware-universe) should appear when `ros2 topic list` is run.
 
 ![correctly working simulator](./images/workingSim.png)
 
@@ -25,27 +27,29 @@ The properly working simulator should have the lidar rays visible and the data t
 
 It is possible to adjust/control the simulation through the shortcuts listed below:
 
-- v - turn on/off lidar points visualization
-- m - enter/exit manual operation mode (Ego listens to keyboard)
-  - In manual mode:
-    - d - drive
-    - p - parking brake
-    - r - reverse
-    - arrows - acceleration and steering
-    - lights:
-      - 1 - left blinker
-      - 2- right blinker
-      - 3 - emergency lights
-      - 4- turning the lights off
+| Shortcut | Description |
+|---|---|
+| v | turn on/off lidar points visualization |
+| m | enter/exit manual operation mode (Ego listens to keyboard) |
+| | <b> In manual mode: </b> |
+| d | drive |
+| p | parking brake |
+| r | reverse |
+| arrows | acceleration and steering |
+| 1 | left blinker |
+| 2 | right blinker |
+| 3 | emergency lights |
+| 4 | turning the lights off |
 
-### Running utoware to control AWSIM
+### Running Autoware to control AWSIM
 
 To run Autoware, open a terminal and run the following commands:
 
-```console
+```bash
 cd <YOUR_WORKSPACE>/autoware
 source install/setup.bash
 ros2 launch autoware_launch autoware.launch.xml map_path:=<PATH_TO_EXTRACTED_FOLDER_WITH_MAP> vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit use_sim_time:=true launch_sensing_driver:=false
+```
 
 !!! note
 
@@ -59,10 +63,11 @@ ros2 launch autoware_launch autoware.launch.xml map_path:=<PATH_TO_EXTRACTED_FOL
 
 - To make Autoware execute the planned route, open a new terminal and send the engage message:
 
-```console
+```bash
 cd <YOUR_WORKSPACE>/autoware
 source install/setup.bash
 ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: true"
+```
 
 From now on, Autoware will execute the planned route and operate the AWSIM Simulator.
 
@@ -74,8 +79,8 @@ Currently the only supported way to add NPCs to the simulation is using prerecor
 
 #### Preparation
 
-- Download and extract npc_msgs : [link](https://drive.google.com/file/d/1fMvjOnz7Z0cGXotwdOAhBfLPYO52ssp0/view?usp=sharing)
-- Download and extract sample rosbags : [link](to be filled)
+- Download and extract [npc_msgs](https://drive.google.com/file/d/1fMvjOnz7Z0cGXotwdOAhBfLPYO52ssp0/view?usp=sharing)
+- Download and extract [sample rosbags](https://drive.google.com/file/d/1BSoIq82DW_RIyeSR6OinhKmA6lD6jmWe/view?usp=sharing)
 
 #### Run NPCs from rosbag
 
@@ -84,12 +89,18 @@ To run NPCs from rosbag, follow the steps:
 - navigate to the directory with extracted npc_msgs
 - build and source npc_msgs:
 
-        colcon build
-        source install/setup.bash
+```bash
+colcon build
+source install/setup.bash
+```
 
 - play sample rosbag while AWSIM is running:
 
-        ros2 bag play <ROSBAG_NAME>
+```bash
+ros2 bag play <ROSBAG_NAME>
+```
+
+![AWSIM with autoware and NPCs](./images/awsim_npc.png)
 
 ### Troubleshooting
 
