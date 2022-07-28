@@ -29,7 +29,7 @@ If the simulator is working properly, Lidar rays should be visible and the [expe
 
 #### Simulator shortcuts
 
-It is possible to adjust/control the simulation through the shortcuts listed below:
+It is also possible to control the simulation using the keyboard shortcuts listed below:
 
 | Shortcut | Description                                            |
 | -------- | ------------------------------------------------------ |
