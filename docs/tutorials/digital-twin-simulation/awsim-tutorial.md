@@ -93,8 +93,8 @@ Currently the only supported way to add NPCs to the simulation is using prerecor
 
 To run NPCs from rosbag, follow the steps:
 
-- navigate to the directory with extracted npc_msgs
-- build and source npc_msgs:
+- Navigate to the directory where the `npc_msgs` source code was extracted
+- Build and source `npc_msgs`:
 
 ```bash
 colcon build
