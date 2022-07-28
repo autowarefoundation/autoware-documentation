@@ -101,7 +101,7 @@ colcon build
 source install/setup.bash
 ```
 
-- play sample rosbag while AWSIM is running:
+- Play the downloaded sample rosbag while AWSIM is running:
 
 ```bash
 ros2 bag play <ROSBAG_NAME>
