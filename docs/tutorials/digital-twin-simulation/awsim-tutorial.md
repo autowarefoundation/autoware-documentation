@@ -111,6 +111,6 @@ ros2 bag play <ROSBAG_NAME>
 
 ### Troubleshooting
 
-If the expected ROS topic data is not produced, or the point cloud is not visible on the simulation screen, report the problem as an  [Autoware Q&A discussion](https://github.com/autowarefoundation/autoware/discussions/). 
+If the expected ROS topic data is not produced, or the point cloud is not visible on the simulation screen, report the problem as an [Autoware Q&A discussion](https://github.com/autowarefoundation/autoware/discussions/).
 
 To make analysis of the problem easier, make sure to provide a description of your environment, a detailed set of reproduction steps, screenshots or a short video of any unexpected behaviour and attach the `Player.log` file, which can be found in the `~/.config/unity3d/Tier\ IV/E2ESimulator/Player.log` directory.
