@@ -31,22 +31,22 @@ If the simulator is working properly, Lidar rays should be visible and the [expe
 
 It is possible to adjust/control the simulation through the shortcuts listed below:
 
-| Shortcut | Description                                                |
-| -------- | ---------------------------------------------------------- |
-| v        | Toggle lidar points visualization                          |
-| m        | Toggle manual operation mode (Ego listens to keyboard)     |
+| Shortcut | Description                                            |
+| -------- | ------------------------------------------------------ |
+| v        | Toggle lidar points visualization                      |
+| m        | Toggle manual operation mode (Ego listens to keyboard) |
 
 <b> In manual mode: </b>
-| Shortcut | Description                                                |
+| Shortcut | Description |
 | -------- | ---------------------------------------------------------- |
-| d        | Shift gear to Drive                                                      |
-| p        | Shift gear to Park                                                       |
-| r        | Shift gear to Reverse                                                    |
-| ← ↑ ↓ → | Accelerate/brake and steering                                  |
-| 1        | Left blinker                                               |
-| 2        | Right blinker                                              |
-| 3        | Emergency lights                                           |
-| 4        | Turn off lights                                            |
+| d | Shift gear to Drive |
+| p | Shift gear to Park |
+| r | Shift gear to Reverse |
+| ← ↑ ↓ → | Accelerate/brake and steering |
+| 1 | Left blinker |
+| 2 | Right blinker |
+| 3 | Emergency lights |
+| 4 | Turn off lights |
 
 ### Running Autoware to control AWSIM
 
