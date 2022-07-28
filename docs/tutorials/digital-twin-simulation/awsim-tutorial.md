@@ -4,6 +4,11 @@
 
 - Install Autoware following the [official guide](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/)
 - Download and extract the [AWSIM binary](https://drive.google.com/file/d/1p_dEiSTODHjCVkxFy8F7tLkY1J9VItIb/view?usp=sharing)
+
+!!! note
+
+    In case of less powerful computers, performance problems might occur when running Autoware with high-resolution camera simulation on single PC. For such situations, AWSIM binaries with lower camera resolution are prepared: [AWSIM-720p](https://drive.google.com/file/d/14iiidsKiwzADyEqk9PeHQefkIIFpuA6B/view?usp=sharing) , [AWSIM-360p](https://drive.google.com/file/d/1c8gADhhS6jtseE_TN2treSNkL-4_6UE6/view?usp=sharing) 
+
 - Download and extract the [sample map folder](https://drive.google.com/file/d/1vGFI0o0zQ-gRZYqKrPbnrtCN3c3-92Fy/view?usp=sharing)
 
 ## Running steps
