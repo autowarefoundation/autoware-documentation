@@ -15,7 +15,7 @@
 
 ### AWSIM Simulator
 
-To run the AWSIM simulator, open a terminal window, navigate to the simulation directory and run:
+To run the AWSIM simulator, open a terminal window, navigate to the simulation directory and run the following commands:
 
 ```bash
 source /opt/ros/galactic/setup.bash
