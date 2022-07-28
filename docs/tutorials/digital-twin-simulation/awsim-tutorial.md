@@ -33,17 +33,20 @@ It is possible to adjust/control the simulation through the shortcuts listed bel
 
 | Shortcut | Description                                                |
 | -------- | ---------------------------------------------------------- |
-| v        | turn on/off lidar points visualization                     |
-| m        | enter/exit manual operation mode (Ego listens to keyboard) |
-|          | <b> In manual mode: </b>                                   |
-| d        | drive                                                      |
-| p        | parking brake                                              |
-| r        | reverse                                                    |
-| arrows   | acceleration and steering                                  |
-| 1        | left blinker                                               |
-| 2        | right blinker                                              |
-| 3        | emergency lights                                           |
-| 4        | turning the lights off                                     |
+| v        | Toggle lidar points visualization                          |
+| m        | Toggle manual operation mode (Ego listens to keyboard)     |
+
+<b> In manual mode: </b>
+| Shortcut | Description                                                |
+| -------- | ---------------------------------------------------------- |
+| d        | Shift gear to Drive                                                      |
+| p        | Shift gear to Park                                                       |
+| r        | Shift gear to Reverse                                                    |
+| ← ↑ ↓ → | Accelerate/brake and steering                                  |
+| 1        | Left blinker                                               |
+| 2        | Right blinker                                              |
+| 3        | Emergency lights                                           |
+| 4        | Turn off lights                                            |
 
 ### Running Autoware to control AWSIM
 
