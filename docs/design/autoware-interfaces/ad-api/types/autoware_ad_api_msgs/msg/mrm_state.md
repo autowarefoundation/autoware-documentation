@@ -14,7 +14,7 @@ uint16 MRM_FAILED = 4
 
 # constants for behavior
 uint16 NONE = 101
-uint16 SUDDEN_STOP = 102
+uint16 EMERGENCY_STOP = 102
 uint16 COMFORTABLE_STOP = 103
 
 # variables

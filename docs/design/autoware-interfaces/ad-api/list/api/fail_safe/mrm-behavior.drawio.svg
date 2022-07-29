@@ -1,4 +1,4 @@
-<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="721px" height="89px" viewBox="-0.5 -0.5 721 89" content="&lt;mxfile&gt;&lt;diagram id=&quot;Hbj3SJkdhll9NyyjKaol&quot; name=&quot;Page-1&quot;&gt;zVZNj5swEP013PnIsuG4IWR76CarslWPlRUcsGoYZJwQ+utrg8E47KJI2zYhUmI/j+2ZN28mWF6Yn58ZKrMXSDC1XDs5W97act3gwRPfEmg6wHMXHZAyknSQo4GY/MYKtBV6JAmuDEMOQDkpTXAPRYH33MAQY1CbZgeg5q0lSvEEiPeITtEfJOGZQh0/0AtfMEkzdfXSfewWctQbq0iqDCVQjyAvsryQAfBulJ9DTCV3PS/dvs0Hq4NjDBf8mg0PyrGKN31wOBGxqmkBhfhZZTynYuaI4fQCdWcFR7ZXR7gqJ4ilWFn5HSQPH21TTj1jyDFnjTBgmCJOTibRSOUrHex0SGKgono/QuXLCdGjOnQSsUhCKYdio1DQRcAHQmkIFFhr69ntI3EouFKms1Tzkd2hfQRecQa/8GhlY8vPHJUnzDg+z9KkVhdKRo05rbUoeygbybHHPkOr4wSzygHGM0ihQDTS6IrBsUiwPMI2Wa6EVviTLE2tuhbbEOnCepavsfT8qfQevb+tvXar8BY1I4MSSMGr0cmvEtC5cm0zWc5laV7Y+8tZezHoPNDpGkK5LoNDD7r7DAbOrbqHP+ke2902mvCmWZFU1BnhOC5RG1Et/gGvbKHX1/2Qu48L3/H/UeX35TTiJP6+Xkfbn/Hb7vXm1Pj27ahxBj3fV0n19XOHXXERmOny55vivPmne2JP1Ejb4e5ls/v29rT6Gt2HwD3/vwlcTPWraEenfp/3oj8=&lt;/diagram&gt;&lt;/mxfile&gt;">
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="721px" height="89px" viewBox="-0.5 -0.5 721 89" content="&lt;mxfile&gt;&lt;diagram id=&quot;Hbj3SJkdhll9NyyjKaol&quot; name=&quot;Page-1&quot;&gt;zVZNj5swEP01ufOxZcNxw5L00CSrzUpVT5UVHLBqGGScEPrra8OAIeyiSNs2IVJiP4/tmTdvJszcID2vBMmTNUSUzxwrOs/c55nj+I6rvjVQNYAzf2yAWLCogWwD7NhviqCF6JFFtBgYSgAuWT4E95BldC8HGBECyqHZAfjw1pzEdATs9oSP0e8skgmituebha+UxQlePXcwvpS0xhhJkZAIyh7khjM3EACyGaXngHLNXctLs2/5wWrnmKCZvGbDF3SskFUbHI1UrDjNIFM/i0SmXM1sNRxfgHcWcBR7PMLBnBARU7TyGkgf3tuGTq0opFSKShkIyolkpyHRBPMVd3YmJDXAqN6PEH05EX7EQ0cRqyTkeqg2KgVdBHxgnAfAQdS2rlU/GodMojLtOc57dof6UXghBfyivZWlpT9TVJ6okPQ8SROuPqCMquG0NKJsoaQnxxb7DK227U8qB4RMIIaM8NCgCwHHLKL6CGvIcqG0Ip90aRrV1diSaReeJ/nqS88bS+/R/dvaq7cqb0nVM8iBZbLonfyiAZMrxxomy74szQt7bz5prwaNByZdXSjXZbDrQXefQd++VffwRt1js92EI94MK5qKMmGS7nJSR1Sqf8ArW+j1dd/l7uPCt71/VPltOfU4Cdfh6yrcBD9+7t62Lzdnx7Nux47dSfq+qqotoTtsjA/+MF3edF+cNv90W2yJ6sk72K6X29e3p8W38D4E7nr/TeBqat5GGzrNK70b/gE=&lt;/diagram&gt;&lt;/mxfile&gt;">
     <defs/>
     <g>
         <path d="M 40 20 L 73.63 20" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
@@ -32,13 +32,13 @@
                     <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 158px; height: 1px; padding-top: 20px; margin-left: 561px;">
                         <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
                             <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-                                SUDDEN_STOP
+                                EMERGENCY_STOP
                             </div>
                         </div>
                     </div>
                 </foreignObject>
                 <text x="640" y="24" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">
-                    SUDDEN_STOP
+                    EMERGENCY_STOP
                 </text>
             </switch>
         </g>

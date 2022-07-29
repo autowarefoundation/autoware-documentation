@@ -29,7 +29,7 @@ Generally, MRM will switch to another behavior if it fails.
 
 ## Behavior
 
-There is a dependency between MRM behaviors. For example, it switches from a comfortable stop to a sudden stop, but not the other way around.
+There is a dependency between MRM behaviors. For example, it switches from a comfortable stop to a emergency stop, but not the other way around.
 This is service dependent. Autoware supports the following transitions by default.
 
 ![mrm-behavior](./mrm-behavior.drawio.svg)
@@ -38,4 +38,4 @@ This is service dependent. Autoware supports the following transitions by defaul
 | ---------------- | ------------------------------------------------------------------------- |
 | NONE             | MRM is not operating or is operating but no special behavior is required. |
 | COMFORTABLE_STOP | The vehicle will stop quickly with a comfortable deceleration.            |
-| SUDDEN_STOP      | The vehicle will stop immediately with as much deceleration as possible.  |
+| EMERGENCY_STOP   | The vehicle will stop immediately with as much deceleration as possible.  |
