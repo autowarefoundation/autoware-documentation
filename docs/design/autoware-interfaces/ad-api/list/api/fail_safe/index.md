@@ -20,12 +20,12 @@ Generally, MRM will switch to another behavior if it fails.
 
 ![mrm-state](./mrm-state.drawio.svg)
 
-| State         | Description                                                |
-| ------------- | ---------------------------------------------------------- |
-| NORMAL        | The vehicle is normal. MRM is not operating.               |
-| MRM_OPERATING | MRM is operating because an abnormality has been detected. |
-| MRM_SUCCEEDED | MRM succeeded. The vehicle is in a safe condition.         |
-| MRM_FAILED    | MRM failed. The vehicle is still in an unsafe condition.   |
+| State     | Description                                                |
+| --------- | ---------------------------------------------------------- |
+| NONE      | MRM is not operating.                                      |
+| OPERATING | MRM is operating because an abnormality has been detected. |
+| SUCCEEDED | MRM succeeded. The vehicle is in a safe condition.         |
+| FAILED    | MRM failed. The vehicle is still in an unsafe condition.   |
 
 ## Behavior
 

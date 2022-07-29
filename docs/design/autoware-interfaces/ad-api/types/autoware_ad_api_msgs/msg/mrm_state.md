@@ -7,10 +7,10 @@
 uint16 UNKNOWN = 0
 
 # constants for stamp
-uint16 NORMAL = 1
-uint16 MRM_OPERATING = 2
-uint16 MRM_SUCCEEDED = 3
-uint16 MRM_FAILED = 4
+uint16 NONE = 1
+uint16 OPERATING = 2
+uint16 SUCCEEDED = 3
+uint16 FAILED = 4
 
 # constants for behavior
 uint16 NONE = 101
