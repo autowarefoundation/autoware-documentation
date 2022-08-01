@@ -1,4 +1,3 @@
 nav:
   - planning-simulation
   - rosbag-replay-simulation.md
-  - digital-twin-simulation.md

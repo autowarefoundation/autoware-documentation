@@ -37,6 +37,7 @@ It is also possible to control the simulation using the keyboard shortcuts liste
 | m        | Toggle manual operation mode (Ego listens to keyboard) |
 
 <b> In manual mode: </b>
+
 | Shortcut | Description |
 | -------- | ---------------------------------------------------------- |
 | d | Shift gear to Drive |
