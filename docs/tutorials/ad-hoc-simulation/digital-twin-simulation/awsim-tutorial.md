@@ -38,16 +38,16 @@ It is also possible to control the simulation using the keyboard shortcuts liste
 
 <b> In manual mode: </b>
 
-| Shortcut | Description |
-| -------- | ---------------------------------------------------------- |
-| d | Shift gear to Drive |
-| p | Shift gear to Park |
-| r | Shift gear to Reverse |
-| ← ↑ ↓ → | Accelerate/brake and steering |
-| 1 | Left blinker |
-| 2 | Right blinker |
-| 3 | Emergency lights |
-| 4 | Turn off lights |
+| Shortcut | Description                   |
+| -------- | ----------------------------- |
+| d        | Shift gear to Drive           |
+| p        | Shift gear to Park            |
+| r        | Shift gear to Reverse         |
+| ← ↑ ↓ →  | Accelerate/brake and steering |
+| 1        | Left blinker                  |
+| 2        | Right blinker                 |
+| 3        | Emergency lights              |
+| 4        | Turn off lights               |
 
 ### Running Autoware to control AWSIM
 
