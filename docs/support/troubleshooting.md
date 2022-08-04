@@ -15,6 +15,7 @@ When installing CUDA, errors may occur because of version conflicts. To resolve 
     "libnvinfer*"       \
     "libnvonnxparsers*" \
     "libnvparsers*"     \
+    "tensorrt*"         \
     "nvidia*"
 
   ./setup-dev-env.sh
@@ -29,6 +30,7 @@ When installing CUDA, errors may occur because of version conflicts. To resolve 
     "libnvinfer*"       \
     "libnvonnxparsers*" \
     "libnvparsers*"     \
+    "tensorrt*"         \
     "nvidia*"
 
   sudo apt autoremove
