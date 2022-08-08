@@ -16,12 +16,14 @@ Navigation2 provides a [good tutorial for camera internal calibration](https://n
 
 
 ## Lidar-camera calibration
+Developed by Mathworks, The Lidar Camera Calibrator app enables you to interactively estimate the rigid transformation between a lidar sensor and a camera.
 
-1.)
-Developed by Mathworks:
-Interactively perform calibration, estimate lidar-camera transform, and fuse data from each sensor
-<https://www.mathworks.com/help/lidar/lidarcameracalibration.html?s_tid=CRUX_lftnav>
-<https://ww2.mathworks.cn/help/lidar/ug/lidar-and-camera-calibration.html>
+<https://ww2.mathworks.cn/help/lidar/ug/get-started-lidar-camera-calibrator.html>
+
+SensorsCalibration toolbox v0.1: One more open source method for Lidar-camera calibration.
+This is a project for LiDAR to camera calibration,including automatic calibration and manual calibration
+
+https://github.com/PJLab-ADG/SensorsCalibration/blob/master/lidar2camera/README.md
 
 ## Lidar-IMU calibration
 
