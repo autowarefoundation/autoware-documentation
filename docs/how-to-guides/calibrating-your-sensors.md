@@ -16,7 +16,7 @@ Navigation2 provides a [good tutorial for camera internal calibration](https://n
 
 
 ## Lidar-camera calibration
-Developed by Mathworks, The Lidar Camera Calibrator app enables you to interactively estimate the rigid transformation between a lidar sensor and a camera.
+Developed by mathworks, The Lidar Camera Calibrator app enables you to interactively estimate the rigid transformation between a lidar sensor and a camera.
 
 <https://ww2.mathworks.cn/help/lidar/ug/get-started-lidar-camera-calibrator.html>
 
