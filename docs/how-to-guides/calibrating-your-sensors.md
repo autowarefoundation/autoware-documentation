@@ -23,7 +23,7 @@ Developed by mathworks, The Lidar Camera Calibrator app enables you to interacti
 SensorsCalibration toolbox v0.1: One more open source method for Lidar-camera calibration.
 This is a project for LiDAR to camera calibration,including automatic calibration and manual calibration
 
-https://github.com/PJLab-ADG/SensorsCalibration/blob/master/lidar2camera/README.md
+<https://github.com/PJLab-ADG/SensorsCalibration/blob/master/lidar2camera/README.md>
 
 ## Lidar-IMU calibration
 
