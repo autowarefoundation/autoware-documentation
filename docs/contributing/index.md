@@ -83,15 +83,13 @@ You can submit pull requests for small changes such as:
 - Fixing warnings detected by compilers or analysis tools
 - Making small changes to a single package
 
-For more information on how to submit a good pull request, have a read of the [pull request guidelines](pull-request-guidelines/index.md) and don't forget to review the required [license notations](license.md)!
-
 If your pull request is a large change, the following process should be followed:
 
-1. Create a GitHub Discussion to propose the change. Doing so allows you to get feedback from other members and the Autoware maintainers and to ensure that the proposed change is in line with Autoware's design philosophy and current development plans. If you're not sure where to have that conversation, then [create a new Q&A discussion](https://github.com/autowarefoundation/autoware/discussions/new?category=q-a).
+1. [Create a GitHub Discussion](https://docs.github.com/en/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions) to propose the change. Doing so allows you to get feedback from other members and the Autoware maintainers and to ensure that the proposed change is in line with Autoware's design philosophy and current development plans. If you're not sure where to have that conversation, then [create a new Q&A discussion](https://github.com/autowarefoundation/autoware/discussions/new?category=q-a).
 
-2. Create an Issue following consensus in the discussions
+2. [Create an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue) following consensus in the discussions
 
-3. Create a Pull Request to implement the changes that references the Issue created in step 2
+3. [Create a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to implement the changes that references the Issue created in step 2
 
 4. Create documentation for the new addition (if relevant)
 
@@ -99,3 +97,5 @@ Examples of large changes include:
 
 - Adding a new feature to Autoware
 - Adding a new documentation page or section
+
+For more information on how to submit a good pull request, have a read of the [pull request guidelines](pull-request-guidelines/index.md) and don't forget to review the required [license notations](license.md)!
