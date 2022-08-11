@@ -1,12 +1,12 @@
 # How-to guides
 
 - [Advanced usage of colcon](advanced-usage-of-colcon.md)
-- [How to create maps for Autoware](how-to-create-maps-for-autoware.md)
-- [How to determine component dependencies](how-to-determine-component-dependencies.md)
-- [Integrate Autoware with your vehicle](how-to-integrate-autoware-with-your-vehicle.md)
-- [Integrate Autoware with a differential drive vehicle](how-to-integrate-autoware-with-a-diff-drive-vehicle.md)
+- [Creating maps for Autoware](creating-maps-for-autoware.md)
+- [Determining component dependencies](determining-component-dependencies.md)
+- [Integrating Autoware with your vehicle](integrating-autoware-with-your-vehicle.md)
+- [Integrating Autoware with a differential drive vehicle](integrating-autoware-with-a-diff-drive-vehicle.md)
 - [Running Autoware without CUDA](running-autoware-without-cuda.md)
-- [Sensor Calibration](sensor-calibration.md)
+- [Calibrating your sensors](calibrating-your-sensors.md)
 
 TODO: Write the following contents.
 
