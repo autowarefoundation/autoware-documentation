@@ -1,4 +1,4 @@
-# autoware_ad_api_msgs/srv/AllowStart
+# autoware_ad_api_msgs/srv/AcceptStart
 
 ## Definition
 

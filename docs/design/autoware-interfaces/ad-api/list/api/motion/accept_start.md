@@ -1,11 +1,11 @@
-# /api/planning/allow_start
+# /api/motion/accept_start
 
 - Method: function call
-- Type: [autoware_ad_api_msgs/srv/AllowStart](../../../types/autoware_ad_api_msgs/srv/allow_start.md)
+- Type: [autoware_ad_api_msgs/srv/AcceptStart](../../../types/autoware_ad_api_msgs/srv/accept_start.md)
 
 ## Description
 
-Allow the vehicle to start. This API can be used when the [planning state](./index.md) is STARTING.
+Accept the vehicle to start. This API can be used when the [motion state](./index.md) is STARTING.
 
 ## Request
 

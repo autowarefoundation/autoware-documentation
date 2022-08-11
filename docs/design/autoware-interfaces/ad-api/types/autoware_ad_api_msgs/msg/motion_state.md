@@ -1,4 +1,4 @@
-# autoware_ad_api_msgs/msg/PlanningState
+# autoware_ad_api_msgs/msg/MotionState
 
 ## Definition
 
@@ -8,6 +8,7 @@ uint16 STOPPED = 1
 uint16 STARTING = 2
 uint16 MOVING = 3
 
+builtin_interfaces/Time stamp
 uint16 state
 ```
 
