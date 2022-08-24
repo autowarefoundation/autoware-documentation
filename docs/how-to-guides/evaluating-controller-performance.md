@@ -64,7 +64,7 @@ ros2 run plotjuggler plotjuggler
 
 - You can also export all data to later use. To investigate them again, after launch PlotJuggler, import the `.cvs` file from data section.
 
-![](images/evaluating-controller-performance/import-data.png)
+![Import Data](images/evaluating-controller-performance/import-data.png)
 
 ### Tips
 
