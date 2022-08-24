@@ -10,7 +10,6 @@
 - [Applying Clang-Tidy to ROS packages](applying-clang-tidy-to-ros-packages.md)
 - [Evaluating controller performance](evaluating-controller-performance.md)
 
-
 TODO: Write the following contents.
 
 - Create an Autoware package
