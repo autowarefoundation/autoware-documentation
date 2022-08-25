@@ -56,7 +56,7 @@ ros2 run plotjuggler plotjuggler
 
 ### After Driving
 
-#### 1. You can export the statistical output and all data to compate and later usage
+#### 1. You can export the statistical output and all data to compare and later usage
 
 - With statistical data, you can export the all statistical values like (min, max, average) to compare the controllers.
 
