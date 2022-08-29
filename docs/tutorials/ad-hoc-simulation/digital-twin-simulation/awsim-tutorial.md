@@ -6,11 +6,11 @@
 
 ## Hardware requirements
 
-|Required PC Specs||
-|:--|:--|
-|OS|Ubuntu 20.04|
-|CPU|6cores and 12thread or higher|
-|GPU|RTX2080Ti or higher|
+| Required PC Specs |                               |
+| :---------------- | :---------------------------- |
+| OS                | Ubuntu 20.04                  |
+| CPU               | 6cores and 12thread or higher |
+| GPU               | RTX2080Ti or higher           |
 
 ## Preparation
 
