@@ -1,5 +1,17 @@
 # AWSIM simulator setup
 
+!!! note
+
+    The binary is just a sample one for the initial testing, the official one from TIER IV will be released in October
+
+## Hardware requirements
+
+|Required PC Specs||
+|:--|:--|
+|OS|Ubuntu 20.04|
+|CPU|6cores and 12thread or higher|
+|GPU|RTX2080Ti or higher|
+
 ## Preparation
 
 - Install Autoware following the [official guide](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/)
