@@ -24,7 +24,7 @@ If there are no corresponding issues, you can ignore this rule.
 
 - [GitHub Docs](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-a-branch-for-an-issue)
 
-### Use `kebab-case` for the separator of branch names (advisory, non-automated)
+### Use `dash-case` for the separator of branch names (advisory, non-automated)
 
 #### Rationale
 
