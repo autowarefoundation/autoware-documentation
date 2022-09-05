@@ -16,11 +16,11 @@
 
 1. Nvidia GPU driver (Skip if already installed)
     1. Add Nvidia driver to apt repository
-    ```
+    ```bash
     sudo add-apt-repository ppa:graphics-drivers/ppa
     ```
     2. Check supported Nvidia driver versions
-    ```
+    ```bash
     $ ubuntu-drivers devices
     == /sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0 ==
     modalias : pci:v000010DEd00001F91sv000017AAsd0000229Fbc03sc00i00
@@ -39,11 +39,11 @@
     driver : backport-iwlwifi-dkms - distro free
     ```
     3. Install the recommended version
-    ```
+    ```bash
     sudo apt install nvidia-driver-450
     ```
     4. reboot and check nvidia-smi
-    ```
+    ```bash
     $ nvidia-smi
     Fri Aug 14 18:18:17 2020
     +-----------------------------------------------------------------------------+
@@ -73,11 +73,11 @@
 
 2. Vulkun Graphics Library (Skip if already installed)
     1. Update apt
-    ```
+    ```bash
     sudo apt update
     ```
     2. install libvulkan1
-    ```
+    ```bash
     sudo apt install libvulkan1
     ```
 
