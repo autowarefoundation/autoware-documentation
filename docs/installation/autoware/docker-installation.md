@@ -76,7 +76,7 @@ You might need to log out and log back to make the current user able to use dock
    mkdir src
    vcs import src < autoware.repos
    ```
-   
+
 3. Install missing dependencies.
 
    ```bash
@@ -85,7 +85,7 @@ You might need to log out and log back to make the current user able to use dock
    rosdep update
    rosdep install --from-paths . --ignore-src --rosdistro $ROS_DISTRO
    ```
-   
+
 4. Build the workspace.
 
    ```bash
