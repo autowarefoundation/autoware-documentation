@@ -79,8 +79,8 @@ You might need to log out and log back to make the current user able to use dock
 
 3. Update dependent ROS packages.
 
-    The dependency of Autoware may change after the Docker image was created.
-    In that case, you need to run the following commands to update the dependency.
+   The dependency of Autoware may change after the Docker image was created.
+   In that case, you need to run the following commands to update the dependency.
 
    ```bash
    sudo apt update
