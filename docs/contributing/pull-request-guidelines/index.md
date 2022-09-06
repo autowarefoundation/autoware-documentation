@@ -29,9 +29,9 @@ Use this workflow as a reference when you contribute to Autoware.
      - Not only the reviewers, but also the author is encouraged to understand the review guidelines.
    - If [CI checks](ci-checks.md) have failed, fix the errors.
 7. Address the review comments pointed out by the reviewers.
-   - If you cannot understand the meaning of a review comment, ask the reviewers until you can understand it.
+   - If you don't understand the meaning of a review comment, ask the reviewers until you understand it.
      - Fixing without understanding the reason is not recommended because the author should be responsible for the final content of their own pull request.
-   - If you cannot agree with a review comment, ask the reviewers for a rational reason.
+   - If you don't agree with a review comment, ask the reviewers for a rational reason.
      - The reviewers are obligated to make the author understand the meanings of each comment.
    - After you have done with the review comments, re-request a review to the reviewers and back to 6.
    - If there are no more new review comments, the reviewers will approve the pull request and proceed to 8.
