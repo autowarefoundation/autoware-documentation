@@ -148,6 +148,15 @@ It is acceptable if it is agreed with maintainers that there is no other way but
 - Avoid developing two features in one pull request.
 - Avoid mixing different types (`feat`, `fix`, `refactor`, etc.) of changes in the same commit.
 
-### Ping reviewers if there is no response (advisory, non-automated)
+### Remind reviewers if there is no response for more than a week (advisory, non-automated)
 
-     - It is the author's responsibility to care about their own pull request until it is merged.
+#### Rationale
+
+- It is the author's responsibility to care about their own pull request until it is merged.
+
+#### Example
+
+```text
+@{some-of-developers} Would it be possible for you to review this PR?
+@autoware-maintainers friendly ping.
+```
