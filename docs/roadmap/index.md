@@ -7,9 +7,9 @@ This page describes planned work for Autoware.
 ![roadmap](images/roadmap.png)
 
 The long term roadmap of Autoware is determined by the TSC of the Autoware Foundation.
-Above image shows the current high level roadmap of Autoware.
 
-Currently Autoware aims to achieve Robo-taxi/PoV Curb-to-Curb L4 autonomous driving on public roads in 2025. This includes route which includes dense urban and highway use cases (e.g. home to airport in dense urban area including highway segments).
+Above image shows the current high level roadmap of Autoware.
+Autoware aims to achieve Robo-taxi/PoV Curb-to-Curb L4 autonomous driving on public roads in 2025. This includes route which includes dense urban and highway use cases (e.g. home to airport in dense urban area including highway segments).
 Autoware will have annual release with incremental feature added towards the 2025 goal with practical demonstrations of capabilities.
 
 ## Planned Releases
