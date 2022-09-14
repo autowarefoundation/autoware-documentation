@@ -52,7 +52,7 @@ If your question is not answered within a week, then @mention the maintainers to
 Also, there are other discussion types such as [feature requests](https://github.com/autowarefoundation/autoware/discussions/categories/feature-requests) or [design discussions](https://github.com/autowarefoundation/autoware/discussions/categories/design).
 Feel free to open or join such discussions.
 
-If you don't know how to create a discussion, refert to [here](https://docs.github.com/en/discussions/quickstart#creating-a-new-discussion).
+If you don't know how to create a discussion, refer to [GitHub Docs](https://docs.github.com/en/discussions/quickstart#creating-a-new-discussion).
 
 ## GitHub Issues
 
