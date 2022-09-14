@@ -2,7 +2,7 @@
 
 !!! note
 
-    The binary is just a sample one for the initial testing, the official one from TIER IV will be released in October
+    The binary is just a sample one for the initial testing, for active developers of Autoware only. To get access, please contact Wojciech Jaworski on Autoware Discord. The official binary from TIER IV will be released in October.
 
 ## Hardware requirements
 
