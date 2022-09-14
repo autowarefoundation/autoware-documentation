@@ -24,6 +24,7 @@ Some examples are:
 - [HDL](https://github.com/koide3/hdl_graph_slam)
 - [LIO-SAM](https://github.com/TixiaoShan/LIO-SAM)
 - [LiDAR-SLAM (ROS 2)](https://github.com/rsasaki0109/lidarslam_ros2)
+  - You need to relay the autoware topic name so that LiDAR-SLAM can receive it.
 
 ### Create vector map
 
