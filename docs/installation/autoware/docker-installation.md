@@ -19,6 +19,13 @@
    cd autoware
    ```
 
+   If you want to use ROS 2 Humble, use the `humble` branch.
+
+   ```bash
+   git clone https://github.com/autowarefoundation/autoware.git -b humble
+   cd autoware
+   ```
+
 2. You can install the dependencies either manually or using the provided Ansible script.
 
 ### Installing dependencies manually
@@ -52,6 +59,12 @@ You might need to log out and log back to make the current user able to use dock
 
      ```bash
      rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
+     ```
+
+   - If you want to use ROS 2 Humble:
+
+     ```bash
+     rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:humble-latest-cuda
      ```
 
    - If you want to run container without using NVIDIA GPU, or for arm64 architecture computers:
