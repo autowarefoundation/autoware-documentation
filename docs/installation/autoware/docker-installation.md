@@ -77,7 +77,18 @@ You might need to log out and log back to make the current user able to use dock
    vcs import src < autoware.repos
    ```
 
-3. Build the workspace.
+3. Update dependent ROS packages.
+
+   The dependency of Autoware may change after the Docker image was created.
+   In that case, you need to run the following commands to update the dependency.
+
+   ```bash
+   sudo apt update
+   rosdep update
+   rosdep install --from-paths . --ignore-src --rosdistro $ROS_DISTRO
+   ```
+
+4. Build the workspace.
 
    ```bash
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
