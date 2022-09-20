@@ -25,7 +25,7 @@ The GNSS data is available in `sensor_msgs/msg/NavSatFix` message type.
 But also the Applanix raw messages are also included in `applanix_msgs/msg/NavigationPerformanceGsof50` and `applanix_msgs/msg/NavigationSolutionGsof49` message types.
 In order to be able to play back these messages, you need to build and source the `applanix_msgs` package.
 
-```bash
+```console
 # Create a workspace and clone the repository
 $ mkdir -p ~/applanix_ws/src && cd "$_"
 $ git clone https://github.com/autowarefoundation/applanix.git
@@ -44,7 +44,7 @@ Also make sure to source Autoware Universe workspace too.
 
 #### Download instructions
 
-```bash
+```console
 # Install awscli
 $ sudo apt update && sudo apt install awscli -y
 
