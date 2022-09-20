@@ -24,17 +24,9 @@ For more information, refer to the [GitHub App page](https://github.com/apps/dco
 
 ## semantic-pull-request
 
-Autoware uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) with the settings of [commitizen/conventional-commit-types](https://github.com/commitizen/conventional-commit-types).
+This workflow checks whether the pull request follows [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
-This workflow checks whether the pull request follows `Conventional Commits`.
-
-Note that if there is only one commit in the pull request, you need to make the commit title semantic as well.  
-This is due to GitHub's non-intuitive behavior when there is only one commit.
-GitHub uses the commit title for the squashed commit message, instead of the pull request title.
-
-For more detailed behaviors of this workflow, refer to [amannn/action-semantic-pull-request](https://github.com/amannn/action-semantic-pull-request).
-
-For the detailed rules, see the [commit guidelines](commit-guidelines.md).
+For the detailed rules, see the [pull request rules](index.md#pull-request-rules).
 
 ## pre-commit
 
