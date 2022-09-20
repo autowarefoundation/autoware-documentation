@@ -16,7 +16,7 @@ The data contains data from following sensors:
 - 3 x Lucid Vision Triton 5.4MP cameras (left, right, front)
 - Vehicle status report
 
-It also contains /tf topic for static transformations between sensors.
+It also contains `/tf` topic for static transformations between sensors.
 
 #### Required message types
 
@@ -48,7 +48,7 @@ Also make sure to source Autoware Universe workspace too.
 # Install awscli
 $ sudo apt update && sudo apt install awscli -y
 
-# This will download the entire dataset to the current directory
+# This will download the entire dataset to the current directory.
 # (About 10.9GB of data)
 $ aws s3 sync s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/ ./2022-08-22_leo_drive_isuzu_bags  --no-sign-request
 
