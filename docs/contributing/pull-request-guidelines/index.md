@@ -27,7 +27,7 @@ The following is a general example of the pull request workflow.
 6. Wait for the pull request to be reviewed.
    - The reviewers will review your code following the [review guidelines](review-guidelines.md).
      - Take a look at the guidelines as well because it is good to understand the thoughts of the reviewer's side.
-   - If [CI checks](#ci-checks) have failed, fix the errors.
+   - If [CI checks](ci-checks) have failed, fix the errors.
 7. Address the review comments pointed out by the reviewers.
    - If you cannot understand or agree with a review comment, discuss it with the reviewers and find a rational reason.
      - The author should be responsible for the final content of their pull request.
@@ -41,93 +41,55 @@ The following is a general example of the pull request workflow.
      - If the author does not have write access, ask the reviewers or maintainers.
      - It is the author's responsibility to care about their own pull request until it is merged.
 
-## CI checks
+## Pull request rules
 
-Autoware has several checks for a pull request.
-The results are shown at the bottom of the pull request page as below.
+### Follow `Conventional Commits` (required, automated)
 
-![ci-checks](images/ci-checks.png)
+#### Rationale
 
-If the ❌ mark is shown, click the `Details` button and investigate the failure reason.
+- It can generate categorized changelog, for example using [git-cliff](https://github.com/orhun/git-cliff).
 
-If the `Required` mark is shown, you cannot merge the pull request unless you resolve the error.
-If not, it is optional, but preferably it should be fixed.
+#### Example
 
-The following sections explain about common CI checks in Autoware.  
-Note that some repositories may have different settings.
-
-### DCO
-
-The Developer Certificate of Origin (DCO) is a lightweight way for contributors to certify that they wrote or otherwise have the right to submit the code they are contributing to the project.
-
-This workflow checks whether the pull request fulfills `DCO`.  
-You need to confirm the [required items](https://developercertificate.org/) and commit with `git commit -s`.
-
-For more information, refer to the [GitHub App page](https://github.com/apps/dco).
-
-### semantic-pull-request
-
-Autoware uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) with the settings of [commitizen/conventional-commit-types](https://github.com/commitizen/conventional-commit-types).
-
-This workflow checks whether the pull request follows `Conventional Commits`.
-
-Note that if there is only one commit in the pull request, you need to make the commit title semantic as well.  
-This is due to GitHub's non-intuitive behavior when there is only one commit.
-GitHub uses the commit title for the squashed commit message, instead of the pull request title.
-
-For more detailed behaviors of this workflow, refer to [amannn/action-semantic-pull-request](https://github.com/amannn/action-semantic-pull-request).
-
-For the detailed rules, see the [commit guidelines](commit-guidelines.md).
-
-### pre-commit
-
-[pre-commit](https://pre-commit.com/) is a tool to run formatters or linters when you commit.
-
-This workflow checks whether the pull request has no error with `pre-commit`.
-
-In the workflow `pre-commit.ci - pr` is enabled in the repository, it will automatically fix errors by [pre-commit.ci](https://pre-commit.ci/) as many as possible.  
-If there are some errors remain, fix them manually.
-
-You can run `pre-commit` in your local environment by the following command:
-
-```bash
-pre-commit run -a
+```text
+feat(trajectory_follower): add an awesome feature
 ```
 
-Or you can install `pre-commit` to the repository and automatically run it before committing:
+Note that you have to start the description part (`add an awesome feature`) with a lowercase.
 
-```bash
-pre-commit install
+Since Autoware uses the `Squash and merge` method of GitHub, you need to make the PR title follow `Conventional Commits` as well.
+
+#### Reference
+
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+- [commitizen/conventional-commit-types](https://github.com/commitizen/conventional-commit-types)
+- [GitHub Docs](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github#squashing-your-merge-commits)
+
+### Add the related node names to the scope of `Conventional Commits` (advisory, non-automated)
+
+#### Rationale
+
+- The package maintainer can become aware of the pull request by seeing the notification.
+- It can make the changelog clearer.
+
+#### Example
+
+```text
+feat(trajectory_follower): add an awesome feature
 ```
 
-Since it is difficult to detect errors with no false positives, some jobs are split into another config file and marked as optional.  
-To check them, use the `--config` option:
+### Keep a pull request small (advisory, non-automated)
 
-```bash
-pre-commit run -a --config .pre-commit-config-optional.yaml
-```
+#### Rationale
 
-### spell-check-differential
+- Small pull requests are easy to understand for reviewers.
+- Small pull requests are easy to revert for maintainers.
 
-This workflow detects spelling mistakes using [CSpell](https://github.com/streetsidesoftware/cspell) with [our dictionary file](https://github.com/tier4/autoware-spell-check-dict/blob/main/.cspell.json).  
-You can submit pull requests to [tier4/autoware-spell-check-dict](https://github.com/tier4/autoware-spell-check-dict) to update the dictionary.
+#### Exception
 
-Since it is difficult to detect errors with no false positives, it is an optional workflow, but it is preferable to remove spelling mistakes as many as possible.
+It is acceptable if it is agreed with maintainers that there is no other way but to submit a big pull request.
 
-### build-and-test-differential
+#### Example
 
-This workflow checks `colcon build` and `colcon test` for the pull request.  
-To make the CI faster, it doesn't check all packages but only modified packages and the dependencies.
-
-### build-and-test-differential-self-hosted
-
-This workflow is the `ARM64` version of `build-and-test-differential`.  
-You need to add the `ARM64` label to run this workflow.
-
-For reference information, since ARM machines are not supported by GitHub-hosted runners, we use self-hosted runners prepared by the AWF.  
-For the details about self-hosted runners, refer to [GitHub Docs](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners).
-
-### deploy-docs
-
-This workflow deploys the preview documentation site for the pull request.  
-You need to add the `documentation` label to run this workflow.
+- Avoid developing two features in one pull request.
+- Avoid mixing `feat`, `fix`, and `refactor` in the same commit.
