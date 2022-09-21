@@ -24,7 +24,7 @@ This document contains step-by-step instruction on how to build [AWF Autoware Co
 
    ```bash
    source /opt/ros/galactic/setup.bash
-   rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO
+   rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 
 4. Build the workspace:
