@@ -64,8 +64,9 @@ Step 1. Update `autowarefoundation/autoware.universe`.
 Step 2. Update `autowarefoundation/autoware_launch`.
 
 - Update [a synchronization setting file](https://github.com/autowarefoundation/autoware_launch/blob/main/.github/sync-param-files.yaml).
+  - This procedure can be automated with [`update-sync-param-files` workflow](https://github.com/autowarefoundation/autoware_launch/actions/workflows/update-sync-param-files.yaml).
 - Merge a sync PR from `autowarefoundation/autoware.universe` to `autowarefoundation/autoware_launch`.
-  - Note: This PR will be created automatically with GitHub Actions, but you can also create the PR manually.
+  - This PR will be created automatically by [`sync-param-files` workflow](https://github.com/autowarefoundation/autoware_launch/actions/workflows/sync-param-files.yaml), but you can also create the PR manually.
 
 ### When modifying general parameters
 
@@ -77,8 +78,9 @@ Step 1. Update `autowarefoundation/autoware.universe`.
 Step 2. Update `autowarefoundation/autoware_launch`
 
 - If you add a new config file, update [a synchronization setting file](https://github.com/autowarefoundation/autoware_launch/blob/main/.github/sync-param-files.yaml).
+  - This procedure can be automated with [`update-sync-param-files` workflow](https://github.com/autowarefoundation/autoware_launch/actions/workflows/update-sync-param-files.yaml).
 - Merge a sync PR from `autowarefoundation/autoware.universe` to `autowarefoundation/autoware_launch`.
-  - Note: This PR will be created automatically with GitHub Actions, but you can also create the PR manually.
+  - This PR will be created automatically by [`sync-param-files` workflow](https://github.com/autowarefoundation/autoware_launch/actions/workflows/sync-param-files.yaml), but you can also create the PR manually.
 
 ### How to maintain your custom parameters
 
