@@ -58,7 +58,9 @@ Step 1. Update `autowarefoundation/autoware.universe`.
 
 - Create new parameter files (both `Node Parameter` and `Component Parameter`) for the new package in `autowarefoundation/autoware.universe`
 - Create a PR and merge.
-  Step 2. Update `autowarefoundation/autoware_launch`.
+
+Step 2. Update `autowarefoundation/autoware_launch`.
+
 - Update [a synchronization setting file](https://github.com/autowarefoundation/autoware_launch/blob/main/.github/sync-param-files.yaml).
 - Merge a sync PR from `autowarefoundation/autoware.universe` to `autowarefoundation/autoware_launch`.
   - Note: This PR will be created automatically with GitHub Actions, but you can also create the PR manually.
@@ -69,7 +71,9 @@ Step 1. Update `autowarefoundation/autoware.universe`.
 
 - Modify the parameter files (both `Node Parameter` and `Component Parameter`) in `autowarefoundation/autoware.universe`.
 - Create a PR and merge.
-  Step 2. Update `autowarefoundation/autoware_launch`
+
+Step 2. Update `autowarefoundation/autoware_launch`
+
 - If you add a new config file, update [a synchronization setting file](https://github.com/autowarefoundation/autoware_launch/blob/main/.github/sync-param-files.yaml).
 - Merge a sync PR from `autowarefoundation/autoware.universe` to `autowarefoundation/autoware_launch`.
   - Note: This PR will be created automatically with GitHub Actions, but you can also create the PR manually.
