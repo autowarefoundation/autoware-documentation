@@ -1,6 +1,8 @@
 # Parameters
 
-Under Construction
+The current parameter management in Autoware is not well-organized considering integration to specific vehicles.
+
+We write a proposal here for the better parameter management, which is a future work to implement.
 
 Autoware has the following types of parameters:
 
