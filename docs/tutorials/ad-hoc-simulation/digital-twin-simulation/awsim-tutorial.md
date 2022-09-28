@@ -1,5 +1,98 @@
 # AWSIM simulator setup
 
+!!! note
+
+    The binary is just a sample one for the initial testing, for AWF developers only. To get access, please contact Wojciech Jaworski on Autoware Discord. The official binary from TIER IV will be released in October.
+
+## Hardware requirements
+
+| Required PC Specs |                               |
+| :---------------- | :---------------------------- |
+| OS                | Ubuntu 20.04                  |
+| CPU               | 6cores and 12thread or higher |
+| GPU               | RTX2080Ti or higher           |
+
+## Prerequisites
+
+1. Nvidia GPU driver (Skip if already installed)
+
+   1. Add Nvidia driver to apt repository
+
+   ```bash
+   sudo add-apt-repository ppa:graphics-drivers/ppa
+   ```
+
+   1. Check supported Nvidia driver versions
+
+   ```bash
+   $ ubuntu-drivers devices
+   == /sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0 ==
+   modalias : pci:v000010DEd00001F91sv000017AAsd0000229Fbc03sc00i00
+   vendor : NVIDIA Corporation
+   driver : nvidia-driver-435 - distro non-free
+   driver : nvidia-driver-440-server - distro non-free
+   driver : nvidia-driver-418-server - distro non-free
+   driver : nvidia-driver-450 - third-party free recommended
+   driver : nvidia-driver-440 - distro non-free
+   driver : xserver-xorg-video-nouveau - distro free builtin
+
+   == /sys/devices/pci0000:00/0000:00:1d.6/0000:52:00.0 ==
+   modalias : pci:v00008086d00002723sv00008086sd00000080bc02sc80i00
+   vendor : Intel Corporation
+   manual_install: True
+   driver : backport-iwlwifi-dkms - distro free
+   ```
+
+   1. Install the recommended version
+
+   ```bash
+   sudo apt install nvidia-driver-450
+   ```
+
+   1. reboot and check nvidia-smi
+
+   ```bash
+   $ nvidia-smi
+   Fri Aug 14 18:18:17 2020
+   +-----------------------------------------------------------------------------+
+   | NVIDIA-SMI 450.57 Driver Version: 450.57 CUDA Version: 11.0 |
+   |-------------------------------+----------------------+----------------------+
+   | GPU Name Persistence-M| Bus-Id Disp.A | Volatile Uncorr. ECC |
+   | Fan Temp Perf Pwr:Usage/Cap| Memory-Usage | GPU-Util Compute M. |
+   | | | MIG M. |
+   |===============================+======================+======================|
+   | 0 GeForce GTX 165... Off | 00000000:01:00.0 On | N/A |
+   | N/A 40C P8 4W / N/A | 540MiB / 3903MiB | 1% Default |
+   | | | N/A |
+   +-------------------------------+----------------------+----------------------+
+
+   +-----------------------------------------------------------------------------+
+   | Processes: |
+   | GPU GI CI PID Type Process name GPU Memory |
+   | ID ID Usage |
+   |=============================================================================|
+   | 0 N/A N/A 1264 G /usr/lib/xorg/Xorg 26MiB |
+   | 0 N/A N/A 1406 G /usr/bin/gnome-shell 47MiB |
+   | 0 N/A N/A 1606 G /usr/lib/xorg/Xorg 202MiB |
+   | 0 N/A N/A 1739 G /usr/bin/gnome-shell 110MiB |
+   | 0 N/A N/A 3697 G ...AAAAAAAAA= --shared-files 149MiB |
+   +-----------------------------------------------------------------------------+
+   ```
+
+1. Vulkun Graphics Library (Skip if already installed)
+
+   1. Update apt
+
+   ```bash
+   sudo apt update
+   ```
+
+   1. install libvulkan1
+
+   ```bash
+   sudo apt install libvulkan1
+   ```
+
 ## Preparation
 
 - Install Autoware following the [official guide](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/)
@@ -84,6 +177,10 @@ From now on, Autoware will execute the planned route and operate the AWSIM Simul
 ### NPC Control (optional)
 
 Currently the only supported way to add NPCs to the simulation is using prerecorded rosbags.
+
+!!! note
+
+The current NPC control feature will not be supported in the OSS version of AWSIM
 
 #### Preparation
 

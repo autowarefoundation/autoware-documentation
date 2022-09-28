@@ -82,3 +82,17 @@ For more details, please refer to the design documents in each package.
 ## Supported Functions
 
 ![supported-functions](image/planning-functions.drawio.svg)
+
+## Notation
+
+[1] To support the self-crossing road and overlapped road in the opposite direction, each planning module has to meet the [specifications](https://autowarefoundation.github.io/autoware.universe/main/common/motion_utils/)
+
+Currently, the supported modules are as follows.
+
+- lane_following (in behavior_path_planner)
+- detection_area (in behavior_velocity_planner)
+- stop_line (in behavior_velocity_planner)
+- virtual_traffic_light (in behavior_velocity_planner)
+- obstacle_avoidance_planner
+- obstacle_stop_planner
+- motion_velocity_smoother

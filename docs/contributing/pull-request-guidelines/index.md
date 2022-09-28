@@ -3,131 +3,160 @@
 ## General pull request workflow
 
 Autoware uses the fork-and-pull model.
-For the detailed explanation of the model, refer to [GitHub Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests).
+For more details about the model, refer to [GitHub Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests).
 
-The following is a general example of the pull request workflow.
+The following is a general example of the pull request workflow based on the fork-and-pull model.
+Use this workflow as a reference when you contribute to Autoware.
 
-1. Create a fork. (for the first time only)
-2. Create an issue.
-   - Discuss the approach to the issue with maintainers.
-3. Write code in the agreed approach.
-   - Write the tests and documentation if necessary.
-   - Follow the guidelines when you write code, tests, and documentation.
-     - [Coding guidelines](../coding-guidelines/index.md)
-     - [Testing guidelines](../testing-guidelines/index.md)
-     - [Documentation guidelines](../documentation-guidelines/index.md)
-   - Follow the [Commit guidelines](commit-guidelines.md) when commit your change.
+1. Create an issue.
+   - Discuss the approaches to the issue with maintainers.
+   - Confirm the [support guidelines](../../support/support-guidelines.md) before creating an issue.
+   - Follow the [discussion guidelines](../discussion-guidelines/index.md) when you discuss with other contributors.
+2. Create a fork repository. (for the first time only)
+3. Write code in your fork repository according to the approach agreed upon in the issue.
+   - Write the tests and documentation as appropriate.
+   - Follow the [coding guidelines](../coding-guidelines/index.md) guidelines when you write code.
+   - Follow the [Testing guidelines](../testing-guidelines/index.md) guidelines when you write tests.
+   - Follow the [Documentation guidelines](../documentation-guidelines/index.md) guidelines when you write documentation.
+   - Follow the [commit guidelines](commit-guidelines.md) when you commit your changes.
 4. Test the code.
-   - In the later review process, you will need to write what tests you have done.
+   - It is recommended that you summarize the test results, because you will need to explain the test results in the later review process.
+   - If you are not sure what tests should be done, discuss them with maintainers.
 5. Create a pull request.
-   - Read the pull request template carefully and fill the required content.
-   - Assign reviewers after creating a pull request.
-     - If you have no rights to assign reviewers, just mention them instead.
-     - If you are not sure who to set reviewers, contact to the people written as the `maintainer` tag in `package.xml`.
+   - Follow the [pull request rules](#pull-request-rules) when you create a pull request.
 6. Wait for the pull request to be reviewed.
    - The reviewers will review your code following the [review guidelines](review-guidelines.md).
-     - Take a look at the guidelines as well because it is good to understand the thoughts of the reviewer's side.
-   - If [CI checks](#ci-checks) have failed, fix the errors.
+     - Not only the reviewers, but also the author is encouraged to understand the review guidelines.
+   - If [CI checks](ci-checks.md) have failed, fix the errors.
 7. Address the review comments pointed out by the reviewers.
-   - If you cannot understand or agree with a review comment, discuss it with the reviewers and find a rational reason.
-     - The author should be responsible for the final content of their pull request.
+   - If you don't understand the meaning of a review comment, ask the reviewers until you understand it.
+     - Fixing without understanding the reason is not recommended because the author should be responsible for the final content of their own pull request.
+   - If you don't agree with a review comment, ask the reviewers for a rational reason.
      - The reviewers are obligated to make the author understand the meanings of each comment.
-   - After you have done with them, re-request a review to the reviewers and back to 6.
-   - If there are no more new review comments, the reviewers will approve the pull request and go to 6.
+   - After you have done with the review comments, re-request a review to the reviewers and back to 6.
+   - If there are no more new review comments, the reviewers will approve the pull request and proceed to 8.
 8. Merge the pull request.
-   - Confirm all items of the checklist are checked off before merging.
    - Anyone with write access can merge the pull request if there is no special request from maintainers.
-     - Generally, the author is expected to merge it to feel responsible for their pull request.
+     - The author is encouraged to merge the pull request to feel responsible for their own pull request.
      - If the author does not have write access, ask the reviewers or maintainers.
-     - It is the author's responsibility to care about their own pull request until it is merged.
 
-## CI checks
+## Pull request rules
 
-Autoware has several checks for a pull request.
-The results are shown at the bottom of the pull request page as below.
+### Use an appropriate pull request template (required, non-automated)
 
-![ci-checks](images/ci-checks.png)
+#### Rationale
 
-If the ❌ mark is shown, click the `Details` button and investigate the failure reason.
+- The unified style of descriptions by templates can make reviews efficient.
 
-If the `Required` mark is shown, you cannot merge the pull request unless you resolve the error.
-If not, it is optional, but preferably it should be fixed.
+#### Example
 
-The following sections explain about common CI checks in Autoware.  
-Note that some repositories may have different settings.
+1. Select the appropriate template, as shown in [this video](https://user-images.githubusercontent.com/31987104/184344710-2adee239-799f-4fdf-bfab-be76345bfac1.mp4).
+2. Read the selected template carefully and fill the required content.
+3. Check the checkboxes during a review.
+   - There are [pre-review checklist](https://github.com/autowarefoundation/autoware/blob/44c70d33825617b56d8de5e6fe921000238238bd/.github/PULL_REQUEST_TEMPLATE/standard-change.md#pre-review-checklist-for-the-pr-author) and [post-review checklist](https://github.com/autowarefoundation/autoware/blob/44c70d33825617b56d8de5e6fe921000238238bd/.github/PULL_REQUEST_TEMPLATE/standard-change.md#post-review-checklist-for-the-pr-author) for the author.
 
-### DCO
+### Set appropriate reviewers after creating a pull request (required, partially automated)
 
-The Developer Certificate of Origin (DCO) is a lightweight way for contributors to certify that they wrote or otherwise have the right to submit the code they are contributing to the project.
+#### Rationale
 
-This workflow checks whether the pull request fulfills `DCO`.  
-You need to confirm the [required items](https://developercertificate.org/) and commit with `git commit -s`.
+- Pull requests must be reviewed by appropriate reviewers to keep the quality of the codebase.
 
-For more information, refer to the [GitHub App page](https://github.com/apps/dco).
+#### Example
 
-### semantic-pull-request
+- For most ROS packages, reviewers will be automatically assigned based on the `maintainer` information in `package.xml`.
+- If no reviewer is assigned automatically, assign reviewers manually following the instructions in [GitHub Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review).
+  - You can find the reviewers by seeing the `.github/CODEOWNERS` file of the repository.
+- If you are not sure the appropriate reviewers, ask `@autoware-maintainers`.
+- If you have no rights to assign reviewers, mention reviewers instead.
 
-Autoware uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) with the settings of [commitizen/conventional-commit-types](https://github.com/commitizen/conventional-commit-types).
+### Apply Conventional Commits to the pull request title (required, automated)
 
-This workflow checks whether the pull request follows `Conventional Commits`.
+#### Rationale
 
-Note that if there is only one commit in the pull request, you need to make the commit title semantic as well.  
-This is due to GitHub's non-intuitive behavior when there is only one commit.
-GitHub uses the commit title for the squashed commit message, instead of the pull request title.
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) can generate categorized changelogs, for example using [git-cliff](https://github.com/orhun/git-cliff).
 
-For more detailed behaviors of this workflow, refer to [amannn/action-semantic-pull-request](https://github.com/amannn/action-semantic-pull-request).
+#### Example
 
-For the detailed rules, see the [commit guidelines](commit-guidelines.md).
-
-### pre-commit
-
-[pre-commit](https://pre-commit.com/) is a tool to run formatters or linters when you commit.
-
-This workflow checks whether the pull request has no error with `pre-commit`.
-
-In the workflow `pre-commit.ci - pr` is enabled in the repository, it will automatically fix errors by [pre-commit.ci](https://pre-commit.ci/) as many as possible.  
-If there are some errors remain, fix them manually.
-
-You can run `pre-commit` in your local environment by the following command:
-
-```bash
-pre-commit run -a
+```text
+feat(trajectory_follower): add an awesome feature
 ```
 
-Or you can install `pre-commit` to the repository and automatically run it before committing:
+!!! note
 
-```bash
-pre-commit install
+    You have to start the description part (here `add an awesome feature`) with a lowercase.
+
+If your change breaks some interfaces, use the `!` (breaking changes) mark as follows:
+
+```text
+feat(trajectory_follower)!: remove package
+feat(trajectory_follower)!: change parameter names
+feat(planning)!: change topic names
+feat(autoware_utils)!: change function names
 ```
 
-Since it is difficult to detect errors with no false positives, some jobs are split into another config file and marked as optional.  
-To check them, use the `--config` option:
+For the repositories that contain code (most repositories), use the [definition of conventional-commit-types](https://github.com/commitizen/conventional-commit-types/blob/c3a9be4c73e47f2e8197de775f41d981701407fb/index.json) for the type.
 
-```bash
-pre-commit run -a --config .pre-commit-config-optional.yaml
+For documentation repositories such as [autoware-documentation](https://github.com/autowarefoundation/autoware-documentation), use the following definition:
+
+- `feat`
+  - Add new pages.
+  - Add contents to the existing pages.
+- `fix`
+  - Fix the contents in the existing pages.
+- `refactor`
+  - Move contents to different pages.
+- `docs`
+  - Update documentation for the documentation repository itself.
+- `build`
+  - Update the settings of the documentation site builder.
+- `!` (breaking changes)
+  - Remove pages.
+  - Change the URL of pages.
+
+`perf` and `test` are generally unused.
+Other types have the same meaning as the code repositories.
+
+### Add the related component names to the scope of Conventional Commits (advisory, non-automated)
+
+#### Rationale
+
+- It helps contributors find pull requests that are relevant to them.
+- It makes the changelog clearer.
+
+#### Example
+
+For ROS packages, adding the package name or component name is good.
+
+```text
+feat(trajectory_follower): add an awesome feature
+refactor(planning, control): use common utils
 ```
 
-### spell-check-differential
+### Keep a pull request small (advisory, non-automated)
 
-This workflow detects spelling mistakes using [CSpell](https://github.com/streetsidesoftware/cspell) with [our dictionary file](https://github.com/tier4/autoware-spell-check-dict/blob/main/.cspell.json).  
-You can submit pull requests to [tier4/autoware-spell-check-dict](https://github.com/tier4/autoware-spell-check-dict) to update the dictionary.
+#### Rationale
 
-Since it is difficult to detect errors with no false positives, it is an optional workflow, but it is preferable to remove spelling mistakes as many as possible.
+- Small pull requests are easy to understand for reviewers.
+- Small pull requests are easy to revert for maintainers.
 
-### build-and-test-differential
+#### Exception
 
-This workflow checks `colcon build` and `colcon test` for the pull request.  
-To make the CI faster, it doesn't check all packages but only modified packages and the dependencies.
+It is acceptable if it is agreed with maintainers that there is no other way but to submit a big pull request.
 
-### build-and-test-differential-self-hosted
+#### Example
 
-This workflow is the `ARM64` version of `build-and-test-differential`.  
-You need to add the `ARM64` label to run this workflow.
+- Avoid developing two features in one pull request.
+- Avoid mixing different types (`feat`, `fix`, `refactor`, etc.) of changes in the same commit.
 
-For reference information, since ARM machines are not supported by GitHub-hosted runners, we use self-hosted runners prepared by the AWF.  
-For the details about self-hosted runners, refer to [GitHub Docs](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners).
+### Remind reviewers if there is no response for more than a week (advisory, non-automated)
 
-### deploy-docs
+#### Rationale
 
-This workflow deploys the preview documentation site for the pull request.  
-You need to add the `documentation` label to run this workflow.
+- It is the author's responsibility to care about their own pull request until it is merged.
+
+#### Example
+
+```text
+@{some-of-developers} Would it be possible for you to review this PR?
+@autoware-maintainers friendly ping.
+```

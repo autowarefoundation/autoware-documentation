@@ -1,5 +1,6 @@
 nav:
   - index.md
+  - ci-checks.md
   - commit-guidelines.md
   - review-guidelines.md
   - review-tips.md

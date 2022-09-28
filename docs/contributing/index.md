@@ -19,9 +19,9 @@ Like Autoware itself, these guidelines are being actively developed and suggesti
 
 ## Code of Conduct
 
-To ensure the Autoware community stays open and inclusive, please follow the [code of conduct](https://github.com/autowarefoundation/autoware/blob/main/CODE_OF_CONDUCT.md).
+To ensure the Autoware community stays open and inclusive, please follow the [Code of Conduct](https://github.com/autowarefoundation/autoware/blob/main/CODE_OF_CONDUCT.md).
 
-If you believe that someone in the community has violated the code of conduct, please make a report by emailing conduct@autoware.org.
+If you believe that someone in the community has violated the Code of Conduct, please make a report by emailing [conduct@autoware.org](mailto:conduct@autoware.org).
 
 ## What should I know before I get started?
 
