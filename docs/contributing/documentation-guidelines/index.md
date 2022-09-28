@@ -37,7 +37,7 @@ You can use Github Actions in `autowarefoundation/autoware-documentation` reposi
 ### 2. Run mkdocs in your local environment
 
 Instead of creating a PR, you can use `mkdocs` to build the Autoware Documentation website on your local computer.
-Assuming that you are using Ubuntu OS, run the following to install required libraries.
+Assuming that you are using Ubuntu OS, run the following to install the required libraries.
 
 ```
 sudo apt install -y mkdocs
