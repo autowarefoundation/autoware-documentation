@@ -4,20 +4,22 @@
 
 1. Download and unpack a sample map.
 
-   - Click [here](https://drive.google.com/file/d/1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI/view?usp=sharing) to download.
-   - Unpack it by running the following command.
+   - You can also download [the map](https://drive.google.com/file/d/1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI/view?usp=sharing) manually.
 
    ```bash
-   unzip -d ~/Downloads/ ~/Downloads/sample-map-rosbag.zip
+   wget -O ~/autoware/sample-map-rosbag.zip 'https://docs.google.com/uc?export=download&id=1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI'
+   unzip -d ~/autoware/ ~/autoware/sample-map-rosbag.zip
    ```
 
 2. Download the sample rosbag files.
 
-   - Click [here](https://drive.google.com/file/d/1VnwJx9tI3kI_cTLzP61ktuAJ1ChgygpG/view?usp=sharing) to download.
-   - Unpack it by running the following command.
+   - You can also download [the rosbag files](https://drive.google.com/file/d/1VnwJx9tI3kI_cTLzP61ktuAJ1ChgygpG/view?usp=sharing) manually.
 
    ```bash
-   unzip -d ~/Downloads/ ~/Downloads/sample-rosbag.zip
+   # The file exceeds 100 MB and we need to confirm before downloading
+   wget --save-cookies /tmp/cookies.txt 'https://docs.google.com/uc?export=download&id=1VnwJx9tI3kI_cTLzP61ktuAJ1ChgygpG' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1/p' > /tmp/confirm.txt
+   wget --load-cookies /tmp/cookies.txt -O ~/autoware/sample-rosbag.zip 'https://docs.google.com/uc?export=download&id=1VnwJx9tI3kI_cTLzP61ktuAJ1ChgygpG&confirm='$(</tmp/confirm.txt)
+   unzip -d ~/autoware/ ~/autoware/sample-rosbag.zip
    ```
 
 ### Note
@@ -33,7 +35,7 @@
 
    ```sh
    source ~/autoware/install/setup.bash
-   ros2 launch autoware_launch logging_simulator.launch.xml map_path:=$HOME/Downloads/sample-map-rosbag vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+   ros2 launch autoware_launch logging_simulator.launch.xml map_path:=$HOME/autoware/sample-map-rosbag vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
    ```
 
    Note that you cannot use `~` instead of `$HOME` here.
@@ -44,7 +46,7 @@
 
    ```sh
    source ~/autoware/install/setup.bash
-   ros2 bag play ~/Downloads/sample-rosbag/sample.db3 -r 0.2
+   ros2 bag play ~/autoware/sample-rosbag/sample.db3 -r 0.2
    ```
 
    ![after-rosbag-play](images/rosbag-replay/after-rosbag-play.png)

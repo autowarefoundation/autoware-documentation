@@ -4,11 +4,11 @@
 
 Download and unpack a sample map.
 
-- Click [here](https://drive.google.com/file/d/1499_nsbUbIeturZaDj7jhUownh5fvXHd/view?usp=sharing) to download.
-- Unpack it by running the following command.
+- You can also download [the map](https://drive.google.com/file/d/1499_nsbUbIeturZaDj7jhUownh5fvXHd/view?usp=sharing) manually.
 
 ```bash
-unzip -d ~/Downloads/ ~/Downloads/sample-map-planning.zip
+wget -O ~/autoware/sample-map-planning.zip 'https://docs.google.com/uc?export=download&id=1499_nsbUbIeturZaDj7jhUownh5fvXHd'
+unzip -d ~/autoware ~/autoware/sample-map-planning.zip
 ```
 
 !!! Note
@@ -23,7 +23,7 @@ unzip -d ~/Downloads/ ~/Downloads/sample-map-planning.zip
 
 ```bash
 source ~/autoware/install/setup.bash
-ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/Downloads/sample-map-planning vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware/sample-map-planning vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
 ```
 
 !!! warning
