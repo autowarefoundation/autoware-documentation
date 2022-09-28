@@ -1,6 +1,7 @@
 # Documentation guidelines
 
 ## Contribution guidelines on Autoware Documentation
+
 Contributions to Autoware's documentation are welcome, and the same principles [described in the contribution guidelines](../index.md#pull-requests) should be followed. Small, limited changes can be made by forking this repository and submitting a pull request, but larger changes should be discussed with the community and Autoware maintainers via GitHub Discussion first.
 
 Examples of small changes include:
@@ -22,9 +23,11 @@ In terms of style, you should refer to the [Google developer documentation style
 - [Write short sentences](https://developers.google.com/style/translation#write-short,-clear,-and-precise-sentences) that are easy to understand and translate.
 
 ## How to preview your modification on Autoware Documentation
+
 There are two ways to preview your modification on Autoware Documentation.
 
 ### 1. Use Github Actions workflow in `autowarefoundation/autoware-documentation` repository
+
 You can use Github Actions in `autowarefoundation/autoware-documentation` repository to deploy your branch.
 
 1. Create a PR of your branch to the repository.
@@ -32,6 +35,7 @@ You can use Github Actions in `autowarefoundation/autoware-documentation` reposi
 3. Wait for a couple of minutes, and the `github-actions` will notify the URL for your branch's preview.
 
 ### 2. Run mkdocs in your local environment
+
 Instead of creating a PR, you can use `mkdocs` to build the Autoware Documentation website on your local computer.
 Assuming that you are using Ubuntu OS, run the following to install required libraries.
 
