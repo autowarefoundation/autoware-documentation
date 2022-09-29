@@ -53,24 +53,30 @@ You might need to log out and log back to make the current user able to use dock
     Before proceeding, confirm and agree with the [NVIDIA Deep Learning Container license](https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license).
     By pulling and using the Autoware Universe images, you accept the terms and conditions of the license.
 
-1. Launch a Docker container.
+1. Create the `autoware_map` directory for map data later.
+
+   ```bash
+   mkdir ~/autoware_map
+   ```
+
+2. Launch a Docker container.
 
    - For amd64 architecture computers with NVIDIA GPU:
 
      ```bash
-     rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
+     rocker --nvidia --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
      ```
 
    - If you want to use ROS 2 Humble:
 
      ```bash
-     rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:humble-latest-cuda
+     rocker --nvidia --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:humble-latest-cuda
      ```
 
    - If you want to run container without using NVIDIA GPU, or for arm64 architecture computers:
 
      ```bash
-     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
+     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
      ```
 
      For detailed reason could be found [here](#docker-with-nvidia-gpu-fails-to-start-autoware-on-arm64-devices)
@@ -83,14 +89,14 @@ You might need to log out and log back to make the current user able to use dock
    cd autoware
    ```
 
-2. Create the `src` directory and clone repositories into it.
+3. Create the `src` directory and clone repositories into it.
 
    ```bash
    mkdir src
    vcs import src < autoware.repos
    ```
 
-3. Update dependent ROS packages.
+4. Update dependent ROS packages.
 
    The dependency of Autoware may change after the Docker image was created.
    In that case, you need to run the following commands to update the dependency.
@@ -101,7 +107,7 @@ You might need to log out and log back to make the current user able to use dock
    rosdep install --from-paths . --ignore-src --rosdistro $ROS_DISTRO
    ```
 
-4. Build the workspace.
+5. Build the workspace.
 
    ```bash
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
