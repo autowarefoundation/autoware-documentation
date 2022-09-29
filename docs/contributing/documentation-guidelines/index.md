@@ -22,35 +22,36 @@ In terms of style, you should refer to the [Google developer documentation style
 - [Use descriptive link text](https://developers.google.com/style/link-text).
 - [Write short sentences](https://developers.google.com/style/translation#write-short,-clear,-and-precise-sentences) that are easy to understand and translate.
 
-## How to preview your modification on Autoware Documentation
+## How to preview your modification on Autoware's documentation repositories
 
-There are two ways to preview your modification on Autoware Documentation.
+There are two ways to preview your modification on a documentation website.
 
-### 1. Use Github Actions workflow in `autowarefoundation/autoware-documentation` repository
+### 1. Using GitHub Actions workflow
 
-You can use Github Actions in `autowarefoundation/autoware-documentation` repository to deploy your branch.
+Follow the steps below.
 
-1. Create a PR of your branch to the repository.
-2. Add a `documentation` label from the sidebar.
-3. Wait for a couple of minutes, and the `github-actions` will notify the URL for your branch's preview.
+1. Create a PR to the repository.
+2. Add the `documentation` label from the sidebar (See below figure).
+3. Wait for a couple of minutes, and the `github-actions` bot will notify the URL for the pull request's preview.
 
-### 2. Run mkdocs in your local environment
+![documenatation_label](images/documentation_label_for_pull_request.png){ width="800" }
 
-Instead of creating a PR, you can use `mkdocs` to build the Autoware Documentation website on your local computer.
+
+### 2. Running an MkDocs server in your local environment
+
+Instead of creating a PR, you can use the `mkdocs` command to build Autoware's documentation websites on your local computer.
 Assuming that you are using Ubuntu OS, run the following to install the required libraries.
 
-```
-sudo apt install -y mkdocs
-git clone git@github.com:autowarefoundation/autoware-github-actions.git /tmp/autoware-github-actions
-cd /tmp/autoware-github-actions/deploy-docs
-pip install -U -r mkdocs-requirements.txt
+```bash
+python3 -m pip install -U $(curl -fsSL \
+  https://raw.githubusercontent.com/autowarefoundation/autoware-github-actions/main/deploy-docs/mkdocs-requirements.txt)
 ```
 
-Then, run `mkdocs serve` on your Autoware Documentation directory.
+Then, run `mkdocs serve` on your documentation directory.
 
-```
-cd /PATH/TO/autoware-documentation
+```bash
+cd /PATH/TO/YOUR-autoware-documentation
 mkdocs serve
 ```
 
-It will launch mkdocs server. Access [http://127.0.0.1:8000/autoware-documentation/](http://127.0.0.1:8000/autoware-documentation/) to see the preview of Autoware Documentation.
+It will launch the MkDocs server. Access [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to see the preview of the website.
