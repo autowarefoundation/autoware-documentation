@@ -36,7 +36,6 @@ Follow the steps below.
 
 ![documenatation_label](images/documentation_label_for_pull_request.png){ width="800" }
 
-
 ### 2. Running an MkDocs server in your local environment
 
 Instead of creating a PR, you can use the `mkdocs` command to build Autoware's documentation websites on your local computer.
