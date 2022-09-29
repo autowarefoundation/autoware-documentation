@@ -19,6 +19,13 @@
    cd autoware
    ```
 
+   If you want to use ROS 2 Humble, use the `humble` branch.
+
+   ```bash
+   git clone https://github.com/autowarefoundation/autoware.git -b humble
+   cd autoware
+   ```
+
 2. You can install the dependencies either manually or using the provided Ansible script.
 
 ### Installing dependencies manually
@@ -51,13 +58,19 @@ You might need to log out and log back to make the current user able to use dock
    - For amd64 architecture computers with NVIDIA GPU:
 
      ```bash
-     rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
+     rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
+     ```
+
+   - If you want to use ROS 2 Humble:
+
+     ```bash
+     rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:humble-latest-cuda
      ```
 
    - If you want to run container without using NVIDIA GPU, or for arm64 architecture computers:
 
      ```bash
-     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
+     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
      ```
 
      For detailed reason could be found [here](#docker-with-nvidia-gpu-fails-to-start-autoware-on-arm64-devices)
@@ -77,7 +90,18 @@ You might need to log out and log back to make the current user able to use dock
    vcs import src < autoware.repos
    ```
 
-3. Build the workspace.
+3. Update dependent ROS packages.
+
+   The dependency of Autoware may change after the Docker image was created.
+   In that case, you need to run the following commands to update the dependency.
+
+   ```bash
+   sudo apt update
+   rosdep update
+   rosdep install --from-paths . --ignore-src --rosdistro $ROS_DISTRO
+   ```
+
+4. Build the workspace.
 
    ```bash
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
@@ -88,7 +112,7 @@ You might need to log out and log back to make the current user able to use dock
 1. Update the Docker image.
 
    ```bash
-   docker pull ghcr.io/autowarefoundation/autoware-universe:latest
+   docker pull ghcr.io/autowarefoundation/autoware-universe:latest-cuda
    ```
 
 2. Launch a Docker container.
@@ -96,13 +120,13 @@ You might need to log out and log back to make the current user able to use dock
    - For amd64 architecture computers:
 
      ```bash
-     rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
+     rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
      ```
 
    - If you want to run container without using NVIDIA GPU, or for arm64 architecture computers:
 
      ```bash
-     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
+     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
      ```
 
 3. Update the `.repos` file.
@@ -147,7 +171,7 @@ To fix this, restart your system after installing the new NVIDIA driver.
 When starting Docker with GPU support enabled for NVIDIA graphics on arm64 devices, e.g. NVIDIA jetson AGX xavier, you may receive the following error:
 
 ```bash
-nvidia@xavier:~$ rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest-arm64
+nvidia@xavier:~$ rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:galactic-latest-cuda-arm64
 ...
 
 Collecting staticx==0.12.3
@@ -170,7 +194,7 @@ To fix this error, temporary modification of rocker source code is required, whi
 At current stage, it is recommended to run docker without NVIDIA gpu enabled for arm64 devices:
 
 ```bash
-rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
+rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
 ```
 
 This tutorial will be updated after official fix from rocker.
@@ -203,7 +227,7 @@ aarch64
 To run Autoware's Docker images of `arm64` architecture, add the suffix `-arm64`.
 
 ```sh-session
-$ docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:latest-arm64
+$ docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:galactic-latest-cuda-arm64
 WARNING: The requested image's platform (linux/arm64) does not match the detected host platform (linux/amd64) and no specific platform was requested
 root@5b71391ad50f:/autoware#
 ```

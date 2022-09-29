@@ -13,4 +13,5 @@ Please see [here](https://www.autoware.org/autoware) for more details.
 - [How-to guides](how-to-guides) pages explain advanced topics that you should read after you get used to Autoware.
 - [Design](design) pages explain the design concept of Autoware.
 - [Contributing](contributing) pages explain how to contribute to Autoware.
+- [Datasets](datasets) pages contain information about datasets that can be used with Autoware.
 - [Support](support) pages explain several support resources.
