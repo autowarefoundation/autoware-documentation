@@ -30,7 +30,7 @@ There are two ways to preview your modification on a documentation website.
 
 Follow the steps below.
 
-1. Create a PR to the repository.
+1. Create a pull request to the repository.
 2. Add the `documentation` label from the sidebar (See below figure).
 3. Wait for a couple of minutes, and the `github-actions` bot will notify the URL for the pull request's preview.
 
