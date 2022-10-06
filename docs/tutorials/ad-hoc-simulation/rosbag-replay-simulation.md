@@ -44,7 +44,7 @@
 
    ```sh
    source ~/autoware/install/setup.bash
-   ros2 bag play ~/autoware_map/sample-rosbag/sample.db3 -r 0.2
+   ros2 bag play ~/autoware_map/sample-rosbag/sample.db3 -r 0.2 -s sqlite3
    ```
 
    ![after-rosbag-play](images/rosbag-replay/after-rosbag-play.png)
