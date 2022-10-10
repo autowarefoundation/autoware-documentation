@@ -80,4 +80,6 @@ Autoware assumes the rear wheels don't turn on `z` axis.
 
 ## Notice
 
+<!-- cspell: ignore xvlblo22 -->
+
 The vehicle used in the illustrations was created by xvlblo22 and is from <https://www.turbosquid.com/3d-models/modular-sedan-3d-model-1590886>.
