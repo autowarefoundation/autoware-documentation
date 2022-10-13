@@ -6,7 +6,10 @@ Autoware expects to have multiple sensors attached to the vehicle as input to pe
 
 ## Camera calibration
 
-Navigation2 provides a [good tutorial for camera internal calibration](https://navigation.ros.org/tutorials/docs/camera_calibration.html).
+### Intrinsic Calibration
+
+- Navigation2 provides a [good tutorial for camera internal calibration](https://navigation.ros.org/tutorials/docs/camera_calibration.html).
+- [AutoCore](https://autocore.ai/) provides a [light-weight tool](https://github.com/autocore-ai/calibration_tools/tree/main/camera_intrinsic_calib).
 
 ## Lidar-lidar calibration
 
