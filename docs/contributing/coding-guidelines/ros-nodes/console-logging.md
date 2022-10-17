@@ -55,14 +55,14 @@ export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity} {time}] [{name}]: {message} ({
 - {line_number} - The line number this was called from (may be empty)
 
 ## Examples
-let's assume a ros node named planner and format is [{severity}][{name}]: {message}
+let's assume a ros node named planner and format is [{severity}] [{name}]: {message}
 
 To record information every time the code executed somewhere inside planner function, you can do:
  ```bash
 RCLCPP_INFO(this->get_logger(), " status %d", 0); 
 RCLCPP_INFO_STREAM(this->get_logger(), "status " << 0);
  ```
->[INFO][planner]: status 0
+>[INFO] [planner]: status 0
 
 To record messages in function outside planner node, create a logger object:
 ```bash
@@ -70,7 +70,7 @@ string object_type = "static car";
 auto logger = rclcpp::get_logger("obstacle_check");
 RCLCPP_WARN_STREAM(logger, *rclcpp::get_clock(), "meet obstacle: "<<object_type<<"!");
 ```
->[WARN][obstacle_check]: meet obstacle: static car!
+>[WARN] [obstacle_check]: meet obstacle: static car!
 
 To record a log message but no more one second a time, use throttled logger:
 ```bash
@@ -78,21 +78,21 @@ auto base_link = "base_link";
 auto map_id = "world";
 RCLCPP_ERROR_STREAM_THROTTLE(this->get_logger(), *this->get_clock(), 1000, "Failed to look up transform from"<<base_link<<" to "<<map_id);
 ```
->[ERROR][planner]: Failed to look up transform from base_link to world
+>[ERROR] [planner]: Failed to look up transform from base_link to world
 
 To conditionally output log messages, use EXPRESSION：
 ```bash
 double goal_velocity = 1.0;
 RCLCPP_ERROR_EXPRESSION(this->get_logger(), goal_velocity!=0.0, "goal velocity should be zero!");
 ```
->[ERROR][planner]: goal velocity should be zero!
+>[ERROR] [planner]: goal velocity should be zero!
 
 To debug program, sometimes you need see which functions and lines of code are executed, use `__LINE__` and `__FUNCTION__` macro:
 ```bash
 RCLCPP_DEBUG_STREAM(this->get_logger(), "executed line: "<< __LINE__<<" in function: " <<__FUNCTION__);
 ```
 example output: 
->[DEBUG][planner]: executed line 100 in function make plan
+>[DEBUG] [planner]: executed line 100 in function make plan
 
 To filter logs, use | grep pipe:
 ```bash
