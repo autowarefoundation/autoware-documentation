@@ -1,0 +1,6 @@
+nav:
+  - installation.md
+  - setup.md
+  - localization.md
+  - obstacle_segmentation.md
+  - perception.md
