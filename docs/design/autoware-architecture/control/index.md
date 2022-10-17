@@ -36,7 +36,7 @@ The table below summarizes the overall input into Control stack:
 
 ## Output
 
-The table below summarizes the final output from Planning stack:
+The table below summarizes the final output from Control stack:
 
 | Output        | Topic(Data Type)                                                                            | Explanation                                                                                                                                                                                                                                  |
 | ------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
