@@ -19,3 +19,6 @@
 | RAM               | DDR4 64GB (or higher)                                |
 | GPU               | RTX2080Ti or higher                                  |
 
+## Application
+Only for AWF developers, trial license for 3 months can be issued.
+Download the [application form](https://drive.google.com/file/d/1SO9hAr2-828MNl410xSABp3znHaR-AWV/view?usp=sharing) and send to hsjeon@morai.ai
