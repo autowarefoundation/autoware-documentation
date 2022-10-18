@@ -5,7 +5,7 @@
 		
 	
 ## Hardware requirements
-| Minimum PC Specs |                                                       |
+| Minimum PC Specs  |                                                       |
 | :---------------- | :----------------------------------------------------|
 | OS                | Windows 10, Ubuntu 20.04, Ubuntu 18.04, Ubuntu 16.04 |
 | CPU               | Intel i5-9600KF or AMD Ryzen 5 3500X                 |
