@@ -21,7 +21,7 @@
 
 ## Application and Download
 Only for AWF developers, trial license for 3 months can be issued.
-Download the [application form](https://drive.google.com/file/d/1SO9hAr2-828MNl410xSABp3znHaR-AWV/view?usp=sharing) and send to [Hyeongseok Jeon](##technical-support)
+Download the [application form](https://drive.google.com/file/d/1SO9hAr2-828MNl410xSABp3znHaR-AWV/view?usp=sharing) and send to [Hyeongseok Jeon](#technical-support)
 
 After the trial license is issued, you can login to MORAI Sim:Drive via Launchers ([Windows](https://drive.google.com/file/d/1NMd2kInUALXYosRMtOHDPPGou9yCWMKK/view?usp=sharing)/[Ubuntu](https://drive.google.com/file/d/1qmA_1eUDyNJ85AeAzSxZRQaDbR_Sc76R/view?usp=sharing))
 
