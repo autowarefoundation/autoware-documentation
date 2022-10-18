@@ -21,7 +21,7 @@
 
 ## Application and Download
 Only for AWF developers, trial license for 3 months can be issued.
-Download the [application form](https://drive.google.com/file/d/1SO9hAr2-828MNl410xSABp3znHaR-AWV/view?usp=sharing) and send to [Hyeongseok Jeon](## Technical Support)
+Download the [application form](https://drive.google.com/file/d/1SO9hAr2-828MNl410xSABp3znHaR-AWV/view?usp=sharing) and send to [Hyeongseok Jeon](##Technical_Support)
 
 After the trial license is issued, you can login to MORAI Sim:Drive via Launchers ([Windows](https://drive.google.com/file/d/1NMd2kInUALXYosRMtOHDPPGou9yCWMKK/view?usp=sharing)/[Ubuntu](https://drive.google.com/file/d/1qmA_1eUDyNJ85AeAzSxZRQaDbR_Sc76R/view?usp=sharing))
 
@@ -36,7 +36,7 @@ Be aware that the following manuals are for ver.22.R2
 - [ITRI BUS Odd tutorial](https://morai.atlassian.net/wiki/external/1158610949/ZDE2Mjk0MTc5OTAxNGZmZjg3ZDMxZjQxNzFkNTgxYWM?atlOrigin=eyJpIjoiNDc1OGNkMjkxMTMzNDVjOGExMGFiMDY0M2ZmNzkwMjkiLCJwIjoiYyJ9)
 - [Tutorial for rosbag replay with Tacoma Airport](https://morai.atlassian.net/wiki/external/1098547535/MTJjMDRmZDlhZDhiNDI2YzhkNzgzMWJiMjNiYTYxMzc?atlOrigin=eyJpIjoiZTc5NzBlM2VkMmFiNDZlM2JlZjk1N2Q3ZjZjYWYwZjMiLCJwIjoiYyJ9)
 
-## Technical Support
+## Technical_Support
 Hyeongseok Jeon will give full technical support
 - hsjeon@morai.ai
 - Hyeongseok Jeon#2355 in Discord
