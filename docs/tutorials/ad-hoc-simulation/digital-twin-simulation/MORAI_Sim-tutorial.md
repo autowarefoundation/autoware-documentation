@@ -32,7 +32,7 @@ as Oct. 2022, our simulation version is ver.22.R3 but the english manual is unde
 
 Be aware that the following manuals are for ver.22.R2
 
-- [MORAI Sim:Drive Manual](https://morai-sim--drive-user-manual--en-22-r2.scrollhelp.site/msdume2/
+- [MORAI Sim:Drive Manual](https://morai-sim--drive-user-manual--en-22-r2.scrollhelp.site/msdume2/)
 - [ITRI BUS Odd tutorial](https://morai.atlassian.net/wiki/external/1158610949/ZDE2Mjk0MTc5OTAxNGZmZjg3ZDMxZjQxNzFkNTgxYWM?atlOrigin=eyJpIjoiNDc1OGNkMjkxMTMzNDVjOGExMGFiMDY0M2ZmNzkwMjkiLCJwIjoiYyJ9)
 - [Tutorial for rosbag replay with Tacoma Airport](https://morai.atlassian.net/wiki/external/1098547535/MTJjMDRmZDlhZDhiNDI2YzhkNzgzMWJiMjNiYTYxMzc?atlOrigin=eyJpIjoiZTc5NzBlM2VkMmFiNDZlM2JlZjk1N2Q3ZjZjYWYwZjMiLCJwIjoiYyJ9)
 
