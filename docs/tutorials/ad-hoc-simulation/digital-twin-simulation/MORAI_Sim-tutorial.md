@@ -39,4 +39,4 @@ Be aware that the following manuals are for ver.22.R2
 ## Technical Support
 Hyeongseok Jeon will give full technical support
 - hsjeon@morai.ai
-- Lin
+- Hyeongseok Jeon#2355 in Discord
