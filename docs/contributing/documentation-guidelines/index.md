@@ -46,8 +46,7 @@ Instead of creating a PR, you can use the `mkdocs` command to build Autoware's d
 Assuming that you are using Ubuntu OS, run the following to install the required libraries.
 
 ```bash
-python3 -m pip install -U $(curl -fsSL \
-  https://raw.githubusercontent.com/autowarefoundation/autoware-github-actions/main/deploy-docs/mkdocs-requirements.txt)
+python3 -m pip install -U $(curl -fsSL https://raw.githubusercontent.com/autowarefoundation/autoware-github-actions/main/deploy-docs/mkdocs-requirements.txt)
 ```
 
 Then, run `mkdocs serve` on your documentation directory.
