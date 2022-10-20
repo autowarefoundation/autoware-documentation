@@ -57,5 +57,4 @@
 
    ![third-person-follower](images/rosbag-replay/third-person-follower.png)
 
-
 [Reference video tutorials](https://drive.google.com/file/d/12D6aSC1Y3Kf7STtEPWG5RYynxKdVcPrc/view?usp=sharing)
