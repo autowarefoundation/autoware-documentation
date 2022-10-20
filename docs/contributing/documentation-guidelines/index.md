@@ -16,6 +16,7 @@ Examples of larger changes include:
 - Re-organization of the existing documentation structure
 
 ## Style guide
+
 You should refer to the [Google developer documentation style guide](https://developers.google.com/style) as much as possible. Reading the [Highlights page](https://developers.google.com/style/highlights) of that guide is recommended, but if not then the key points below should be noted.
 
 - [Use standard American English spelling](https://developers.google.com/style/spelling) and punctuation.
@@ -24,6 +25,7 @@ You should refer to the [Google developer documentation style guide](https://dev
 - [Write short sentences](https://developers.google.com/style/translation#write-short,-clear,-and-precise-sentences) that are easy to understand and translate.
 
 ## Tips
+
 ### How to preview your modification
 
 There are two ways to preview your modification on a documentation website.
