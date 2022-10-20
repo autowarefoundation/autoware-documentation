@@ -38,7 +38,7 @@ Follow the steps below.
 2. Add the `documentation` label from the sidebar (See below figure).
 3. Wait for a couple of minutes, and the `github-actions` bot will notify the URL for the pull request's preview.
 
-![documenatation_label](images/documentation-label-for-pull-request.png){ width="800" }
+![documentation-label](images/documentation-label-for-pull-request.png){ width="800" }
 
 #### 2. Running an MkDocs server in your local environment
 
