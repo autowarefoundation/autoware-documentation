@@ -139,5 +139,4 @@ You can update the color of the traffic light by selecting the next color (in th
 
 To remove a traffic light from `TrafficLightPublishPanel`, click the `RESET` button.
 
-
 [Reference video tutorials](https://drive.google.com/file/d/1bs_dX1JJ76qHk-SGvS6YF9gmekkN8fz7/view?usp=sharing)
