@@ -9,7 +9,7 @@
 ```txt
 <package_name>
 ├─ config
-│   └─ <package_name>
+│   └─ foo.param.yaml
 ├─ include
 │   └─ <package_name>
 │      └─ foo_public.hpp
