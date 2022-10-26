@@ -49,7 +49,7 @@ Place launch files (`.launch.xml` and `.launxh.py`).
 
 ### src directory
 
-Place source and private header files.
+Place source files and private header files.
 
 ### test directory
 
