@@ -45,7 +45,7 @@ Reference: <https://docs.ros.org/en/rolling/How-To-Guides/Ament-CMake-Documentat
 
 ### launch directory
 
-Place launch files.
+Place launch files (`.launch.xml` and `.launxh.py`).
 
 ### src directory
 
