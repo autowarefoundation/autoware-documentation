@@ -30,6 +30,11 @@
 
 Place configuration files such as node parameters.
 
+For ROS parameters, use the extension `.param.yaml`.
+For non-ROS parameters, use the extension `.yaml`.
+
+Rationale: Since ROS parameters files are type-sensitive, they should not be the target of some code formatters and linters. In order to distinguish the file type, we use different file extensions.
+
 ### include directory
 
 Place header files exposed to other packages under a directory with the package name. Do not place files directly under include directory.
