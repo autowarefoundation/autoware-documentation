@@ -1,5 +1,9 @@
 # Directory structure
 
+!!! warning
+
+    Under Construction
+
 ## C++ package
 
 ```txt
@@ -23,6 +27,8 @@ Place configuration files such as node parameters.
 Place header files exposed to other packages under a directory with the package name. Do not place files directly under include directory.
 This is mostly library headers and such. Note that many headers do not need to be placed here.
 
+Reference: <https://docs.ros.org/en/rolling/How-To-Guides/Ament-CMake-Documentation.html#adding-files-and-headers>
+
 ### launch directory
 
 Place launch files.
@@ -37,6 +43,4 @@ Place source files for testing.
 
 ## Python package
 
-!!! warning
-
-    Under Construction
+T.B.D.
