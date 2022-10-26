@@ -7,13 +7,21 @@
 ## C++ package
 
 ```txt
-<package-name>
+<package_name>
 ├─ config
+│   └─ <package_name>
 ├─ include
-│   └─ <package-name>
+│   └─ <package_name>
+│      └─ foo_public.hpp
 ├─ launch
+│   ├─ foo.launch.xml
+│   └─ foo.launch.py
 ├─ src
+│   ├─ foo_node.cpp
+│   ├─ foo_node.hpp
+│   └─ foo_private.hpp
 ├─ test
+│   └─ test_foo.cpp
 ├─ package.xml
 └─ CMakeLists.txt
 ```
