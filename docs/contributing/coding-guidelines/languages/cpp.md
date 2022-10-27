@@ -4,13 +4,15 @@
 
     Under Construction
 
-Refer to the following links for now:
+## References
 
 - <https://docs.ros.org/en/humble/Contributing/Code-Style-Language-Versions.html#id1>
 - <https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines>
 - <https://www.autosar.org/fileadmin/user_upload/standards/adaptive/21-11/AUTOSAR_RS_CPP14Guidelines.pdf>
 
-## Include order
+## Rules
+
+### Include header files in the defined order (required, partially automated)
 
 Include the headers in the following order:
 
@@ -21,15 +23,15 @@ Include the headers in the following order:
 - C system headers
 - C++ system headers
 
-### Rationale
+#### Rationale
 
 - Detecting indirect dependencies.
 
-### Reference
+#### Reference
 
 - <https://llvm.org/docs/CodingStandards.html#include-style>
 
-### Example
+#### Example
 
 ```cpp
 #include "my_header.hpp"
@@ -43,23 +45,21 @@ Include the headers in the following order:
 #include <vector>
 ```
 
-## Function names
+### Use lower snake case for function names (required, partially automated)
 
-Use lower snake case for function names.
-
-### Rationale
+#### Rationale
 
 - It is consistent with C++ standard library and Python.
 
-### Exception
+#### Exception
 
 - For member functions of classes inherited from external project classes such as Qt, follow that naming convention.
 
-### Reference
+#### Reference
 
 - <https://docs.ros.org/en/humble/The-ROS2-Project/Contributing/Code-Style-Language-Versions.html#function-and-method-naming>
 
-### Example
+#### Example
 
 ```cpp
 void function_name()
@@ -67,23 +67,21 @@ void function_name()
 }
 ```
 
-## Enum names
+### Use upper camel case for enum names (required, partially automated)
 
-Use upper camel case for enum names.
-
-### Rationale
+#### Rationale
 
 - It is consistent with ROS2 libraries.
 
-### Exception
+#### Exception
 
 - None
 
-### Reference
+#### Reference
 
 - None
 
-### Example
+#### Example
 
 ```cpp
 enum class Color
@@ -92,45 +90,41 @@ enum class Color
 }
 ```
 
-## Constant names
+### Use lower snake case for constant names (required, partially automated)
 
-Use lower snake case for constant names.
-
-### Rationale
+#### Rationale
 
 - It is consistent across Autoware.
 
-### Exception
+#### Exception
 
 - Constants defined in the rosidl file, such as `.msg` and `.srv`.
 
-### Reference
+#### Reference
 
 - None
 
-### Example
+#### Example
 
 ```cpp
 constexpr double gravity = 9.80665;
 ```
 
-## Acronyms
+### Treat acronyms like normal words (required, partially automated)
 
-Acronyms is treated like a normal word.
-
-### Rationale
+#### Rationale
 
 - To clarify the boundaries of words when acronyms are consecutive.
 
-### Exception
+#### Exception
 
 - None
 
-### Reference
+#### Reference
 
 - None
 
-### Example
+#### Example
 
 ```cpp
 class RosApi;
