@@ -7,6 +7,7 @@
 - [Integrating Autoware with a differential drive vehicle](integrating-autoware-with-a-diff-drive-vehicle.md)
 - [Running Autoware without CUDA](running-autoware-without-cuda.md)
 - [Calibrating your sensors](calibrating-your-sensors.md)
+- [Applying Clang-Tidy to ROS packages](applying-clang-tidy-to-ros-packages.md)
 
 TODO: Write the following contents.
 
