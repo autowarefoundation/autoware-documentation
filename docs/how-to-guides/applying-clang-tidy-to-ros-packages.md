@@ -38,6 +38,6 @@ Use either one of the following extensions:
 
 ## Troubleshooting
 
-If you encounter `clang-diagnostic-error`, try installing `libomp-dev`:
+If you encounter `clang-diagnostic-error`, try installing `libomp-dev`.
 
 Related: <https://github.com/autowarefoundation/autoware-github-actions/pull/172>
