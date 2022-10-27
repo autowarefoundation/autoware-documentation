@@ -12,6 +12,11 @@ Follow the guidelines below if a rule is not defined on this page.
 2. <https://www.autosar.org/fileadmin/user_upload/standards/adaptive/21-11/AUTOSAR_RS_CPP14Guidelines.pdf>
 3. <https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines>
 
+Also, it is encouraged to apply Clang-Tidy to each file.
+For the usage, see [Applying Clang-Tidy to ROS packages](../../../how-to-guides/applying-clang-tidy-to-ros-packages.md).
+
+Note that not all rules are covered by Clang-Tidy.
+
 ## Style rules
 
 ### Include header files in the defined order (required, partially automated)
@@ -141,7 +146,7 @@ void function_name()
 
 #### Rationale
 
-- It is consistent with ROS2 libraries.
+- It is consistent with ROS 2 core packages.
 
 #### Exception
 
@@ -164,6 +169,7 @@ enum class Color
 
 #### Rationale
 
+- It is consistent with ROS 2 core packages.
 - It is consistent with `std::numbers`.
 
 #### Exception
