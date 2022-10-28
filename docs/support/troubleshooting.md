@@ -79,6 +79,15 @@ free -h
 
 For more detailed configuration steps, along with an explanation of swap, refer to Digital Ocean's ["How To Add Swap Space on Ubuntu 20.04" tutorial](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-20-04)
 
+If there are too many CPU cores (more than 64) in your machine, it might requires larger memory.
+A workaround here is to limit the job number while building.
+
+```bash
+MAKEFLAGS="-j4" colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+```
+
+You can adjust `-j4` to any number based on your system.
+
 ### Errors when using the latest version of Autoware
 
 If you are working with the latest version of Autoware, issues can occur due to out-of-date software or old build files.
