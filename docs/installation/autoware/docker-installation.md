@@ -104,7 +104,7 @@ You might need to log out and log back to make the current user able to use dock
    ```bash
    sudo apt update
    rosdep update
-   rosdep install --from-paths . --ignore-src --rosdistro $ROS_DISTRO
+   rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 
 5. Build the workspace.
@@ -112,6 +112,8 @@ You might need to log out and log back to make the current user able to use dock
    ```bash
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
+
+   If there is any build issue, refer to [Troubleshooting](https://autowarefoundation.github.io/autoware-documentation/main/support/troubleshooting/#build-issues).
 
 ## How to update a workspace
 
