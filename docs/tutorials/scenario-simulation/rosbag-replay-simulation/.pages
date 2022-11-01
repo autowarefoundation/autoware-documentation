@@ -1,6 +1,2 @@
 nav:
-  - installation.md
-  - setup.md
-  - localization.md
-  - obstacle_segmentation.md
-  - perception.md
+  - driving_log_replayer.md
