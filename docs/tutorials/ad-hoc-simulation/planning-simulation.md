@@ -106,7 +106,6 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: t
 
 ![move-interactive-dummy-car](images/planning/lane-following/move-dummy-object.png) 6. Press the `Shift button` with the `right click` and move the object to the desired position.
 
-
 ### Traffic light recognition simulation
 
 By default, traffic lights on the map are all treated as if they are set to green. As a result, when a path is created that passed through an intersection with a traffic light, the ego vehicle will drive through the intersection without stopping.
