@@ -100,6 +100,13 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: t
 
 ![set-dummy-car](images/planning/lane-following/place-dummy-car.png) 4. Delete any dummy objects placed in the view by clicking the `Delete All Objects` button in the toolbar.
 
+    You can also use these objects interactively.
+
+![set-interactive-dummy-car](images/planning/lane-following/check-interactive.png) 5. Click the `Interactive` button in the toolbar to make the dummy object interactive.
+
+![move-interactive-dummy-car](images/planning/lane-following/move-dummy-object.png) 6. Press the `Shift button` with the `right click` and move the object to the desired position.
+
+
 ### Traffic light recognition simulation
 
 By default, traffic lights on the map are all treated as if they are set to green. As a result, when a path is created that passed through an intersection with a traffic light, the ego vehicle will drive through the intersection without stopping.
