@@ -8,10 +8,10 @@
 - [Running Autoware without CUDA](running-autoware-without-cuda.md)
 - [Calibrating your sensors](calibrating-your-sensors.md)
 - [Applying Clang-Tidy to ROS packages](applying-clang-tidy-to-ros-packages.md)
+- [Add a custom ROS message](add-a-custom-ros-message.md)
 
 TODO: Write the following contents.
 
 - Create an Autoware package
-- Add a custom ROS message
 - Debug Autoware
 - etc.

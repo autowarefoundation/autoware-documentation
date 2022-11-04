@@ -7,3 +7,5 @@ nav:
   - integrating-autoware-with-a-diff-drive-vehicle.md
   - running-autoware-without-cuda.md
   - calibrating-your-sensors.md
+  - applying-clang-tidy-to-ros-packages.md
+  - add-a-custom-ros-message.md
