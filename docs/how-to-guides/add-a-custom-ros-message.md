@@ -33,7 +33,7 @@ For example we create a package to define sensor message.
 
     The `GnssInsOrientation.msg` with the following content:
 
-    ```
+    ```c++
     geometry_msgs/Quaternion orientation
     float32 rmse_rotation_x
     float32 rmse_rotation_x
@@ -44,7 +44,7 @@ For example we create a package to define sensor message.
 
     The `GnssInsOrientationStamped.msg` with the following content:
 
-    ```
+    ```c++
     std_msgs/Header header
     GnssInsOrientation orientation
     ``` 
