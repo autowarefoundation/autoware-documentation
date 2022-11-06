@@ -98,13 +98,19 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: t
 
     Changes to the `velocity` parameter will only affect objects placed after the parameter is changed.
 
-![set-dummy-car](images/planning/lane-following/place-dummy-car.png) 4. Delete any dummy objects placed in the view by clicking the `Delete All Objects` button in the toolbar.
+   ![set-dummy-car](images/planning/lane-following/place-dummy-car.png)
+
+4. Delete any dummy objects placed in the view by clicking the `Delete All Objects` button in the toolbar.
 
     You can also use these objects interactively.
 
-![set-interactive-dummy-car](images/planning/lane-following/check-interactive.png) 5. Click the `Interactive` button in the toolbar to make the dummy object interactive.
+   ![set-interactive-dummy-car](images/planning/lane-following/check-interactive.png)
 
-![move-interactive-dummy-car](images/planning/lane-following/move-dummy-object.png) 6. Press the `Shift button` with the `right click` and move the object to the desired position.
+5. Click the `Interactive` button in the toolbar to make the dummy object interactive.
+
+   ![move-interactive-dummy-car](images/planning/lane-following/move-dummy-object.png)
+
+6. Press the `Shift button` with the `right click` and move the object to the desired position.
 
 ### Traffic light recognition simulation
 
