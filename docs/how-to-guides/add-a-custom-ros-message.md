@@ -7,22 +7,21 @@ During the Autoware development, you will probably need to define your own messa
 ## How to create custom message
 
 Make sure you are in the Autoware workspace, and then run the following command to create a new package. 
-
 For example we create a package to define sensor messages.
+
 1. Create a package
 
    ```console
    ros2 pkg create --build-type ament_cmake autoware_sensing_msgs
    ```
 
-1. Create custom messages
+2. Create custom messages
 
    You should create `.msg` files and place them in the `msg` directory.
 
    **NOTE**:  The initial letters of the `.msg` and `.srv` files must be capitalized. 
 
    For example we make msg files `GnssInsOrientation.msg` and `GnssInsOrientationStamped.msg` to define GNSS INS orientation messages:
-
 
    ```console
    mkdir msg
@@ -36,8 +35,8 @@ For example we create a package to define sensor messages.
     ```c++
     geometry_msgs/Quaternion orientation
     float32 rmse_rotation_x
-    float32 rmse_rotation_x
-    float32 rmse_rotation_x
+    float32 rmse_rotation_y
+    float32 rmse_rotation_z
     ``` 
 
     In this case, the custom message uses a message from another message package `geometry_msgs/Quaternion`.
@@ -51,24 +50,22 @@ For example we create a package to define sensor messages.
 
     In this case, the custom message uses a message from another message package `std_msgs/Header`.
 
-1. CmakeList.txt
+3. CmakeList.txt
 
    In order to use this custom message in `C++` or `Python` languages, we need add the following lines to `CmakeList.txt`:
 
    ```cmake
-   set(msg_files
-   "msg/GnssInsOrientation.msg"
-   "msg/GnssInsOrientationStamped.msg")
-   set(msg_dependencies
-   geometry_msgs
-   std_msgs)
    rosidl_generate_interfaces(${PROJECT_NAME}
-   ${msg_files}
-   DEPENDENCIES ${msg_dependencies}
-   ADD_LINTER_TESTS)
-   ```                                
-   
-1. package.xml
+     "msg/GnssInsOrientation.msg"
+     "msg/GnssInsOrientationStamped.msg"
+     DEPENDENCIES
+       geometry_msgs
+       std_msgs
+     ADD_LINTER_TESTS
+   )
+   ```                              
+
+4. package.xml
 
    We need to declare relevant dependencies in `package.xml`. For the above example we need to add the following content:
 
@@ -80,7 +77,7 @@ For example we create a package to define sensor messages.
    <member_of_group>rosidl_interface_packages</member_of_group>
    ```
 
-1. Build the custom message package
+5. Build the custom message package
 
    You can build the package in the root of your workspace, for example by running the following command:
 
