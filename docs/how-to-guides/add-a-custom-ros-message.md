@@ -2,26 +2,26 @@
 
 ## Description
 
-During the autoware development, you will probably need to define your own messages, The page only list a simple example of add a custom message to autoware, for basic tutorial see [Create custom msg and srv files](http://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.html). 
+During the Autoware development, you will probably need to define your own messages, This page lists a simple example of adding a custom message to Autoware, For the general ROS2 tutorial see [Create custom msg and srv files](http://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.html). 
 
 ## How to create custom message
 
-Make sure you are in the autoware workspace, and then run the following command to create a new pakage. 
+Make sure you are in the Autoware workspace, and then run the following command to create a new package. 
 
-For example we create a package to define sensor message.
+For example we create a package to define sensor messages.
 1. Create a package
 
    ```console
    ros2 pkg create --build-type ament_cmake autoware_sensing_msgs
    ```
 
-1. Create custom message
+1. Create custom messages
 
-   You should create `.msg` file and placed it in `msg` derectory.
+   You should create `.msg` files and place them in the `msg` directory.
 
    **NOTE**:  The initial letters of the `.msg` and `.srv` files must be capitalized. 
 
-   For example we make  msg files `GnssInsOrientation.msg` and `GnssInsOrientationStamped.msg` to define GNSS INS orientation message:
+   For example we make msg files `GnssInsOrientation.msg` and `GnssInsOrientationStamped.msg` to define GNSS INS orientation messages:
 
 
    ```console
@@ -70,7 +70,7 @@ For example we create a package to define sensor message.
    
 1. package.xml
 
-   We need to declare a relevant dependencies in `package.xml`. In up example we need add following contents:
+   We need to declare relevant dependencies in `package.xml`. For the above example we need to add the following content:
 
    ```xml
    <depend>geometry_msgs</depend>
@@ -82,29 +82,19 @@ For example we create a package to define sensor message.
 
 1. Build the custom message package
 
-   You can build the package in the root of workspace, for example run the following command:
+   You can build the package in the root of your workspace, for example by running the following command:
 
    ```console
    colcon build --packages-select autoware_sensing_msgs
    ```
 
-   Now the GnssInsOrientationStamped message will be discoverable by other packages in autoware.
+   Now the GnssInsOrientationStamped message will be discoverable by other packages in Autoware.
+
 ## How to use custom message in autoware
 
-You can use the custom messages in autoware by following steps:
+You can use the custom messages in Autoware by following these steps:
+
 - add dependency in `package.xml`
+   - E.g., `<depend>autoware_sensing_msgs</depend>`.
 - include the `.hpp` file of the relevant message in the code.
-
-For up example:
-
-We should add following contents in the `package.xml`:
-
-```xml
-<depend>autoware_sensing_msgs</depend>
-```
-
-we should add following contents in the code:
-
-```c++
-#include <autoware_sensing_msgs/msg/gnss_ins_orientation_stamped.hpp>
-```
+   - E.g., `#include <autoware_sensing_msgs/msg/gnss_ins_orientation_stamped.hpp>`.
