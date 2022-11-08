@@ -50,7 +50,7 @@ For example we create a package to define sensor messages.
 
     In this case, the custom message uses a message from another message package `std_msgs/Header`.
 
-3. CmakeList.txt
+3. CmakeLists.txt
 
    In order to use this custom message in `C++` or `Python` languages, we need add the following lines to `CmakeList.txt`:
 
@@ -63,7 +63,25 @@ For example we create a package to define sensor messages.
        std_msgs
      ADD_LINTER_TESTS
    )
-   ```                              
+   ```
+
+   :speech_balloon: The `ament_cmake_auto` tool is very useful and is more widely used in Autoware, so we recommend using `ament_cmake_auto` instead of `ament_cmake`. 
+
+   We need to replace
+
+   ```cmake
+   find_package(ament_cmake REQUIRED)
+
+   ament_package()
+   ```
+
+   with
+
+   ```cmake
+   find_package(ament_cmake_auto REQUIRED)
+
+   ament_auto_package()
+   ```
 
 4. package.xml
 
@@ -76,6 +94,8 @@ For example we create a package to define sensor messages.
    <exec_depend>rosidl_default_runtime</exec_depend>
    <member_of_group>rosidl_interface_packages</member_of_group>
    ```
+   
+   We need to replace `<buildtool_depend>ament_cmake</buildtool_depend>` with `<buildtool_depend>ament_cmake_auto</buildtool_depend>` in the package.xml file.
 
 5. Build the custom message package
 
