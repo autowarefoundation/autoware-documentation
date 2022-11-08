@@ -106,7 +106,7 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: t
 5. Click the `Interactive` button in the toolbar to make the dummy object interactive.
 
   
- ![set-interactive-dummy-car](images/planning/lane-following/check-interactive.png)
+   ![set-interactive-dummy-car](images/planning/lane-following/check-interactive.png)
 
 
 6. For adding an interactive dummy object, press `SHIFT` and click the `right button`.
