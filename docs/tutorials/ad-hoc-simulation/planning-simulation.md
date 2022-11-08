@@ -104,9 +104,9 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: t
 
    ![set-interactive-dummy-car](images/planning/lane-following/check-interactive.png)
 
-6. For adding an interactive dummy object, press `SHIFT` and click the `right button`.
-7. For deleting an interactive dummy object, press `ALT` and click the `right button`.
-8. For moving an interactive dummy object, hold the `right button` + drag and drop the object.
+6. For adding an interactive dummy object, press `SHIFT` and click the `right click`.
+7. For deleting an interactive dummy object, press `ALT` and click the `right click`.
+8. For moving an interactive dummy object, hold the `right click` drag and drop the object.
 
    ![move-interactive-dummy-car](images/planning/lane-following/move-dummy-object.png)
 
