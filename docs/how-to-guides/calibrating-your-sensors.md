@@ -19,7 +19,14 @@ Autoware expects to have multiple sensors attached to the vehicle as input to pe
 
 ## Lidar-camera calibration
 
-TBD
+Developed by MathWorks, The Lidar Camera Calibrator app enables you to interactively estimate the rigid transformation between a lidar sensor and a camera.
+
+<https://ww2.mathworks.cn/help/lidar/ug/get-started-lidar-camera-calibrator.html>
+
+SensorsCalibration toolbox v0.1: One more open source method for Lidar-camera calibration.
+This is a project for LiDAR to camera calibration,including automatic calibration and manual calibration
+
+<https://github.com/PJLab-ADG/SensorsCalibration/blob/master/lidar2camera/README.md>
 
 ## Lidar-IMU calibration
 
