@@ -6,4 +6,4 @@
 
 ## Contributions
 
-To contribute to this repository, see the [corresponding guidelines](https://autowarefoundation.github.io/autoware-documentation/main/contributing/documentation-guidelines/).
+To contribute to this repository, see the [documentation guidelines](https://autowarefoundation.github.io/autoware-documentation/main/contributing/documentation-guidelines/).
