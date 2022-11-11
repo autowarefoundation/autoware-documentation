@@ -5,12 +5,15 @@ on:
     branches:
       - main
       - galactic
+      - rc/*
     paths:
       - mkdocs.yaml
       - "**/*.md"
       - "**/*.svg"
       - "**/*.png"
       - "**/*.jpg"
+    tags:
+      - \d+.\d+
   pull_request_target:
     types:
       - opened
