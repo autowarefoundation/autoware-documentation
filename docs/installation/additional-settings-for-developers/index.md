@@ -75,7 +75,7 @@ Refer to [ROS 2 documentation](https://docs.ros.org/en/humble/How-To-Guides/DDS-
 
 ### Tuning DDS for multiple host computers (for advanced users)
 
-When Autoware runs on multiple host computers, IP Fragmentation should be taken account of. As [ROS 2 documentation](https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html#cross-vendor-tuning) recommends, parameters for IP Fragmentation should be given as well as the following example.
+When Autoware runs on multiple host computers, IP Fragmentation should be taken into account. As [ROS 2 documentation](https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html#cross-vendor-tuning) recommends, parameters for IP Fragmentation should be set as shown in the following example.
 
 ```bash
 sudo sysctl net.ipv4.ipfrag_time=3
