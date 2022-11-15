@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - galactic
-      - rc/*
+      - beta/*
     paths:
       - mkdocs.yaml
       - "**/*.md"
