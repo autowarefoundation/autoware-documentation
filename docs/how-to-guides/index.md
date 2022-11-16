@@ -8,6 +8,7 @@
 - [Running Autoware without CUDA](running-autoware-without-cuda.md)
 - [Calibrating your sensors](calibrating-your-sensors.md)
 - [Applying Clang-Tidy to ROS packages](applying-clang-tidy-to-ros-packages.md)
+- [Evaluating controller performance](evaluating-controller-performance.md)
 
 TODO: Write the following contents.
 
