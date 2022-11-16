@@ -85,7 +85,9 @@ For more details, please refer to the design documents in each package.
 
 ## Notation
 
-[1] To support the self-crossing road and overlapped road in the opposite direction, each planning module has to meet the [specifications](https://autowarefoundation.github.io/autoware.universe/main/common/motion_utils/)
+### [1] self-crossing road and overlapped
+
+To support the self-crossing road and overlapped road in the opposite direction, each planning module has to meet the [specifications](https://autowarefoundation.github.io/autoware.universe/main/common/motion_utils/)
 
 Currently, the supported modules are as follows.
 
@@ -96,3 +98,7 @@ Currently, the supported modules are as follows.
 - obstacle_avoidance_planner
 - obstacle_stop_planner
 - motion_velocity_smoother
+
+#### [2] Size of Path Points
+
+Some functions do not support paths with only one point. Therefore, each modules should generate the path with more than two path points.
