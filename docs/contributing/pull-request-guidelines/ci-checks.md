@@ -79,4 +79,4 @@ For the details about self-hosted runners, refer to [GitHub Docs](https://docs.g
 ## deploy-docs
 
 This workflow deploys the preview documentation site for the pull request.  
-You need to add the `documentation` label to run this workflow.
+You need to add the `deploy-docs` label to run this workflow.
