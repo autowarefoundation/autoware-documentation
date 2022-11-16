@@ -38,7 +38,7 @@ Follow the steps below.
 2. Add the `deploy-docs` label from the sidebar (See below figure).
 3. Wait for a couple of minutes, and the `github-actions` bot will notify the URL for the pull request's preview.
 
-![documentation-label](images/documentation-label-for-pull-request.png){ width="800" }
+![deploy-docs-label](images/deploy-docs-label-for-pull-request.png){ width="800" }
 
 #### 2. Running an MkDocs server in your local environment
 
