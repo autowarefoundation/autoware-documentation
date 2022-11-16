@@ -1,0 +1,15 @@
+# JetBrains IDEs
+/.idea/
+
+# Python
+*.pyc
+
+# Vim
+*.swp
+*.swo
+
+# Visual Studio Code
+.vscode/
+.history/
+*.code-workspace
+*.vsix

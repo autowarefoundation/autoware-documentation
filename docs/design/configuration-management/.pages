@@ -1,0 +1,5 @@
+nav:
+  - index.md
+  - development-process.md
+  - repository-structure.md
+  - release-process.md

@@ -1,0 +1,22 @@
+- repository: autowarefoundation/autoware
+  files:
+    - source: CODE_OF_CONDUCT.md
+    - source: CONTRIBUTING.md
+    - source: DISCLAIMER.md
+    - source: LICENSE
+    - source: .github/ISSUE_TEMPLATE/config.yml
+    - source: .github/ISSUE_TEMPLATE/task.yaml
+    - source: .github/dependabot.yaml
+    - source: .github/stale.yml
+    - source: .github/workflows/github-release.yaml
+    - source: .github/workflows/pre-commit.yaml
+    - source: .github/workflows/pre-commit-optional.yaml
+    - source: .github/workflows/semantic-pull-request.yaml
+    - source: .github/workflows/spell-check-differential.yaml
+    - source: .github/workflows/sync-files.yaml
+    - source: .markdown-link-check.json
+    - source: .markdownlint.yaml
+    - source: .pre-commit-config-optional.yaml
+    - source: .prettierignore
+    - source: .prettierrc.yaml
+    - source: .yamllint.yaml
