@@ -76,7 +76,7 @@ You might need to log out and log back to make the current user able to use dock
    - If you want to run container without using NVIDIA GPU, or for arm64 architecture computers:
 
      ```bash
-     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
+     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:humble-latest-cuda-arm64
      ```
 
      For detailed reason could be found [here](#docker-with-nvidia-gpu-fails-to-start-autoware-on-arm64-devices)
