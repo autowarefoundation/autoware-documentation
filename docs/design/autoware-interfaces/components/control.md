@@ -43,7 +43,7 @@ TODO This represents the reported physical efforts exerted by the vehicle actuat
 
 A motion signal to drive the vehicle, achieved by the low-level controller in the vehicle layer. Used by the Vehicle Interface.
 
-- [autoware_auto_control_msgs/AckermannControlCommand](<https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl>
+- [autoware_auto_control_msgs/AckermannControlCommand](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl)
   - builtin_interfaces::msg::Time stamp
   - [autoware_auto_control_msgs/AckermannLateralCommand](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannLateralCommand.idl) lateral
     - builtin_interfaces::msg::Time stamp

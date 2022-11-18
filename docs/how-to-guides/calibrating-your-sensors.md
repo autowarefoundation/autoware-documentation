@@ -6,7 +6,10 @@ Autoware expects to have multiple sensors attached to the vehicle as input to pe
 
 ## Camera calibration
 
-Navigation2 provides a [good tutorial for camera internal calibration](https://navigation.ros.org/tutorials/docs/camera_calibration.html).
+### Intrinsic Calibration
+
+- Navigation2 provides a [good tutorial for camera internal calibration](https://navigation.ros.org/tutorials/docs/camera_calibration.html).
+- [AutoCore](https://autocore.ai/) provides a [light-weight tool](https://github.com/autocore-ai/calibration_tools/tree/main/camera_intrinsic_calib).
 
 ## Lidar-lidar calibration
 
@@ -16,7 +19,14 @@ Navigation2 provides a [good tutorial for camera internal calibration](https://n
 
 ## Lidar-camera calibration
 
-TBD
+Developed by MathWorks, The Lidar Camera Calibrator app enables you to interactively estimate the rigid transformation between a lidar sensor and a camera.
+
+<https://ww2.mathworks.cn/help/lidar/ug/get-started-lidar-camera-calibrator.html>
+
+SensorsCalibration toolbox v0.1: One more open source method for Lidar-camera calibration.
+This is a project for LiDAR to camera calibration,including automatic calibration and manual calibration
+
+<https://github.com/PJLab-ADG/SensorsCalibration/blob/master/lidar2camera/README.md>
 
 ## Lidar-IMU calibration
 
