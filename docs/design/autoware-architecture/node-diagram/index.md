@@ -11,4 +11,4 @@ TBD.
 ![Node diagram](overall-node-diagram-autoware-universe.drawio.svg)
 Note that the diagram is for reference. We are planning to update this diagram every release and may have old information between the releases.
 If you wish to check the latest node diagram use rqt_graph after launching the Autoware.
-[Open in draw.io for fullscreen]({{ "latest/design/node-diagram/overall-node-diagram-autoware-universe.drawio.svg" | drawio }})
+[Open in draw.io for fullscreen]({{ "design/autoware-architecture/node-diagram/overall-node-diagram-autoware-universe.drawio.svg" | drawio }})
