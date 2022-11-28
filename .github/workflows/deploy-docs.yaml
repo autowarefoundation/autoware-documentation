@@ -3,7 +3,7 @@ name: deploy-docs
 on:
   push:
     branches:
-      - main
+      - tier4/main
     paths:
       - mkdocs.yaml
       - "**/*.md"

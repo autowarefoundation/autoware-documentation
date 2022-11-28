@@ -1,0 +1,135 @@
+external/get/version:
+  behavior: service
+  type: autoware_external_api_msgs/srv/GetVersion
+external/get/metadata/packages:
+  behavior: service
+  type: tier4_external_api_msgs/srv/GetMetadataPackages
+external/set/service:
+  behavior: service
+  type: tier4_external_api_msgs/srv/SetService
+external/get/service:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/Service
+external/get/diagnostics:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/ClassifiedDiagnostics
+external/set/engage:
+  behavior: service
+  type: tier4_external_api_msgs/srv/Engage
+external/get/engage:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/EngageStatus
+external/set/emergency:
+  behavior: service
+  type: tier4_external_api_msgs/srv/SetEmergency
+external/get/emergency:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/Emergency
+external/set/door:
+  behavior: service
+  type: tier4_external_api_msgs/srv/SetDoor
+external/get/door:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/DoorStatus
+external/get/vehicle/status:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/VehicleStatusStamped
+external/set/initialize_pose:
+  behavior: service
+  type: tier4_external_api_msgs/srv/InitializePose
+external/set/initialize_pose_auto:
+  behavior: service
+  type: tier4_external_api_msgs/srv/InitializePoseAuto
+external/get/localization_scores:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/LocalizationScoreArray
+external/set/route:
+  behavior: service
+  type: tier4_external_api_msgs/srv/SetRoute
+external/get/route:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/Route
+external/set/clear_route:
+  behavior: service
+  type: tier4_external_api_msgs/srv/ClearRoute
+external/set/operator:
+  behavior: service
+  type: tier4_external_api_msgs/srv/SetOperator
+external/get/operator:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/Operator
+external/set/observer:
+  behavior: service
+  type: tier4_external_api_msgs/srv/SetObserver
+external/get/observer:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/Observer
+external/get/map/info/hash:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/MapHash
+external/get/map/lanelet/xml:
+  behavior: service
+  type: tier4_external_api_msgs/srv/GetTextFile
+external/set/pause_driving:
+  behavior: service
+  type: tier4_external_api_msgs/srv/PauseDriving
+external/set/velocity_limit:
+  behavior: service
+  type: tier4_external_api_msgs/srv/SetVelocityLimit
+external/set/command/local/control:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/ControlCommandStamped
+external/set/command/local/shift:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/GearShiftStamped
+external/set/command/local/turn_signal:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/TurnSignalStamped
+external/set/command/local/heartbeat:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/Heartbeat
+external/set/command/remote/control:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/ControlCommandStamped
+external/set/command/remote/shift:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/GearShiftStamped
+external/set/command/remote/turn_signal:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/TurnSignalStamped
+external/set/command/remote/heartbeat:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/Heartbeat
+external/get/command/selected/control:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/ControlCommandStamped
+external/get/command/selected/vehicle:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/ControlCommandStamped
+external/set/rosbag_logging_mode:
+  behavior: service
+  type: tier4_external_api_msgs/srv/SetRosbagLoggingMode
+external/get/rosbag_logging_mode:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/RosbagLoggingMode
+external/get/calibration_status:
+  behavior: topic
+  type: tier4_external_api_msgs/msg/CalibrationStatusArray
+external/get/accel_brake_map_calibrator/data:
+  behavior: service
+  type: tier4_external_api_msgs/srv/GetAccelBrakeMapCalibrationData
+iv_msgs/autoware/state:
+  behavior: topic
+  type: tier4_system_msgs/msg/AutowareState
+iv_msgs/vehicle/status/control_mode:
+  behavior: topic
+  type: tier4_vehicle_msgs/msg/ControlMode
+iv_msgs/planning/scenario_planning/trajectory:
+  behavior: topic
+  type: tier4_planning_msgs/msg/Trajectory
+iv_msgs/perception/object_recognition/tracking/objects:
+  behavior: topic
+  type: tier4_perception_msgs/msg/DynamicObjectArray
+autoware/set/start_request:
+  behavior: service
+  type: std_srvs/srv/Trigger
