@@ -28,8 +28,13 @@
 
 2. You can install the dependencies either manually or using the provided Ansible script.
 
+> Note: Before installing NVIDIA libraries, confirm and agree with the licenses.
+
+- [CUDA](https://docs.nvidia.com/cuda/eula/index.html)
+
 ### Installing dependencies manually
 
+- [Install Nvidia CUDA](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/cuda#manual-installation)
 - [Install Docker Engine](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/docker_engine#manual-installation)
 - [Install NVIDIA Container Toolkit](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/nvidia_docker#manual-installation)
 - [Install rocker](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rocker#manual-installation)
