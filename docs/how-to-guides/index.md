@@ -1,7 +1,7 @@
 # How-to guides
 
 - [Advanced usage of colcon](advanced-usage-of-colcon.md)
-- [Creating maps for Autoware](creating-maps-for-autoware.md)
+- [Creating maps for Autoware](creating-maps-for-autoware/index.md)
 - [Determining component dependencies](determining-component-dependencies.md)
 - [Integrating Autoware with your vehicle](integrating-autoware-with-your-vehicle.md)
 - [Integrating Autoware with a differential drive vehicle](integrating-autoware-with-a-diff-drive-vehicle.md)
