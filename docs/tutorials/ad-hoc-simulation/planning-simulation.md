@@ -91,12 +91,12 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: t
 1. Click the `2D Dummy Car` or `2D Dummy Pedestrian` button in the toolbar.
 2. Set the pose of the dummy object by clicking and dragging on the map.
 3. Set the velocity of the object in `Tool Properties -> 2D Dummy Car/Pedestrian` panel.
- 
+
    !!! note
 
-      Changes to the `velocity` parameter will only affect objects placed after the parameter is changed.
+   Changes to the `velocity` parameter will only affect objects placed after the parameter is changed.
 
-      ![set-dummy-car](images/planning/lane-following/place-dummy-car.png)
+   ![set-dummy-car](images/planning/lane-following/place-dummy-car.png)
 
 4. Delete any dummy objects placed in the view by clicking the `Delete All Objects` button in the toolbar.
 
@@ -109,7 +109,6 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: t
 8. For moving an interactive dummy object, hold the `right click` drag and drop the object.
 
    ![move-interactive-dummy-car](images/planning/lane-following/move-dummy-object.png)
-
 
 ### Traffic light recognition simulation
 
