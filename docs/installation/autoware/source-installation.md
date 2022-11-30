@@ -100,7 +100,7 @@ If you've manually installed the dependencies, you can skip this section.
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
 
-   If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting/#build-issues).
+   If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting.md#build-issues).
 
 ## How to update a workspace
 

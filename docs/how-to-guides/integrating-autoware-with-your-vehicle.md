@@ -4,7 +4,7 @@
 
 Prerequisites for the vehicle:
 
-- An onboard computer that satisfies the [Autoware installation prerequisites](../installation/autoware/source-installation/index.md#prerequisites)
+- An onboard computer that satisfies the [Autoware installation prerequisites](../installation/autoware/source-installation.md#prerequisites)
 - The following devices attached
   - Drive-by-wire interface
   - LiDAR
@@ -114,7 +114,7 @@ The package is expected to provide the following two functions.
 1. Receive command messages from `vehicle_cmd_gate` and drive the vehicle accordingly
 2. Send vehicle status information to Autoware
 
-You can find detailed information about the requirements of the `vehicle_interface` package in the [Vehicle Interface design documentation](../design/autoware-interfaces/components/vehicle-interface/).
+You can find detailed information about the requirements of the `vehicle_interface` package in the [Vehicle Interface design documentation](../design/autoware-interfaces/components/vehicle-interface.md).
 You can also refer to TIER IV's [pacmod_interface repository](https://github.com/tier4/pacmod_interface) as an example of a vehicle interface package.
 
 ## 6. Launch Autoware
