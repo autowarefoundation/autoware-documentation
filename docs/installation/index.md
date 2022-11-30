@@ -35,7 +35,7 @@ For details of how to enable object detection and traffic light detection/classi
 
 There are two ways to set up Autoware. Choose one according to your preference.
 
-If any issues occur during installation, refer to the [Support page](https://autowarefoundation.github.io/autoware-documentation/main/support).
+If any issues occur during installation, refer to the [Support page](../support).
 
 ### 1. Docker installation
 
