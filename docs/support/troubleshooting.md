@@ -148,7 +148,7 @@ docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:latest
 
 ### Map does not display when running the Planning Simulator
 
-When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because [the map path has not been specified correctly in the launch command](https://autowarefoundation.github.io/autoware-documentation/main/tutorials/ad-hoc-simulation/planning-simulation/#how-to-run-a-planning-simulation). You can confirm if this is the case by searching for `Could not find lanelet map under {path-to-map-dir}/lanelet2_map.osm` errors in the log.
+When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because [the map path has not been specified correctly in the launch command](../tutorials/ad-hoc-simulation/planning-simulation.md#how-to-run-a-planning-simulation). You can confirm if this is the case by searching for `Could not find lanelet map under {path-to-map-dir}/lanelet2_map.osm` errors in the log.
 
 Another possible reason is that map loading is taking a long time due to poor DDS performance. To address this issue, first enable localhost-only communication to reduce network traffic, and then [tune DDS settings](https://docs.ros.org/en/rolling/How-To-Guides/DDS-tuning.html) if the problem continues to occur.
 
