@@ -4,7 +4,7 @@
 
 Prerequisites for the vehicle:
 
-- An onboard computer that satisfies the [Autoware installation prerequisites](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#prerequisites)
+- An onboard computer that satisfies the [Autoware installation prerequisites](../installation/autoware/source-installation/#prerequisites)
 - The following devices attached
   - Drive-by-wire interface
   - LiDAR
@@ -100,7 +100,7 @@ Create `launch/sensing.launch.xml` that launches the interfaces of all the senso
 !!! note
 
     At this point, you are now able to run Autoware's Planning Simulator to do a basic test of your vehicle and sensing packages.
-    To do so, you need to build and install Autoware using your cloned repository. Follow the [steps for either Docker or source installation](https://autowarefoundation.github.io/autoware-documentation/main/installation/) (starting from the dependency installation step) and then run the following command:
+    To do so, you need to build and install Autoware using your cloned repository. Follow the [steps for either Docker or source installation](../installation/) (starting from the dependency installation step) and then run the following command:
 
     ```bash
     ros2 launch autoware_launch planning_simulator.launch.xml vehicle_model:=YOUR_VEHICLE sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP
@@ -114,7 +114,7 @@ The package is expected to provide the following two functions.
 1. Receive command messages from `vehicle_cmd_gate` and drive the vehicle accordingly
 2. Send vehicle status information to Autoware
 
-You can find detailed information about the requirements of the `vehicle_interface` package in the [Vehicle Interface design documentation](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/).
+You can find detailed information about the requirements of the `vehicle_interface` package in the [Vehicle Interface design documentation](../design/autoware-interfaces/components/vehicle-interface/).
 You can also refer to TIER IV's [pacmod_interface repository](https://github.com/tier4/pacmod_interface) as an example of a vehicle interface package.
 
 ## 6. Launch Autoware
@@ -123,7 +123,7 @@ This section briefly explains how to run your vehicle with Autoware.
 
 ### Install Autoware
 
-Follow the [installation steps of Autoware](https://autowarefoundation.github.io/autoware-documentation/main/installation/).
+Follow the [installation steps of Autoware](../installation/).
 
 ### Launch Autoware
 
