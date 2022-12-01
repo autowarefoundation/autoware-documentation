@@ -5,12 +5,10 @@
 - OS
 
   - [Ubuntu 20.04](https://releases.ubuntu.com/20.04/)
-  - [Ubuntu 22.04](https://releases.ubuntu.com/22.04/)
 
 - ROS
 
   - ROS 2 Galactic
-  - ROS 2 Humble
 
   For ROS 2 system dependencies, refer to [REP-2000](https://www.ros.org/reps/rep-2000.html).
 
@@ -27,14 +25,7 @@ sudo apt-get -y install git
 1. Clone `autowarefoundation/autoware` and move to the directory.
 
    ```bash
-   git clone https://github.com/autowarefoundation/autoware.git
-   cd autoware
-   ```
-
-   If you want to use ROS 2 Humble, use the `humble` branch.
-
-   ```bash
-   git clone https://github.com/autowarefoundation/autoware.git -b humble
+   git clone https://github.com/autowarefoundation/autoware.git -b galactic
    cd autoware
    ```
 
