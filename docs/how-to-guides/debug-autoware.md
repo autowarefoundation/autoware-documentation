@@ -18,7 +18,7 @@ Debug macros are very important in C programming, they are usually used to print
    ```cpp
    #define DEBUG_INFO(...) {if(show_debug_info_){RCLCPP_INFO(__VA_ARGS__);}}
    ```
-   
+
    **NOTE**: `__VA_ARGS__` is a variable argument macro.
 
    Next, you can use `DEBUG_INFO` to output debug information.
@@ -26,6 +26,7 @@ Debug macros are very important in C programming, they are usually used to print
 3. Output debug information
 
    We use `ekf_localizer` module as an example:
+
    ```cpp
    DEBUG_INFO(get_logger(), "[EKF] predictKinematicsModel calc time = %f [ms]", stop_watch_.toc());
    ```
