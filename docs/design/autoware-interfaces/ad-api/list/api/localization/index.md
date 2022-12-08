@@ -1,4 +1,4 @@
-# Pose API
+# Localization API
 
 - {{ link_ad_api('/api/localization/initialization_state') }}
 - {{ link_ad_api('/api/localization/initialize') }}

@@ -2,7 +2,7 @@
 
 ## Format
 
-All messages should follow [ROS message description specification](https://docs.ros.org/en/galactic/Concepts/About-ROS-Interfaces.html#background).
+All messages should follow [ROS message description specification](https://docs.ros.org/en/humble/Concepts/About-ROS-Interfaces.html#background).
 
 The accepted formats are:
 
@@ -53,7 +53,7 @@ For non-default units, use following suffixes:
 
 ## Message field types
 
-For list of types supported by the ROS interfaces [see here](https://docs.ros.org/en/galactic/Concepts/About-ROS-Interfaces.html#field-types).
+For list of types supported by the ROS interfaces [see here](https://docs.ros.org/en/humble/Concepts/About-ROS-Interfaces.html#field-types).
 
 Also copied here for convenience:
 
