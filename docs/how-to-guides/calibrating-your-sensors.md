@@ -28,7 +28,7 @@ This is a project for LiDAR to camera calibration,including automatic calibratio
 
 <https://github.com/PJLab-ADG/SensorsCalibration/blob/master/lidar2camera/README.md>
 
-Developed by [AutoCore](https://autocore.ai/), an easy-used lightweight toolkit for Lidar-camera-calibration is proposed. Only in three steps, a fully automatic calibration will be done.
+Developed by [AutoCore](https://autocore.ai/), an easy-to-use lightweight toolkit for Lidar-camera-calibration is proposed. Only in three steps, a fully automatic calibration will be done.
 
 <https://github.com/autocore-ai/calibration_tools/tree/main/lidar-cam-calib-related>
 
