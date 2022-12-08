@@ -23,16 +23,20 @@ In launching Autoware, you need a "parameter configuration file" for each compon
 ```
 
 ## Adding a new `Launch Parameter`
+
 If you want to customize the parameter for a package, a recommended way is to create a new `Launch Parameter` file.
 
 - Add the parameter file in `autoware_launch/config`
 - Write a path to the parameter file in the parameter configuration file (e.g. `autoware_launch/launch/params/tier4_planning_params.launch.xml`)
+
 ```
   ...
   <arg name="package_A_param_path" default="$(find-pkg-share autoware_launch)/config/planning/package_A_customized.param.yaml"/>
   ...
 ```
+
 - Load the parameter using the above argument, e.g. as follows.
+
 ```
   ...
   <include file="$(find-pkg-share package_A)/launch/package_A.launch.xml>
@@ -41,6 +45,6 @@ If you want to customize the parameter for a package, a recommended way is to cr
   ...
 ```
 
+## Maintaining your custom parameters
 
-## Maintaining your custom parameters#
 For example, if you want to integrate Autoware with your vehicles, you may need to tune some parameters in Autoware. In this case, you may need to maintain your custom parameters somehow. A recommended way is to use the `Launch Parameter` in `autowarefoundation/autoware_launch` as your custom parameters. Please fork the repository (e.g. `YOUR_ACCOUNT/autoware_launch.YOURS`) and modify the parameters as you want.
