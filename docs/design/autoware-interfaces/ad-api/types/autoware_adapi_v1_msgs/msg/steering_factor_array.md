@@ -12,3 +12,7 @@ autoware_adapi_v1_msgs/SteeringFactor[] factors
 ## This type uses
 
 - [autoware_adapi_v1_msgs/msg/SteeringFactor](../../autoware_adapi_v1_msgs/msg/steering_factor.md)
+
+## This type is used by
+
+None

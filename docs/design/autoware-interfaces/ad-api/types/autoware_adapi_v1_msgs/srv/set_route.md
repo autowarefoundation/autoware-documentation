@@ -19,3 +19,7 @@ autoware_adapi_v1_msgs/ResponseStatus status
 
 - [autoware_adapi_v1_msgs/msg/ResponseStatus](../../autoware_adapi_v1_msgs/msg/response_status.md)
 - [autoware_adapi_v1_msgs/msg/RouteSegment](../../autoware_adapi_v1_msgs/msg/route_segment.md)
+
+## This type is used by
+
+None
