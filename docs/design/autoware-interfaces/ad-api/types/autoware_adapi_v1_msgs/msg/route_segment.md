@@ -12,3 +12,8 @@ autoware_adapi_v1_msgs/RoutePrimitive[] alternatives  # Does not include the pre
 ## This type uses
 
 - [autoware_adapi_v1_msgs/msg/RoutePrimitive](../../autoware_adapi_v1_msgs/msg/route_primitive.md)
+
+## This type is used by
+
+- [autoware_adapi_v1_msgs/msg/RouteData](../../autoware_adapi_v1_msgs/msg/route_data.md)
+- [autoware_adapi_v1_msgs/srv/SetRoute](../../autoware_adapi_v1_msgs/srv/set_route.md)
