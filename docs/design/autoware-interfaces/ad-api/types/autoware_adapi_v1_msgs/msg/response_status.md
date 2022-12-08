@@ -25,3 +25,12 @@ string message
 ## This type uses
 
 None
+
+## This type is used by
+
+- [autoware_adapi_v1_msgs/srv/AcceptStart](../../autoware_adapi_v1_msgs/srv/accept_start.md)
+- [autoware_adapi_v1_msgs/srv/ChangeOperationMode](../../autoware_adapi_v1_msgs/srv/change_operation_mode.md)
+- [autoware_adapi_v1_msgs/srv/ClearRoute](../../autoware_adapi_v1_msgs/srv/clear_route.md)
+- [autoware_adapi_v1_msgs/srv/InitializeLocalization](../../autoware_adapi_v1_msgs/srv/initialize_localization.md)
+- [autoware_adapi_v1_msgs/srv/SetRoute](../../autoware_adapi_v1_msgs/srv/set_route.md)
+- [autoware_adapi_v1_msgs/srv/SetRoutePoints](../../autoware_adapi_v1_msgs/srv/set_route_points.md)

@@ -12,3 +12,7 @@ string type  # The same id may be used for each type.
 ## This type uses
 
 None
+
+## This type is used by
+
+- [autoware_adapi_v1_msgs/msg/RouteSegment](../../autoware_adapi_v1_msgs/msg/route_segment.md)
