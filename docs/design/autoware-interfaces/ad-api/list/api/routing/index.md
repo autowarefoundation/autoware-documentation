@@ -18,7 +18,7 @@ There are two ways to set the route. The one is a generic method that uses pose,
 
 | State    | Description                                        |
 | -------- | -------------------------------------------------- |
-| WAITING  | The route is not set. Waiting for a route request. |
+| UNSET    | The route is not set. Waiting for a route request. |
 | SET      | The route is set.                                  |
 | ARRIVED  | The vehicle has arrived at the destination.        |
 | CHANGING | Trying to change the route. Not implemented yet.   |

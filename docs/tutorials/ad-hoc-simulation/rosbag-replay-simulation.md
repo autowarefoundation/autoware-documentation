@@ -56,3 +56,5 @@
 4. To switch the view to `Third Person Follower` etc, change the `Type` in the RViz Views panel.
 
    ![third-person-follower](images/rosbag-replay/third-person-follower.png)
+
+[Reference video tutorials](https://drive.google.com/file/d/12D6aSC1Y3Kf7STtEPWG5RYynxKdVcPrc/view?usp=sharing)

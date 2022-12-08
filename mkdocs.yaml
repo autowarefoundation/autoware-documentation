@@ -62,6 +62,9 @@ markdown_extensions:
   - attr_list
   - codehilite:
       guess_lang: false
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - fontawesome_markdown
   - footnotes
   - mdx_math

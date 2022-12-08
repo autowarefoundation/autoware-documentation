@@ -19,17 +19,15 @@
    cd autoware
    ```
 
-   If you want to use ROS 2 Humble, use the `humble` branch.
-
-   ```bash
-   git clone https://github.com/autowarefoundation/autoware.git -b humble
-   cd autoware
-   ```
-
 2. You can install the dependencies either manually or using the provided Ansible script.
+
+> Note: Before installing NVIDIA libraries, confirm and agree with the licenses.
+
+- [CUDA](https://docs.nvidia.com/cuda/eula/index.html)
 
 ### Installing dependencies manually
 
+- [Install Nvidia CUDA](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/cuda#manual-installation)
 - [Install Docker Engine](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/docker_engine#manual-installation)
 - [Install NVIDIA Container Toolkit](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/nvidia_docker#manual-installation)
 - [Install rocker](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rocker#manual-installation)
@@ -67,12 +65,6 @@ You might need to log out and log back to make the current user able to use dock
      rocker --nvidia --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
      ```
 
-   - If you want to use ROS 2 Humble:
-
-     ```bash
-     rocker --nvidia --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:humble-latest-cuda
-     ```
-
    - If you want to run container without using NVIDIA GPU, or for arm64 architecture computers:
 
      ```bash
@@ -104,7 +96,7 @@ You might need to log out and log back to make the current user able to use dock
    ```bash
    sudo apt update
    rosdep update
-   rosdep install --from-paths . --ignore-src --rosdistro $ROS_DISTRO
+   rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 
 5. Build the workspace.
@@ -112,6 +104,8 @@ You might need to log out and log back to make the current user able to use dock
    ```bash
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
+
+   If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting.md#build-issues).
 
 ## How to update a workspace
 
@@ -177,7 +171,7 @@ To fix this, restart your system after installing the new NVIDIA driver.
 When starting Docker with GPU support enabled for NVIDIA graphics on arm64 devices, e.g. NVIDIA jetson AGX xavier, you may receive the following error:
 
 ```bash
-nvidia@xavier:~$ rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:galactic-latest-cuda-arm64
+nvidia@xavier:~$ rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:humble-latest-cuda-arm64
 ...
 
 Collecting staticx==0.12.3
@@ -233,7 +227,7 @@ aarch64
 To run Autoware's Docker images of `arm64` architecture, add the suffix `-arm64`.
 
 ```sh-session
-$ docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:galactic-latest-cuda-arm64
+$ docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:humble-latest-cuda-arm64
 WARNING: The requested image's platform (linux/arm64) does not match the detected host platform (linux/amd64) and no specific platform was requested
 root@5b71391ad50f:/autoware#
 ```
