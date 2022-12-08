@@ -28,6 +28,10 @@ This is a project for LiDAR to camera calibration,including automatic calibratio
 
 <https://github.com/PJLab-ADG/SensorsCalibration/blob/master/lidar2camera/README.md>
 
+Developed by [AutoCore](https://autocore.ai/), an easy-used lightweight toolkit for Lidar-camera-calibration is proposed. Only in three steps, a fully automatic calibration will be done.
+
+<https://github.com/autocore-ai/calibration_tools/tree/main/lidar-cam-calib-related>
+
 ## Lidar-IMU calibration
 
 Developed by [APRIL Lab](https://github.com/APRIL-ZJU) at Zhejiang University in China, the LI-Calib calibration tool is a toolkit for calibrating the 6DoF rigid transformation and the time offset between a 3D LiDAR and an IMU, based on continuous-time batch optimization.
