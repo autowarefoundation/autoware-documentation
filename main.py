@@ -10,6 +10,7 @@ def define_env(env):
 
     @env.macro
     def link_ad_api(name):
-        root_path = "design/autoware-interfaces/ad-api"
-        base_path = os.path.relpath(root_path, env.page.url) + "/list"
-        return f"[{name}]({base_path}{name})"
+        full_path = "design/autoware-interfaces/ad-api/list" + name
+        link_path = os.path.relpath(full_path, env.page.url)
+        docs_path = os.path.join(env.conf["docs_dir"], full_path) + ".md"
+        return f"[{name}]({link_path})" if os.path.exists(docs_path) else name
