@@ -12,3 +12,7 @@ autoware_adapi_v1_msgs/ResourceHash[] hashes
 ## This type uses
 
 - [autoware_adapi_v1_msgs/msg/ResourceHash](../../autoware_adapi_v1_msgs/msg/resource_hash.md)
+
+## This type is used by
+
+None

@@ -12,3 +12,7 @@ string hash
 ## This type uses
 
 None
+
+## This type is used by
+
+- [autoware_adapi_v1_msgs/msg/ResourceHashArray](../../autoware_adapi_v1_msgs/msg/resource_hash_array.md)
