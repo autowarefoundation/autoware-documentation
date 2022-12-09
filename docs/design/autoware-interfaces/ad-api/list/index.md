@@ -1,6 +1,7 @@
 # List of Autoware AD API
 
 - [Interface](./api/interface/index.md)
+- [Resource](./api/resource/index.md)
 - [Operation Mode](./api/operation_mode/index.md)
 - [Routing](./api/routing/index.md)
 - [Localization](./api/localization/index.md)
