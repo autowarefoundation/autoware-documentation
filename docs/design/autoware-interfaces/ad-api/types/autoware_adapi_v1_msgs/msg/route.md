@@ -12,3 +12,7 @@ autoware_adapi_v1_msgs/RouteData[<=1] data
 ## This type uses
 
 - [autoware_adapi_v1_msgs/msg/RouteData](../../autoware_adapi_v1_msgs/msg/route_data.md)
+
+## This type is used by
+
+None
