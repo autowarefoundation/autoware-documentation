@@ -9,7 +9,7 @@ This API manages the initialization of localization. Autoware requires a global 
 
 ## States
 
-![localization-initialization_state-state](./state.drawio.svg)
+![localization-initialization-state](./state.drawio.svg)
 
 | State         | Description                                                                      |
 | ------------- | -------------------------------------------------------------------------------- |
