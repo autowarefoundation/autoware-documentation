@@ -4,105 +4,51 @@ ROS2 logging is a powerful tool for understanding and debugging ros node.
 
 The logging subsystem in ROS 2 delivers logging messages to a variety of targets, including console, disk and ROS2 network. 
 
-This page focus on console logging and shows some useful example in practice. for detailed information, please see [logging documentation](https://docs.ros.org/en/humble/Concepts/About-Logging.html).
+This page focus on console logging usage in autoware. 
 
-## API
-There are four pattern of logging function:
+## Overview
 
- ```bash
-RCLCPP_{severity}     
-RCLCPP_{severity}_STREAM
-RCLCPP_{severity}_{condition} 
-RCLCPP_{severity}_STREAM_{condition}  
- ```
-`STREAM` means output message in api is C++stream-style else printf style.
-
-`severity` have five choice: 
-
-- `DEBUG, INFO, WARN, ERROR or FATAL` 
-
-Set severity level to `DEBUG` only outputs message in debug mode.
-
-`condition`  choices are:
-
- - `THROTTLE` - output the given printf-style message no more than the given rate
- - `ONCE` - output the given printf-style message only the first time this line is hit
- - `EXPRESSION` - output the given printf-style message only if the given expression is true
- - `FUNCTION` - output the given printf-style message only if the given function returns true
- - `SKIPFIRST` - output the given printf-style message all but the first time this line is hit
-
-## Console output formatting
-Default output format is [{severity}] [{time}] [{name}]: {message}
-
-To change log output format in console:
+Console logging is commonly used in autoware, almost every module has logging, following are examples:
 ```bash
-export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})"
+RCLCPP_INFO(get_logger(), "Vehicle Disengage"); 
+RCLCPP_ERROR(rclcpp::get_logger("map_loader"), "lanelet2_map_projector_type is not supported");
 ```
-- {severity} - The severity level.
+Console logging shows useful message to help user to use, debug and learn the system.
 
-- {name} - The name of the logger (may be empty).
+For the detailed API usage, please see [ros2 logging API documentation](https://docs.ros.org/en/humble/Concepts/About-Logging.html#apis).
 
-- {message} - The log message (may be empty).
+## Guideline
+- **Check console logging when running system**
+  
+When autoware running, check console logging to know the system condition.
 
-- {function_name} - The function name this was called from (may be empty).
-
-- {file_name} - The file name this was called from (may be empty).
-
-- {time} - The time in seconds since the epoch.
-
-- {time_as_nanoseconds} - The time in nanoseconds since the epoch.
-
-- {line_number} - The line number this was called from (may be empty)
-
-## Examples
-let's assume a ros node named planner and format is [{severity}] [{name}]: {message}
-
-To record information every time the code executed somewhere inside planner function, you can do:
- ```bash
-RCLCPP_INFO(this->get_logger(), " status %d", 0); 
-RCLCPP_INFO_STREAM(this->get_logger(), "status " << 0);
- ```
->[INFO] [planner]: status 0
-
-To record messages in function outside planner node, create a logger object:
+the following log in initialization warns me to check the setup such as lanelet map.
 ```bash
-string object_type = "static car";
-auto logger = rclcpp::get_logger("obstacle_check");
-RCLCPP_WARN_STREAM(logger, *rclcpp::get_clock(), "meet obstacle: "<<object_type<<"!");
+[component_container_mt-28] [WARN] [1670838292.877830206] [planning.scenario_planning.lane_driving.motion_planning.obstacle_avoidance_planner]: failed to get transform from map to base_link: "map" passed to lookupTransform argument target_frame does not exist. 
 ```
->[WARN] [obstacle_check]: meet obstacle: static car!
+- **Severity in autoware**
+  
+`DEBUG`-> message only shows in debug mode, it is often used to debug autoware function and sanity check.
 
-To record a log message but no more one second a time, use throttled logger:
+`INFO`-> useful message about autoware such like node or container initialization, autonomous vehicle driving condition, autoware module function condition etc.
+
+`WARN`-> message that is not critical but should warn operator of autonomous vehicle, such as get vehicle infomation failed, optimization failed, etc.
+
+`ERROR`-> message that alerts operator the autoware system is not working correctly or not capable of autodriving anymore, such like empty reference trajectory, Emergency stop etc. 
+
+operator should take action according to it.
+
+- **Avoid terminal contamination**
+
+To avoid output too many logs in the console, try to use throttled logger interface, basically like this:
 ```bash
-auto base_link = "base_link";
-auto map_id = "world";
-RCLCPP_ERROR_STREAM_THROTTLE(this->get_logger(), *this->get_clock(), 1000, "Failed to look up transform from"<<base_link<<" to "<<map_id);
+RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 5000, "waiting for current_pose...");
 ```
->[ERROR] [planner]: Failed to look up transform from base_link to world
+the third argument is the time between every logging message defaults in milliseconds, 5000 means this logger outputs message every 5 second. 
 
-To conditionally output log messages, use EXPRESSION：
-```bash
-double goal_velocity = 1.0;
-RCLCPP_ERROR_EXPRESSION(this->get_logger(), goal_velocity!=0.0, "goal velocity should be zero!");
-```
->[ERROR] [planner]: goal velocity should be zero!
+choose right frequency in throttled logger, `INFO` message can be less frequent, but `ERROR` meassage should in high frequency.
 
-To debug program, sometimes you need see which functions and lines of code are executed, use `__LINE__` and `__FUNCTION__` macro:
-```bash
-RCLCPP_DEBUG_STREAM(this->get_logger(), "executed line: "<< __LINE__<<" in function: " <<__FUNCTION__);
-```
-example output: 
->[DEBUG] [planner]: executed line 100 in function make plan
-
-To filter logs, use | grep pipe:
-```bash
-ros2 launch planner planner | grep obstacle
-```
-the output will only contain obstacle_check's log.
-
-## Tips
-1. choose right severity of your log and record debug information as often as possible, it helps understand
-program and doesn't effect in release code.
-2. choose right frequency in throttled logger, one second a log may be too slow or too fast.
-3. use "| grep {keywords}" to filter logs you want to see.
-4. use marco expression to help you debug code.
+## Useful Links 
+1. [customize node’s output level, format or colorizing](https://docs.ros.org/en/humble/Concepts/About-Logging.html#configuration)
+2. [logging basic demo and commandline ](https://docs.ros.org/en/humble/Concepts/About-Logging.html)
+3. [rqt_console](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.html)
