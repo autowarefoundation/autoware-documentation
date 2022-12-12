@@ -175,44 +175,59 @@ You may need to tune your parameters depending on the domain in which you will o
 In many practical applications, apart from the available nodes / modules of Autoware, you may have the need to create your own packages which communicate with Autoware nodes or utilize some Autoware implementations (such like math methods including A-star, interpolation, mpc algorithm and so on). In this case, you can follow the instructions below to customize your specific package.
 
 ### Package using Autoware-msgs
+
 Since Autoware is built on ROS (Autoware.Universe / Autoware.Core on ROS2), if you have the urge to communicate with other Autoware nodes, then you are supposed to obey the rule of node subscribing / publishing messages via topic in specified message type. Please refer to the [ROS Tutorial](https://docs.ros.org/en/humble/Tutorials.html) for details.
 
 If you are already experienced at ROS, then it's simple to do such an extension just like the following example. Here, as mentioned in section 5.1 above, how could vehicle interface package (such as driving-by-wire module) receives the control command? You can do:
 
 - Put the "autoware_auto_control_msgs" in your project with your own packages together
 - Add the "depend" tag in "package.xml" of your package which receives the control command
+
 ```shell
 <depend>autoware_auto_control_msgs</depend>
 ```
+
 - Add message path in "CMakeLists.txt"
+
 ```shell
 find_package(autoware_auto_control_msgs)
 ```
+
 - Include the header file of the message type and start coding
+
 ```shell
 #include <autoware_auto_control_msgs/msg/ackermann_control_command.hpp>
 ```
 
 ### Package using Autoware-package
+
 For the current Autoware.Universe (or Autoware.Core later) based on ROS2, the DDS (data distribution service) is applied as the middleware for real-time communication. Thus, it is not necessary for you to use ROS2 for customization, as long as your platform has the ability to utilize the same DDS middleware to communicate with Autoware nodes. More in details, the extension could be divided into 2 aspects:
 
 #### Customization in ROS2
+
 In this case, the extension is just as simple as above. Here, the package "interpolation" is used as an example:
 
 - Put the "interpolation" in your project with your own packages together
 - Add the "depend" tag in "package.xml" of your package which receives the control command
+
 ```shell
 <depend>interpolation</depend>
 ```
+
 - Add message path in "CMakeLists.txt"
+
 ```shell
 find_package(interpolation)
 ```
+
 - Include the header file of the message type and start coding
+
 ```shell
 #include "interpolation/linear_interpolation.hpp"
 ```
+
 #### Customization in other platforms
+
 In this case, the compiled package shall be considered as a dynamic link library and could be linked with any project. You can configurate the compile options, for example in "CMakeLists.txt":
 
 ```shell
@@ -220,13 +235,11 @@ target_include_directories(${Node_name} PRIVATE /autoware/install/interpolation/
 target_link_directories(${Node_name} PRIVATE /autoware/install/interpolation/lib)
 target_link_libraries(${Node_name} PUBLIC interpolation)
 ```
+
 Remember to replace the "${Node_name}" with the correct name. And then you can include the header file and start coding
+
 ```shell
 #include "interpolation/linear_interpolation.hpp"
 ```
 
 If you have any issues or questions, feel free to create an [Autoware Foundation GitHub Discussion](https://github.com/orgs/autowarefoundation/discussions) in the Q&A category!
-
-
-
-
