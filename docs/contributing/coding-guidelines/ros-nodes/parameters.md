@@ -99,8 +99,8 @@ When you use the command "param name",you can use parameter's name to set the va
 ```C++
 <param name="bt_tree_config_path" value="$(find-pkg-share behavior_path_planner)/config/behavior_path_planner_tree.xml"/>
 ```
-## Declare parmeters by command in node
-In node you shall declare parmeters before using them and setting them.You can use the following commands to declare parameters:
+## Declare parameters by command in node
+In node you shall declare parameters before using them and setting them.You can use the following commands to declare parameters:
 - declare_parameter  
 
 For example:
@@ -108,5 +108,5 @@ For example:
   p.backward_path_length = declare_parameter("backward_path_length", 5.0) + backward_offset;
   p.forward_path_length = declare_parameter("forward_path_length", 100.0);
 ```
-You can see more information about parmeters of ROS2 in the link:
+You can see more information about parameters of ROS2 in the link:
 - https://docs.ros.org/en/humble/Concepts/About-ROS-2-Parameters.html
