@@ -18,10 +18,10 @@ For example,there is the yaml configure file about parameters of behavior_path_p
 You can use and set parameters by configure file of parameters in node.
 ## Set parameters by using py
 You can set parameters in py by using theses functions:
-- os.path.join();
-- LaunchConfiguration();
-- yaml.safe_load();
-- ComposableNode();
+- os.path.join()
+- LaunchConfiguration()
+- yaml.safe_load()
+- ComposableNode()
 
 ### Set the path of configuration file of parameters
 
