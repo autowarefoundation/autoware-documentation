@@ -25,7 +25,8 @@ You can set parameters in py by using theses functions:
 
 ### Set the path of configuration file of parameters
 
-You can use variable to set the path of configuration file.
+You can use variable to set the path of configuration file.The variable can be set in the current file or the upper file.
+
 For example:
 ```py
     behavior_path_planner_param_path = os.path.join(
@@ -38,7 +39,7 @@ For example:
     ) 
 ```
 The first parameter of join() is the absolute path, followed by the relative path.The "tier4_planning_launch_param_path" is set by top file(which can be xml or py).    
-For example, "tier4_planning_launch_param_path" is set in "planning.launch.xml".The "planning.launch.xml" is the top-level planning configuration file:
+For example, "tier4_planning_launch_param_path" is set in "planning.launch.xml".The "planning.launch.xml" is the top-level planning launch file:
 ```xml
 <!-- parameter path -->
   <arg name="tier4_planning_launch_param_path" default="$(find-pkg-share tier4_planning_launch)/config" description="tier4_planning_launch parameter path"/>
