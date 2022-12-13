@@ -175,48 +175,27 @@ You may need to tune your parameters depending on the domain in which you will o
 In many practical applications, apart from the available nodes / modules of Autoware, you may have the need to create your own packages which communicate with Autoware nodes or utilize some Autoware implementations (such like math methods including A-star, interpolation, mpc algorithm and so on). In this case, you can follow the instructions below to customize your specific package.
 
 ### Package using Autoware-msgs
-<<<<<<< HEAD
-Since Autoware is built on ROS (Autoware.Universe / Autoware.Core on ROS 2), if you have the urge to communicate with other Autoware nodes, then you are supposed to obey the rule of node subscribing / publishing messages via topic in specified message type. For details, refer to the [ROS Tutorial](https://docs.ros.org/en/humble/Tutorials.html).
-=======
+Since Autoware is built on ROS (Autoware Universe / Autoware Core on ROS 2), if you have the urge to communicate with other Autoware nodes, then you are supposed to obey the rule of node subscribing / publishing messages via topic in specified message type. For details, refer to the [ROS Tutorial](https://docs.ros.org/en/humble/Tutorials.html).
 
-Since Autoware is built on ROS (Autoware.Universe / Autoware.Core on ROS2), if you have the urge to communicate with other Autoware nodes, then you are supposed to obey the rule of node subscribing / publishing messages via topic in specified message type. Please refer to the [ROS Tutorial](https://docs.ros.org/en/humble/Tutorials.html) for details.
-
->>>>>>> 057c498ed3c638da06d6774a78ca7798d3099fae
 If you are already experienced at ROS, then it's simple to do such an extension just like the following example. Here, as mentioned in section 5.1 above, how could vehicle interface package (such as driving-by-wire module) receives the control command? You can do:
 
 - Put the "autoware_auto_control_msgs" in your project with your own packages together
 - Add the "depend" tag in "package.xml" of your package which receives the control command
-<<<<<<< HEAD
 ```xml
-=======
-
-```shell
->>>>>>> 057c498ed3c638da06d6774a78ca7798d3099fae
 <depend>autoware_auto_control_msgs</depend>
 ```
 
 - Add message path in "CMakeLists.txt"
-<<<<<<< HEAD
 ```cmake
-=======
-
-```shell
->>>>>>> 057c498ed3c638da06d6774a78ca7798d3099fae
 find_package(autoware_auto_control_msgs)
 ```
 
 - Include the header file of the message type and start coding
-<<<<<<< HEAD
 ```cpp
-=======
-
-```shell
->>>>>>> 057c498ed3c638da06d6774a78ca7798d3099fae
 #include <autoware_auto_control_msgs/msg/ackermann_control_command.hpp>
 ```
 
 ### Package using Autoware-package
-<<<<<<< HEAD
 For the current Autoware Universe (or Autoware Core later) based on ROS 2, the DDS (data distribution service) is applied as the middleware for real-time communication. Thus, it is not necessary for you to use ROS 2 for customization, as long as your platform has the ability to utilize the same DDS middleware to communicate with Autoware nodes. More in details, the extension could be divided into 2 aspects:
 
 - [Customization in ROS 2](#customization-in-ros-2)
@@ -224,68 +203,35 @@ For the current Autoware Universe (or Autoware Core later) based on ROS 2, the D
 - [Customization in other platforms](#customization-in-other-platforms)
 
 #### Customization in ROS 2
-=======
-
-For the current Autoware.Universe (or Autoware.Core later) based on ROS2, the DDS (data distribution service) is applied as the middleware for real-time communication. Thus, it is not necessary for you to use ROS2 for customization, as long as your platform has the ability to utilize the same DDS middleware to communicate with Autoware nodes. More in details, the extension could be divided into 2 aspects:
-
-#### Customization in ROS2
-
->>>>>>> 057c498ed3c638da06d6774a78ca7798d3099fae
 In this case, the extension is just as simple as above. Here, the package "interpolation" is used as an example:
 
 - Put the "interpolation" in your project with your own packages together
 - Add the "depend" tag in "package.xml" of your package which receives the control command
-<<<<<<< HEAD
 ```xml
-=======
-
-```shell
->>>>>>> 057c498ed3c638da06d6774a78ca7798d3099fae
 <depend>interpolation</depend>
 ```
 
 - Add message path in "CMakeLists.txt"
-<<<<<<< HEAD
 ```cmake
-=======
-
-```shell
->>>>>>> 057c498ed3c638da06d6774a78ca7798d3099fae
 find_package(interpolation)
 ```
 
 - Include the header file of the message type and start coding
-<<<<<<< HEAD
 ```cpp
-=======
-
-```shell
->>>>>>> 057c498ed3c638da06d6774a78ca7798d3099fae
 #include "interpolation/linear_interpolation.hpp"
 ```
 
 #### Customization in other platforms
-<<<<<<< HEAD
 In this case, the compiled package shall be considered as a dynamic link library and could be linked with any project. You can configure the compile options, for example in "CMakeLists.txt":
-=======
-
-In this case, the compiled package shall be considered as a dynamic link library and could be linked with any project. You can configurate the compile options, for example in "CMakeLists.txt":
->>>>>>> 057c498ed3c638da06d6774a78ca7798d3099fae
 
 ```cmake
 target_include_directories(${node_name} PRIVATE /autoware/install/interpolation/include)
 target_link_directories(${node_name} PRIVATE /autoware/install/interpolation/lib)
 target_link_libraries(${node_name} PUBLIC interpolation)
 ```
-<<<<<<< HEAD
+
 Remember to replace the "${node_name}" with the correct name. And then you can include the header file and start coding
 ```cpp
-=======
-
-Remember to replace the "${Node_name}" with the correct name. And then you can include the header file and start coding
-
-```shell
->>>>>>> 057c498ed3c638da06d6774a78ca7798d3099fae
 #include "interpolation/linear_interpolation.hpp"
 ```
 
