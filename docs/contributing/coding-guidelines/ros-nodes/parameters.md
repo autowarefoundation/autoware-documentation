@@ -91,7 +91,7 @@ When you use the command "param from",the path of configure file about parameter
 ```xml
 <param from="$(find-pkg-share tier4_planning_launch)/config/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/behavior_path_planner.param.yaml"/>
 ```
-You also can use variable which can be set in this xml or the top xml(or py) as the path of configure file.For example:
+You also can use variable which can be set in current xml or the upper xml(or py) as the path of configure file.For example:
 ```xml
 <param from="$(var vehicle_info_param_file)"/>
 ```
