@@ -183,17 +183,17 @@ If you are already experienced at ROS, then it's simple to do such an extension 
 - Add the "depend" tag in "package.xml" of your package which receives the control command
 ```xml
 <depend>autoware_auto_control_msgs</depend>
-```
+````
 
 - Add message path in "CMakeLists.txt"
 ```cmake
 find_package(autoware_auto_control_msgs)
-```
+````
 
 - Include the header file of the message type and start coding
 ```cpp
 #include <autoware_auto_control_msgs/msg/ackermann_control_command.hpp>
-```
+````
 
 ### Package using Autoware-package
 For the current Autoware Universe (or Autoware Core later) based on ROS 2, the DDS (data distribution service) is applied as the middleware for real-time communication. Thus, it is not necessary for you to use ROS 2 for customization, as long as your platform has the ability to utilize the same DDS middleware to communicate with Autoware nodes. More in details, the extension could be divided into 2 aspects:
@@ -209,19 +209,20 @@ In this case, the extension is just as simple as above. Here, the package "inter
 - Add the "depend" tag in "package.xml" of your package which receives the control command
 ```xml
 <depend>interpolation</depend>
-```
+````
 
 - Add message path in "CMakeLists.txt"
 ```cmake
 find_package(interpolation)
-```
+````
 
 - Include the header file of the message type and start coding
 ```cpp
 #include "interpolation/linear_interpolation.hpp"
-```
+````
 
 #### Customization in other platforms
+
 In this case, the compiled package shall be considered as a dynamic link library and could be linked with any project. You can configure the compile options, for example in "CMakeLists.txt":
 
 ```cmake
@@ -233,6 +234,6 @@ target_link_libraries(${node_name} PUBLIC interpolation)
 Remember to replace the "${node_name}" with the correct name. And then you can include the header file and start coding
 ```cpp
 #include "interpolation/linear_interpolation.hpp"
-```
+````
 
 If you have any issues or questions, feel free to create an [Autoware Foundation GitHub Discussion](https://github.com/orgs/autowarefoundation/discussions) in the Q&A category!
