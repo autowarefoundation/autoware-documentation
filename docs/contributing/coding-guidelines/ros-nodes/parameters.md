@@ -1,6 +1,6 @@
 # Parameters
 
-In autoware you can use xml or py to set values of parameters in nodes.In the folder of "src/universe/autoware.universe/launch",it contains most of the configuration parameters and launch files for different modules.Each module has the corresponding parameter configuration file.In autoware,you can use the configuration file or use the name of parameters to set values of parameters.
+In autoware you can use xml or py to set values of parameters in nodes.In the folder of "src/universe/autoware.universe/launch",it contains most of the configuration files of parameters and launch files for different modules.Each module has the corresponding parameter configuration file.In autoware,you can use the configuration file or use the name of variable to set values of parameters.
 
 ## Configure file of parameters
 You can use the configure file to manage parameters.
