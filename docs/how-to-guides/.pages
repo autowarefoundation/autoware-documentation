@@ -7,5 +7,4 @@ nav:
   - integrating-autoware-with-a-diff-drive-vehicle.md
   - running-autoware-without-cuda.md
   - calibrating-your-sensors.md
-  - evaluating-controller-performance.md
   - add-a-custom-ros-message.md
