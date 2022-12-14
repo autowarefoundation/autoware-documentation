@@ -1,8 +1,16 @@
 # Add a custom ROS message
 
-## Description
+## Overview
 
-During the Autoware development, you will probably need to define your own messages, This page lists a simple example of adding a custom message to Autoware, For the general ROS2 tutorial see [Create custom msg and srv files](http://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.html). 
+During the Autoware development, you will probably need to define your own messages, please read the following instructions before add a custome message.
+
+1. Message in [autoware_msgs](https://github.com/autowarefoundation/autoware_msgs) will define `Core` interface for module
+   - key messages defined under `Design/Interface` section
+   - If a contributor wishes to make changes or add new message for `core` interface, they should create a new discussion post under `design` category.
+
+2. Any other "minor" message used for internal communication within module(e.g., planning) should be defined in another repository(e.g., under autoware.universe repository or contributor's own repository)
+
+The following is a simple tutorial of adding a `autoware_msgs` to Autoware, for the general ROS2 tutorial see [Create custom msg and srv files](http://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.html). 
 
 ## How to create custom message
 
@@ -12,6 +20,7 @@ For example we create a package to define sensor messages.
 1. Create a package
 
    ```console
+   cd ./src/core/autoware_msgs
    ros2 pkg create --build-type ament_cmake autoware_sensing_msgs
    ```
 
@@ -105,9 +114,9 @@ For example we create a package to define sensor messages.
    colcon build --packages-select autoware_sensing_msgs
    ```
 
-   Now the GnssInsOrientationStamped message will be discoverable by other packages in Autoware.
+   Now the `GnssInsOrientationStamped` message will be discoverable by other packages in Autoware.
 
-## How to use custom message in autoware
+## How to use custom message in Autoware
 
 You can use the custom messages in Autoware by following these steps:
 
