@@ -94,10 +94,12 @@ If you've manually installed the dependencies, you can skip this section.
    ```
 
 <<<<<<< HEAD
-   If there is any build issue, refer to [Troubleshooting](https://autowarefoundation.github.io/autoware-documentation/main/support/troubleshooting/#build-issues).
+If there is any build issue, refer to [Troubleshooting](https://autowarefoundation.github.io/autoware-documentation/main/support/troubleshooting/#build-issues).
 =======
-   If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting.md#build-issues).
->>>>>>> main
+
+If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting.md#build-issues).
+
+> > > > > > > main
 
 ## How to update a workspace
 

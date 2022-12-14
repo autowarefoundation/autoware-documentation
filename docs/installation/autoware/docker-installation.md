@@ -106,10 +106,12 @@ You might need to log out and log back to make the current user able to use dock
    ```
 
 <<<<<<< HEAD
-   If there is any build issue, refer to [Troubleshooting](https://autowarefoundation.github.io/autoware-documentation/main/support/troubleshooting/#build-issues).
+If there is any build issue, refer to [Troubleshooting](https://autowarefoundation.github.io/autoware-documentation/main/support/troubleshooting/#build-issues).
 =======
-   If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting.md#build-issues).
->>>>>>> main
+
+If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting.md#build-issues).
+
+> > > > > > > main
 
 ## How to update a workspace
 
