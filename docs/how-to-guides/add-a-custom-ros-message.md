@@ -2,7 +2,7 @@
 
 ## Overview
 
-During the Autoware development, you will probably need to define your own messages, please read the following instructions before add a custome message.
+During the Autoware development, you will probably need to define your own messages, please read the following instructions before add a custom message.
 
 1. Message in [autoware_msgs](https://github.com/autowarefoundation/autoware_msgs) will define `Core` interface for module
 
