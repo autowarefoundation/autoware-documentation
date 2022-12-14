@@ -3,6 +3,7 @@ components:
   - adapi
   - control
   - localization
+  - map
   - perception
   - planning
   - sensing
@@ -48,7 +49,7 @@ interfaces:
     used: { vehicle: srv, control: cli }
 ---
 
-# List of component interfaces
+# List of component interfaces (future design)
 
 {%- for component in components %}
 

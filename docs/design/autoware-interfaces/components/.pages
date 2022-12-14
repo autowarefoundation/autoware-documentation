@@ -1,6 +1,7 @@
 nav:
   - index.md
-  - Interfaces: interfaces.md
+  - Interfaces (current): interfaces-current.md
+  - Interfaces (future): interfaces-future.md
   - planning.md
   - control.md
   - vehicle-interface.md
