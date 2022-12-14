@@ -4,12 +4,10 @@
 
 - OS
 
-  - [Ubuntu 20.04](https://releases.ubuntu.com/20.04/)
   - [Ubuntu 22.04](https://releases.ubuntu.com/22.04/)
 
 - ROS
 
-  - ROS 2 Galactic
   - ROS 2 Humble
 
   For ROS 2 system dependencies, refer to [REP-2000](https://www.ros.org/reps/rep-2000.html).
@@ -22,19 +20,14 @@ sudo apt-get -y update
 sudo apt-get -y install git
 ```
 
+> Note: If you wish to use ROS 2 Galactic on Ubuntu 20.04, refer to installation instruction from [galactic](https://autowarefoundation.github.io/autoware-documentation/galactic/installation/autoware/source-installation/) branch, but be aware that Galactic version of Autoware might not have latest features.
+
 ## How to set up a development environment
 
 1. Clone `autowarefoundation/autoware` and move to the directory.
 
    ```bash
    git clone https://github.com/autowarefoundation/autoware.git
-   cd autoware
-   ```
-
-   If you want to use ROS 2 Humble, use the `humble` branch.
-
-   ```bash
-   git clone https://github.com/autowarefoundation/autoware.git -b humble
    cd autoware
    ```
 
@@ -87,7 +80,7 @@ If you've manually installed the dependencies, you can skip this section.
    You might need to run `rosdep update` before `rosdep install`.
 
    ```bash
-   source /opt/ros/galactic/setup.bash
+   source /opt/ros/humble/setup.bash
    rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 
@@ -100,7 +93,11 @@ If you've manually installed the dependencies, you can skip this section.
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
 
+<<<<<<< HEAD
    If there is any build issue, refer to [Troubleshooting](https://autowarefoundation.github.io/autoware-documentation/main/support/troubleshooting/#build-issues).
+=======
+   If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting.md#build-issues).
+>>>>>>> main
 
 ## How to update a workspace
 
@@ -130,7 +127,7 @@ If you've manually installed the dependencies, you can skip this section.
 3. Install dependent ROS packages.
 
    ```bash
-   source /opt/ros/galactic/setup.bash
+   source /opt/ros/humble/setup.bash
    rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 

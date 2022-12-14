@@ -145,7 +145,6 @@ Since ROS don't support enumeration, use constants instead.
 The default value of type such as zero and empty string should not be used to detect that a variable is unassigned.
 Alternatively, assign it a dedicated name to indicate that it is undefined.
 If one type has multiple enumerations, comment on the correspondence between constants and variables.
-Assign unique values to all constants so that it can be distinguished from other enumerations.
 Do not use enumeration values directly, as assignments are subject to change when the version is updated.
 
 ### Time stamp

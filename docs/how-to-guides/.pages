@@ -8,4 +8,7 @@ nav:
   - running-autoware-without-cuda.md
   - calibrating-your-sensors.md
   - evaluating-controller-performance.md
+<<<<<<< HEAD
   - add-a-custom-ros-message.md
+=======
+>>>>>>> main
