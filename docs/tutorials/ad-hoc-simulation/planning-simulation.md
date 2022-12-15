@@ -89,16 +89,26 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: t
 ### Placing dummy objects
 
 1. Click the `2D Dummy Car` or `2D Dummy Pedestrian` button in the toolbar.
-
 2. Set the pose of the dummy object by clicking and dragging on the map.
-
 3. Set the velocity of the object in `Tool Properties -> 2D Dummy Car/Pedestrian` panel.
 
-!!! note
+   !!! note
 
-    Changes to the `velocity` parameter will only affect objects placed after the parameter is changed.
+   Changes to the `velocity` parameter will only affect objects placed after the parameter is changed.
 
-![set-dummy-car](images/planning/lane-following/place-dummy-car.png) 4. Delete any dummy objects placed in the view by clicking the `Delete All Objects` button in the toolbar.
+   ![set-dummy-car](images/planning/lane-following/place-dummy-car.png)
+
+4. Delete any dummy objects placed in the view by clicking the `Delete All Objects` button in the toolbar.
+
+5. Click the `Interactive` button in the toolbar to make the dummy object interactive.
+
+   ![set-interactive-dummy-car](images/planning/lane-following/check-interactive.png)
+
+6. For adding an interactive dummy object, press `SHIFT` and click the `right click`.
+7. For deleting an interactive dummy object, press `ALT` and click the `right click`.
+8. For moving an interactive dummy object, hold the `right click` drag and drop the object.
+
+   ![move-interactive-dummy-car](images/planning/lane-following/move-dummy-object.png)
 
 ### Traffic light recognition simulation
 
@@ -113,15 +123,15 @@ The following steps explain how to set and reset traffic lights in order to test
 2. In `TrafficLightPublishPanel`, set the `ID` and color of the traffic light.
 
 3. Click the `SET` button.
-   ![set-traffic-light](images/planning/lane-following/set-traffic-light.png)
+   ![set-traffic-light](images/planning/traffic-light/set-traffic-light.png)
 
 4. Finally, click the `PUBLISH` button to send the traffic light status to the simulator. Any planned path that goes past the selected traffic light will then change accordingly.
 
-![send-traffic-light-color](images/planning/lane-following/send-traffic-light-color.png)
+![send-traffic-light-color](images/planning/traffic-light/send-traffic-light-color.png)
 
 By default, Rviz should display the ID of each traffic light on the map. You can have a closer look at the IDs by zooming in the region or by changing the View type.
 
-In the event that the IDs are not displayed, try the following troubleshooting steps:
+In case the IDs are not displayed, try the following troubleshooting steps:
 
 a) In the `Displays` panel, find the `traffic_light_id` topic by toggling the triangle icons next to `Map > Lanelet2VectorMap > Namespaces`.
 
@@ -129,12 +139,14 @@ b) Check the `traffic_light_id` checkbox.
 
 c) Reload the topic by clicking the `Map` checkbox twice.
 
-![see-traffic-light-ID](images/planning/lane-following/see-traffic-light-ID.png)
+![see-traffic-light-ID](images/planning/traffic-light/see-traffic-light-ID.png)
 
 #### Update/Reset traffic light
 
 You can update the color of the traffic light by selecting the next color (in the image it is `GREEN`) and clicking `SET` button. In the image the traffic light in front of the ego vehicle changed from `RED` to `GREEN` and the vehicle restarted.
 
-![after-traffic-light-color-update](images/planning/lane-following/after-traffic-light-color-update.png)
+![after-traffic-light-color-update](images/planning/traffic-light/after-traffic-light-color-update.png)
 
 To remove a traffic light from `TrafficLightPublishPanel`, click the `RESET` button.
+
+[Reference video tutorials](https://drive.google.com/file/d/1bs_dX1JJ76qHk-SGvS6YF9gmekkN8fz7/view?usp=sharing)
