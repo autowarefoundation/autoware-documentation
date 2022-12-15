@@ -41,7 +41,7 @@ The table below summarizes the final output from Control stack:
 
 | Output          | Topic(Data Type)                                                                                   | Explanation                                                                                                                                                                 |
 | --------------- | -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Control command | `/control/command/control_cmd`<br>(_autoware_auto_control_msgs/msg/AckermannControlCommand_)       | This is the control command published to vehicle inferface including: <ul><li>Velocity</li><li>Acceleration</li><li>Steering angle</li><li>Steering rotation rate</li></ul> |
+| Control command | `/control/command/control_cmd`<br>(_autoware_auto_control_msgs/msg/AckermannControlCommand_)       | This is the control command published to vehicle interface including: <ul><li>Velocity</li><li>Acceleration</li><li>Steering angle</li><li>Steering rotation rate</li></ul> |
 | Turn indicators | `/control/command/turn_indicators_cmd`<br>(_autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand_) | This is the output to control turn signals of the vehicle.                                                                                                                  |
 | Hazard lights   | `/control/command/hazard_lights_cmd`<br>(_autoware_auto_vehicle_msgs/msg/HazardLightsCommand_)     | This is the output to control hazard signals of the vehicle.                                                                                                                |
 | Gear            | `/control/command/gear_cmd`<br>(_autoware_auto_vehicle_msgs/msg/GearCommand_)                      | This is the output to control gear of the vehicle.                                                                                                                          |
@@ -59,7 +59,7 @@ For more details, please refer to the design documents in each package.
 - [MPC lateral controller](https://autowarefoundation.github.io/autoware.universe/main/control/trajectory_follower/design/mpc_lateral_controller-design/):generate lateral control commands (steering angle and steering rate) when following a path using mpc algorithm.
 - [PID longitudinal controller](https://autowarefoundation.github.io/autoware.universe/main/control/trajectory_follower/design/pid_longitudinal_controller-design/): compute the target acceleration to achieve the target velocity set at each point of the target trajectory using a feed-forward/back control.
 - [vehicle cmd gate](https://autowarefoundation.github.io/autoware.universe/main/control/vehicle_cmd_gate/):get information from emergency handler, planning module, external controller, and send a msg to vehicle.
-- [simple trajectory follower](https://autowarefoundation.github.io/autoware.universe/main/control/trajectory_follower_nodes/design/simple_trajectory_follower-design/): a simple followeer node, flexible to use.
+- [simple trajectory follower](https://autowarefoundation.github.io/autoware.universe/main/control/trajectory_follower_nodes/design/simple_trajectory_follower-design/): a simple follower node, flexible to use.
 
 ## Remark
 
