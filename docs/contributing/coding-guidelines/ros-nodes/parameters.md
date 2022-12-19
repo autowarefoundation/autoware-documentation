@@ -21,6 +21,7 @@ Here we use the `planning` module as an example component, but this applies to a
 </include>
 ...
 ```
+
 ```xml
 <!-- autoware_launch: autoware_launch/launch/components/tier4_planning_components.launch.xml -->
 ...
@@ -36,6 +37,7 @@ If you want to customize the parameter for a package, a recommended way is to cr
 
 - Add the parameter file in `autoware_launch/config`
 - Write a path to the parameter file in the component launch file in `autoware_launch` (e.g. `autoware_launch/launch/components/tier4_planning_components.launch.xml`)
+
 ```xml
 <!-- autoware_launch: autoware_launch/launch/components/tier4_planning_components.launch.xml -->
 ...
@@ -46,6 +48,7 @@ If you want to customize the parameter for a package, a recommended way is to cr
 ```
 
 - Load the parameter using the above argument, e.g. as follows.
+
 ```xml
 <!-- autoware.universe: launch/tier4_planning_launch/launch/.../package_A.launch.xml -->
 ...
