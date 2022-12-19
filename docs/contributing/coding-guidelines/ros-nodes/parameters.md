@@ -11,13 +11,21 @@ Autoware has the following two types of parameters:
 Here we use the `planning` module as an example component, but this applies to all of the other components (`sensing`, `localization`, `system`, etc) as well.
 
 `Launch Parameter` is used when launching [`autoware.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/autoware.launch.xml) in the `autoware_launch` package.
-In launching Autoware, you need a "parameter configuration file" for each component, that lists all the parameter file paths that should be loaded for Autoware. Currently, the file is stored as `autoware_launch/launch/tier4_planning_params.launch.xml`.
-`autoware.launch.xml` passes the path of the parameter configuration file to `tier4_planning_launch`, which then expands all the parameter file paths for all the packages used in the `planning` component.
+`autoware.launch.xml` may include `tier4_planning_component.launch.xml` in which you call `tier4_planning_launch` with the arguments for `Launch Parameter` provided. Currently, the launch file is stored as `autoware_launch/launch/components/tier4_planning_components.launch.xml`.
 
 ```xml
+<!-- autoware_launch: autoware_launch/launch/autoware.launch.xml -->
+...
+<include file="$(find-pkg-share autoware_launch)/launch/tier4_planning_component.launch.xml">
+  ...
+</include>
+...
+```
+```xml
+<!-- autoware_launch: autoware_launch/launch/components/tier4_planning_components.launch.xml -->
 ...
 <include file="$(find-pkg-share tier4_planning_launch)/launch/planning.launch.xml">
-  <arg name="parameter_configuration" value="$(find-pkg-share autoware_launch)/params/tier4_planning_params.launch.xml"/>
+  <arg name="package_A_param_path" value="$(find-pkg-share autoware_launch)/config/planning/package_A.param.yaml"/>
 </include>
 ...
 ```
@@ -27,22 +35,24 @@ In launching Autoware, you need a "parameter configuration file" for each compon
 If you want to customize the parameter for a package, a recommended way is to create a new `Launch Parameter` file.
 
 - Add the parameter file in `autoware_launch/config`
-- Write a path to the parameter file in the parameter configuration file (e.g. `autoware_launch/launch/params/tier4_planning_params.launch.xml`)
-
-```
-  ...
-  <arg name="package_A_param_path" default="$(find-pkg-share autoware_launch)/config/planning/package_A_customized.param.yaml"/>
-  ...
+- Write a path to the parameter file in the component launch file in `autoware_launch` (e.g. `autoware_launch/launch/components/tier4_planning_components.launch.xml`)
+```xml
+<!-- autoware_launch: autoware_launch/launch/components/tier4_planning_components.launch.xml -->
+...
+<include file="$(find-pkg-share tier4_planning_launch)/launch/planning.launch.xml">
+  <arg name="package_A_param_path" value="$(find-pkg-share autoware_launch)/config/planning/package_A_customized.param.yaml"/>
+</include>
+...
 ```
 
 - Load the parameter using the above argument, e.g. as follows.
-
-```
-  ...
-  <include file="$(find-pkg-share package_A)/launch/package_A.launch.xml>
-    <arg name="param_path" value="$(var package_A_param_path)"/>
-  </include>
-  ...
+```xml
+<!-- autoware.universe: launch/tier4_planning_launch/launch/.../package_A.launch.xml -->
+...
+<include file="$(find-pkg-share package_A)/launch/package_A.launch.xml">
+  <arg name="param_path" value="$(var package_A_param_path)"/>
+</include>
+...
 ```
 
 ## Maintaining your custom parameters
