@@ -10,6 +10,7 @@
 
 - LIDAR [Velodyne, Ouster, Livox]
 - IMU [6-AXIS, 9-AXIS]
+- GPS [Optional]
 
 ### ROS Compatibility
 

@@ -8,7 +8,7 @@
 
 ### Required Sensors
 
-- LIDAR [VLP-16, HDL-32E, VLS-128, Ouster OS1-16, Ouster OS1-64]
+- LIDAR [VLP-16]
 - IMU [9-AXIS]
 
 ### ROS Compatibility

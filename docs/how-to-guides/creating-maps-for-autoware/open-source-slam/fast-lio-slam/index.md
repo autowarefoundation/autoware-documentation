@@ -9,7 +9,7 @@
 ### Required Sensors
 
 - LIDAR [Livox, Velodyne, Ouster]
-- IMU [9-AXIS]
+- IMU [6-AXIS, 9-AXIS]
 - GPS [OPTIONAL]
 
 ### ROS Compatibility

@@ -9,7 +9,7 @@
 ### Required Sensors
 
 - LIDAR [Velodyne, Ouster]
-- IMU [6-AXIS, 9-AXIS]
+- IMU [9-AXIS]
 - GNSS
 - Odometry Sensor
 

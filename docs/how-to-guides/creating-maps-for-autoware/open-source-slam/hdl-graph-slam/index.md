@@ -9,7 +9,8 @@
 ### Required Sensors
 
 - LIDAR [Velodyne, Ouster, RoboSense]
-
+- IMU [6-AXIS, 9-AXIS] [OPTIONAL]
+- GPS [OPTIONAL]
 ### ROS Compatibility
 
 - ROS 1
