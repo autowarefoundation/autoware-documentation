@@ -25,8 +25,9 @@ Here we use the `planning` module as an example component, but this applies to a
 ```xml
 <!-- autoware_launch: autoware_launch/launch/components/tier4_planning_components.launch.xml -->
 ...
-<include file="$(find-pkg-share tier4_planning_launch)/launch/planning.launch.xml">
-  <arg name="package_A_param_path" value="$(find-pkg-share autoware_launch)/config/planning/package_A.param.yaml"/>
+<include file="$(find-pkg-share tier4_planning_launch)/launch/components/planning.launch.xml">
+  <arg name="FOO_PACKAGE_param_path" value="$(find-pkg-share autoware_launch)/config/planning/FOO_PACKAGE.param.yaml"/>
+  <arg name="BAR_PACKAGE_param_path" value="$(find-pkg-share autoware_launch)/config/planning/BAR_PACKAGE.param.yaml"/>
 </include>
 ...
 ```
@@ -42,7 +43,10 @@ If you want to customize the parameter for a package, a recommended way is to cr
 <!-- autoware_launch: autoware_launch/launch/components/tier4_planning_components.launch.xml -->
 ...
 <include file="$(find-pkg-share tier4_planning_launch)/launch/planning.launch.xml">
-  <arg name="package_A_param_path" value="$(find-pkg-share autoware_launch)/config/planning/package_A_customized.param.yaml"/>
+  <arg name="FOO_PACKAGE_param_path" value="$(find-pkg-share autoware_launch)/config/planning/FOO_PACKAGE.param.yaml"/>
+  <arg name="BAR_PACKAGE_param_path" value="$(find-pkg-share autoware_launch)/config/planning/BAR_PACKAGE.param.yaml"/>
+  ...
+  <arg name="YOUR_PACKAGE_param_path" value="$(find-pkg-share autoware_launch)/config/planning/YOUR_PACKAGE.param.yaml"/>
 </include>
 ...
 ```
@@ -50,10 +54,10 @@ If you want to customize the parameter for a package, a recommended way is to cr
 - Load the parameter using the above argument, e.g. as follows.
 
 ```xml
-<!-- autoware.universe: launch/tier4_planning_launch/launch/.../package_A.launch.xml -->
+<!-- autoware.universe: launch/tier4_planning_launch/launch/.../FOO_PACKAGE.launch.xml -->
 ...
-<include file="$(find-pkg-share package_A)/launch/package_A.launch.xml">
-  <arg name="param_path" value="$(var package_A_param_path)"/>
+<include file="$(find-pkg-share FOO_PACKAGE)/launch/FOO_PACKAGE.launch.xml">
+  <arg name="param_path" value="$(var FOO_PACKAGE_param_path)"/>
 </include>
 ...
 ```
