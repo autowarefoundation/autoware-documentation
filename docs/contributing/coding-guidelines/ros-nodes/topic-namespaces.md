@@ -3,6 +3,7 @@
 ## Overview
 
 ROS allows topics, parameters and nodes to be namespaced which provides the following benefits:
+
 - Multiple instances of the same node type will not cause naming clashes.
 - Topics published by a node can be automatically namespaced with the node's namespace providing a meaningful and easily-visible connection.
 - Keeps from cluttering the root namespace.
@@ -90,11 +91,9 @@ Configure the topic in the node's launch file. Take the `joy_controller` node as
    debug_msg_pub_ =
     create_publisher<tier4_debug_msgs::msg::StringStamped>("~/debug/calculation_time", 1);
    ```
-   
+
    The launch configurated namespace will be add the topics before, so the topic names will be as following:
-   
-   `
-   /planning/scenario_planning/lane_driving/motion_planning/obstacle_avoidance_planner/debug/marker
-   /planning/scenario_planning/lane_driving/motion_planning/obstacle_avoidance_planner/debug/calculation_time
-   `
+
+   `/planning/scenario_planning/lane_driving/motion_planning/obstacle_avoidance_planner/debug/marker /planning/scenario_planning/lane_driving/motion_planning/obstacle_avoidance_planner/debug/calculation_time`
+
 4. Rationale: we want to make topic names remapped and configurable from launch files.
