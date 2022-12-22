@@ -2,11 +2,11 @@
 
 ## Overview
 
-ROS allows for topics, parameters, and nodes to be namespaced which provides the following benefits:
-- Multiple instances of the same node type will not cause naming clashes
-- Topics published by a node can be automatically namespaced with the node's namespace providing a meaningful and easily-visible connection
-- Keeps from cluttering the root namespace
-- Helps to maintain separation-of-concerns
+ROS allows topics, parameters and nodes to be namespaced which provides the following benefits:
+- Multiple instances of the same node type will not cause naming clashes.
+- Topics published by a node can be automatically namespaced with the node's namespace providing a meaningful and easily-visible connection.
+- Keeps from cluttering the root namespace.
+- Helps to maintain separation-of-concerns.
 
 This page focuses on how to use namespaces in Autoware and shows some useful examples. For basic information on topic namespaces, refer to [this tutorial](https://design.ros2.org/articles/topic_and_service_names.html).
 
@@ -61,8 +61,40 @@ Configure the topic in the node's launch file. Take the `joy_controller` node as
 
 ## Topic names in the code
 
-Topic names in the Autoware should:
-- have `~` so that namespace in launch configuration is applied(should not start from root `/`)
-- have ~/input ~/output namespace before topic name used to communicate with other nodes
-- visualization or debug purpose topics should have ~/debug/ namespace(e.g., ~/debug/visualization marker)
-- rationale: we want to make topic names remapped and configurable from launch files
+1. Have `~` so that namespace in launch configuration is applied(should not start from root `/`).
+
+2. Have `~/input` `~/output` namespace before topic name used to communicate with other nodes.
+
+   e.g., In node `obstacle_avoidance_planner`, using topic names of type `~/input/topic_name` to subscribe to topics.
+
+   ```cpp
+   objects_sub_ = create_subscription<PredictedObjects>(
+    "~/input/objects", rclcpp::QoS{10},
+    std::bind(&ObstacleAvoidancePlanner::onObjects, this, std::placeholders::_1));
+   ```
+
+   e.g., In node `obstacle_avoidance_planner`, using topic names of type `~/output/topic_name` to publish topic.
+
+   ```cpp
+   traj_pub_ = create_publisher<Trajectory>("~/output/path", 1);
+   ```
+
+3. Visualization or debug purpose topics should have `~/debug/` namespace.
+
+   e.g., In node `obstacle_avoidance_planner`, in order to debug or visualizing topics, using topic names of type `~/debug/topic_name` to publish information.
+
+   ```cpp
+   debug_markers_pub_ =
+    create_publisher<visualization_msgs::msg::MarkerArray>("~/debug/marker", durable_qos);
+
+   debug_msg_pub_ =
+    create_publisher<tier4_debug_msgs::msg::StringStamped>("~/debug/calculation_time", 1);
+   ```
+   
+   The launch configurated namespace will be add the topics before, so the topic names will be as following:
+   
+   `
+   /planning/scenario_planning/lane_driving/motion_planning/obstacle_avoidance_planner/debug/marker
+   /planning/scenario_planning/lane_driving/motion_planning/obstacle_avoidance_planner/debug/calculation_time
+   `
+4. Rationale: we want to make topic names remapped and configurable from launch files.
