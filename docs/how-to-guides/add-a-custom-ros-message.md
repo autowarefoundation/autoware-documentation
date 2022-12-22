@@ -105,7 +105,7 @@ As an example, let's create a package to define sensor messages.
 
    <depend>geometry_msgs</depend>
    <depend>std_msgs</depend>
-   
+
    <member_of_group>rosidl_interface_packages</member_of_group>
    ```
 
