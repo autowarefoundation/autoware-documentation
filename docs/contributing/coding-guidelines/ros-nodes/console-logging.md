@@ -171,13 +171,15 @@ For more details, refer to [ROS 2 Documentation](https://docs.ros.org/en/rolling
 
 ### Useful marco expressions
 
-To debug program, sometimes you need see which functions and lines of code are executed.
-In that case, use `__LINE__` and `__FUNCTION__` macro:
+To debug program, sometimes you need to see which functions and lines of code are executed.
+In that case, you can use `__FILE__`, `__LINE__` and `__FUNCTION__` macro:
 
 ```cpp
-RCLCPP_DEBUG_STREAM(this->get_logger(), "executed line: "<< __LINE__<<" in function: " <<__FUNCTION__);
+void FooNode::on_timer() {
+  RCLCPP_DEBUG(get_logger(), "file: %s, line: %s, function: %s" __FILE__, __LINE__, __FUNCTION__);
+}
 ```
 
 The example output is as follows:
 
-> [DEBUG] [planner]: executed line 100 in function make_plan
+> [DEBUG] [1671720414.395456931] [foo]: file: /path/to/file.cpp, line: 100, function: on_timer
