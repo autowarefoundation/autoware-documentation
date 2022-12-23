@@ -60,7 +60,7 @@ In the ideal case, the driver is expected to output a point cloud with the `Poin
 
 !!! warning
 
-    Autoware will support conversion from `PointXYZI` to `PointXYZIRC` or `PointXYZIRCAD` (while channel is set to 0) for prototyping purposes.
+    Autoware will support conversion from `PointXYZI` to `PointXYZIRC` or `PointXYZIRCAD` (with channel and return is set to 0) for prototyping purposes.
     However, this conversion is not recommended for production use since it's not efficient.
 
 ### Intensity
