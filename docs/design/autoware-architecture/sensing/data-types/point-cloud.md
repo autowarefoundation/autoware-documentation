@@ -10,11 +10,11 @@ This pipeline covers the flow of data from drivers to the perception stack.
 
 ```mermaid
 graph TD
-    Driver["Lidar Driver"] -->|"Cloud XYZIRCT"| FilterPR["Polygon Remover Filter / CropBox Filter"]
+    Driver["Lidar Driver"] -->|"Cloud XYZIRCADT"| FilterPR["Polygon Remover Filter / CropBox Filter"]
 
     subgraph "sensing"
-    FilterPR -->|"Cloud XYZIRCT"| FilterDC["Motion Distortion Corrector Filter"]
-    FilterDC -->|"Cloud XYZIRC"| FilterOF["Outlier Remover Filter"]
+    FilterPR -->|"Cloud XYZIRCADT"| FilterDC["Motion Distortion Corrector Filter"]
+    FilterDC -->|"Cloud XYZIRCAD"| FilterOF["Outlier Remover Filter"]
     FilterOF -->|"Cloud XYZIRC"| FilterDS["Downsampler Filter"]
     FilterDS -->|"Cloud XYZIRC"| FilterTrans["Cloud Transformer"]
     FilterTrans -->|"Cloud XYZIRC"| FilterC
@@ -35,19 +35,33 @@ It is recommended that these modules are used in a single container as component
 
 ## Point cloud fields
 
-In the ideal case, the driver is expected to output a point cloud with the `PointXYZIRCT` point type.
+In the ideal case, the driver is expected to output a point cloud with the `PointXYZIRCADT` point type.
 
-| name            | datatype | description                                                                  |
-| --------------- | -------- | ---------------------------------------------------------------------------- |
-| X               | FLOAT32  | X position                                                                   |
-| Y               | FLOAT32  | Y position                                                                   |
-| Z               | FLOAT32  | Z position                                                                   |
-| I (intensity)   | UINT8    | Measured reflectivity, intensity of the point                                |
-| R (return type) | UINT8    | Laser return type for dual return lidars                                     |
-| C (channel)     | UINT16   | Vertical channel id of the laser that measured the point                     |
-| T (time)        | UINT32   | Nanoseconds passed since the time of the header when this point was measured |
+| name              | datatype  | derived | description                                                                  |
+|-------------------|-----------|---------|------------------------------------------------------------------------------|
+| `X`               | `FLOAT32` | `false` | X position                                                                   |
+| `Y`               | `FLOAT32` | `false` | Y position                                                                   |
+| `Z`               | `FLOAT32` | `false` | Z position                                                                   |
+| `I` (intensity)   | `UINT8`   | `false` | Measured reflectivity, intensity of the point                                |
+| `R` (return type) | `UINT8`   | `false` | Laser return type for dual return lidars                                     |
+| `C` (channel)     | `UINT16`  | `false` | Vertical channel id of the laser that measured the point                     |
+| `A` (azimuth)     | `FLOAT32` | `true`  | `atan2(Y, X)`, Horizontal angle from the front of the lidar to the point     |
+| `D` (distance)    | `FLOAT32` | `true`  | `hypot(X, Y, Z)`, Euclidean distance of the point to lidar                   |
+| `T` (time)        | `UINT32`  | `false` | Nanoseconds passed since the time of the header when this point was measured |
 
-If the `Motion Distortion Corrector Filter` won't be used, the `T (time)` field can be omitted, `PointXYZIRC` point type can be used.
+!!! note
+
+    `A (azimuth)` and `D (distance)` fields are derived fields.
+    They are provided by the driver to reduce the computational load on some parts of the perception stack.
+
+!!! note
+
+    If the `Motion Distortion Corrector Filter` won't be used, the `T (time)` field can be omitted, `PointXYZIRCAD` point type can be used.
+
+!!! warning
+
+    Autoware will support conversion from `PointXYZI` to `PointXYZIRC` or `PointXYZIRCAD` (while channel is set to 0) for prototyping purposes.
+    However, this conversion is not recommended for production use since it's not efficient.
 
 ### Intensity
 
