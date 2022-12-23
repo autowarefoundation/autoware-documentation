@@ -38,7 +38,7 @@ It is recommended that these modules are used in a single container as component
 In the ideal case, the driver is expected to output a point cloud with the `PointXYZIRCADT` point type.
 
 | name              | datatype  | derived | description                                                                  |
-|-------------------|-----------|---------|------------------------------------------------------------------------------|
+| ----------------- | --------- | ------- | ---------------------------------------------------------------------------- |
 | `X`               | `FLOAT32` | `false` | X position                                                                   |
 | `Y`               | `FLOAT32` | `false` | Y position                                                                   |
 | `Z`               | `FLOAT32` | `false` | Z position                                                                   |
