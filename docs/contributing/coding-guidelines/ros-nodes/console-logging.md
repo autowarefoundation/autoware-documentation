@@ -32,8 +32,11 @@ Use the following criteria as a reference:
 - **DEBUG:** Use this level to show debug information for developers. Note that logs with this level is hidden by default.
 - **INFO:** Use this level to notify events (cyclic notifications during initialization, state changes, service responses, etc.) to operators.
 - **WARN:** Use this level when a node can continue working correctly, but unintended behaviors might happen.
+  - For example, "path optimization failed but the previous data can be used", "the localization score is low", etc.
 - **ERROR:** Use this level when a node can't continue working correctly, and unintended behaviors would happen.
+  - For example, "path optimization failed and the path is empty", "the vehicle will trigger an emergency stop", etc.
 - **FATAL:** Use this level when the entire system can't continue working correctly, and the system must be stopped.
+  - For example, "the vehicle control ECU doesn't respond", "the system storage crashed", etc.
 
 ### Filter out unnecessary logs by setting logging options (required, non-automated)
 
