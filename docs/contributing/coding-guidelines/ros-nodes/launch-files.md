@@ -21,26 +21,26 @@ The [Autoware launch repository]( https://github.com/autowarefoundation/autoware
 
 In Autoware, the nodes of each module is organized based on the [architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture/#high-level-architecture-design). So you may find that we try to match [launch structure](https://github.com/autowarefoundation/autoware.universe/tree/main/launch) similar to the architecture (splitting of files, namespace).
 
-```text
- 														autoware_launch
-																|
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-|							|						|						|						|						|
-tier4_vehicle_launch    tier4_localization_launch	tier4_system_launch	tier4_sensing_launch	tier4_perception_launch	   ...
-							|
+```txt
+                                                        autoware_launch
+                                                                |
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+|                       |                           |                       |                       |                       |
+tier4_vehicle_launch    tier4_localization_launch   tier4_system_launch tier4_sensing_launch    tier4_perception_launch    ...
+                                |
 ─────────────────────────────────────────────────────────────────
-|					|					|						|
-pose_estimator	twist_estimator	  pose_twist_fusion_filter		...
-										|
-					─────────────────────────────────────────
-					|					|					|
-				ekf_localizer		stop_filter			twist2accel
+|               |                   |                           |
+pose_estimator	twist_estimator    pose_twist_fusion_filter     ...
+                                        |
+                    ─────────────────────────────────────────
+                    |                   |                   |
+                    ekf_localizer    stop_filter        twist2accel
 ```
 
 
 ### Create or add a new package in Autoware
 
-If a newly created package has executable node, we expect sample launch file and configuration within the package, just like the recommended structure shown in previous [directory structure](https://autowarefoundation.github.io/autoware-documentation/main/contributing/coding-guidelines/ros-nodes/directory-structure/) tag. 
+If a newly created package has executable node, we expect sample launch file and configuration within the package, just like the recommended structure shown in previous [directory structure](https://autowarefoundation.github.io/autoware-documentation/main/contributing/coding-guidelines/ros-nodes/directory-structure/) page. 
 
 In order to automatically load the newly added package when starting Autoware, you may choose to call its launch file at certain place. For example, if using ICP instead of NDT as the pointcloud registration algorithm, you can modify the `tier4_localization_launch/launch/pose_estimator/pose_estimator.launch.xml` file to load the newly added ICP package.
 
