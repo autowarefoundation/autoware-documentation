@@ -4,9 +4,11 @@
 
 The commonly used coordinate systems include the world coordinate system, the vehicle coordinate system, and the sensor coordinate system. 
 
-- The world coordinate system is a fixed coordinate system that defines the physical space in the environment where the vehicle is located. 
+- The world coordinate system is a fixed coordinate system that defines the physical space in the environment where the vehicle is located.
+
 - The vehicle coordinate system is the vehicle's own coordinate system, which defines the vehicle's position and orientation in the world coordinate system.
-- The sensor coordinate system is the sensor's own coordinate system, which is used to define the sensor's position and orientation in the vehicle's coordinate system.
+
+- The sensor coordinate system is the sensor's own coordinate system, which is used to define the sensor's position and orientation in the vehicle coordinate system.
 
 ## How coordinates are used in Autoware
 
@@ -26,13 +28,45 @@ In Autoware, a common coordinate system structure is shown below:
 
 ![tf-tree](./images/coordinate-system-tf-tree.png)
 
-- earth: `earth` coordinate system describe the position of any point on the earth in terms of geodetic longitude, latitude, and altitude.
-- map: `map` coordinate system is used to represent the location of points on a local map. Geographical coordinate system are mapped into plane rectangular coordinate system using UTM or MGRS.
+- earth: `earth` coordinate system describe the position of any point on the earth in terms of geodetic longitude, latitude, and altitude. In Autoware, the `earth` frame is only used in the `GnssInsPositionStamped` message.
+
+- map: `map` coordinate system is used to represent the location of points on a local map. Geographical coordinate system are mapped into plane rectangular coordinate system using UTM or MGRS. The `map` frame`s axes point to the East, North, Up directions as explained in [Coordinate Axes Conventions](#coordinate-axes-conventions).
+
 - base_link: vehicle coordinate system, the origin of the coordinate system is the center of the rear axle of the vehicle
+
 - lidar: `lidar` coordinate system is converted to the vehicle coordinate system through the mounting relationship
+
 - camera_link: `camera_link` is ROS standard camera coordinate system 
+
 - camera_optical_link: `camera_optical_link` is image standard camera coordinate system
+
 - imu: the `imu` coordinate system is converted to the vehicle coordinate system through the mounting relationship
+
+### Coordinate Axes Conventions
+
+We are using East, North, Up (ENU) coordinate axes convention by default throughout the stack.
+
+```yaml
+X+: East
+Y+: North
+Z+: Up
+```
+The position, orientation, velocity, acceleration are all defined in the same axis convention.
+
+Position by the GNSS/INS sensor is expected to be in `earth` frame.
+
+Orientation, velocity, acceleration by the GNSS/INS sensor are expected to be in the sensor frame. Axes parallel to the `map` frame.
+
+If roll, pitch, yaw is provided, they correspond to rotation around X, Y, Z axes respectively.
+
+```yaml
+Rotation around:
+  X+: roll
+  Y+: pitch
+  Z+: yaw
+```
+References:
+- <https://www.ros.org/reps/rep-0103.html#axis-orientation>
 
 ## How they can be created
 
