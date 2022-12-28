@@ -32,15 +32,13 @@ In Autoware, a common coordinate system structure is shown below:
 
 - map: `map` coordinate system is used to represent the location of points on a local map. Geographical coordinate system are mapped into plane rectangular coordinate system using UTM or MGRS. The `map` frame`s axes point to the East, North, Up directions as explained in [Coordinate Axes Conventions](#coordinate-axes-conventions).
 
-- base_link: vehicle coordinate system, the origin of the coordinate system is the center of the rear axle of the vehicle
+- base_link: vehicle coordinate system, the origin of the coordinate system is the center of the rear axle of the vehicle.
 
-- lidar: `lidar` coordinate system is converted to the vehicle coordinate system through the mounting relationship
+- imu, lidar, gnss, radar: these are sensor frames, transfer to vehicle coordinate system through mounting relationship.
 
-- camera_link: `camera_link` is ROS standard camera coordinate system 
+- camera_link: `camera_link` is ROS standard camera coordinate system .
 
-- camera_optical_link: `camera_optical_link` is image standard camera coordinate system
-
-- imu: the `imu` coordinate system is converted to the vehicle coordinate system through the mounting relationship
+- camera_optical_link: `camera_optical_link` is image standard camera coordinate system.
 
 ### Coordinate Axes Conventions
 
@@ -72,7 +70,7 @@ References:
 
 1. Calibration of sensor
 
-   The conversion relationship between every sensor coordinate system  and `base_link` can be obtained through sensor calibration technology. 
+   The conversion relationship between every sensor coordinate system  and `base_link` can be obtained through sensor calibration technology. How to calibrating your sensors refer to this link [calibrating your sensors](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/calibrating-your-sensors/).
 
 2. Localization
 
