@@ -67,7 +67,7 @@ You might need to log out and log back to make the current user able to use dock
      rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
      ```
 
-     For detailed reason could be found [here](#docker-with-nvidia-gpu-fails-to-start-autoware-on-arm64-devices)
+     For detailed reason could be found [here](./docker-installation.md#docker-with-nvidia-gpu-fails-to-start-autoware-on-arm64-devices)
 
    For more advanced usage, see [here](https://github.com/autowarefoundation/autoware/tree/main/docker/README.md).
 
