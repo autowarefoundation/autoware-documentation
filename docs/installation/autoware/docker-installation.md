@@ -8,7 +8,7 @@ Here are two ways to install Autoware by docker:
 
 - The first way is to start Autoware with `prebuilt image`, this is a quick start, this way you can only run Autoware simulator and not develop Autoware, it is only suitable for beginners
 
--  The second way is to start Autoware with `devel image`, which supports developing and running Autoware using docker
+- The second way is to start Autoware with `devel image`, which supports developing and running Autoware using docker
 
 ## Docker installation for quick start
 
