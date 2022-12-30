@@ -1,5 +1,11 @@
 # SC-LeGO-LOAM
 
+
+## What is SC-LeGO-LOAM?
+
+- SC-LeGO-LOAM integrated LeGO-LOAM for lidar odometry and 2 different loop closure methods: ScanContext and Radius search based loop closure. While ScanContext is correcting large drifts, radius search based method is good for fine-stitching.
+
+
 ## Repository Information
 
 ### Original Repository link

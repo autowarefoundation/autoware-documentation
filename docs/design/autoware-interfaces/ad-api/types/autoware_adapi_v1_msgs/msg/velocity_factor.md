@@ -41,3 +41,7 @@ string detail
 ## This type uses
 
 None
+
+## This type is used by
+
+- [autoware_adapi_v1_msgs/msg/VelocityFactorArray](../../autoware_adapi_v1_msgs/msg/velocity_factor_array.md)

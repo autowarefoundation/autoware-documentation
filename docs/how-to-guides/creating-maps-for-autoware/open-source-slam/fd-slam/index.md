@@ -1,5 +1,11 @@
 # FD-SLAM
 
+
+## What is FD-SLAM?
+
+- FD_SLAM is Feature&Distribution-based 3D LiDAR SLAM method based on Surface Representation Refinement. In this algorithm novel feature-based Lidar odometry used for fast scan-matching, and used a proposed UGICP method for keyframe matching.
+
+
 ## Repository Information
 
 This is an open source ROS package for real-time 6DOF SLAM using a 3D LIDAR.

@@ -15,7 +15,7 @@ If you need more detailed information about package, refer to the [control_perfo
 
 #### 2. Initialize the vehicle and send goal position to create route
 
-- If you have any problem with launching Autoware, please see the [tutorials](https://autowarefoundation.github.io/autoware-documentation/main/tutorials/) page.
+- If you have any problem with launching Autoware, please see the [tutorials](../tutorials/) page.
 
 #### 3. Launch the control_performance_analysis package
 

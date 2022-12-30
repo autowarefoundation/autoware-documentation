@@ -12,3 +12,7 @@ autoware_adapi_v1_msgs/VelocityFactor[] factors
 ## This type uses
 
 - [autoware_adapi_v1_msgs/msg/VelocityFactor](../../autoware_adapi_v1_msgs/msg/velocity_factor.md)
+
+## This type is used by
+
+None

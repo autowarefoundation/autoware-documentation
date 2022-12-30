@@ -1,5 +1,11 @@
 # ISCLOAM
 
+
+## What is ISCLOAM?
+
+- ISCLOAM presents a robust loop closure detection approach by integrating both geometry and intensity information.
+
+
 ## Repository Information
 
 ### Original Repository link

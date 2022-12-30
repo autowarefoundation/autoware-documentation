@@ -1,4 +1,5 @@
 nav:
+  - index.md
   - FAST-LIO-LC: fast-lio-lc
   - FAST_LIO_SLAM: fast-lio-slam
   - FD-SLAM: fd-slam
@@ -10,4 +11,3 @@ nav:
   - Optimized-SC-F-LOAM: optimized-sc-f-loam
   - SC-A-LOAM: sc-a-loam
   - SC-LeGO-LOAM: sc-lego-loam
-  - Conclusions: conclusions

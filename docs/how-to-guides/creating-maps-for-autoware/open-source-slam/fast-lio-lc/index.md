@@ -1,5 +1,11 @@
 # FAST_LIO_LC
 
+
+## What is FAST_LIO_LC?
+
+- A computationally efficient and robust LiDAR-inertial odometry package with loop closure module and graph optimization. 
+
+
 ## Repository Information
 
 ### Original Repository link

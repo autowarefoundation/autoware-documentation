@@ -13,3 +13,7 @@ autoware_adapi_v1_msgs/RouteSegment[] segments
 ## This type uses
 
 - [autoware_adapi_v1_msgs/msg/RouteSegment](../../autoware_adapi_v1_msgs/msg/route_segment.md)
+
+## This type is used by
+
+- [autoware_adapi_v1_msgs/msg/Route](../../autoware_adapi_v1_msgs/msg/route.md)

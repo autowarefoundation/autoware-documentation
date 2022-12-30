@@ -1,5 +1,10 @@
 # hdl_graph_slam
 
+## What is hdl_graph_slam?
+
+- An open source ROS package for real-time 6DOF SLAM using a 3D LIDAR. It is based on 3D Graph SLAM with NDT scan matching-based odometry estimation and loop detection. It also supports several graph constraints, such as GPS, IMU acceleration (gravity vector), IMU orientation (magnetic sensor), and floor plane (detected in a point cloud).
+
+
 ## Repository Information
 
 ### Original Repository link

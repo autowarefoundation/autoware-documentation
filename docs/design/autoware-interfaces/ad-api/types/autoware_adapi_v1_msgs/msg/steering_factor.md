@@ -40,3 +40,7 @@ string detail
 ## This type uses
 
 None
+
+## This type is used by
+
+- [autoware_adapi_v1_msgs/msg/SteeringFactorArray](../../autoware_adapi_v1_msgs/msg/steering_factor_array.md)
