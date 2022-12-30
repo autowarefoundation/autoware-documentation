@@ -1,10 +1,8 @@
 # LeGO-LOAM-BOR
 
-
 ## What is LeGO-LOAM-BOR?
 
 - LeGO-LOAM-BOR is improved version of the LeGO-LOAM by improving quality of the code, making it more readable and consistent. Also, performance is improved by converting processes to multi-threaded approach.
-
 
 ## Repository Information
 

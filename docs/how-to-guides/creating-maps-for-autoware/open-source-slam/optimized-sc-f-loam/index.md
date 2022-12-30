@@ -4,7 +4,6 @@
 
 - An improved version of F-LOAM and uses an adaptive threshold to further judge the loop closure detection results and reducing false loop closure detections. Also it uses feature point-based matching to calculate the constraints between a pair of loop closure frame point clouds and decreases time consumption of constructing loop frame constraints.
 
-
 ## Repository Information
 
 ### Original Repository link

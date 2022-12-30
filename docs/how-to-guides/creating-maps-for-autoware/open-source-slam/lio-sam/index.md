@@ -4,7 +4,6 @@
 
 - A framework that achieves highly accurate, real-time mobile robot trajectory estimation and map-building. It formulates lidar-inertial odometry atop a factor graph, allowing a multitude of relative and absolute measurements, including loop closures, to be incorporated from different sources as factors into the system
 
-
 ## Repository Information
 
 ### Original Repository link

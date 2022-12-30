@@ -1,10 +1,8 @@
 # FAST_LIO_SLAM
 
-
 ## What is FAST_LIO_SLAM?
 
 - FAST_LIO_SLAM is the integration of FAST_LIO and SC-PGO which is scan context based loop detection and GTSAM based pose-graph optimization.
-
 
 ## Repository Information
 

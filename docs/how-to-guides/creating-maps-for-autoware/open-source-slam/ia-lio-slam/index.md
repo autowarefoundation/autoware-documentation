@@ -1,10 +1,8 @@
 # IA-LIO-SAM
 
-
 ## What is IA-LIO-SAM?
 
 - IA_LIO_SLAM is created for data acquisition in unstructured environment and it is a framework for Intensity and Ambient Enhanced Lidar Inertial Odometry via Smoothing and Mapping that achieves highly accurate robot trajectories and mapping.
-
 
 ## Repository Information
 
