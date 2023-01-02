@@ -10,3 +10,5 @@ nav:
   - evaluating-controller-performance.md
   - add-a-custom-ros-message.md
   - fixing-dependent-package-versions.md
+  - ssd_fine_detector_network_train.md
+  
