@@ -10,6 +10,7 @@
 - [Applying Clang-Tidy to ROS packages](applying-clang-tidy-to-ros-packages.md)
 - [Evaluating controller performance](evaluating-controller-performance.md)
 - [Add a custom ROS message](add-a-custom-ros-message.md)
+- [Train SSD MobilenetV2 Neural Network](ssd_fine_detector_network_train.md)
 
 TODO: Write the following contents.
 
