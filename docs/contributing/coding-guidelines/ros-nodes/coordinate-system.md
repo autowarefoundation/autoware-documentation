@@ -2,7 +2,7 @@
 
 ## Overview
 
-The commonly used coordinate systems include the world coordinate system, the vehicle coordinate system, and the sensor coordinate system. 
+The commonly used coordinate systems include the world coordinate system, the vehicle coordinate system, and the sensor coordinate system.
 
 - The world coordinate system is a fixed coordinate system that defines the physical space in the environment where the vehicle is located.
 
@@ -93,6 +93,7 @@ X+: East
 Y+: North
 Z+: Up
 ```
+
 The position, orientation, velocity, acceleration are all defined in the same axis convention.
 
 Position by the GNSS/INS sensor is expected to be in `earth` frame.
@@ -107,14 +108,16 @@ Rotation around:
   Y+: pitch
   Z+: yaw
 ```
+
 References:
+
 - <https://www.ros.org/reps/rep-0103.html#axis-orientation>
 
 ## How they can be created
 
 1. Calibration of sensor
 
-   The conversion relationship between every sensor coordinate system  and `base_link` can be obtained through sensor calibration technology. How to calibrating your sensors refer to this link [calibrating your sensors](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/calibrating-your-sensors/).
+   The conversion relationship between every sensor coordinate system and `base_link` can be obtained through sensor calibration technology. How to calibrating your sensors refer to this link [calibrating your sensors](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/calibrating-your-sensors/).
 
 2. Localization
 
@@ -122,4 +125,4 @@ References:
 
 3. Georeferencing of map data
 
-   The georeferencing information can get the transformation relationship of `earth` coordinate system to  local `map` coordinate system.
+   The georeferencing information can get the transformation relationship of `earth` coordinate system to local `map` coordinate system.
