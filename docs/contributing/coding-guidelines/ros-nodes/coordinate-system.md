@@ -26,7 +26,17 @@ In Autoware, coordinate systems are typically used to represent the position and
 
 In Autoware, a common coordinate system structure is shown below:
 
-![tf-tree](./images/coordinate-system-tf-tree.png)
+```mermaid
+graph TD
+    /earth --> /map
+    /map --> /base_link
+    /base_link --> /imu
+    /base_link --> /lidar
+    /base_link --> /gnss
+    /base_link --> /radar
+    /base_link --> /camera_link
+    /camera_link --> /camera_optical_link
+```
 
 - earth: `earth` coordinate system describe the position of any point on the earth in terms of geodetic longitude, latitude, and altitude. In Autoware, the `earth` frame is only used in the `GnssInsPositionStamped` message.
 
@@ -39,6 +49,40 @@ In Autoware, a common coordinate system structure is shown below:
 - camera_link: `camera_link` is ROS standard camera coordinate system .
 
 - camera_optical_link: `camera_optical_link` is image standard camera coordinate system.
+
+### Estimating the `base_link` frame by using the other sensors
+
+Generally we don't have the localization sensors physically at the `base_link` frame. So various sensors localize with respect to their own frames, let's call it `sensor` frame.
+
+We introduce a new frame naming convention: `x_by_y`:
+
+```yaml
+x: estimated frame name
+y: localization method/source
+```
+
+We cannot directly get the `sensor` frame. Because we would need the EKF module to estimate the `base_link` frame first.
+
+Without the EKF module the best we can do is to estimate `Map[map] --> sensor_by_sensor --> base_link_by_sensor` using this sensor.
+
+#### Example by the GNSS/INS sensor
+
+For the integrated GNSS/INS we use the following frames:
+
+```mermaid
+flowchart LR
+    earth --> Map[map] --> gnss_ins_by_gnss_ins --> base_link_by_gnss_ins
+```
+
+The `gnss_ins_by_gnss_ins` frame is obtained by the coordinates from GNSS/INS sensor. The coordinates are converted to `map` frame using the `gnss_poser` node.
+
+Finally `gnss_ins_by_gnss_ins` frame represents the position of the `gnss_ins` estimated by the `gnss_ins` sensor in the `map`.
+
+Then by using the static transformation between `gnss_ins` and the `base_link` frame, we can obtain the `base_link_by_gnss_ins` frame. Which represents the `base_link` estimated by the `gnss_ins` sensor.
+
+References:
+
+- <https://www.ros.org/reps/rep-0105.html#earth>
 
 ### Coordinate Axes Conventions
 
