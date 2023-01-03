@@ -26,7 +26,7 @@ Model parameters are:
 - `--datasets` : Path to dataset folder
 - `--net` : Neural network architecture. It can be `mb2-ssd-lite` or `vgg16-ssd`
 - `--pretrained_ssd ` : Path to pretrained model
-- `--scheduler` : Learning rate scheduler. It can be `cosine` or `multistep`
+- `--scheduler` : Learning rate scheduler. It can be `cosine` or `multi-step`
 - `--lr` : Initial learning rate
 - `--t_max` : Cosine annealing scheduler parameter
 - `--validation_epochs` : Number of epochs between validation
