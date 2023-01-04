@@ -4,7 +4,7 @@ This document contains step-by-step instruction on how to build [AWF Autoware Co
 
 ## Prerequisites
 
-1. [Autoware has been built and installed](https://autowarefoundation.github.io/autoware-documentation/main/installation/)
+1. [Autoware has been built and installed](../../../installation/)
 
 ## How to build
 
@@ -23,7 +23,7 @@ This document contains step-by-step instruction on how to build [AWF Autoware Co
 3. Install dependent ROS packages:
 
    ```bash
-   source /opt/ros/galactic/setup.bash
+   source /opt/ros/humble/setup.bash
    rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 

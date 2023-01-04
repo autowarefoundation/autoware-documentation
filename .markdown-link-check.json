@@ -5,7 +5,13 @@
       "pattern": "^http://localhost"
     },
     {
+      "pattern": "^http://127\\.0\\.0\\.1"
+    },
+    {
       "pattern": "^https://github.com/.*/discussions/new"
+    },
+    {
+      "pattern": "^https://www\\.autosar\\.org/*"
     }
   ],
   "retryOn429": true,
