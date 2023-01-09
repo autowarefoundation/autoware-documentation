@@ -1,7 +1,7 @@
 nav:
   - index.md
   - advanced-usage-of-colcon.md
-  - creating-maps-for-autoware.md
+  - creating-maps-for-autoware
   - determining-component-dependencies.md
   - integrating-autoware-with-your-vehicle.md
   - integrating-autoware-with-a-diff-drive-vehicle.md
@@ -9,3 +9,4 @@ nav:
   - calibrating-your-sensors.md
   - evaluating-controller-performance.md
   - debug-autoware.md
+  - add-a-custom-ros-message.md
