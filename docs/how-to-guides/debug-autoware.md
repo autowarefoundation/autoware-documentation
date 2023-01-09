@@ -1,34 +1,70 @@
 # Debug Autoware
 
-The essential thing for debug is to print the program information clearly, which can quickly judge the program operation and locate the problem.
-This page lists a simple example of how to debug Autoware.
+This page provides some methods for debugging Autoware.
 
-## How to debug Autoware
+## Print debug messages
 
-Debug macros are very important in C programming, they are usually used to print debug information in early tests. When officially released, it is very convenient to cancel print all debug information by modifying the macro.
+The essential thing for debug is to print the program information clearly, which can quickly judge the program operation and locate the problem. Autoware uses ROS2 logging tool to print debug messages, how to design console logging refer to tutorial [Console logging](../contributing/coding-guidelines/ros-nodes/console-logging.md).
 
-1. Define a parameter to indicate whether to display debug information
+## Using ROS2 tools debug Autoware
 
-   ```cpp
-   bool show_debug_info_;
-   ```
+### Using command line tools
 
-2. Define a macro that prints debug information
+ROS2 includes a suite of command-line tools for introspecting a ROS2 system. The main entry point for the tools is the command `ros2`, which itself has various sub-commands for introspecting and working with nodes, topics, services, and more. How to use the ROS2 command line tool refer to tutorial [CLI tools](http://docs.ros.org/en/galactic/Tutorials/Beginner-CLI-Tools.html).
 
-   ```cpp
-   #define DEBUG_INFO(...) {if(show_debug_info_){RCLCPP_INFO(__VA_ARGS__);}}
-   ```
 
-   **NOTE**: `__VA_ARGS__` is a variable argument macro.
+### Using rviz2
 
-   Next, you can use `DEBUG_INFO` to output debug information.
+Rviz2 is a port of Rviz to ROS2. It provides a graphical interface for users to view their robot, sensor data, maps, and more. You can run Rviz2 tool easily by:
+it will open
+```console
+rviz2
+```
 
-3. Output debug information
+When Autoware launch the simulators, the Rviz2 tool is opened by default to visualize the autopilot graphic informations.
 
-   We use `ekf_localizer` module as an example:
+### Using rqt tools
 
-   ```cpp
-   DEBUG_INFO(get_logger(), "[EKF] predictKinematicsModel calc time = %f [ms]", stop_watch_.toc());
-   ```
+RQt is a graphical user interface framework that implements various tools and interfaces in the form of plugins. You can run any RQt tools/plugins easily by:
 
-   **NOTE**: Add [EKF] before debug information to facilitate filtering debug information of other modules.
+```console
+rqt
+```
+
+This GUI allows you to choose any available plugins on your system. You can also run plugins in standalone windows. For example, RQt Console:
+
+```console
+ros2 run rqt_console rqt_console
+```
+
+#### Common RQt tools:
+
+__rqt_graph: view node interaction__
+
+In complex applications, it may be helpful to get a visual representation of the ROS node interactions.
+
+```console
+ros2 run rqt_graph rqt_graph
+```
+
+__rqt_console: view messages__
+
+rqt_console is a great gui for viewing ROS topics.
+
+```console
+ros2 run rqt_console rqt_console
+```
+
+__rqt_plot: view data plots__
+
+rqt_plot is an easy way to plot ROS data in real time. 
+
+```console
+ros2 run rqt_plot rqt_plot
+```
+
+## Using a debugger with breakpoints
+
+Many IDE(e.g. VSCode, CLion) supports debugging C/C++ excutable with GBD on linux plotform. The following lists some references for using the debugger:
+- https://code.visualstudio.com/docs/cpp/cpp-debug
+- https://www.jetbrains.com/help/clion/debugging-code.html#useful-debugger-shortcuts
