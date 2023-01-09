@@ -39,29 +39,29 @@ ros2 run rqt_console rqt_console
 
 #### Common RQt tools:
 
-__rqt_graph: view node interaction__
+1. rqt_graph: view node interaction
 
-In complex applications, it may be helpful to get a visual representation of the ROS node interactions.
+   In complex applications, it may be helpful to get a visual representation of the ROS node interactions.
 
-```console
-ros2 run rqt_graph rqt_graph
-```
+   ```console
+   ros2 run rqt_graph rqt_graph
+   ```
 
-__rqt_console: view messages__
+2. rqt_console: view messages
 
-rqt_console is a great gui for viewing ROS topics.
+   rqt_console is a great gui for viewing ROS topics.
 
-```console
-ros2 run rqt_console rqt_console
-```
+   ```console
+   ros2 run rqt_console rqt_console
+   ```
 
-__rqt_plot: view data plots__
+3. rqt_plot: view data plots
 
-rqt_plot is an easy way to plot ROS data in real time. 
-
-```console
-ros2 run rqt_plot rqt_plot
-```
+   rqt_plot is an easy way to plot ROS data in real time. 
+ 
+   ```console
+   ros2 run rqt_plot rqt_plot
+   ```
 
 ## Using a debugger with breakpoints
 
