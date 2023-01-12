@@ -21,7 +21,7 @@ it will open
 rviz2
 ```
 
-When Autoware launch the simulators, the Rviz2 tool is opened by default to visualize the autopilot graphic informations.
+When Autoware launch the simulators, the Rviz2 tool is opened by default to visualize the autopilot graphic information.
 
 ### Using rqt tools
 
@@ -65,6 +65,6 @@ ros2 run rqt_console rqt_console
 
 ## Using a debugger with breakpoints
 
-Many IDE(e.g. VSCode, CLion) supports debugging C/C++ excutable with GBD on linux plotform. The following lists some references for using the debugger:
+Many IDE(e.g. VSCode, CLion) supports debugging C/C++ executable with GBD on linux platform. The following lists some references for using the debugger:
 - https://code.visualstudio.com/docs/cpp/cpp-debug
 - https://www.jetbrains.com/help/clion/debugging-code.html#useful-debugger-shortcuts
