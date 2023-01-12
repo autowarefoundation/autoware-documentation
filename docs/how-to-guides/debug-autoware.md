@@ -12,11 +12,11 @@ The essential thing for debug is to print the program information clearly, which
 
 ROS2 includes a suite of command-line tools for introspecting a ROS2 system. The main entry point for the tools is the command `ros2`, which itself has various sub-commands for introspecting and working with nodes, topics, services, and more. How to use the ROS2 command line tool refer to tutorial [CLI tools](http://docs.ros.org/en/galactic/Tutorials/Beginner-CLI-Tools.html).
 
-
 ### Using rviz2
 
 Rviz2 is a port of Rviz to ROS2. It provides a graphical interface for users to view their robot, sensor data, maps, and more. You can run Rviz2 tool easily by:
 it will open
+
 ```console
 rviz2
 ```
@@ -37,7 +37,7 @@ This GUI allows you to choose any available plugins on your system. You can also
 ros2 run rqt_console rqt_console
 ```
 
-#### Common RQt tools:
+#### Common RQt tools
 
 1. rqt_graph: view node interaction
 
@@ -57,8 +57,8 @@ ros2 run rqt_console rqt_console
 
 3. rqt_plot: view data plots
 
-   rqt_plot is an easy way to plot ROS data in real time. 
- 
+   rqt_plot is an easy way to plot ROS data in real time.
+
    ```console
    ros2 run rqt_plot rqt_plot
    ```
@@ -66,5 +66,6 @@ ros2 run rqt_console rqt_console
 ## Using a debugger with breakpoints
 
 Many IDE(e.g. VSCode, CLion) supports debugging C/C++ executable with GBD on linux platform. The following lists some references for using the debugger:
-- https://code.visualstudio.com/docs/cpp/cpp-debug
-- https://www.jetbrains.com/help/clion/debugging-code.html#useful-debugger-shortcuts
+
+- <https://code.visualstudio.com/docs/cpp/cpp-debug>
+- <https://www.jetbrains.com/help/clion/debugging-code.html#useful-debugger-shortcuts>
