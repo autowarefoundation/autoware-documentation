@@ -16,7 +16,7 @@ Requirements are:
 
 ## How to Train Model
 
-If we are going to train our custom dataset in open images dataset format first we need divide dataset as train, test and validation subsets and put them in a folder named as `open_images`. Also there should be train.csv, test.cvs and validation.csv inside the open-images folder.
+If we are going to train our custom dataset in open images dataset format first we need to divide the dataset as train, test and validation subsets and put them in a folder named as `open_images`. Also, there should be train.csv, test.cvs and validation.csv inside the open-images folder.
 After this step, we should change label names to `BACKGROUND` and `traffic_light` in models/open-images-model-labels.txt file. Then we can start training by running the following command:
 
 ```bash
