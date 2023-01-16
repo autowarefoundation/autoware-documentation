@@ -1,15 +1,15 @@
 ---
 components:
   - adapi
-  - control
-  - localization
-  - map
-  - perception
-  - planning
-  - sensing
-  - simulator
   - system
+  - map
+  - localization
+  - planning
+  - control
+  - sensing
+  - perception
   - vehicle
+  - simulator
 
 interfaces:
   - name: /localization/initialization_state
@@ -55,12 +55,12 @@ interfaces:
 
 ## {{ component }}
 
-| interface type | interface name | data type |
-| -------------- | -------------- | --------- |
+| interface type | interface name | data type | comments |
+| -------------- | -------------- | --------- | -------- |
 
 {%- for interface in interfaces %}
 {%- if component in interface.used %}
-| {{ interface.used[component] }} | {{ interface.name }} | {{ interface.type }} |
+| {{ interface.used[component] }} | {{ interface.name }} | {{ interface.type }} | {{ interface.get('note', '-') }} |
 {%- endif %}
 {%- endfor %}
 {%- endfor %}
