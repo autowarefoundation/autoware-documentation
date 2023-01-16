@@ -16,7 +16,7 @@ The accepted formats are:
 
     Under Construction
 
-Use `Array` as a suffix when creating a plural type of a message. This suffix is standardly used in [common_interfaces](https://github.com/ros2/common_interfaces).
+Use `Array` as a suffix when creating a plural type of a message. This suffix is commonly used in [common_interfaces](https://github.com/ros2/common_interfaces).
 
 ## Default units
 
