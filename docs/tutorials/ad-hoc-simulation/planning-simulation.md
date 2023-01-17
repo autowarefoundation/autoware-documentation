@@ -68,7 +68,6 @@ ros2 service call /api/operation_mode/change_to_autonomous autoware_adapi_v1_msg
 
 After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button is grayed out.
 
-
 ![start-driving](images/planning/lane-following/start-driving.png)
 
 ### Parking scenario
