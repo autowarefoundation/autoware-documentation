@@ -34,13 +34,7 @@ ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autowa
 
 ![after-autoware-launch](images/planning/lane-following/after-autoware-launch.png)
 
-#### 2. Add Autoware State Panel
-
-This panel is useful when running planning simulations. To add the panel, click `Panels -> Add new panel`, select `AutowareStatePanel`, and then click `OK`.
-
-![after-autoware-launch](images/planning/lane-following/open-autoware-state-panel.png)
-
-#### 3. Set an initial pose for the ego vehicle
+#### 2. Set an initial pose for the ego vehicle
 
 ![set-initial-pose](images/planning/lane-following/set-initial-pose.png)
 
@@ -62,16 +56,20 @@ b) In the 3D View pane, click and hold the left-mouse button, and then drag to s
 
 ![set-goal-pose](images/planning/lane-following/set-goal-pose.png)
 
-#### 5. Engage the ego vehicle
+#### 5. Start the ego vehicle
 
-Now you can start the ego vehicle driving by clicking the `Engage` button in `AutowareStatePanel`. Alteratively, you can manually engage the vehicle by running the following command:
+Now you can start the ego vehicle driving by clicking the `AUTO` button on `OperationMode` in `AutowareStatePanel`.
+Alteratively, you can manually start the vehicle by running the following command:
 
 ```bash
 source ~/autoware/install/setup.bash
-ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: true" -1
+ros2 service call /api/operation_mode/change_to_autonomous autoware_adapi_v1_msgs/srv/ChangeOperationMode {}
 ```
 
-![start-driving](images/planning/lane-following/engage-and-start-planning.png)
+After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button is grayed out.
+
+
+![start-driving](images/planning/lane-following/start-driving.png)
 
 ### Parking scenario
 
