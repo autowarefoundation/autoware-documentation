@@ -48,7 +48,7 @@ b) In the 3D View pane, click and hold the left-mouse button, and then drag to s
 
     To confirm the direction of the lane, check the arrowheads displayed on the map.
 
-#### 4. Set a goal pose for the ego vehicle
+#### 3. Set a goal pose for the ego vehicle
 
 a) Click the `2D Goal Pose` button in the toolbar, or hit the `G` key.
 
@@ -56,7 +56,7 @@ b) In the 3D View pane, click and hold the left-mouse button, and then drag to s
 
 ![set-goal-pose](images/planning/lane-following/set-goal-pose.png)
 
-#### 5. Start the ego vehicle
+#### 4. Start the ego vehicle
 
 Now you can start the ego vehicle driving by clicking the `AUTO` button on `OperationMode` in `AutowareStatePanel`.
 Alteratively, you can manually start the vehicle by running the following command:
