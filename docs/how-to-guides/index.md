@@ -11,6 +11,7 @@
 - [Evaluating controller performance](evaluating-controller-performance.md)
 - [Debug Autoware](debug-autoware.md)
 - [Add a custom ROS message](add-a-custom-ros-message.md)
+- [Fixing dependent package versions](fixing-dependent-package-versions.md)
 
 TODO: Write the following contents.
 
