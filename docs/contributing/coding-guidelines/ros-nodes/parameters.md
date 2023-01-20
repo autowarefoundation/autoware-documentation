@@ -12,7 +12,7 @@ Autoware has the following two types of parameter files for ROS packages:
 - **Node parameter file**
   - Node parameter files store the default parameters provided for each package in Autoware.
     - For example, [the parameter of `behavior_path_planner`](https://github.com/autowarefoundation/autoware.universe/tree/main/planning/behavior_path_planner/config)
-  - All the nodes in Autoware must have the node parameter files, if the node have one or more parameters that users may customize.
+  - All nodes in Autoware must have a parameter file if one or more parameters that can be customized by the user are defined.
   - For `FOO_package`, the parameter is expected to be stored in `FOO_package/config`.
   - The launch file for individual packages must load node parameter by default:
 
