@@ -55,7 +55,7 @@ plugins:
   - macros
   - same-dir
   - search
-  - mkdocs-video
+  - mkdocs-video:
       mark: "Reference video tutorials"
 
 markdown_extensions:
