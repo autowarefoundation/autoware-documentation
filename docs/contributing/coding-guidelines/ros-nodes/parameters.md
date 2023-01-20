@@ -15,6 +15,7 @@ Autoware has the following two types of parameter files for ROS packages:
   - All the nodes in Autoware **must** have the node parameter file.
   - For `FOO_package`, the parameter is expected to be stored in `FOO_package/config`.
   - The launch file for individual packages must load node parameter by default:
+
 ```xml
 <launch>
   <arg name="foo_node_param_path" default="$(find-pkg-share FOO_package)/config/foo_node.param.yaml" />
