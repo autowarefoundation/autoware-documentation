@@ -1,10 +1,12 @@
 # Parameters
 
 ## ROS parameters
+
 The ROS packages in Autoware have ROS parameters. You need to customize the parameters depending on your applications.
 It is recommended not to set default values when you declare ROS parameters to avoid unintended behaviors.
 
 ## Parameter files
+
 Autoware has the following two types of parameter files for ROS packages:
 
 - Node parameter file: the reference parameter for the node package
@@ -14,6 +16,7 @@ Autoware has the following two types of parameter files for ROS packages:
 All the parameter files should have the `.param.yaml` suffix so that the auto-format can be applied properly.
 
 ### Node parameter
+
 Node parameter files store the default parameters provided for each package in Autoware.
 All the nodes in Autoware **must** have the node parameter file.
 For `FOO_package`, the parameter is expected to be stored in `FOO_package/config`.
