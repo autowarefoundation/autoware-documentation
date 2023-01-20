@@ -53,10 +53,9 @@ plugins:
         - ^(?!(.*/)?assets/).*\.(?!(.*\.)?md|(.*\.)?svg|(.*\.)?png|(.*\.)?jpg).*$
         - ^(.*/)?[^.]*$
   - macros
+  - mkdocs-video
   - same-dir
   - search
-  - mkdocs-video:
-      mark: reference-video-tutorials
 
 markdown_extensions:
   - abbr
