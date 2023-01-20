@@ -14,13 +14,13 @@ Here are two ways to install Autoware by docker:
 
 [docker installation for quick start](./docker-installation-prebuilt.md)
 
-![Reference video tutorials](https://youtu.be/3KUhEFkEbI8)
+![reference-video-tutorials](https://youtu.be/3KUhEFkEbI8)
 
 ## Docker installation for development
 
 [docker installation for development](./docker-installation-devel.md)
 
-![Reference video tutorials](https://youtu.be/UrSF-VwncGQ)
+![reference-video-tutorials](https://youtu.be/UrSF-VwncGQ)
 
 ## Troubleshooting
 
