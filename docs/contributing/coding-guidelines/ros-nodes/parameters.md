@@ -1,26 +1,33 @@
 # Parameters
 
 ## ROS parameters
-
-The ROS packages in Autoware may have ROS parameter(s) for setting some variables that should be customized depending on the applications.
+The ROS packages in Autoware have ROS parameters. You need to customize the parameters depending on your applications.
 It is recommended not to set default values when you declare ROS parameters to avoid unintended behaviors.
 
-## ROS Parameter files
-
+## Parameter files
 Autoware has the following two types of parameter files for ROS packages:
 
 - Node parameter file: the reference parameter for the node package
-  - e.g., [the parameter for the `behavior_path_planner` package](https://github.com/autowarefoundation/autoware.universe/tree/main/planning/behavior_path_planner/config)
+  - For example, [the parameter for the `behavior_path_planner` package](https://github.com/autowarefoundation/autoware.universe/tree/main/planning/behavior_path_planner/config)
 - Launch parameter file: [the reference parameter for the `autoware_launch` package](https://github.com/autowarefoundation/autoware_launch/tree/main/autoware_launch/config)
 
 All the parameter files should have the `.param.yaml` suffix so that the auto-format can be applied properly.
 
 ### Node parameter
-
-Node parameter files store the default parameters provided for each package in Autoware Universe.
+Node parameter files store the default parameters provided for each package in Autoware.
 All the nodes in Autoware **must** have the node parameter file.
 For `FOO_package`, the parameter is expected to be stored in `FOO_package/config`.
-Also, the launch file for individual packages must load node parameter by default.
+Also, the launch file for individual packages must load node parameter by default:
+
+```xml
+<launch>
+  <arg name="foo_node_param_path" default="$(find-pkg-share FOO_package)/config/foo_node.param.yaml" />
+
+  <node ...>
+    <param from="$(var foo_node_param_path)" />
+  </node>
+</launch>
+```
 
 ### Launch parameter
 
