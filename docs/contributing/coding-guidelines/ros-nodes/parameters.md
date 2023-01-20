@@ -20,7 +20,8 @@ Autoware has the following two types of parameter files for ROS packages:
 <launch>
   <arg name="foo_node_param_path" default="$(find-pkg-share FOO_package)/config/foo_node.param.yaml" />
 
-  <node ...>
+  <node pkg="FOO_package" exec="foo_node">
+    ...
     <param from="$(var foo_node_param_path)" />
   </node>
 </launch>
