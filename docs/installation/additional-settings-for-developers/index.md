@@ -37,7 +37,7 @@ ROS2 multicasts data on the local network by default. When developing in a compa
 
 Unless you plan to use multiple host computers on the local network, localhost-only communication is recommended.
 
-### Enabling localhost-only communication
+#### Enabling localhost-only communication
 
 By default, ROS 2 communicates using multi-cast, which may unnecessarily increase the network traffic.
 To avoid it, write the following in your `.bashrc`:
@@ -61,7 +61,7 @@ If `MULTICAST` is not included, use the following command to enable it.
 sudo ip link set lo multicast on
 ```
 
-### Same domain only communication on the local network
+#### Same domain only communication on the local network
 
 ROS 2 uses `ROS_DOMAIN_ID` to create groups and communicate between machines in the groups.
 Since all ROS 2 nodes use domain ID `0` by default, it may cause unintended interference.
@@ -82,11 +82,11 @@ echo $ROS_LOCALHOST_ONLY # If output is 1, localhost has priority.
 
 For more information, see [here](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html#the-ros-domain-id-variable).
 
-## DDS settings
+### DDS settings
 
 Autoware uses DDS for inter-node communication. [ROS 2 documentation](https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html) recommends users to tune DDS to utilize its capability. Especially, receive buffer size is the critical parameter for Autoware. If the parameter is not large enough, Autoware will failed in receiving large data like point cloud or image.
 
-### Tuning DDS
+#### Tuning DDS
 
 Unless customized, CycloneDDS is adopted by default. For example, to execute Autoware with CycloneDDS, prepare config file. A sample config file, named as `cyclonedds_config.xml`, is given below.
 
@@ -111,7 +111,7 @@ sudo sysctl -w net.core.rmem_max=2147483647
 
 Refer to [ROS 2 documentation](https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html) for more information. Reading user guide for chosen DDS is helpful for more understanding.
 
-### Tuning DDS for multiple host computers (for advanced users)
+#### Tuning DDS for multiple host computers (for advanced users)
 
 When Autoware runs on multiple host computers, IP Fragmentation should be taken into account. As [ROS 2 documentation](https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html#cross-vendor-tuning) recommends, parameters for IP Fragmentation should be set as shown in the following example.
 
