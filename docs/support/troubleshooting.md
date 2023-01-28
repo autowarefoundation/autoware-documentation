@@ -152,7 +152,7 @@ When running the Planning Simulator, the most common reason for the map not bein
 
 Another possible reason is that map loading is taking a long time due to poor DDS performance. To address this issue, first enable localhost-only communication to reduce network traffic, and then [tune DDS settings](https://docs.ros.org/en/rolling/How-To-Guides/DDS-tuning.html) if the problem continues to occur.
 
-Simply put, add the following settings to  `.bashrc` and reboot the terminal. In many cases this is not a problem.
+Simply put, add the following settings to `.bashrc` and reboot the terminal. In many cases this is not a problem.
 
 ```bash
 export ROS_LOCALHOST_ONLY=1
@@ -171,7 +171,7 @@ fi
     echo $RMW_IMPLEMENTATION  // if Cyclone DDS is configured, this command will return "rmw_cyclonedds_cpp"
     ```
 
-If that does not work or you need more information,  please read followings.
+If that does not work or you need more information, please read followings.
 
 1. [Enable localhost-only communication](../installation/additional-settings-for-developers/index.md#enabling-localhost-only-communication)
 2. [DDS settings](../installation/additional-settings-for-developers/index.md#tuning-dds)

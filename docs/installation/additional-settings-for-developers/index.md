@@ -22,7 +22,6 @@ export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity} {time}] [{name}]: {message} ({
 
 For more options, see [here](https://docs.ros.org/en/rolling/Tutorials/Logging-and-logger-configuration.html#console-output-formatting).
 
-
 ## Network settings for ROS 2
 
 This section describes the network settings.
@@ -31,12 +30,13 @@ Please refer to [the official documentation](http://design.ros2.org/articles/ros
 
 ### ROS 2 network setting
 
-ROS2  multicasts data on the local network by default. When developing in a company, etc., data flows over the local network and there is a possibility of collision.
+ROS2 multicasts data on the local network by default. When developing in a company, etc., data flows over the local network and there is a possibility of collision.
 
-- Localhost-only communication 
+- Localhost-only communication
 - Same domain only communication on the local network
 
 Unless you plan to use multiple host computers on the local network, localhost-only communication is recommended.
+
 ### Enabling localhost-only communication
 
 By default, ROS 2 communicates using multi-cast, which may unnecessarily increase the network traffic.
@@ -56,6 +56,7 @@ ip link show lo
 ```
 
 If `MULTICAST` is not included, use the following command to enable it.
+
 ```bash
 sudo ip link set lo multicast on
 ```
@@ -80,7 +81,6 @@ echo $ROS_LOCALHOST_ONLY # If output is 1, localhost has priority.
 ```
 
 For more information, see [here](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html#the-ros-domain-id-variable).
-
 
 ## DDS settings
 
