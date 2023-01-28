@@ -1,6 +1,6 @@
 # Additional settings for developers
 
-## ROS 2 settings
+## Console settings for ROS 2
 
 ### Colorizing logger output
 
@@ -22,16 +22,45 @@ export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity} {time}] [{name}]: {message} ({
 
 For more options, see [here](https://docs.ros.org/en/rolling/Tutorials/Logging-and-logger-configuration.html#console-output-formatting).
 
+
+## Network settings for ROS 2
+
+This section describes the network settings.
+ROS 2 employs DDS, and the configuration of ROS2 and DDS will be described separately.
+Please refer to [the official documentation](http://design.ros2.org/articles/ros_on_dds.html) for ROS2 networking concepts.
+
+### ROS 2 network setting
+
+ROS2  multicasts data on the local network by default. When developing in a company, etc., data flows over the local network and there is a possibility of collision.
+
+- Localhost-only communication 
+- Same domain only communication on the local network
+
+Unless you plan to use multiple host computers on the local network, localhost-only communication is recommended.
 ### Enabling localhost-only communication
 
 By default, ROS 2 communicates using multi-cast, which may unnecessarily increase the network traffic.
 To avoid it, write the following in your `.bashrc`:
+For more information, see [here](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html#the-ros-localhost-only-variable).
 
 ```bash
 export ROS_LOCALHOST_ONLY=1
 ```
 
-### Setting up `ROS_DOMAIN_ID`
+If exported `ROS_LOCALHOST_ONLY=1`, `MULTICAST` must be enabled at the loopback address. Use the following command to verify that `MULTICAST` is included.
+
+```bash
+ip link show lo
+# Result sample
+# 1: lo: <LOOPBACK,MULTICAST,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+```
+
+If `MULTICAST` is not included, use the following command to enable it.
+```bash
+sudo ip link set lo multicast on
+```
+
+### Same domain only communication on the local network
 
 ROS 2 uses `ROS_DOMAIN_ID` to create groups and communicate between machines in the groups.
 Since all ROS 2 nodes use domain ID `0` by default, it may cause unintended interference.
@@ -44,13 +73,22 @@ To avoid it, set a different domain ID for each group in your `.bashrc`:
 export ROS_DOMAIN_ID=X
 ```
 
-For more information, see [here](https://docs.ros.org/en/foxy/Concepts/About-Domain-ID.html#the-ros-domain-id).
+Also confirm that `ROS_LOCALHOST_ONLY` is `0` by using the following command.
 
-### Tuning DDS
+```bash
+echo $ROS_LOCALHOST_ONLY # If output is 1, localhost has priority.
+```
+
+For more information, see [here](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html#the-ros-domain-id-variable).
+
+
+## DDS settings
 
 Autoware uses DDS for inter-node communication. [ROS 2 documentation](https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html) recommends users to tune DDS to utilize its capability. Especially, receive buffer size is the critical parameter for Autoware. If the parameter is not large enough, Autoware will failed in receiving large data like point cloud or image.
 
-For example, to execute Autoware with CycloneDDS, prepare config file. A sample config file, named as `cyclonedds_config.xml`, is given below.
+### Tuning DDS
+
+Unless customized, CycloneDDS is adopted by default. For example, to execute Autoware with CycloneDDS, prepare config file. A sample config file, named as `cyclonedds_config.xml`, is given below.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
