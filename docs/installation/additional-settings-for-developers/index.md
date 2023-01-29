@@ -24,38 +24,41 @@ For more options, see [here](https://docs.ros.org/en/rolling/Tutorials/Logging-a
 
 ## Network settings for ROS 2
 
-This section describes the network settings.
-ROS 2 employs DDS, and the configuration of ROS2 and DDS will be described separately.
-Please refer to [the official documentation](http://design.ros2.org/articles/ros_on_dds.html) for ROS2 networking concepts.
+ROS 2 employs DDS, and the configuration of ROS 2 and DDS is described separately.
+For ROS 2 networking concepts, refer to the [official documentation](http://design.ros2.org/articles/ros_on_dds.html).
 
 ### ROS 2 network setting
 
-ROS2 multicasts data on the local network by default. When developing in a company, etc., data flows over the local network and there is a possibility of collision.
+ROS 2 multicasts data on the local network by default.
+Therefore, when you develop in an office, the data flows over the local network of your office.
+It may cause collisions of packets or increases in network traffic.
+
+To avoid these, there are two options.
 
 - Localhost-only communication
 - Same domain only communication on the local network
 
 Unless you plan to use multiple host computers on the local network, localhost-only communication is recommended.
+For details, refer to the sections below.
 
 #### Enabling localhost-only communication
 
-By default, ROS 2 communicates using multi-cast, which may unnecessarily increase the network traffic.
-To avoid it, write the following in your `.bashrc`:
-For more information, see [here](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html#the-ros-localhost-only-variable).
+Write the following in your `.bashrc`:
+For more information, see the [ROS 2 documentation](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html#the-ros-localhost-only-variable).
 
 ```bash
 export ROS_LOCALHOST_ONLY=1
 ```
 
-If exported `ROS_LOCALHOST_ONLY=1`, `MULTICAST` must be enabled at the loopback address. Use the following command to verify that `MULTICAST` is included.
+If you export `ROS_LOCALHOST_ONLY=1`, `MULTICAST` must be enabled at the loopback address.
+To verify that `MULTICAST` is enabled, use the following command.
 
-```bash
-ip link show lo
-# Result sample
-# 1: lo: <LOOPBACK,MULTICAST,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+```console
+$ ip link show lo
+1: lo: <LOOPBACK,MULTICAST,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
 ```
 
-If `MULTICAST` is not included, use the following command to enable it.
+If the word `MULTICAST` is not printed, use the following command to enable it.
 
 ```bash
 sudo ip link set lo multicast on
@@ -77,10 +80,10 @@ export ROS_DOMAIN_ID=X
 Also confirm that `ROS_LOCALHOST_ONLY` is `0` by using the following command.
 
 ```bash
-echo $ROS_LOCALHOST_ONLY # If output is 1, localhost has priority.
+echo $ROS_LOCALHOST_ONLY # If the output is 1, localhost has priority.
 ```
 
-For more information, see [here](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html#the-ros-domain-id-variable).
+For more information, see the [ROS 2 Documentation](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html#the-ros-domain-id-variable).
 
 ### DDS settings
 
@@ -88,7 +91,7 @@ Autoware uses DDS for inter-node communication. [ROS 2 documentation](https://do
 
 #### Tuning DDS
 
-Unless customized, CycloneDDS is adopted by default. For example, to execute Autoware with CycloneDDS, prepare config file. A sample config file, named as `cyclonedds_config.xml`, is given below.
+Unless customized, CycloneDDS is adopted by default. For example, to execute Autoware with CycloneDDS, prepare a config file. A sample config file is given below. Save it as `cyclonedds_config.xml`.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -109,7 +112,7 @@ export CYCLONEDDS_URI=file:///absolute/path/to/cyclonedds_config.xml
 sudo sysctl -w net.core.rmem_max=2147483647
 ```
 
-Refer to [ROS 2 documentation](https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html) for more information. Reading user guide for chosen DDS is helpful for more understanding.
+For more information, Refer to [ROS 2 documentation](https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html). Reading user guide for chosen DDS is helpful for more understanding.
 
 #### Tuning DDS for multiple host computers (for advanced users)
 

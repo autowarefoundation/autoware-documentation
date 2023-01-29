@@ -171,7 +171,7 @@ fi
     echo $RMW_IMPLEMENTATION  // if Cyclone DDS is configured, this command will return "rmw_cyclonedds_cpp"
     ```
 
-If that does not work or you need more information, please read followings.
+If that does not work or you need more information, read the following documents.
 
 1. [Enable localhost-only communication](../installation/additional-settings-for-developers/index.md#enabling-localhost-only-communication)
 2. [DDS settings](../installation/additional-settings-for-developers/index.md#tuning-dds)
