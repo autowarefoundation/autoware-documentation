@@ -53,6 +53,7 @@ plugins:
         - ^(?!(.*/)?assets/).*\.(?!(.*\.)?md|(.*\.)?svg|(.*\.)?png|(.*\.)?jpg).*$
         - ^(.*/)?[^.]*$
   - macros
+  - mkdocs-video
   - same-dir
   - search
 
