@@ -1,7 +1,8 @@
 # Parameters
 
 The ROS packages in Autoware have ROS parameters. You need to customize the parameters depending on your applications.
-It is recommended not to set default values when you declare ROS parameters to avoid unintended behaviors.
+It is recommended not to set default values when declaring ROS parameters to avoid unintended behaviors due to accidental use of default values.
+Instead, set parameters from configuration files named `*.param.yaml`.
 
 ## Parameter files
 
