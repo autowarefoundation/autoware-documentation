@@ -1,6 +1,5 @@
 # Parameters
 
-## ROS parameters
 
 The ROS packages in Autoware have ROS parameters. You need to customize the parameters depending on your applications.
 It is recommended not to set default values when you declare ROS parameters to avoid unintended behaviors.
