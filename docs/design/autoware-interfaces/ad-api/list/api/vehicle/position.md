@@ -3,7 +3,7 @@
 # /api/vehicle/position
 
 - Method: realtime stream
-- Type: [autoware_adapi_v1_msgs/msg/VehiclePostion](../../../types/autoware_adapi_v1_msgs/msg/vehicle_postion.md)
+- Type: [autoware_adapi_v1_msgs/msg/VehiclePosition](../../../types/autoware_adapi_v1_msgs/msg/vehicle_position.md)
 
 ## Description
 
@@ -15,4 +15,4 @@ Publish vehicle current pose and geo position.
 | ------------ | -------------------------------------- | ---------------------------------------------------- |
 | header       | std_msgs/msg/Header                    | header for pose transformation                       |
 | pose         | geometry_msgs/msg/Pose                 | The pose from the base link                          |
-| geo_position | autoware_adapi_v1_msgs/msg/GeoPosition | The longtitude, latitude and altitude of the vehicle |
+| geo_position | autoware_adapi_v1_msgs/msg/GeoPosition | The longitude,, latitude and altitude of the vehicle |
