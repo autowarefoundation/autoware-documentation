@@ -7,4 +7,4 @@
 - [Motion](./api/motion/index.md)
 - [Planning](./api/planning/index.md)
 - [Fail-safe](./api/fail_safe/index.md)
-- [Vehicle Status](./api/vehicle_status/index.md)
+- [Vehicle Status](./api/vehicle/index.md)
