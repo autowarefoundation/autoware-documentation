@@ -6,7 +6,7 @@
 
 ### PointCloud Map
 
-Enviroment map created with point cloud, Published by the Map Server.
+Environment map created with point cloud, Published by the Map Server.
 
 - sensor_msgs::msg::PointCloud2
 
