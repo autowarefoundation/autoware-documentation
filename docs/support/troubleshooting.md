@@ -129,18 +129,19 @@ In addition to the causes listed above, there are two common misunderstandings a
 2. You didn't update the workspace after changing the branch of `autowarefoundation/autoware`.
    Changing the branch of `autowarefoundation/autoware` does not affect the files under `src/`. You have to run the `vcs import` command to update them.
 
-
 ### Error when building python package
 
 During building the following issue can occurs
+
 ```
 pkg_resources.extern.packaging.version.InvalidVersion: Invalid version: '0.23ubuntu1'
 ```
 
-The error is due to the fact that since version 66.0.0 `setuptools`  enforces the python packages to be
+The error is due to the fact that since version 66.0.0 `setuptools` enforces the python packages to be
 [PEP-440](https://peps.python.org/pep-0440/) conformant.
 
 The workaround is to lower the version of `setuptools` to 65 or lower. It can be done using the following command
+
 ```
 pip install -U setuptools==65.7.0
 ```
