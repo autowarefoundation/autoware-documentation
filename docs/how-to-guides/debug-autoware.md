@@ -65,7 +65,7 @@ ros2 run rqt_console rqt_console
 
 ### Using ros2_graph
 
-[`ros2_graph`](https://github.com/kiwicampus/ros2_graph) can be used to generate [mermaid](https://mermaid.js.org/#/) description of ROS2 graphs to add on your markdown files.
+[`ros2_graph`](https://github.com/kiwicampus/ros2_graph) can be used to generate [mermaid](https://mermaid.js.org/#/) description of ROS 2 graphs to add on your markdown files.
 
 It can also be used as a colorful alternative to `rqt_graph` even though it would require some tool to render the generated mermaid diagram.
 
