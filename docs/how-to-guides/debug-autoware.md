@@ -63,6 +63,50 @@ ros2 run rqt_console rqt_console
    ros2 run rqt_plot rqt_plot
    ```
 
+### Using ros2_graph
+
+[`ros2_graph`](https://github.com/kiwicampus/ros2_graph) can be used to generate [mermaid](https://mermaid.js.org/#/) description of ROS 2 graphs to add on your markdown files.
+
+It can also be used as a colorful alternative to `rqt_graph` even though it would require some tool to render the generated mermaid diagram.
+
+It can be installed with:
+
+```bash
+pip install ros2-graph
+```
+
+Then you can generate a mermaid description of the graph with:
+
+```bash
+ros2_graph your_node
+
+# or like with an output file
+ros2_graph /turtlesim -o turtle_diagram.md
+
+# or multiple nodes
+ros2_graph /turtlesim /teleop_turtle
+```
+
+You can then visualize these graphs with:
+
+- [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor/)
+- Visual Studio Code extension [mermaid preview](https://marketplace.visualstudio.com/items?itemName=vstirbu.vscode-mermaid-preview)
+- JetBrains IDEs [with native support](https://www.jetbrains.com/go/guide/tips/mermaid-js-support-in-markdown/)
+
+### Using ros2doctor
+
+When your ROS 2 setup is not running as expected, you can check its settings with the `ros2doctor` tool.
+
+`ros2doctor` checks all aspects of ROS 2, including platform, version, network, environment, running systems and more, and warns you about possible errors and reasons for issues.
+
+It's as simple as just running `ros2 doctor` in your terminal.
+
+It has the ability to list "Subscribers without publishers" for all topics in the system.
+
+And this information can help you find if a necessary node isn't running.
+
+For more details, see the following official documentation for [Using ros2doctor to identify issues](https://docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.html).
+
 ## Using a debugger with breakpoints
 
 Many IDE(e.g. VSCode, CLion) supports debugging C/C++ executable with GBD on linux platform. The following lists some references for using the debugger:
