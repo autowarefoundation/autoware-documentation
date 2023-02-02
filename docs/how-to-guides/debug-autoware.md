@@ -70,11 +70,13 @@ ros2 run rqt_console rqt_console
 It can also be used as a colorful alternative to `rqt_graph` even though it would require some tool to render the generated mermaid diagram.
 
 It can be installed with:
+
 ```bash
 pip install ros2-graph
 ```
 
 Then you can generate a mermaid description of the graph with:
+
 ```bash
 ros2_graph your_node
 
@@ -86,6 +88,7 @@ ros2_graph /turtlesim /teleop_turtle
 ```
 
 You can then visualize these graphs with:
+
 - [mermaid live editor](https://mermaid-js.github.io/mermaid-live-editor/)
 - Visual studio code extension [mermaid preview](https://marketplace.visualstudio.com/items?itemName=vstirbu.vscode-mermaid-preview)
 - Jetbrains IDEs [with native support](https://www.jetbrains.com/go/guide/tips/mermaid-js-support-in-markdown/)
@@ -103,7 +106,8 @@ It has the ability to list "Subscribers without publishers" for all topics in th
 And this information can help you find if a necessary node isn't running.
 
 For more details, please see the following official documentation:
-- https://docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.html
+
+- <https://docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.html>
 
 ## Using a debugger with breakpoints
 
