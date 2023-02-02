@@ -89,9 +89,9 @@ ros2_graph /turtlesim /teleop_turtle
 
 You can then visualize these graphs with:
 
-- [mermaid live editor](https://mermaid-js.github.io/mermaid-live-editor/)
-- Visual studio code extension [mermaid preview](https://marketplace.visualstudio.com/items?itemName=vstirbu.vscode-mermaid-preview)
-- Jetbrains IDEs [with native support](https://www.jetbrains.com/go/guide/tips/mermaid-js-support-in-markdown/)
+- [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor/)
+- Visual Studio Code extension [mermaid preview](https://marketplace.visualstudio.com/items?itemName=vstirbu.vscode-mermaid-preview)
+- JetBrains IDEs [with native support](https://www.jetbrains.com/go/guide/tips/mermaid-js-support-in-markdown/)
 
 ### Using ros2doctor
 
@@ -105,7 +105,7 @@ It has the ability to list "Subscribers without publishers" for all topics in th
 
 And this information can help you find if a necessary node isn't running.
 
-For more details, please see the following official documentation:
+For more details, see the following official documentation:
 
 - <https://docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.html>
 
