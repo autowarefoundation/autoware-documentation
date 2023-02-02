@@ -105,9 +105,7 @@ It has the ability to list "Subscribers without publishers" for all topics in th
 
 And this information can help you find if a necessary node isn't running.
 
-For more details, see the following official documentation:
-
-- <https://docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.html>
+For more details, see the following official documentation for [Using ros2doctor to identify issues](https://docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.html)
 
 ## Using a debugger with breakpoints
 
