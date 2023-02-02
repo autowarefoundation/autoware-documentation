@@ -133,7 +133,7 @@ In addition to the causes listed above, there are two common misunderstandings a
 
 During building the following issue can occurs
 
-```
+```bash
 pkg_resources.extern.packaging.version.InvalidVersion: Invalid version: '0.23ubuntu1'
 ```
 
@@ -142,7 +142,7 @@ The error is due to the fact that since version 66.0.0 `setuptools` enforces the
 
 The workaround is to lower the version of `setuptools` to 65 or lower. It can be done using the following command
 
-```
+```bash
 pip install -U setuptools==65.7.0
 ```
 
