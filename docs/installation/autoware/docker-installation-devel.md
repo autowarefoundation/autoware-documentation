@@ -54,6 +54,7 @@ You might need to log out and log back to make the current user able to use dock
    ```
 
 2. Pull the Dokcer image
+
    ```bash
    docker pull ghcr.io/autowarefoundation/autoware-universe:latest-cuda
    ```
