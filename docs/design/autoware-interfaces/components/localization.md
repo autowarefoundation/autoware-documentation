@@ -47,18 +47,6 @@ Current velocity of the ego vehicle. Published by the Vehicle Interface.
 
 ## Outputs
 
-### Vehicle pose 
-
-Current position and orientation of ego.
-
-- geometry_msgs::msg::PoseWithCovarianceStamped
-
-### Vehicle twist
-
-Current line velocity and angular velocity of ego.
-
-- geometry_msgs::msg::TwistWithCovarianceStamped
-
 ### Vehicle acceleration
 
 Current acceleration of ego.
