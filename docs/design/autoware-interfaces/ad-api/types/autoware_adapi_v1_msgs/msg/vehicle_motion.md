@@ -6,10 +6,9 @@
 
 ```txt
 std_msgs/Header header
-float64 velocity
-float64 angular_velocity
-float64 acceleration
-float64 steering
+geometry_msgs/TwistWithCovariance twist
+geometry_msgs/AccelWithCovariance accel
+float64 steering_tire_angle
 ```
 
 ## This type uses

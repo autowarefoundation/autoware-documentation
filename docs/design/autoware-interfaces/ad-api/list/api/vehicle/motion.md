@@ -11,10 +11,9 @@ Publish vehicle current motion information.
 
 ## Message
 
-| Name             | Type                | Description                                 |
-| ---------------- | ------------------- | ------------------------------------------- |
-| header           | std_msgs/msg/Header | header for pose transformation              |
-| velocity         | float64             | Vehicle current velocity in [m/s]           |
-| angular_velocity | float64             | Vehicle current angular velocity in [rad/s] |
-| acceleration     | float64             | Vehicle current acceleration in [m/ss]      |
-| steering         | float64             | Vehicle current steering in [rad]           |
+| Name                | Type                                  | Description                                                                         |
+| ------------------- | ------------------------------------- | ----------------------------------------------------------------------------------- |
+| header              | std_msgs/msg/Header                   | header for pose transformation                                                      |
+| twist               | geometry_msgs/msg/TwistWithCovariance | Vehicle current twist with covariance , input from /localization/kinematic_state    |
+| accel               | geometry_msgs/msg/AccelWithCovariance | Vehicle current acceleration with ovariance , input from /localization/acceleration |
+| steering_tire_angle | float64                               | Vehicle current tire angle in [rad], input from /vehicle/status/steering_status     |
