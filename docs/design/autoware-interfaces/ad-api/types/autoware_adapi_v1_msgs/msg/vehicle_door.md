@@ -13,16 +13,7 @@ uint8 DOOR_OPENING = 3
 uint8 DOOR_CLOSING = 4
 uint8 NOT_APPLICABLE = 5
 
-# constants for door locations
-uint8 FRONT = 1
-uint8 BACK = 2
-uint8 MIDDLE = 3
-uint8 LEFT = 4
-uint8 RIGHT = 5
-
-uint8 door_id
 uint8 status
-uint8[] door_location
 ```
 
 ## This type uses

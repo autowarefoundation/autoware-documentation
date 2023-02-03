@@ -11,9 +11,6 @@ Publish door status, the door location information will be received from vehicle
 
 ## Message
 
-| Name                | Type    | Description         |
-| ------------------- | ------- | ------------------- |
-| doors.door_id       | uint8   | respective door id  |
-| doors.door_location | uint8[] | door location       |
-| doors.status        | uint8   | current door status |
-| doors.door_location | uint8[] | door location       |
+| Name         | Type  | Description         |
+| ------------ | ----- | ------------------- |
+| doors.status | uint8 | current door status |
