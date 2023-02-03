@@ -1,5 +1,4 @@
-# How to Test Different Neural Network Models from Pytorch Hub inside Traffic Light Classifier Node
-
+# How to Deploy Different Neural Network Models from Pytorch Hub inside Traffic Light Classifier Node
 Currently in Autoware ,we can re-train compatible models as base  from Pytorch hub and use it in traffic_light_classifier node. Here is a tutorial link for training <https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html>. 
 This guide explains which neural network models are trained and tested in the traffic light classifier node and for future developments it can help about replace current model to another model without changing TensorRT layers.
 
@@ -22,6 +21,6 @@ Currently, the traffic light classifier node supports the following models with 
 - `GoogLeNet`
 - `ShuffleNet v2`
 - `Wide ResNet`
-- `ResNeXt`
+
 
 These models are supported by TensorRT and can be converted  to `onnx` and `trt engine` files. Then they can be used directly in the `traffic_light_classifier` node.
