@@ -53,7 +53,7 @@ You might need to log out and log back to make the current user able to use dock
    mkdir ~/autoware_map
    ```
 
-2. Pull the Dokcer image
+2. Pull the Docker image
 
    ```bash
    docker pull ghcr.io/autowarefoundation/autoware-universe:latest-cuda
