@@ -10,12 +10,11 @@ Environment map created with point cloud, Published by the Map Server.
 
 - sensor_msgs::msg::PointCloud2
 
-
 ### Initial Pose
 
-Start pose of ego, Published by the User Interface or GNSS.
+Start pose of ego, Published by the User Interface.
 
-- geometry_msgs::msg::PoseStamped
+- geometry_msgs::msg::PoseCovarianceStamped
 
 ### 3D-LiDAR Scanning
 
@@ -28,6 +27,8 @@ LiDAR scanning for NDT matching. Published by the LiDAR sensor.
 Current Geographic coordinate of the ego. Published by GNSS sensor.
 
 - sensor_msgs::msg::NavSatFix
+
+When the initial pose is not set manually, the GNSS message can be used for automatic pose initialization.
 
 ### IMU
 
