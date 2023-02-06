@@ -5,6 +5,7 @@ It is recommended not to set default values when declaring ROS parameters to avo
 Instead, set parameters from configuration files named `*.param.yaml`.
 
 For understanding ROS 2 parameters, also check out the official documentation [Understanding parameters](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.html).
+
 ## Parameter files
 
 Autoware has the following two types of parameter files for ROS packages:
