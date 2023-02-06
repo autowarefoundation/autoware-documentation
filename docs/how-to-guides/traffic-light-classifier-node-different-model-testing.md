@@ -14,13 +14,15 @@ Requirements for the tested models are below:
 - `onnx==1.13.0`
 
 Currently, the traffic light classifier node supports the following models with requirements above:
+
+- `DenseNet`
+- `GoogLeNet`
 - `MobileNet v2`
 - `ResNet`
-- `DenseNet`
-- `SqueezeNet`
-- `GoogLeNet`
+- `ResNeXt`
 - `ShuffleNet v2`
-- `Wide ResNet`
+- `SqueezeNet`
+
 
 
 These models are supported by TensorRT and can be converted  to `onnx` and `trt engine` files. Then they can be used directly in the `traffic_light_classifier` node.
