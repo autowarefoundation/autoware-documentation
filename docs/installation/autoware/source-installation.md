@@ -70,7 +70,7 @@ If you've manually installed the dependencies, you can skip this section.
    ```bash
    cd autoware
    mkdir src
-   vcs import src < autoware.repos
+   vcs import src < autoware.repos --recursive
    ```
 
 2. Install dependent ROS packages.
@@ -107,7 +107,7 @@ If you've manually installed the dependencies, you can skip this section.
 2. Update the repositories.
 
    ```bash
-   vcs import src < autoware.repos
+   vcs import src < autoware.repos --recursive
    vcs pull src
    ```
 

@@ -87,7 +87,7 @@ You might need to log out and log back to make the current user able to use dock
 
    ```bash
    mkdir src
-   vcs import src < autoware.repos
+   vcs import src < autoware.repos --recursive
    ```
 
 5. Update dependent ROS packages.
@@ -141,7 +141,7 @@ You might need to log out and log back to make the current user able to use dock
 4. Update the repositories.
 
    ```bash
-   vcs import src < autoware.repos
+   vcs import src < autoware.repos --recursive
    vcs pull src
    ```
 
