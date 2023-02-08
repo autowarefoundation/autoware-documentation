@@ -5,5 +5,6 @@
 - [Routing](./api/routing/index.md)
 - [Localization](./api/localization/index.md)
 - [Motion](./api/motion/index.md)
+- [Perception](./api/perception/index.md)
 - [Planning](./api/planning/index.md)
 - [Fail-safe](./api/fail_safe/index.md)
