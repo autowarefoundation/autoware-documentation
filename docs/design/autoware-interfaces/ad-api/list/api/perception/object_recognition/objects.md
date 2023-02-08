@@ -14,7 +14,7 @@ Get the recognized objects array with label, shape, current position and predict
 | Name                          | Type                                                 | Description                                                             |
 | ----------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------- |
 | objects.id                    | unique_identifier_msgs/msg/UUID                      | The UUID of each object                                                 |
-| objects.existence_probability | float64                                              | the probility of the object exits                                       |
+| objects.existence_probability | float64                                              | the probability of the object exits                                     |
 | objects.classification        | autoware_adapi_v1_msgs/msg/ObjectClassification[]    | The type of the object recognized and the confidence level              |
 | objects.kinematics            | autoware_adapi_v1_msgs/msg/PredictedObjectKinematics | Consist of the object pose, twist, acceleration and the predicted_paths |
-| objects.shape                 | autoware_adapi_v1_msgs/msg/Shape                     | describe the shapre of the object with dimension, and polygon           |
+| objects.shape                 | autoware_adapi_v1_msgs/msg/Shape                     | describe the shape of the object with dimension, and polygon            |
