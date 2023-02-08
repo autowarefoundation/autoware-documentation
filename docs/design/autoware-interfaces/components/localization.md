@@ -14,7 +14,7 @@ Environment map created with point cloud, Published by the Map Server.
 
 Start pose of ego, Published by the User Interface.
 
-- geometry_msgs::msg::PoseCovarianceStamped
+- geometry_msgs::msg::PoseWithCovarianceStamped
 
 ### 3D-LiDAR Scanning
 
