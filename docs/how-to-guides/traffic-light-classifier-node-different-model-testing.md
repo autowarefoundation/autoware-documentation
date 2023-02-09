@@ -19,7 +19,6 @@ Currently, the traffic light classifier node supports the following models with 
 - `GoogLeNet`
 - `MobileNet v2`
 - `ResNet`
-- `ResNeXt`
 - `ShuffleNet v2`
 - `SqueezeNet`
 
