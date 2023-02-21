@@ -69,5 +69,6 @@ Data corrected for yaw rate offset and standard deviation. Used by the Localizat
 ### Vehicle pose
 
 Position of the ego vehicle. Used by the Localization
+
 - [geometry_msgs/PoseStamped](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/PoseStamped.html)
 - [geometry_msgs/PoseWithCovarianceStamped](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/PoseWithCovarianceStamped.html)
