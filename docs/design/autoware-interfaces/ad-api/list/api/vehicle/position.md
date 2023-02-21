@@ -11,8 +11,8 @@ Publish vehicle current pose and geo position.
 
 ## Message
 
-| Name         | Type                                   | Description                                          |
-| ------------ | -------------------------------------- | ---------------------------------------------------- |
-| header       | std_msgs/msg/Header                    | header for pose transformation                       |
-| pose         | geometry_msgs/msg/Pose                 | The pose from the base link                          |
-| geo_position | autoware_adapi_v1_msgs/msg/GeoPosition | The longitude,, latitude and altitude of the vehicle |
+| Name         | Type                   | Description                                         |
+| ------------ | ---------------------- | --------------------------------------------------- |
+| header       | std_msgs/msg/Header    | header for pose transformation                      |
+| pose         | geometry_msgs/msg/Pose | The pose from the base link                         |
+| geo_position | float64[3]             | The longitude, latitude and altitude of the vehicle |
