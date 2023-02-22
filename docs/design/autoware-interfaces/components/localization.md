@@ -4,9 +4,9 @@
 
 ## Inputs
 
-### PointCloud Map
+### Pointcloud Map
 
-Environment map created with point cloud, Published by the Map Server.
+Environment map created with point cloud, published by the map server.
 
 - sensor_msgs/msg/PointCloud2
 
@@ -80,7 +80,7 @@ Current orientation, angular velocity and linear acceleration of ego, calculated
 
 ### Vehicle Velocity Status
 
-Current velocity of the ego vehicle. Published by the vehicle interface.
+Current velocity of the ego vehicle, published by the vehicle interface.
 
 - autoware_auto_vehicle_msgs/msg/VelocityReport
    - std_msgs/msg/Header header;
