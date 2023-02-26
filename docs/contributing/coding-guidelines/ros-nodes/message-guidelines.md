@@ -10,6 +10,14 @@ The accepted formats are:
 - `.srv`
 - `.action`
 
+## Naming
+
+!!! warning ""
+
+    Under Construction
+
+Use `Array` as a suffix when creating a plural type of a message. This suffix is commonly used in [common_interfaces](https://github.com/ros2/common_interfaces).
+
 ## Default units
 
 All the fields by default have the following units depending on their types:

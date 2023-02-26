@@ -129,6 +129,23 @@ In addition to the causes listed above, there are two common misunderstandings a
 2. You didn't update the workspace after changing the branch of `autowarefoundation/autoware`.
    Changing the branch of `autowarefoundation/autoware` does not affect the files under `src/`. You have to run the `vcs import` command to update them.
 
+### Error when building python package
+
+During building the following issue can occurs
+
+```bash
+pkg_resources.extern.packaging.version.InvalidVersion: Invalid version: '0.23ubuntu1'
+```
+
+The error is due to the fact that since version 66.0.0 `setuptools` enforces the python packages to be
+[PEP-440](https://peps.python.org/pep-0440/) conformant.
+
+The workaround is to lower the version of `setuptools` to 65 or lower. It can be done using the following command
+
+```bash
+pip install -U setuptools==65.7.0
+```
+
 ## Docker/rocker issues
 
 If any errors occur when running Autoware with Docker or rocker, first confirm that your Docker installation is working correctly by running the following commands:
@@ -152,16 +169,15 @@ When running the Planning Simulator, the most common reason for the map not bein
 
 Another possible reason is that map loading is taking a long time due to poor DDS performance. To address this issue, first enable localhost-only communication to reduce network traffic, and then [tune DDS settings](https://docs.ros.org/en/rolling/How-To-Guides/DDS-tuning.html) if the problem continues to occur.
 
-1. [Enable localhost-only communication](../installation/additional-settings-for-developers/index.md#enabling-localhost-only-communication)
-2. Tune DDS settings
-
-Add the following lines to `/etc/sysctl.conf`
+Simply put, add the following settings to `.bashrc` and reboot the terminal. In many cases this is not a problem.
 
 ```bash
-net.ipv4.ipfrag_time=3  // generic DDS setting
-net.ipv4.ipfrag_high_thresh=134217728 // generic DDS setting
-net.core.rmem_max=2147483647 // only add if CycloneDDS is configured
-net.core.rmem_default=8388608 // only add if CycloneDDS is confgured
+export ROS_LOCALHOST_ONLY=1
+if [ ! -e /tmp/cycloneDDS_configured ]; then
+  sudo sysctl -w net.core.rmem_max=2147483647
+  sudo ip link set lo multicast on
+  touch /tmp/cycloneDDS_configured
+fi
 ```
 
 !!! note
@@ -171,6 +187,11 @@ net.core.rmem_default=8388608 // only add if CycloneDDS is confgured
     ```bash
     echo $RMW_IMPLEMENTATION  // if Cyclone DDS is configured, this command will return "rmw_cyclonedds_cpp"
     ```
+
+If that does not work or you need more information, read the following documents.
+
+1. [Enable localhost-only communication](../installation/additional-settings-for-developers/index.md#enabling-localhost-only-communication)
+2. [DDS settings](../installation/additional-settings-for-developers/index.md#tuning-dds)
 
 ### Multicast is disabled
 
