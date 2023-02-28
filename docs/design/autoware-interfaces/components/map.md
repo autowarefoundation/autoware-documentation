@@ -6,7 +6,7 @@
 
 Autoware relies on high-definition point cloud maps and vector maps of the driving environment to perform various tasks. Before launch Autoware, you need to load the pre-created map files.
 
-How to create maps refference [Creating maps for Autoware](../../../how-to-guides/creating-maps-for-autoware.md).
+How to create maps reference [Creating maps for Autoware](../../../how-to-guides/creating-maps-for-autoware.md).
  
 ## Outputs
 
