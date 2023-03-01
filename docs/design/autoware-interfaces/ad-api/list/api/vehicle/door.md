@@ -3,11 +3,11 @@
 # /api/vehicle/door
 
 - Method: notification
-- Type: [autoware_adapi_v1_msgs/msg/VehicleDoorStatus](../../../types/autoware_adapi_v1_msgs/msg/vehicle_door_status.md)
+- Type: [autoware_adapi_v1_msgs/msg/DoorStatusArray](../../../types/autoware_adapi_v1_msgs/msg/door_status_array.md)
 
 ## Description
 
-Publish door status, the door location information will be received from vehicle info service.
+Publish door status in array according to the door location information that received from vehicle info service.
 
 ## Message
 

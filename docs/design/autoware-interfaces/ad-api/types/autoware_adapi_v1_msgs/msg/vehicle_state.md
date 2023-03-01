@@ -6,13 +6,15 @@
 
 ```txt
 builtin_interfaces/Time stamp
-autoware_adapi_v1_msgs/VehicleGear gear
-autoware_adapi_v1_msgs/VehicleTurnIndicator turn_indicator
-autoware_adapi_v1_msgs/VehicleHazardLight hazard_light
+float64 steering_tire_angle
+autoware_adapi_v1_msgs/Gear gear
+autoware_adapi_v1_msgs/TurnIndicator turn_indicator
+autoware_adapi_v1_msgs/HazardLight hazard_light
+float32 energy_level
 ```
 
 ## This type uses
 
-- [autoware_adapi_v1_msgs/msg/VehicleGear](../../autoware_adapi_v1_msgs/msg/vehicle_gear.md)
-- [autoware_adapi_v1_msgs/msg/VehicleHazardLight](../../autoware_adapi_v1_msgs/msg/vehicle_hazard_light.md)
-- [autoware_adapi_v1_msgs/msg/VehicleTurnIndicator](../../autoware_adapi_v1_msgs/msg/vehicle_turn_indicator.md)
+- [autoware_adapi_v1_msgs/msg/Gear](../../autoware_adapi_v1_msgs/msg/gear.md)
+- [autoware_adapi_v1_msgs/msg/HazardLight](../../autoware_adapi_v1_msgs/msg/hazard_light.md)
+- [autoware_adapi_v1_msgs/msg/TurnIndicator](../../autoware_adapi_v1_msgs/msg/turn_indicator.md)

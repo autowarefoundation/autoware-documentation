@@ -11,8 +11,9 @@ Publish vehicle state information
 
 ## Message
 
-| Name           | Type                                            | Description                                                      |
-| -------------- | ----------------------------------------------- | ---------------------------------------------------------------- |
-| gear           | autoware_adapi_v1_msgs/msg/VehicleGear          | gear current status                                              |
-| turn_indicator | autoware_adapi_v1_msgs/msg/VehicleTurnIndicator | turn indicator status, only either left or right will be enabled |
-| hazard_light   | autoware_adapi_v1_msgs/msg/VehicleHazardLight   | hazard light status                                              |
+| Name                | Type                                     | Description                                                                     |
+| ------------------- | ---------------------------------------- | ------------------------------------------------------------------------------- |
+| steering_tire_angle | float64                                  | Vehicle current tire angle in [rad], input from /vehicle/status/steering_status |
+| gear                | autoware_adapi_v1_msgs/msg/Gear          | gear current status                                                             |
+| turn_indicator      | autoware_adapi_v1_msgs/msg/TurnIndicator | turn indicator status, only either left or right will be enabled                |
+| hazard_light        | autoware_adapi_v1_msgs/msg/HazardLight   | hazard light status                                                             |
