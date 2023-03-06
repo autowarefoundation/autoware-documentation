@@ -5,7 +5,7 @@
 ## Definition
 
 ```txt
-autoware_adapi_v1_msgs/GeoPoint geo_position
+autoware_adapi_v1_msgs/GeoPointStamped geo_position
 geometry_msgs/PoseWithCovarianceStamped pose_with_covariance
 geometry_msgs/TwistWithCovarianceStamped twist_with_covariance
 geometry_msgs/AccelWithCovarianceStamped accel_with_covariance
@@ -13,4 +13,4 @@ geometry_msgs/AccelWithCovarianceStamped accel_with_covariance
 
 ## This type uses
 
-- [autoware_adapi_v1_msgs/msg/GeoPoint](../../autoware_adapi_v1_msgs/msg/geo_point.md)
+- [autoware_adapi_v1_msgs/msg/GeoPointStamped](../../autoware_adapi_v1_msgs/msg/geo_point_stamped.md)
