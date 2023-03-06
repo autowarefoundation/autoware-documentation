@@ -56,10 +56,10 @@ Current Geographic coordinate of the ego, published by the GNSS sensor.
    - double[9] position_covariance
    - unit8 position_covariance_type
 
-Current orientation of the ego, published by the IMU.
-- autoware_sensing_msgs/msg/GnssinsOrientationStamped
+Current orientation of the ego, published by the GNSS-INS.
+- autoware_sensing_msgs/msg/GnssInsOrientationStamped
    - std_msgs/Header header
-   - autoware_sensing_msgs/msg/GnssinsOrientation orientation
+   - autoware_sensing_msgs/msg/GnssInsOrientation orientation
       - geometry_msgs/Quaternion orientation
       - float32 rmse_rotation_x
       - float32 rmse_rotation_y
