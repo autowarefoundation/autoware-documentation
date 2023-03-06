@@ -5,12 +5,13 @@
 ## Definition
 
 ```txt
+autoware_adapi_v1_msgs/DoorGroup[] groups
 geometry_msgs/Pose pose
 ```
 
 ## This type uses
 
-None
+- [autoware_adapi_v1_msgs/msg/DoorGroup](../../autoware_adapi_v1_msgs/msg/door_group.md)
 
 ## This type is used by
 
