@@ -1,5 +1,6 @@
 # Planning API
 
+- {{ link_ad_api('/api/planning/detect_areas') }}
 - {{ link_ad_api('/api/planning/velocity_factors') }}
 - {{ link_ad_api('/api/planning/steering_factors') }}
 
@@ -7,6 +8,18 @@
 
 This API manages the planned behavior of the vehicle.
 Applications can notify the vehicle behavior to the people around and visualize it for operator and passengers.
+
+## Detect Areas
+
+The area that planning is detecting for the following situation. The original message are in MarkerArray which contains too many unnessary data. This api will convert it to a more simple data which only include the points for plotting.
+
+- BLIND_SPOT
+- CROSSWALK
+- DETECTION_AREA
+- INTERSECTION
+- MERGE_FROM_PRIVATE
+- NO_STOPPING_AREA
+- WALKWAY
 
 ## Velocity factors
 
