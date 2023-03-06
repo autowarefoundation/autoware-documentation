@@ -5,7 +5,8 @@
 ## Definition
 
 ```txt
-geometry_msgs/PoseWithCovarianceStamped[] path
+geometry_msgs/Pose[] path
+builtin_interfaces/Duration time_step
 float64 confidence
 ```
 

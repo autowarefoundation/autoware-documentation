@@ -8,12 +8,12 @@
 unique_identifier_msgs/UUID id
 float64 existence_probability
 autoware_adapi_v1_msgs/ObjectClassification[] classification
-autoware_adapi_v1_msgs/PredictedObjectKinematics kinematics
+autoware_adapi_v1_msgs/ObjectKinematics kinematics
 autoware_adapi_v1_msgs/Shape shape
 ```
 
 ## This type uses
 
 - [autoware_adapi_v1_msgs/msg/ObjectClassification](../../autoware_adapi_v1_msgs/msg/object_classification.md)
-- [autoware_adapi_v1_msgs/msg/PredictedObjectKinematics](../../autoware_adapi_v1_msgs/msg/predicted_object_kinematics.md)
+- [autoware_adapi_v1_msgs/msg/ObjectKinematics](../../autoware_adapi_v1_msgs/msg/object_kinematics.md)
 - [autoware_adapi_v1_msgs/msg/Shape](../../autoware_adapi_v1_msgs/msg/shape.md)
