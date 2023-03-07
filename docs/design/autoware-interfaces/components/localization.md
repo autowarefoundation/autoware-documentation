@@ -130,7 +130,8 @@ Current acceleration of ego, calculated from localization interface.
 
 ### Vehicle kinematic state
 
-Current pose and twist of ego,  calculated from localization interface.
+Current pose and twist of ego,  calculated from localization interface. 
+**Note:** Kinematic state contains pose and velocity. In the future, [pose](#vehicle-pose) and [velocity](#vehicle-velocity) will not be used as output for localization. 
 
 - nav_msgs/msg/Odometry
    - std_msgs/msg/Header header
