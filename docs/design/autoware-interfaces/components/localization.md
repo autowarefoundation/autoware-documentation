@@ -130,14 +130,16 @@ Current acceleration of ego, calculated from localization interface.
 
 ### Vehicle kinematic state
 
-Current pose and twist of ego,  calculated from localization interface. 
-**Note:** Kinematic state contains pose and velocity. In the future, [pose](#vehicle-pose) and [velocity](#vehicle-velocity) will not be used as output for localization. 
+Current pose, velocity and acceleration of ego, calculated from localization interface. 
 
-- nav_msgs/msg/Odometry
+**Note:** Kinematic state contains pose, velocity and acceleration. In the future, [pose](#vehicle-pose), [velocity](#vehicle-velocity) and [acceleration](#vehicle-acceleration) will not be used as output for localization. 
+
+- autoware_msgs/autoware_localization_msgs/msg/KinematicState
    - std_msgs/msg/Header header
    - string child_frame_id
-   - geometry_msgs/msg/PoseWithCovariance pose
-   - geometry_msgs/msg/TwistWithCovariance twist
+   - geometry_msgs/PoseWithCovariance pose_with_covariance
+   - geometry_msgs/TwistWithCovariance twist_with_covariance
+   - geometry_msgs/AccelWithCovariance accel_with_covariance
 
 The message will be subscribed by the planning and control module.
 
