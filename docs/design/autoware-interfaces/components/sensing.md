@@ -60,7 +60,7 @@ Pointcloud frome radar. Used by the Perception.
 
 - [sensor_msgs/PointCloud2](https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/PointCloud2.html)
 
-### Corrected IMU date
+### Corrected IMU data
 
 Data corrected for yaw rate offset and standard deviation. Used by the Localization.
 
