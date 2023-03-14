@@ -29,13 +29,13 @@ https://github.com/MapIV/autoware_launch/blob/3f04a9dd7bc4a4c49d4ec790e3f6b9958a
 Note that speed information besides the NavSatFix is generally required to be obtained.
 
 ex)
-1. [ublox_gps](https://github.com/KumarRobotics/ublox/tree/humble-devel/ublox_gps)
+ - [ublox_gps](https://github.com/KumarRobotics/ublox/tree/humble-devel/ublox_gps)
 
 This ROS driver publishes sensor_msgs/msg/NavSatFix and geometry_msgs/msg/TwistWithCovarianceStamped required for eagleye with default settings
 
 https://github.com/KumarRobotics/ublox/blob/humble-devel/ublox_msgs/msg/NavPVT.msg
 
-2. [septentrio_gnss_driver](https://github.com/septentrio-gnss/septentrio_gnss_driver/tree/ros2)
+ - [septentrio_gnss_driver](https://github.com/septentrio-gnss/septentrio_gnss_driver/tree/ros2)
 
 Set `publish.navsatfix` and `publish.twist` in the parameter `yaml` file to `true`
 
