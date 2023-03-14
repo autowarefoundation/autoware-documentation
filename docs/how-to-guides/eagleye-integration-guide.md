@@ -35,7 +35,6 @@ This ROS driver publishes sensor_msgs/msg/NavSatFix and geometry_msgs/msg/TwistW
 
 https://github.com/KumarRobotics/ublox/blob/humble-devel/ublox_msgs/msg/NavPVT.msg
 
-
 2. [septentrio_gnss_driver](https://github.com/septentrio-gnss/septentrio_gnss_driver/tree/ros2)
 
 Set `publish.navsatfix` and `publish.twist` in the parameter `yaml` file to `true`
