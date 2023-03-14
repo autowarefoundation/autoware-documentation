@@ -1,4 +1,4 @@
-# [WIP] Eagleye integration guide
+# Eagleye integration guide
 
 This page will show you how to set up [Eagleye](https://github.com/MapIV/eagleye), which is integrated into Autoware.
 
