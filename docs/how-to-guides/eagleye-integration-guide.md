@@ -10,7 +10,7 @@ https://github.com/orgs/autowarefoundation/discussions/3257
  Eagleye estimates are largely based on the following
 
 - Static Estimation
-Eagleye needs to be stationary for about 3~5 seconds (yawrate_offset_stop.estimated_interval in eagleye_config.yaml) after startup. Static estimation is performed even in environments where GNSS is not received. At this point the yaw rate offset is corrected.
+Eagleye needs to be stationary for about 3~5 seconds (yaw_rate_offset_stop.estimated_interval in eagleye_config.yaml) after startup. Static estimation is performed even in environments where GNSS is not received. At this point the yaw rate offset is corrected.
 
 - Movement Estimation
 Next, the eagleye needs to travel in a straight line for about 20~30 seconds (heading.estimated_minimum_interval and velocity_scale_factor.estimated_minimum_interval) and the wheel speed scale factor and azimuth angle are estimated. At this point, the estimation of twist is complete and pose will begin to be output.
@@ -44,7 +44,7 @@ https://github.com/septentrio-gnss/septentrio_gnss_driver/blob/ros2/config/gnss.
 
 ## eagleye parameter tuning
 
-See below for parameter descripiton.
+See below for parameter description.
 
 https://github.com/MapIV/eagleye/tree/autoware-main/eagleye_rt/config
 
@@ -64,7 +64,7 @@ Eagleye has a function for position estimation as pose_estimator and a function 
 
 In the sample autoware, you can set pose_estimator to gnss by setting `pose_estimator_mode:=gnss` in `autoware.launch.xml`.
 
-- Note that it does not match the map, so be careful when using maps that are out of georeferencing.
+- Note that it does not match the map, so be careful when using maps that are out of georeference.
 - In the case of a single GNSS antenna, initial position estimation takes several tens of seconds to complete after starting to run in an environment where GNSS positioning is available.
 
 ref
