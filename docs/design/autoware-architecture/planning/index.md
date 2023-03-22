@@ -83,6 +83,16 @@ For more details, please refer to the design documents in each package.
 
 ![supported-functions](image/planning-functions.drawio.svg)
 
+## Important Parameters
+
+| Package                      | Parameter                                                     | Type   | Description                                                                                                        |
+| ---------------------------- | ------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
+| `obstacle_stop_planner`      | `stop_planner.stop_position.max_longitudinal_margin`          | double | distance between the ego and the front vehicle when stopping (when `cruise_planner_type:=obstacle_stop_planner`)   |
+| `obstacle_cruise_planner`    | `common.safe_distance_margin`                                 | double | distance between the ego and the front vehicle when stopping (when `cruise_planner_type:=obstacle_cruise_planner`) |
+| `behavior_path_planner`      | `avoidance.avoidance.lateral.lateral_collision_margin`        | double | minimum lateral margin to obstacle on avoidance                                                                    |
+| `behavior_path_planner`      | `avoidance.avoidance.lateral.lateral_collision_safety_buffer` | double | additional lateral margin to obstacle if possible on avoidance                                                     |
+| `obstacle_avoidance_planner` | `option.enable_outside_drivable_area_stop`                    | bool   | If set true, a stop point will be inserted before the path footprint is outside the drivable area.                 |
+
 ## Notation
 
 ### [1] self-crossing road and overlapped
@@ -99,6 +109,6 @@ Currently, the supported modules are as follows.
 - obstacle_stop_planner
 - motion_velocity_smoother
 
-#### [2] Size of Path Points
+### [2] Size of Path Points
 
 Some functions do not support paths with only one point. Therefore, each modules should generate the path with more than two path points.
