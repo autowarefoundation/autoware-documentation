@@ -11,9 +11,9 @@ Publish vehicle kinematic
 
 ## Message
 
-| Name                  | Type                                         | Description                                                                                               |
-| --------------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| geo_position          | autoware_adapi_v1_msgs/msg/GeoPoint          | The longitude and latitude of the vehicle, if the map do not contains MGRS code, it will not be available |
-| pose_with_covariance  | geometry_msgs/msg/PoseWithCovarianceStamped  | The pose with covariance from the base link                                                               |
-| twist_with_covariance | geometry_msgs/msg/TwistWithCovarianceStamped | Vehicle current twist with covariance , input from /localization/kinematic_state                          |
-| accel_with_covariance | geometry_msgs/msg/AccelWithCovarianceStamped | Vehicle current acceleration with covariance , input from /localization/acceleration                      |
+| Name         | Type                                         | Description                                                                                                |
+| ------------ | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| geo_position | autoware_adapi_v1_msgs/msg/GeoPointStamped   | The longitude and latitude of the vehicle, if the map do not contains MGRS code, it will not be available. |
+| pose         | geometry_msgs/msg/PoseWithCovarianceStamped  | The pose with covariance from the base link                                                                |
+| twist        | geometry_msgs/msg/TwistWithCovarianceStamped | Vehicle current twist with covariance , input from /localization/kinematic_state                           |
+| accel        | geometry_msgs/msg/AccelWithCovarianceStamped | Vehicle current acceleration with covariance , input from /localization/acceleration                       |
