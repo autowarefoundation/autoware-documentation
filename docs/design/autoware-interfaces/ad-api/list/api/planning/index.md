@@ -1,6 +1,6 @@
 # Planning API
 
-- {{ link_ad_api('/api/planning/detect_areas') }}
+- {{ link_ad_api('/api/planning/planning_ares') }}
 - {{ link_ad_api('/api/planning/velocity_factors') }}
 - {{ link_ad_api('/api/planning/steering_factors') }}
 
