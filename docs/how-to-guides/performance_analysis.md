@@ -32,7 +32,7 @@ In planning module, we take into consideration thousands to tens of thousands of
 
 For example, in `detection_area` module in `behavior_velocity_planner` node, there is a program that checks whether each point cloud is contained in each detection area by. Below is the pseudocode.
 
-```
+```cpp
 for ( area : detection_areas )
   for ( point : point_clouds )
     if ( boost::geometry::within(point, area) )
@@ -41,7 +41,7 @@ for ( area : detection_areas )
 
 Let `N` be the size of `point_clouds` and `M` be the size of `detection_areas`, then the computational complexity of this program is O(N^2 \* M), since the complexity of `within` is O(N). Here, given that most of the point clouds are located far away from a certain detection area, a certain optimization can be achieved. First, calculate the minimum enclosing circle that completely covers the detection area, and then check whether the points are contained in that circle. Most of the point clouds can be quickly ruled out by this method, we don’t have to call the `within` function in most cases. Below is the pseudocode after optimization.
 
-```
+```cpp
 for ( area : detection_areas )
   calc_minimum_enclosing_circle(area)
   for ( point : point_clouds )
@@ -55,14 +55,14 @@ Here is the [Pull Request](https://github.com/autowarefoundation/autoware.univer
 
 Another example is in `map_based_prediction` node. There is a program which calculates signed arc length from a initial point to each point in a path. Below is the pseudocode:
 
-```
+```cpp
 for ( i = 0 .. path.size() )
   tmp = motion_utils::calcSignedArcLength(path, 0, i)
 ```
 
 In `calcSignedArcLength` function, it simply adds each distance between adjacent points. Let `N` be the size of path, then the program’s computational complexity is O(N^2). If we think a little, we can see that there is a lot of unnecessary calculation being done. Since the distance from the initial point is being calculated every time, we can use cumulative sums to improve efficiency. Below is the pseudocode after optimization.
 
-```
+```cpp
 for ( i = 1 .. path.size() )
   tmp = sum(i - 1) + motion_utils::calcSignedArcLength(base_path, i - 1, i);
   sum(i) = tmp
