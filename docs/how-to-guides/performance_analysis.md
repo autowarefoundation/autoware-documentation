@@ -6,29 +6,159 @@ Autoware is a real-time system, and it is important to have a small response tim
 
 - Performance Measurement
   - Single Node Execution
-  - Prepare separated cores
+  - Prepare Separated Cores
   - Run Single Node Separatedly
-  - Measure turn-around time and performance counter
-  - Visualization
+  - Measurement and Visualization
 - Case Studies
   - Sensing Component
   - Planning Component
 
 ## Performance Measurement
+Improvement is impossible without precise measurements.
+To measure the performance of the application code, it is essential to eliminate any external influences.
+Such influences include interference from the operating system and CPU frequency fluctuations.
+Scheduling effects also occur when core resources are shared by multiple threads.
+This section outlines a technique for accurately measuring the performance of the application code for a specific node.
+Though this section only discusses the case of Linux on Intel CPUs, similar considerations should be made in other environments.
 
-To be filled by @sykwer
+### Single Node Execution
+To eliminate the influence of scheduling, the node being measured should operate independently, using the same logic as when the entire Autoware system is running.
+To accomplish this, record all input topics of the node to be measured while the whole Autoware system is running.
+To achieve this objective, a tool called `ros2_single_node_replayer` has been prepared.
+
+[sykwer/ros2_single_node_replayer](https://github.com/sykwer/ros2_single_node_replayer)
+
+Details on how to use the tool can be found in the README.
+This tool records the input topics of a specific node during the entire Autoware operation and replays it in a single node with the same logic.
+
+### Prepare Separated Cores
+Isolated cores running the node to be measured must meet the following conditions.
+- Fix CPU frequency and disable turbo boost
+- Minimize timer interruptions
+- Offload RCU (Read Copy Update) callback
+- Isolate the paired core if hyperthreading enabled
+
+To fulfill these conditions on Linux, a custom kernel build with the following kernel configurations is required.
+Note that even if Full tickless is enabled, timer interrupts are generated for scheduling if more than two tasks exist in one core.
+
+```text
+# Enable CONFIG_NO_HZ_FULL
+-> General setup
+-> Timers subsystem
+-> Timer tick handling (Full dynticks system (tickless))
+(X) Full dynticks system (tickless)
+
+# Allows RCU callback processing to be offloaded from selected CPUs
+# (CONFIG_RCU_NOCB_CPU=y)
+-> General setup
+-> RCU Subsystem
+-*- Offload RCU callback processing from boot-selected CPUs
+```
+
+Additionally, the kernel boot parameters need to be set as follows.
+
+```text
+GRUB_CMDLINE_LINUX_DEFAULT=
+  "... isolcpus=2,8 rcu_nocbs=2,8 rcu_nocb_poll nohz_full=2,8 intel_pstate=disable”
+```
+
+In the above configuration, for example, the node to be measured is assumed to run on core 2, and core 8, which is a hyperthreading pair, is also being isolated.
+Appropriate decisions on which cores to run the measurement target and which nodes to isolate need to be made based on the cache and core layout of the measurement machine.
+You can easily check if it is properly configured by running `cat /proc/softirqs`.
+Since `intel_pstate=disable` is specified in the kernel boot parameter, `userspace` can be specified in the scaling governor.
+
+```shell
+$ cat /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor // ondemand
+$ sudo sh -c "echo userspace > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor"
+```
+
+This allows you to freely set the desired frequency within a defined range.
+
+```shell
+$ sudo sh -c "echo <freq(kz)> > /sys/devices/system/cpu/cpu2/cpufreq/scaling_setspeed"
+```
+
+Turbo Boost needs to be switched off on Intel CPUs, which is often overlooked.
+```shell
+$ sudo sh -c "echo 0 > /sys/devices/system/cpu/cpufreq/boost"
+```
+
+### Run Single Node Separately
+Following the instructions in the `ros2_single_node_replayer` README, start the node and play the dedicated rosbag created by the tool.
+Before playing the rosbag, appropriately set the CPU affinity of the thread on which the node runs, so it is placed on the isolated core prepared.
+
+```shell
+$ taskset --cpu-list -p <target cpu> <pid>
+```
+
+To avoid interference in the last level cache, minimize the number of other applications running during the measurement.
+
+### Measurement and Visualization
+To visualize the performance of the measurement target, embed code for logging timestamps and performance counter values in the target source code.
+To achieve this objective, a tool called `pmu_analyzer` has been prepared.
+
+[sykwer/pmu_analyzer](https://github.com/sykwer/pmu_analyzer)
+
+Details on how to use the tool can be found in the README.
+This tool can measure the turnaround time of any section in the source code, as well as various performance counters.
 
 ## Case Studies
 
 In this section, we will present several case studies that demonstrate the performance improvements. These examples not only showcase our commitment to enhancing the system's efficiency but also serve as a valuable resource for developers who may face similar challenges in their own projects. The performance improvements discussed here span various components of the Autoware system, including sensing modules and planning modules. There are tendencies for each component regarding which points are becoming bottlenecks. By examining the methods, techniques, and tools employed in these case studies, readers can gain a better understanding of the practical aspects of optimizing complex software systems like Autoware.
 
 ### Sensing Component
+In the sensing component, which handles large message data such as LiDAR point cloud data, minimizing copying is important.
+A callback that takes sensor data message types as input and output should be written in an in-place algorithm as much as possible.
+This means that in the following pseudocode, when generating `output_msg` from `input_msg`, it is crucial to avoid using buffers as much as possible to reduce the number of memory copies.
 
-To be filled by @sykwer
+```cpp
+void callback(const PointCloudMsg &input_msg) {
+  auto output_msg = allocate_msg<PointCloudMsg>(output_size);
+  fill(input_msg, output_msg);
+  publish(std::move(output_msg));
+}
+```
+
+To improve cache efficiency, implement an in-place style as much as possible, instead of touching memory areas sporadically.
+In ROS applications using PCL, the code shown below is often seen.
+
+```cpp
+void callback(const sensor_msgs::PointCloud2ConstPtr &input_msg) {
+  pcl::PointCloud<PointT>::Ptr input_pcl(new pcl::PointCloud<PointT>);
+  pcl::fromROSMsg(*input_msg, *input_pcl);
+
+  // Algorithm is described for point cloud type of pcl
+  pcl::PointCloud<PointT>::Ptr output_pcl(new pcl::PointCloud<PointT>);
+  fill_pcl(*input_pcl, *output_pcl);
+
+  auto output_msg = allocate_msg<sensor_msgs::PointCloud2>(output_size);
+  pcl::toROSMsg(*output_pcl, *output_msg);
+  publish(std::move(output_msg));
+}
+```
+
+To use the PCL library, `fromROSMsg()` and `toROSMsg()` are used to perform message type conversion at the beginning and end of the callback.
+This is a wasteful copying process and should be avoided.
+We should eliminate unnecessary type conversions by removing dependencies on PCL.
+For large message types such as map data, there should be only one instance in the entire system in terms of physical memory.
+When analyzing the performance of the sensing module from the viewpoint of performance counter, pay attention to `instructions`, `LLC-load-misses`, `LLC-store-misses`, `cache-misses`, and `minor-faults`.
+As a case study, we present a performance analysis performed to speed up `ring_outlier_filter` (https://github.com/autowarefoundation/autoware.universe/pull/3014).
+The following figure is a time-series plot of the turnaround time of the main processing part of `ring_outlier_filter`, analyzed as described in the "Performance Measurement" section above.
+
+TODO: image here
+
+The horizontal axis indicates the number of callbacks called (i.e., callback index), and the vertical axis indicates the turnaround time.
+Analysis of the performance counter shows that the largest fluctuations come from `minor-faults` (i.e., soft page faults), the second largest from `LLC-store-misses` and `LLC-load-misses` (i.e., cache misses in the last level cache), and the slowest fluctuations come from instructions (i.e., message data size fluctuations).
+For example, when we plot `minor-faults` on the horizontal axis and turnaround time on the vertical axis, we can see the following dominant proportional relationship.
+
+TODO: image here
+
+As a side note, we have developed a library called `heaphook` to avoid soft page faults while running Autoware callback ([tier4/heaphook](https://github.com/tier4/heaphook)).
+If you are interested, refer to a GitHub discussion (https://github.com/orgs/autowarefoundation/discussions/3274) and an issue (https://github.com/autowarefoundation/autoware/issues/3310).
 
 ### Planning Component
 
-In planning module, we take into consideration thousands to tens of thousands of point clouds, thousands of points in a path representing our own route, and polygons representing obstacles and detection areas in the surroundings, and we repeatedly create paths based on them. Therefore, we access the contents of the point clouds and paths multiple times using for-loops. In most cases, the bottleneck lies in these naive for-loops. Here, understanding Big O notation and reducing the order of computational complexity directly leads to performance improvements.
+In the planning component, we take into consideration thousands to tens of thousands of point clouds, thousands of points in a path representing our own route, and polygons representing obstacles and detection areas in the surroundings, and we repeatedly create paths based on them. Therefore, we access the contents of the point clouds and paths multiple times using for-loops. In most cases, the bottleneck lies in these naive for-loops. Here, understanding Big O notation and reducing the order of computational complexity directly leads to performance improvements.
 
 For example, in `detection_area` module in `behavior_velocity_planner` node, there is a program that checks whether each point cloud is contained in each detection area by. Below is the pseudocode.
 
