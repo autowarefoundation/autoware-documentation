@@ -14,6 +14,7 @@ Autoware is a real-time system, and it is important to have a small response tim
   - Planning Component
 
 ## Performance Measurement
+
 Improvement is impossible without precise measurements.
 To measure the performance of the application code, it is essential to eliminate any external influences.
 Such influences include interference from the operating system and CPU frequency fluctuations.
@@ -22,6 +23,7 @@ This section outlines a technique for accurately measuring the performance of th
 Though this section only discusses the case of Linux on Intel CPUs, similar considerations should be made in other environments.
 
 ### Single Node Execution
+
 To eliminate the influence of scheduling, the node being measured should operate independently, using the same logic as when the entire Autoware system is running.
 To accomplish this, record all input topics of the node to be measured while the whole Autoware system is running.
 To achieve this objective, a tool called `ros2_single_node_replayer` has been prepared.
@@ -32,7 +34,9 @@ Details on how to use the tool can be found in the README.
 This tool records the input topics of a specific node during the entire Autoware operation and replays it in a single node with the same logic.
 
 ### Prepare Separated Cores
+
 Isolated cores running the node to be measured must meet the following conditions.
+
 - Fix CPU frequency and disable turbo boost
 - Minimize timer interruptions
 - Offload RCU (Read Copy Update) callback
@@ -68,32 +72,35 @@ You can easily check if it is properly configured by running `cat /proc/softirqs
 Since `intel_pstate=disable` is specified in the kernel boot parameter, `userspace` can be specified in the scaling governor.
 
 ```shell
-$ cat /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor // ondemand
-$ sudo sh -c "echo userspace > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor"
+cat /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor // ondemand
+sudo sh -c "echo userspace > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor"
 ```
 
 This allows you to freely set the desired frequency within a defined range.
 
 ```shell
-$ sudo sh -c "echo <freq(kz)> > /sys/devices/system/cpu/cpu2/cpufreq/scaling_setspeed"
+sudo sh -c "echo <freq(kz)> > /sys/devices/system/cpu/cpu2/cpufreq/scaling_setspeed"
 ```
 
 Turbo Boost needs to be switched off on Intel CPUs, which is often overlooked.
+
 ```shell
-$ sudo sh -c "echo 0 > /sys/devices/system/cpu/cpufreq/boost"
+sudo sh -c "echo 0 > /sys/devices/system/cpu/cpufreq/boost"
 ```
 
 ### Run Single Node Separately
+
 Following the instructions in the `ros2_single_node_replayer` README, start the node and play the dedicated rosbag created by the tool.
 Before playing the rosbag, appropriately set the CPU affinity of the thread on which the node runs, so it is placed on the isolated core prepared.
 
 ```shell
-$ taskset --cpu-list -p <target cpu> <pid>
+taskset --cpu-list -p <target cpu> <pid>
 ```
 
 To avoid interference in the last level cache, minimize the number of other applications running during the measurement.
 
 ### Measurement and Visualization
+
 To visualize the performance of the measurement target, embed code for logging timestamps and performance counter values in the target source code.
 To achieve this objective, a tool called `pmu_analyzer` has been prepared.
 
@@ -107,6 +114,7 @@ This tool can measure the turnaround time of any section in the source code, as 
 In this section, we will present several case studies that demonstrate the performance improvements. These examples not only showcase our commitment to enhancing the system's efficiency but also serve as a valuable resource for developers who may face similar challenges in their own projects. The performance improvements discussed here span various components of the Autoware system, including sensing modules and planning modules. There are tendencies for each component regarding which points are becoming bottlenecks. By examining the methods, techniques, and tools employed in these case studies, readers can gain a better understanding of the practical aspects of optimizing complex software systems like Autoware.
 
 ### Sensing Component
+
 In the sensing component, which handles large message data such as LiDAR point cloud data, minimizing copying is important.
 A callback that takes sensor data message types as input and output should be written in an in-place algorithm as much as possible.
 This means that in the following pseudocode, when generating `output_msg` from `input_msg`, it is crucial to avoid using buffers as much as possible to reduce the number of memory copies.
@@ -142,7 +150,7 @@ This is a wasteful copying process and should be avoided.
 We should eliminate unnecessary type conversions by removing dependencies on PCL.
 For large message types such as map data, there should be only one instance in the entire system in terms of physical memory.
 When analyzing the performance of the sensing module from the viewpoint of performance counter, pay attention to `instructions`, `LLC-load-misses`, `LLC-store-misses`, `cache-misses`, and `minor-faults`.
-As a case study, we present a performance analysis performed to speed up `ring_outlier_filter` (https://github.com/autowarefoundation/autoware.universe/pull/3014).
+As a case study, we present a performance analysis performed to speed up `ring_outlier_filter` (<https://github.com/autowarefoundation/autoware.universe/pull/3014>).
 The following figure is a time-series plot of the turnaround time of the main processing part of `ring_outlier_filter`, analyzed as described in the "Performance Measurement" section above.
 
 TODO: image here
@@ -154,7 +162,7 @@ For example, when we plot `minor-faults` on the horizontal axis and turnaround t
 TODO: image here
 
 As a side note, we have developed a library called `heaphook` to avoid soft page faults while running Autoware callback ([tier4/heaphook](https://github.com/tier4/heaphook)).
-If you are interested, refer to a GitHub discussion (https://github.com/orgs/autowarefoundation/discussions/3274) and an issue (https://github.com/autowarefoundation/autoware/issues/3310).
+If you are interested, refer to a GitHub discussion (<https://github.com/orgs/autowarefoundation/discussions/3274>) and an issue (<https://github.com/autowarefoundation/autoware/issues/3310>).
 
 ### Planning Component
 
