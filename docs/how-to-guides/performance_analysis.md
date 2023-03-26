@@ -7,7 +7,7 @@ Autoware is a real-time system, and it is important to have a small response tim
 - Performance Measurement
   - Single Node Execution
   - Prepare Separated Cores
-  - Run Single Node Separatedly
+  - Run Single Node Separately
   - Measurement and Visualization
 - Case Studies
   - Sensing Component
@@ -40,7 +40,7 @@ Isolated cores running the node to be measured must meet the following condition
 - Fix CPU frequency and disable turbo boost
 - Minimize timer interruptions
 - Offload RCU (Read Copy Update) callback
-- Isolate the paired core if hyperthreading enabled
+- Isolate the paired core if hyper-threading enabled
 
 To fulfill these conditions on Linux, a custom kernel build with the following kernel configurations is required.
 Note that even if Full tickless is enabled, timer interrupts are generated for scheduling if more than two tasks exist in one core.
@@ -66,7 +66,7 @@ GRUB_CMDLINE_LINUX_DEFAULT=
   "... isolcpus=2,8 rcu_nocbs=2,8 rcu_nocb_poll nohz_full=2,8 intel_pstate=disable”
 ```
 
-In the above configuration, for example, the node to be measured is assumed to run on core 2, and core 8, which is a hyperthreading pair, is also being isolated.
+In the above configuration, for example, the node to be measured is assumed to run on core 2, and core 8, which is a hyper-threading pair, is also being isolated.
 Appropriate decisions on which cores to run the measurement target and which nodes to isolate need to be made based on the cache and core layout of the measurement machine.
 You can easily check if it is properly configured by running `cat /proc/softirqs`.
 Since `intel_pstate=disable` is specified in the kernel boot parameter, `userspace` can be specified in the scaling governor.
