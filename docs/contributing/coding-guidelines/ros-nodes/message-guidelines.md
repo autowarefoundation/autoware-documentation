@@ -2,13 +2,21 @@
 
 ## Format
 
-All messages should follow [ROS message description specification](https://docs.ros.org/en/galactic/Concepts/About-ROS-Interfaces.html#background).
+All messages should follow [ROS message description specification](https://docs.ros.org/en/humble/Concepts/About-ROS-Interfaces.html#background).
 
 The accepted formats are:
 
 - `.msg`
 - `.srv`
 - `.action`
+
+## Naming
+
+!!! warning ""
+
+    Under Construction
+
+Use `Array` as a suffix when creating a plural type of a message. This suffix is commonly used in [common_interfaces](https://github.com/ros2/common_interfaces).
 
 ## Default units
 
@@ -53,7 +61,7 @@ For non-default units, use following suffixes:
 
 ## Message field types
 
-For list of types supported by the ROS interfaces [see here](https://docs.ros.org/en/galactic/Concepts/About-ROS-Interfaces.html#field-types).
+For list of types supported by the ROS interfaces [see here](https://docs.ros.org/en/humble/Concepts/About-ROS-Interfaces.html#field-types).
 
 Also copied here for convenience:
 

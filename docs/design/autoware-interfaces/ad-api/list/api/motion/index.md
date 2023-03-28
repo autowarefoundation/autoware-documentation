@@ -1,4 +1,4 @@
-# Planning API
+# Motion API
 
 - {{ link_ad_api('/api/motion/state') }}
 - {{ link_ad_api('/api/motion/accept_start') }}

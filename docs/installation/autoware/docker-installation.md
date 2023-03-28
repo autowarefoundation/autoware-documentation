@@ -4,158 +4,23 @@
 
     Since this page explains Docker-specific information, it is recommended to see [Source installation](./source-installation.md) as well if you need detailed information.
 
-## Prerequisites
+Here are two ways to install Autoware by docker:
 
-- [Git](https://git-scm.com/)
+- The first way is to start Autoware with `prebuilt image`, this is a quick start, this way you can only run Autoware simulator and not develop Autoware, it is only suitable for beginners
 
-- For NVIDIA Jetson devices, install [JetPack](https://docs.nvidia.com/jetson/jetpack/install-jetpack/index.html#how-to-install-jetpack) >= 5.0
+- The second way is to start Autoware with `devel image`, which supports developing and running Autoware using docker
 
-## How to set up a development environment
+## Docker installation for quick start
 
-1. Clone `autowarefoundation/autoware` and move to the directory.
+[docker installation for quick start](./docker-installation-prebuilt.md)
 
-   ```bash
-   git clone https://github.com/autowarefoundation/autoware.git
-   cd autoware
-   ```
+![type:video](https://youtube.com/embed/3KUhEFkEbI8)
 
-   If you want to use ROS 2 Humble, use the `humble` branch.
+## Docker installation for development
 
-   ```bash
-   git clone https://github.com/autowarefoundation/autoware.git -b humble
-   cd autoware
-   ```
+[docker installation for development](./docker-installation-devel.md)
 
-2. You can install the dependencies either manually or using the provided Ansible script.
-
-### Installing dependencies manually
-
-- [Install Docker Engine](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/docker_engine#manual-installation)
-- [Install NVIDIA Container Toolkit](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/nvidia_docker#manual-installation)
-- [Install rocker](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rocker#manual-installation)
-
-### Installing dependencies using Ansible
-
-Be very careful with this method. Make sure you read and confirmed all the steps in the Ansible configuration before using it.
-
-If you've manually installed the dependencies, you can skip this section.
-
-```bash
-./setup-dev-env.sh docker
-```
-
-You might need to log out and log back to make the current user able to use docker.
-
-## How to set up a workspace
-
-!!! warning
-
-    Before proceeding, confirm and agree with the [NVIDIA Deep Learning Container license](https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license).
-    By pulling and using the Autoware Universe images, you accept the terms and conditions of the license.
-
-1. Create the `autoware_map` directory for map data later.
-
-   ```bash
-   mkdir ~/autoware_map
-   ```
-
-2. Launch a Docker container.
-
-   - For amd64 architecture computers with NVIDIA GPU:
-
-     ```bash
-     rocker --nvidia --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
-     ```
-
-   - If you want to use ROS 2 Humble:
-
-     ```bash
-     rocker --nvidia --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:humble-latest-cuda
-     ```
-
-   - If you want to run container without using NVIDIA GPU, or for arm64 architecture computers:
-
-     ```bash
-     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
-     ```
-
-     For detailed reason could be found [here](#docker-with-nvidia-gpu-fails-to-start-autoware-on-arm64-devices)
-
-   For more advanced usage, see [here](https://github.com/autowarefoundation/autoware/tree/main/docker/README.md).
-
-   After that, move to the workspace in the container:
-
-   ```bash
-   cd autoware
-   ```
-
-3. Create the `src` directory and clone repositories into it.
-
-   ```bash
-   mkdir src
-   vcs import src < autoware.repos
-   ```
-
-4. Update dependent ROS packages.
-
-   The dependency of Autoware may change after the Docker image was created.
-   In that case, you need to run the following commands to update the dependency.
-
-   ```bash
-   sudo apt update
-   rosdep update
-   rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
-   ```
-
-5. Build the workspace.
-
-   ```bash
-   colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
-   ```
-
-   If there is any build issue, refer to [Troubleshooting](https://autowarefoundation.github.io/autoware-documentation/main/support/troubleshooting/#build-issues).
-
-## How to update a workspace
-
-1. Update the Docker image.
-
-   ```bash
-   docker pull ghcr.io/autowarefoundation/autoware-universe:latest-cuda
-   ```
-
-2. Launch a Docker container.
-
-   - For amd64 architecture computers:
-
-     ```bash
-     rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
-     ```
-
-   - If you want to run container without using NVIDIA GPU, or for arm64 architecture computers:
-
-     ```bash
-     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
-     ```
-
-3. Update the `.repos` file.
-
-   ```bash
-   cd autoware
-   git pull
-   ```
-
-4. Update the repositories.
-
-   ```bash
-   vcs import src < autoware.repos
-   vcs pull src
-   ```
-
-5. Build the workspace.
-
-   ```bash
-   colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
-   ```
+![type:video](https://youtube.com/embed/UrSF-VwncGQ)
 
 ## Troubleshooting
 
@@ -179,7 +44,7 @@ To fix this, restart your system after installing the new NVIDIA driver.
 When starting Docker with GPU support enabled for NVIDIA graphics on arm64 devices, e.g. NVIDIA jetson AGX xavier, you may receive the following error:
 
 ```bash
-nvidia@xavier:~$ rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:galactic-latest-cuda-arm64
+nvidia@xavier:~$ rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:humble-latest-cuda-arm64
 ...
 
 Collecting staticx==0.12.3
@@ -235,7 +100,7 @@ aarch64
 To run Autoware's Docker images of `arm64` architecture, add the suffix `-arm64`.
 
 ```sh-session
-$ docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:galactic-latest-cuda-arm64
+$ docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:humble-latest-cuda-arm64
 WARNING: The requested image's platform (linux/arm64) does not match the detected host platform (linux/amd64) and no specific platform was requested
 root@5b71391ad50f:/autoware#
 ```

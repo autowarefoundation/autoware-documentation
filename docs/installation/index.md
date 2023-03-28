@@ -29,13 +29,13 @@ The Autoware Foundation provides no support on other platforms than those listed
 > - Camera based object detection
 > - Traffic light detection and classification
 
-For details of how to enable object detection and traffic light detection/classification without a GPU, refer to the [Running Autoware without CUDA](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/running-autoware-without-cuda/).
+For details of how to enable object detection and traffic light detection/classification without a GPU, refer to the [Running Autoware without CUDA](../how-to-guides/running-autoware-without-cuda.md).
 
 ## Installing Autoware
 
 There are two ways to set up Autoware. Choose one according to your preference.
 
-If any issues occur during installation, refer to the [Support page](https://autowarefoundation.github.io/autoware-documentation/main/support).
+If any issues occur during installation, refer to the [Support page](../support).
 
 ### 1. Docker installation
 
@@ -47,7 +47,7 @@ For more information, refer to the [Docker installation guide](autoware/docker-i
 ### 2. Source installation
 
 Source installation is for the cases where more granular control of the installation environment is needed.
-It is recommended for experienced users or people who want to customize their environment.  
+It is recommended for experienced users or people who want to customize their environment.
 Note that some problems may occur depending on your local environment.
 
 For more information, refer to the [source installation guide](autoware/source-installation.md).

@@ -36,7 +36,7 @@ $$
 
 where $l$ denotes wheel tread.
 
-For information about other factors that need to be considered when creating a `vehicle_interface` package, refer to the [`vehicle_interface` component page](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/).
+For information about other factors that need to be considered when creating a `vehicle_interface` package, refer to the [`vehicle_interface` component page](../design/autoware-interfaces/components/vehicle-interface.md).
 
 ### 2.2 Set an appropriate `wheel_base`
 

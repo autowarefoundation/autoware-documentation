@@ -11,10 +11,10 @@ Applications can notify the vehicle behavior to the people around and visualize 
 ## Velocity factors
 
 The velocity factors is an array of information on the behavior that the vehicle stops (or slows down).
-Each factor has a type shown below, pose, distance from the vehicle head to that pose, status, and detailed data depending on its type.
+Each factor has a type shown below, pose in the base link, distance, status, and detailed data depending on its type.
 As the vehicle approaches the stop position, this factor appears with a status of APPROACHING.
 And when the vehicle reaches that position and stops, the status will be STOPPED.
-The pose indicates the stop position or the vehicle head if the stop position cannot be calculated.
+The pose indicates the stop position or the base link if the stop position cannot be calculated.
 
 ![velocity-factors](./docs/velocity-factors.drawio.svg)
 
@@ -40,7 +40,7 @@ The pose indicates the stop position or the vehicle head if the stop position ca
 ## Steering factors
 
 The steering factors is an array of information on the maneuver that requires use of turn indicators, such as turning left or right.
-Each factor has a type shown below, pose, distance from the vehicle head to that pose, status, and detailed data depending on its type.
+Each factor has a type shown below, pose in the base link, distance, status, and detailed data depending on its type.
 As the vehicle approaches the position to start steering, this factor appears with a status of APPROACHING.
 And when the vehicle reaches that position, the status will be TURNING.
 The pose indicates the start position when APPROACHING and the end position when TURNING.

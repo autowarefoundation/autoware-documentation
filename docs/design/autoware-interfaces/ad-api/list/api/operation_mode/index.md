@@ -1,4 +1,4 @@
-# Operation Mode
+# Operation Mode API
 
 - {{ link_ad_api('/api/operation_mode/state') }}
 - {{ link_ad_api('/api/operation_mode/change_to_autonomous') }}

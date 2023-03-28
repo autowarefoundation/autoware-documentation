@@ -34,13 +34,7 @@ ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autowa
 
 ![after-autoware-launch](images/planning/lane-following/after-autoware-launch.png)
 
-#### 2. Add Autoware State Panel
-
-This panel is useful when running planning simulations. To add the panel, click `Panels -> Add new panel`, select `AutowareStatePanel`, and then click `OK`.
-
-![after-autoware-launch](images/planning/lane-following/open-autoware-state-panel.png)
-
-#### 3. Set an initial pose for the ego vehicle
+#### 2. Set an initial pose for the ego vehicle
 
 ![set-initial-pose](images/planning/lane-following/set-initial-pose.png)
 
@@ -54,7 +48,7 @@ b) In the 3D View pane, click and hold the left-mouse button, and then drag to s
 
     To confirm the direction of the lane, check the arrowheads displayed on the map.
 
-#### 4. Set a goal pose for the ego vehicle
+#### 3. Set a goal pose for the ego vehicle
 
 a) Click the `2D Goal Pose` button in the toolbar, or hit the `G` key.
 
@@ -62,16 +56,19 @@ b) In the 3D View pane, click and hold the left-mouse button, and then drag to s
 
 ![set-goal-pose](images/planning/lane-following/set-goal-pose.png)
 
-#### 5. Engage the ego vehicle
+#### 4. Start the ego vehicle
 
-Now you can start the ego vehicle driving by clicking the `Engage` button in `AutowareStatePanel`. Alteratively, you can manually engage the vehicle by running the following command:
+Now you can start the ego vehicle driving by clicking the `AUTO` button on `OperationMode` in `AutowareStatePanel`.
+Alteratively, you can manually start the vehicle by running the following command:
 
 ```bash
 source ~/autoware/install/setup.bash
-ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: true" -1
+ros2 service call /api/operation_mode/change_to_autonomous autoware_adapi_v1_msgs/srv/ChangeOperationMode {}
 ```
 
-![start-driving](images/planning/lane-following/engage-and-start-planning.png)
+After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button is grayed out.
+
+![start-driving](images/planning/lane-following/start-driving.png)
 
 ### Parking scenario
 
@@ -89,16 +86,26 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: t
 ### Placing dummy objects
 
 1. Click the `2D Dummy Car` or `2D Dummy Pedestrian` button in the toolbar.
-
 2. Set the pose of the dummy object by clicking and dragging on the map.
-
 3. Set the velocity of the object in `Tool Properties -> 2D Dummy Car/Pedestrian` panel.
 
-!!! note
+   !!! note
 
-    Changes to the `velocity` parameter will only affect objects placed after the parameter is changed.
+   Changes to the `velocity` parameter will only affect objects placed after the parameter is changed.
 
-![set-dummy-car](images/planning/lane-following/place-dummy-car.png) 4. Delete any dummy objects placed in the view by clicking the `Delete All Objects` button in the toolbar.
+   ![set-dummy-car](images/planning/lane-following/place-dummy-car.png)
+
+4. Delete any dummy objects placed in the view by clicking the `Delete All Objects` button in the toolbar.
+
+5. Click the `Interactive` button in the toolbar to make the dummy object interactive.
+
+   ![set-interactive-dummy-car](images/planning/lane-following/check-interactive.png)
+
+6. For adding an interactive dummy object, press `SHIFT` and click the `right click`.
+7. For deleting an interactive dummy object, press `ALT` and click the `right click`.
+8. For moving an interactive dummy object, hold the `right click` drag and drop the object.
+
+   ![move-interactive-dummy-car](images/planning/lane-following/move-dummy-object.png)
 
 ### Traffic light recognition simulation
 
@@ -138,3 +145,5 @@ You can update the color of the traffic light by selecting the next color (in th
 ![after-traffic-light-color-update](images/planning/traffic-light/after-traffic-light-color-update.png)
 
 To remove a traffic light from `TrafficLightPublishPanel`, click the `RESET` button.
+
+[Reference video tutorials](https://drive.google.com/file/d/1bs_dX1JJ76qHk-SGvS6YF9gmekkN8fz7/view?usp=sharing)

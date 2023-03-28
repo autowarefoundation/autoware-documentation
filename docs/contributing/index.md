@@ -29,10 +29,10 @@ If you believe that someone in the community has violated the Code of Conduct, p
 
 To gain a high-level understanding of Autoware's architecture and design, the following pages provide a brief overview:
 
-- [Autoware architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/)
-- [Autoware concepts](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts/)
+- [Autoware architecture](../design/)
+- [Autoware concepts](../design/autoware-concepts/)
 
-For experienced developers, the [Autoware interfaces](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/) and [individual component pages](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/) should also be reviewed to understand the inputs and outputs for each component or module at a more detailed level.
+For experienced developers, the [Autoware interfaces](../design/autoware-interfaces/) and [individual component pages](../design/autoware-interfaces/components/) should also be reviewed to understand the inputs and outputs for each component or module at a more detailed level.
 
 ### Contributing to open source projects
 

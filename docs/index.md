@@ -6,6 +6,12 @@ Autoware is the world’s leading open-source software project for autonomous dr
 
 Please see [here](https://www.autoware.org/autoware) for more details.
 
+## Related Documentations
+
+This [Autoware Documentation](https://autowarefoundation.github.io/autoware-documentation/) is for Autoware's general information.
+
+For detailed documents of Autoware Universe components, see [Autoware Universe Documentation](https://autowarefoundation.github.io/autoware.universe/).
+
 ## Getting started
 
 - [Installation](installation) pages explain the installation steps of Autoware and related tools.
