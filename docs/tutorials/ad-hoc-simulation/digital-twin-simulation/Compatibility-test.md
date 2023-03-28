@@ -1,5 +1,5 @@
 # Compatibility test
-Compatibility testing tool is for check whether the digital twin simulator is compatible to Autoware or not.
+Compatibility testing tool is to check whether the digital twin simulator is compatible to Autoware or not.
 
 ## Preliminaries
 
