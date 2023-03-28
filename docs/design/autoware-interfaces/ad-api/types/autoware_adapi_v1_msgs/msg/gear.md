@@ -6,7 +6,7 @@
 
 ```txt
 # constants
-uint8 NONE = 0
+uint8 UNKNOWN = 0
 uint8 NEUTRAL = 1
 uint8 DRIVE = 2
 uint8 REVERSE = 3
