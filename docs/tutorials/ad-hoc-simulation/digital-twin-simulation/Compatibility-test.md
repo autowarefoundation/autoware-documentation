@@ -1,10 +1,11 @@
 # Compatibility test
-Compatibility testing tool is for
+Compatibility testing tool is for check whether the digital twin simulator is compatible to Autoware or not.
 
 ## Preliminaries
 
-The following compatibility testing tool is based on ROS2 humple
-Currently, it is only tested with [MORAI Sim: Drive](https://autowarefoundation.github.io/autoware-documentation/main/tutorials/ad-hoc-simulation/digital-twin-simulation/MORAI_Sim-tutorial/)
+The following compatibility testing tool is based on ROS2 humple.
+
+As Jan 26th 2023, it is only tested with [MORAI Sim: Drive](https://autowarefoundation.github.io/autoware-documentation/main/tutorials/ad-hoc-simulation/digital-twin-simulation/MORAI_Sim-tutorial/)
 
 
 	cd ~/${autoware installed directory}
