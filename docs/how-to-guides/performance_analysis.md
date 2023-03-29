@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Autoware is a real-time system, and it is important to have a small response time. If Autoware appears to be slow, it is imperative to conduct performance measurements and implement improvements based on the analysis. However, Autoware is a complex software system comprising numerous ROS2 nodes, potentially complicating the process of identifying bottlenecks. To address this challenge, we will discuss methods for conducting detailed performance measurements for Autoware and provide case studies. It is worth noting that multiple factors can contribute to poor performance, such as scheduling and memory allocation in the OS layer, but our focus in this page will be on user code bottlenecks. The outline of this section is as follows:
+Autoware is a real-time system, and it is important to have a small response time. If Autoware appears to be slow, it is imperative to conduct performance measurements and implement improvements based on the analysis. However, Autoware is a complex software system comprising numerous ROS 2 nodes, potentially complicating the process of identifying bottlenecks. To address this challenge, we will discuss methods for conducting detailed performance measurements for Autoware and provide case studies. It is worth noting that multiple factors can contribute to poor performance, such as scheduling and memory allocation in the OS layer, but our focus in this page will be on user code bottlenecks. The outline of this section is as follows:
 
 - Performance Measurement
   - Single Node Execution
@@ -194,15 +194,15 @@ If you are interested, refer to the [Pull Request](https://github.com/autowarefo
 Another example is in `map_based_prediction` node. There is a program which calculates signed arc length from a initial point to each point in a path. Below is the pseudocode:
 
 ```cpp
-for ( i = 1 .. path.size() )
-  for ( j = 0 .. i )
-    sum(i) += calc_distance(path(i), path(j))
+for ( i = 0; i < path.size(); i++ )
+  for ( j = 1; j <= i; j++ )
+    sum(i) += calc_distance(path(j), path(j - 1))
 ```
 
 The second loop in actual code was implemented with `calcSignedArcLength` function, which simply adds each distance between adjacent points in a path. Let `N` be the size of path, then the program’s computational complexity is O(N^2). If we think a little, we can see that there is a lot of unnecessary calculation being done. Since the distance from the initial point is being calculated every time, we can use cumulative sums to improve efficiency. Below is the pseudocode after optimization.
 
 ```cpp
-for ( i = 1 .. path.size() )
+for ( i = 1; i < path.size(); i++ )
   sum(i) = sum(i - 1) + calc_distance(path(i), path(i - 1))
 ```
 
