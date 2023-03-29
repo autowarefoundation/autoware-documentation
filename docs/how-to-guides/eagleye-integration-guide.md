@@ -22,6 +22,8 @@ There are two ways to utilize eagleye results with the autoware localization sta
 
 ![eagleye pose integration](images/eagleye-integration-guide/eagleye-pose.png)
 
+Note that RTK positioning is required for localization using the eagleye pose alone. RTK positioning is not required for twist.
+
 ## Behavior when eagleye is executed by autoware
 
  eagleye estimates are largely based on the following
