@@ -99,6 +99,7 @@ https://github.com/MapIV/eagleye/blob/autoware-main/eagleye_util/fix2pose/launch
 
 Please refer to the following PR when introducing eagleye to your autoware.
 You need to install eagleye related packages and change the launcher.
+Four files are required in the autoware localization launcher to run eagleye: `eagleye_rt.launch.xml`, `eagleye_config.yaml`, `gnss_converter.xml` and `fix2pose..xml`.
 
 https://github.com/autowarefoundation/autoware/pull/3261
 
