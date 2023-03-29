@@ -58,20 +58,47 @@ https://github.com/septentrio-gnss/septentrio_gnss_driver/blob/ros2/config/gnss.
 You must specify input topics.
 Input topics include GNSS latitude/longitude height information, GNSS speed information, IMU information, and vehicle speed information
 
+```
+    # Topic
+    twist:
+      twist_type: 1 # TwistStamped : 0, TwistWithCovarianceStamped: 1
+      twist_topic: /sensing/vehicle_velocity_converter/twist_with_covariance
+    imu_topic: /sensing/imu/tamagawa/imu_raw
+    gnss:
+      velocity_source_type: 2 # rtklib_msgs/RtklibNav: 0, nmea_msgs/Sentence: 1, ublox_msgs/NavPVT: 2, geometry_msgs/TwistWithCovarianceStamped: 3
+      velocity_source_topic: /sensing/gnss/ublox/navpvt
+      llh_source_type: 2 # rtklib_msgs/RtklibNav: 0, nmea_msgs/Sentence: 1, sensor_msgs/NavSatFix: 2
+      llh_source_topic: /sensing/gnss/ublox/nav_sat_fix
+```
+
 https://github.com/MapIV/autoware_launch/blob/3f04a9dd7bc4a4c49d4ec790e3f6b9958ab822da/autoware_launch/config/localization/eagleye_config.param.yaml#L7-L16
 
+Also, GNSS and IMU must be set to frequency yaml
+
+```
+    common:
+      imu_rate: 50
+      gnss_rate: 5
+```
+
+https://github.com/MapIV/autoware_launch/blob/3f04a9dd7bc4a4c49d4ec790e3f6b9958ab822da/autoware_launch/config/localization/eagleye_config.param.yaml#L36
 
 ### eagleye parameter tuning
 
 See below for parameter description.
 
+The following are the basic parameters that do not need to be changed except those mentioned above.
+
 https://github.com/MapIV/eagleye/tree/autoware-main/eagleye_rt/config
+
+Below are the parameters for converting navsatfix to pose.
 
 https://github.com/MapIV/eagleye/blob/autoware-main/eagleye_util/fix2pose/launch/fix2pose.xml
 
 ### Autoware Setting for Eagleye
 
 Please refer to the following PR when introducing eagleye to your autoware.
+You need to install eagleye related packages and change the launcher.
 
 https://github.com/autowarefoundation/autoware/pull/3261
 
