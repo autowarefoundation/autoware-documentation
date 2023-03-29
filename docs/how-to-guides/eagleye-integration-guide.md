@@ -1,6 +1,6 @@
-# Eagleye integration guide
+# Eagleye Integration Guide
 
-This page will show you how to set up [Eagleye](https://github.com/MapIV/eagleye), which is integrated into Autoware.
+This page will show you how to set up [eagleye](https://github.com/MapIV/eagleye), which is integrated into autoware.
 
 Discussions during the integration are as follows.
 https://github.com/orgs/autowarefoundation/discussions/3257
@@ -9,34 +9,34 @@ https://github.com/orgs/autowarefoundation/discussions/3257
 
 Eagleye provides a cost-effective alternative to LiDAR and point cloud-based localization by using low-cost GNSS and IMU sensors to provide vehicle position and orientation.
 
-Autoware users will be able to choose between their existing LiDAR and point cloud-based localization stacks or GNSS/IMU-based Eagleye localizers, depending on their specific needs and operating environment.
+Autoware users will be able to choose between their existing LiDAR and point cloud-based localization stacks or GNSS/IMU-based eagleye localizers, depending on their specific needs and operating environment.
 
-There are two ways to utilize Eagleye results with the Autoware localization stack.
+There are two ways to utilize eagleye results with the autoware localization stack.
 
-1. Feed both Twist and Pose from Eagleye into the EKF localizer.
+1. Feed only Twist into the EKF localizer.
 
 ![eagleye twist integration](images/eagleye-integration-guide/eagleye-twist.png)
 
-2. Feed both Twist and Pose from Eagleye into the EKF localizer.(twist can also be used with regular gyro_odometry
+2. Feed both Twist and Pose from eagleye into the EKF localizer.(twist can also be used with regular gyro_odometry
 )
 
 ![eagleye pose integration](images/eagleye-integration-guide/eagleye-pose.png)
 
 ## Behavior when eagleye is executed by autoware
 
- Eagleye estimates are largely based on the following
+ eagleye estimates are largely based on the following
 
-- Static Estimation
-Eagleye needs to be stationary for about 3~5 seconds (yaw_rate_offset_stop.estimated_interval in eagleye_config.yaml) after startup. Static estimation is performed even in environments where GNSS is not received. At this point the yaw rate offset is corrected.
+### Static Estimation
+eagleye needs to be stationary for about 3~5 seconds (yaw_rate_offset_stop.estimated_interval in eagleye_config.yaml) after startup. Static estimation is performed even in environments where GNSS is not received. At this point the yaw rate offset is corrected.
 
-- Movement Estimation
+### Movement Estimation
 Next, it needs to travel in a straight line for about 20~30 seconds (heading.estimated_minimum_interval and velocity_scale_factor.estimated_minimum_interval) and the wheel speed scale factor and azimuth angle are estimated. At this point, the estimation of twist is complete and pose will begin to be output.
 
 ## eagleye setup
 
 ### gnss ros drivers setting
 
-Note that speed information besides the NavSatFix is generally required to be obtained.
+In eagleye, it is necessary to obtain velocity information from GNSS, in addition to NavSatFix.
 
 ex)
  - [ublox_gps](https://github.com/KumarRobotics/ublox/tree/humble-devel/ublox_gps)
@@ -67,15 +67,15 @@ https://github.com/MapIV/eagleye/tree/autoware-main/eagleye_rt/config
 
 https://github.com/MapIV/eagleye/blob/autoware-main/eagleye_util/fix2pose/launch/fix2pose.xml
 
-### Autoware Setting for eagleye
+### Autoware Setting for Eagleye
 
-Please refer to the following PR when introducing eagleye to your autoware.
+Please refer to the following PR when introducing agleye to your autoware.
 
 https://github.com/autowarefoundation/autoware/pull/3261
 
 ### Usage of eagleye in autoware
 
-Eagleye has a function for position estimation as pose_estimator and a function for twist correction as twist_estimator.
+eagleye has a function for position estimation as pose_estimator and a function for twist correction as twist_estimator.
 
 #### eagleye as pose_estimator
 
@@ -102,7 +102,7 @@ https://github.com/autowarefoundation/autoware.universe/pull/2848
 
 - Note that in the case of eagleye with a single antenna, it is necessary to run about a minute outdoors  before the pose estimation starts.
 
-If you set `use_multi_antenna_mode` in `eagleye_rt`.launch to `true` and input `PoseStamped` with the attitude estimated by GNSS multi antennas in [heading_node](https://github.com/MapIV/eagleye/blob/develop-ros2/eagleye_rt/launch/eagleye_rt.launch.xml#L42-L55), you can estimate without running.
+If you set `use_multi_antenna_mode` in `eagleye_rt.launch.xml` to `true` and input `geometry_msgs/PoseStamped` with the attitude estimated by GNSS multi antennas in [heading_node](https://github.com/MapIV/eagleye/blob/develop-ros2/eagleye_rt/launch/eagleye_rt.launch.xml#L42-L55), you can estimate without running.
 
 Position and attitude estimation with GNSS multi-antenna, for example, can be done with the following packages
 [gnss_compass_ros](https://github.com/MapIV/gnss_compass_ros/tree/main-ros2)
