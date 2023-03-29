@@ -147,7 +147,7 @@ void callback(const sensor_msgs::PointCloud2ConstPtr &input_msg) {
 
 To use the PCL library, `fromROSMsg()` and `toROSMsg()` are used to perform message type conversion at the beginning and end of the callback.
 This is a wasteful copying process and should be avoided.
-We should eliminate unnecessary type conversions by removing dependencies on PCL.
+We should eliminate unnecessary type conversions by removing dependencies on PCL (e.g., <https://github.com/tier4/velodyne_vls/pull/39>).
 For large message types such as map data, there should be only one instance in the entire system in terms of physical memory.
 When analyzing the performance of the sensing module from the viewpoint of performance counter, pay attention to `instructions`, `LLC-load-misses`, `LLC-store-misses`, `cache-misses`, and `minor-faults`.
 As a case study, we present a performance analysis performed to speed up `ring_outlier_filter` (<https://github.com/autowarefoundation/autoware.universe/pull/3014>).
