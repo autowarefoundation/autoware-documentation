@@ -15,6 +15,14 @@
     - source: .github/workflows/spell-check-differential.yaml
     - source: .github/workflows/sync-files.yaml
     - source: .markdown-link-check.json
+      pre-commands: |
+        sd -s -- \
+        '     "pattern": "^http://localhost"' \
+        '     "pattern": "^https://www\\.autosar\\.org/*"
+            },
+            {
+              "pattern": "^http://localhost"' \
+          {source}
     - source: .markdownlint.yaml
     - source: .pre-commit-config-optional.yaml
     - source: .prettierignore
