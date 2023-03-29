@@ -9,7 +9,7 @@ https://github.com/orgs/autowarefoundation/discussions/3257
 
 Eagleye provides a cost-effective alternative to LiDAR and point cloud-based localization by using low-cost GNSS and IMU sensors to provide vehicle position and orientation.
 
-Autoware users will be able to choose between their existing LiDAR and point cloud-based localization stacks or GNSS/IMU-based eagleye localizers, depending on their specific needs and operating environment.
+Autoware users will be able to choose between their existing LiDAR and point cloud-based localization stacks or GNSS/IMU-based eagleye localizer, depending on their specific needs and operating environment.
 
 There are two ways to utilize eagleye results with the autoware localization stack.
 
@@ -69,7 +69,7 @@ https://github.com/MapIV/eagleye/blob/autoware-main/eagleye_util/fix2pose/launch
 
 ### Autoware Setting for Eagleye
 
-Please refer to the following PR when introducing agleye to your autoware.
+Please refer to the following PR when introducing eagleye to your autoware.
 
 https://github.com/autowarefoundation/autoware/pull/3261
 
