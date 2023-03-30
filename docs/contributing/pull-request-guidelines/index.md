@@ -50,7 +50,7 @@ Use this workflow as a reference when you contribute to Autoware.
 
 #### Condition
 
-- There are two types of template. One is [small change template](https://github.com/autowarefoundation/autoware/blob/main/.github/PULL_REQUEST_TEMPLATE/small-change.md) and the other one is [standard change template](https://github.com/autowarefoundation/autoware/blob/main/.github/PULL_REQUEST_TEMPLATE/standard-change.md). Please select one based on the following condition.
+- There are two types of template. One is [small change template](https://github.com/autowarefoundation/autoware/blob/main/.github/PULL_REQUEST_TEMPLATE/small-change.md) and the other one is [standard change template](https://github.com/autowarefoundation/autoware/blob/main/.github/PULL_REQUEST_TEMPLATE/standard-change.md). Select one based on the following condition.
 
 1. Standard Change:
 
