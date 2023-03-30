@@ -48,7 +48,7 @@ Use this workflow as a reference when you contribute to Autoware.
 
 - The unified style of descriptions by templates can make reviews efficient.
 
-#### Condition
+#### Example
 
 - There are two types of template. One is [small change template](https://github.com/autowarefoundation/autoware/blob/main/.github/PULL_REQUEST_TEMPLATE/small-change.md) and the other one is [standard change template](https://github.com/autowarefoundation/autoware/blob/main/.github/PULL_REQUEST_TEMPLATE/standard-change.md). Select one based on the following condition.
 
@@ -62,7 +62,7 @@ Use this workflow as a reference when you contribute to Autoware.
 - Complexity: A small change typically involves low complexity, such as updating documentation, making simple refactoring, or adjusting code style. These changes can usually be understood and reviewed quickly, often without extensive collaboration or deep knowledge of the entire codebase.
 - Impact: A small change has a limited or localized impact on the system. It might affect only a specific component or have minimal implications for the system's overall functionality or performance. Small changes generally do not include minor feature additions or minor bug fixes, as those should be treated as standard changes due to their impact. These small changes can generally be merged more quickly and with less rigorous testing.
 
-#### Example
+#### Steps to use an appropriate pull request template
 
 1. Select the appropriate template, as shown in [this video](https://user-images.githubusercontent.com/31987104/184344710-2adee239-799f-4fdf-bfab-be76345bfac1.mp4).
 2. Read the selected template carefully and fill the required content.
