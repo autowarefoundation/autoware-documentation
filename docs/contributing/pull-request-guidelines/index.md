@@ -54,15 +54,25 @@ Use this workflow as a reference when you contribute to Autoware.
 
 1. Standard Change:
 
-- Complexity: A standard change involves moderate to high complexity, such as implementing new features, making architectural changes, or addressing multiple interconnected issues. These changes often require a deeper understanding of the codebase and might involve collaboration with other team members.
-- Impact: A standard change has a broader impact on the overall system. It might affect multiple components, alter the system's functionality, or influence performance in a significant way. This category includes minor feature additions and minor bug fixes that, while not necessarily complex, have notable consequences for the system. These changes often require thorough testing and evaluation before they can be merged into the main branch.
+- Complexity:
+  - Moderate to high, including new features, architectural changes, or addressing multiple issues.
+  - Requires deeper understanding of the codebase and collaboration.
+- Impact:
+  - Broader system impact, affecting multiple components, functionality, or performance.
+  - Includes minor feature additions and minor bug fixes.
+  - Requires thorough testing and evaluation before merging.
 
 2. Small Change:
 
-- Complexity: A small change typically involves low complexity, such as updating documentation, making simple refactoring, or adjusting code style. These changes can usually be understood and reviewed quickly, often without extensive collaboration or deep knowledge of the entire codebase.
-- Impact: A small change has a limited or localized impact on the system. It might affect only a specific component or have minimal implications for the system's overall functionality or performance. Small changes generally do not include minor feature additions or minor bug fixes, as those should be treated as standard changes due to their impact. These small changes can generally be merged more quickly and with less rigorous testing.
+- Complexity:
+  - Low, such as documentation updates, simple refactoring, or code style adjustments.
+  - Easy to understand and review without extensive collaboration or deep knowledge of the codebase.
+- Impact:
+  - Limited or localized system impact, affecting specific components or having minimal implications on functionality or performance.
+  - Excludes minor feature additions and minor bug fixes.
+  - Can be merged quickly with less rigorous testing.
 
-#### Steps to use an appropriate pull request template
+##### Steps to use an appropriate pull request template
 
 1. Select the appropriate template, as shown in [this video](https://user-images.githubusercontent.com/31987104/184344710-2adee239-799f-4fdf-bfab-be76345bfac1.mp4).
 2. Read the selected template carefully and fill the required content.
