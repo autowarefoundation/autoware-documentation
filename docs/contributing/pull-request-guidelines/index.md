@@ -52,7 +52,7 @@ Use this workflow as a reference when you contribute to Autoware.
 
 - There are two types of template. Select one based on the following condition.
 
-1. Standard change:
+1. [Standard change](https://github.com/autowarefoundation/autoware/blob/main/.github/PULL_REQUEST_TEMPLATE/standard-change.md):
 
 - Complexity:
   - Moderate to high, including new features, architectural changes, or addressing multiple issues.
@@ -62,7 +62,7 @@ Use this workflow as a reference when you contribute to Autoware.
   - Includes minor feature additions and minor bug fixes.
   - Requires thorough testing and evaluation before merging.
 
-2. Small change:
+2. [Small change](https://github.com/autowarefoundation/autoware/blob/main/.github/PULL_REQUEST_TEMPLATE/small-change.md):
 
 - Complexity:
   - Low, such as documentation updates, simple refactoring, or code style adjustments.
