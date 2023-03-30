@@ -50,7 +50,7 @@ Use this workflow as a reference when you contribute to Autoware.
 
 #### Example
 
-- There are two types of template. Select one based on the following condition.
+There are two types of templates. Select one based on the following condition.
 
 1. [Standard change](https://github.com/autowarefoundation/autoware/blob/main/.github/PULL_REQUEST_TEMPLATE/standard-change.md):
 
