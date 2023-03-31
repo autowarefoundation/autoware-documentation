@@ -53,23 +53,20 @@ Use this workflow as a reference when you contribute to Autoware.
 There are two types of templates. Select one based on the following condition.
 
 1. [Standard change](https://github.com/autowarefoundation/autoware/blob/main/.github/PULL_REQUEST_TEMPLATE/standard-change.md):
-
-- Complexity:
-  - New features or significant updates.
-  - Requires deeper understanding of the codebase.
-- Impact:
-  - Affects multiple parts of the system.
-  - Basically includes minor features, bug fixes and performance improvement.
-  - Needs testing before merging.
-
+   - Complexity:
+     - New features or significant updates.
+     - Requires deeper understanding of the codebase.
+   - Impact:
+     - Affects multiple parts of the system.
+     - Basically includes minor features, bug fixes and performance improvement.
+     - Needs testing before merging.
 2. [Small change](https://github.com/autowarefoundation/autoware/blob/main/.github/PULL_REQUEST_TEMPLATE/small-change.md):
-
-- Complexity:
-  - Documentation, simple refactoring, or style adjustments.
-  - Easy to understand and review.
-- Impact:
-  - Minimal effect on the system.
-  - Quicker merge with less testing needed.
+   - Complexity:
+     - Documentation, simple refactoring, or style adjustments.
+     - Easy to understand and review.
+   - Impact:
+     - Minimal effect on the system.
+     - Quicker merge with less testing needed.
 
 ##### Steps to use an appropriate pull request template
 
