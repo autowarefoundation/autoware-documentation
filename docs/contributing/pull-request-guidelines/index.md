@@ -59,7 +59,7 @@ There are two types of templates. Select one based on the following condition.
   - Requires deeper understanding of the codebase.
 - Impact:
   - Affects multiple parts of the system.
-  - Includes minor features and bug fixes.
+  - Basically includes minor features, bug fixes and performance improvement.
   - Needs testing before merging.
 
 2. [Small change](https://github.com/autowarefoundation/autoware/blob/main/.github/PULL_REQUEST_TEMPLATE/small-change.md):
@@ -69,7 +69,6 @@ There are two types of templates. Select one based on the following condition.
   - Easy to understand and review.
 - Impact:
   - Minimal effect on the system.
-  - Exclude minor features or bug fixes.
   - Quicker merge with less testing needed.
 
 ##### Steps to use an appropriate pull request template
