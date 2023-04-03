@@ -16,7 +16,7 @@ Image data from camera. Used by the Perception.
 
 ### Lidar original pointcloud
 
-Pointcloud without preprocessing. Used by the Perception.
+Pointcloud without preprocessing. Used by the Perception and Localization.
 
 - [sensor_msgs/PointCloud2](https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/PointCloud2.html)
 
@@ -38,9 +38,15 @@ IMU data with yaw rate offset compensated. Used by the Localization.
 
 - [sensor_msgs/Imu](https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/Imu.html)
 
-### Vehicle pose
+### Vehicle velocity
 
-Position of the ego vehicle. Used by the Localization.
+Velocity of the ego vehicle. Used by the Localization.
+
+- [geometry_msgs/TwistWithCovarianceStamped](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/TwistWithCovarianceStamped.html)
+
+### GNSS pose
+
+Initial pose of the ego vehicle from GNSS. Used by the Localization.
 
 - [geometry_msgs/PoseStamped](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/PoseStamped.html)
 - [geometry_msgs/PoseWithCovarianceStamped](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/PoseWithCovarianceStamped.html)
