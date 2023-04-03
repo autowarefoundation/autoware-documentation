@@ -14,15 +14,9 @@ Image data from camera. Used by the Perception.
 
 - [sensor_msgs/Image](https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/Image.html)
 
-### Lidar original pointcloud
+### Lidar preprocessed pointcloud
 
-Pointcloud without preprocessing. Used by the Perception and Localization.
-
-- [sensor_msgs/PointCloud2](https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/PointCloud2.html)
-
-### Lidar filtered pointcloud
-
-Pointcloud after preprocessing. Used by the Perception.
+Lidar pointcloud after preprocessing. Used by the Perception and Localization.
 
 - [sensor_msgs/PointCloud2](https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/PointCloud2.html)
 
