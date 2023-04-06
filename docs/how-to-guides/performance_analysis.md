@@ -1,19 +1,19 @@
-# Performance Analysis
+# Performance analysis
 
 ## Introduction
 
-Autoware is a real-time system, and it is important to have a small response time. If Autoware appears to be slow, it is imperative to conduct performance measurements and implement improvements based on the analysis. However, Autoware is a complex software system comprising numerous ROS2 nodes, potentially complicating the process of identifying bottlenecks. To address this challenge, we will discuss methods for conducting detailed performance measurements for Autoware and provide case studies. It is worth noting that multiple factors can contribute to poor performance, such as scheduling and memory allocation in the OS layer, but our focus in this page will be on user code bottlenecks. The outline of this section is as follows:
+Autoware is a real-time system, and it is important to have a small response time. If Autoware appears to be slow, it is imperative to conduct performance measurements and implement improvements based on the analysis. However, Autoware is a complex software system comprising numerous ROS 2 nodes, potentially complicating the process of identifying bottlenecks. To address this challenge, we will discuss methods for conducting detailed performance measurements for Autoware and provide case studies. It is worth noting that multiple factors can contribute to poor performance, such as scheduling and memory allocation in the OS layer, but our focus in this page will be on user code bottlenecks. The outline of this section is as follows:
 
-- Performance Measurement
-  - Single Node Execution
-  - Prepare Separated Cores
-  - Run Single Node Separately
-  - Measurement and Visualization
-- Case Studies
-  - Sensing Component
-  - Planning Component
+- Performance measurement
+  - Single node execution
+  - Prepare separated cores
+  - Run single node separately
+  - Measurement and visualization
+- Case studies
+  - Sensing component
+  - Planning component
 
-## Performance Measurement
+## Performance measurement
 
 Improvement is impossible without precise measurements.
 To measure the performance of the application code, it is essential to eliminate any external influences.
@@ -22,18 +22,16 @@ Scheduling effects also occur when core resources are shared by multiple threads
 This section outlines a technique for accurately measuring the performance of the application code for a specific node.
 Though this section only discusses the case of Linux on Intel CPUs, similar considerations should be made in other environments.
 
-### Single Node Execution
+### Single node execution
 
 To eliminate the influence of scheduling, the node being measured should operate independently, using the same logic as when the entire Autoware system is running.
 To accomplish this, record all input topics of the node to be measured while the whole Autoware system is running.
-To achieve this objective, a tool called `ros2_single_node_replayer` has been prepared.
-
-[sykwer/ros2_single_node_replayer](https://github.com/sykwer/ros2_single_node_replayer)
+To achieve this objective, a tool called [`ros2_single_node_replayer`](https://github.com/sykwer/ros2_single_node_replayer) has been prepared.
 
 Details on how to use the tool can be found in the README.
 This tool records the input topics of a specific node during the entire Autoware operation and replays it in a single node with the same logic.
 
-### Prepare Separated Cores
+### Prepare separated cores
 
 Isolated cores running the node to be measured must meet the following conditions.
 
@@ -88,7 +86,7 @@ Turbo Boost needs to be switched off on Intel CPUs, which is often overlooked.
 sudo sh -c "echo 0 > /sys/devices/system/cpu/cpufreq/boost"
 ```
 
-### Run Single Node Separately
+### Run single node separately
 
 Following the instructions in the `ros2_single_node_replayer` README, start the node and play the dedicated rosbag created by the tool.
 Before playing the rosbag, appropriately set the CPU affinity of the thread on which the node runs, so it is placed on the isolated core prepared.
@@ -99,21 +97,19 @@ taskset --cpu-list -p <target cpu> <pid>
 
 To avoid interference in the last level cache, minimize the number of other applications running during the measurement.
 
-### Measurement and Visualization
+### Measurement and visualization
 
 To visualize the performance of the measurement target, embed code for logging timestamps and performance counter values in the target source code.
-To achieve this objective, a tool called `pmu_analyzer` has been prepared.
-
-[sykwer/pmu_analyzer](https://github.com/sykwer/pmu_analyzer)
+To achieve this objective, a tool called [`pmu_analyzer`](https://github.com/sykwer/pmu_analyzer) has been prepared.
 
 Details on how to use the tool can be found in the README.
 This tool can measure the turnaround time of any section in the source code, as well as various performance counters.
 
-## Case Studies
+## Case studies
 
 In this section, we will present several case studies that demonstrate the performance improvements. These examples not only showcase our commitment to enhancing the system's efficiency but also serve as a valuable resource for developers who may face similar challenges in their own projects. The performance improvements discussed here span various components of the Autoware system, including sensing modules and planning modules. There are tendencies for each component regarding which points are becoming bottlenecks. By examining the methods, techniques, and tools employed in these case studies, readers can gain a better understanding of the practical aspects of optimizing complex software systems like Autoware.
 
-### Sensing Component
+### Sensing component
 
 In the sensing component, which handles large message data such as LiDAR point cloud data, minimizing copying is important.
 A callback that takes sensor data message types as input and output should be written in an in-place algorithm as much as possible.
@@ -150,7 +146,7 @@ This is a wasteful copying process and should be avoided.
 We should eliminate unnecessary type conversions by removing dependencies on PCL (e.g., <https://github.com/tier4/velodyne_vls/pull/39>).
 For large message types such as map data, there should be only one instance in the entire system in terms of physical memory.
 When analyzing the performance of the sensing module from the viewpoint of performance counter, pay attention to `instructions`, `LLC-load-misses`, `LLC-store-misses`, `cache-misses`, and `minor-faults`.
-As a case study, we present a performance analysis performed to speed up `ring_outlier_filter` (<https://github.com/autowarefoundation/autoware.universe/pull/3014>).
+As a case study, we present a performance analysis performed to speed up [`ring_outlier_filter`](https://github.com/autowarefoundation/autoware.universe/pull/3014).
 The following figure is a time-series plot of the turnaround time of the main processing part of `ring_outlier_filter`, analyzed as described in the "Performance Measurement" section above.
 
 ![ring outlier filter turnaround time](https://raw.githubusercontent.com/autowarefoundation/autoware-documentation/0ad57338ca24b35f0a271c6ae003aa303b3dd4ce/docs/assets/images/ring_outlier_filter_turnaround_time.png)
@@ -161,10 +157,10 @@ For example, when we plot `minor-faults` on the horizontal axis and turnaround t
 
 ![ring outlier filter minor faults](https://raw.githubusercontent.com/autowarefoundation/autoware-documentation/0ad57338ca24b35f0a271c6ae003aa303b3dd4ce/docs/assets/images/ring_outlier_filter_minor_faults.png)
 
-As a side note, we have developed a library called `heaphook` to avoid soft page faults while running Autoware callback ([tier4/heaphook](https://github.com/tier4/heaphook)).
-If you are interested, refer to a GitHub discussion (<https://github.com/orgs/autowarefoundation/discussions/3274>) and an issue (<https://github.com/autowarefoundation/autoware/issues/3310>).
+As a side note, we have developed a library called [`heaphook`](https://github.com/tier4/heaphook) to avoid soft page faults while running Autoware callback.
+If you are interested, refer to the [GitHub discussion](https://github.com/orgs/autowarefoundation/discussions/3274) and the [issue](https://github.com/autowarefoundation/autoware/issues/3310).
 
-### Planning Component
+### Planning component
 
 In the planning component, we take into consideration thousands to tens of thousands of point clouds, thousands of points in a path representing our own route, and polygons representing obstacles and detection areas in the surroundings, and we repeatedly create paths based on them. Therefore, we access the contents of the point clouds and paths multiple times using for-loops. In most cases, the bottleneck lies in these naive for-loops. Here, understanding Big O notation and reducing the order of computational complexity directly leads to performance improvements.
 
@@ -194,15 +190,15 @@ If you are interested, refer to the [Pull Request](https://github.com/autowarefo
 Another example is in `map_based_prediction` node. There is a program which calculates signed arc length from a initial point to each point in a path. Below is the pseudocode:
 
 ```cpp
-for ( i = 1 .. path.size() )
-  for ( j = 0 .. i )
-    sum(i) += calc_distance(path(i), path(j))
+for ( i = 0; i < path.size(); i++ )
+  for ( j = 1; j <= i; j++ )
+    sum(i) += calc_distance(path(j), path(j - 1))
 ```
 
 The second loop in actual code was implemented with `calcSignedArcLength` function, which simply adds each distance between adjacent points in a path. Let `N` be the size of path, then the program’s computational complexity is O(N^2). If we think a little, we can see that there is a lot of unnecessary calculation being done. Since the distance from the initial point is being calculated every time, we can use cumulative sums to improve efficiency. Below is the pseudocode after optimization.
 
 ```cpp
-for ( i = 1 .. path.size() )
+for ( i = 1; i < path.size(); i++ )
   sum(i) = sum(i - 1) + calc_distance(path(i), path(i - 1))
 ```
 
