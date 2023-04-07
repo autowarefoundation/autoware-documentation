@@ -14,15 +14,21 @@ Image data from camera. Used by the Perception.
 
 - [sensor_msgs/Image](https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/Image.html)
 
-### Lidar preprocessed pointcloud
+### Radar tracks
 
-Lidar pointcloud after preprocessing. Used by the Perception and Localization.
+Tracks from radar. Used by the Perception.
 
-- [sensor_msgs/PointCloud2](https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/PointCloud2.html)
+- [radar_msgs/RadarTracks](https://docs.ros.org/en/noetic/api/radar_msgs/html/msg/RadarTracks.html)
 
 ### Radar pointcloud
 
 Pointcloud from radar. Used by the Perception.
+
+- [sensor_msgs/PointCloud2](https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/PointCloud2.html)
+
+### Lidar preprocessed pointcloud
+
+Lidar pointcloud after preprocessing. Used by the Perception and Localization.
 
 - [sensor_msgs/PointCloud2](https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/PointCloud2.html)
 
