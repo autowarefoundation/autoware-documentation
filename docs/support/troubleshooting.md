@@ -139,7 +139,7 @@ pkg_resources.extern.packaging.version.InvalidVersion: Invalid version: '0.23ubu
 
 The error is due to the fact that for versions between 66.0.0 and 67.5.0 `setuptools` enforces the python packages to be
 [PEP-440](https://peps.python.org/pep-0440/) conformant.
-Since version 67.5.1 `setuptools` added [fallback](https://github.com/pypa/setuptools/commit/1640731114734043b8500d211366fc941b741f67) that makes it possible to work with old packages again.
+Since version 67.5.1 `setuptools` has a [fallback](https://github.com/pypa/setuptools/commit/1640731114734043b8500d211366fc941b741f67) that makes it possible to work with old packages again.
 
 The solution is to update `setuptools` to the newest version with the following command
 
