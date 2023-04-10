@@ -132,17 +132,8 @@ In the sample autoware, you can set pose_estimator to gnss by setting `pose_esti
 - Note that it does not match the map, so be careful when using maps that are out of georeference.
 - In the case of a single GNSS antenna, initial position estimation takes several tens of seconds to complete after starting to run in an environment where GNSS positioning is available.
 
-ref
-https://github.com/autowarefoundation/autoware_launch/pull/200
-
-
 #### eagleye as twist_estimator
 
 In the sample autoware, you can set pose_estimator to gnss by setting `pose_estimator_mode:=lidar` in `map4_localization_component.launch.xml`.
 
 - Unlike eagleye position estimation, eagleye twist estimation first outputs uncorrected raw values when activated, and then outputs corrected twists as soon as estimation is complete.
-
-
-ref
-https://github.com/autowarefoundation/autoware.universe/pull/2848
-
