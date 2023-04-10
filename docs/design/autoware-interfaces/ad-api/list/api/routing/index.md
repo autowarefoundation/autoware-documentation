@@ -22,3 +22,11 @@ There are two ways to set the route. The one is a generic method that uses pose,
 | SET      | The route is set.                                  |
 | ARRIVED  | The vehicle has arrived at the destination.        |
 | CHANGING | Trying to change the route. Not implemented yet.   |
+
+## Goal modification
+
+Autoware may modify the goal pose to pull over, avoid obstacles, etc. When setting a route from the API, applications can choose the following options of goal modification.
+
+| Option                  | Description                       |
+| ----------------------- | --------------------------------- |
+| allow_goal_modification | If true, allow goal modification. |
