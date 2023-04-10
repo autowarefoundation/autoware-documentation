@@ -115,6 +115,16 @@ map4_localization_launch/eagleye_pose_twist_localization_launch| eagleye_rt(gyro
 
 Switching requires switching the localization module in `autoware.launch.xml` and the `pose_estimator_mode` parameter in `map4_localization_component.launch.xml`.
 
+When using eagleye, comment out `tier4_localization_component.launch.xml` and start `map4_localization_component.launch.xml`.
+
+```
+  <!-- Localization -->
+  <group if="$(var launch_localization)">
+    <include file="$(find-pkg-share autoware_launch)/launch/components/tier4_localization_component.launch.xml"/>
+    <!-- <include file="$(find-pkg-share autoware_launch)/launch/components/map4_localization_component.launch.xml"/> -->
+  </group>
+```
+
 #### eagleye as pose_estimator
 
 In the sample autoware, you can set pose_estimator to gnss by setting `pose_estimator_mode:=gnss` in `map4_localization_component.launch.xml`.
