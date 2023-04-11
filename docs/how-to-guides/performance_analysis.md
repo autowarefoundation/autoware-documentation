@@ -41,6 +41,7 @@ Isolated cores running the node to be measured must meet the following condition
 - Isolate the paired core if hyper-threading enabled
 
 To fulfill these conditions on Linux, a custom kernel build with the following kernel configurations is required.
+You can find many resoruces to instruct you on how to build a custom Linux kernel (like [this one](https://phoenixnap.com/kb/build-linux-kernel)).
 Note that even if Full tickless is enabled, timer interrupts are generated for scheduling if more than two tasks exist in one core.
 
 ```text
