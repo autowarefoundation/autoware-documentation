@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Autoware is a real-time system, and it is important to have a small response time. If Autoware appears to be slow, it is imperative to conduct performance measurements and implement improvements based on the analysis. However, Autoware is a complex software system comprising numerous ROS 2 nodes, potentially complicating the process of identifying bottlenecks. To address this challenge, we will discuss methods for conducting detailed performance measurements for Autoware and provide case studies. It is worth noting that multiple factors can contribute to poor performance, such as scheduling and memory allocation in the OS layer, but our focus in this page will be on user code bottlenecks. The outline of this section is as follows:
+Autoware should be real-time system when integrated to a service. Therefore, the response time of each callback should be as small as possible. If Autoware appears to be slow, it is imperative to conduct performance measurements and implement improvements based on the analysis. However, Autoware is a complex software system comprising numerous ROS 2 nodes, potentially complicating the process of identifying bottlenecks. To address this challenge, we will discuss methods for conducting detailed performance measurements for Autoware and provide case studies. It is worth noting that multiple factors can contribute to poor performance, such as scheduling and memory allocation in the OS layer, but our focus in this page will be on user code bottlenecks. The outline of this section is as follows:
 
 - Performance measurement
   - Single node execution
