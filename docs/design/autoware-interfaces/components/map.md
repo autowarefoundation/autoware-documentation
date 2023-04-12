@@ -24,7 +24,7 @@ It loads point cloud files and publishes the maps to the other Autoware nodes in
 - Partial point cloud map loading via ROS2 service (autoware_map_msgs/srv/GetPartialPointCloudMap) 
 - Differential point cloud map loading via ROS2 service (autoware_map_msgs/srv/GetDifferentialPointCloudMap)
 
-### Lanlet2 map
+### Lanelet2 map
 
 It loads a Lanelet2 file and publishes the map data as `autoware_auto_mapping_msgs/msg/HADMapBin` message. The lan/lon coordinates are projected onto the MGRS coordinates.
 
@@ -35,8 +35,7 @@ It loads a Lanelet2 file and publishes the map data as `autoware_auto_mapping_ms
     - string name_map
     - uint8[] data
 
- 
-### Lanlet2 map visualization
+### Lanelet2 map visualization
 
 Visualize `autoware_auto_mapping_msgs/HADMapBin` messages in `Rviz`.
 
