@@ -25,7 +25,7 @@ There are two ways to set the route. The one is a generic method that uses pose,
 
 ## Goal modification
 
-Autoware may modify the goal pose to pull over, avoid obstacles, etc. When setting a route from the API, applications can choose the following options of goal modification.
+Autoware tries to look for an alternate goal when goal is unreachable (e.g., when there is an obstacle on the given goal). When setting a route from the API, applications can choose whether they allow Autoware to adjust goal pose in such situation. When set false, Autoware may get stuck until the given goal becomes reachable.
 
 | Option                  | Description                       |
 | ----------------------- | --------------------------------- |
