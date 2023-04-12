@@ -201,3 +201,11 @@ If you get the error message `selected interface "{your-interface-name}" is not 
 ```bash
 sudo ip link set multicast on {your-interface-name}
 ```
+
+### Node performance degradation
+
+If you notice a decrease in the running performance of a node, such as [issue2597](https://github.com/autowarefoundation/autoware.universe/issues/2597#issuecomment-1491789081), you need to check if your compilation instructions use `Release` or `RelWithDebInfo` tags. If not, recompile the project using the following instructions:
+
+```bash
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+```
