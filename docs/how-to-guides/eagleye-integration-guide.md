@@ -51,24 +51,24 @@ The settings needed for each GNSS ROS driver are as follows:
 You must correctly specify input topics for GNSS latitude, longitude, and height information, GNSS speed information, IMU information, and vehicle speed information in the [`eagleye_config.yaml`](https://github.com/MapIV/autoware_launch/blob/3f04a9dd7bc4a4c49d4ec790e3f6b9958ab822da/autoware_launch/config/localization/eagleye_config.param.yaml#L7-L16).
 
 ```yaml
-    # Topic
-    twist:
-      twist_type: 1 # TwistStamped : 0, TwistWithCovarianceStamped: 1
-      twist_topic: /sensing/vehicle_velocity_converter/twist_with_covariance
-    imu_topic: /sensing/imu/tamagawa/imu_raw
-    gnss:
-      velocity_source_type: 2 # rtklib_msgs/RtklibNav: 0, nmea_msgs/Sentence: 1, ublox_msgs/NavPVT: 2, geometry_msgs/TwistWithCovarianceStamped: 3
-      velocity_source_topic: /sensing/gnss/ublox/navpvt
-      llh_source_type: 2 # rtklib_msgs/RtklibNav: 0, nmea_msgs/Sentence: 1, sensor_msgs/NavSatFix: 2
-      llh_source_topic: /sensing/gnss/ublox/nav_sat_fix
+# Topic
+twist:
+  twist_type: 1 # TwistStamped : 0, TwistWithCovarianceStamped: 1
+  twist_topic: /sensing/vehicle_velocity_converter/twist_with_covariance
+imu_topic: /sensing/imu/tamagawa/imu_raw
+gnss:
+  velocity_source_type: 2 # rtklib_msgs/RtklibNav: 0, nmea_msgs/Sentence: 1, ublox_msgs/NavPVT: 2, geometry_msgs/TwistWithCovarianceStamped: 3
+  velocity_source_topic: /sensing/gnss/ublox/navpvt
+  llh_source_type: 2 # rtklib_msgs/RtklibNav: 0, nmea_msgs/Sentence: 1, sensor_msgs/NavSatFix: 2
+  llh_source_topic: /sensing/gnss/ublox/nav_sat_fix
 ```
 
 Also, the frequency of GNSS and IMU must be set in [`eagleye_config.yaml`](https://github.com/MapIV/autoware_launch/blob/3f04a9dd7bc4a4c49d4ec790e3f6b9958ab822da/autoware_launch/config/localization/eagleye_config.param.yaml#L36)
 
 ```yaml
-    common:
-      imu_rate: 50
-      gnss_rate: 5
+common:
+  imu_rate: 50
+  gnss_rate: 5
 ```
 
 ### Eagleye parameter tuning
@@ -86,11 +86,11 @@ Four files are required in the Autoware localization launcher to run Eagleye: `e
 
 Eagleye has a function for position estimation and a function for twist estimation, namely `pose_estimator` and `twist_estimator`, respectively.
 
-localization launch  | twist estimator | pose estimator
--- | -- | --
-`tier4_localization_launch`| `gyro_odometry` | NDT
-`map4_localization_launch/eagleye_twist_localization_launch`| eagleye_rt(gyro/odom/gnss fusion) | NDT
-`map4_localization_launch/eagleye_pose_twist_localization_launch`| eagleye_rt(gyro/odom/gnss fusion) | eagleye_rt(gyro/odom/gnss fusion)
+| localization launch                                               | twist estimator                   | pose estimator                    |
+| ----------------------------------------------------------------- | --------------------------------- | --------------------------------- |
+| `tier4_localization_launch`                                       | `gyro_odometry`                   | NDT                               |
+| `map4_localization_launch/eagleye_twist_localization_launch`      | eagleye_rt(gyro/odom/gnss fusion) | NDT                               |
+| `map4_localization_launch/eagleye_pose_twist_localization_launch` | eagleye_rt(gyro/odom/gnss fusion) | eagleye_rt(gyro/odom/gnss fusion) |
 
 Enabling Eagleye in Autoware requires switching the localization module in `autoware.launch.xml` and the `pose_estimator_mode` parameter in `map4_localization_component.launch.xml`.
 When using Eagleye, comment out `tier4_localization_component.launch.xml` and start `map4_localization_component.launch.xml`.
