@@ -209,4 +209,3 @@ If you notice a decrease in the running performance of a node, such as [issue259
 ```bash
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
-
