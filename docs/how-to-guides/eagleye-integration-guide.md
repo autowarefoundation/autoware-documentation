@@ -14,10 +14,12 @@ With the addition of Eagleye integration into Autoware, users will be able to ch
 There are two ways to utilize Eagleye results in the Autoware localization stack:
 
 1. Feed only twist into the EKF localizer.
-![Eagleye twist integration](images/eagleye-integration-guide/eagleye_twist.drawio.svg)
+
+   ![Eagleye twist integration](images/eagleye-integration-guide/eagleye_twist.drawio.svg)
 
 2. Feed both twist and pose from Eagleye into the EKF localizer (twist can also be used with regular `gyro_odometry`).
-![Eagleye pose twist integration](images/eagleye-integration-guide/eagleye_pose_twist.drawio.svg)
+
+   ![Eagleye pose twist integration](images/eagleye-integration-guide/eagleye_pose_twist.drawio.svg)
 
 Note that RTK positioning is only required for localization using the Eagleye pose. RTK positioning is not required for twist.
 
