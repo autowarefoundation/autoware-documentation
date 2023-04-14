@@ -21,8 +21,8 @@ It loads point cloud files and publishes the maps to the other Autoware nodes in
 
 - Raw point cloud map (sensor_msgs/msg/PointCloud2)
 - Downsampled point cloud map (sensor_msgs/msg/PointCloud2)
-- Partial point cloud map loading via ROS2 service (autoware_map_msgs/srv/GetPartialPointCloudMap) 
-- Differential point cloud map loading via ROS2 service (autoware_map_msgs/srv/GetDifferentialPointCloudMap)
+- Partial point cloud map loading via ROS service (autoware_map_msgs/srv/GetPartialPointCloudMap) 
+- Differential point cloud map loading via ROS service (autoware_map_msgs/srv/GetDifferentialPointCloudMap)
 
 ### Lanelet2 map
 
