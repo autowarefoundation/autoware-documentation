@@ -113,6 +113,28 @@ In this section, we will present several case studies that demonstrate the perfo
 
 ### Sensing component
 
+First, we will explain the procedure for performance improvement, taking the node `ring_outlier_filter` as an example.
+Refer to the [Pull Request](https://github.com/autowarefoundation/autoware.universe/pull/3014) for details.
+
+The following figure is a time-series plot of the turnaround time of the main processing part of `ring_outlier_filter`, analyzed as described in the "Performance Measurement" section above.
+
+![ring outlier filter turnaround time](https://raw.githubusercontent.com/autowarefoundation/autoware-documentation/0ad57338ca24b35f0a271c6ae003aa303b3dd4ce/docs/assets/images/ring_outlier_filter_turnaround_time.png)
+
+The horizontal axis indicates the number of callbacks called (i.e., callback index), and the vertical axis indicates the turnaround time.
+
+When analyzing the performance of the sensing module from the viewpoint of performance counter, pay attention to `instructions`, `LLC-load-misses`, `LLC-store-misses`, `cache-misses`, and `minor-faults`.
+
+Analysis of the performance counter shows that the largest fluctuations come from `minor-faults` (i.e., soft page faults), the second largest from `LLC-store-misses` and `LLC-load-misses` (i.e., cache misses in the last level cache), and the slowest fluctuations come from instructions (i.e., message data size fluctuations).
+For example, when we plot `minor-faults` on the horizontal axis and turnaround time on the vertical axis, we can see the following dominant proportional relationship.
+
+![ring outlier filter minor faults](https://raw.githubusercontent.com/autowarefoundation/autoware-documentation/0ad57338ca24b35f0a271c6ae003aa303b3dd4ce/docs/assets/images/ring_outlier_filter_minor_faults.png)
+
+To achieve zero soft page faults, heap allocations must only be made from areas that have been first touched in advance.
+We have developed a library called [`heaphook`](https://github.com/tier4/heaphook) to avoid soft page faults while running Autoware callback.
+If you are interested, refer to the [GitHub discussion](https://github.com/orgs/autowarefoundation/discussions/3274) and the [issue](https://github.com/autowarefoundation/autoware/issues/3310).
+
+To reduce LLC misses, it is necessary to reduce the working set and to use cache-efficient access patterns.
+
 In the sensing component, which handles large message data such as LiDAR point cloud data, minimizing copying is important.
 A callback that takes sensor data message types as input and output should be written in an in-place algorithm as much as possible.
 This means that in the following pseudocode, when generating `output_msg` from `input_msg`, it is crucial to avoid using buffers as much as possible to reduce the number of memory copies.
@@ -147,20 +169,6 @@ To use the PCL library, `fromROSMsg()` and `toROSMsg()` are used to perform mess
 This is a wasteful copying process and should be avoided.
 We should eliminate unnecessary type conversions by removing dependencies on PCL (e.g., <https://github.com/tier4/velodyne_vls/pull/39>).
 For large message types such as map data, there should be only one instance in the entire system in terms of physical memory.
-When analyzing the performance of the sensing module from the viewpoint of performance counter, pay attention to `instructions`, `LLC-load-misses`, `LLC-store-misses`, `cache-misses`, and `minor-faults`.
-As a case study, we present a performance analysis performed to speed up [`ring_outlier_filter`](https://github.com/autowarefoundation/autoware.universe/pull/3014).
-The following figure is a time-series plot of the turnaround time of the main processing part of `ring_outlier_filter`, analyzed as described in the "Performance Measurement" section above.
-
-![ring outlier filter turnaround time](https://raw.githubusercontent.com/autowarefoundation/autoware-documentation/0ad57338ca24b35f0a271c6ae003aa303b3dd4ce/docs/assets/images/ring_outlier_filter_turnaround_time.png)
-
-The horizontal axis indicates the number of callbacks called (i.e., callback index), and the vertical axis indicates the turnaround time.
-Analysis of the performance counter shows that the largest fluctuations come from `minor-faults` (i.e., soft page faults), the second largest from `LLC-store-misses` and `LLC-load-misses` (i.e., cache misses in the last level cache), and the slowest fluctuations come from instructions (i.e., message data size fluctuations).
-For example, when we plot `minor-faults` on the horizontal axis and turnaround time on the vertical axis, we can see the following dominant proportional relationship.
-
-![ring outlier filter minor faults](https://raw.githubusercontent.com/autowarefoundation/autoware-documentation/0ad57338ca24b35f0a271c6ae003aa303b3dd4ce/docs/assets/images/ring_outlier_filter_minor_faults.png)
-
-As a side note, we have developed a library called [`heaphook`](https://github.com/tier4/heaphook) to avoid soft page faults while running Autoware callback.
-If you are interested, refer to the [GitHub discussion](https://github.com/orgs/autowarefoundation/discussions/3274) and the [issue](https://github.com/autowarefoundation/autoware/issues/3310).
 
 ### Planning component
 
