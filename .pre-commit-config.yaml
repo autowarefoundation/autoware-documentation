@@ -22,7 +22,8 @@ repos:
     rev: v0.32.2
     hooks:
       - id: markdownlint
-        args: [-c, .markdownlint.yaml, --fix]
+        args: [-c, .markdownlint.yaml, --fix, --rules, sentences-per-line]
+        additional_dependencies: [sentences-per-line]
 
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v3.0.0-alpha.4
