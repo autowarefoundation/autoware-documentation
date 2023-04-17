@@ -172,9 +172,13 @@ For large message types such as map data, there should be only one instance in t
 
 ### Planning component
 
-In the planning component, we take into consideration thousands to tens of thousands of point clouds, thousands of points in a path representing our own route, and polygons representing obstacles and detection areas in the surroundings, and we repeatedly create paths based on them. Therefore, we access the contents of the point clouds and paths multiple times using for-loops. In most cases, the bottleneck lies in these naive for-loops. Here, understanding Big O notation and reducing the order of computational complexity directly leads to performance improvements.
+First, we will pick up `detection_area` module in `behavior_velocity_planner` node, which tends to have long turnaround time.
+We have followed the performance analysis steps above to obtain the following graph.
+Axises are the same as the graphs in the sensing case study.
 
-For example, in `detection_area` module in `behavior_velocity_planner` node, there is a program that checks whether each point cloud is contained in each detection area by. Below is the pseudocode.
+![detection area turnaround time](https://raw.githubusercontent.com/autowarefoundation/autoware-documentation/0ad57338ca24b35f0a271c6ae003aa303b3dd4ce/docs/assets/images/detection_area_turnaround_time.png)
+
+Using [`pmu_analyzer`](https://github.com/sykwer/pmu_analyzer) tool to further identify the bottleneck, we have found that the following multiple loops were taking up a lot of processing time:
 
 ```cpp
 for ( area : detection_areas )
@@ -183,6 +187,7 @@ for ( area : detection_areas )
       // do something with O(1)
 ```
 
+It checks whether each point cloud is contained in each detection area.
 Let `N` be the size of `point_clouds` and `M` be the size of `detection_areas`, then the computational complexity of this program is O(N^2 \* M), since the complexity of `within` is O(N). Here, given that most of the point clouds are located far away from a certain detection area, a certain optimization can be achieved. First, calculate the minimum enclosing circle that completely covers the detection area, and then check whether the points are contained in that circle. Most of the point clouds can be quickly ruled out by this method, we don’t have to call the `within` function in most cases. Below is the pseudocode after optimization.
 
 ```cpp
@@ -197,20 +202,4 @@ for ( area : detection_areas )
 By using O(N) algorithm for minimum enclosing circle, the computational complexity of this program is reduced to almost O(N \* (N + M)) (note that the exact computational complexity does not really change).
 If you are interested, refer to the [Pull Request](https://github.com/autowarefoundation/autoware.universe/pull/2846).
 
-Another example is in `map_based_prediction` node. There is a program which calculates signed arc length from a initial point to each point in a path. Below is the pseudocode:
-
-```cpp
-for ( i = 0; i < path.size(); i++ )
-  for ( j = 1; j <= i; j++ )
-    sum(i) += calc_distance(path(j), path(j - 1))
-```
-
-The second loop in actual code was implemented with `calcSignedArcLength` function, which simply adds each distance between adjacent points in a path. Let `N` be the size of path, then the program’s computational complexity is O(N^2). If we think a little, we can see that there is a lot of unnecessary calculation being done. Since the distance from the initial point is being calculated every time, we can use cumulative sums to improve efficiency. Below is the pseudocode after optimization.
-
-```cpp
-for ( i = 1; i < path.size(); i++ )
-  sum(i) = sum(i - 1) + calc_distance(path(i), path(i - 1))
-```
-
-The computational complexity becomes O(N) in this program.
-If you are interested, see the [Pull Request](https://github.com/autowarefoundation/autoware.universe/pull/2883).
+Similar to this example, in the planning component, we take into consideration thousands to tens of thousands of point clouds, thousands of points in a path representing our own route, and polygons representing obstacles and detection areas in the surroundings, and we repeatedly create paths based on them. Therefore, we access the contents of the point clouds and paths multiple times using for-loops. In most cases, the bottleneck lies in these naive for-loops. Here, understanding Big O notation and reducing the order of computational complexity directly leads to performance improvements.
