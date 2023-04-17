@@ -6,7 +6,7 @@ For the details of the integration proposal, please refer to [this](https://gith
 ## What is Eagleye?
 
 Eagleye is an open-source GNSS/IMU-based localizer initially developed by [MAP IV. Inc](https://map4.jp/).
-Eagleye provides a cost-effective alternative to LiDAR and point cloud-based localization by using low-cost GNSS and IMU sensors to provide vehicle position, orientation, and altitude information.  
+Eagleye provides a cost-effective alternative to LiDAR and point cloud-based localization by using low-cost GNSS and IMU sensors to provide vehicle position, orientation, and altitude information.
 Using GNSS Doppler velocity, Eagleye can also compensate for wheel speed and IMU angular velocity bias to achieve more accurate speed and heading estimation.
 
 With the addition of Eagleye integration into Autoware, users will be able to choose between their existing LiDAR and point cloud-based localization stacks or GNSS/IMU-based Eagleye localizer, depending on their specific needs and operating environment.
@@ -43,7 +43,7 @@ Next, it needs to travel in a straight line for about 20~30 seconds, as defined 
 In addition to latitude, longitude, and height information (`sensor_msgs/msg/NavSatFix`), Eagleye also requires velocity information from GNSS.
 The settings needed for each GNSS ROS driver are as follows:
 
-- [ublox_gps](https://github.com/KumarRobotics/ublox/tree/humble-devel/ublox_gps): This ROS driver publishes `sensor_msgs/msg/NavSatFix` and `geometry_msgs/msg/TwistWithCovarianceStamped` required by Eagleye with default settings. Therefore, no additional settings are required.
+- [ublox_gps](https://github.com/KumarRobotics/ublox/tree/ros2/ublox_gps): This ROS driver publishes `sensor_msgs/msg/NavSatFix` and `geometry_msgs/msg/TwistWithCovarianceStamped` required by Eagleye with default settings. Therefore, no additional settings are required.
 - [septentrio_gnss_driver](https://github.com/septentrio-gnss/septentrio_gnss_driver/tree/ros2): Set `publish.navsatfix` and `publish.twist` in the config file [`gnss.yaml`](https://github.com/septentrio-gnss/septentrio_gnss_driver/blob/ros2/config/gnss.yaml#L90) to `true`
 
 ### Eagleye topic setting
