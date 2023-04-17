@@ -137,13 +137,14 @@ During building the following issue can occurs
 pkg_resources.extern.packaging.version.InvalidVersion: Invalid version: '0.23ubuntu1'
 ```
 
-The error is due to the fact that since version 66.0.0 `setuptools` enforces the python packages to be
+The error is due to the fact that for versions between 66.0.0 and 67.5.0 `setuptools` enforces the python packages to be
 [PEP-440](https://peps.python.org/pep-0440/) conformant.
+Since version 67.5.1 `setuptools` has a [fallback](https://github.com/pypa/setuptools/commit/1640731114734043b8500d211366fc941b741f67) that makes it possible to work with old packages again.
 
-The workaround is to lower the version of `setuptools` to 65 or lower. It can be done using the following command
+The solution is to update `setuptools` to the newest version with the following command
 
 ```bash
-pip install -U setuptools==65.7.0
+pip install --upgrade setuptools
 ```
 
 ## Docker/rocker issues
@@ -199,4 +200,12 @@ If you get the error message `selected interface "{your-interface-name}" is not 
 
 ```bash
 sudo ip link set multicast on {your-interface-name}
+```
+
+### Node performance degradation
+
+If you notice a decrease in the running performance of a node, such as [issue2597](https://github.com/autowarefoundation/autoware.universe/issues/2597#issuecomment-1491789081), you need to check if your compilation instructions use `Release` or `RelWithDebInfo` tags. If not, recompile the project using the following instructions:
+
+```bash
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
