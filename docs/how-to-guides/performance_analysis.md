@@ -176,7 +176,7 @@ First, we will pick up `detection_area` module in `behavior_velocity_planner` no
 We have followed the performance analysis steps above to obtain the following graph.
 Axises are the same as the graphs in the sensing case study.
 
-![detection area turnaround time](https://raw.githubusercontent.com/autowarefoundation/autoware-documentation/0ad57338ca24b35f0a271c6ae003aa303b3dd4ce/docs/assets/images/detection_area_turnaround_time.png)
+![detection area turnaround time](https://raw.githubusercontent.com/autowarefoundation/autoware-documentation/36647431080a837a1c8a983faf5045d6524cee66/docs/assets/images/detection_area_turnaround_time.png)
 
 Using [`pmu_analyzer`](https://github.com/sykwer/pmu_analyzer) tool to further identify the bottleneck, we have found that the following multiple loops were taking up a lot of processing time:
 
