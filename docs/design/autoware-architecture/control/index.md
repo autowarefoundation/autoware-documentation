@@ -41,7 +41,7 @@ Note that vehicle-specific values such as pedal positions and low-level informat
 
 ### Vehicle interface adapter
 
-Autoware is designed as an autonomous driving platform to be able to accommodate vehicles with various drivetrains types.
+Autoware is designed to be an autonomous driving platform able to accommodate vehicles with various drivetrain types.
 
 This is an explanation of how Autoware handles the standardization of systems with different vehicle drivetrains. The interfaces for vehicle drivetrains are diverse, including steering angle, steering angular velocity, steering torque, speed, accel/brake pedals, and brake pressure. To accommodate these differences, Autoware adds an adapter module between the control component and the vehicle interface. This module performs the conversion between the proprietary message types used by the vehicle (such as brake pressure) and the generic types used by Autoware (such as desired acceleration). By providing this conversion information, the differences in vehicle drivetrain can be accommodated.
 
