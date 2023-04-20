@@ -26,7 +26,7 @@ The control process in Autoware uses general information (such as target acceler
 
 Furthermore, significant differences that affect vehicle motion constraints, such as two-wheel steering or four-wheel steering, are addressed by switching the control vehicle model, achieving control specialized for each characteristic.
 
-Autoware's control module outputs the necessary information to control the vehicle as a substitute for a human driver. An example of the implementation, the control commands from the control module would be like the following:
+Autoware's control module outputs the necessary information to control the vehicle as a substitute for a human driver. For example, the control command from the control module looks like the following:
 
 ```msg
 - Target steering angle
