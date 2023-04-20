@@ -39,7 +39,7 @@ Note that vehicle-specific values such as pedal positions and low-level informat
 
 ## Vehicle Adaptation Design
 
-### vehicle interface adapter
+### Vehicle interface adapter
 
 Autoware is designed as an autonomous driving platform to be able to accommodate vehicles with various drivetrains types.
 
