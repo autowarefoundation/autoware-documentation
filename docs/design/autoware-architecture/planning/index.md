@@ -14,31 +14,71 @@ These are high-level roles of Planning stack:
   - Make sure that the vehicle follows traffic rules during the navigation. This includes following traffic light, stopping at stoplines, stopping at crosswalks, etc.
 - Plan sequences of trajectories that is feasible for the vehicle. (e.g. no sharp turns that is kinematically impossible)
 
-## Input
+## High-level architecture
+
+This diagram describes the high-level architecture of the Planning Component.
+
+![overall-planning-architecture](image/high-level-planning-diagram.drawio.svg)
+
+The Planning Component works with the following other components:
+
+- **Perception**: to receive perception result, e.g. detected objects, traffic light signal, etc.
+- **Localization**: to receive localization result, e.g. ego-pose, speed, acceleration, etc.
+- **Map**: to receive HD-map information.
+- **Control**: to send the planning result to drive the vehicle.
+- **System**: to send the diagnostic results, e.g. system failure, etc.
+- **Human Machine Interface (HMI)**: to communicate with high-level API, e.g. to receive a goal, to send factors of the planning behavior.
+- **API Layer**: to communicate with high-level API, e.g. to receive a goal, to send factors of the planning behavior.
+
+## Component interface
+
+The following describes the input/output message interface bewteen Planning Component and other components.
+
+### Input
 
 The table below summarizes the overall input into Planning stack:
 
-| Input                           | Topic Name(Data Type)                                                                                               | Explanation                                                                                                                                                                                                                                                                                                         |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Vehicle Pose                    | `/tf (map->base_link)`<br>(_tf::tfMessage_)                                                                         | Planning requires vehicle pose in map frame, which is the frame where all planning takes place.                                                                                                                                                                                                                     |
-| Vehicle Kinematics              | `/localization/kinematic_state`<br>(_nav_msgs/msg/Odometry_)                                                        | This includes vehicle's pose and velocity information. It is used to predict future pose on trajectory to detect collision with other objects.                                                                                                                                                                      |
-| Map data                        | `/map/vector_map`<br>(_autoware_auto_mapping_msgs/msg/HADMapBin_)                                                   | This includes all static information about the environment, such as: <ul><li>Lane connection information used for route planning from starting position to goal position</li><li>Lane geometry to generate reference path used to calculate trajectory </li><li> All information related to traffic rules</li></ul> |
-| Detected Object Information     | `/perception/object_recognition/objects`<br>(_autoware_auto_perception_msgs/msg/PredictedObjects_)                  | This includes information that cannot be known beforehand such as pedestrians and other vehicles. Planning stack will plan maneuvers to avoid collision with such objects.                                                                                                                                          |
-| Detected Obstacle Information   | `/perception/obstacle_segmentation/pointcloud`<br>(_sensor_msgs/msg/PointCloud2_)                                   | This includes information on the location of obstacles. This is more primitive information and is used for emergency stops, etc.                                                                                                                                                                                    |
-| Occupancy Map Information       | `/perception/occupancy_grid_map/map`<br>(_nav_msgs/msg/OccupancyGrid_)                                              | This includes information that cannot be known beforehand such as pedestrians and other vehicles. Planning stack will plan maneuvers to avoid collision with such objects.                                                                                                                                          |
-| TrafficLight recognition result | `/perception/traffic_light_recognition/traffic_signals`<br>(_autoware_auto_perception_msgs/msg/TrafficSignalArray_) | This is the real time information about the state of each traffic light. Planning stack will extract the one that is relevant to planned path and use it to decide whether to stop at intersections.                                                                                                                |
-| Goal position                   | `/planning/mission_planning/goal`<br>(_geometry_msgs::PoseStamped_)                                                 | This is the final pose that Planning stack will try to achieve.                                                                                                                                                                                                                                                     |
-| Check point position            | `/planning/mission_planning/check_point`<br>(_geometry_msgs::PoseStamped_)                                          | This is the midpoint that Planning will try to go at on the way to the destination. This is used when calculating the route.                                                                                                                                                                                        |
+| Input From Perception Component | Topic Name(Data Type)                                                                                               | Explanation                                                                                                                                                                                          |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Detected Object Information     | `/perception/object_recognition/objects`<br>(_autoware_auto_perception_msgs/msg/PredictedObjects_)                  | This includes information that cannot be known beforehand such as pedestrians and other vehicles. Planning stack will plan maneuvers to avoid collision with such objects.                           |
+| Detected Obstacle Information   | `/perception/obstacle_segmentation/pointcloud`<br>(_sensor_msgs/msg/PointCloud2_)                                   | This includes information on the location of obstacles. This is more primitive information and is used for emergency stops, etc.                                                                     |
+| Occupancy Map Information       | `/perception/occupancy_grid_map/map`<br>(_nav_msgs/msg/OccupancyGrid_)                                              | This includes information that cannot be known beforehand such as pedestrians and other vehicles. Planning stack will plan maneuvers to avoid collision with such objects.                           |
+| TrafficLight recognition result | `/perception/traffic_light_recognition/traffic_signals`<br>(_autoware_auto_perception_msgs/msg/TrafficSignalArray_) | This is the real time information about the state of each traffic light. Planning stack will extract the one that is relevant to planned path and use it to decide whether to stop at intersections. |
 
-## Output
+| Input From Localization Component | Topic Name(Data Type)                                        | Explanation                                                |
+| --------------------------------- | ------------------------------------------------------------ | ---------------------------------------------------------- |
+| Vehicle Kinematics                | `/localization/kinematic_state`<br>(_nav_msgs/msg/Odometry_) | This includes ego vehicle's pose and velocity information. |
+| Vehicle Acceleration              | `/localization/acceleration`<br>(\_)                         | This includes ego vehicle's acceleration.                  |
+
+| Input From Map Component | Topic Name(Data Type)                                             | Explanation                                                                                                                                                                                                                                                                                                         |
+| ------------------------ | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Map data                 | `/map/vector_map`<br>(_autoware_auto_mapping_msgs/msg/HADMapBin_) | This includes all static information about the environment, such as: <ul><li>Lane connection information used for route planning from starting position to goal position</li><li>Lane geometry to generate reference path used to calculate trajectory </li><li> All information related to traffic rules</li></ul> |
+
+| Input From HMI       | Topic Name(Data Type)                                        | Explanation                                                |
+| -------------------- | ------------------------------------------------------------ | ---------------------------------------------------------- |
+| Vehicle Kinematics   | `/localization/kinematic_state`<br>(_nav_msgs/msg/Odometry_) | This includes ego vehicle's pose and velocity information. |
+| Vehicle Acceleration | `/localization/acceleration`<br>(\_)                         | 自車加速度                                                 |
+
+| Input From API Layer | Topic Name(Data Type)                                                      | Explanation                                                                                                                  |
+| -------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Goal position        | `/planning/mission_planning/goal`<br>(_geometry_msgs::PoseStamped_)        | This is the final pose that Planning stack will try to achieve.                                                              |
+| Check point position | `/planning/mission_planning/check_point`<br>(_geometry_msgs::PoseStamped_) | This is the midpoint that Planning will try to go at on the way to the destination. This is used when calculating the route. |
+
+### Output
 
 The table below summarizes the final output from Planning stack:
 
-| Output        | Topic(Data Type)                                                                            | Explanation                                                                                                                                                                                                                                  |
-| ------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Trajectory    | `/planning/trajectory`<br>(_autoware_auto_planning_msgs/msg/Trajectory_)                    | This is the sequence of pose, twist and acceleration that Control stack must follow. This must be smooth, and kinematically possible to follow by the Control stack. By default, the trajectory is 10 seconds long at 0.1 second resolution. |
-| Turn Signal   | `/planning/turn_indicators_cmd`<br>(_autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand_) | This is the output to control turn signals of the vehicle. Planning stack will make sure that turn signal will be turned on according to planned maneuver.                                                                                   |
-| Hazard Signal | `/planning/hazard_lights_cmd`<br>(_autoware_auto_vehicle_msgs/msg/HazardLightsCommand_)     | This is the output to control hazard signals of the vehicle. Planning stack will make sure that hazard signal will be turned on according to planned maneuver.                                                                               |
+| Output to Control Component | Topic(Data Type)                                                                            | Explanation                                                                                                                                                                                                                                  |
+| --------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Trajectory                  | `/planning/trajectory`<br>(_autoware_auto_planning_msgs/msg/Trajectory_)                    | This is the sequence of pose, twist and acceleration that Control stack must follow. This must be smooth, and kinematically possible to follow by the Control stack. By default, the trajectory is 10 seconds long at 0.1 second resolution. |
+| Turn Signal                 | `/planning/turn_indicators_cmd`<br>(_autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand_) | This is the output to control turn signals of the vehicle. Planning stack will make sure that turn signal will be turned on according to planned maneuver.                                                                                   |
+| Hazard Signal               | `/planning/hazard_lights_cmd`<br>(_autoware_auto_vehicle_msgs/msg/HazardLightsCommand_)     | This is the output to control hazard signals of the vehicle. Planning stack will make sure that hazard signal will be turned on according to planned maneuver.                                                                               |
+
+| Output to System Component | Topic(Data Type)                                                 | Explanation |
+| -------------------------- | ---------------------------------------------------------------- | ----------- |
+| Diagnostics                | `/diagnostics`<br>(_autoware_auto_planning_msgs/msg/Trajectory_) | hogehoge    |
+
+## Planning internal interface
 
 ## Implementation
 
