@@ -8,13 +8,13 @@
 
 PointCloud data published by Lidar. 
 
-- [sensor_msgs/PointCloud2](http://docs.ros.org/en/api/sensor_msgs/html/msg/PointCloud2.html)
+- [sensor_msgs/msg/PointCloud2](http://docs.ros.org/en/api/sensor_msgs/html/msg/PointCloud2.html)
 
 ### Image
 
 Image frame captured by camera. 
 
-- [sensor_msgs/Image](http://docs.ros.org/en/api/sensor_msgs/html/msg/Image.html)
+- [sensor_msgs/msg/Image](http://docs.ros.org/en/api/sensor_msgs/html/msg/Image.html)
   
 ### Vehicle kinematic state
 
