@@ -86,7 +86,13 @@ A workaround here is to limit the job number while building.
 MAKEFLAGS="-j4" colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
 
-You can adjust `-j4` to any number based on your system.
+You can adjust `-j4` to any number based on your system. Please see [manual page of GNU make](https://www.gnu.org/software/make/manual/make.html#Parallel-Disable) for details.
+
+By reducing the number of packages built in parallel, you can also reduce the amount of memory used. In the following example, the number of packages built in parallel is set to 1, and the number of jobs used by `make` is limited to 1.
+
+```bash
+MAKEFLAGS=-j1 colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release --parallel-workers 1
+```
 
 ### Errors when using the latest version of Autoware
 
