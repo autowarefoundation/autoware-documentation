@@ -96,6 +96,11 @@ In the following example, the number of packages built in parallel is set to 1, 
 MAKEFLAGS="-j1" colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --parallel-workers 1
 ```
 
+!!! note
+
+    By lowering both the number of packages built in parallel and the number of jobs used by `make`, you can reduce the memory usage.
+    However, this also means that the build process takes longer.
+
 ### Errors when using the latest version of Autoware
 
 If you are working with the latest version of Autoware, issues can occur due to out-of-date software or old build files.
