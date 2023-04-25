@@ -87,6 +87,19 @@ MAKEFLAGS="-j4" colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=R
 ```
 
 You can adjust `-j4` to any number based on your system.
+For more details, see the [manual page of GNU make](https://www.gnu.org/software/make/manual/make.html#Parallel-Disable).
+
+By reducing the number of packages built in parallel, you can also reduce the amount of memory used.
+In the following example, the number of packages built in parallel is set to 1, and the number of jobs used by `make` is limited to 1.
+
+```bash
+MAKEFLAGS="-j1" colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --parallel-workers 1
+```
+
+!!! note
+
+    By lowering both the number of packages built in parallel and the number of jobs used by `make`, you can reduce the memory usage.
+    However, this also means that the build process takes longer.
 
 ### Errors when using the latest version of Autoware
 
