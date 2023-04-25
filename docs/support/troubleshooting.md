@@ -91,7 +91,7 @@ You can adjust `-j4` to any number based on your system. Please see [manual page
 By reducing the number of packages built in parallel, you can also reduce the amount of memory used. In the following example, the number of packages built in parallel is set to 1, and the number of jobs used by `make` is limited to 1.
 
 ```bash
-MAKEFLAGS=-j1 colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release --parallel-workers 1
+MAKEFLAGS="-j1" colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release --parallel-workers 1
 ```
 
 ### Errors when using the latest version of Autoware
