@@ -1,33 +1,39 @@
 # Map component design
 
 ## 1. Requirements
+
 !!! warning
 
     Under Construction
 
 ## 2. Architecture
+
 !!! warning
 
     Under Construction
 
 ## 3. Features
+
 !!! warning
 
     Under Construction
 
 ## 4. Interface and Data Structure
+
 ### Pointcloud map
+
 The point cloud map must be supplied as a .pcd file, regardless of whether it is a single file or split into multiple files.
 
 If it is split into a single file, Autoware assumes the following directory structure by default.
+
 ```bash
 sample-map-rosbag
 ├── lanelet2_map.osm
 ├── pointcloud_map.pcd
 ```
 
-
 If it is split into multiple files, Autoware assumes the following directory structure by default.
+
 ```bash
 sample-map-rosbag
 ├── lanelet2_map.osm
@@ -58,6 +64,7 @@ D.pcd: [1400, 2650] # -> 1400 < x < 1500, 2650 < y < 2800
 You may use [pointcloud_divider](https://github.com/MapIV/pointcloud_divider) from MAP IV for dividing pointcloud map as well as generating the compatible metadata.yaml.
 
 ### Vector map
+
 !!! warning
 
     Under Construction
