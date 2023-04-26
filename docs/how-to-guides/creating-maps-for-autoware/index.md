@@ -35,7 +35,7 @@ Most of these algorithms already have a built-in loop-closure and pose graph opt
 
 Since Autoware is based on ROS 2, it could be problematic if you want to install ROS 1-based SLAM implementations on the same machine. To avoid this problem, you can use [Docker](https://www.docker.com/) or simply install them on a different machine. Another problem is the ROSBAG version; these SLAM implementations require ROSBAG 1 instead of ROSBAG 2 used by Autoware. For the ROSBAG version problem, you may use this [stand-alone converter](https://gitlab.com/MapIV/rosbags) to convert a ROSBAG 2 file to a ROSBAG 1 file and vice versa.
 
-If you prefer proprietary software that is easy to use, you can try a fully automatic mapping tool from [MAP IV, Inc.](https://www.map4.jp/), [_MapIV Engine_](https://www.map4.jp/map4_engine_en). They currently provide a trial license for Autoware users free of charge.
+If you prefer proprietary software that is easy to use, you can try a fully automatic mapping tool from [MAP IV, Inc.](https://www.map4.jp/), [_MapIV Engine_](https://www.map4.jp/solutions/mapping_localization/map-%e2%85%b3-engine/). They currently provide a trial license for Autoware users free of charge.
 
 ## Vector maps
 
