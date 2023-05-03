@@ -15,15 +15,11 @@ Prerequisites for the vehicle:
 ## 2. Create maps
 
 You need both a pointcloud map and a vector map in order to use Autoware.
-
+For more information on map design, please click [here](../design/autoware-architecture/map/index.md).
 ### Create a pointcloud map
 
 Use third-party tools such as a LiDAR-based SLAM (Simultaneous Localization And Mapping) package to create a pointcloud map in the `.pcd` format.
-Some examples are:
-
-- [HDL](https://github.com/koide3/hdl_graph_slam)
-- [LIO-SAM](https://github.com/TixiaoShan/LIO-SAM)
-- [LiDAR-SLAM (ROS 2)](https://github.com/rsasaki0109/lidarslam_ros2)
+For more information, please click [here](creating-maps-for-autoware/index.md).
 
 ### Create vector map
 
