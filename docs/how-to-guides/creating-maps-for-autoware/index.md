@@ -4,10 +4,12 @@ Autoware relies on high-definition point cloud maps and vector maps of the drivi
 
 The specifications for point cloud and vector maps required by Autoware are given below, along with examples of both open-source and proprietary software that you can use to create them.
 
-## Point cloud maps
+TODO(yukkysaito): move to [here](../../design/autoware-architecture/map/index.md)?
+## Point cloud maps 
 
 A 3D point cloud map is primarily used for LiDAR-based localization and part of perception in Autoware. In order to determine the current position and orientation of the vehicle, a live scan captured from one or more LiDAR units is matched against a pre-generated 3D point cloud map. Therefore, an accurate point cloud map is crucial for good localization results.
 
+TODO(yukkysaito): move to [here](../../design/autoware-architecture/map/index.md)?
 ### Point cloud map specifications
 
 - It must cover the entire operational area of the vehicle and should include an additional buffer zone of at least 200 m in all directions.
@@ -37,10 +39,12 @@ Since Autoware is based on ROS 2, it could be problematic if you want to install
 
 If you prefer proprietary software that is easy to use, you can try a fully automatic mapping tool from [MAP IV, Inc.](https://www.map4.jp/), [_MapIV Engine_](https://www.map4.jp/solutions/mapping_localization/map-%e2%85%b3-engine/). They currently provide a trial license for Autoware users free of charge.
 
+TODO(yukkysaito): move to [here](../../design/autoware-architecture/map/index.md)?
 ## Vector maps
 
 A vector map contains highly accurate information about a road network, lane geometry, and traffic lights. It is required for route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians.
 
+TODO(yukkysaito): move to [here](../../design/autoware-architecture/map/index.md)?
 ### Vector map specifications
 
 - It must cover the entire operational area of the vehicle and should include an additional buffer zone of at least 200 m in all directions.
