@@ -1,4 +1,4 @@
-# Evaluationg real-time performance
+# Evaluating real-time performance
 
 ## Introduction
 
