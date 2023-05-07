@@ -1,5 +1,9 @@
 nav:
   - index.md
+  - integrating-autoware
+  - tuning
+  - others
+
   - advanced-usage-of-colcon.md
   - creating-maps-for-autoware
   - determining-component-dependencies.md

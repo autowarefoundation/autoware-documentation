@@ -1,27 +1,23 @@
 # How-to guides
 
-TODO(yukkysaito)Autoware Integration
+## Integrating Autoware
 
 - [Integrating Autoware with your vehicle](integrating-autoware-with-your-vehicle.md)
+- [Calibrating your sensors](calibrating-your-sensors.md)
+- [Creating maps for Autoware](creating-maps-for-autoware/index.md)
 - [Integrating Autoware with a differential drive vehicle](integrating-autoware-with-a-diff-drive-vehicle.md)
 
-- [Calibrating your sensors](calibrating-your-sensors.md)
-
-- [Creating maps for Autoware](creating-maps-for-autoware/index.md)
-
-TODO(yukkysaito)Tuning
+## Tuning
 
 - [Evaluating controller performance](evaluating-controller-performance.md)
 - [Evaluating real-time performance](evaluating-real-time-performance.md)
 
-TODO(yukkysaito)Others
+## Others
 
 - [Debug Autoware](debug-autoware.md)
 - [Running Autoware without CUDA](running-autoware-without-cuda.md)
-
 - [Fixing dependent package versions](fixing-dependent-package-versions.md)
 - [Add a custom ROS message](add-a-custom-ros-message.md)
-
 - [Determining component dependencies](determining-component-dependencies.md)
 - [Advanced usage of colcon](advanced-usage-of-colcon.md)
 - [Applying Clang-Tidy to ROS packages](applying-clang-tidy-to-ros-packages.md)
