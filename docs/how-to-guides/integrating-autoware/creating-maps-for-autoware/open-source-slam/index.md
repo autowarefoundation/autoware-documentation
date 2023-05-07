@@ -1,7 +1,20 @@
-# Conclusions
+# Available Open Source SLAM
 
-As a conclusion, lidar odometry drifts accumulatively as time goes by and there is solutions to solve that problem such as graph optimization, loop closure and using gps sensor to decrease accumulative drift error. Because of that, a SLAM algorithm should have loop closure feature, graph optimization and should use gps sensor. Additionally, some of the algorithms are using IMU sensor to add another factor to graph for decreasing drift error. While some of the algorithms requires 9-axis IMU sensor strictly, some of them requires only 6-axis IMU sensor or not even using the IMU sensor. Before choosing an algorithm to create maps for Autoware please consider these factors depends on your sensor setup or expected quality of generated map.
+This page provides the list of available open source Simultaneous Localization And Mapping (SLAM) implementation that can be used to generete a point cloud (.pcd) map file. 
 
+## Selecting which implementation to use
+Lidar odometry drifts accumulatively as time goes by and there is solutions to solve that problem such as graph optimization, loop closure and using gps sensor to decrease accumulative drift error. Because of that, a SLAM algorithm should have loop closure feature, graph optimization and should use gps sensor. Additionally, some of the algorithms are using IMU sensor to add another factor to graph for decreasing drift error. While some of the algorithms requires 9-axis IMU sensor strictly, some of them requires only 6-axis IMU sensor or not even using the IMU sensor. Before choosing an algorithm to create maps for Autoware please consider these factors depends on your sensor setup or expected quality of generated map.
+
+## Tips
+
+Commonly used open-source SLAM implementations are [lidarslam-ros2](https://github.com/rsasaki0109/lidarslam_ros2) (LiDAR, IMU\*) and [LIO-SAM](https://github.com/TixiaoShan/LIO-SAM/tree/ros2) (LiDAR, IMU, GNSS). The required sensor data for each algorithm is specified in the parentheses, where an asterisk (\*) indicates that such sensor data is optional. For supported LiDAR models, please check the Github repository of each algorithm. While these ROS 2-based SLAM implementations can be easily installed and used directly on the same machine that runs Autoware, it is important to note that they may not be as well-tested or as mature as ROS 1-based alternatives.
+
+The notable open-source SLAM implementations that are based on ROS 1 include [hdl-graph-slam](https://github.com/koide3/hdl_graph_slam) (LiDAR, IMU\*, GNSS\*), [LeGO-LOAM](https://github.com/facontidavide/LeGO-LOAM-BOR) (LiDAR, IMU\*), [LeGO-LOAM-BOR](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM) (LiDAR), and [LIO-SAM](https://github.com/TixiaoShan/LIO-SAM) (LiDAR, IMU, GNSS).
+
+Most of these algorithms already have a built-in loop-closure and pose graph optimization. However, if the built-in, automatic loop-closure fails or does not work correctly, you can use [Interactive SLAM](https://github.com/SMRT-AIST/interactive_slam) to adjust and optimize a pose graph manually.
+
+
+## List of Third Party SLAM Implementations
 <br>
 <br>
 
