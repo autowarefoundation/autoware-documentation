@@ -8,7 +8,7 @@ nav:
   - running-autoware-without-cuda.md
   - calibrating-your-sensors.md
   - evaluating-controller-performance.md
-  - performance-analysis.md
+  - evaluating-real-time-performance.md
   - debug-autoware.md
   - add-a-custom-ros-message.md
   - fixing-dependent-package-versions.md
