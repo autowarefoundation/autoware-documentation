@@ -12,3 +12,4 @@ nav:
   - debug-autoware.md
   - add-a-custom-ros-message.md
   - fixing-dependent-package-versions.md
+  - eagleye-integration-guide.md
