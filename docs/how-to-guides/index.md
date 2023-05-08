@@ -13,6 +13,7 @@
 - [Debug Autoware](debug-autoware.md)
 - [Add a custom ROS message](add-a-custom-ros-message.md)
 - [Fixing dependent package versions](fixing-dependent-package-versions.md)
+- [Using Eagleye in Autoware](eagleye-integration-guide.md)
 
 TODO: Write the following contents.
 
