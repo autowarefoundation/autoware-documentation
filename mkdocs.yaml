@@ -3,7 +3,7 @@ site_url: https://autowarefoundation.github.io/autoware-documentation
 repo_url: https://github.com/autowarefoundation/autoware
 edit_uri: https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/
 docs_dir: docs
-copyright: Copyright &copy; 2022 The Autoware Foundation
+copyright: Copyright &copy; 2023 The Autoware Foundation
 
 theme:
   name: material
@@ -51,7 +51,7 @@ plugins:
   - awesome-pages
   - exclude:
       regex:
-        - ^(?!(.*/)?assets/).*\.(?!(.*\.)?md|(.*\.)?svg|(.*\.)?png|(.*\.)?jpg).*$
+        - ^(?!(.*/)?assets/).*\.(?!(.*\.)?md|(.*\.)?svg|(.*\.)?png|(.*\.)?gif|(.*\.)?jpg).*$
         - ^(.*/)?[^.]*$
   - macros
   - mkdocs-video
@@ -64,11 +64,9 @@ markdown_extensions:
   - attr_list
   - codehilite:
       guess_lang: false
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
   - fontawesome_markdown
   - footnotes
+  - md_in_html
   - mdx_math
   - mdx_truly_sane_lists:
       nested_indent: 2
@@ -77,6 +75,9 @@ markdown_extensions:
       format: svg
   - pymdownx.arithmatex
   - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.highlight
   - pymdownx.snippets:
       auto_append:

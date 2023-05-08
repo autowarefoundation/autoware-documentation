@@ -9,11 +9,11 @@
 - [Calibrating your sensors](calibrating-your-sensors.md)
 - [Applying Clang-Tidy to ROS packages](applying-clang-tidy-to-ros-packages.md)
 - [Evaluating controller performance](evaluating-controller-performance.md)
+- [Evaluating real-time performance](evaluating-real-time-performance.md)
 - [Debug Autoware](debug-autoware.md)
 - [Add a custom ROS message](add-a-custom-ros-message.md)
 - [Fixing dependent package versions](fixing-dependent-package-versions.md)
 - [Using Eagleye in Autoware](eagleye-integration-guide.md)
-- [Performance Analysis](performance_analysis.md)
 
 TODO: Write the following contents.
 
