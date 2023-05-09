@@ -187,7 +187,7 @@ Symptoms:
 - Point clouds or markers flicker on RViz2
 - When multiple subscribers use the same publishers, the message rate drops
 
-If you have any of these symptoms, please check the performance troubleshooting page.
+If you have any of these symptoms, please the [Performance Troubleshooting](performance-troubleshooting.md) page.
 
 ### Map does not display when running the Planning Simulator
 
