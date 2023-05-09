@@ -1,6 +1,7 @@
 # Performance Troubleshooting
 
 Overall symptoms:
+
 - Autoware is running slower than expected
 - Messages show up late in RViz2
 - Point clouds are lagging
@@ -21,6 +22,7 @@ Overall symptoms:
 Make sure that the multicast is enabled for your interface.
 
 For example when you run following:
+
 ```bash
 source /opt/ros/humble/setup.bash
 ros2 run demo_nodes_cpp talker
@@ -40,15 +42,18 @@ This way DDS will function as intended and multiple subscribers can receive data
 
 This is a temporary solution. And will be reverted once the computer restarts.
 
-To make it permanent either, 
+To make it permanent either,
+
 - Create a service to run this on startup (recommended)
 - **OR** put following lines to the `~/.bashrc` file:
+
   - ```bash
     if [ ! -e /tmp/multicast_is_set ]; then
     sudo ip link set lo multicast on
     touch /tmp/multicast_is_set
     fi
     ```
+
   - This will probably ask for password on the terminal every time you restart the computer.
 
 ### Check the compilation flags
@@ -73,6 +78,7 @@ Example issue: [issue2597](https://github.com/autowarefoundation/autoware.univer
 
 - Remove the `build`, `install` and optionally `log` folders in the main `autoware` folder.
 - Compile the Autoware with either `Release` or `RelWithDebInfo` tags:
+
   - ```bash
     colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
     # Or build with debug flags too (comparable performance but you can debug too)
@@ -94,6 +100,7 @@ Example issue: [issue2597](https://github.com/autowarefoundation/autoware.univer
 ##### Diagnosis
 
 Run following to check the middleware used:
+
 ```bash
 echo $RMW_IMPLEMENTATION
 ```
@@ -111,6 +118,7 @@ Add `export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp` as a separate line in you `~/
 ##### Diagnosis
 
 Run following to check the configuration `.xml` file of the `CycloneDDS`:
+
 ```bash
 echo $CYCLONEDDS_URI
 ```
@@ -118,6 +126,7 @@ echo $CYCLONEDDS_URI
 The return line should be a valid path pointing to an `.xml` file with `CycloneDDS` configuration.
 
 Also check if the file is configured correctly:
+
 ```bash
 cat !{echo $CYCLONEDDS_URI}
 ```
@@ -131,6 +140,7 @@ Follow [DDS settings](../../installation/additional-settings-for-developers/inde
 Also make sure you have `export CYCLONEDDS_URI=/absoulte_path_to_your/cyclonedds.xml` as a line on your `~/.bashrc` file.
 
 Here is an example recommended `cyclonedds_config.xml` file:
+
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <CycloneDDS xmlns="https://cdds.io/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd">
@@ -170,20 +180,27 @@ More info on these values: [Cross-vendor tuning](https://docs.ros.org/en/humble/
 ##### Solution
 
 Either:
+
 - Create the following file: `sudo touch /etc/sysctl.d/10-cyclone-max.conf` (recommended)
+
   - Edit the file to contain (`sudo gedit /etc/sysctl.d/10-cyclone-max.conf`):
+
     - ```
       net.core.rmem_max=2147483647
       net.ipv4.ipfrag_time=3
       net.ipv4.ipfrag_high_thresh=134217728 # (128 MB)
       ```
+
     - Either restart the computer or run following to enable the changes:
+
     - ```bash
       sudo sysctl -w net.core.rmem_max=2147483647
       sudo sysctl -w net.ipv4.ipfrag_time=3
       sudo sysctl -w net.ipv4.ipfrag_high_thresh=134217728
       ```
+
 - **OR** put following lines to the `~/.bashrc` file:
+
   - ```bash
     if [ ! -e /tmp/kernel_network_conf_is_set ]; then
     sudo sysctl -w net.core.rmem_max=2147483647
@@ -191,6 +208,7 @@ Either:
     sudo sysctl -w net.ipv4.ipfrag_high_thresh=134217728 # (128 MB)
     fi
     ```
+
   - This will probably ask for password on the terminal every time you restart the computer.
 
 ### Check if ROS localhost only communication is enabled
@@ -211,6 +229,7 @@ Either:
 #### Diagnosis
 
 Run following to check it:
+
 ```bash
 echo $ROS_LOCALHOST_ONLY
 ```

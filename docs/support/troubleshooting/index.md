@@ -180,6 +180,7 @@ docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:latest
 ### Performance related issues
 
 Symptoms:
+
 - Autoware is running slower than expected
 - Messages show up late in RViz2
 - Point clouds are lagging
