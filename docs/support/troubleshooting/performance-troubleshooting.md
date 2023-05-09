@@ -185,7 +185,7 @@ Either:
 
   - Edit the file to contain (`sudo gedit /etc/sysctl.d/10-cyclone-max.conf`):
 
-    - ```
+    - ```bash
       net.core.rmem_max=2147483647
       net.ipv4.ipfrag_time=3
       net.ipv4.ipfrag_high_thresh=134217728 # (128 MB)
