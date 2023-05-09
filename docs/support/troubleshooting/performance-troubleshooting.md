@@ -47,7 +47,7 @@ To make it permanent either,
 - Create a service to run this on startup (recommended)
 - **OR** put following lines to the `~/.bashrc` file:
 
-  - ```bash
+    ```bash
     if [ ! -e /tmp/multicast_is_set ]; then
     sudo ip link set lo multicast on
     touch /tmp/multicast_is_set
@@ -79,7 +79,7 @@ Example issue: [issue2597](https://github.com/autowarefoundation/autoware.univer
 - Remove the `build`, `install` and optionally `log` folders in the main `autoware` folder.
 - Compile the Autoware with either `Release` or `RelWithDebInfo` tags:
 
-  - ```bash
+    ```bash
     colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
     # Or build with debug flags too (comparable performance but you can debug too)
     colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo
@@ -185,7 +185,7 @@ Either:
 
   - Edit the file to contain (`sudo gedit /etc/sysctl.d/10-cyclone-max.conf`):
 
-    - ```bash
+      ```bash
       net.core.rmem_max=2147483647
       net.ipv4.ipfrag_time=3
       net.ipv4.ipfrag_high_thresh=134217728 # (128 MB)
@@ -193,7 +193,7 @@ Either:
 
     - Either restart the computer or run following to enable the changes:
 
-    - ```bash
+      ```bash
       sudo sysctl -w net.core.rmem_max=2147483647
       sudo sysctl -w net.ipv4.ipfrag_time=3
       sudo sysctl -w net.ipv4.ipfrag_high_thresh=134217728
@@ -201,7 +201,7 @@ Either:
 
 - **OR** put following lines to the `~/.bashrc` file:
 
-  - ```bash
+    ```bash
     if [ ! -e /tmp/kernel_network_conf_is_set ]; then
     sudo sysctl -w net.core.rmem_max=2147483647
     sudo sysctl -w net.ipv4.ipfrag_time=3
