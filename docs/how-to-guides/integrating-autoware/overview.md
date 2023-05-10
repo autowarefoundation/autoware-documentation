@@ -120,7 +120,7 @@ This section briefly explains how to run your vehicle with Autoware.
 
 ### Install Autoware
 
-Follow the [installation steps of Autoware](../installation/).
+Follow the [installation steps of Autoware](../../installation/).
 
 ### Launch Autoware
 
