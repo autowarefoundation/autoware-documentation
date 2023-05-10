@@ -114,7 +114,6 @@ For more information, please click [here](creating-maps/index.md).
 
 Use third-party tools such as [TIER IV's Vector Map Builder](https://tools.tier4.jp/) to create a Lanelet2 format `.osm` file.
 
-
 ## 5. Launch Autoware
 
 This section briefly explains how to run your vehicle with Autoware.

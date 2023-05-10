@@ -1,6 +1,6 @@
 # Creating maps
 
-Autoware requires a pointcloud map and a vector map for the vehicle's operating environment. (Check the [map design documentation page](../../../design/autoware-architecture/map/index.md) for the detailed specification). 
+Autoware requires a pointcloud map and a vector map for the vehicle's operating environment. (Check the [map design documentation page](../../../design/autoware-architecture/map/index.md) for the detailed specification).
 
 This page explains how users can create maps that can be used for Autoware.
 

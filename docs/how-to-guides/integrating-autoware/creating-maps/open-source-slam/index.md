@@ -1,8 +1,9 @@
 # Available Open Source SLAM
 
-This page provides the list of available open source Simultaneous Localization And Mapping (SLAM) implementation that can be used to generete a point cloud (.pcd) map file. 
+This page provides the list of available open source Simultaneous Localization And Mapping (SLAM) implementation that can be used to generete a point cloud (.pcd) map file.
 
 ## Selecting which implementation to use
+
 Lidar odometry drifts accumulatively as time goes by and there is solutions to solve that problem such as graph optimization, loop closure and using gps sensor to decrease accumulative drift error. Because of that, a SLAM algorithm should have loop closure feature, graph optimization and should use gps sensor. Additionally, some of the algorithms are using IMU sensor to add another factor to graph for decreasing drift error. While some of the algorithms requires 9-axis IMU sensor strictly, some of them requires only 6-axis IMU sensor or not even using the IMU sensor. Before choosing an algorithm to create maps for Autoware please consider these factors depends on your sensor setup or expected quality of generated map.
 
 ## Tips
@@ -13,8 +14,8 @@ The notable open-source SLAM implementations that are based on ROS 1 include [hd
 
 Most of these algorithms already have a built-in loop-closure and pose graph optimization. However, if the built-in, automatic loop-closure fails or does not work correctly, you can use [Interactive SLAM](https://github.com/SMRT-AIST/interactive_slam) to adjust and optimize a pose graph manually.
 
-
 ## List of Third Party SLAM Implementations
+
 <br>
 <br>
 

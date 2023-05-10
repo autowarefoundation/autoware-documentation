@@ -1,6 +1,7 @@
 # Map component design
 
 ## 1. Overview
+
 Autoware relies on high-definition point cloud maps and vector maps of the driving environment to perform various tasks such as localization, route planning, traffic light detection, and predicting the trajectories of pedestrians and other vehicles.
 
 This document describes the design of map component of Autoware, including its requirements, architecture design, features, data formats, and interface to distribute map information to the rest of autonomous driving stack.
@@ -8,8 +9,9 @@ This document describes the design of map component of Autoware, including its r
 ## 2. Requirements
 
 Map should provide two types of information to the rest of the stack:
-* Semantic information about roads as a vector map
-* Geometric information about the environment as a point cloud map (optional)
+
+- Semantic information about roads as a vector map
+- Geometric information about the environment as a point cloud map (optional)
 
 A vector map contains highly accurate information about a road network, lane geometry, and traffic lights. It is required for route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians.
 
@@ -30,7 +32,9 @@ A 3D point cloud map is primarily used for LiDAR-based localization and part of 
 ## 5. Map Specification
 
 ### Point Cloud Map
+
 The point cloud map must be supplied as a file with the following requirements:
+
 - It must be in the [PCD (Point Cloud Data) file format](https://pointclouds.org/documentation/tutorials/pcd_file_format.html), but can be a single PCD file or divided into multiple PCD files.
 - Each point in the map must contain X, Y, and Z coordinates.
 - An intensity or RGB value for each point may be optionally included.
@@ -84,7 +88,9 @@ D.pcd: [1400, 2650] # -> 1400 < x < 1500, 2650 < y < 2800
 You may use [pointcloud_divider](https://github.com/MapIV/pointcloud_divider) from MAP IV for dividing pointcloud map as well as generating the compatible metadata.yaml.
 
 #### Vector Map
+
 The vector cloud map must be supplied as a file with the following requirements:
+
 - It must be in [Lanelet2](https://github.com/fzi-forschungszentrum-informatik/Lanelet2) format, with [additional modifications required by Autoware](https://github.com/autowarefoundation/autoware_common/blob/main/tmp/lanelet2_extension/docs/lanelet2_format_extension.md).
 - It must contain the shape and position information of lanes, traffic lights, stop lines, crosswalks, parking spaces, and parking lots.
 - Except at the beginning or end of a road, each lanelet in the map must be correctly connected to its predecessor, successors, left neighbor, and right neighbor.
