@@ -3,11 +3,6 @@
 ## Integrating Autoware
 
 - [Overview](integrating-autoware/overview.md)
-<!-- - [Calibrating your sensors](calibrating-your-sensors.md)
-- [Creating maps for Autoware](creating-maps-for-autoware/index.md)
-- [Integrating Autoware with a differential drive vehicle](integrating-autoware-with-a-diff-drive-vehicle.md)
-- [Evaluating controller performance](evaluating-controller-performance.md)
-- [Evaluating real-time performance](evaluating-real-time-performance.md) -->
 
 ## Others
 
@@ -18,6 +13,7 @@
 - [Determining component dependencies](others/determining-component-dependencies.md)
 - [Advanced usage of colcon](others/advanced-usage-of-colcon.md)
 - [Applying Clang-Tidy to ROS packages](others/applying-clang-tidy-to-ros-packages.md)
+- [Using Eagleye in Autoware](others/eagleye-integration-guide.md)
 
 TODO: Write the following contents.
 
