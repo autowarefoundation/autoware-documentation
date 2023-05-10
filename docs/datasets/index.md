@@ -68,7 +68,7 @@ $ aws s3 ls s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/ 
 aws s3 sync s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/all-sensors-bag1_compressed/ ./all-sensors-bag1_compressed  --no-sign-request
 ```
 
-### AutoCore.ai - lidar ROS2 bag file and pcap
+### AutoCore.ai - lidar ROS 2 bag file and pcap
 
 This dataset contains pcap files and ros2 bag files from Ouster OS1-64 Lidar.
 The pcap file and ros2 bag file is recorded in the same time with slight difference in duration.

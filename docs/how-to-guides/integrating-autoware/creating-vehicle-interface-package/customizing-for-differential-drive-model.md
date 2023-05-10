@@ -1,4 +1,4 @@
-# Integrating Autoware with a differential drive vehicle
+# Customizing for differential drive vehicle
 
 ## 1. Introduction
 
@@ -36,7 +36,7 @@ $$
 
 where $l$ denotes wheel tread.
 
-For information about other factors that need to be considered when creating a `vehicle_interface` package, refer to the [`vehicle_interface` component page](../design/autoware-interfaces/components/vehicle-interface.md).
+For information about other factors that need to be considered when creating a `vehicle_interface` package, refer to the [`vehicle_interface` component page](../../../design/autoware-interfaces/components/vehicle-interface.md).
 
 ### 2.2 Set an appropriate `wheel_base`
 

@@ -11,7 +11,7 @@ Autoware relies on high-definition point cloud maps and vector maps of the drivi
 - Point cloud maps (`.pcd`)
 - Lanelet2 maps (`.osm`)
 
-Refer to [Creating maps for Autoware](../../../how-to-guides/creating-maps-for-autoware.md) on how to create maps.
+Refer to [Creating maps](../../../how-to-guides/integrating-autoware/creating-maps/index.md) on how to create maps.
 
 ## Outputs
 

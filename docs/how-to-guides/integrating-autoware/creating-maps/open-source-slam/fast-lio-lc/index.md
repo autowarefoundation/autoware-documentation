@@ -22,7 +22,7 @@
 
 ### Dependencies
 
-- Ubunutu 18.04
+- Ubuntu 18.04
 - ROS Melodic
 - PCL >= 1.8, Follow [PCL Installation](https://pointclouds.org/downloads/#linux).
 - Eigen >= 3.3.4, Follow [Eigen Installation](http://eigen.tuxfamily.org/index.php?title=Main_Page).
