@@ -4,7 +4,7 @@ This page provides some methods for debugging Autoware.
 
 ## Print debug messages
 
-The essential thing for debug is to print the program information clearly, which can quickly judge the program operation and locate the problem. Autoware uses ROS2 logging tool to print debug messages, how to design console logging refer to tutorial [Console logging](../contributing/coding-guidelines/ros-nodes/console-logging.md).
+The essential thing for debug is to print the program information clearly, which can quickly judge the program operation and locate the problem. Autoware uses ROS2 logging tool to print debug messages, how to design console logging refer to tutorial [Console logging](../../contributing/coding-guidelines/ros-nodes/console-logging.md).
 
 ## Using ROS2 tools debug Autoware
 

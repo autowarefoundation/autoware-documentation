@@ -1,5 +1,8 @@
 nav:
-  - index.md
-  - calibrating-your-sensors.md
-  - creating-maps-for-autoware
-  - integrating-autoware-with-a-diff-drive-vehicle.md
+  - overview.md
+  - 1. Creating your Autoware meta repository: creating-your-autoware-meta-repository.md
+  - 2. Creating vehicle and sensor description: creating-vehicle-and-sensor-description
+  - 3. Creating vehicle interface: creating-vehicle-interface-package
+  - 4. Creating maps: creating-maps
+  - 5. Launch Autoware: launch-autoware.md
+  - 6. Tuning parameters and performance: tuning-parameters-and-performance

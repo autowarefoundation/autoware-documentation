@@ -81,7 +81,6 @@ C.pcd: [1200, 2650] # -> 1200 < x < 1300, 2650 < y < 2800
 D.pcd: [1400, 2650] # -> 1400 < x < 1500, 2650 < y < 2800
 ```
 
-TODO(yukkysaito): move to [here](../../how-to-guides/creating-maps-for-autoware/index.md)?
 You may use [pointcloud_divider](https://github.com/MapIV/pointcloud_divider) from MAP IV for dividing pointcloud map as well as generating the compatible metadata.yaml.
 
 #### Vector Map
