@@ -90,14 +90,8 @@ The list above does not cover wheel control systems such as ABS commonly used in
 
 ### Integration with vehicle-side functions
 
-As functions related to vehicle motion, the following functions are typically installed on the vehicle side:
-
-- ABS（Anti-lock Brake System）
-- ESC（Electric Stability Control）
-
-Generally, it is difficult for an autonomous driving system to replace these ABS or ESC functions in terms of control cycles or obtainable information, and it is assumed that these functions are provided on the vehicle side. However, as an AD system, it models and controls the entire vehicle system, including these functions, regardless of whether they exist or not. Therefore, in the case of a vehicle without ABS installed, the autonomous driving system will generate a brake command while understanding that the deceleration rate will decrease during sudden braking.
-
-It should be noted that regarding these functions, there is a trade-off with the corresponding ODD. In an ODD such as slow-speed driving in a well-maintained indoor environment, it is not necessary for these functions to be installed on the vehicle.
+ABS (Anti-lock Brake System) and ESC (Electric Stability Control) are two functions that may be pre-installed on a vehicle, directly impacting its controllability.
+The control modules of Autoware assume that both ABS and ESC are installed on the vehicle and their absence may cause unreliable controls depending on the target ODD. For example, with low-velocity driving in a controlled environment, these functions are not necessary.
 
 Also, note that this statement does not negate the development of ABS functionality in autonomous driving systems.
 
