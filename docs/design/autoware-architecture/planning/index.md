@@ -20,6 +20,15 @@ This diagram describes the high-level architecture of the Planning Component.
 
 ![overall-planning-architecture](image/high-level-planning-diagram.drawio.svg)
 
+
+Description of each component in Planning follows:
+
+- **Mission Planning**: calculates a route ego-vehicle should follow based on the given goal and map information.
+- **Scenario Planning**: calculates a trajectory based on the current scenario (e.g. Lane Driving, Parking, etc).
+  - **Lane Driving**: 
+
+
+
 The Planning Component works with the following other components:
 
 - **Perception**: to receive perception result, e.g. detected objects, traffic light signal, etc.
