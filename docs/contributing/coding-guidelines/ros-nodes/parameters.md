@@ -1,11 +1,14 @@
 # Parameters
+
 Autoware ROS nodes have declared parameters which values are provided during the node start up in the form of a parameter file. All the expected parameters with corresponding values should exist in the parameter file. Depending on the application, the parameter values might need to be modified.
 
 Find more information on parameters from the official ROS documentation:
+
 - [Understanding ROS 2 Parameters](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.html)
 - [About ROS 2 Parameters](https://docs.ros.org/en/humble/Concepts/About-ROS-2-Parameters.html)
 
 ## JSON Schema
+
 [JSON Schema](https://json-schema.org/understanding-json-schema/index.html) is used the validate the parameter file(s) ensuring that it has the correct structure and content. Using JSON Schema for this purpose is considered best practice for cloud-native development. The schema template below shall be used as a starting point when defining the schema for a ROS node.
 
 ```json
@@ -30,10 +33,7 @@ Find more information on parameters from the official ROS documentation:
           "INSERT_BOUND_CONDITION(S)": "INSERT_BOUND_VALUE(S)"
         }
       },
-      "required": [
-        "INSERT_PARAMETER_1_NAME",
-        "INSERT_PARAMETER_N_NAME"
-      ]
+      "required": ["INSERT_PARAMETER_1_NAME", "INSERT_PARAMETER_N_NAME"]
     }
   },
   "properties": {
@@ -56,21 +56,25 @@ The schema file path is `INSERT_PATH_TO_PACKAGE/schema/` and the schema file nam
 See example: _Lidar Apollo Segmentation TVM Nodes_ [schema](https://github.com/autowarefoundation/autoware.universe/blob/main/perception/lidar_apollo_segmentation_tvm_nodes/schema/lidar_apollo_segmentation_tvm_nodes.schema.json)
 
 ### Attributes
+
 Parameters have several attributes, some are required and some optional. The optional attributes are highly encouraged when applicable, as they provide useful information about a parameter to the user.
 
 **Required**
+
 - name
 - type
   - see [JSON Schema types](http://json-schema.org/understanding-json-schema/reference/type.html)
 - description
 
 **Optional**
+
 - default
   - a tested and verified value, see [JSON Schema default](https://json-schema.org/understanding-json-schema/reference/generic.html)
 - bound(s)
   - type dependent, e.g., [integer](https://json-schema.org/understanding-json-schema/reference/numeric.html#integer), [range](https://json-schema.org/understanding-json-schema/reference/numeric.html#range) and [size](https://json-schema.org/understanding-json-schema/reference/object.html#size)
 
 ## Parameter File
+
 The parameter file is minimal as there is no need to provide the user with additional information, e.g., description or type. This is because the associated JSON Schema provides the additional information. Use the template below as a starting point for a ROS node.
 
 ```yaml
@@ -87,18 +91,22 @@ See example: _Lidar Apollo Segmentation TVM Nodes_ [parameter file](https://gith
 Note: `/**` is used instead of the explicit node namespace, this allows the parameter file to be passed to a ROS node which has been [remapped](https://design.ros2.org/articles/static_remapping.html).
 
 ## Launch parameter file
+
 (Original content, will need updating)
+
 - Launch parameter files store the customized parameters for user's vehicle.
   - For example, [the customized parameter of `behavior_path_planner` stored under `autoware_launch`](https://github.com/autowarefoundation/autoware_launch/tree/5fa613b9d80bf4f0db77efde03a43f7ede6bac86/autoware_launch/config)
   - Launch parameter files are stored under `autoware_launch`.
 
 ## Declare Parameter Function
+
 It is the [declare_parameter(...)](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb) function which sets the parameter values during a node startup.
 
 ```cpp
 declare_parameter<INSERT_TYPE>("INSERT_PARAMETER_1_NAME"),
 declare_parameter<INSERT_TYPE>("INSERT_PARAMETER_N_NAME")
 ```
+
 As there is no _default_value_ provided, the function throws an exception if a parameter were to be missing in the provided `*.param.yaml` file. Find the types in the table below.
 
 | ParameterType Enum        | C++ Type                   |
@@ -118,15 +126,14 @@ The table has been derived from [Parameter Type](https://github.com/ros2/rcl_int
 See example: _Lidar Apollo Segmentation TVM Nodes_ [declare function](https://github.com/autowarefoundation/autoware.universe/blob/f85c90b56ed4c7d6b52e787570e590cff786b28b/perception/lidar_apollo_segmentation_tvm_nodes/src/lidar_apollo_segmentation_tvm_node.cpp#L38)
 
 ## Tips and Tricks
+
 Using well established standards enables the use of conventional tooling. Below is an example of how to link a schema to the parameter file(s) using VS Code. This enables convenient features such as auto-complete and parameter bound validation.
 
 In the root directory of where the project is hosted, create a `.vscode` folder with two files; `extensions.json` containing
 
 ```json
 {
-    "recommendations": [
-        "redhat.vscode-yaml"
-    ]
+  "recommendations": ["redhat.vscode-yaml"]
 }
 ```
 
