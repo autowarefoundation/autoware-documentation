@@ -1,5 +1,31 @@
 # Planning
 
+| Input From Perception Component | Topic Name(Data Type)                                                                                               | Explanation                                                                                                                                                                                          |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Detected Object Information     | `/perception/object_recognition/objects`<br>(_autoware_auto_perception_msgs/msg/PredictedObjects_)                  | This includes information that cannot be known beforehand such as pedestrians and other vehicles. Planning stack will plan maneuvers to avoid collision with such objects.                           |
+| Detected Obstacle Information   | `/perception/obstacle_segmentation/pointcloud`<br>(_sensor_msgs/msg/PointCloud2_)                                   | This includes information on the location of obstacles. This is more primitive information and is used for emergency stops, etc.                                                                     |
+| Occupancy Map Information       | `/perception/occupancy_grid_map/map`<br>(_nav_msgs/msg/OccupancyGrid_)                                              | This includes information that cannot be known beforehand such as pedestrians and other vehicles. Planning stack will plan maneuvers to avoid collision with such objects.                           |
+| TrafficLight recognition result | `/perception/traffic_light_recognition/traffic_signals`<br>(_autoware_auto_perception_msgs/msg/TrafficSignalArray_) | This is the real time information about the state of each traffic light. Planning stack will extract the one that is relevant to planned path and use it to decide whether to stop at intersections. |
+
+| Input From Localization Component | Topic Name(Data Type)                                        | Explanation                                                |
+| --------------------------------- | ------------------------------------------------------------ | ---------------------------------------------------------- |
+| Vehicle Kinematics                | `/localization/kinematic_state`<br>(_nav_msgs/msg/Odometry_) | This includes ego vehicle's pose and velocity information. |
+| Vehicle Acceleration              | `/localization/acceleration`<br>(\_)                         | This includes ego vehicle's acceleration.                  |
+
+| Input From Map Component | Topic Name(Data Type)                                             | Explanation                                                                                                                                                                                                                                                                                                         |
+| ------------------------ | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Map data                 | `/map/vector_map`<br>(_autoware_auto_mapping_msgs/msg/HADMapBin_) | This includes all static information about the environment, such as: <ul><li>Lane connection information used for route planning from starting position to goal position</li><li>Lane geometry to generate reference path used to calculate trajectory </li><li> All information related to traffic rules</li></ul> |
+
+| Input From HMI       | Topic Name(Data Type)                                        | Explanation                                                |
+| -------------------- | ------------------------------------------------------------ | ---------------------------------------------------------- |
+| Vehicle Kinematics   | `/localization/kinematic_state`<br>(_nav_msgs/msg/Odometry_) | This includes ego vehicle's pose and velocity information. |
+| Vehicle Acceleration | `/localization/acceleration`<br>(\_)                         | 自車加速度                                                 |
+
+| Input From API Layer | Topic Name(Data Type)                                                      | Explanation                                                                                                                  |
+| -------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Goal position        | `/planning/mission_planning/goal`<br>(_geometry_msgs::PoseStamped_)        | This is the final pose that Planning stack will try to achieve.                                                              |
+| Check point position | `/planning/mission_planning/check_point`<br>(_geometry_msgs::PoseStamped_) | This is the midpoint that Planning will try to go at on the way to the destination. This is used when calculating the route. |
+
 ![Node diagram](images/Planning-Bus-ODD-Architecture.drawio.svg)
 
 ## Inputs
