@@ -20,8 +20,8 @@ sudo apt-get -y update
 sudo apt-get -y install git
 ```
 
-!!! Note 
-    If you wish to use ROS 2 Galactic on Ubuntu 20.04, refer to installation instruction from [galactic](https://autowarefoundation.github.io/autoware-documentation/galactic/installation/autoware/source-installation/) branch, but be aware that Galactic version of Autoware might not have latest features.
+!!! Note
+If you wish to use ROS 2 Galactic on Ubuntu 20.04, refer to installation instruction from [galactic](https://autowarefoundation.github.io/autoware-documentation/galactic/installation/autoware/source-installation/) branch, but be aware that Galactic version of Autoware might not have latest features.
 
 ## How to set up a development environment
 
@@ -40,16 +40,15 @@ sudo apt-get -y install git
 
    If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting.md#build-issues).
 
-
 !!! Info
-    Before installing NVIDIA libraries, confirm and agree with the licenses.
+Before installing NVIDIA libraries, confirm and agree with the licenses.
 
     - [CUDA](https://docs.nvidia.com/cuda/eula/index.html)
     - [cuDNN](https://docs.nvidia.com/deeplearning/cudnn/sla/index.html)
-    - [TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/sla/index.html)    
+    - [TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/sla/index.html)
 
 !!! Note
-    The following will be automatically installed. If the ansible script doesn't work or you want to install any version, please install the following manually.
+The following will be automatically installed. If the ansible script doesn't work or you want to install any version, please install the following manually.
 
     - [Install ROS 2](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2#manual-installation)
     - [Install ROS 2 Dev Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2_dev_tools#manual-installation)
