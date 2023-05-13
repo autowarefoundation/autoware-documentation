@@ -25,6 +25,8 @@ Description of each component in Planning follows:
 - **Mission Planning**: calculates the route based on a given goal and map information.
 - **Scenario Planning**: calculates the trajectory based on the current scenario (e.g. Lane Driving, Parking, etc).
   - **Lane Driving**: calculates the trajectory for constructed lane driving.
+    - **Behavior Planner**: calculates appropriate trajectories based on safety considerations and traffic rules.
+    - **Motion Planner**: calculates appropriate trajectories for the vehicle, taking into account vehicle motion considerations based on safety factors and instructions from the behavior planner.
   - **Parking**: calculates the trajectory for un-constructed parking area.
 - **Validation**: validates the safety of the trajectory.
 
@@ -34,23 +36,23 @@ The following describes the concept of the input/output between Planning Compone
 
 ### Input to the planning component
 
+- **From Map**
+  - Vector map: This includes all static information about the environment, such as: Lane connection information used for route planning from starting position to goal position, lane geometry to generate reference path used to calculate trajectory, and all information related to traffic rules.
+- **From Perception**
+  - Detected object information: This includes information that cannot be known beforehand such as pedestrians and other vehicles. Planning Component will plan maneuvers to avoid collision with such objects.
+  - Detected obstacle information: This includes information on the location of obstacles. This is more primitive information and is used for emergency stops, etc.
+  - Occupancy map information: This includes information that cannot be known beforehand such as pedestrians and other vehicles. Planning Component will plan maneuvers to avoid collision with such objects.
+  - Traffic light recognition result: This is the real time information about the state of each traffic light. Planning Component will extract the one that is relevant to planned path and use it to decide whether to stop at intersections.
+- **From Localization**
+  - Vehicle motion information: This includes ego vehicle's motion information for position, velocity, acceleration etc...
+- **From System**
+  - Operation mode: This is used to see if the vehicle is operated in the Autonomous mode.
+- **From Human Machine Interface (HMI)**
+  - Approval: to authorize the execution of autonomous driving operations, execute lane change, entry into intersection.
 - **From API Layer**
   - Goal: This is the final pose that Planning Component will try to achieve.
   - Check point: This is the midpoint that Planning will try to go at on the way to the destination. This is used when calculating the route.
-  - Velocity Limit: This is used to limit the maximum vehicle speed.
-- **From Map**
-  - Map data: This includes all static information about the environment, such as: Lane connection information used for route planning from starting position to goal position, lane geometry to generate reference path used to calculate trajectory, and all information related to traffic rules.
-- **From Perception**
-  - Detected Object Information: This includes information that cannot be known beforehand such as pedestrians and other vehicles. Planning Component will plan maneuvers to avoid collision with such objects.
-  - Detected Obstacle Information: This includes information on the location of obstacles. This is more primitive information and is used for emergency stops, etc.
-  - Occupancy Map Information: This includes information that cannot be known beforehand such as pedestrians and other vehicles. Planning Component will plan maneuvers to avoid collision with such objects.
-  - TrafficLight recognition result: This is the real time information about the state of each traffic light. Planning Component will extract the one that is relevant to planned path and use it to decide whether to stop at intersections.
-- **From Localization**
-  - Vehicle Motion Information: This includes ego vehicle's motion information for position, velocity, acceleration etc...
-- **From System**
-  - WIP.
-- **From Human Machine Interface (HMI)**
-  - Approval: to authorize the execution of autonomous driving operations, execute lane change, entry into intersection.
+  - Velocity limit: This is used to limit the maximum vehicle speed.
 
 ### Output from the planning component
 
@@ -59,6 +61,11 @@ The following describes the concept of the input/output between Planning Compone
   - Turn Signals: This is the output to control turn indicators (right, left, hazard, etc.) of the vehicle. Planning Component will make sure that turn signal will be turned on according to planned maneuver.
 - **To System**
   - Diagnostics: This reports the state of the Planning Component, indicating whether the processing is running correctly or whether a safe planning is being generated.
+- **To Human Machine Interface (HMI)**
+  - Approval Request: This is to request user approval for the execution of a specific function, e.g. lane change.
+  - Trajectory candidate: to show the candidate trajectory that will be used with user approval.
+- **To API Layer**
+  - Planning factors: This information indicates the reasoning behind the current planning behavior. It may include the position of target objects of avoidance, obstacles that led to the decision to stop, and other relevant information.
 
 ## Supported Functions
 
