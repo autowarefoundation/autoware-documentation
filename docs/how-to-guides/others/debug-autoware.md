@@ -6,7 +6,7 @@ This page provides some methods for debugging Autoware.
 
 The essential thing for debug is to print the program information clearly, which can quickly judge the program operation and locate the problem. Autoware uses ROS 2 logging tool to print debug messages, how to design console logging refer to tutorial [Console logging](../../contributing/coding-guidelines/ros-nodes/console-logging.md).
 
-## Using ROS2 tools debug Autoware
+## Using ROS tools debug Autoware
 
 ### Using command line tools
 
@@ -15,7 +15,6 @@ ROS 2 includes a suite of command-line tools for introspecting a ROS 2 system. T
 ### Using rviz2
 
 Rviz2 is a port of Rviz to ROS 2. It provides a graphical interface for users to view their robot, sensor data, maps, and more. You can run Rviz2 tool easily by:
-it will open
 
 ```console
 rviz2
@@ -109,7 +108,7 @@ For more details, see the following official documentation for [Using ros2doctor
 
 ## Using a debugger with breakpoints
 
-Many IDE(e.g. VSCode, CLion) supports debugging C/C++ executable with GBD on linux platform. The following lists some references for using the debugger:
+Many IDE(e.g. Visual Studio Code, CLion) supports debugging C/C++ executable with GBD on linux platform. The following lists some references for using the debugger:
 
 - <https://code.visualstudio.com/docs/cpp/cpp-debug>
 - <https://www.jetbrains.com/help/clion/debugging-code.html#useful-debugger-shortcuts>

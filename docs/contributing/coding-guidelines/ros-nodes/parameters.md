@@ -59,14 +59,14 @@ See example: _Lidar Apollo Segmentation TVM Nodes_ [schema](https://github.com/a
 
 Parameters have several attributes, some are required and some optional. The optional attributes are highly encouraged when applicable, as they provide useful information about a parameter to the user.
 
-**Required**
+#### Required
 
 - name
 - type
   - see [JSON Schema types](http://json-schema.org/understanding-json-schema/reference/type.html)
 - description
 
-**Optional**
+#### Optional
 
 - default
   - a tested and verified value, see [JSON Schema default](https://json-schema.org/understanding-json-schema/reference/generic.html)
