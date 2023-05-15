@@ -48,7 +48,7 @@ The following describes the concept of the input/output between Planning Compone
 - **From System**
   - Operation mode: This is used to see if the vehicle is operated in the Autonomous mode.
 - **From Human Machine Interface (HMI)**
-  - Approval: to authorize the execution of autonomous driving operations, execute lane change, entry into intersection.
+  - Feature execution: to execute/authorize autonomous driving operations, e.g. execute lane change, entry into intersection.
 - **From API Layer**
   - Goal: This is the final pose that Planning Component will try to achieve.
   - Check point: This is the midpoint that Planning will try to go at on the way to the destination. This is used when calculating the route.
@@ -62,8 +62,8 @@ The following describes the concept of the input/output between Planning Compone
 - **To System**
   - Diagnostics: This reports the state of the Planning Component, indicating whether the processing is running correctly or whether a safe planning is being generated.
 - **To Human Machine Interface (HMI)**
-  - Approval Request: This is to request user approval for the execution of a specific function, e.g. lane change.
-  - Trajectory candidate: to show the candidate trajectory that will be used with user approval.
+  - Feature execution availability: This is to show the status what operations can be executed or are required to execute for external decision makers, e.g. lane change, entry into intersection.
+  - Trajectory candidate: to show the candidate trajectory that will be used for the user .
 - **To API Layer**
   - Planning factors: This information indicates the reasoning behind the current planning behavior. It may include the position of target objects of avoidance, obstacles that led to the decision to stop, and other relevant information.
 
