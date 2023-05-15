@@ -30,7 +30,7 @@ In general, topics should be namespaced based on the function of the node which 
 
 Classify topics as input or output topics based on they are subscribed or published by the node. In the node, input topic is named `input/topic_name` and output topic is named `output/topic_name`.
 
-Configure the topic in the node's launch file. Take the `joy_controller` node as an example, in the following example, set the input and output topics and remap topics in the `joy_controller.luanch.xml` file.
+Configure the topic in the node's launch file. Take the `joy_controller` node as an example, in the following example, set the input and output topics and remap topics in the `joy_controller.launch.xml` file.
 
 ```xml
 <launch>
@@ -92,7 +92,7 @@ Configure the topic in the node's launch file. Take the `joy_controller` node as
     create_publisher<tier4_debug_msgs::msg::StringStamped>("~/debug/calculation_time", 1);
    ```
 
-   The launch configurated namespace will be add the topics before, so the topic names will be as following:
+   The launch configured namespace will be add the topics before, so the topic names will be as following:
 
    `/planning/scenario_planning/lane_driving/motion_planning/obstacle_avoidance_planner/debug/marker /planning/scenario_planning/lane_driving/motion_planning/obstacle_avoidance_planner/debug/calculation_time`
 
