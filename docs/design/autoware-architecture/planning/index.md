@@ -10,7 +10,7 @@ These are high-level roles of Planning Component:
 
 - Calculates route that navigates to desired goal
 - Plans trajectory to follow the route
-  - Make sure that vehicle does not collide with obstacles, including pedestrians and other vehicles
+  - Makes sure that the vehicle does not collide with obstacles, including pedestrians and other vehicles
   - Make sure that the vehicle follows traffic rules during the navigation. This includes following traffic light, stopping at stop lines, stopping at crosswalks, etc.
 - Plan sequences of trajectories that is feasible for the vehicle. (e.g. no sharp turns that is kinematically impossible)
 
