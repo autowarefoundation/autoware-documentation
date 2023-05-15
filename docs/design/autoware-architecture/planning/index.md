@@ -26,7 +26,7 @@ This diagram describes the high-level architecture of the Planning Component.
 
 ![overall-planning-architecture](image/high-level-planning-diagram.drawio.svg)
 
-The Planning component consists of the following components:
+The Planning component consists of the following sub-components:
 
 - **Mission Planning**: Calculates the route based on the given goal and map information.
 - **Scenario Planning**: Determines the trajectory based on the current scenario, such as Lane Driving or Parking.
