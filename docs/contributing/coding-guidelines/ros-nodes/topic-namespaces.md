@@ -11,7 +11,7 @@ ROS allows topics, parameters and nodes to be namespaced which provides the foll
 
 This page focuses on how to use namespaces in Autoware and shows some useful examples. For basic information on topic namespaces, refer to [this tutorial](https://design.ros2.org/articles/topic_and_service_names.html).
 
-## How topics should be named in Node
+## How topics should be named in node
 
 Autoware divides the node into the following functional categories, and adds the start namespace for the nodes according to the categories.
 

@@ -15,7 +15,6 @@ ROS 2 includes a suite of command-line tools for introspecting a ROS 2 system. T
 ### Using rviz2
 
 Rviz2 is a port of Rviz to ROS 2. It provides a graphical interface for users to view their robot, sensor data, maps, and more. You can run Rviz2 tool easily by:
-it will open
 
 ```console
 rviz2
