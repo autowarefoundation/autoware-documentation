@@ -22,50 +22,50 @@ This diagram describes the high-level architecture of the Planning Component.
 
 Description of each component in Planning follows:
 
-- **Mission Planning**: calculates the route based on a given goal and map information.
-- **Scenario Planning**: calculates the trajectory based on the current scenario (e.g. Lane Driving, Parking, etc).
-  - **Lane Driving**: calculates the trajectory for constructed lane driving.
-    - **Behavior Planner**: calculates appropriate trajectories based on safety considerations and traffic rules.
-    - **Motion Planner**: calculates appropriate trajectories for the vehicle, taking into account vehicle motion considerations based on safety factors and instructions from the behavior planner.
-  - **Parking**: calculates the trajectory for un-constructed parking area.
-- **Validation**: validates the safety of the trajectory.
+- **Mission Planning**: Calculates the route based on the given goal and map information.
+- **Scenario Planning**: Determines the trajectory based on the current scenario, such as Lane Driving or Parking.
+  - **Lane Driving**: Calculates the trajectory for driving within constructed lanes.
+    - **Behavior Planner**: Calculates suitable trajectory based on safety considerations and traffic rules.
+    - **Motion Planner**: Calculates suitable trajectory for the vehicle by taking into account safety factors, vehicle motion considerations, and instructions from the behavior planner.
+  - **Parking**: Calculates the trajectory for parking in unconstructed areas.
+- **Validation**: Verifies the safety of the trajectory.
 
 ## Component interface
 
-The following describes the concept of the input/output between Planning Component and other components. See [Planning Component Interface](/docs/design/autoware-interfaces/components/planning.md) for the current implementation.
+The following describes the input/output concept between Planning Component and other components. See [Planning Component Interface](/docs/design/autoware-interfaces/components/planning.md) for the current implementation.
 
 ### Input to the planning component
 
 - **From Map**
-  - Vector map: This includes all static information about the environment, such as: Lane connection information used for route planning from starting position to goal position, lane geometry to generate reference path used to calculate trajectory, and all information related to traffic rules.
+  - Vector map: Contains all static information about the environment, including lane connection information for route planning, lane geometry for generating a reference path, and traffic rule-related information.
 - **From Perception**
-  - Detected object information: This includes information that cannot be known beforehand such as pedestrians and other vehicles. Planning Component will plan maneuvers to avoid collision with such objects.
-  - Detected obstacle information: This includes information on the location of obstacles. This is more primitive information and is used for emergency stops, etc.
-  - Occupancy map information: This includes information that cannot be known beforehand such as pedestrians and other vehicles. Planning Component will plan maneuvers to avoid collision with such objects.
-  - Traffic light recognition result: This is the real time information about the state of each traffic light. Planning Component will extract the one that is relevant to planned path and use it to decide whether to stop at intersections.
+  - Detected object information: Provides real-time information about objects that cannot be known in advance, such as pedestrians and other vehicles. The Planning Component plans maneuvers to avoid collisions with these objects.
+  - Detected obstacle information: Supplies real-time information about the location of obstacles, which is more primitive than Detected Object and used for emergency stops and other safety measures.
+  - Occupancy map information: Offers real-time information about the presence of pedestrians and other vehicles and occluded area information.
+  - Traffic light recognition result: Provides the current state of each traffic light in real time. The Planning Component extracts relevant information for the planned path and determines whether to stop at intersections.
 - **From Localization**
-  - Vehicle motion information: This includes ego vehicle's motion information for position, velocity, acceleration etc...
+  - Vehicle motion information: Includes the ego vehicle's position, velocity, acceleration, and other motion-related data.
 - **From System**
-  - Operation mode: This is used to see if the vehicle is operated in the Autonomous mode.
+  - Operation mode: Indicates whether the vehicle is operating in Autonomous mode.
 - **From Human Machine Interface (HMI)**
-  - Feature execution: to execute/authorize autonomous driving operations, e.g. execute lane change, entry into intersection.
+  - Feature execution: Allows for executing/authorizing autonomous driving operations, such as lane changes or entering intersections.
 - **From API Layer**
-  - Goal: This is the final pose that Planning Component will try to achieve.
-  - Check point: This is the midpoint that Planning will try to go at on the way to the destination. This is used when calculating the route.
-  - Velocity limit: This is used to limit the maximum vehicle speed.
+  - Goal: Represents the final position that the Planning Component aims to reach.
+  - Checkpoint: Represents a midpoint along the route to the destination. This is used during route calculation.
+  - Velocity limit: Sets the maximum speed limit for the vehicle.
 
 ### Output from the planning component
 
 - **To Control**
-  - Trajectory: This is the sequence of pose, twist and acceleration that Control component must follow. This must be smooth, and kinematically possible to follow by the Control component. By default, the trajectory is 10 seconds long at 0.1 second resolution.
-  - Turn Signals: This is the output to control turn indicators (right, left, hazard, etc.) of the vehicle. Planning Component will make sure that turn signal will be turned on according to planned maneuver.
+  - Trajectory: Provides a smooth sequence of pose, twist, and acceleration that the Control Component must follow. The trajectory is typically 10 seconds long with a 0.1-second resolution.
+  - Turn Signals: Controls the vehicle's turn indicators, such as right, left, hazard, etc. based on the planned maneuvers.
 - **To System**
-  - Diagnostics: This reports the state of the Planning Component, indicating whether the processing is running correctly or whether a safe planning is being generated.
+  - Diagnostics: Reports the state of the Planning Component, indicating whether the processing is running correctly and whether a safe plan is being generated.
 - **To Human Machine Interface (HMI)**
-  - Feature execution availability: This is to show the status what operations can be executed or are required to execute for external decision makers, e.g. lane change, entry into intersection.
-  - Trajectory candidate: to show the candidate trajectory that will be used for the user .
+  - Feature execution availability: Indicates the status of operations that can be executed or are required for external decision-makers, such as lane changes or entering intersections.
+  - Trajectory candidate: Shows the potential trajectory that will be executed after the user's execution.
 - **To API Layer**
-  - Planning factors: This information indicates the reasoning behind the current planning behavior. It may include the position of target objects of avoidance, obstacles that led to the decision to stop, and other relevant information.
+  - Planning factors: Provides information about the reasoning behind the current planning behavior. This may include the position of target objects to avoid, obstacles that led to the decision to stop, and other relevant information.
 
 ## Supported Functions
 
