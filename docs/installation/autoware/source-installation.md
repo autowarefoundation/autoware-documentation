@@ -41,7 +41,7 @@ sudo apt-get -y install git
 
 !!! info
 
-    Before installing NVIDIA libraries, confirm and agree with the licenses.
+    Before installing NVIDIA libraries, please ensure that you have reviewed and agreed to the licenses.
 
     - [CUDA](https://docs.nvidia.com/cuda/eula/index.html)
     - [cuDNN](https://docs.nvidia.com/deeplearning/cudnn/sla/index.html)
