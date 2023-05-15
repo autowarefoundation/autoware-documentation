@@ -2,23 +2,25 @@
 
 ## Overview
 
-The Planning component generates the trajectory message that will be subscribed to by the Control component based on the environmental state obtained from the Localization and the Perception components. 
+The Planning component generates the trajectory message that will be subscribed to by the Control component based on the environmental state obtained from the Localization and the Perception components.
 
 ## Requirements
 
 The goal of the Planning component is to generate a trajectory (path and velocity) of the ego vehicle that is safe and well-regulated while satisfying the given mission.
 
 **Goals:**
- - The basic functions are provided so that a simple ODD can be defined.
- - The functionality is modularized to accommodate the third-party components. That is, a complicated or realistic ODD needs not be defined by the basic functions provided by default.
- - The capability is extensible with the third-party components or the decision of human operators.
- - The mechanism and policy are separated to allow the system or operators to change the behavior of the ego vehicle. Ultimately speaking, the policy can be set to crash an obstacle and the mechanism always follows. Otherwise, the system is not safe from the design point of view.
+
+- The basic functions are provided so that a simple ODD can be defined.
+- The functionality is modularized to accommodate the third-party components. That is, a complicated or realistic ODD needs not be defined by the basic functions provided by default.
+- The capability is extensible with the third-party components or the decision of human operators.
+- The mechanism and policy are separated to allow the system or operators to change the behavior of the ego vehicle. Ultimately speaking, the policy can be set to crash an obstacle and the mechanism always follows. Otherwise, the system is not safe from the design point of view.
 
 **Non-goals:**
- - The Planning component is not self-contained but can be extended with third parties.
- - The Planning component is not aimed at the complete functionality and capability.
- - The Planning component is not designed to always outperform human drivers.
- - The Planning component is not capable of “never crashes”.
+
+- The Planning component is not self-contained but can be extended with third parties.
+- The Planning component is not aimed at the complete functionality and capability.
+- The Planning component is not designed to always outperform human drivers.
+- The Planning component is not capable of “never crashes”.
 
 ## High-level architecture
 
