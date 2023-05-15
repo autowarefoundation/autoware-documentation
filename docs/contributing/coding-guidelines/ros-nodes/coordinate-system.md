@@ -16,7 +16,7 @@ In Autoware, coordinate systems are typically used to represent the position and
 
 1. Transformation of sensor data
 
-   In Autoware, each sensor has a unique coordinate system and their data is expressed in terms of the coordinates. In order to correlate the independent datas between different sensors, we need to find the position relationship between each sensor and the vehicle body. Once the installation position of the sensor on the vehicle body is determined, it will remain fixed during running, so the offline calibration method can be used to determine the precise position of each sensor relative to the vehicle body.
+   In Autoware, each sensor has a unique coordinate system and their data is expressed in terms of the coordinates. In order to correlate the independent data between different sensors, we need to find the position relationship between each sensor and the vehicle body. Once the installation position of the sensor on the vehicle body is determined, it will remain fixed during running, so the offline calibration method can be used to determine the precise position of each sensor relative to the vehicle body.
 
 2. ROS TF2
 
@@ -123,6 +123,6 @@ References:
 
    The relationship between the `base_link` coordinate system and the `map` coordinate system is determined by the position and orientation of the vehicle, and can be obtained from the vehicle localization result.
 
-3. Georeferencing of map data
+3. Geo-referencing of map data
 
-   The georeferencing information can get the transformation relationship of `earth` coordinate system to local `map` coordinate system.
+   The geo-referencing information can get the transformation relationship of `earth` coordinate system to local `map` coordinate system.
