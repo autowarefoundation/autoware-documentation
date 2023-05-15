@@ -2,17 +2,23 @@
 
 ## Overview
 
-Planning Component acts as the “brain” of autonomous driving. It uses all the results from Localization, Perception, and Map components to decide its maneuver and send the final trajectory to the Control component.
+The Planning component generates the trajectory message that will be subscribed to by the Control component based on the environmental state obtained from the Localization and the Perception components. 
 
-## Role
+## Requirements
 
-These are high-level roles of Planning Component:
+The goal of the Planning component is to generate a trajectory (path and velocity) of the ego vehicle that is safe and well-regulated while satisfying the given mission.
 
-- Calculates route that navigates to desired goal
-- Plans trajectory to follow the route
-  - Makes sure that the vehicle does not collide with obstacles, including pedestrians and other vehicles
-  - Makes sure that the vehicle follows traffic rules during the navigation. This includes following traffic light, stopping at stop lines, stopping at crosswalks, etc.
-- Plan sequences of trajectories that is feasible for the vehicle. (e.g. no sharp turns that is kinematically impossible)
+**Goals:**
+ - The basic functions are provided so that a simple ODD can be defined.
+ - The functionality is modularized to accommodate the third-party components. That is, a complicated or realistic ODD needs not be defined by the basic functions provided by default.
+ - The capability is extensible with the third-party components or the decision of human operators.
+ - The mechanism and policy are separated to allow the system or operators to change the behavior of the ego vehicle. Ultimately speaking, the policy can be set to crash an obstacle and the mechanism always follows. Otherwise, the system is not safe from the design point of view.
+
+**Non-goals:**
+ - The Planning component is not self-contained but can be extended with third parties.
+ - The Planning component is not aimed at the complete functionality and capability.
+ - The Planning component is not designed to always outperform human drivers.
+ - The Planning component is not capable of “never crashes”.
 
 ## High-level architecture
 
@@ -20,7 +26,7 @@ This diagram describes the high-level architecture of the Planning Component.
 
 ![overall-planning-architecture](image/high-level-planning-diagram.drawio.svg)
 
-Description of each component in Planning follows:
+The Planning component consists of the following components:
 
 - **Mission Planning**: Calculates the route based on the given goal and map information.
 - **Scenario Planning**: Determines the trajectory based on the current scenario, such as Lane Driving or Parking.
@@ -48,7 +54,7 @@ The following describes the input/output concept between Planning Component and 
 - **From System**
   - Operation mode: Indicates whether the vehicle is operating in Autonomous mode.
 - **From Human Machine Interface (HMI)**
-  - Feature execution: Allows for executing/authorizing autonomous driving operations, such as lane changes or entering intersections.
+  - Feature execution: Allows for executing/authorizing autonomous driving operations, such as lane changes or entering intersections, by human operators.
 - **From API Layer**
   - Goal: Represents the final position that the Planning Component aims to reach.
   - Checkpoint: Represents a midpoint along the route to the destination. This is used during route calculation.
@@ -62,7 +68,7 @@ The following describes the input/output concept between Planning Component and 
 - **To System**
   - Diagnostics: Reports the state of the Planning Component, indicating whether the processing is running correctly and whether a safe plan is being generated.
 - **To Human Machine Interface (HMI)**
-  - Feature execution availability: Indicates the status of operations that can be executed or are required for external decision-makers, such as lane changes or entering intersections.
+  - Feature execution availability: Indicates the status of operations that can be executed or are required, such as lane changes or entering intersections.
   - Trajectory candidate: Shows the potential trajectory that will be executed after the user's execution.
 - **To API Layer**
   - Planning factors: Provides information about the reasoning behind the current planning behavior. This may include the position of target objects to avoid, obstacles that led to the decision to stop, and other relevant information.
