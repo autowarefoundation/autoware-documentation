@@ -49,7 +49,7 @@ sudo apt-get -y install git
 
 !!! note
 
-    The following will be automatically installed. If the ansible script doesn't work or you want to install any version, please install the following manually.
+    The following will be automatically installed. If the ansible script doesn't work or if you already have different versions of dependent libraries installed, please install the following manually.
 
     - [Install ROS 2](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2#manual-installation)
     - [Install ROS 2 Dev Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2_dev_tools#manual-installation)
