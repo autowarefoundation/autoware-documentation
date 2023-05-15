@@ -31,7 +31,7 @@ sudo apt-get -y install git
    cd autoware
    ```
 
-2. If you are newly installing Autwoare, you can install the dependencies automatically using the provided Ansible script
+2. If you are newly installing Autoware, you can install the dependencies automatically using the provided Ansible script
 
    ```bash
    ./setup-dev-env.sh
