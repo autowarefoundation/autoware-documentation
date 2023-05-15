@@ -2,7 +2,7 @@
 
 ## Overview
 
-Planning Component acts as the “brain” of autonomous driving. It uses all the results from Localization, Perception, and Map components to decide its maneuver and gives final trajectory to Control component.
+Planning Component acts as the “brain” of autonomous driving. It uses all the results from Localization, Perception, and Map components to decide its maneuver and send the final trajectory to the Control component.
 
 ## Role
 
