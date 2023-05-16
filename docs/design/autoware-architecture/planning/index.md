@@ -87,7 +87,7 @@ The following describes the input/output concept between Planning Component and 
   - Path: Provides a rough position and velocity to be followed by the vehicle. These path points are defined with an approximate interval of about 1 meter, although it's not strictly limited to that.
   - Drivable area: Defines regions where the vehicle can drive, such as within lanes or physically drivable areas. It assumes that the motion planner will calculate the final trajectory within this defined area.
 - **Scenario Planning to Validation**
-  - Trajectory: Defines the desired position, velocity, and acceleration which the Control Component calculates the control command to follow. Trajectory points are defined at intervals of approximately 0.1 seconds, considering the vehicle's speed.
+  - Trajectory: Defines the desired positions, velocities, and accelerations which the Control Component will try to follow. Trajectory points are defined at intervals of approximately 0.1 seconds based on the trajectory velocities.
 - **Validation to Control Component**
   - Trajectory: Same as above, with safety consideration.
 
