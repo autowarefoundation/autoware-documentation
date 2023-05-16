@@ -1,7 +1,7 @@
 # {{ title }}
 
 - Method: {{ method }}
-- Type: {{ type.name }}
+- Type: {{ create_relative_link(type.name, 'design/autoware-interfaces/ad-api/types/' + type.name) }}
 
 ## Description
 
@@ -14,7 +14,7 @@
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 {%- for field in type.msg %}
-| {{ field.name }} | {{ link_ros_msg(type.name, field.name, 'msg') }} | {{ field.text }} |
+| {{ field.name }} | {{ resolve_msg_field(type.name, field.name, 'msg') }} | {{ field.text }} |
 {%- endfor %}
 {%- else %}
 None
@@ -27,7 +27,7 @@ None
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 {%- for field in type.req %}
-| {{ field.name }} | {{ link_ros_msg(type.name, field.name, 'req') }} | {{ field.text }} |
+| {{ field.name }} | {{ resolve_msg_field(type.name, field.name, 'req') }} | {{ field.text }} |
 {%- endfor %}
 {%- else %}
 None
@@ -38,7 +38,7 @@ None
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 {%- for field in type.res %}
-| {{ field.name }} | {{ link_ros_msg(type.name, field.name, 'res') }} | {{ field.text }} |
+| {{ field.name }} | {{ resolve_msg_field(type.name, field.name, 'res') }} | {{ field.text }} |
 {%- endfor %}
 {%- else %}
 None
