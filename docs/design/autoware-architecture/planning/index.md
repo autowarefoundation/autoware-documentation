@@ -93,7 +93,7 @@ The following describes the input/output concept between Planning Component and 
 
 ## How to add new modules (WIP)
 
-As mentioned in the goal session, this planning module is designed to be extensible by third-party components. For specific instructions on how to add new modules and expand its functionality, please refer to the [provided documentation or guidelines (WIP)]().
+As mentioned in the goal session, this planning module is designed to be extensible by third-party components. For specific instructions on how to add new modules and expand its functionality, please refer to the provided documentation or guidelines (WIP).
 
 ## Supported Functions
 
