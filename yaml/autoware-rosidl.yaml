@@ -1,0 +1,24 @@
+rosidl:
+  msg:
+    autoware_adapi_v1_msgs:
+      stamp: builtin_interfaces/Time
+      state: uint16
+  req:
+    autoware_adapi_v1_msgs/srv/ClearRoute: {}
+    autoware_adapi_v1_msgs/srv/SetRoute:
+      goal: geometry_msgs/Pose
+      header: std_msgs/Header
+      option: autoware_adapi_v1_msgs/RouteOption
+      segments: autoware_adapi_v1_msgs/RouteSegment[]
+    autoware_adapi_v1_msgs/srv/SetRoutePoints:
+      goal: geometry_msgs/Pose
+      header: std_msgs/Header
+      option: autoware_adapi_v1_msgs/RouteOption
+      waypoints: geometry_msgs/Pose[]
+  res:
+    autoware_adapi_v1_msgs/srv/ClearRoute:
+      status: autoware_adapi_v1_msgs/ResponseStatus
+    autoware_adapi_v1_msgs/srv/SetRoute:
+      status: autoware_adapi_v1_msgs/ResponseStatus
+    autoware_adapi_v1_msgs/srv/SetRoutePoints:
+      status: autoware_adapi_v1_msgs/ResponseStatus

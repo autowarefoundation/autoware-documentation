@@ -1,0 +1,9 @@
+{%- if request %}
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+{%- for field in request %}
+| {{ field.name }} | {{ link_ros_msg(interface.type, field.name, 'req') }} | {{ field.text }} |
+{%- endfor %}
+{%- else %}
+None
+{%- endif %}

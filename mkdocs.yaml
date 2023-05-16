@@ -53,7 +53,9 @@ plugins:
       regex:
         - ^(?!(.*/)?assets/).*\.(?!(.*\.)?md|(.*\.)?svg|(.*\.)?png|(.*\.)?gif|(.*\.)?jpg).*$
         - ^(.*/)?[^.]*$
-  - macros
+  - macros:
+      include_yaml:
+        - yaml/autoware-rosidl.yaml
   - mkdocs-video
   - same-dir
   - search

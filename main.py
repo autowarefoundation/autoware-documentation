@@ -13,3 +13,8 @@ def define_env(env):
         root_path = "design/autoware-interfaces/ad-api"
         base_path = os.path.relpath(root_path, env.page.url) + "/list"
         return f"[{name}]({base_path}{name})"
+
+    @env.macro
+    def link_ros_msg(data, name, ext):
+        field = env.variables["rosidl"][ext][data][name]
+        return field
