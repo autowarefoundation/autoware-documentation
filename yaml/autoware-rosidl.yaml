@@ -3,17 +3,37 @@ rosidl:
     autoware_adapi_v1_msgs/msg/LocalizationInitializationState:
       stamp: builtin_interfaces/Time
       state: uint16
+    autoware_adapi_v1_msgs/msg/MotionState:
+      stamp: builtin_interfaces/Time
+      state: uint16
     autoware_adapi_v1_msgs/msg/MrmState:
       behavior: uint16
       stamp: builtin_interfaces/Time
       state: uint16
+    autoware_adapi_v1_msgs/msg/OperationModeState:
+      is_autonomous_mode_available: bool
+      is_autoware_control_enabled: bool
+      is_in_transition: bool
+      is_local_mode_available: bool
+      is_remote_mode_available: bool
+      is_stop_mode_available: bool
+      mode: uint8
+      stamp: builtin_interfaces/Time
     autoware_adapi_v1_msgs/msg/Route:
       data: autoware_adapi_v1_msgs/RouteData[<=1]
       header: std_msgs/Header
     autoware_adapi_v1_msgs/msg/RouteState:
       stamp: builtin_interfaces/Time
       state: uint16
+    autoware_adapi_v1_msgs/msg/SteeringFactorArray:
+      factors: autoware_adapi_v1_msgs/SteeringFactor[]
+      header: std_msgs/Header
+    autoware_adapi_v1_msgs/msg/VelocityFactorArray:
+      factors: autoware_adapi_v1_msgs/VelocityFactor[]
+      header: std_msgs/Header
   req:
+    autoware_adapi_v1_msgs/srv/AcceptStart: {}
+    autoware_adapi_v1_msgs/srv/ChangeOperationMode: {}
     autoware_adapi_v1_msgs/srv/ClearRoute: {}
     autoware_adapi_v1_msgs/srv/InitializeLocalization:
       pose: geometry_msgs/PoseWithCovarianceStamped[<=1]
@@ -29,6 +49,10 @@ rosidl:
       waypoints: geometry_msgs/Pose[]
     autoware_adapi_version_msgs/srv/InterfaceVersion: {}
   res:
+    autoware_adapi_v1_msgs/srv/AcceptStart:
+      status: autoware_adapi_v1_msgs/ResponseStatus
+    autoware_adapi_v1_msgs/srv/ChangeOperationMode:
+      status: autoware_adapi_v1_msgs/ResponseStatus
     autoware_adapi_v1_msgs/srv/ClearRoute:
       status: autoware_adapi_v1_msgs/ResponseStatus
     autoware_adapi_v1_msgs/srv/InitializeLocalization:
