@@ -84,7 +84,7 @@ The following describes the input/output concept between Planning Component and 
 - **Mission Planning to Scenario Planning**
   - Route: Offers guidance for the path that needs to be followed from the starting point to the destination. This path is determined based on information such as lane IDs defined on the map. At the route level, it doesn't explicitly indicate which specific lanes to take, and the route can contain multiple lanes.
 - **Behavior Planning to Motion Planning**
-  - Path: Provides a rough position and velocity to be followed by the vehicle. These path points are defined with an approximate interval of about 1 meter, although it's not strictly limited to that.
+  - Path: Provides a rough position and velocity to be followed by the vehicle. These path points are usually defined with an interval of about 1 meter. Although other interval distances are possible, it may impact the precision or performance of the planning component.
   - Drivable area: Defines regions where the vehicle can drive, such as within lanes or physically drivable areas. It assumes that the motion planner will calculate the final trajectory within this defined area.
 - **Scenario Planning to Validation**
   - Trajectory: Defines the desired positions, velocities, and accelerations which the Control Component will try to follow. Trajectory points are defined at intervals of approximately 0.1 seconds based on the trajectory velocities.
