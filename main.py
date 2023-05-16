@@ -19,7 +19,8 @@ def define_env(env):
 
     @env.macro
     def resolve_msg_field(type, name, ext):
+        specs = env.variables["autoware_interfaces"]["types"]
         for field in name.split("."):
             type = type.split("[")[0]
-            type = env.variables["rosidl"][ext][type][field]
+            type = specs[type][ext][field]
         return type

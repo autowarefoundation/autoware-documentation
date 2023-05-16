@@ -1,16 +1,19 @@
-rosidl:
-  msg:
-    autoware_adapi_v1_msgs/msg/LocalizationInitializationState:
+types:
+  autoware_adapi_v1_msgs/msg/LocalizationInitializationState:
+    msg:
       stamp: builtin_interfaces/msg/Time
       state: uint16
-    autoware_adapi_v1_msgs/msg/MotionState:
+  autoware_adapi_v1_msgs/msg/MotionState:
+    msg:
       stamp: builtin_interfaces/msg/Time
       state: uint16
-    autoware_adapi_v1_msgs/msg/MrmState:
+  autoware_adapi_v1_msgs/msg/MrmState:
+    msg:
       behavior: uint16
       stamp: builtin_interfaces/msg/Time
       state: uint16
-    autoware_adapi_v1_msgs/msg/OperationModeState:
+  autoware_adapi_v1_msgs/msg/OperationModeState:
+    msg:
       is_autonomous_mode_available: bool
       is_autoware_control_enabled: bool
       is_in_transition: bool
@@ -19,74 +22,90 @@ rosidl:
       is_stop_mode_available: bool
       mode: uint8
       stamp: builtin_interfaces/msg/Time
-    autoware_adapi_v1_msgs/msg/ResponseStatus:
+  autoware_adapi_v1_msgs/msg/ResponseStatus:
+    msg:
       code: uint16
       message: string
       success: bool
-    autoware_adapi_v1_msgs/msg/Route:
+  autoware_adapi_v1_msgs/msg/Route:
+    msg:
       data: autoware_adapi_v1_msgs/msg/RouteData[<=1]
       header: std_msgs/msg/Header
-    autoware_adapi_v1_msgs/msg/RouteData:
+  autoware_adapi_v1_msgs/msg/RouteData:
+    msg:
       goal: geometry_msgs/msg/Pose
       segments: autoware_adapi_v1_msgs/msg/RouteSegment[]
       start: geometry_msgs/msg/Pose
-    autoware_adapi_v1_msgs/msg/RouteOption:
+  autoware_adapi_v1_msgs/msg/RouteOption:
+    msg:
       allow_goal_modification: bool
-    autoware_adapi_v1_msgs/msg/RoutePrimitive:
+  autoware_adapi_v1_msgs/msg/RoutePrimitive:
+    msg:
       id: int64
       type: string
-    autoware_adapi_v1_msgs/msg/RouteSegment:
+  autoware_adapi_v1_msgs/msg/RouteSegment:
+    msg:
       alternatives: autoware_adapi_v1_msgs/msg/RoutePrimitive[]
       preferred: autoware_adapi_v1_msgs/msg/RoutePrimitive
-    autoware_adapi_v1_msgs/msg/RouteState:
+  autoware_adapi_v1_msgs/msg/RouteState:
+    msg:
       stamp: builtin_interfaces/msg/Time
       state: uint16
-    autoware_adapi_v1_msgs/msg/SteeringFactor:
+  autoware_adapi_v1_msgs/msg/SteeringFactor:
+    msg:
       detail: string
       direction: uint16
       distance: float32[2]
       pose: geometry_msgs/msg/Pose[2]
       status: uint16
       type: uint16
-    autoware_adapi_v1_msgs/msg/SteeringFactorArray:
+  autoware_adapi_v1_msgs/msg/SteeringFactorArray:
+    msg:
       factors: autoware_adapi_v1_msgs/msg/SteeringFactor[]
       header: std_msgs/msg/Header
-    autoware_adapi_v1_msgs/msg/VelocityFactor:
+  autoware_adapi_v1_msgs/msg/VelocityFactor:
+    msg:
       detail: string
       distance: float32
       pose: geometry_msgs/msg/Pose
       status: uint16
       type: uint16
-    autoware_adapi_v1_msgs/msg/VelocityFactorArray:
+  autoware_adapi_v1_msgs/msg/VelocityFactorArray:
+    msg:
       factors: autoware_adapi_v1_msgs/msg/VelocityFactor[]
       header: std_msgs/msg/Header
-  req:
-    autoware_adapi_v1_msgs/srv/InitializeLocalization:
+  autoware_adapi_v1_msgs/srv/AcceptStart:
+    res:
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/ChangeOperationMode:
+    res:
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/ClearRoute:
+    res:
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/InitializeLocalization:
+    req:
       pose: geometry_msgs/msg/PoseWithCovarianceStamped[<=1]
-    autoware_adapi_v1_msgs/srv/SetRoute:
+    res:
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/SetRoute:
+    req:
       goal: geometry_msgs/msg/Pose
       header: std_msgs/msg/Header
       option: autoware_adapi_v1_msgs/msg/RouteOption
       segments: autoware_adapi_v1_msgs/msg/RouteSegment[]
-    autoware_adapi_v1_msgs/srv/SetRoutePoints:
+    res:
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/SetRoutePoints:
+    req:
       goal: geometry_msgs/msg/Pose
       header: std_msgs/msg/Header
       option: autoware_adapi_v1_msgs/msg/RouteOption
       waypoints: geometry_msgs/msg/Pose[]
-  res:
-    autoware_adapi_v1_msgs/srv/AcceptStart:
+    res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
-    autoware_adapi_v1_msgs/srv/ChangeOperationMode:
-      status: autoware_adapi_v1_msgs/msg/ResponseStatus
-    autoware_adapi_v1_msgs/srv/ClearRoute:
-      status: autoware_adapi_v1_msgs/msg/ResponseStatus
-    autoware_adapi_v1_msgs/srv/InitializeLocalization:
-      status: autoware_adapi_v1_msgs/msg/ResponseStatus
-    autoware_adapi_v1_msgs/srv/SetRoute:
-      status: autoware_adapi_v1_msgs/msg/ResponseStatus
-    autoware_adapi_v1_msgs/srv/SetRoutePoints:
-      status: autoware_adapi_v1_msgs/msg/ResponseStatus
-    autoware_adapi_version_msgs/srv/InterfaceVersion:
+  autoware_adapi_version_msgs/srv/InterfaceVersion:
+    res:
       major: uint16
       minor: uint16
       patch: uint16

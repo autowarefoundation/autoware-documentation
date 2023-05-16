@@ -55,7 +55,7 @@ plugins:
         - ^(.*/)?[^.]*$
   - macros:
       include_yaml:
-        - yaml/autoware-rosidl.yaml
+        - autoware_interfaces: yaml/autoware-interfaces.yaml
   - mkdocs-video
   - same-dir
   - search
