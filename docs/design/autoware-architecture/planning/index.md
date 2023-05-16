@@ -44,7 +44,7 @@ Our planning components are built based on the microautonomy architecture with A
 
 ## Component interface
 
-The following describes the input/output concept between Planning Component and other components. See [Planning Component Interface](/docs/design/autoware-interfaces/components/planning.md) for the current implementation.
+The following describes the input/output concept between Planning Component and other components. See [Planning Component Interface (WIP)](/docs/design/autoware-interfaces/components/planning.md) page for the current implementation.
 
 ### Input to the planning component
 
@@ -91,6 +91,10 @@ The following describes the input/output concept between Planning Component and 
 - **Validation to Control Component**
   - Trajectory: Same as above, with safety consideration.
 
+## How to add new modules (WIP)
+
+As mentioned in the goal session, this planning module is designed to be extensible by third-party components. For specific instructions on how to add new modules and expand its functionality, please refer to the [provided documentation or guidelines (WIP)]().
+
 ## Supported Functions
 
 | Feature                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Requirements                                                                | Figure                                                                          |
@@ -135,9 +139,9 @@ The following describes the input/output concept between Planning Component and 
 
 <!-- ![supported-functions](image/planning-functions.drawio.svg) -->
 
-## Implementation
+## Reference Implementation
 
-The implementation of the planning module in the latest version is shown as below.
+The following diagram describes the reference implementation of the Planning component. By adding new modules or extending the functionalities, various ODDs can be supported.
 
 _Note that some implementation does not adhere to the high-level architecture design and require updating._
 
@@ -176,7 +180,7 @@ For more details, please refer to the design documents in each package.
 - [_external_velocity_limit_selector_](https://autowarefoundation.github.io/autoware.universe/main/planning/external_velocity_limit_selector/): takes an appropriate velocity limit from multiple candidates.
 - [_motion_velocity_smoother_](https://autowarefoundation.github.io/autoware.universe/main/planning/motion_velocity_smoother/): calculates final velocity considering velocity, acceleration, and jerk constraints.
 
-## Important Parameters
+### Important Parameters
 
 | Package                      | Parameter                                                     | Type   | Description                                                                                                        |
 | ---------------------------- | ------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
@@ -186,9 +190,9 @@ For more details, please refer to the design documents in each package.
 | `behavior_path_planner`      | `avoidance.avoidance.lateral.lateral_collision_safety_buffer` | double | additional lateral margin to obstacle if possible on avoidance                                                     |
 | `obstacle_avoidance_planner` | `option.enable_outside_drivable_area_stop`                    | bool   | If set true, a stop point will be inserted before the path footprint is outside the drivable area.                 |
 
-## Notation
+### Notation
 
-### [1] self-crossing road and overlapped
+#### [1] self-crossing road and overlapped
 
 To support the self-crossing road and overlapped road in the opposite direction, each planning module has to meet the [specifications](https://autowarefoundation.github.io/autoware.universe/main/common/motion_utils/)
 
@@ -202,6 +206,6 @@ Currently, the supported modules are as follows.
 - obstacle_stop_planner
 - motion_velocity_smoother
 
-### [2] Size of Path Points
+#### [2] Size of Path Points
 
 Some functions do not support paths with only one point. Therefore, each modules should generate the path with more than two path points.
