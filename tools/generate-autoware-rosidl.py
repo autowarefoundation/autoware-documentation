@@ -38,7 +38,7 @@ def parse_rosidl_file(name: str, specs: dict):
 def main():
     adapi = Path("docs/design/autoware-interfaces/ad-api/list/api")
     yamls = (load_markdown_yaml(path) for path in adapi.glob("**/*.md"))
-    names = (yaml["interface"]["type"] for yaml in yamls if yaml)
+    names = (yaml["type"]["name"] for yaml in yamls if yaml)
 
     specs = {"msg": {}, "req": {}, "res": {}}
     for name in names:

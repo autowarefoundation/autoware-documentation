@@ -1,5 +1,8 @@
 rosidl:
   msg:
+    autoware_adapi_v1_msgs/msg/LocalizationInitializationState:
+      stamp: builtin_interfaces/Time
+      state: uint16
     autoware_adapi_v1_msgs/msg/MrmState:
       behavior: uint16
       stamp: builtin_interfaces/Time
@@ -12,6 +15,8 @@ rosidl:
       state: uint16
   req:
     autoware_adapi_v1_msgs/srv/ClearRoute: {}
+    autoware_adapi_v1_msgs/srv/InitializeLocalization:
+      pose: geometry_msgs/PoseWithCovarianceStamped[<=1]
     autoware_adapi_v1_msgs/srv/SetRoute:
       goal: geometry_msgs/Pose
       header: std_msgs/Header
@@ -22,10 +27,17 @@ rosidl:
       header: std_msgs/Header
       option: autoware_adapi_v1_msgs/RouteOption
       waypoints: geometry_msgs/Pose[]
+    autoware_adapi_version_msgs/srv/InterfaceVersion: {}
   res:
     autoware_adapi_v1_msgs/srv/ClearRoute:
+      status: autoware_adapi_v1_msgs/ResponseStatus
+    autoware_adapi_v1_msgs/srv/InitializeLocalization:
       status: autoware_adapi_v1_msgs/ResponseStatus
     autoware_adapi_v1_msgs/srv/SetRoute:
       status: autoware_adapi_v1_msgs/ResponseStatus
     autoware_adapi_v1_msgs/srv/SetRoutePoints:
       status: autoware_adapi_v1_msgs/ResponseStatus
+    autoware_adapi_version_msgs/srv/InterfaceVersion:
+      major: uint16
+      minor: uint16
+      patch: uint16
