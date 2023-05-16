@@ -137,7 +137,7 @@ This should print the `.xml` file on the terminal.
 
 Follow [DDS settings](../../installation/additional-settings-for-developers/index.md#tuning-dds)
 
-Also make sure you have `export CYCLONEDDS_URI=/absoulte_path_to_your/cyclonedds.xml` as a line on your `~/.bashrc` file.
+Also make sure you have `export CYCLONEDDS_URI=/absolute_path_to_your/cyclonedds.xml` as a line on your `~/.bashrc` file.
 
 Here is an example recommended `cyclonedds_config.xml` file:
 
@@ -221,7 +221,7 @@ Either:
 
 - You see topics that shouldn't exist
 - You see point clouds that don't belong to your machine
-  - They might be from another computer running ROS2 on your network
+  - They might be from another computer running ROS 2 on your network
 - Point clouds or markers flicker on RViz2
   - Another publisher (on another machine) may be publishing on the same topic as your node does.
   - Causing the flickering.
