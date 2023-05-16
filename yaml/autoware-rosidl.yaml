@@ -1,6 +1,13 @@
 rosidl:
   msg:
-    autoware_adapi_v1_msgs:
+    autoware_adapi_v1_msgs/msg/MrmState:
+      behavior: uint16
+      stamp: builtin_interfaces/Time
+      state: uint16
+    autoware_adapi_v1_msgs/msg/Route:
+      data: autoware_adapi_v1_msgs/RouteData[<=1]
+      header: std_msgs/Header
+    autoware_adapi_v1_msgs/msg/RouteState:
       stamp: builtin_interfaces/Time
       state: uint16
   req:

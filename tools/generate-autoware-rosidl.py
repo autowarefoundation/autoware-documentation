@@ -27,7 +27,7 @@ def parse_rosidl_file(name: str, specs: dict):
     pkg, ext, msg = name.split("/")
     path = Path(get_package_share_directory(pkg)).joinpath(ext, msg).with_suffix("." + ext)
     if ext == "msg":
-        specs["msg"][pkg] = parse_rosidl_spec(parse_message_file(pkg, path))
+        specs["msg"][name] = parse_rosidl_spec(parse_message_file(pkg, path))
     if ext == "srv":
         service = parse_service_file(pkg, path)
         specs["req"][name] = parse_rosidl_spec(service.request)
