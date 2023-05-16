@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import re
 import yaml
 from pathlib import Path
 
@@ -7,6 +8,10 @@ from rosidl_adapter.parser import MessageSpecification
 from rosidl_adapter.parser import parse_message_file
 from rosidl_adapter.parser import parse_service_file
 from ament_index_python.packages import get_package_share_directory
+
+def camel_to_snake(text: str):
+    text = re.sub("([a-z])([A-Z])", r"\1_\2", text)
+    return text.lower()
 
 
 def load_markdown_metadata(path: Path):
@@ -29,6 +34,7 @@ def strip_array_suffix(name: str):
 def resolve_msg_file_path(name: str):
     pkg, ext, msg = name.split("/")
     return Path(get_package_share_directory(pkg)).joinpath(ext, msg).with_suffix("." + ext)
+
 
 def normalize_msg_name(name: str):
     parts = str(name).split("/")
@@ -87,20 +93,29 @@ def main():
     data = {"types": specs}
     Path("yaml/autoware-interfaces.yaml").write_text(yaml.safe_dump(data))
 
-    return
-
     # Create pages of data types
-    type_uses = {name: set() for name in visited if is_documentation_msg(name)}
-    type_used = {name: set() for name in visited if is_documentation_msg(name)}
-    for key in ("msg", "req", "res"):
-        for name, fields in specs[key].items():
-            for field in fields.values():
-                field = strip_array_suffix(field)
-                if is_documentation_msg(field):
-                    type_uses[name].add(field)
-                    type_used[field].add(name)
-    for name in visited:
-        if is_documentation_msg(name):
-            generate_type_page(name, type_uses[name], type_used[name])
+    type_uses = {name: set() for name in specs}
+    type_used = {name: set() for name in specs}
+    for user, spec in specs.items():
+        for field in spec.values():
+            for name in field.values():
+                name = strip_array_suffix(name)
+                if is_documentation_msg(name):
+                    type_uses[user].add(name)
+                    type_used[name].add(user)
+
+    base = Path("docs/design/autoware-interfaces/ad-api/types")
+    for name in specs:
+        uses = list(sorted(type_uses[name]))
+        used = list(sorted(type_used[name]))
+        data = {"uses": uses, "used": used}
+        data = {k: v for k, v in data.items() if v}
+        text = "---\n"
+        text += f"title: {name}\n"
+        text += yaml.safe_dump(data)
+        text += "---\n"
+        text += "aaa"
+        path = base.joinpath(camel_to_snake(name)).with_suffix(".md")
+        path.write_text(text)
 
 main()
