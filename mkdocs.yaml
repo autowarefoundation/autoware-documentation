@@ -1,9 +1,9 @@
 site_name: Autoware Documentation
-site_url: https://autowarefoundation.github.io/autoware-documentation
-repo_url: https://github.com/autowarefoundation/autoware
-edit_uri: https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/
+site_url: https://tier4.github.io/autoware-documentation
+repo_url: https://github.com/tier4/autoware-documentation
+edit_uri: https://github.com/tier4/autoware-documentation/edit/tier4/main/docs/
 docs_dir: docs
-copyright: Copyright &copy; 2023 The Autoware Foundation
+copyright: Copyright &copy; 2023 TIER IV, Inc.
 
 theme:
   name: material

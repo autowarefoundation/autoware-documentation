@@ -13,3 +13,6 @@
 .history/
 *.code-workspace
 *.vsix
+
+# Python
+*.pyc
