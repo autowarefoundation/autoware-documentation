@@ -15,6 +15,8 @@ def define_env(env):
         return f"[{name}]({base_path}{name})"
 
     @env.macro
-    def link_ros_msg(data, name, ext):
-        field = env.variables["rosidl"][ext][data][name]
-        return field
+    def link_ros_msg(type, name, ext):
+        for field in name.split("."):
+            type = type.split("[")[0]
+            type = env.variables["rosidl"][ext][type][field]
+        return type
