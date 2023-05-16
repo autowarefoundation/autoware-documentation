@@ -102,7 +102,9 @@ def main():
         text += "---\n\n"
         text += "{% extends 'design/autoware-interfaces/templates/autoware-data-type.jinja2' %}\n"
         text += "{% block definition %}\n"
+        text += "\n```txt\n"
         text += resolve_msg_file_path(name).read_text().strip() + "\n"
+        text += "```\n\n"
         text += "{% endblock %}\n"
         path = base.joinpath(name).with_suffix(".md")
         path.parent.mkdir(parents=True, exist_ok=True)
