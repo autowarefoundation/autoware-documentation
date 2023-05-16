@@ -38,6 +38,9 @@ The Planning component consists of the following sub-components:
   - **Parking**: Calculates the trajectory for parking in unconstructed areas.
 - **Validation**: Verifies the safety of the trajectory.
 
+Each component contains some modules that can be dynamically loaded and unloaded based on the situation. For instance, the Behavior Planning component includes modules such as lane change, intersection, and crosswalk modules.
+
+Our planning components are built based on the microautonomy architecture with Autoware. We adopt a modular system framework where the tasks are implemented as modules that can be dynamically loaded and unloaded to achieve different features depending on the given use cases.
 ## Component interface
 
 The following describes the input/output concept between Planning Component and other components. See [Planning Component Interface](/docs/design/autoware-interfaces/components/planning.md) for the current implementation.
@@ -74,6 +77,18 @@ The following describes the input/output concept between Planning Component and 
   - Trajectory candidate: Shows the potential trajectory that will be executed after the user's execution.
 - **To API Layer**
   - Planning factors: Provides information about the reasoning behind the current planning behavior. This may include the position of target objects to avoid, obstacles that led to the decision to stop, and other relevant information.
+
+### Internal interface in the planning component
+
+- **Mission Planning to Scenario Planning**
+  - Route: Offers guidance for the path that needs to be followed from the starting point to the destination. This path is determined based on information such as lane IDs defined on the map. At the route level, it doesn't explicitly indicate which specific lanes to take, and the route can contain multiple lanes.
+- **Behavior Planning to Motion Planning**
+  - Path: Provides a rough position and velocity to be followed by the vehicle. These path points are defined with an approximate interval of about 1 meter, although it's not strictly limited to that. 
+  - Drivable area: Defines regions where the vehicle can drive, such as within lanes or physically drivable areas. It assumes that the motion planner will calculate the final trajectory within this defined area.
+- **Scenario Planning to Validation**
+  - Trajectory: Defines the desired position, velocity, and acceleration which the Control Component calculates the control command to follow. Trajectory points are defined at intervals of approximately 0.1 seconds, considering the vehicle's speed.
+- **Validation to Control Component**
+  - Trajectory: Same as above, with safety consideration.
 
 ## Supported Functions
 
@@ -121,7 +136,9 @@ The following describes the input/output concept between Planning Component and 
 
 ## Implementation
 
-The implementation of the planning module in the latest version is shown as below.
+The implementation of the planning module in the latest version is shown as below. 
+
+*Note that some implementation does not adhere to the high-level architecture design and require updating.*
 
 ![reference-implementation](image/planning-diagram.drawio.svg)
 
