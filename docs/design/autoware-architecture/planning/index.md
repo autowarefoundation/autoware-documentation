@@ -89,7 +89,7 @@ The following describes the input/output concept between Planning Component and 
 - **Scenario Planning to Validation**
   - Trajectory: Defines the desired positions, velocities, and accelerations which the Control Component will try to follow. Trajectory points are defined at intervals of approximately 0.1 seconds based on the trajectory velocities.
 - **Validation to Control Component**
-  - Trajectory: Same as above, with safety consideration.
+  - Trajectory: Same as above but with some additional safety considerations.
 
 ## How to add new modules (WIP)
 
