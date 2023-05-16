@@ -1,5 +1,21 @@
 #!/usr/bin/env python3
 
+# Copyright 2023 The Autoware Contributors
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#         http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# This script requires "source install/setup.bash" for dependent messages/services.
+
 import yaml
 from pathlib import Path
 
@@ -79,7 +95,7 @@ def main():
     data = {"types": specs}
     Path("yaml/autoware-interfaces.yaml").write_text(yaml.safe_dump(data))
 
-    # Create pages of data types
+    # Create data type dependencies.
     type_uses = {name: set() for name in specs}
     type_used = {name: set() for name in specs}
     for user, spec in specs.items():
@@ -90,6 +106,7 @@ def main():
                     type_uses[user].add(name)
                     type_used[name].add(user)
 
+    # Generate data type pages.
     base = Path("docs/design/autoware-interfaces/ad-api/types")
     for name in specs:
         uses = list(sorted(type_uses[name]))
