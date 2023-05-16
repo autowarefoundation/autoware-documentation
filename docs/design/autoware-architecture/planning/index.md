@@ -35,7 +35,7 @@ The Planning component consists of the following sub-components:
   - **Lane Driving**: Calculates the trajectory for driving within constructed lanes.
     - **Behavior Planner**: Calculates suitable trajectory based on safety considerations and traffic rules.
     - **Motion Planner**: Calculates suitable trajectory for the vehicle by taking into account safety factors, vehicle motion considerations, and instructions from the behavior planner.
-  - **Parking**: Calculates the trajectory for parking in unconstructed areas.
+  - **Parking**: Calculates the trajectory for parking in unstructured areas.
 - **Validation**: Verifies the safety of the trajectory.
 
 Each component contains some modules that can be dynamically loaded and unloaded based on the situation. For instance, the Behavior Planning component includes modules such as lane change, intersection, and crosswalk modules.
