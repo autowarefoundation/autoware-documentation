@@ -135,32 +135,9 @@ This should print the `.xml` file on the terminal.
 
 ##### Solution
 
-Follow [DDS settings](../../installation/additional-settings-for-developers/index.md#tuning-dds)
-
-Also make sure you have `export CYCLONEDDS_URI=/absolute_path_to_your/cyclonedds.xml` as a line on your `~/.bashrc` file.
-
-Here is an example recommended `cyclonedds_config.xml` file:
-
-```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<CycloneDDS xmlns="https://cdds.io/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd">
-    <Domain Id="any">
-        <General>
-            <Interfaces>
-                <NetworkInterface autodetermine="true" priority="default" multicast="default" />
-            </Interfaces>
-            <AllowMulticast>default</AllowMulticast>
-            <MaxMessageSize>65500B</MaxMessageSize>
-        </General>
-        <Internal>
-            <SocketReceiveBufferSize min="10MB"/>
-            <Watermarks>
-                <WhcHigh>500kB</WhcHigh>
-            </Watermarks>
-        </Internal>
-    </Domain>
-</CycloneDDS>
-```
+Follow [DDS settings:Tuning DDS documentation](../../installation/additional-settings-for-developers/index.md#tuning-dds) and make sure:
+- you have `export CYCLONEDDS_URI=/absolute_path_to_your/cyclonedds_config.xml` as a line on your `~/.bashrc` file.
+- you have the `cyclonedds_config.xml` with the configuration provided in the documentation.
 
 #### Check the Linux kernel maximum buffer size
 
