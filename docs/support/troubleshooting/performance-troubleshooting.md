@@ -136,6 +136,7 @@ This should print the `.xml` file on the terminal.
 ##### Solution
 
 Follow [DDS settings:Tuning DDS documentation](../../installation/additional-settings-for-developers/index.md#tuning-dds) and make sure:
+
 - you have `export CYCLONEDDS_URI=/absolute_path_to_your/cyclonedds_config.xml` as a line on your `~/.bashrc` file.
 - you have the `cyclonedds_config.xml` with the configuration provided in the documentation.
 
