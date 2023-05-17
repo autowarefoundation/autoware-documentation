@@ -95,15 +95,27 @@ Unless customized, CycloneDDS is adopted by default. For example, to execute Aut
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<CycloneDDS xmlns="https://cdds.io/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://cdds.io/config
-https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd">
-    <Domain id="any">
+<CycloneDDS xmlns="https://cdds.io/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd">
+<Domain Id="any">
+        <General>
+            <Interfaces>
+                <NetworkInterface autodetermine="true" priority="default" multicast="default" />
+            </Interfaces>
+            <AllowMulticast>default</AllowMulticast>
+            <MaxMessageSize>65500B</MaxMessageSize>
+        </General>
         <Internal>
             <SocketReceiveBufferSize min="10MB"/>
+            <Watermarks>
+                <WhcHigh>500kB</WhcHigh>
+            </Watermarks>
         </Internal>
     </Domain>
 </CycloneDDS>
 ```
+
+This configuration is mostly taken from [Eclipse Cyclone DDS:Run-time configuration documentation](https://github.com/eclipse-cyclonedds/cyclonedds/tree/a10ced3c81cc009e7176912190f710331a4d6caf#run-time-configuration).
+You can see why each value is set as such under the documentation link.
 
 Set the config file path and enlarge the Linux kernel maximum buffer size before launching Autoware.
 
@@ -119,6 +131,6 @@ For more information, Refer to [ROS 2 documentation](https://docs.ros.org/en/hum
 When Autoware runs on multiple host computers, IP Fragmentation should be taken into account. As [ROS 2 documentation](https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html#cross-vendor-tuning) recommends, parameters for IP Fragmentation should be set as shown in the following example.
 
 ```bash
-sudo sysctl net.ipv4.ipfrag_time=3
-sudo sysctl net.ipv4.ipfrag_high_thresh=134217728     # (128 MB)
+sudo sysctl -w net.ipv4.ipfrag_time=3
+sudo sysctl -w net.ipv4.ipfrag_high_thresh=134217728     # (128 MB)
 ```
