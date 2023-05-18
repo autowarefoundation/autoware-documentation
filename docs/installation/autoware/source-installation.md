@@ -37,7 +37,7 @@ sudo apt-get -y install git
    ./setup-dev-env.sh
    ```
 
-   If you encounter any build issues, please consult the [Troubleshooting](../../support/troubleshooting.md#build-issues) section for assistance.
+   If you encounter any build issues, please consult the [Troubleshooting](../../support/troubleshooting/index.md#build-issues) section for assistance.
 
 !!! info
 
