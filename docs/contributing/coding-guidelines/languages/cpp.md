@@ -9,11 +9,11 @@
 Follow the guidelines below if a rule is not defined on this page.
 
 1. <https://docs.ros.org/en/humble/Contributing/Code-Style-Language-Versions.html>
-2. <https://www.autosar.org/fileadmin/user_upload/standards/adaptive/21-11/AUTOSAR_RS_CPP14Guidelines.pdf>
+2. <https://www.autosar.org/fileadmin/standards/adaptive/22-11/AUTOSAR_RS_CPP14Guidelines.pdf>
 3. <https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines>
 
 Also, it is encouraged to apply Clang-Tidy to each file.
-For the usage, see [Applying Clang-Tidy to ROS packages](../../../how-to-guides/applying-clang-tidy-to-ros-packages.md).
+For the usage, see [Applying Clang-Tidy to ROS packages](../../../how-to-guides/others/applying-clang-tidy-to-ros-packages.md).
 
 Note that not all rules are covered by Clang-Tidy.
 

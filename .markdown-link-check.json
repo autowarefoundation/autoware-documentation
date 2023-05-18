@@ -2,6 +2,9 @@
   "aliveStatusCodes": [200, 206, 403],
   "ignorePatterns": [
     {
+      "pattern": "^https://www\\.autosar\\.org/*"
+    },
+    {
       "pattern": "^http://localhost"
     },
     {

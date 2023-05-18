@@ -31,35 +31,35 @@ sudo apt-get -y install git
    cd autoware
    ```
 
-2. You can install the dependencies either manually or using the provided Ansible script.
+2. If you are installing Autoware for the first time, you can automatically install the dependencies by using the provided Ansible script.
 
-> Note: Before installing NVIDIA libraries, confirm and agree with the licenses.
+   ```bash
+   ./setup-dev-env.sh
+   ```
 
-- [CUDA](https://docs.nvidia.com/cuda/eula/index.html)
-- [cuDNN](https://docs.nvidia.com/deeplearning/cudnn/sla/index.html)
-- [TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/sla/index.html)
+   If you encounter any build issues, please consult the [Troubleshooting](../../support/troubleshooting.md#build-issues) section for assistance.
 
-### Installing dependencies manually
+!!! info
 
-- [Install ROS 2](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2#manual-installation)
-- [Install ROS 2 Dev Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2_dev_tools#manual-installation)
-- [Install the RMW Implementation](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rmw_implementation#manual-installation)
-- [Install pacmod](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/pacmod#manual-installation)
-- [Install Autoware Core dependencies](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/autoware_core#manual-installation)
-- [Install Autoware Universe dependencies](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/autoware_universe#manual-installation)
-- [Install pre-commit dependencies](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/pre_commit#manual-installation)
-- [Install Nvidia CUDA](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/cuda#manual-installation)
-- [Install Nvidia cuDNN and TensorRT](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/tensorrt#manual-installation)
+    Before installing NVIDIA libraries, please ensure that you have reviewed and agreed to the licenses.
 
-### Installing dependencies using Ansible
+    - [CUDA](https://docs.nvidia.com/cuda/eula/index.html)
+    - [cuDNN](https://docs.nvidia.com/deeplearning/cudnn/sla/index.html)
+    - [TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/sla/index.html)
 
-Be very careful with this method. Make sure you read and confirmed all the steps in the Ansible configuration before using it.
+!!! note
 
-If you've manually installed the dependencies, you can skip this section.
+    The following items will be automatically installed. If the ansible script doesn't work or if you already have different versions of dependent libraries installed, please install the following items manually.
 
-```bash
-./setup-dev-env.sh
-```
+    - [Install ROS 2](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2#manual-installation)
+    - [Install ROS 2 Dev Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2_dev_tools#manual-installation)
+    - [Install the RMW Implementation](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rmw_implementation#manual-installation)
+    - [Install pacmod](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/pacmod#manual-installation)
+    - [Install Autoware Core dependencies](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/autoware_core#manual-installation)
+    - [Install Autoware Universe dependencies](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/autoware_universe#manual-installation)
+    - [Install pre-commit dependencies](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/pre_commit#manual-installation)
+    - [Install Nvidia CUDA](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/cuda#manual-installation)
+    - [Install Nvidia cuDNN and TensorRT](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/tensorrt#manual-installation)
 
 ## How to set up a workspace
 
@@ -93,7 +93,7 @@ If you've manually installed the dependencies, you can skip this section.
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
 
-   If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting.md#build-issues).
+   If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting/index.md#build-issues).
 
 ## How to update a workspace
 
