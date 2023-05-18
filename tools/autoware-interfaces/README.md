@@ -8,9 +8,10 @@ If you would like to update these documents, please follow the steps below.
 Create a workspace anywhere and source the dependent message packages.
 
 ```bash
-mkdir workspace
-cd workspace
+mkdir -p workspace/src
+cd workspace/src
 git clone https://github.com/autowarefoundation/autoware_adapi_msgs.git
+cd ..
 colcon build
 source install/setup.bash
 ```
