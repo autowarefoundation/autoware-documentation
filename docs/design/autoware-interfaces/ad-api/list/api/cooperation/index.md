@@ -1,8 +1,8 @@
 # Cooperation API
 
-- {{ link_ad_api('/api/cooperation/status') }}
-- {{ link_ad_api('/api/cooperation/set_decisions') }}
-- {{ link_ad_api('/api/cooperation/set_defaults') }}
+- {{ link_ad_api('/api/planning/cooperation/set_decisions') }}
+- {{ link_ad_api('/api/planning/cooperation/set_defaults') }}
+- {{ link_ad_api('/api/planning/cooperation/get_defaults') }}
 
 ## Description
 
@@ -17,9 +17,9 @@ Also, the operator can choose the default behavior when undecided.
 
 ## Decision states
 
-There are three decision states, one behavior state, and a final decision event.
+There are three decision state.
 
-![cooperation-state](./docs/state.drawio.svg)
+![state](./docs/state.drawio.svg)
 
 ## Decision events
 
