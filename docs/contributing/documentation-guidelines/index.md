@@ -8,7 +8,7 @@ Examples of small changes include:
 
 - Fixing spelling or grammatical mistakes
 - Fixing broken links
-- Making an addition to an existing, well-defined page, such as the [Troubleshooting](../../support/troubleshooting.md) guide.
+- Making an addition to an existing, well-defined page, such as the [Troubleshooting](../../support/troubleshooting/index.md) guide.
 
 Examples of larger changes include:
 
