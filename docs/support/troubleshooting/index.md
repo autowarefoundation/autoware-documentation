@@ -112,7 +112,7 @@ rm -rf build/ install/ log/
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
 
-If the error is not resolved, remove `src/` and update your workspace according to installation type ([Docker](../installation/autoware/docker-installation.md#how-to-update-a-workspace) / [source](../installation/autoware/source-installation.md#how-to-update-a-workspace)).
+If the error is not resolved, remove `src/` and update your workspace according to installation type ([Docker](../../installation/autoware/docker-installation.md#how-to-update-a-workspace) / [source](../../installation/autoware/source-installation.md#how-to-update-a-workspace)).
 
 !!! Warning
 
@@ -177,48 +177,21 @@ docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:latest
 
 ## Runtime issues
 
+### Performance related issues
+
+Symptoms:
+
+- Autoware is running slower than expected
+- Messages show up late in RViz2
+- Point clouds are lagging
+- Camera images are lagging behind
+- Point clouds or markers flicker on RViz2
+- When multiple subscribers use the same publishers, the message rate drops
+
+If you have any of these symptoms, please the [Performance Troubleshooting](performance-troubleshooting.md) page.
+
 ### Map does not display when running the Planning Simulator
 
-When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because [the map path has not been specified correctly in the launch command](../tutorials/ad-hoc-simulation/planning-simulation.md#how-to-run-a-planning-simulation). You can confirm if this is the case by searching for `Could not find lanelet map under {path-to-map-dir}/lanelet2_map.osm` errors in the log.
+When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because [the map path has not been specified correctly in the launch command](../../tutorials/ad-hoc-simulation/planning-simulation.md#how-to-run-a-planning-simulation). You can confirm if this is the case by searching for `Could not find lanelet map under {path-to-map-dir}/lanelet2_map.osm` errors in the log.
 
-Another possible reason is that map loading is taking a long time due to poor DDS performance. To address this issue, first enable localhost-only communication to reduce network traffic, and then [tune DDS settings](https://docs.ros.org/en/rolling/How-To-Guides/DDS-tuning.html) if the problem continues to occur.
-
-Simply put, add the following settings to `.bashrc` and reboot the terminal. In many cases this is not a problem.
-
-```bash
-export ROS_LOCALHOST_ONLY=1
-if [ ! -e /tmp/cycloneDDS_configured ]; then
-  sudo sysctl -w net.core.rmem_max=2147483647
-  sudo ip link set lo multicast on
-  touch /tmp/cycloneDDS_configured
-fi
-```
-
-!!! note
-
-    DDS configuration can be determined by running the following command.
-
-    ```bash
-    echo $RMW_IMPLEMENTATION  // if Cyclone DDS is configured, this command will return "rmw_cyclonedds_cpp"
-    ```
-
-If that does not work or you need more information, read the following documents.
-
-1. [Enable localhost-only communication](../installation/additional-settings-for-developers/index.md#enabling-localhost-only-communication)
-2. [DDS settings](../installation/additional-settings-for-developers/index.md#tuning-dds)
-
-### Multicast is disabled
-
-If you get the error message `selected interface "{your-interface-name}" is not multicast-capable: disabling multicast`, run the following command to allow multicast.
-
-```bash
-sudo ip link set multicast on {your-interface-name}
-```
-
-### Node performance degradation
-
-If you notice a decrease in the running performance of a node, such as [issue2597](https://github.com/autowarefoundation/autoware.universe/issues/2597#issuecomment-1491789081), you need to check if your compilation instructions use `Release` or `RelWithDebInfo` tags. If not, recompile the project using the following instructions:
-
-```bash
-colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
-```
+Another possible reason is that map loading is taking a long time due to poor DDS performance. For this, please visit the [Performance Troubleshooting](performance-troubleshooting.md) page.
