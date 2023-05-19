@@ -35,12 +35,16 @@ The Planning component consists of the following sub-components:
   - **Lane Driving**: Calculates the trajectory for driving within constructed lanes.
     - **Behavior Planner**: Calculates suitable trajectory based on safety considerations and traffic rules.
     - **Motion Planner**: Calculates suitable trajectory for the vehicle by taking into account safety factors, vehicle motion considerations, and instructions from the behavior planner.
-  - **Parking**: Calculates the trajectory for parking in unconstructed areas.
+  - **Parking**: Calculates the trajectory for parking in unstructured areas.
 - **Validation**: Verifies the safety of the trajectory.
+
+Each component contains some modules that can be dynamically loaded and unloaded based on the situation. For instance, the Behavior Planning component includes modules such as lane change, intersection, and crosswalk modules.
+
+Our planning components are built based on the microautonomy architecture with Autoware. We adopt a modular system framework where the tasks are implemented as modules that can be dynamically loaded and unloaded to achieve different features depending on the given use cases.
 
 ## Component interface
 
-The following describes the input/output concept between Planning Component and other components. See [Planning Component Interface](/docs/design/autoware-interfaces/components/planning.md) for the current implementation.
+The following describes the input/output concept between Planning Component and other components. See the [Planning Component Interface (WIP)](../../autoware-interfaces/components/planning.md) page for the current implementation.
 
 ### Input to the planning component
 
@@ -74,6 +78,22 @@ The following describes the input/output concept between Planning Component and 
   - Trajectory candidate: Shows the potential trajectory that will be executed after the user's execution.
 - **To API Layer**
   - Planning factors: Provides information about the reasoning behind the current planning behavior. This may include the position of target objects to avoid, obstacles that led to the decision to stop, and other relevant information.
+
+### Internal interface in the planning component
+
+- **Mission Planning to Scenario Planning**
+  - Route: Offers guidance for the path that needs to be followed from the starting point to the destination. This path is determined based on information such as lane IDs defined on the map. At the route level, it doesn't explicitly indicate which specific lanes to take, and the route can contain multiple lanes.
+- **Behavior Planning to Motion Planning**
+  - Path: Provides a rough position and velocity to be followed by the vehicle. These path points are usually defined with an interval of about 1 meter. Although other interval distances are possible, it may impact the precision or performance of the planning component.
+  - Drivable area: Defines regions where the vehicle can drive, such as within lanes or physically drivable areas. It assumes that the motion planner will calculate the final trajectory within this defined area.
+- **Scenario Planning to Validation**
+  - Trajectory: Defines the desired positions, velocities, and accelerations which the Control Component will try to follow. Trajectory points are defined at intervals of approximately 0.1 seconds based on the trajectory velocities.
+- **Validation to Control Component**
+  - Trajectory: Same as above but with some additional safety considerations.
+
+## How to add new modules (WIP)
+
+As mentioned in the goal session, this planning module is designed to be extensible by third-party components. For specific instructions on how to add new modules and expand its functionality, please refer to the provided documentation or guidelines (WIP).
 
 ## Supported Functions
 
@@ -119,9 +139,11 @@ The following describes the input/output concept between Planning Component and 
 
 <!-- ![supported-functions](image/planning-functions.drawio.svg) -->
 
-## Implementation
+## Reference Implementation
 
-The implementation of the planning module in the latest version is shown as below.
+The following diagram describes the reference implementation of the Planning component. By adding new modules or extending the functionalities, various ODDs can be supported.
+
+_Note that some implementation does not adhere to the high-level architecture design and require updating._
 
 ![reference-implementation](image/planning-diagram.drawio.svg)
 
@@ -158,7 +180,7 @@ For more details, please refer to the design documents in each package.
 - [_external_velocity_limit_selector_](https://autowarefoundation.github.io/autoware.universe/main/planning/external_velocity_limit_selector/): takes an appropriate velocity limit from multiple candidates.
 - [_motion_velocity_smoother_](https://autowarefoundation.github.io/autoware.universe/main/planning/motion_velocity_smoother/): calculates final velocity considering velocity, acceleration, and jerk constraints.
 
-## Important Parameters
+### Important Parameters
 
 | Package                      | Parameter                                                     | Type   | Description                                                                                                        |
 | ---------------------------- | ------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
@@ -168,9 +190,9 @@ For more details, please refer to the design documents in each package.
 | `behavior_path_planner`      | `avoidance.avoidance.lateral.lateral_collision_safety_buffer` | double | additional lateral margin to obstacle if possible on avoidance                                                     |
 | `obstacle_avoidance_planner` | `option.enable_outside_drivable_area_stop`                    | bool   | If set true, a stop point will be inserted before the path footprint is outside the drivable area.                 |
 
-## Notation
+### Notation
 
-### [1] self-crossing road and overlapped
+#### [1] self-crossing road and overlapped
 
 To support the self-crossing road and overlapped road in the opposite direction, each planning module has to meet the [specifications](https://autowarefoundation.github.io/autoware.universe/main/common/motion_utils/)
 
@@ -184,6 +206,6 @@ Currently, the supported modules are as follows.
 - obstacle_stop_planner
 - motion_velocity_smoother
 
-### [2] Size of Path Points
+#### [2] Size of Path Points
 
 Some functions do not support paths with only one point. Therefore, each modules should generate the path with more than two path points.
