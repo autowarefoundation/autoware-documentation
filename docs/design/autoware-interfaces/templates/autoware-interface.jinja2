@@ -1,0 +1,46 @@
+# {{ title }}
+
+- Method: {{ method }}
+- Type: {{ create_relative_link(type.name, 'design/autoware-interfaces/ad-api/types/' + type.name) }}
+
+## Description
+
+{%- block description %}
+{%- endblock %}
+
+{%- if method != 'function call' %}
+## Message
+{%- if type.msg %}
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+{%- for field in type.msg %}
+| {{ field.name }} | {{ resolve_msg_field(type.name, field.name, 'msg') }} | {{ field.text }} |
+{%- endfor %}
+{%- else %}
+None
+{%- endif %}
+{%- endif %}
+
+{%- if method == 'function call' %}
+## Request
+{%- if type.req %}
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+{%- for field in type.req %}
+| {{ field.name }} | {{ resolve_msg_field(type.name, field.name, 'req') }} | {{ field.text }} |
+{%- endfor %}
+{%- else %}
+None
+{%- endif %}
+
+## Response
+{%- if type.res %}
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+{%- for field in type.res %}
+| {{ field.name }} | {{ resolve_msg_field(type.name, field.name, 'res') }} | {{ field.text }} |
+{%- endfor %}
+{%- else %}
+None
+{%- endif %}
+{%- endif %}
