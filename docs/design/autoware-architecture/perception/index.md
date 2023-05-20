@@ -10,6 +10,8 @@ Perception はsensingとlocalization, mapの入力を受け取り，semanticな�
 
 ## Requirements
 
+The goal of the Perception component is センサ情報から正確に物体認識と信号認識、死角認識をすること
+
 **Goals:**
 
 - 物体や信号を正しく認識できる。距離の制約あり。
