@@ -87,4 +87,8 @@ For more details, please refer to the design documents in each package.
 
 ### Important Parameters
 
+| Package   | Parameter   | Type | Description |
+| --------- | ----------- | ---- | ----------- |
+| `package` | `parameter` | type | description |
+
 ### Notation
