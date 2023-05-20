@@ -98,8 +98,10 @@ For more details, please refer to the design documents in each package.
 
 ### Important Parameters
 
-| Package   | Parameter   | Type | Description |
-| --------- | ----------- | ---- | ----------- |
-| `package` | `parameter` | type | description |
+| Package           | Parameter               | Type   | Description                                                                                                                                                                                                                                            |
+| ----------------- | ----------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| perception launch | `mode`                  | string | detectionのmode. options: `camera_lidar_radar_fusion`, `camera_lidar_fusion`, `lidar_radar_fusion`, `lidar` or `radar` <https://github.com/autowarefoundation/autoware.universe/blob/main/launch/tier4_perception_launch/launch/perception.launch.xml> |
+| perception launch | `lidar_detection_model` | string | lidar detection modelのmodel. options: `centerpoint`, `apollo`, `pointpainting`, `clustering`                                                                                                                                                          |
+| `object_merger`   | `priority_mode`         | int    | detetorをmergeする際の、detector同士の優先順位を決める `0: Object0, 1: Object1, 2: Confidence`                                                                                                                                                         |
 
 ### Notation
