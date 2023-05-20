@@ -12,7 +12,7 @@ Perception はsensingとlocalization, mapの入力を受け取り，semanticな�
 
 **Goals:**
 
-- 物体や信号を正しく認識できる。距離の制約はどうする？
+- 物体や信号を正しく認識できる。距離の制約あり。
 - 多種多様なセンサや環境に適応可能な認識アルゴリズム
 - The capability is extensible with the third-party components.
 
