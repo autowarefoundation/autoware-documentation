@@ -18,7 +18,7 @@ Perception はsensingとlocalization, mapの入力を受け取り，semanticな�
 
 This diagram describes the high-level architecture of the Perception Component.
 
-![overall-perception-architecture](image/high-level-perceptipn-diagram.drawio.svg)
+![overall-perception-architecture](image/high-level-perception-diagram.drawio.svg)
 
 The Perception component consists of the following sub-components:
 
@@ -70,7 +70,7 @@ The following diagram describes the reference implementation of the Perception c
 
 _Note that some implementation does not adhere to the high-level architecture design and require updating._
 
-![reference-implementation](image/high-level-perception-diagram.drawio.svg)
+![reference-implementation](image/perception-diagram.png)
 
 For more details, please refer to the design documents in each package.
 
