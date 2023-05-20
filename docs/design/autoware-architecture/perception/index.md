@@ -12,7 +12,16 @@ Perception はsensingとlocalization, mapの入力を受け取り，semanticな�
 
 **Goals:**
 
+- 物体や信号を正しく認識できる。距離の制約はどうする？
+- 多種多様なセンサや環境に適応可能な認識アルゴリズム
+- The capability is extensible with the third-party components.
+
 **Non-goals:**
+
+- The Perception component is not self-contained but can be extended with third parties.
+- The Perception component is not aimed at the complete functionality and capability.
+- The Perception component is not designed to always outperform human drivers.
+- The Perception component is not capable of “見落としが絶対にない” or "認識ミスがない".
 
 ## High-level architecture
 
@@ -61,6 +70,8 @@ The following describes the input/output concept between Perception Component an
 - **Obstacle Segmentation to Occupancy Grid Map**
 
 ## How to add new modules (WIP)
+
+As mentioned in the goal session, this perception module is designed to be extensible by third-party components. For specific instructions on how to add new modules and expand its functionality, please refer to the provided documentation or guidelines (WIP).
 
 ## Supported Functions
 
