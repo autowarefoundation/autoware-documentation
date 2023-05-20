@@ -70,7 +70,7 @@ The following diagram describes the reference implementation of the Perception c
 
 _Note that some implementation does not adhere to the high-level architecture design and require updating._
 
-![reference-implementation](image/perception-diagram.png)
+![reference-implementation](image/high-level-perception-diagram.drawio.svg)
 
 For more details, please refer to the design documents in each package.
 
