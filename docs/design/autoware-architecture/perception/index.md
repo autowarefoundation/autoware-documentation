@@ -54,7 +54,11 @@ The following describes the input/output concept between Perception Component an
 ### Input to the perception component
 
 - **From Sensing**
+  - Camera: 信号認識と2d detectionに使用
+  - Point Cloud: 物体認識に使用
+  - Radar: 物体認識に使用
 - **From Localization**
+  - Vehicle motion information: Includes the ego vehicle's position.
 - **From Map**
   - Vector map: lanelet filterに使用
   - Point Cloud Map: compare map filterに使用
@@ -62,12 +66,17 @@ The following describes the input/output concept between Perception Component an
 ### Output from the perception component
 
 - **To Planning**
+  - 動物体:
+  - Obstacle Segmentation:
+  - Occupancy Grid Map:
+  - 信号認識:
 
 ### Internal interface in the perception component
 
 - **Obstacle Segmentation to Object Recognition**
-
+  - Obstacle Segmentationの結果をfilterにかけて、LiDAR rule-based 3D detectorに使用する。
 - **Obstacle Segmentation to Occupancy Grid Map**
+  - Obstacle Segmentationの結果を使ってOccupancy Grid Mapを作成する
 
 ## How to add new modules (WIP)
 
