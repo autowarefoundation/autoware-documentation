@@ -34,7 +34,7 @@ This diagram describes the high-level architecture of the Perception Component.
 
 The Perception component consists of the following sub-components:
 
-- **Object Recognition**:車や歩行者などの動物体の認識を行います。このモジュールはさらに、Detection、 Tracking、Predictionの3つの機能に分割されています。
+- **Object Recognition**: Detects the Pose and Velocity of Dynamic Objects such as vehicles and pedestrians, associates detected results across multiple frames, and predicts their trajectories.
   - **Detection**
     - 物体を認識
       - **Detector**
