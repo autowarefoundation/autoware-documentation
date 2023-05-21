@@ -34,7 +34,7 @@ This diagram describes the high-level architecture of the Perception Component.
 
 The Perception component consists of the following sub-components:
 
-- **Object Recognition**: Detects the Pose and Velocity of Dynamic Objects such as vehicles and pedestrians, associates detected results across multiple frames, and predicts their trajectories.
+- **Object Recognition**: Recognizes dynamic objects surrounding the ego vehicle in the current frame and predicts their future trajectories.
   - **Detection**: Detects the pose and velocity of dynamic objects such as vehicles and pedestrians.
       - **Detector**: Triggers object detection processing frame by frame.
       - **Interpolator**: Maintains stable object detection. Even if the output from Detector suddenly becomes unavailable, Interpolator uses the output from the Tracking module to maintain the detection results without missing any objects.
