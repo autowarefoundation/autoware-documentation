@@ -10,7 +10,7 @@ The Perception Component receives inputs from Sensing, Localization, and Map com
 
 ## Requirements
 
-The goal of the Perception component is to accurately perform object recognition, signal recognition, and blind-spot detection from sensor information.
+The goal of the Perception component is to accurately perform Object Recognition, Traffic Light Recognition, and Blind-spot Detection from sensor information.
 
 **Goals:**
 
