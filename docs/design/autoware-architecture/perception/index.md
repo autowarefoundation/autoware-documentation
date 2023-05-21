@@ -49,13 +49,13 @@ The following describes the input/output concept between Perception Component an
 ### Input to the perception component
 
 - **From Sensing**
-  - Camera: 信号認識と2d detectionに使用
+  - Camera: Image data obtained from the camera. The Perception component utilizes it for signal recognition and 2D detection.
   - Point Cloud: 物体認識に使用
   - Radar: 物体認識に使用
 - **From Localization**
   - Vehicle motion information: Includes the ego vehicle's position.
 - **From Map**
-  - Vector map: lanelet filterに使用 Contains all static information about the environment, including lane aria information for filtering unkown objects outside lane and the locations of traffic lights.
+  - Vector Map: Contains all static information about the environment, including lane aria information for filtering unkown objects outside lane and the locations of traffic lights.
   - Point Cloud Map: compare map filterに使用
 
 ### Output from the perception component
