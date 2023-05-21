@@ -42,8 +42,7 @@ The Perception component consists of the following sub-components:
   - **Prediction**: Predicts trajectories of dynamic objects.
 - **Obstacle Segmentation**: Detects not only dynamic objects but also static obstacles that should be avoided, such as stationary obstacles. For example, construction cones are recognized using this module.
 - **Occupancy Grid Map**: Detects blind spots (areas where no information is available and where dynamic objects may jump out).
-- **Traffic Light Recognition**
-  - 信号認識
+- **Traffic Light Recognition**: Recognizes the colors of traffic lights and the directions of arrow signals.
 
 ## Component interface
 
