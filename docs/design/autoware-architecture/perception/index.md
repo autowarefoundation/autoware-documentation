@@ -50,8 +50,8 @@ The following describes the input/output concept between Perception Component an
 
 - **From Sensing**
   - Camera: Image data obtained from the camera. The Perception component utilizes it for Traffic Light Recognition and Object Recognition.
-  - Point Cloud: 物体認識に使用
-  - Radar: 物体認識に使用
+  - Point Cloud: Point Cloud data obtained from LiDAR. The Perception component utilizes it for Object Recognition and blind spot detection.
+  - RadarTrack: RadarTrack data obtained from radar. The Perception component utilizes it for Object Recognition.
 - **From Localization**
   - Vehicle motion information: Includes the ego vehicle's position.
 - **From Map**
