@@ -72,7 +72,7 @@ The following describes the input/output concept between Perception Component an
 ### Internal interface in the perception component
 
 - **Obstacle Segmentation to Object Recognition**
-  - Obstacle Segmentationの結果をfilterにかけて、LiDAR rule-based 3D detectorに使用する。
+  - Point Cloud: Point Cloud: A Point Cloud observed in the current frame, where the ground and outliers are removed.
 - **Obstacle Segmentation to Occupancy Grid Map**
   - Obstacle Segmentationの結果を使ってOccupancy Grid Mapを作成する
 
