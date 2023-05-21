@@ -49,7 +49,7 @@ The following describes the input/output concept between Perception Component an
 ### Input to the perception component
 
 - **From Sensing**
-  - Camera: Image data obtained from the camera. The Perception component utilizes it for signal recognition and 2D detection.
+  - Camera: Image data obtained from the camera. The Perception component utilizes it for Traffic Light Recognition and Object Recognition.
   - Point Cloud: 物体認識に使用
   - Radar: 物体認識に使用
 - **From Localization**
