@@ -40,10 +40,8 @@ The Perception component consists of the following sub-components:
       - **Interpolator**: Maintains stable object detection. Even if the output from Detector suddenly becomes unavailable, Interpolator uses the output from the Tracking module to maintain the detection results without missing any objects.
   - **Tracking**: Associates detected results across multiple frames.
   - **Prediction**: Predicts trajectories of dynamic objects.
-- **Obstacle Segmentation**
-  - 動物体に加え、静止障害物のような、衝突したくないものを検出します。例えば工事用のコーンはこのモジュールで認識しています。
-- **Occupancy Grid Map**
-  - 死角（情報が得られない、動物体が飛び出してくる可能性のある領域）を検出
+- **Obstacle Segmentation**: Detects not only dynamic objects but also static obstacles that should be avoided, such as stationary obstacles. For example, construction cones are recognized using this module.
+- **Occupancy Grid Map**: Detects blind spots (areas where no information is available and where dynamic objects may jump out).
 - **Traffic Light Recognition**
   - 信号認識
 
