@@ -6,7 +6,7 @@
 
 ## Overview
 
-Perception はsensingとlocalization, mapの入力を受け取り，semanticな情報（e.g. 物体の認識，tracking, prediction, 地面との分離，信号認識）を付加し，planningにわたす
+The Perception Component receives inputs from Sensing, Localization, and Map components, and adds semantic information (e.g., Object Recognition,  Obstacle Segmentation, Traffic Light Recognition, Occupancy Grid Map), which is then passed on to Planning Component.
 
 ## Requirements
 
