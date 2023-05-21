@@ -15,8 +15,6 @@ The goal of the Perception component is to accurately perform Object Recognition
 **Goals:**
 
 - The basic functions are provided so that a simple ODD can be defined.
-- 物体や信号を正しく認識できる。距離の制約あり。
-- 多種多様なセンサや環境に適応可能な認識アルゴリズム
 - The capability is extensible with the third-party components.
 
 **Non-goals:**
