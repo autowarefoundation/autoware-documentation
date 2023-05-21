@@ -61,10 +61,10 @@ The following describes the input/output concept between Perception Component an
 ### Output from the perception component
 
 - **To Planning**
-  - 動物体:
-  - Obstacle Segmentation:
-  - Occupancy Grid Map:
-  - 信号認識:
+  - Dynamic Objects: Provides real-time information about objects that cannot be known in advance, such as pedestrians and other vehicles.
+  - Obstacle Segmentation: Supplies real-time information about the location of obstacles, which is more primitive than Detected Object.
+  - Occupancy Grid Map: Offers real-time information about the presence of occluded area information.
+  - Traffic Light Recognition result: Provides the current state of each traffic light in real time.
 
 ### Internal interface in the perception component
 
