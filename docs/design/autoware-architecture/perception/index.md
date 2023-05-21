@@ -24,7 +24,7 @@ The goal of the Perception component is to accurately perform Object Recognition
 - The Perception component is not self-contained but can be extended with third parties.
 - The Perception component is not aimed at the complete functionality and capability.
 - The Perception component is not designed to always outperform human drivers.
-- The Perception component is not capable of “見落としが絶対にない” or "認識ミスがない".
+- The Perception component is not capable of achieving "zero overlooks" or "error-free recognition".
 
 ## High-level architecture
 
