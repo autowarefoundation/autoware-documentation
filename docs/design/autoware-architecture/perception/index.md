@@ -56,7 +56,7 @@ The following describes the input/output concept between Perception Component an
   - Vehicle motion information: Includes the ego vehicle's position.
 - **From Map**
   - Vector Map: Contains all static information about the environment, including lane aria information for filtering unkown objects outside lane and the locations of traffic lights.
-  - Point Cloud Map: compare map filterに使用
+  - Point Cloud Map: The Perception Component uses Point Cloud Map for compare map filter.
 
 ### Output from the perception component
 
