@@ -80,8 +80,8 @@ def parse_rosidl_file(depends: set, visited: set, specs: dict, name: str):
 def main():
     # Create a list of data types used in adapi.
     adapi = Path("docs/design/autoware-interfaces/ad-api/list/api")
-    yamls = (load_markdown_metadata(path) for path in adapi.glob("**/*.md"))
-    names = (yaml["type"]["name"] for yaml in yamls if yaml)
+    pages = (load_markdown_metadata(path) for path in adapi.glob("**/*.md"))
+    names = (yaml["type"]["name"] for yaml in pages if yaml)
 
     # Create a field list for each data type.
     visited = set()
