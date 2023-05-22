@@ -11,9 +11,11 @@ type:
     - name: factors.status
       text: The status of the velocity factor.
     - name: factors.module
-      text: The module type of the velocity factor.
+      text: The module name of the velocity factor.
     - name: factors.detail
       text: The additional information of the velocity factor.
+    - name: factors.cooperation
+      text: The cooperation status if the module supports.
 ---
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}

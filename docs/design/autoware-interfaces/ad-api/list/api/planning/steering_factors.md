@@ -13,9 +13,11 @@ type:
     - name: factors.status
       text: The status of the steering factor.
     - name: factors.module
-      text: The module type of the steering factor.
+      text: The module name of the steering factor.
     - name: factors.detail
       text: The additional information of the steering factor.
+    - name: factors.cooperation
+      text: The cooperation status if the module supports.
 ---
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
