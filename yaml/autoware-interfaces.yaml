@@ -1,4 +1,8 @@
 types:
+  autoware_adapi_v1_msgs/msg/CooperationCommand:
+    msg:
+      cooperator: autoware_adapi_v1_msgs/msg/CooperationDecision
+      uuid: unique_identifier_msgs/msg/UUID
   autoware_adapi_v1_msgs/msg/CooperationDecision:
     msg:
       decision: uint8
@@ -96,9 +100,26 @@ types:
   autoware_adapi_v1_msgs/srv/ClearRoute:
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/GetCooperationDefault:
+    req:
+      module: string
+    res:
+      cooperator: autoware_adapi_v1_msgs/msg/CooperationDecision
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/InitializeLocalization:
     req:
       pose: geometry_msgs/msg/PoseWithCovarianceStamped[<=1]
+    res:
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/SetCooperationDecisions:
+    req:
+      commands: autoware_adapi_v1_msgs/msg/CooperationCommand[]
+    res:
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/SetCooperationDefault:
+    req:
+      cooperator: autoware_adapi_v1_msgs/msg/CooperationDecision
+      module: string
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/SetRoute:
