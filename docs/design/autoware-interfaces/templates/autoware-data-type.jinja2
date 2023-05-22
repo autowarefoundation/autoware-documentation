@@ -1,0 +1,26 @@
+# {{ title }}
+
+## Definition
+
+{%- block definition %}
+{%- endblock %}
+
+## This type uses
+
+{%- if uses %}
+{%- for name in uses %}
+- {{ create_relative_link(name, 'design/autoware-interfaces/ad-api/types/' + name) }}
+{%- endfor %}
+{%- else %}
+- None
+{%- endif %}
+
+## This type is used by
+
+{%- if used %}
+{%- for name in used %}
+- {{ create_relative_link(name, 'design/autoware-interfaces/ad-api/types/' + name) }}
+{%- endfor %}
+{%- else %}
+- None
+{%- endif %}
