@@ -8,12 +8,12 @@ type:
       text: The base link pose related to the steering factor.
     - name: factors.distance
       text: The distance from the base link to the above pose.
-    - name: factors.type
-      text: The type of the steering factor.
     - name: factors.direction
       text: The direction of the steering factor.
     - name: factors.status
       text: The status of the steering factor.
+    - name: factors.module
+      text: The module type of the steering factor.
     - name: factors.detail
       text: The additional information of the steering factor.
 ---

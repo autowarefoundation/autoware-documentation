@@ -8,10 +8,10 @@ type:
       text: The base link pose related to the velocity factor.
     - name: factors.distance
       text: The distance from the base link to the above pose.
-    - name: factors.type
-      text: The type of the velocity factor.
     - name: factors.status
       text: The status of the velocity factor.
+    - name: factors.module
+      text: The module type of the velocity factor.
     - name: factors.detail
       text: The additional information of the velocity factor.
 ---
