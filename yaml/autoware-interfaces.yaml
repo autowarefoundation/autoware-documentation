@@ -1,4 +1,13 @@
 types:
+  autoware_adapi_v1_msgs/msg/CooperationDecision:
+    msg:
+      decision: uint8
+  autoware_adapi_v1_msgs/msg/CooperationStatus:
+    msg:
+      autonomous: autoware_adapi_v1_msgs/msg/CooperationDecision
+      cancellable: bool
+      cooperator: autoware_adapi_v1_msgs/msg/CooperationDecision
+      uuid: unique_identifier_msgs/msg/UUID
   autoware_adapi_v1_msgs/msg/LocalizationInitializationState:
     msg:
       stamp: builtin_interfaces/msg/Time
@@ -53,9 +62,11 @@ types:
       state: uint16
   autoware_adapi_v1_msgs/msg/SteeringFactor:
     msg:
+      cooperation: autoware_adapi_v1_msgs/msg/CooperationStatus[<=1]
       detail: string
       direction: uint16
       distance: float32[2]
+      module: string
       pose: geometry_msgs/msg/Pose[2]
       status: uint16
       type: uint16
@@ -65,8 +76,10 @@ types:
       header: std_msgs/msg/Header
   autoware_adapi_v1_msgs/msg/VelocityFactor:
     msg:
+      cooperation: autoware_adapi_v1_msgs/msg/CooperationStatus[<=1]
       detail: string
       distance: float32
+      module: string
       pose: geometry_msgs/msg/Pose
       status: uint16
       type: uint16
