@@ -28,16 +28,12 @@ The steering factors is an array of information on the maneuver that requires us
 Each factor has a module name, poses in the base link, distances, status, and detailed data depending on its type.
 As the vehicle approaches the position to start steering, this factor appears with a status of APPROACHING.
 And when the vehicle reaches that position, the status will be TURNING.
-The pose indicates the start position when APPROACHING and the end position when TURNING.
+The poses indicate the start and end position of the section where the status is TURNING.
 
 ![steering-factors-1](./docs/steering-factors-1.drawio.svg)
 
 In cases such as lane change and avoidance, the vehicle will start steering at any position in the range depending on the situation.
-As the vehicle approaches the start position of the range, this factor appears with a status of APPROACHING.
-And when the vehicle reaches that position, the status will be TRYING.
-Then, when it is possible, the vehicle will start steering and the status will be TURNING.
-The pose indicates the start of the range (A) when APPROACHING and the end of the range (B) when TRYING.
-The position to end steering (C to D) for TURNING depends on the position to start steering.
+For these types, the section where the status is TURNING will be updated dynamically and the poses will follow that.
 
 ![steering-factors-2](./docs/steering-factors-2.drawio.svg)
 
