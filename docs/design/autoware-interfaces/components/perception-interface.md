@@ -6,16 +6,16 @@
 
 ### PointCloud
 
-PointCloud data published by Lidar. 
+PointCloud data published by Lidar.
 
 - [sensor_msgs/msg/PointCloud2](http://docs.ros.org/en/api/sensor_msgs/html/msg/PointCloud2.html)
 
 ### Image
 
-Image frame captured by camera. 
+Image frame captured by camera.
 
 - [sensor_msgs/msg/Image](http://docs.ros.org/en/api/sensor_msgs/html/msg/Image.html)
-  
+
 ### Vehicle kinematic state
 
 current position of ego, used in traffic signals recognization. See Iutputs of Planning.
@@ -50,7 +50,6 @@ map of the environment. See Iutputs of Planning.
       - [geometry_msgs::msg::Polygon](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/Polygon.html) polygon
       - float height
 
-
 ### Traffic Light Response
 
 traffic light signals recognized by object detection model.**The message definition is under discussion.**
@@ -69,5 +68,3 @@ With the traffic_light_state being one of the following
 - RED_BLINKING = 6
 - OFF = 7
 - UNKNOWN = 8
-
-
