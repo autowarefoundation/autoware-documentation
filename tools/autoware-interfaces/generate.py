@@ -25,6 +25,7 @@ from rosidl_adapter.parser import parse_service_file
 from ament_index_python.packages import get_package_share_directory
 
 
+# cSpell:words indentless
 class MyDumper(yaml.SafeDumper):
     def increase_indent(self, flow=False, *args, **kwargs):
         return super().increase_indent(flow=flow, indentless=False)
