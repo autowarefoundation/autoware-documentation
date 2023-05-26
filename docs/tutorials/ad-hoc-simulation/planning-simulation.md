@@ -101,7 +101,7 @@ ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autowa
 
 3. Set an initial pose and a goal pose in adjacent lanes.
 
-   ![set-position-and-goal](images/planning/lane-change/set-postition-and-goal.png)
+   ![set-position-and-goal](images/planning/lane-change/set-position-and-goal.png)
 
 4. Engage the ego vehicle. It will make a lane change along the planned path.
 
@@ -111,7 +111,7 @@ ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autowa
 
 1. Set an initial pose and a goal pose in the same lane. A path will be planned.
 
-   ![set-position-and-goal](images/planning/avoidance/set-postition-and-goal.png)
+   ![set-position-and-goal](images/planning/avoidance/set-position-and-goal.png)
 
 2. Set a "2D Dummy Bus" on the roadside. A new path will be planned.
 
