@@ -9,7 +9,18 @@ def define_env(env):
         return f"https://app.diagrams.net/?lightbox=1#U{image_url}"
 
     @env.macro
+    def create_relative_link(text, root_path):
+        path = os.path.relpath(root_path, env.page.url)
+        return f"[{text}]({path})"
+
+    @env.macro
     def link_ad_api(name):
-        root_path = "design/autoware-interfaces/ad-api"
-        base_path = os.path.relpath(root_path, env.page.url) + "/list"
-        return f"[{name}]({base_path}{name})"
+        return create_relative_link(name, f"design/autoware-interfaces/ad-api/list/{name}")
+
+    @env.macro
+    def resolve_msg_field(type, name, ext):
+        specs = env.variables["autoware_interfaces"]["types"]
+        for field in name.split("."):
+            type = type.split("[")[0]
+            type = specs[type][ext][field]
+        return type

@@ -80,7 +80,7 @@ After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button i
 3. After that, the vehicle will reverse into the destination parking spot.
 
    ![parking-maneuver](images/planning/parking/parking-maneuver.png)
-   
+
 ### Lane change scenario
 
 1. Download and unpack Nishishinjuku map.
@@ -97,26 +97,26 @@ source ~/autoware/install/setup.bash
 ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware_map/nishishinjuku_autoware_map vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
 ```
 
-   ![open-nishishinjuku-map](images/planning/lane-change/open-nishishinjuku-map.png)
+![open-nishishinjuku-map](images/planning/lane-change/open-nishishinjuku-map.png)
 
 3. Set an initial pose and a goal pose in adjacent lanes.
 
    ![set-position-and-goal](images/planning/lane-change/set-postition-and-goal.png)
-   
+
 4. Engage the ego vehicle. It will make a lane change along the planned path.
 
    ![lane-changing](images/planning/lane-change/lane-changing.png)
-   
+
 ### Avoidance scenario
 
 1. Set an initial pose and a goal pose in the same lane. A path will be planned.
 
    ![set-position-and-goal](images/planning/avoidance/set-postition-and-goal.png)
-   
+
 2. Set a "2D Dummy Bus" on the roadside. A new path will be planned.
 
    ![set-dummy-bus](images/planning/avoidance/set-dummy-bus.png)
-   
+
 3. Engage the ego vehicle. It will avoid the obstacle along the newly planned path.
 
 ## Advanced Simulations
