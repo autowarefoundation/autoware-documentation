@@ -31,7 +31,7 @@ The modules used here are from [pointcloud_preprocessor package](https://github.
 
 For details about the modules, see [the following table](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/pointcloud_preprocessor#inner-workings--algorithms).
 
-It is recommended that these modules are used in a single container as components. For details see [ROS2 Composition](https://docs.ros.org/en/rolling/Tutorials/Intermediate/Composition.html)
+It is recommended that these modules are used in a single container as components. For details see [ROS 2 Composition](https://docs.ros.org/en/rolling/Tutorials/Intermediate/Composition.html)
 
 ## Point cloud fields
 
@@ -199,8 +199,8 @@ The header of the point cloud message is expected to have the time of the earlie
 
 !!! note
 
-    The `sec` field is `int32` in ROS2 humble. The largest value it can represent is 2^31 seconds, it is subject to
-    year 2038 problems. We will wait for actions on ROS2 community side.
+    The `sec` field is `int32` in ROS 2 humble. The largest value it can represent is 2^31 seconds, it is subject to
+    year 2038 problems. We will wait for actions on ROS 2 community side.
 
     **More info at:** https://github.com/ros2/rcl_interfaces/issues/85
 

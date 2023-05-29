@@ -81,6 +81,44 @@ After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button i
 
    ![parking-maneuver](images/planning/parking/parking-maneuver.png)
 
+### Lane change scenario
+
+1. Download and unpack Nishishinjuku map.
+
+   ```bash
+   gdown -O ~/autoware_map/ 'https://github.com/tier4/AWSIM/releases/download/v1.1.0/nishishinjuku_autoware_map.zip'
+   unzip -d ~/autoware_map ~/autoware_map/nishishinjuku_autoware_map.zip
+   ```
+
+2. Launch autoware with Nishishinjuku map with following command:
+
+   ```bash
+   source ~/autoware/install/setup.bash
+   ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware_map/nishishinjuku_autoware_map vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+   ```
+
+   ![open-nishishinjuku-map](images/planning/lane-change/open-nishishinjuku-map.png)
+
+3. Set an initial pose and a goal pose in adjacent lanes.
+
+   ![set-position-and-goal](images/planning/lane-change/set-position-and-goal.png)
+
+4. Engage the ego vehicle. It will make a lane change along the planned path.
+
+   ![lane-changing](images/planning/lane-change/lane-changing.png)
+
+### Avoidance scenario
+
+1. Set an initial pose and a goal pose in the same lane. A path will be planned.
+
+   ![set-position-and-goal](images/planning/avoidance/set-position-and-goal.png)
+
+2. Set a "2D Dummy Bus" on the roadside. A new path will be planned.
+
+   ![set-dummy-bus](images/planning/avoidance/set-dummy-bus.png)
+
+3. Engage the ego vehicle. It will avoid the obstacle along the newly planned path.
+
 ## Advanced Simulations
 
 ### Placing dummy objects

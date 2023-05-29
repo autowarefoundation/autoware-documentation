@@ -5,7 +5,6 @@ nav:
   - directory-structure.md
   - launch-files.md
   - message-guidelines.md
-  - naming.md
   - parameters.md
   - task-scheduling.md
   - topic-namespaces.md
