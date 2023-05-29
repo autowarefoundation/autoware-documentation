@@ -21,3 +21,4 @@ For detailed documents of Autoware Universe components, see [Autoware Universe D
 - [Contributing](contributing) pages explain how to contribute to Autoware.
 - [Datasets](datasets) pages contain information about datasets that can be used with Autoware.
 - [Support](support) pages explain several support resources.
+- [Competitions](autoware-competitions) pages explain on-going challenges releated to AWF

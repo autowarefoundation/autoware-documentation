@@ -1,0 +1,11 @@
+# Autoware Competitions
+
+This page is a collection of the links to the competitions that are related to the Autoware Foundation.
+
+| Title |  Description |
+|:---:|---|
+| <img src="images/autoware_challenge_2023.png" width = 640px > | **[Autoware / TIER IV Challenge 2023](https://www.autoware.org/autoware-challenge-2023)** <br> **Date:** May 15, 2023 - Nov. 1st, 2023 <br><br> As one of the main contributors of Autoware, TIER IV has been facing many difficult challenges through development, and TIER IV would like to sponsor a challenge to solve such engineering challenges. Any researchers, students, individuals or organizations are welcome to participate and submit their solution to any of the challenges we propose.|
+
+
+## Proposing New Competition
+If you want add a new competition to this page, please propose it in a TSC meeting and get confirmation from the AWF.
