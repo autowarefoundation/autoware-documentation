@@ -19,3 +19,5 @@ Service providers can combine these use cases to define user stories and check i
 - [Change the operation mode](change-operation-mode.md)
 - [Drive to the designated position](drive-designated-position.md)
 - [Get on and get off](get-on-off.md)
+- [Vehicle monitoring](./vehicle-monitoring.md)
+- [Request to cooperate](./request-to-cooperate.md)
