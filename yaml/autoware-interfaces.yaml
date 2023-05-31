@@ -1,4 +1,8 @@
 types:
+  autoware_adapi_v1_msgs/msg/DoorLayout:
+    msg:
+      pose: geometry_msgs/msg/Pose
+      roles: uint8[]
   autoware_adapi_v1_msgs/msg/LocalizationInitializationState:
     msg:
       stamp: builtin_interfaces/msg/Time
@@ -63,6 +67,18 @@ types:
     msg:
       factors: autoware_adapi_v1_msgs/msg/SteeringFactor[]
       header: std_msgs/msg/Header
+  autoware_adapi_v1_msgs/msg/VehicleDimensions:
+    msg:
+      footprint: geometry_msgs/msg/Polygon
+      front_overhang: float32
+      height: float32
+      left_overhang: float32
+      rear_overhang: float32
+      right_overhang: float32
+      wheel_base: float32
+      wheel_radius: float32
+      wheel_tread: float32
+      wheel_width: float32
   autoware_adapi_v1_msgs/msg/VelocityFactor:
     msg:
       detail: string
@@ -82,6 +98,14 @@ types:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/ClearRoute:
     res:
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/GetDoorLayout:
+    res:
+      doors: autoware_adapi_v1_msgs/msg/DoorLayout
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/GetVehicleDimensions:
+    res:
+      dimensions: autoware_adapi_v1_msgs/msg/VehicleDimensions
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/InitializeLocalization:
     req:
