@@ -66,9 +66,17 @@ Image data from camera. Used by the Perception.
 
 - [sensor_msgs/Image](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Image.msg)
 
-### Combined Radar tracks
+### Radar objects
 
-TBD
+Radar tracks from radar. Used by the Perception.
+
+- [radar_msgs/RadarTracks.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTracks.msg)
+
+### Radar pointcloud
+
+Pointcloud from radar. Used by the Perception.
+
+- [radar_msgs/RadarScan.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarScan.msg)
 
 ### Combined Lidar pointcloud
 
