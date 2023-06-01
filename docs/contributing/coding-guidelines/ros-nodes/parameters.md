@@ -11,36 +11,38 @@ Find more information on parameters from the official ROS documentation:
 
 A ROS package which uses the [declare_parameter(...)](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb) function should:
 
-* use the [declare_parameter(...)](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb) with out a default value
-* create a parameter file
-* create a schema file
+- use the [declare_parameter(...)](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb) with out a default value
+- create a parameter file
+- create a schema file
 
 The rationale behind this workflow is to have a verified single source of truth to pass to the ROS node and to be used in the web documentation. The approach reduces the risk of using invalid parameter values and makes maintenance of documentation easier. This is achieved by:
 
-* [declare_parameter(...)](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb) throws an exception if an expected parameter is missing in the parameter file
-* the schema validates the parameter file in the CI and renders a parameter table, as depicted in the graphics below
+- [declare_parameter(...)](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb) throws an exception if an expected parameter is missing in the parameter file
+- the schema validates the parameter file in the CI and renders a parameter table, as depicted in the graphics below
 
   ```mermaid
   flowchart TD
       NodeSchema[Schema file: *.schema.json]
       ParameterFile[Parameter file: *.param.yaml]
       WebDocumentation[Web documentation table]
-  
+
       NodeSchema -->|Validation| ParameterFile
       NodeSchema -->|Generate| WebDocumentation
   ```
 
-* 
+*
 
 Note: a parameter value can still be modified and bypass the validation, as there is no validation during runtime.
 
 ## Declare Parameter Function
+
 It is the [declare_parameter(...)](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb) function which sets the parameter values during a node startup.
 
 ```cpp
 declare_parameter<INSERT_TYPE>("INSERT_PARAMETER_1_NAME"),
 declare_parameter<INSERT_TYPE>("INSERT_PARAMETER_N_NAME")
 ```
+
 As there is no _default_value_ provided, the function throws an exception if a parameter were to be missing in the provided `*.param.yaml` file. Use a type from the _C++ Type_ column in the table below for the [declare_parameter(...)](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb) function, replacing _INSERT_TYPE_.
 
 | ParameterType Enum        | C++ Type                   |
@@ -60,6 +62,7 @@ The table has been derived from [Parameter Type](https://github.com/ros2/rcl_int
 See example: _Lidar Apollo Segmentation TVM Nodes_ [declare function](https://github.com/autowarefoundation/autoware.universe/blob/f85c90b56ed4c7d6b52e787570e590cff786b28b/perception/lidar_apollo_segmentation_tvm_nodes/src/lidar_apollo_segmentation_tvm_node.cpp#L38)
 
 ## Parameter File
+
 The parameter file is minimal as there is no need to provide the user with additional information, e.g., description or type. This is because the associated schema file provides the additional information. Use the template below as a starting point for a ROS node.
 
 ```yaml
@@ -76,6 +79,7 @@ See example: _Lidar Apollo Segmentation TVM Nodes_ [parameter file](https://gith
 Note: `/**` is used instead of the explicit node namespace, this allows the parameter file to be passed to a ROS node which has been [remapped](https://design.ros2.org/articles/static_remapping.html).
 
 ## Launch parameter file
+
 - Launch parameter files store the customized parameters for user's vehicle.
   - For example, [the customized parameter of `behavior_path_planner` stored under `autoware_launch`](https://github.com/autowarefoundation/autoware_launch/tree/5fa613b9d80bf4f0db77efde03a43f7ede6bac86/autoware_launch/config)
   - Launch parameter files are stored under `autoware_launch`.
