@@ -11,12 +11,17 @@
 ├─ config
 │   ├─ foo_ros.param.yaml
 │   └─ foo_non_ros.yaml
+├─ doc
+│   ├─ foo_document.md
+│   └─ foo_diagram.svg
 ├─ include
 │   └─ <package_name>
-│      └─ foo_public.hpp
+│       └─ foo_public.hpp
 ├─ launch
 │   ├─ foo.launch.xml
 │   └─ foo.launch.py
+├─ schema
+│   └─ foo_node.schema.json
 ├─ src
 │   ├─ foo_node.cpp
 │   ├─ foo_node.hpp
@@ -24,7 +29,8 @@
 ├─ test
 │   └─ test_foo.cpp
 ├─ package.xml
-└─ CMakeLists.txt
+├─ CMakeLists.txt
+└─ README.md
 ```
 
 ### config directory
