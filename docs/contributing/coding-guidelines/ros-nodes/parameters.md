@@ -30,8 +30,6 @@ The rationale behind this workflow is to have a verified single source of truth 
       NodeSchema -->|Generate| WebDocumentation
   ```
 
-*
-
 Note: a parameter value can still be modified and bypass the validation, as there is no validation during runtime.
 
 ## Declare Parameter Function
