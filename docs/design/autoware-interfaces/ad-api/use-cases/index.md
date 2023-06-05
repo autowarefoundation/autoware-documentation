@@ -21,3 +21,7 @@ Service providers can combine these use cases to define user stories and check i
 - [Get on and get off](get-on-off.md)
 - [Vehicle monitoring](./vehicle-monitoring.md)
 - [Request to cooperate](./request-to-cooperate.md)
+
+## Features
+
+- [Vehicle status](../features/vehicle-status.md)
