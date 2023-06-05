@@ -3,6 +3,25 @@ types:
     msg:
       pose: geometry_msgs/msg/Pose
       roles: uint8[]
+  autoware_adapi_v1_msgs/msg/DoorStatus:
+    msg:
+      status: uint8
+  autoware_adapi_v1_msgs/msg/DoorStatusArray:
+    msg:
+      doors: autoware_adapi_v1_msgs/msg/DoorStatus[]
+      stamp: builtin_interfaces/msg/Time
+  autoware_adapi_v1_msgs/msg/Gear:
+    msg:
+      status: uint8
+  autoware_adapi_v1_msgs/msg/HazardLight:
+    msg:
+      status: uint8
+  autoware_adapi_v1_msgs/msg/Kinematic:
+    msg:
+      accel: geometry_msgs/msg/AccelWithCovarianceStamped
+      geographic_pose: geographic_msgs/msg/GeoPointStamped
+      pose: geometry_msgs/msg/PoseWithCovarianceStamped
+      twist: geometry_msgs/msg/TwistWithCovarianceStamped
   autoware_adapi_v1_msgs/msg/LocalizationInitializationState:
     msg:
       stamp: builtin_interfaces/msg/Time
@@ -67,6 +86,9 @@ types:
     msg:
       factors: autoware_adapi_v1_msgs/msg/SteeringFactor[]
       header: std_msgs/msg/Header
+  autoware_adapi_v1_msgs/msg/TurnIndicator:
+    msg:
+      status: uint8
   autoware_adapi_v1_msgs/msg/VehicleDimensions:
     msg:
       footprint: geometry_msgs/msg/Polygon
@@ -79,6 +101,14 @@ types:
       wheel_radius: float32
       wheel_tread: float32
       wheel_width: float32
+  autoware_adapi_v1_msgs/msg/VehicleState:
+    msg:
+      energy_level: float32
+      gear: autoware_adapi_v1_msgs/msg/Gear
+      hazard_light: autoware_adapi_v1_msgs/msg/HazardLight
+      stamp: builtin_interfaces/msg/Time
+      steering_tire_angle: float64
+      turn_indicator: autoware_adapi_v1_msgs/msg/TurnIndicator
   autoware_adapi_v1_msgs/msg/VelocityFactor:
     msg:
       detail: string

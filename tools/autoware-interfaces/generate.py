@@ -16,6 +16,7 @@
 
 # This script requires "source install/setup.bash" for dependent messages/services.
 
+import shutil
 import yaml
 from pathlib import Path
 
@@ -112,8 +113,11 @@ def main():
                     type_uses[user].add(name)
                     type_used[name].add(user)
 
-    # Generate data type pages.
+    # Clean up data type pages.
     base = Path("docs/design/autoware-interfaces/ad-api/types")
+    shutil.rmtree(base)
+
+    # Generate data type pages.
     for name in specs:
         uses = list(sorted(type_uses[name]))
         used = list(sorted(type_used[name]))
