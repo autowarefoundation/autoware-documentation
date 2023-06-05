@@ -2,7 +2,7 @@
 
 This page provides specific specifications about the Interface of the Planning Component. Please refer to the [planning architecture design document](../autoware-architecture/planning/index.md) for high-level concepts and data flow.
 
-**TODO:** The detailed definitions (meanings of elements included in each topic) are not described yet, need to be updated.
+**TODO: The detailed definitions (meanings of elements included in each topic) are not described yet, need to be updated.**
 
 ## Inputs
 
