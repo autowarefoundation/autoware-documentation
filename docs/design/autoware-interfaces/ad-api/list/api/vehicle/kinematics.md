@@ -1,8 +1,8 @@
 ---
-title: /api/vehicle/kinematic
+title: /api/vehicle/kinematics
 method: realtime stream
 type:
-  name: autoware_adapi_v1_msgs/msg/Kinematic
+  name: autoware_adapi_v1_msgs/msg/VehicleKinematics
   msg:
     - name: geographic_pose
       text: The longitude and latitude of the vehicle. If the map uses local coordinates, it will not be available.
@@ -16,5 +16,5 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Publish vehicle kinematic.
+Publish vehicle kinematics.
 {% endblock %}
