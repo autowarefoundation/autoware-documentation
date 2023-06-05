@@ -1,0 +1,116 @@
+# Important temporal performance metrics on components
+
+## Motivation to list temporal performance metrics
+
+### Objective of the page
+
+This page introduces important metrics to evaluate temporal performance on components of Autoware.
+
+It is expected that most algorithms employed for Autoware are executed with high frequency and short response time as possible. In order to achieve safe autonomous driving, one of the desired outcomes is no time gap between perceived and actual situation. The time gap is commonly referred to as delay. If the delay is significant, the system may determine trajectory and maneuver based on outdated situation. Consequently, if the actual situation differs from the perceived one due to the delay, the system may make unexpected decisions.
+
+As mentioned earlier, this page presents lists of temporal performance metrics that are crucial for the main functionalities of Autoware: Localization, Perception, Planning, and Control.
+
+!!! Note
+
+    Other functionalities, such as system components for diagnosis, are excluded currently. However they will be taken into account in the near future.
+
+### Contribution of the temporal performance metrics
+
+Temporal performance metrics are important for evaluating Autoware. These metrics are particularly useful for assessing delays caused by new algorithms and logic. They can be employed when comparing the temporal performance of software on a desktop computer with that on a vehicle during the vehicle integration phase.
+
+In addition, these metrics are useful for designers and evaluators of middleware, operating systems, and computers. They are selected based on user and product requirements. One of these requirements is to provide sufficient temporal performance for executing Autoware. "Sufficient temporal performance" is defined as a temporal performance requirement, but it can be challenging to define the requirement because it varies depending on the product type, operational design domain (ODD), and other factors. Then, this page specifically focuses on temporal performance metrics rather than requirements.
+
+Temporal performance metrics are important for evaluating the reliability of Autoware. However, ensuring the reliability of Autoware requires consideration of not only temporal performance metrics but also other metrics.
+
+## Temporal performance metrics list
+
+This section is divided into multiple subsections, each containing a model diagram and an accompanying list that explains the important temporal performance metrics. Each model is equipped with checkpoints that serve as indicators for these metrics.
+
+The first subsection presents the top-level temporal performance metrics, which are depicted in the abstract structure of Autoware as a whole. The detailed metrics are not included in the model as they would add complexity to it. Instead, the subsequent section introduces the detailed metrics. The detailed metrics are subject to more frequent updates compared to the top-level ones, which is another reason for categorizing them separately.
+
+Each list includes a column for the reference value. The reference value represents the observed value of each metric when Autoware is running according to the tutorial. It is important to note that the reference value is not a required value, meaning that Autoware does not necessarily fail in the tutorial execution if certain metrics do not fulfill the reference value.
+
+### Top-level temporal performance metrics for Autoware
+
+The diagram below introduces the model for top-level temporal performance metrics.
+
+![Model for top-level temporal performance metrics](./images/important-temporal-performance-metrics/model-for-top-level-metrics.svg)
+
+The following three policies assist in selecting the top-level performance metrics:
+
+- Splitting Autoware based on components that consume observed values, such as sensor data, and considering the processing frequency and response time around these components
+- Dividing Autoware based on the entry point of Planning and Control and considering the processing frequency and response time around these components
+- Showing the minimum metrics for the Vehicle Interface, as they may vary depending on the target vehicle
+
+Additionally, it is assumed that algorithms are implemented as multiple nodes and function as a pipeline processing system.
+
+| ID | Representation in the model | Metric meaning | Related functionality | Reference value | Reason to choose it as a metric |Note |
+| -----------       | ------------------          | ------------    | ---------------       | -------- |------ | ------------- |
+| AWOV-001          | **Message rate** from CPA #9 to CPA #18 | Update rate of  result from Prediction (Object Recognition) to Planning.  | Perception/Object Recognition | 10 Hz | Object Recognition must be updated frequently and smoothly. | |
+| AWOV-002          | **Response time** from CPA #0 to CPA #20 <br>or<br> from CPA #1 to CPA #20 | Processing time in main body of Object Recognition if delay compensation is disabled in Tracking. | Perception/Object Recognition | N/A | Planning relies on fresh and up-to-date perceived data from Obstacle Recognition. | If sensor provides timestamp, CPA #0 is starting point. Otherwise, #1 is used instead. |
+| AWOV-003 | **Response time** from CPA #7 to CPA #20 | Processing time in main body of Object Recognition if delay compensation is disabled in Tracking. | Perception/Object Recognition | N/A | Planning relies on Obstacle Recognition to provide real-time and up-to-date perceived data. | |
+| AWOV-004 | **Response time** from CPA #0 to CPA #6 <br>or <br> CPA #1 to CPA #6 | Duration to process pointcloud data in Sensing and Detection if delay compensation is enabled in Tracking. | Perception/Object Recognition | N/A | Tracking relies on Detection to provide real-time and up-to-date perceived data. | If sensor provides timestamp, CPA #0 is starting point. Otherwise, #1 is used instead. |
+| AWOV-005 | **Message rate** from CPA #4 to CPA #5 | Update rate of Detection result received by Tracking. | Perception/Object Recognition | 10 Hz | Tracking expects Detection to update perceived data frequently and smoothly. | |
+| AWOV-006 | **Response time** from CPA #0 to CPA #14 | Response time from output of observed data from LiDARs to its consumption in EKF Localizer via NDT Scan Matcher. | Localization | N/A | EKF Localizer requires fresh and up-to-date observed data from sensors. | |
+| AWOV-007 | **Message rate** from CPA #11 to CPA #13 | Update rate of pose estimated by NDT Scan Matcher. | Localization | 10 Hz | EKF Localizer expects observed data to be updated frequently. | |
+| AWOV-008 | **Message rate** from CPA #15 to CPA #12 | Update rate of feed backed pose estimated by EKF Localizer. | Localization | 50 Hz | NDT Scan Matcher relies on receiving estimated pose from the EKF Localizer smoothly for interpolation purposes. | |
+| AWOV-009 | **Message rate** from CPA #17 to CPA #19 | Update rate of Localization result received by Planning. | Localization | 50 Hz | Planning requires Localization to update the estimated pose frequently. | |
+| AWOV-010 | **Response time** from CPA #20 to CPA #23 | Processing time from beginning of Planning to consumption of Trajectory message in Control. | Planning | N/A | Trajectory message should be updated within a short time frame to achieve appropriate driving behavior. | |
+| AWOV-011 | **Message rate** from CPA #21 to CPA #22 | Update rate of Trajectory message  from Planning. | Planning | 10 Hz | Trajectory message should be updated frequently to achieve optimal driving behavior. | |
+| AWOV-012 | **Message rate** from CPA #24 to CPA #25 | Update rate of Control command. | Control | 33 Hz | Sampling frequency influences on control stability so that Control should run at expected frequency. | |
+| AWOV-013 | **Message rate** between CPA #26 and Vehicle | Communication rate between Autoware and Vehicle | Vehicle Interface | N/A | Vehicle expects Autoware to communicate with each other at predetermined frequency | Performance requirement varies depending on vehicle type. | 
+
+### Detailed temporal performance metrics for Perception
+
+The diagram below introduces the model for temporal performance metrics for Perception. 
+
+![Model for Perception temporal performance metrics](./images/important-temporal-performance-metrics/model-for-perception-metrics.svg)
+
+The following two policies assist in selecting the performance metrics:
+
+- Regarding the frequency and response time at which Recognition results from Object Recognition and Traffic Light Recognition are consumed in Planning
+- Splitting the merging point of data from multiple processing paths and considering the frequency and response time around that point
+
+The following list shows the temporal performance metrics for Perception.
+
+| ID | Representation in the model | Metric meaning | Related functionality | Reference value | Reason to choose it as a metric |Note |
+| -----------       | ------------------          | ------------    | ---------------       | -------- |------ | ------------- |
+| APER-001          | Message rate from CPP #2 to CPP #26 | Update rate of Traffic Light Recognition. | Perception/Traffic light Recognition | It is essential to update traffic light Recognition frequently and seamlessly. |  |
+| APER-002          | Response time from CPP #0 to CPP #30 | Response time from camera input to consumption of the result in Planning. | Perception/Traffic light Recognition | N/A | Planning relies on fresh and up-to-date perceived data from Traffic Light Recognition. | |
+| APER-003          | Message rate from CPP #26 to CPP #28 | Update rate of result from Prediction (Object Recognition) to Planning. | Perception/Object recognition | 10 Hz | Object Recognition must be updated frequently and smoothly. | Same as AWOV-001 |
+| APER-004          | Response time from CPP #0 to CPP #30 <br>or <br>from CPP #1 to CPP #30 | Processing time in main body of Object Recognition if delay compensation is disabled in Tracking. | Perception/Object Recognition | N/A | Planning relies on fresh and up-to-date perceived data from Obstacle Recognition. | Same as AWOV-002 |
+| APER-005          | Response time from CPP #23 to CPP #30 | Processing time Object Recognition if delay compensation is enabled in Tracking | Perception/Object Recognition | Planning relies on Obstacle Recognition to provide real-time and up-to-date perceived data. | Same as AWOV-003 |
+| APER-006          | Response time from CPP #0 to CPP #21 <br>or <br>CPP #1 to CPP #21 | Time to process pointcloud data in Sensing and Detection if delay compensation is enabled in Tracking. | N/A | Tracking relies on Detection to provide real-time and up-to-date perceived data. | Same as AWOV-004 |
+| APER-007          | Message rate from CPP #20 to CPP #21 | Update rate of Detection result received by Tracking. | Perception/Object Recognition | 10 Hz | Tracking expects Detection to update perceived data frequently and smoothly | Same as AWOV-005 |
+| APER-008          | Message rate from CPP #14 to CPP #19 | Update rate of result from Sensor Fusion. | Perception/Object Recognition | 10 Hz | Association Merger expects three inputs to synchronize with each others. | |
+| APER-009          | Message rate from CPP #16 to CPP #19 | Update rate of result from Detection by Tracker. | Perception/Object Recognition. | 10 Hz | Association Merger expects three inputs to synchronize with each others. | |
+| APER-010          | Message rate from CPP #18 to CPP #19 | Update rate of result from Validation | Perception/Object Recognition. | 10 Hz | Association Merger expects three inputs to synchronize with each others. |
+| APER-011          | Response time from CPP #6 to CPP #19 via CPP #14 | Response time for result from Sensor Fusion after LiDARs output pointcloud. | Perception/Object Recognition | N/A | Association Merger expects three inputs to synchronize with each others. | |
+| APER-012          | Response time from CPP #6 to CPP #19 via CPP #16 | Response time for result from Detection by Tracker after LiDARs output pointcloud. | Perception/Object Recognition | N/A | Association Merger expects three inputs to synchronize with each others. | |
+| APER-013          | Response time from CPP #6 to CPP #19 via CPP #18 | Response time for result from Validator after LiDARs output pointcloud. | Perception/Object Recognition | N/A | Association Merger expects three inputs to synchronize with each others. | |
+| APER-014          | Message rate from CPP #10 to CPP #13 | Update rate of result from Clustering. | Perception/Object Recognition | 10 Hz | Sensor Fusion expects two inputs to synchronize with each other. | Response time from CPP #6 to CPP #13 | Response time for result from Clustering after LiDARs output pointcloud. | Perception/Object Recognition | N/A | Sensor Fusion expects two inputs to synchronize with each other. | |
+| APER-015          | Response time from CPP #6 to CPP #13 | Response time for result from Clustering after LiDARs output pointcloud. | Perception/Object Recognition | N/A | Sensor Fusion expects two inputs to synchronize with each other. | |
+| APER-016          | Message rate from CPP #5 to CPP #13 | Update rate of result from Camera-based Object detection. | 10 Hz | Sensor Fusion expects two inputs to synchronize with each other. | |
+| APER-017          | Response time from CPP #3 to CPP #13 | Response time for result from Camera-based Object detection after Cameras output images. | Perception/Object Recognition | N/A | Sensor Fusion expects two inputs to synchronize with each other. | |
+| APER-018          | Message rate from CPP #10 to CPP #17 | Update rate of result from Clustering. | Perception/Object Recognition | 10 Hz | Validator expects two inputs to synchronize with each other. | It seems similar to APER-014, but the topic message is different. |
+| APER-019          | Response time from CPP #6 to CPP #17 via CPP #10 | Response time for result from Clustering after LiDARs output pointcloud. | Perception/Object Recognition | N/A | Validator expects two inputs to synchronize with each other. | It seems similar to APER-015, but the topic message is different. |
+| APER-020          | Message rate from CPP #12 to CPP #17 | Update rate of result from DNN-based Object Recognition. | Perception/Object Recognition | 10 Hz | Validator expects two inputs to synchronize with each other. |
+| APER-021          | Response time from CPP #6 to CPP #17 via CPP #12 | Response time for result from DNN-based Object Recognition after LiDARs output pointcloud. | Perception/Object Recognition | N/A | Validator expects two inputs to synchronize with each other. | |
+
+### Detailed temporal performance metrics for Paths between Obstacle segmentation and Planning
+
+Obstacle segmentation, which is a crucial part of Perception, transmits data to Planning. The figure below illustrates the model that takes into account performance metrics related to Obstacle segmentation and Planning.
+
+![Model for Obstacle segmentation temporal performance metrics](./images/important-temporal-performance-metrics/model-for-obstacle-segmentation-metrics.svg)
+
+!!! Note
+    Both the Obstacle grid map and Obstacle segmentation transmit data to multiple sub-components of Planning. However, not all of these sub-components are described in the model. This is because our primary focus is on the paths from LiDAR to Planning via Obstacle segmentation.
+
+The following list shows the temporal performance metrics around Obstacle segmentation and Planning.
+
+| ID | Representation in the model | Metric meaning | Related functionality | Reference value | Reason to choose it as a metric |Note |
+| -----------       | ------------------          | ------------    | ---------------       | -------- |------ | ------------- |
+| OSEG-001 | Message rate from CPS #4 to CPS #7 | Update rate of occupancy grid map received by Planning (`behavior_path_planner`) | Perception/Obstacle segmentation | 10 Hz | Obstacle segmentation must be updated frequently and smoothly. | |
+| OSEG-002 | Response time from CPS #0 to CPS #9 <br>or <br>CPS #1 to CPS #9 | Processing time to output occupancy grid map after LiDARs output sensing data. | N/A | Planning relies on fresh and up-to-date perceived data from Obstacle segmentation. | |
+| OSEG-003 | Message rate from CPS #6 to CPS #11 | Update rate of obstacle segmentation received by Planning (`behavior_velocity_planner`). | Perception/Obstacle segmentation | 10 Hz | Obstacle segmentation must be updated frequently and smoothly. | |
+| OSEG-004 | Response time from CPS #0 to CPS #13 <br>or <br>CPS #1 to CPS #13 | Processing time to output obstacle segmentation after LiDARs output sensing data. | Perception/Obstacle segmentation | N/A | Planning relies on fresh and up-to-date perceived data from Obstacle segmentation. | |
