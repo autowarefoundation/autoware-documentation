@@ -1,152 +1,71 @@
 # Planning
 
-![Node diagram](images/Planning-Bus-ODD-Architecture.drawio.svg)
+This page provides specific specifications about the Interface of the Planning Component. Please refer to the [planning architecture design document](../autoware-architecture/planning/index.md) for high-level concepts and data flow.
+
+**TODO:** The detailed definitions (meanings of elements included in each topic) are not described yet, need to be updated.
 
 ## Inputs
 
-### 3D Object Predictions
+### From Map Component
 
-set of perceived objects around ego that need to be avoided when planning a trajectory. Published by the Perception module.
+| Name       | Topic             | Type                                                                                                                                                 | Description                                            |
+| ---------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| Vector Map | `/map/vector_map` | [autoware_auto_mapping_msgs/msg/HADMapBin](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_mapping_msgs/msg/HADMapBin.idl) | Map of the environment where the planning takes place. |
 
-- [autoware_auto_perception_msgs/msg/PredictedObjects](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_perception_msgs/msg/PredictedObjects.idl)
-  - [std_msgs/Header](https://docs.ros.org/en/noetic/api/std_msgs/html/msg/Header.html) header
-  - sequence<[autoware_auto_perception_msgs::msg::PredictedObject](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_perception_msgs/msg/PredictedObject.idl)> objects
-    - unique_identifier_msgs::msg::UUID uuid
-    - float existence_probability
-    - sequence<[autoware_auto_perception_msgs::msg::ObjectClassification](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_perception_msgs/msg/ObjectClassification.idl)> classification
-      - uint8 classification
-      - float probability
-    - [autoware_auto_perception_msgs::msg::PredictedObjectKinematics](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_perception_msgs/msg/PredictedObjectKinematics.idl) kinematics
-      - [geometry_msgs::msg::PoseWithCovariance](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/PoseWithCovariance.html) initial_pose
-      - [geometry_msgs::msg::TwistWithCovariance](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/TwistWithCovariance.html)
-      - [geometry_msgs::msg::AccelWithCovariance](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/AccelWithCovariance.html) initial_acceleration
-      - sequence<[autoware_auto_perception_msgs::msg::PredictedPath](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_perception_msgs/msg/PredictedPath.idl), 10> predicted_paths
-        - sequence<[geometry_msgs::msg::Pose](https://docs.ros.org/en/lunar/api/geometry_msgs/html/msg/Pose.html), 100> path
-        - builtin_interfaces::msg::Duration time_step
-        - float confidence
-    - sequence<[autoware_auto_perception_msgs::msg::Shape](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_perception_msgs/msg/Shape.idl), 5> shape
-      - [geometry_msgs::msg::Polygon](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/Polygon.html) polygon
-      - float height
+### From Localization Component
 
-### Traffic Light Response
+| Name                    | Topic                           | Type                                                                                                                                      | Description                                        |
+| ----------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| Vehicle Kinematic State | `/localization/kinematic_state` | [nav_msgs/msg/Odometry](https://docs.ros.org/en/latest/api/nav_msgs/html/msg/Odometry.html)                                               | Current position, orientation and velocity of ego. |
+| Vehicle Acceleration    | `/localization/acceleration`    | [geometry_msgs/msg/AccelWithCovarianceStamped](https://docs.ros.org/en/latest/api/geometry_msgs/html/msg/AccelWithCovarianceStamped.html) | Current acceleration of ego.                       |
 
-Service response with traffic light information. **The message definition is under discussion.**
+**TODO**: acceleration information should be merged into the kinematic state.
 
-- TrafficLightResponse
-  - uint64 traffic_light_id
-  - uint8 traffic_light_state
+### From Perception Component
 
-With the traffic_light_state being one of the following
+| Name               | Topic                                                   | Type                                                                                                                                                                         | Description                                                                                                                                                                                                               |
+| ------------------ | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Objects            | `/perception/object_recognition/objects`                | [autoware_auto_perception_msgs/msg/PredictedObjects](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_perception_msgs/msg/PredictedObjects.idl)     | Set of perceived objects around ego that need to be avoided or followed when planning a trajectory. This contains semantics information such as a object class (e.g. vehicle, pedestrian, etc) or a shape of the objects. |
+| Obstacles          | `/perception/obstacle_segmentation/pointcloud`          | [sensor_msgs/msg/PointCloud2](https://docs.ros.org/en/latest/api/sensor_msgs/html/msg/PointCloud2.html)                                                                      | Set of perceived obstacles around ego that need to be avoided or followed when planning a trajectory. This only contains a primitive information of the obstacle. No shape nor velocity information.                      |
+| Occupancy Grid Map | `/perception/occupancy_grid_map/map`                    | [nav_msgs/msg/OccupancyGrid](https://docs.ros.org/en/latest/api/nav_msgs/html/msg/OccupancyGrid.html)                                                                        | Contains the presence of obstacles and blind spot information (represented as UNKNOWN).                                                                                                                                   |
+| Traffic Signal     | `/perception/traffic_light_recognition/traffic_signals` | [autoware_auto_perception_msgs/msg/TrafficSignalArray](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_perception_msgs/msg/TrafficSignalArray.idl) | Contains the traffic signal information such as a color (green, yellow, read) and an arrow (right, left, straight).                                                                                                       |
 
-- GREEN = 1
-- GREEN_BLINKING = 2
-- YELLOW = 3
-- YELLOW_BLINKING = 4
-- RED = 5
-- RED_BLINKING = 6
-- OFF = 7
-- UNKNOWN = 8
+**TODO**: The type of the `Obstacles` information should not depend on the specific sensor message type (now `PointCloud`). It needs to be fixed.
 
-### Vehicle kinematic state
+### From API
 
-current position and orientation of ego. Published by the Localization module.
+| Name                 | Topic                                                            | Type                                                                                                                                                                                  | Description                                                           |
+| -------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Max Velocity         | `/planning/scenario_planning/max_velocity_default`               | [autoware_adapi_v1_msgs/srv/SetRoutePoints](https://github.com/autowarefoundation/autoware_adapi_msgs/blob/main/autoware_adapi_v1_msgs/routing/srv/SetRoutePoints.srv)                | Indicate the maximum value of the vehicle speed plan                  |
+| Operation Mode       | `/system/operation_mode/state`                                   | [autoware_adapi_v1_msgs/msg/OperationModeState](https://github.com/autowarefoundation/autoware_adapi_msgs/blob/main/autoware_adapi_v1_msgs/operation_mode/msg/OperationModeState.msg) | Indicates the current operation mode (automatic/manual, etc.).        |
+| Route Set            | `/planning/mission_planning/set_route`                           | [autoware_adapi_v1_msgs/srv/SetRoute](https://github.com/autowarefoundation/autoware_adapi_msgs/blob/main/autoware_adapi_v1_msgs/routing/srv/SetRoute.srv)                            | Indicates to set the route when the vehicle is stopped.               |
+| Route Points Set     | `/planning/mission_planning/set_route_points`                    | [autoware_adapi_v1_msgs/srv/SetRoutePoints](https://github.com/autowarefoundation/autoware_adapi_msgs/blob/main/autoware_adapi_v1_msgs/routing/srv/SetRoutePoints.srv)                | Indicates to set the route with points when the vehicle is stopped.   |
+| Route Change         | `/planning/mission_planning/change_route`                        | [autoware_adapi_v1_msgs/srv/SetRoute](https://github.com/autowarefoundation/autoware_adapi_msgs/blob/main/autoware_adapi_v1_msgs/routing/srv/SetRoute.srv)                            | Indicates to change the route when the vehicle is moving.             |
+| Route Points Change  | `/planning/mission_planning/change_route_points`                 | [autoware_adapi_v1_msgs/srv/SetRoutePoints](https://github.com/autowarefoundation/autoware_adapi_msgs/blob/main/autoware_adapi_v1_msgs/routing/srv/SetRoutePoints.srv)                | Indicates to change the route with points when the vehicle is moving. |
+| Route Clear          | `/planning/mission_planning/clear_route`                         | [autoware_adapi_v1_msgs/srv/ClearRoute](https://github.com/autowarefoundation/autoware_adapi_msgs/blob/main/autoware_adapi_v1_msgs/routing/srv/ClearRoute.srv)                        | Indicates to clear the route information.                             |
+| MRM Route Set Points | `/planning/mission_planning/mission_planner/srv/set_mrm_route`   | [autoware_adapi_v1_msgs/srv/SetRoutePoints](https://github.com/autowarefoundation/autoware_adapi_msgs/blob/main/autoware_adapi_v1_msgs/routing/srv/SetRoutePoints.srv)                | Indicates to set the emergency route.                                 |
+| MRM Route Clear      | `/planning/mission_planning/mission_planner/srv/clear_mrm_route` | [autoware_adapi_v1_msgs/srv/SetRoutePoints](https://github.com/autowarefoundation/autoware_adapi_msgs/blob/main/autoware_adapi_v1_msgs/routing/srv/SetRoutePoints.srv)                | Indicates to clear the emergency route.                               |
 
-- VehicleKinematicState
-  - [nav_msgs/Odometry](https://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html)
-  - std_msgs/Header header
-  - string child_frame_id
-  - [geometry_msgs/PoseWithCovariance pose](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/PoseWithCovariance.html)
-  - [geometry_msgs/TwistWithCovariance twist](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/TwistWithCovariance.html)
+## Output
 
-### Lanelet2 Map
+### To Control
 
-map of the environment where the planning takes place. Published by the Map Server.
+| Name           | Topic                           | Type                                                                                                                                                                         | Description                                                                                |
+| -------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Trajectory     | `/planning/trajectory`          | [autoware_auto_planning_msgs/msg/Trajectory](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_planning_msgs/msg/Trajectory.idl)                     | A sequence of space and velocity and acceleration points to be followed by the controller. |
+| Turn Indicator | `/planning/turn_indicators_cmd` | [autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand.idl) | Turn indicator signal to be followed by the vehicle.                                       |
+| Hazard Light   | `/planning/hazard_lights_cmd`   | [autoware_auto_vehicle_msgs/msg/HazardLightsCommand](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/HazardLightsCommand.idl)     | Hazard light signal to be followed by the vehicle.                                         |
 
-- [autoware_auto_mapping_msgs/msg/HADMapBin](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_mapping_msgs/msg/HADMapBin.idl)
-  - std_msgs::msg::Header header
-  - uint8 map_format
-  - string format_version
-  - string map_version
-  - sequence < uint8 > data
+### To System
 
-### Goal Pose
+| Name        | Topic                         | Type                                                                                                                   | Description                                                                   |
+| ----------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Diagnostics | `/planning/hazard_lights_cmd` | [diagnostic_msgs/msg/DiagnosticArray](http://docs.ros.org/en/latest/api/diagnostic_msgs/html/msg/DiagnosticArray.html) | Diagnostic status of the Planning component reported to the System component. |
 
-target pose of ego. Published by the User Interface.
+### To API
 
-- [geometry_msgs/PoseStamped](https://docs.ros.org/en/lunar/api/geometry_msgs/html/msg/PoseStamped.html)
-
-### Engagement Response
-
-TBD.
-
-**The message definition is under discussion.**
-
-### Error status
-
-a status corresponding to the current state of Autoware. Used by the Vehicle Interface to switch between different modes in case of emergency. Published by the Diagnostic Manager.
-
-- [autoware_auto_system_msgs/msg/EmergencyState](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_system_msgs/msg/EmergencyState.idl)
-  - builtin_interfaces::msg::Time stamp
-  - uint8 state
-
-With the state being one of the following:
-
-- NORMAL = 1
-- OVERRIDE_REQUESTING = 2
-- MRM_OPERATING = 3
-- MRM_SUCCEEDED = 4
-- MRM_FAILED = 5
-
-[TODO] original design for these messages: diagnostic manager also publishes an overriding emergency control command ([Add the monitoring system related messages - Autoware.Auto](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/merge_requests/38)). Possible new design: gate of the vehicle interface switches to the emergency control command (generated by another controller) when receiving an OVERRIDE_REQUESTING message.
-
-**The message definition is under discussion.**
-
-## Outputs
-
-### Traffic Light Query
-
-service request for the state of a specific traffic light. Sent to the Perception module.
-
-- uint64 traffic_light_id
-
-**The message definition is under discussion.**
-
-### Trajectory
-
-A sequence of space and velocity points to be followed by the controller.
-
-- [autoware_auto_planning_msgs/Trajectory](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_planning_msgs/msg/Trajectory.idl)
-  - [std_msgs/Header](https://docs.ros.org/en/noetic/api/std_msgs/html/msg/Header.html) header
-  - sequence<[autoware_auto_planning_msgs::msg::TrajectoryPoint](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_planning_msgs/msg/TrajectoryPoint.idl), 100> points
-    - builtin_interfaces::msg::Duration time_from_start
-    - [geometry_msgs::msg::Pose](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/Pose.html) pose
-    - float longitudinal_velocity_mps
-    - float lateral_velocity_mps
-    - float acceleration_mps2
-    - float heading_rate_rps
-    - float front_wheel_angle_rad
-    - float rear_wheel_angle_rad
-
-### Vehicle Signal Commands
-
-Commands for various elements of the vehicle unrelated to motion. Sent to the Vehicle Interface. (For the definition, see [autoware_auto_vehicle_msgs](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/tree/master/autoware_auto_vehicle_msgs/msg).)
-
-- HandBrake Command
-- Hazard Lights Command
-- Headlights Command
-- Horn Command
-- Stationary Locking Command
-- Turn Indicator Command
-- Wipers Command
-
-### Missions Status
-
-TBD.
-
-**The message definition is under discussion.**
-
-### Engagement Request
-
-TBD,
-
-**The message definition is under discussion.**
+| Name            | Topic                          | Type                                                                                                                                                                              | Description                                                                                                         |
+| --------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Path Candidate  | `/planning/path_candidate/*`   | [autoware_auto_planning_msgs/msg/Path](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_planning_msgs/msg/Path.idl)                                      | The path Autoware is about to take. Users can interrupt the operation based on the path candidate information.      |
+| Steering Factor | `/planning/steering_factor/*`  | [autoware_adapi_v1_msgs/msg/SteeringFactorArray](https://github.com/autowarefoundation/autoware_adapi_msgs/blob/main/autoware_adapi_v1_msgs/planning/msg/SteeringFactorArray.msg) | Information about the steering maneuvers performed by Autoware (e.g., steering to the right for a right turn, etc.) |
+| Velocity Factor | `/planning/velocity_factors/*` | [autoware_adapi_v1_msgs/msg/VelocityFactorArray](https://github.com/autowarefoundation/autoware_adapi_msgs/blob/main/autoware_adapi_v1_msgs/planning/msg/VelocityFactorArray.msg) | Information about the velocity maneuvers performed by Autoware (e.g., stop for an obstacle, etc.)                   |
