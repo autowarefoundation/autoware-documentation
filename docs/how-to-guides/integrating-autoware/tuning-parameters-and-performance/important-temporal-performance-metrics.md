@@ -62,7 +62,7 @@ Additionally, it is assumed that algorithms are implemented as multiple nodes an
 
 !!! note
 
-    There is an assumption that each of LiDARs outputs a set of pointcloud with a timestamp. CPA #0 is observed with the timestamp. If the LiDARs are not configured to output the timestamp, the time when Autoware receives the pointcloud is used instead. That is represented by CPA #1 in the model. The detailed metrics employs the idea as well.
+    There is an assumption that each of sensors, such as LiDARs and cameras, outputs a set of pointcloud with a timestamp. CPA #0 is observed with the timestamp. If the sensors are not configured to output the timestamp, the time when Autoware receives the pointcloud is used instead. That is represented by CPA #1 in the model. The detailed metrics employs the idea as well.
 
 ### Detailed temporal performance metrics for Perception
 
