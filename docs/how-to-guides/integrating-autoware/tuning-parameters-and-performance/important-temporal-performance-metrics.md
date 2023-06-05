@@ -107,8 +107,9 @@ Obstacle segmentation, which is a crucial part of Perception, transmits data to 
 
 ![Model for Obstacle segmentation temporal performance metrics](./images/important-temporal-performance-metrics/model-for-obstacle-segmentation-metrics.svg)
 
-!!! ote
-Both the Obstacle grid map and Obstacle segmentation transmit data to multiple sub-components of Planning. However, not all of these sub-components are described in the model. This is because our primary focus is on the paths from LiDAR to Planning via Obstacle segmentation.
+!!! note
+
+    Both the Obstacle grid map and Obstacle segmentation transmit data to multiple sub-components of Planning. However, not all of these sub-components are described in the model. This is because our primary focus is on the paths from LiDAR to Planning via Obstacle segmentation.
 
 The following list shows the temporal performance metrics around Obstacle segmentation and Planning.
 
