@@ -1,10 +1,18 @@
 # Planning component design
 
+## Purpose of this document
+
+TODO: 背景と目的の認識合意、誰にどのように使われるかを明確に記載する。
+
+この文書は、Planning Componentの開発における目標やハイレベルな設計戦略、およびそれに関連する意思決定とその理由を説明します。このドキュメントを通じて、すべてのOSS開発者は、Planning Componentがどのような設計思想や制約のもとで設計され、どのような目標を達成するために開発が行われているのかを理解することができます。これにより、円滑な開発参加が可能となります。
+
+さらに、（これらの情報は将来的に分離して管理されるかもしれませんが、）具体的なリファレンス実装や提供される機能の一覧も後半に記載されています。これにより、開発者やユーザーは、Planning Componentを使用することで現在何が可能なのか、機能をどのように活用したり、拡張したり、追加したりすることができるのかを理解することができます。
+
 ## Overview
 
-The Planning component generates the trajectory message that will be subscribed to by the Control component based on the environmental state obtained from the Localization and the Perception components.
+The Planning component generates the trajectory message that will be subscribed to by the Control component based on the environmental state obtained from the Localization and the Perception components. This component design follows the overarching philosophy of Autoware, defined as the [microautonomy concept](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts/).
 
-## Requirements
+## Goals and non-goals
 
 The goal of the Planning component is to generate a trajectory (path and velocity) of the ego vehicle that is safe and well-regulated while satisfying the given mission.
 
@@ -22,6 +30,13 @@ The goal of the Planning component is to generate a trajectory (path and velocit
 - The Planning component is not designed to always outperform human drivers.
 - The Planning component is not capable of “never crashes”.
 
+## Requirements
+
+ここはGoalとかではなく、Pythonで書く必要がある、みたいなことを書く。PlanningにRequirementsって何がある？
+
+## Assumptions
+
+高島さん曰く、ここにAssumptiosがあった方が良いらしいが、例えばどんなことだろう？
 ## High-level architecture
 
 This diagram describes the high-level architecture of the Planning Component.
@@ -30,7 +45,7 @@ This diagram describes the high-level architecture of the Planning Component.
 
 The Planning component consists of the following sub-components:
 
-- **Mission Planning**: Calculates the route based on the given goal and map information.
+- **Mission Planning**: Calculates the route from a starting position and a given goal based on map information.
 - **Scenario Planning**: Determines the trajectory based on the current scenario, such as Lane Driving or Parking.
   - **Lane Driving**: Calculates the trajectory for driving within constructed lanes.
     - **Behavior Planner**: Calculates suitable trajectory based on safety considerations and traffic rules.
