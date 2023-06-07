@@ -4,7 +4,9 @@ This page provides specific specifications about the Interface of the Planning C
 
 **TODO: The detailed definitions (meanings of elements included in each topic) are not described yet, need to be updated.**
 
-## Inputs
+## Input
+
+![planning-input](images/planning-interface-input.drawio.svg)
 
 ### From Map Component
 
@@ -48,6 +50,8 @@ This page provides specific specifications about the Interface of the Planning C
 
 ## Output
 
+![planning-output](images/planning-interface-output.drawio.svg)
+
 ### To Control
 
 | Name           | Topic                           | Type                                                                                                                                                                         | Description                                                                                |
@@ -69,3 +73,27 @@ This page provides specific specifications about the Interface of the Planning C
 | Path Candidate  | `/planning/path_candidate/*`   | [autoware_auto_planning_msgs/msg/Path](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_planning_msgs/msg/Path.idl)                                      | The path Autoware is about to take. Users can interrupt the operation based on the path candidate information.      |
 | Steering Factor | `/planning/steering_factor/*`  | [autoware_adapi_v1_msgs/msg/SteeringFactorArray](https://github.com/autowarefoundation/autoware_adapi_msgs/blob/main/autoware_adapi_v1_msgs/planning/msg/SteeringFactorArray.msg) | Information about the steering maneuvers performed by Autoware (e.g., steering to the right for a right turn, etc.) |
 | Velocity Factor | `/planning/velocity_factors/*` | [autoware_adapi_v1_msgs/msg/VelocityFactorArray](https://github.com/autowarefoundation/autoware_adapi_msgs/blob/main/autoware_adapi_v1_msgs/planning/msg/VelocityFactorArray.msg) | Information about the velocity maneuvers performed by Autoware (e.g., stop for an obstacle, etc.)                   |
+
+## Planning internal interface
+
+This is the internal interface defined in the planning component shown in the [Planning Architecture Design](../../autoware-architecture/planning/index.md#high-level-architecture).
+
+![planning-internal](images/planning-interface-internal.drawio.svg)
+
+### From Mission Planning to Scenario Planning
+
+| Name  | Topic                              | Type                                                                                                                                                 | Description                                                                          |
+| ----- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Route | `/planning/mission_planning/route` | [autoware_planning_msgs/msg/LaneletRoute](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_planning_msgs/msg/LaneletRoute.msg) | A sequence of lane IDs on a Lanelet map, from the starting point to the destination. |
+
+### From Behavior Planning to Motion Planning
+
+| Name | Topic                                                             | Type                                                                                                                                         | Description                                                                                                                                                                                                                                                                                                       |
+| ---- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Path | `/planning/scenario_planning/lane_driving/behavior_planning/path` | [autoware_auto_planning_msgs/msg/Path](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_planning_msgs/msg/Path.idl) | A sequence of approximate vehicle positions for driving, along with information on the maximum speed and the drivable areas. Modules receiving this message are expected to make changes to the path within the constraints of the drivable areas and the maximum speed, generating the desired final trajectory. |
+
+### From Scenario Planning to Validation
+
+| Name       | Topic                                    | Type                                                                                                                                                     | Description                                                                                                                                           |
+| ---------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Trajectory | `/planning/scenario_planning/trajectory` | [autoware_auto_planning_msgs/msg/Trajectory](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_planning_msgs/msg/Trajectory.idl) | A sequence of precise vehicle positions, speeds, and accelerations required for driving. It is expected that the vehicle will follow this trajectory. |
