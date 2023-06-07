@@ -28,7 +28,7 @@ This section is divided into multiple subsections, each containing a model diagr
 
 The first subsection presents the top-level temporal performance metrics, which are depicted in the abstract structure of Autoware as a whole. The detailed metrics are not included in the model as they would add complexity to it. Instead, the subsequent section introduces the detailed metrics. The detailed metrics are subject to more frequent updates compared to the top-level ones, which is another reason for categorizing them separately.
 
-Each list includes a column for the reference value. The reference value represents the observed value of each metric when Autoware is running according to the tutorial. It is important to note that the reference value is not a required value, meaning that Autoware does not necessarily fail in the tutorial execution if certain metrics do not fulfill the reference value.
+Each list includes a column for the reference value. The reference value represents the observed value of each metric when Autoware is running according to [the tutorial](../../../tutorials/). It is important to note that the reference value is not a required value, meaning that Autoware does not necessarily fail in [the tutorial](../../../tutorials/) execution if certain metrics do not fulfill the reference value.
 
 ### Top-level temporal performance metrics for Autoware
 
