@@ -44,7 +44,7 @@ Our planning components are built based on the microautonomy architecture with A
 
 ## Component interface
 
-The following describes the input/output concept between Planning Component and other components. See the [Planning Component Interface](../../autoware-interfaces/components/planning.md) page for the current implementation.
+This section describes the inputs and outputs of the Planning Component and of its internal modules. See the [Planning Component Interface](../../autoware-interfaces/components/planning.md) page for the current implementation.
 
 ### Input to the planning component
 
