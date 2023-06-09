@@ -28,7 +28,8 @@ geometry_msgs/Pose[2] pose
 float32[2] distance
 uint16 direction
 uint16 status
-string module
+string behavior
+string sequence
 string detail
 autoware_adapi_v1_msgs/CooperationStatus[<=1] cooperation
 

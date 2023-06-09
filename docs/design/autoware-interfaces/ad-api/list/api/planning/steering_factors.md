@@ -12,8 +12,10 @@ type:
       text: The direction of the steering factor.
     - name: factors.status
       text: The status of the steering factor.
-    - name: factors.module
-      text: The module name of the steering factor.
+    - name: factors.behavior
+      text: The behavior type of the steering factor.
+    - name: factors.sequence
+      text: The sequence type of the steering factor.
     - name: factors.detail
       text: The additional information of the steering factor.
     - name: factors.cooperation

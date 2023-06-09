@@ -66,12 +66,13 @@ types:
       state: uint16
   autoware_adapi_v1_msgs/msg/SteeringFactor:
     msg:
+      behavior: string
       cooperation: autoware_adapi_v1_msgs/msg/CooperationStatus[<=1]
       detail: string
       direction: uint16
       distance: float32[2]
-      module: string
       pose: geometry_msgs/msg/Pose[2]
+      sequence: string
       status: uint16
       type: uint16
   autoware_adapi_v1_msgs/msg/SteeringFactorArray:
@@ -80,11 +81,12 @@ types:
       header: std_msgs/msg/Header
   autoware_adapi_v1_msgs/msg/VelocityFactor:
     msg:
+      behavior: string
       cooperation: autoware_adapi_v1_msgs/msg/CooperationStatus[<=1]
       detail: string
       distance: float32
-      module: string
       pose: geometry_msgs/msg/Pose
+      sequence: string
       status: uint16
       type: uint16
   autoware_adapi_v1_msgs/msg/VelocityFactorArray:

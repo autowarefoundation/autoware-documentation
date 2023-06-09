@@ -22,7 +22,8 @@ uint16 STOPPED = 2
 geometry_msgs/Pose pose
 float32 distance
 uint16 status
-string module
+string behavior
+string sequence
 string detail
 autoware_adapi_v1_msgs/CooperationStatus[<=1] cooperation
 
