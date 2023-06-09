@@ -6,4 +6,5 @@
 - [Localization](./api/localization/index.md)
 - [Motion](./api/motion/index.md)
 - [Planning](./api/planning/index.md)
+- [Cooperation](./api/planning/cooperation.md)
 - [Fail-safe](./api/fail_safe/index.md)

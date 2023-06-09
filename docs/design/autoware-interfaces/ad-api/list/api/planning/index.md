@@ -2,9 +2,6 @@
 
 - {{ link_ad_api('/api/planning/velocity_factors') }}
 - {{ link_ad_api('/api/planning/steering_factors') }}
-- {{ link_ad_api('/api/planning/cooperation/set_decisions') }}
-- {{ link_ad_api('/api/planning/cooperation/set_default') }}
-- {{ link_ad_api('/api/planning/cooperation/get_default') }}
 
 ## Description
 
@@ -15,17 +12,50 @@ Also provides status and commands for modules that cooperation with operators.
 ## Velocity factors
 
 The velocity factors is an array of information on the behavior that the vehicle stops or slows down.
-Each factor has a module name, pose in the base link, distance, status, and detailed data depending on its type.
+Each factor has a behavior type which is described below.
+Some behavior types have sequence and details as additional information.
+
+| Behavior                    | Description                                                                         |
+| --------------------------- | ----------------------------------------------------------------------------------- |
+| surrounding-obstacle        | There are obstacles immediately around the vehicle.                                 |
+| route-obstacle              | There are obstacles along the route ahead.                                          |
+| intersection                | There are obstacles in other lanes in the path.                                     |
+| crosswalk                   | There are obstacles on the crosswalk.                                               |
+| rear-check                  | There are obstacles behind that would be in a human driver's blind spot.            |
+| user-defined-attention-area | There are obstacles in the predefined attention area.                               |
+| no-stopping-area            | There is not enough space beyond the no stopping area.                              |
+| stop-sign                   | A stop by a stop sign.                                                              |
+| traffic-signal              | A stop by a traffic signal.                                                         |
+| v2x-gate-area               | A stop by a gate area. It has enter and leave as sequences and v2x type as details. |
+| merge                       | A stop before merging lanes.                                                        |
+| sidewalk                    | A stop before crossing the sidewalk.                                                |
+| lane-change                 | A lane change.                                                                      |
+| avoidance                   | A path change to avoid an obstacle in the current lane.                             |
+| emergency-operation         | A stop by emergency instruction from the operator.                                  |
+
+Each factor also provides status, poses in the base link frame, and distance from that pose.
 As the vehicle approaches the stop position, this factor appears with a status of APPROACHING.
 And when the vehicle reaches that position and stops, the status will be STOPPED.
-The pose indicates the stop position or the base link if the stop position cannot be calculated.
+The pose indicates the stop position, or the base link if the stop position cannot be calculated.
 
 ![velocity-factors](./docs/velocity-factors.drawio.svg)
 
 ## Steering factors
 
 The steering factors is an array of information on the maneuver that requires use of turn indicators, such as turning left or right.
-Each factor has a module name, poses in the base link, distances, status, and detailed data depending on its type.
+Each factor has a behavior type which is described below and steering direction.
+Some behavior types have sequence and details as additional information.
+
+| Behavior            | Description                                                                 |
+| ------------------- | --------------------------------------------------------------------------- |
+| intersection        | A turning left or right at an intersection.                                 |
+| lane-change         | A lane change.                                                              |
+| avoidance           | A path change to avoid an obstacle. It has a sequence of change and return. |
+| start-planner       | T.B.D.                                                                      |
+| goal-planner        | T.B.D.                                                                      |
+| emergency-operation | A path change by emergency instruction from the operator.                   |
+
+Each factor also provides status, poses in the base link frame, and distances from that poses.
 As the vehicle approaches the position to start steering, this factor appears with a status of APPROACHING.
 And when the vehicle reaches that position, the status will be TURNING.
 The poses indicate the start and end position of the section where the status is TURNING.
@@ -36,29 +66,3 @@ In cases such as lane change and avoidance, the vehicle will start steering at a
 For these types, the section where the status is TURNING will be updated dynamically and the poses will follow that.
 
 ![steering-factors-2](./docs/steering-factors-2.drawio.svg)
-
-## Cooperation
-
-Some planning modules can receive the operator's decision and reflect it in their behavior.
-These modules have their own decisions, but use the the merged decision of theirs and operator's.
-The operator can check the module's decision and override the decision if necessary.
-
-![cooperation-architecture](./docs/cooperation-architecture.drawio.svg)
-
-The modules that support cooperation have their own decisions that is either deactivate or activate.
-Its meaning depends on the module and is shown in the table below.
-The merged decision will also be either of these, and the module will decide the behavior using it.
-
-| Module Group | Module Type | Deactivate    | Activate        |
-| ------------ | ----------- | ------------- | --------------- |
-| velocity     | slow down   | slow down     | pass            |
-| velocity     | stop        | stop          | pass            |
-| steering     | path change | keep the path | change the path |
-
-The operator's decision is either deactivate, activate, autonomous, or undecided.
-If the operator selects deactivate or activate, the module's decision is ignored and the operator's is used instead.
-If the operator selects autonomous, the module's decision is used.
-The undecided is the initial state of the operator's decision and is replaced with the system default when merging.
-The operator can also override the default decision to use when undecided.
-
-![cooperation-state](./docs/cooperation-state.drawio.svg)
