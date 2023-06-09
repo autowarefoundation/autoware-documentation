@@ -4,10 +4,10 @@ method: function call
 type:
   name: autoware_adapi_v1_msgs/srv/SetCooperationDefault
   req:
-    - name: module
-      text: The name of the target module.
-    - name: cooperator
-      text: The default decision of the target module.
+    - name: defaults.behavior
+      text: The type of the target behavior.
+    - name: defaults.cooperator
+      text: The default decision of the target behavior.
   res:
     - name: status
       text: response status

@@ -3,9 +3,8 @@
 title: autoware_adapi_v1_msgs/msg/CooperationDecision
 used:
   - autoware_adapi_v1_msgs/msg/CooperationCommand
+  - autoware_adapi_v1_msgs/msg/CooperationDefault
   - autoware_adapi_v1_msgs/msg/CooperationStatus
-  - autoware_adapi_v1_msgs/srv/GetCooperationDefault
-  - autoware_adapi_v1_msgs/srv/SetCooperationDefault
 ---
 
 {% extends 'design/autoware-interfaces/templates/autoware-data-type.jinja2' %}

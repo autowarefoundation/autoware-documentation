@@ -6,6 +6,10 @@ types:
   autoware_adapi_v1_msgs/msg/CooperationDecision:
     msg:
       decision: uint8
+  autoware_adapi_v1_msgs/msg/CooperationDefault:
+    msg:
+      behavior: string
+      cooperator: autoware_adapi_v1_msgs/msg/CooperationDecision
   autoware_adapi_v1_msgs/msg/CooperationStatus:
     msg:
       autonomous: autoware_adapi_v1_msgs/msg/CooperationDecision
@@ -103,10 +107,8 @@ types:
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/GetCooperationDefault:
-    req:
-      module: string
     res:
-      cooperator: autoware_adapi_v1_msgs/msg/CooperationDecision
+      defaults: autoware_adapi_v1_msgs/msg/CooperationDefault[]
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/InitializeLocalization:
     req:
@@ -120,8 +122,7 @@ types:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/SetCooperationDefault:
     req:
-      cooperator: autoware_adapi_v1_msgs/msg/CooperationDecision
-      module: string
+      defaults: autoware_adapi_v1_msgs/msg/CooperationDefault[]
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/SetRoute:

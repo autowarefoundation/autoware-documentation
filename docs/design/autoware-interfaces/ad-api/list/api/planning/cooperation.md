@@ -11,13 +11,20 @@
 Some planning modules can receive the operator's decision and reflect it in their behavior.
 These modules have their own decisions, but use the the merged decision of theirs and operator's.
 The operator can check the module's decision and override the decision if necessary.
+If the module supports this feature, [cooperation status](../../../types/autoware_adapi_v1_msgs/msg/CooperationStatus.md) is provided in [velocity factors or steering factors](./index.md).
 
 ![cooperation-architecture](./docs/cooperation-architecture.drawio.svg)
+
+## Scene ID
+
+The cooperation status contains an ID to distinguish scenes.
+This ID is generated for each scene that requires decision and doesn't change until the scene is completed or canceled.
+To set the operator's decision, it needs to specify the ID by selecting the target scene from the cooperation status.
+In practice, the application can hides the specification of the ID and provides an abstracted interface to the operator.
 
 ## Decisions
 
 The modules that support cooperation have their own decisions that is either deactivate or activate.
-These are provided as cooperation status in [velocity factors or steering factors](./index.md).
 Its meaning depends on the module and is shown in the table below.
 The merged decision will also be either of these, and the module will decide the behavior using it.
 

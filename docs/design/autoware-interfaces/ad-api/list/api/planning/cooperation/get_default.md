@@ -3,14 +3,13 @@ title: /api/planning/cooperation/get_default
 method: function call
 type:
   name: autoware_adapi_v1_msgs/srv/GetCooperationDefault
-  req:
-    - name: module
-      text: The name of the target module.
   res:
     - name: status
       text: response status
-    - name: cooperator
-      text: The default decision of the target module.
+    - name: defaults.behavior
+      text: The type of the target behavior.
+    - name: defaults.cooperator
+      text: The default decision of the target behavior.
 ---
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
