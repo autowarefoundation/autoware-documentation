@@ -7,7 +7,6 @@
 
 This API manages the planned behavior of the vehicle.
 Applications can notify the vehicle behavior to the people around and visualize it for operator and passengers.
-Also provides status and commands for modules that cooperation with operators.
 
 ## Velocity factors
 

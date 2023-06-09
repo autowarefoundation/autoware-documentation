@@ -17,7 +17,7 @@ The operator can check the module's decision and override the decision if necess
 ## Decisions
 
 The modules that support cooperation have their own decisions that is either deactivate or activate.
-These are provided as cooperation status in velocity factors or steering factors.
+These are provided as cooperation status in [velocity factors or steering factors](./index.md).
 Its meaning depends on the module and is shown in the table below.
 The merged decision will also be either of these, and the module will decide the behavior using it.
 
