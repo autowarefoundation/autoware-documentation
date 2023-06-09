@@ -1,7 +1,7 @@
 types:
   autoware_adapi_v1_msgs/msg/DoorLayout:
     msg:
-      pose: geometry_msgs/msg/Pose
+      description: string
       roles: uint8[]
   autoware_adapi_v1_msgs/msg/DoorStatus:
     msg:

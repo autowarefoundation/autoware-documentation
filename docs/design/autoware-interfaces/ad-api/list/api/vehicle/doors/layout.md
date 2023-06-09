@@ -7,9 +7,9 @@ type:
     - name: status
       text: response status
     - name: doors.roles
-      text: The roles of the door in the current operation of the vehicle.
-    - name: doors.pose
-      text: The pose of the door where the direction to get off is positive X-axis.
+      text: The roles of the door in the service the vehicle provides.
+    - name: doors.description
+      text: The description of the door for display in the interface.
 ---
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
