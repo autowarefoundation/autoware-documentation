@@ -34,7 +34,7 @@ In other words, it means the following:
 - The capability is extensible with the third-party components.
 - The Perception component is designed to provide a platform that enables autoware users to develop the complete functionality and capability.
 - The Perception component is designed to provide a platform that enables autoware users to develop the autonomous driving system which always outperforms human drivers.
-- The Perception component is designed to provide a platform  that enables autoware users to develop the autonomous driving system achiving "zero overlooks" or "error-free recognition".
+- The Perception component is designed to provide a platform that enables autoware users to develop the autonomous driving system achiving "zero overlooks" or "error-free recognition".
 - The basic functions are provided so that a simple ODD can be defined.
 
 **Non-goals:**
