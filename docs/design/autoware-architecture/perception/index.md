@@ -4,21 +4,42 @@
 
     Under Construction
 
+## Purpose of this document
+
+TODO: 背景と目的の認識合意、誰にどのように使われるかを明確に記載する。
+
+この文書は、Perception Componentの開発における目標やハイレベルな設計戦略、およびそれに関連する意思決定とその理由を説明します。このドキュメントを通じて、すべてのOSS開発者は、Perception Componentがどのような設計思想や制約のもとで設計され、どのような目標を達成するために開発が行われているのかを理解することができます。これにより、円滑な開発参加が可能となります。
+
+さらに、（これらの情報は将来的に分離して管理されるかもしれませんが、）具体的なリファレンス実装や提供される機能の一覧も後半に記載されています。これにより、開発者やユーザーは、Perception Componentを使用することで現在何が可能なのか、機能をどのように活用したり、拡張したり、追加したりすることができるのかを理解することができます。
+
 ## Overview
 
-The Perception Component receives inputs from Sensing, Localization, and Map components, and adds semantic information (e.g., Object Recognition, Obstacle Segmentation, Traffic Light Recognition, Occupancy Grid Map), which is then passed on to Planning Component.
+The Perception Component receives inputs from Sensing, Localization, and Map components, and adds semantic information (e.g., Object Recognition, Obstacle Segmentation, Traffic Light Recognition, Occupancy Grid Map), which is then passed on to Planning Component. This component design follows the overarching philosophy of Autoware, defined as the [microautonomy concept](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts/).
 
 ## Requirements
 
-The goal of the Perception component is to accurately perform Object Recognition, Traffic Light Recognition, and Blind-spot Detection from sensor information.
+The goal of the Perception Component is to provide functionality and APIs that enable the development of various Autonomous Driving Vehicles, such as trucks driving on freeways, robotaxis navigating urban areas, Autonomous Mobile Robots traversing inside buildings, self-driving vehicles conducting transport within factories, or rovers exploring the lunar surface. This aims to offer flexibility in creating such vehicles.
+
+In order to achieve this, it is necessary to design the Perception component with attention to Policy/Mechanism separation.
+In other words, it means the following:
+
+- Should not only consider how to achieve the best possible Perception functionality for autonomous driving. Should consider how to design a system that can enable a platform capable of achieving even the best possible Perception functionality for autonomous driving.
+- In order to be able to develop any type of autonomous vehicle, we must design the Perception Component in a way that allows its implementation. For example, while it is possible to add features for a rover to traverse the lunar surface, it is not acceptable to design the Perception Component to work exclusively for the lunar rover, limiting its functionality to that specific purpose.
+
+<!-- to accurately perform Object Recognition, Traffic Light Recognition, and Blind-spot Detection from sensor information. -->
 
 **Goals:**
 
-- The basic functions are provided so that a simple ODD can be defined.
+- To achieve a design that can provide Perception functionality to every autonomous vehicle.
 - The capability is extensible with the third-party components.
+- The Perception component is designed to provide a platform that enables autoware users to develop the complete functionality and capability.
+- The Perception component is designed to provide a platform that enables autoware users to develop the autonomous driving system which always outperforms human drivers.
+- The Perception component is designed to provide a platform  that enables autoware users to develop the autonomous driving system achiving "zero overlooks" or "error-free recognition".
+- The basic functions are provided so that a simple ODD can be defined.
 
 **Non-goals:**
 
+- The Perception Component should not operate perfectly only in specific environments and be completely useless in other environments.
 - The Perception component is not self-contained but can be extended with third parties.
 - The Perception component is not aimed at the complete functionality and capability.
 - The Perception component is not designed to always outperform human drivers.
