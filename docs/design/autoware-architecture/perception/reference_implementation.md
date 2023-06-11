@@ -1,4 +1,4 @@
-# Perception component Reference Implementation
+# Perception component Reference Implementation Design Doc
 
 autowareを起動すると、default parameterが読み込まれ、Reference Implementationが起動される。ここでは、defaultで起動するReference Implementationがどのようにdesignされているか記述する。
 
