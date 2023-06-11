@@ -16,14 +16,15 @@ TODO: 背景と目的の認識合意、誰にどのように使われるかを�
 
 The Perception Component receives inputs from Sensing, Localization, and Map components, and adds semantic information (e.g., Object Recognition, Obstacle Segmentation, Traffic Light Recognition, Occupancy Grid Map), which is then passed on to Planning Component. This component design follows the overarching philosophy of Autoware, defined as the [microautonomy concept](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts/).
 
-## Requirements
+<!-- ## Requirements -->
+
+## Goals and non-goals
 
 <!-- 最強のPerception Systemをdesignしたいわけではない。最強のPerception Systemでさえ実現可能な、platformをdesignしたい。 -->
 <!-- ある一つの尖ったODDに特化しているようなdesignは望ましくない。一方、ある一つの尖ったODDであっても実現可能であるようにはdesignしたい。 -->
 
 The goal of the Perception Component is to provide functionality and APIs that enable the development of various Autonomous Driving Vehicles, such as trucks driving on freeways, robotaxis navigating urban areas, Autonomous Mobile Robots traversing inside buildings, self-driving vehicles conducting transport within factories, or rovers exploring the lunar surface. This aims to offer flexibility in creating such vehicles.
 
-In order to achieve this, it is necessary to design the Perception component with attention to Policy/Mechanism separation.
 In other words, it means the following:
 
 - Should not only consider how to achieve the best possible Perception functionality for autonomous driving. Should consider how to design a system that can enable a platform capable of achieving even the best possible Perception functionality for autonomous driving.
