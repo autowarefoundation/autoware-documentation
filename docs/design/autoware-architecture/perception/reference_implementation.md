@@ -12,12 +12,11 @@ This diagram describes the architecture of the reference implementation.
 
 ![overall-perception-architecture](image/reference-implementation-perception-diagram.drawio.svg)
 
-  - **Detection**: Detects the pose and velocity of dynamic objects such as vehicles and pedestrians.
-    - **Detector**: Triggers object detection processing frame by frame.
-    - **Interpolator**: Maintains stable object detection. Even if the output from Detector suddenly becomes unavailable, Interpolator uses the output from the Tracking module to maintain the detection results without missing any objects.
-  - **Tracking**: Associates detected results across multiple frames.
-  - **Prediction**: Predicts trajectories of dynamic objects.
-
+- **Detection**: Detects the pose and velocity of dynamic objects such as vehicles and pedestrians.
+  - **Detector**: Triggers object detection processing frame by frame.
+  - **Interpolator**: Maintains stable object detection. Even if the output from Detector suddenly becomes unavailable, Interpolator uses the output from the Tracking module to maintain the detection results without missing any objects.
+- **Tracking**: Associates detected results across multiple frames.
+- **Prediction**: Predicts trajectories of dynamic objects.
 
 The following diagram describes the reference implementation of the Perception component. By adding new modules or extending the functionalities, various ODDs can be supported.
 
