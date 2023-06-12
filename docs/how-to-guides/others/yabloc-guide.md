@@ -1,17 +1,18 @@
-# Using YabLoc with Autoware
+# Using YabLoc in Autoware
 
 ## What is YabLoc?
 
-todo
+YabLoc is a camera-based localization method. 
+It estimates position by matching road surface markings extracted from images with a vector map.
+Point cloud maps and LiDAR are not required.
+YabLoc enables users localize with vehicles that are not equipped with LiDAR and in environments where point cloud maps are not available.
 
 ### Principle
-
-YabLoc uses a particle filter. The basic principle is illustrated in the diagram below. It extract road surface markings by masking the line segments by the road area obtained from graph-based segmentation. The red line in the center-top of the diagram represents the line segments identified as road surface markings. YabLoc transforms these segments for each particle and determine the particle's weight by comparing them with the cost map generated from lanelet2.
+The diagram below illustrates the basic principle of YabLoc. It extracts road surface markings by masking the line segments using the road area obtained from graph-based segmentation. The red line at the center-top of the diagram represents the line segments identified as road surface markings. YabLoc transforms these segments for each particle and determines the particle's weight by comparing them with the cost map generated from Lanelet2.
 
 ![node_diagram](images/yabloc-integration-guide/yabloc_principle.png)
 
-## Packages
-
+### YabLoc Packages
 - [yabloc_common](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/yabloc/yabloc_common/README.md)
 - [yabloc_imgproc](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/yabloc/yabloc_imgproc/README.md)
 - [yabloc_particle_filter](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/yabloc/yabloc_particle_filter/README.md)
@@ -89,6 +90,6 @@ These topics are not visualized by default.
   - Also, in most cases, NDT is superior to YabLoc, so there is less benefit to running them at the same time.
 - It does not estimate roll and pitch, therefore some of the perception nodes may not work well.
 - It doesn't support multiple cameras now. But it will in the future.
-- In places where there are few road surface markings, such as intersections, the estimation heavily relies on GNSS, IMU, and odometry.
-- If the road boundary or road surface markings are not included in the Lanelet2, the estimation fails because Yabloc matches road surface markings with the map.
-- The sample rosbag provided by the autoware tutorial does not include images, so it is not possible to run YabLoc.
+- In places where there are few road surface markings, such as intersections, the estimation heavily relies on GNSS, IMU, and vhielce twist.
+- If the road boundary or road surface markings are not included in the Lanelet2, the estimation fails.
+- The sample rosbag provided in the autoware tutorial does not include images, so it is not possible to run YabLoc with it.
