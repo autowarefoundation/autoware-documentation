@@ -1,8 +1,8 @@
 ---
-title: /api/planning/cooperation/set_default
+title: /api/planning/cooperation/set_defaults
 method: function call
 type:
-  name: autoware_adapi_v1_msgs/srv/SetCooperationDefault
+  name: autoware_adapi_v1_msgs/srv/SetCooperationDefaults
   req:
     - name: defaults.behavior
       text: The type of the target behavior.

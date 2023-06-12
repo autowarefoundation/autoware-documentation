@@ -1,8 +1,8 @@
 ---
-title: /api/planning/cooperation/set_decisions
+title: /api/planning/cooperation/set_commands
 method: function call
 type:
-  name: autoware_adapi_v1_msgs/srv/SetCooperationDecisions
+  name: autoware_adapi_v1_msgs/srv/SetCooperationCommands
   req:
     - name: commands.uuid
       text: The ID in the cooperation status.

@@ -1,8 +1,8 @@
 ---
-title: /api/planning/cooperation/get_default
+title: /api/planning/cooperation/get_defaults
 method: function call
 type:
-  name: autoware_adapi_v1_msgs/srv/GetCooperationDefault
+  name: autoware_adapi_v1_msgs/srv/GetCooperationDefaults
   res:
     - name: status
       text: response status

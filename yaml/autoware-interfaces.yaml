@@ -106,7 +106,7 @@ types:
   autoware_adapi_v1_msgs/srv/ClearRoute:
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
-  autoware_adapi_v1_msgs/srv/GetCooperationDefault:
+  autoware_adapi_v1_msgs/srv/GetCooperationDefaults:
     res:
       defaults: autoware_adapi_v1_msgs/msg/CooperationDefault[]
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
@@ -115,12 +115,12 @@ types:
       pose: geometry_msgs/msg/PoseWithCovarianceStamped[<=1]
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
-  autoware_adapi_v1_msgs/srv/SetCooperationDecisions:
+  autoware_adapi_v1_msgs/srv/SetCooperationCommands:
     req:
       commands: autoware_adapi_v1_msgs/msg/CooperationCommand[]
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
-  autoware_adapi_v1_msgs/srv/SetCooperationDefault:
+  autoware_adapi_v1_msgs/srv/SetCooperationDefaults:
     req:
       defaults: autoware_adapi_v1_msgs/msg/CooperationDefault[]
     res:

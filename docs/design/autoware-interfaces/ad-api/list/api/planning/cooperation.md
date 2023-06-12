@@ -2,9 +2,9 @@
 
 - {{ link_ad_api('/api/planning/velocity_factors') }}
 - {{ link_ad_api('/api/planning/steering_factors') }}
-- {{ link_ad_api('/api/planning/cooperation/set_decisions') }}
-- {{ link_ad_api('/api/planning/cooperation/set_default') }}
-- {{ link_ad_api('/api/planning/cooperation/get_default') }}
+- {{ link_ad_api('/api/planning/cooperation/set_commands') }}
+- {{ link_ad_api('/api/planning/cooperation/set_defaults') }}
+- {{ link_ad_api('/api/planning/cooperation/get_defaults') }}
 
 ## Description
 
