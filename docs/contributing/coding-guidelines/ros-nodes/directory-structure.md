@@ -33,7 +33,9 @@
 └─ README.md
 ```
 
-### Config directory
+### Directory descriptions
+
+#### `config`
 
 Place configuration files such as node parameters.
 For ROS parameters, use the extension `.param.yaml`.
@@ -41,30 +43,30 @@ For non-ROS parameters, use the extension `.yaml`.
 
 Rationale: Since ROS parameters files are type-sensitive, they should not be the target of some code formatters and linters. In order to distinguish the file type, we use different file extensions.
 
-### Doc directory
+#### `doc`
 
 Place document files and link from README.
 
-### Include directory
+#### `include`
 
 Place header files exposed to other packages. Do not place files directly under the `include` directory, but place files under the directory with the package name.
 This directory is used for mostly library headers. Note that many headers do not need to be placed here. It is enough to place the headers under the `src` directory.
 
 Reference: <https://docs.ros.org/en/rolling/How-To-Guides/Ament-CMake-Documentation.html#adding-files-and-headers>
 
-### Launch directory
+#### `launch`
 
 Place launch files (`.launch.xml` and `.launch.py`).
 
-### Schema directory
+#### `schema`
 
 Place parameter definition files. See [parameters](./parameters.md) for details.
 
-### Src directory
+#### `src`
 
 Place source files and private header files.
 
-### Test directory
+#### `test`
 
 Place source files for testing.
 
