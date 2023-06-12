@@ -2,17 +2,19 @@
 
 ## What is YabLoc?
 
-YabLoc is a camera-based localization method. 
+YabLoc is a camera-based localization method.
 It estimates position by matching road surface markings extracted from images with a vector map.
 Point cloud maps and LiDAR are not required.
 YabLoc enables users localize with vehicles that are not equipped with LiDAR and in environments where point cloud maps are not available.
 
 ### Principle
+
 The diagram below illustrates the basic principle of YabLoc. It extracts road surface markings by masking the line segments using the road area obtained from graph-based segmentation. The red line at the center-top of the diagram represents the line segments identified as road surface markings. YabLoc transforms these segments for each particle and determines the particle's weight by comparing them with the cost map generated from Lanelet2.
 
 ![node_diagram](images/yabloc-integration-guide/yabloc_principle.png)
 
 ### YabLoc Packages
+
 - [yabloc_common](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/yabloc/yabloc_common/README.md)
 - [yabloc_imgproc](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/yabloc/yabloc_imgproc/README.md)
 - [yabloc_particle_filter](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/yabloc/yabloc_particle_filter/README.md)
