@@ -36,7 +36,8 @@ The merged decision will also be either of these, and the module will decide the
 The operator's decision is either deactivate, activate, autonomous, or undecided.
 If the operator selects deactivate or activate, the module's decision is ignored and the operator's is used instead.
 If the operator selects autonomous, the module's decision is used.
-The undecided is the initial state of the operator's decision and is evaluated as the default decision when merging.
-The operator can also override the default decision to use when undecided.
+The undecided is the initial state of the operator's decision.
+If the operator's decision is undecided, the default decision is used instead when merging decisions.
+Default decisions are set for each module type, and the operator can also select it.
 
 ![cooperation-state](./docs/cooperation-state.drawio.svg)

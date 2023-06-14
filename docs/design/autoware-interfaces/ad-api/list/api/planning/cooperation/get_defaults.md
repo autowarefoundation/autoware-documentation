@@ -14,5 +14,5 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Set the default decision for cooperation. For details, see the [cooperation](../cooperation.md).
+Get the default decision that is used instead when the operator's decision is undecided. For details, see the [cooperation](../cooperation.md).
 {% endblock %}
