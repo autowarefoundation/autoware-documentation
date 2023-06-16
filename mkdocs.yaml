@@ -55,9 +55,7 @@ plugins:
       regex:
         - ^(?!(.*/)?assets/).*\.(?!(.*\.)?md|(.*\.)?svg|(.*\.)?png|(.*\.)?gif|(.*\.)?jpg).*$
         - ^(.*/)?[^.]*$
-  - macros:
-      include_yaml:
-        - autoware_interfaces: yaml/autoware-interfaces.yaml
+  - macros
   - mkdocs-video
   - same-dir
   - search
