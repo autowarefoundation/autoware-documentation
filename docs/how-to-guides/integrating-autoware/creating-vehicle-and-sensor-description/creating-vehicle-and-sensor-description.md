@@ -78,7 +78,7 @@ The `individual_parameter` is where parameters referenced by `sensors.xacro` and
 
 A file that defines the mounting positions and orientations of sensors with `base_link` as the parent frame.
 
-### 2. sensor_kit_calibaration.yaml
+### 2. sensor_kit_calibration.yaml
 
 A file that defines the mounting positions and orientations of sensors with `sensor_kit_base_link` as the parent frame.
 
