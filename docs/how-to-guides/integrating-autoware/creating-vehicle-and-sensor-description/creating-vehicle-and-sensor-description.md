@@ -71,7 +71,7 @@ The `individual_parameter` is where parameters referenced by `sensors.xacro` and
 ### Introduction to Various Parameters
 
 1. sensors_calibration.yaml (must be changed)
-2. sensor_kit_calibaration.yaml (must be changed)
+2. sensor_kit_calibration.yaml (must be changed)
 3. imu_corrector.param.yaml
 
 ### 1. sensors_calibration.yaml
