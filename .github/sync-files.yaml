@@ -34,4 +34,4 @@
     - source: mkdocs-base.yaml
       dest: mkdocs.yaml
       pre-commands: |
-        sd "  - macros" "  - macros:\n      include_yaml:\n        - autoware_interfaces: yaml/autoware-interfaces.yaml" mkdocs-base.yaml
+        sd "  - macros" "  - macros:\n      include_yaml:\n        - autoware_interfaces: yaml/autoware-interfaces.yaml" {source}
