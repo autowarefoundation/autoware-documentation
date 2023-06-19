@@ -53,7 +53,11 @@ Place source files and private header files.
 
 ### test directory
 
-Place source files for testing.
+Place source files for testing. Note that the `target_include_directories` in the CmakeLists is required for private headers placed in the src directory, because it cannot be included from the test directory.
+
+```cmake
+target_include_directories(${TEST_TARGET} PRIVATE src)
+```
 
 ## Python package
 
