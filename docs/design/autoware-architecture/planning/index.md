@@ -6,23 +6,19 @@
 
 さらに、（これらの情報は将来的に分離して管理されるかもしれませんが、）具体的なリファレンス実装や提供される機能の一覧も後半に記載されています。これにより、開発者やユーザーは、Planning Componentを使用することで現在何が可能なのか、機能をどのように活用したり、拡張したり、追加したりすることができるのかを理解することができます。 -->
 
-This document outlines the goals, high-level design strategies, and related rationales in the development of the Planning Component. Through this document, all OSS developers will be able to comprehend the design philosophy and constraints under which the Planning Component is designed, and the goals driving its development. This will enable them to participate seamlessly in the development.
+This document outlines the goals, high-level design strategies, and related rationales in the development of the Planning Component. Through this document, all OSS developers will be able to comprehend the design philosophy, goals and constraints under which the Planning Component is designed. This will enable them to participate seamlessly in the development.
 
 Furthermore, a list of concrete reference implementations and provided features is also included in the latter part of this document, while this information might be managed separately in the future. This allows developers and users to understand what is currently possible with the Planning Component, how to utilize, expand, or add to its features.
 
-## Overview
-
-The Planning component generates the trajectory message that will be subscribed to by the Control component based on the environmental state obtained from the Localization and the Perception components. This component design follows the overarching philosophy of Autoware, defined as the [microautonomy concept](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts/).
-
 ## Goals and non-goals
 
-The goal of the Planning component is to generate a trajectory (path and velocity) of the self-driving vehicle that is safe and well-regulated while satisfying the given mission.
+The role of the Planning component is to generate a trajectory (path and velocity) of the self-driving vehicle that is safe and well-regulated while satisfying the given mission.
 
 <!-- 全体の設計においては、microautonomyのコンセプトに従い、適切なモジュール化と明確なインターフェース定義、およびそれにって得られる高い拡張性を重要視します。すなわち、Autowareにおけるplanningモジュールの目的は、世の中すべての複雑なUseCaseを達成することではなく（もちろん基本的なUseCaseが達成できるレベルのソフトはベースとして提供されるべきですが）、ユーザーの要求レベルに合わせて適切にカスタマイズできる（更には必要な機能が適切に追加開発できる）platformを提供することです。 -->
 
-In our overall design, we emphasize the concept of "microautonomy". This term refers to a design approach that focuses on the proper modularization of functions, clear definition of interfaces between these modules, and as a result, high expandability of the system.
+In our overall design, we emphasize the concept of "[microautonomy](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts)". This term refers to a design approach that focuses on the proper modularization of functions, clear definition of interfaces between these modules, and as a result, high expandability of the system. 
 
-The purpose of the planning module in our Autoware system is not to solve every conceivable complex use case (although we do aim to support basic ones), but rather to provide a platform that can be customized to the user's needs and can facilitate the development of additional features.
+The goal of the Planning component is not to solve every conceivable complex use case (although we do aim to support basic ones), but rather to provide a platform that can be customized to the user's needs and can facilitate the development of additional features.
 
 **Goals:**
 
@@ -35,7 +31,7 @@ The purpose of the planning module in our Autoware system is not to solve every 
 
 **Non-goals:**
 
-The following points are listed as non-goals, intended to clarify our design concepts. However, it's important to note that while we do not demand a "never crash" capability as listed below, our architecture should still be designed in a manner that could accommodate the needs to achieve a "never crash" state through third-party extensions or future enhancements.
+To clarify our design concepts, the following points are listed as non-goals.
 
 - The Planning component is not self-contained but can be extended and enhanced with third parties.
 - The Planning component is not aimed at the complete functionality and capability.
@@ -79,14 +75,27 @@ Scenario Planningレイヤーの導入について。レーン構造が整備さ
 **Rationale**
 BehaviorとMotionの分離について。Planning全体を振る舞いを決定する「Behavior」と、最終的な運動動作を決定する「Motion」に分離することは王道のアプローチである。ただしこれは性能とのトレードオフであり、機能を分離するほど性能が劣化する。例えば、Behaviorは最終的にMotionがどのような計算をするかを知る前に判断を行わなければならず、一般的に保守的な判断を行うことになる。一方で、behaviorとmotionを結合したシステムでは判断と乗り心地といった概念が結合しており、機能の拡張性の面で課題が残る。我々は拡張性を重要視し、behavior-motionの構成で開発を進めている。（昔に議論された[こちらの資料](https://github.com/tier4/AutowareArchitectureProposal.proj/blob/main/docs/design/software_architecture/Planning/DesignRationale.md)も役に立つ。） -->
 
+### Discussions
+
+The following provides discussion points on trade-offs in the architecture. From this information, you will understand the current design philosophy of the Planning Component, its challenges, and potential improvement.
+
 **Rationale for the separation of planning and other components**
 By developing the planning, perception, localzition, and control components separately, it becomes easy to collaborate with third-party components in the component level. However, there's a trade-off between performance and extensibility here. For instance, a perception component would ideally perform recognition and motion prediction only for the objects that the planning component needs, but separating the components hinders such close communication. Additionally, separating planning and control makes it harder to consider vehicle motion performance when planning. To compensate for this, it's necessary to either increase the information exchanged via the interface or increase the computation load.
 
 **Rationale for introducing the Scenario Planning layer**
-The definition of the interface and the level of available information vary between driving in an area with well-structured lanes and driving in a free-space area like a parking lot. For example, while Lane Driving can handle routes with map IDs, this is not appropriate for planning in free space. To flexibly handle future scenarios that might require different interfaces, we have introduced a mechanism that switches planning components at the scenario level. However, a remaining issue is the inability to reuse modules across different scenarios.
+There are different requirements for interfaces between driving in well-structured lanes and driving in a free-space area like a parking lot. For example, while Lane Driving can handle routes with map IDs, this is not appropriate for planning in free space. The mechanism that switches planning sub-components at the scenario level (Lane Driving, Parking, etc) enables a flexible design of the interface, however, it has a drawbacks of the reuse of modules across different scenarios.
+
 
 **Rationale for the separation of Behavior and Motion**
-The classic approach to Planning involves dividing it into 'Behavior', which decides the action, and 'Motion', which determines the final movement. However, this separation implies a trade-off with performance, as performance tends to degrade with increasing separation of functions. For example, Behavior needs to make decisions without prior knowledge of the computations that Motion will eventually perform, which generally results in conservative decision-making. On the other hand, if behavior and motion are integrated, motion performance and decision-making become interdependent, creating challenges in terms of expandability, such as when you wish to extend only the decision-making function to follow a regional traffic rules. We prioritize expandability and continue to develop using a behavior-motion configuration. (This [previously discussed document](https://github.com/tier4/AutowareArchitectureProposal.proj/blob/main/docs/design/software_architecture/Planning/DesignRationale.md) may be useful.)
+The classic approach to Planning involves dividing it into "Behavior", which decides the action, and "Motion", which determines the final movement. However, this separation implies a trade-off with performance, as performance tends to degrade with increasing separation of functions. For example, Behavior needs to make decisions without prior knowledge of the computations that Motion will eventually perform, which generally results in conservative decision-making. On the other hand, if behavior and motion are integrated, motion performance and decision-making become interdependent, creating challenges in terms of expandability, such as when you wish to extend only the decision-making function to follow a regional traffic rules.
+
+To understand this background. this [previously discussed document](https://github.com/tier4/AutowareArchitectureProposal.proj/blob/main/docs/design/software_architecture/Planning/DesignRationale.md) may be useful.
+
+
+### Policies
+
+Autowareは拡張性の高いデザインを
+
 
 ## Component interface
 
