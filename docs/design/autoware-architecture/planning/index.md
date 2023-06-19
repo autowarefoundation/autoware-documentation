@@ -94,7 +94,30 @@ To understand this background. this [previously discussed document](https://gith
 
 ### Policies
 
-Autowareは拡張性の高いデザインを
+様々なニーズやODDへの適応は、異なるpolicyという形で表現することができます。例えば、自動走行レベルにおいて、Planningは以下のpolicyを提供します。
+
+- **Fully-autonomous** that delegates all decision makings to the system, thus the system is responsible for the safety.
+- **Semi-autonomous** that delegates most of decision makings to the system but the rest of decision makings strictly defined remain with the human operator, thus both the system and the human operator are responsible for the safety.
+- **Motion-autonomous** that delegates only the low-level motion plan to the system, while high-level mission and behavior plannings remain with the human operator, thus the human operator is responsible for the safety.
+
+このpolicyは求められているユースケースやODDによって変わります。走行前に決定されているかもしれないし、走行中に動的に切り替わる可能性もあります。ここで、必ずしもFully-autonomousのみが最終目標ではないことに注意してください。期待するODDやセンサー構成、センサーコストによっては、Semi-autonomousの前提でシステムを作成することもあります。我々のゴールは、これらのポリシーが柔軟に変更可能であるアーキテクチャを設計することです。
+
+TODO: このautonomous levelのポリシー変更は設計方針が決まっていないので要議論。HMIとの連携でこれらの実現は可能かと思われるが、厳密に検討されていない。
+
+
+<!-- 以下、planning design docから -->
+
+<!-- It is extremely important to separate the mechanism and policy, allowing us to modularize the Behavior Planning component and the Motion Planning component not only from the software point of view but also from the actual logic point of view. A bad example of logic is based on such a design that takes the minimum of the velocity levels that are calculated by the modules of the Behavior Planning component and the Motion Planning component. You cannot compare these velocity levels in the same logic, because the behavior is derived by data observed in the environment, while the motion is determined by mathematical formulas. The right design is that we make one policy that uses the velocity level calculated by the Behavior Planning component and another policy that uses the velocity level calculated by the Motion Planning component, and develop the mechanism in which one of the policies can be selected by another logic (this could be a human operator to begin with) depending on the use cases. More specifically, we must develop the mechanism in which the modules to be activated can be changed by selecting the policy. Who to select the policy is undefined in design, though it should be eventually the system but can be the human operator at the beginning. The functionality and capability that fail to work out when the policy is selected by the human operator will not work out anyway even when the policy is selected by the system autonomously.  
+
+In the literature, the system framework often falls into a hierarchical framework and a parallel framework. The hierarchical framework classifies the tasks into multiple stages, and they are executed in the order of stages constructed hierarchically. The parallel framework, on the other hand, does not construct a hierarchy of the tasks but allows the  features to have their own mechanism. Examples of these frameworks are depicted below.
+
+J. Wei, J. M. Snider, T. Gu, J. M. Dolan and B. Litkouhi, "A behavioral planning framework for autonomous driving," 2014 IEEE Intelligent Vehicles Symposium Proceedings, 2014, pp. 458-464, doi: 10.1109/IVS.2014.6856582.
+
+Our planning components are built based on the microautonomy architecture with Autoware. We adopt a modular system framework where the tasks are implemented as modules that can be dynamically loaded and unloaded to achieve different features depending on the given use cases, like the parallel framework, and the modules belong to the components constructed hierarchically, like the hierarchical framework. This way, we benefit from the advantages of the two frameworks. -->
+
+
+
+
 
 
 ## Component interface
