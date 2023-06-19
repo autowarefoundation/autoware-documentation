@@ -1,4 +1,4 @@
-# Creating vehicle interface for ackerman kinematic model
+# Creating vehicle interface for Ackermann kinematic model
 This page introduces a module vehicle_interface and explains how to implement it.
 
 ## What is vehicle interface
@@ -19,7 +19,7 @@ So think of the vehicle interface as a module that runs the hardware to realize 
 
 <figure>
     <p align="center">
-        <img src="../../../../design/autoware-interfaces/components/images/Vehicle-Interface-Bus-ODD-Architecture.drawio.svg" width="100%">
+        <img src="/images/Vehicle-Interface-Bus-ODD-Architecture.drawio.svg" width="100%">
         <figcaption>An example of inputs and outputs for vehicle interface</figcaption>
     </p>
 </figure>
@@ -145,7 +145,7 @@ In general, Ackermann kinematic model accepts the longitudinal speed $v$ and the
 
 <figure>
     <p align="center">
-        <img src="../../images/Ackermann_WB.png" width="100%">
+        <img src="/images/Ackermann_WB.png" width="100%">
         <figcaption>The basic style of an Ackermann kinematic model. The left figure shows a vehicle facing straight forward, while the right figure shows a vehicle steering to the right.</figcaption>
     </p>
 </figure>
