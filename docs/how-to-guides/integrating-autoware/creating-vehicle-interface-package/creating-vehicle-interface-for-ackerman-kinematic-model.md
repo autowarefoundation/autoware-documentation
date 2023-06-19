@@ -31,12 +31,12 @@ This page shows you a brief explanation how to implement your vehicle interface,
 If you have found a ROS2 package or support for your hardware, you can implement your own `vehicle interface` from it. Of course you can make your own from scratch.
 
 1. It is recommended to create your vehicle interface at `<your-autoware-dir>/src/vehicle/external`
-```
+``` bash
 cd <your-autoware-dir>/src/vehicle/external
 ```
 
 2. If there is an already complete vehicle interface package (like [`pacmod_interface`](https://github.com/tier4/pacmod_interface/tree/main)), you can install it to your environment. If not, you have to implement your own vehicle interface by yourself. Create a new package by `ros2 pkg create`. The following example is creating a vehicle interface package named `my_vehicle_interface`. Write your implementation of vehicle interface in `my_vehicle_interface/src`.
-```
+``` bash
 ros2 pkg create --build-type ament_cmake my_vehicle_interface
 ```
 
@@ -60,7 +60,7 @@ ros2 pkg create --build-type ament_cmake my_vehicle_interface
       - `README.md` (not necessary)
     
     Then, your folder structure should be like this. (Some directories and files are omitted for simplicity)
-    ```
+    ``` bash
     /<your-autoware-dir>/
       /src/
         /vehicle/
@@ -68,6 +68,8 @@ ros2 pkg create --build-type ament_cmake my_vehicle_interface
             /my_vehicle_interface/
               /launch/
                 my_vehicle_interface.launch.xml
+              /src/
+                ...
               CMakeLists.txt
               README.md
               package.xml
@@ -84,7 +86,7 @@ ros2 pkg create --build-type ament_cmake my_vehicle_interface
     ```
 
   4. Include your launch file to `my_vehicle_name_launch/my_vehicle_name_launch/launch/vehicle_interface.launch.xml` by opening it and add the include terms like below.
-  ```
+  ``` xml title="vehicle_interface.launch.xml"
   <?xml version="1.0" encoding="UTF-8"?>
   <launch>
       <arg name="vehicle_id" default="$(env VEHICLE_ID default)"/>
@@ -100,9 +102,34 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --package
 ```
 
 5. Finally, you are done implementing your vehicle interface module! Be careful that you need to launch Autoware with the proper `vehicle_model` option like the example below. This example is launching planning simulator.
-```
+``` bash
 ros2 launch autoware_launch planning.launch.xml map_path:=$HOME/autoware_map/sample-map-planning vehicle_model:=my_vehicle_name sensor_model:=sample_sensor_kit
 ```
+
+
+### Tips
+
+- You can subdivide your vehicle interface into smaller packages if you want. Then your directory structure may look like this (not the only though).
+``` bash
+/<your-autoware-dir>/
+  /src/
+    /vehicle/
+      /external/
+        /my_vehicle_interface/
+          /launch/
+            my_vehicle_interface.launch.xml
+          /src/
+            /package1/
+              ...
+            /package2/
+              ...
+            /package3/
+              ...
+          CMakeLists.txt
+          README.md
+          package.xml
+```
+  Do not forget to launch all packages in my_vehicle_interface.launch.xml.
 
 ---
 
@@ -111,8 +138,10 @@ Autoware now supports control inputs for vehicles based on an Ackermann kinemati
 
 - If your vehicle does not suit the Ackermann kinematic model, you have to modified the control commands. [Another document gives you an example how to convert your Ackermann kinematic model control inputs into a differential drive model.](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/customizing-for-differential-drive-model/)
 
-### Physical model
+### Geometry
 The basic style of Ackermann kinematic model has four wheels with an Ackermann link on the front, and it is powered by the rear wheels. The keypoint of Ackermann kinematic model is that the axes of all wheels intersect at a same point, which means all wheels will trace a circular trajectory with a different radii but a common center point. Therefore, this model has a great advantage that it minimizes the slippage of the wheels, and prevent tires to get worn soon.
+
+In general, Ackermann kinematic model accepts the longitudinal speed $v$ and the steering angle $\phi$ as inputs. In autoware, $\phi$ is positive if it is steered counter clockwise, so the steering angle in the figure below is actually negative.
 
 <figure>
     <p align="center">
@@ -121,10 +150,25 @@ The basic style of Ackermann kinematic model has four wheels with an Ackermann l
     </p>
 </figure>
 
-### Control model
-Autoware publishes a ROS2 topic named ``
-
-## Tips
-
-- You can break your 
-
+### Control
+Autoware publishes a ROS2 topic named `control_cmd` from several types of publishers.
+A `control_cmd` topic is a [`AckermannControlCommand`](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl) type message that contains
+``` bash title="AckermannControlCommand"
+  builtin_interfaces/Time stamp
+  autoware_auto_control_msgs/AckermannLateralCommand lateral
+  autoware_auto_control_msgs/LongitudinalCommand longitudinal
+```
+where,
+``` bash title="AckermannLateralCommand"
+  builtin_interfaces/Time stamp
+  float32 steering_tire_angle
+  float32 steering_tire_rotation_rate
+```
+``` bash title="LongitudinalCommand"
+  builtin_interfaces/Time stamp
+  float32 speed
+  float32 accelaration
+  float32 jerk
+```
+See the [AckermannLateralCommand.idl](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannLateralCommand.idl) and [LongitudinalCommand.idl](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/LongitudinalCommand.idl) for details.  
+The vehicle interface should realize these control commands by hardware actuation. Moreover, Autoware also provides break commands, light commands, and more (see [vehicle interface design](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/)), so the vehicle interface should be applicable as long as there is hardware available to handle them.
