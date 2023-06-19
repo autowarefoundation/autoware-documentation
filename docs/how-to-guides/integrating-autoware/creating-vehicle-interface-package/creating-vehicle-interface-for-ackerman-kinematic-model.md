@@ -17,11 +17,11 @@ Then, `vehicle interface` converts these commands into actuations such like
 
 So think of the vehicle interface as a module that runs the hardware to realize the input commands provided by Autoware.
 
-<figure>
-    <p align="center">
-        <img src="/images/Vehicle-Interface-Bus-ODD-Architecture.drawio.svg" width="100%">
-        <figcaption>An example of inputs and outputs for vehicle interface</figcaption>
-    </p>
+<figure markdown>
+  ![vehicle_interface_IO](images/Vehicle-Interface-Bus-ODD-Architecture.drawio.svg){ align=center }
+  <figcaption>
+    An example of inputs and outputs for vehicle interface
+  </figcaption>
 </figure>
 
 This page shows you a brief explanation how to implement your vehicle interface, but [you can see further information of vehicle interface in the "design" page](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/). **Note that there is no package named "vehicle interface" prepared in Autoware. It is a necessary package to actuate your vehicle, but you have to create one by yourself since it is very specific to your hardware.** For example, if you are using a by-wire kit [PACMod](https://autonomoustuff.com/platform/pacmod), a vehicle interface named [`pacmod_interface` published by TIER IV, Inc.](https://github.com/tier4/pacmod_interface/tree/main) is available. However, if you have constructed something original and haven't found an open source vehicle interface applicable, you have to implement your own vehilce interface from scratch.
@@ -143,11 +143,11 @@ The basic style of Ackermann kinematic model has four wheels with an Ackermann l
 
 In general, Ackermann kinematic model accepts the longitudinal speed $v$ and the steering angle $\phi$ as inputs. In autoware, $\phi$ is positive if it is steered counter clockwise, so the steering angle in the figure below is actually negative.
 
-<figure>
-    <p align="center">
-        <img src="/images/Ackermann_WB.png" width="100%">
-        <figcaption>The basic style of an Ackermann kinematic model. The left figure shows a vehicle facing straight forward, while the right figure shows a vehicle steering to the right.</figcaption>
-    </p>
+<figure markdown>
+  ![ackermann_link](images/Ackermann_WB.png){ align=center }
+  <figcaption>
+    The basic style of an Ackermann kinematic model. The left figure shows a vehicle facing straight forward, while the right figure shows a vehicle steering to the right.
+  </figcaption>
 </figure>
 
 ### Control
