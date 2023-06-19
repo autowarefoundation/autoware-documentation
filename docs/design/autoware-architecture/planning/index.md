@@ -1,17 +1,14 @@
 # Planning component design
 
-
 ## Purpose of this document
 
 <!-- この文書は、Planning Componentの開発における目標やハイレベルな設計戦略、およびそれに関連する意思決定とその理由を説明します。このドキュメントを通じて、すべてのOSS開発者は、Planning Componentがどのような設計思想や制約のもとで設計され、どのような目標を達成するために開発が行われているのかを理解することができます。これにより、円滑な開発参加が可能となります。
 
 さらに、（これらの情報は将来的に分離して管理されるかもしれませんが、）具体的なリファレンス実装や提供される機能の一覧も後半に記載されています。これにより、開発者やユーザーは、Planning Componentを使用することで現在何が可能なのか、機能をどのように活用したり、拡張したり、追加したりすることができるのかを理解することができます。 -->
 
-
 This document outlines the goals, high-level design strategies, and related rationales in the development of the Planning Component. Through this document, all OSS developers will be able to comprehend the design philosophy and constraints under which the Planning Component is designed, and the goals driving its development. This will enable them to participate seamlessly in the development.
 
 Furthermore, a list of concrete reference implementations and provided features is also included in the latter part of this document, while this information might be managed separately in the future. This allows developers and users to understand what is currently possible with the Planning Component, how to utilize, expand, or add to its features.
-
 
 ## Overview
 
@@ -38,7 +35,6 @@ The purpose of the planning module in our Autoware system is not to solve every 
 
 **Non-goals:**
 
-
 The following points are listed as non-goals, intended to clarify our design concepts. However, it's important to note that while we do not demand a "never crash" capability as listed below, our architecture should still be designed in a manner that could accommodate the needs to achieve a "never crash" state through third-party extensions or future enhancements.
 
 - The Planning component is not self-contained but can be extended and enhanced with third parties.
@@ -46,8 +42,7 @@ The following points are listed as non-goals, intended to clarify our design con
 - The Planning component is not designed to always outperform human drivers.
 - The Planning component is not capable of “never crashes”.
 
- While "never crashes" is not a present goals, we need to create an architecture that can potentially achieve such a state with third-party components or decision of human operators or future enhancement.
-
+While "never crashes" is not a present goals, we need to create an architecture that can potentially achieve such a state with third-party components or decision of human operators or future enhancement.
 
 ## Requirements
 
@@ -56,6 +51,7 @@ The following points are listed as non-goals, intended to clarify our design con
 ## Assumptions
 
 Assumptiosがあった方が良いらしいが、例えばどんなことだろう？
+
 ## High level design
 
 This diagram describes the high-level architecture of the Planning Component.
@@ -74,7 +70,6 @@ The Planning component consists of the following sub-components:
 
 Following the microautonomy architecture, we adopt a modular system framework where the tasks are implemented as modules that can be dynamically loaded and unloaded to achieve different features depending on the given use cases. For instance, the Behavior Planning component includes modules such as lane change, intersection, and crosswalk modules.
 
-
 <!-- **Rationale**
 Planningと各Componentの分離について。planningとperceptionやcontrol componentを分離して開発することにより、third-party のperception component などとの連携は非常に簡単に実行できる（利用するコンポーネントを切り替えるだけである）。しかし、ここには性能と拡張性のトレードオフが存在する。例えば、perception componentは本来planning componentが必要とする物体に対してのみ認識と移動予測を行えば十分であるが、componentを分離するとこのような密なコミュニケーションを行うことができない。また、計画と制御の分離によって、車両運動性能を適切に考慮した上で計画を行うことが難しくなる。これを補うためには、interfaceでやり取りをする情報を増やす必要があったり、計算量を増やす必要が出てくる。
 
@@ -84,10 +79,8 @@ Scenario Planningレイヤーの導入について。レーン構造が整備さ
 **Rationale**
 BehaviorとMotionの分離について。Planning全体を振る舞いを決定する「Behavior」と、最終的な運動動作を決定する「Motion」に分離することは王道のアプローチである。ただしこれは性能とのトレードオフであり、機能を分離するほど性能が劣化する。例えば、Behaviorは最終的にMotionがどのような計算をするかを知る前に判断を行わなければならず、一般的に保守的な判断を行うことになる。一方で、behaviorとmotionを結合したシステムでは判断と乗り心地といった概念が結合しており、機能の拡張性の面で課題が残る。我々は拡張性を重要視し、behavior-motionの構成で開発を進めている。（昔に議論された[こちらの資料](https://github.com/tier4/AutowareArchitectureProposal.proj/blob/main/docs/design/software_architecture/Planning/DesignRationale.md)も役に立つ。） -->
 
-
 **Rationale for the separation of planning and other components**
- By developing the planning, perception, localzition, and control components separately, it becomes easy to collaborate with third-party components in the component level. However, there's a trade-off between performance and extensibility here. For instance, a perception component would ideally perform recognition and motion prediction only for the objects that the planning component needs, but separating the components hinders such close communication. Additionally, separating planning and control makes it harder to consider vehicle motion performance when planning. To compensate for this, it's necessary to either increase the information exchanged via the interface or increase the computation load.
-
+By developing the planning, perception, localzition, and control components separately, it becomes easy to collaborate with third-party components in the component level. However, there's a trade-off between performance and extensibility here. For instance, a perception component would ideally perform recognition and motion prediction only for the objects that the planning component needs, but separating the components hinders such close communication. Additionally, separating planning and control makes it harder to consider vehicle motion performance when planning. To compensate for this, it's necessary to either increase the information exchanged via the interface or increase the computation load.
 
 **Rationale for introducing the Scenario Planning layer**
 The definition of the interface and the level of available information vary between driving in an area with well-structured lanes and driving in a free-space area like a parking lot. For example, while Lane Driving can handle routes with map IDs, this is not appropriate for planning in free space. To flexibly handle future scenarios that might require different interfaces, we have introduced a mechanism that switches planning components at the scenario level. However, a remaining issue is the inability to reuse modules across different scenarios.
@@ -147,8 +140,6 @@ This section describes the inputs and outputs of the Planning Component and of i
 ## How to add new features (WIP)
 
 As mentioned in the goal session, this planning module is designed to be extensible by third-party components. For specific instructions on how to add new modules and expand its functionality, please refer to the provided documentation or guidelines (WIP).
-
-
 
 ## Detailed information
 
