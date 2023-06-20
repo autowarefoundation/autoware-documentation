@@ -1,6 +1,6 @@
 # Vehicle Platform Suppliers
 
-### **PIX MOVING Autonomous Vehicle Solutions**
+## **PIX MOVING Autonomous Vehicle Solutions**
 
 PIX Moving AV solutions which is used for autonomous development and tested by one or more community members are listed below:
 
@@ -13,9 +13,9 @@ Link to company website:
 
 Different sizes of platforms
 
-![](images/platforms.png)
+![platforms.png](images/platforms.png)
 
-### **Autonomoustuff AV Solutions**
+## **Autonomoustuff AV Solutions**
 
 Autonomoustuff platform solutions which is used for autonomous development and tested by one or more community members are listed below:
 
@@ -26,7 +26,7 @@ Autonomoustuff platform solutions which is used for autonomous development and t
 Link to company website:  
 [https://autonomoustuff.com/platform](https://autonomoustuff.com/platform)
 
-### **NAVYA AV Solutions**
+## **NAVYA AV Solutions**
 
 NAVYA platform solutions which is used for autonomous development and tested by one or more community members are listed below:
 
@@ -37,7 +37,7 @@ NAVYA platform solutions which is used for autonomous development and tested by 
 Link to company website:  
 [https://navya.tech/en](https://navya.tech/en)
 
-### **ZING ROBOTICS AV Solutions**
+## **ZING ROBOTICS AV Solutions**
 
 ZING Robotics platform solutions which is used for autonomous development and tested by one or more community members are listed below:
 

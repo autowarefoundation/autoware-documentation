@@ -1,6 +1,6 @@
 # Vehicle Drive By Wire Suppliers
 
-### **New Eagle DBW Solutions**
+## **New Eagle DBW Solutions**
 
 New Eagle DBW Controllers which is used for autonomous driving and tested by one or more community members are listed below:
 
@@ -11,7 +11,7 @@ New Eagle DBW Controllers which is used for autonomous driving and tested by one
 Link to company website:  
 [https://neweagle.net/autonomous-machines/](https://neweagle.net/autonomous-machines/)
 
-### **Dataspeed DBW Solutions**
+## **Dataspeed DBW Solutions**
 
 Dataspeed DBW Controllers which is used for autonomous driving and tested by one or more community members are listed below:
 
@@ -22,7 +22,7 @@ Dataspeed DBW Controllers which is used for autonomous driving and tested by one
 Link to company website:  
 [https://www.dataspeedinc.com/](https://www.dataspeedinc.com/)
 
-### **AStuff Pacmod DBW Solutions**
+## **AStuff Pacmod DBW Solutions**
 
 Autonomous Stuff Pacmod DBW Controllers which is used for autonomous driving and tested by one or more community members are listed below:
 
@@ -33,7 +33,7 @@ Autonomous Stuff Pacmod DBW Controllers which is used for autonomous driving and
 Link to company website:  
 [https://autonomoustuff.com/platform/pacmod](https://autonomoustuff.com/platform/pacmod)
 
-### **Schaffler-Paravan Spacedrive DBW Solutions**
+## **Schaffler-Paravan Spacedrive DBW Solutions**
 
 Schaffler Spacedrive DBW Controllers which is used for autonomous driving and tested by one or more community members are listed below:
 

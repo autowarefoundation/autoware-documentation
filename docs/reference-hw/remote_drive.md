@@ -1,6 +1,6 @@
 # Remote Drive
 
-### **FORT ROBOTICS**
+## **FORT ROBOTICS**
 
 Fort Robotics remote control & E-stop devices which are used for autonomous driving and tested by one or more community members are listed below:
 
@@ -11,7 +11,7 @@ Fort Robotics remote control & E-stop devices which are used for autonomous driv
 Link to company website:  
 [https://fortrobotics.com/vehicle-safety-controller/](https://fortrobotics.com/vehicle-safety-controller/)
 
-### **LOGITECH**
+## **LOGITECH**
 
 Logitech joysticks which are used for autonomous driving and tested by one or more community members are listed below:
 

@@ -1,6 +1,6 @@
 # AD Computers
 
-### **ADLINK In-Vehicle Computers**
+## **ADLINK In-Vehicle Computers**
 
 ADLINK solutions which is used for autonomous driving and tested by one or more community members are listed below:
 
@@ -14,7 +14,7 @@ ADLINK solutions which is used for autonomous driving and tested by one or more 
 
 Link to company website is [here.](https://www.adlinktech.com/en/Connected-Autonomous-Vehicle-Solutions)
 
-### **NXP In-Vehicle Computers**
+## **NXP In-Vehicle Computers**
 
 NXP solutions which is used for autonomous driving and tested by one or more community members are listed below:
 
@@ -24,7 +24,7 @@ NXP solutions which is used for autonomous driving and tested by one or more com
 
 Link to company website is [here.](https://www.nxp.com/design/designs/bluebox-3-0-automotive-high-performance-compute-ahpc-development-platform:BlueBox)
 
-### **NEOUSYS In-Vehicle Computers**
+## **NEOUSYS In-Vehicle Computers**
 
 NEOUSYS solutions which is used for autonomous driving and tested by one or more community members are listed below:
 
@@ -34,7 +34,7 @@ NEOUSYS solutions which is used for autonomous driving and tested by one or more
 
 Link to company website is [here.](http://bit.ly/neousys8208GC)
 
-### **Crystal Rugged In-Vehicle Computers**
+## **Crystal Rugged In-Vehicle Computers**
 
 Crystal Rugged solutions which is used for autonomous driving and tested by one or more community members are listed below:
 

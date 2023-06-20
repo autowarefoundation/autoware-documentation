@@ -15,7 +15,7 @@ Link to ROS2 driver:
 Link to company website:  
 [https://hexagonpositioning.com/](https://hexagonpositioning.com/)
 
-### **XSENS GNSS/INS & IMU Sensors**
+## **XSENS GNSS/INS & IMU Sensors**
 
 XSENS GNSS/INS sensors which has ROS2 driver and tested by one or more community members are listed below:
 
@@ -30,7 +30,7 @@ Link to ROS2 driver:
 Link to company website:  
 [https://www.xsens.com/](https://www.xsens.com/)
 
-### **SBG GNSS/INS & IMU Sensors**
+## **SBG GNSS/INS & IMU Sensors**
 
 SBG GNSS/INS sensors which has ROS2 driver and tested by one or more community members are listed below:
 
@@ -45,7 +45,7 @@ Link to ROS2 driver:
 Link to company website:  
 [https://www.sbg-systems.com/products/ellipse-series/](https://www.sbg-systems.com/products/ellipse-series/)
 
-### **Applanix GNSS/INS Sensors**
+## **Applanix GNSS/INS Sensors**
 
 SBG GNSS/INS sensors which has ROS2 driver and tested by one or more community members are listed below:
 
@@ -60,7 +60,7 @@ Link to ROS2 driver:
 Link to company website:  
 [https://www.applanix.com/products/poslv.htm](https://www.applanix.com/products/poslv.htm)
 
-### **POLYEXPLORE GNSS/INS Sensors**
+## **POLYEXPLORE GNSS/INS Sensors**
 
 POLYEXPLORE GNSS/INS sensors which has ROS2 driver and tested by one or more community members are listed below:
 

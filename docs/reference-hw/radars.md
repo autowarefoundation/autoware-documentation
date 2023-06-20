@@ -1,6 +1,6 @@
 # RADARs
 
-### **Smartmicro Automotive Radars**
+## **Smartmicro Automotive Radars**
 
 Smartmicro Radars which has ROS2 driver and tested by one or more community members are listed below:
 
@@ -15,7 +15,7 @@ Link to ROS2 driver:
 Link to company website:  
 [https://www.smartmicro.com/automotive-radar](https://www.smartmicro.com/automotive-radar)
 
-### **Aptiv Automotive Radars**
+## **Aptiv Automotive Radars**
 
 Aptiv Radars which has ROS2 driver and tested by one or more community members are listed below:
 
@@ -24,13 +24,13 @@ Aptiv Radars which has ROS2 driver and tested by one or more community members a
 | Aptiv MMR (Dual Mode Short, Long)        | S: 1...40 m L: 3...160 m | Short.: (90), (90°) Long: (90°), (90°)  | Y           | -                     |
 | Aptiv ESR 2.5 (Dual Mode (Medium, Long)) | M: 1...60 m L: 1...175 m | Med.: (90°), (4.4°) Long: (20°), (4.4°) | Y           | -                     |
 
-Link to ROS2 driver  
- --
+Link to ROS2 driver:  
+ -
 
 Link to company website:  
 [https://autonomoustuff.com/products](https://autonomoustuff.com/products)
 
-### **Continental Engineering Radars**
+## **Continental Engineering Radars**
 
 Continental Engineering Radars which has ROS2 driver and tested by one or more community members are listed below:
 
@@ -38,8 +38,8 @@ Continental Engineering Radars which has ROS2 driver and tested by one or more c
 | ----------------------- | ----- | -------------------- | ----------- | --------------------- |
 | ARS430DI                | 250m  | (120), (18°)         | -           | -                     |
 
-Link to ROS2 driver  
- --
+Link to ROS2 driver: 
+ -
 
 Link to company website:  
 [https://conti-engineering.com/components/ars430/](https://conti-engineering.com/components/ars430/)
