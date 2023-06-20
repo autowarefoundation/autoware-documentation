@@ -1,7 +1,7 @@
 # Creating vehicle interface for Ackermann kinematic model
 This page introduces a module vehicle_interface and explains how to implement it.
 
-## What is vehicle interface
+## What is a vehicle interface
 `vehicle interface` is an interface that connects the control commands and your hardward.  
 Autoware publishes control commands such as
 
