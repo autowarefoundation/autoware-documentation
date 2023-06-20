@@ -46,19 +46,23 @@ Eagleye has been tested with the following example GNSS ROS drivers: ublox_gps a
 - [ublox_gps](https://github.com/KumarRobotics/ublox/tree/ros2/ublox_gps): This ROS driver publishes `sensor_msgs/msg/NavSatFix` and `geometry_msgs/msg/TwistWithCovarianceStamped` required by Eagleye with default settings. Therefore, no additional settings are required.
 - [septentrio_gnss_driver](https://github.com/septentrio-gnss/septentrio_gnss_driver/tree/ros2): Set `publish.navsatfix` and `publish.twist` in the config file [`gnss.yaml`](https://github.com/septentrio-gnss/septentrio_gnss_driver/blob/ros2/config/gnss.yaml#L90) to `true`
 
-## Eagleye Setup
+## Eagleye integration into your vehicle
 
-### Install dependencies
-
-Clone the following three packages for Eagleye:
+### Dependencies
 
 1. [Eagleye](https://github.com/MapIV/eagleye.git) (autoware-main branch)
 2. [RTKLIB ROS Bridge](https://github.com/MapIV/rtklib_ros_bridge.git) (ros2-v0.1.0 branch)
 3. [LLH Converter](https://github.com/MapIV/llh_converter.git) (ros2 branch)
 
-### Modifying Autoware Launch files
+以上のパッケージは[autoware.repos](https://github.com/autowarefoundation/autoware/blob/main/autoware.repos)に書いてあるので自動でインストールされます
+
+### Modifying Autoware launch files
 
 You need to install Eagleye-related packages and change Autoware's launcher. Four files are required in the Autoware localization launcher to run Eagleye: `eagleye_rt.launch.xml`, `eagleye_config.yaml`, `gnss_converter.launch.xml`, and `fix2pose.launch.xml`.
+
+!!! Note
+
+  編集しないといけない4ファイルのそれぞれをタイトルとする節を作って、それらをどう編集すべきかを書きたい。
 
 You must correctly specify input topics for GNSS latitude, longitude, and height information, GNSS speed information, IMU information, and vehicle speed information in the [`eagleye_config.yaml`](https://github.com/MapIV/autoware_launch/blob/3f04a9dd7bc4a4c49d4ec790e3f6b9958ab822da/autoware_launch/config/localization/eagleye_config.param.yaml#L7-L16).
 
@@ -119,7 +123,7 @@ When using Eagleye, comment out `tier4_localization_component.launch.xml` and st
   </group>
 ```
 
-#### Notes with initialization
+## Notes with initialization
 
 Eagleye requires an initialization process for proper operation. Without initialization, the output for twist will be in the raw value, and the pose data will not be available.
 

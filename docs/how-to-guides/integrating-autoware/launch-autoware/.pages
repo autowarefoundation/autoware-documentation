@@ -1,5 +1,4 @@
 nav:
   - index.md
-  - Localization: localization-mode
-  - Perception: perception.md
-  - Planning: planning.md
+  - Localization mode: localization-mode
+  - Perception mode: perception.md

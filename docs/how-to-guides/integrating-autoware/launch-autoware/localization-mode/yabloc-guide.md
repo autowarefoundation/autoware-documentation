@@ -61,7 +61,8 @@ ros2 launch autoware_launch logging_simulator.launch.xml \
 
 These topics are not visualized by default.
 
-<img src="images/yabloc-integration-guide/yabloc_rviz_description.png" width="800">
+![yabloc rviz](images/yabloc-integration-guide/yabloc_rviz_description.png){width="800"}
+
 
 | index | topic name                                              | description                                                                                                                                                            |
 | ----- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -73,7 +74,7 @@ These topics are not visualized by default.
 
 These topics are not visualized by default.
 
-<img src="images/yabloc-integration-guide/yabloc_image_description.png" width="800">
+![yabloc image topics](images/yabloc-integration-guide/yabloc_image_description.png){width="800"}
 
 | index | topic name                                                       | description                                                                     |
 | ----- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------- |
