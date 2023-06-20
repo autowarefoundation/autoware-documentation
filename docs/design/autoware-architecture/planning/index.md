@@ -142,7 +142,7 @@ As stated in the figure, you can completely replace the entire planning function
 
 ![how-to-add-new-modules](image/how-to-add-new-modules.drawio.svg)
 
-## Detailed information
+## Detailed design
 
 ### Supported features
 
