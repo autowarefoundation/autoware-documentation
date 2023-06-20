@@ -11,7 +11,7 @@ Velodyne Lidars which has ROS2 driver and tested by one or more community member
 | Puck                    | 100m  | (+15°)/(-15°), (360°) | Y           | Y                     |
 | Puck Hi-res             | 100m  | (+10°)/(-10°), (360°) | Y           | Y                     |
 
-Link to ROS2 drivers are:  
+Link to ROS2 drivers:  
  [https://github.com/ros-drivers/velodyne/tree/ros2/velodyne_pointcloud](https://github.com/ros-drivers/velodyne/tree/ros2/velodyne_pointcloud)  
  [https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/tree/master/src/drivers/velodyne_nodes](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/tree/master/src/drivers/velodyne_nodes)
 

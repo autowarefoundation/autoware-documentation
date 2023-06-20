@@ -1,6 +1,6 @@
 # IMU, AHRS & GNSS/INS
 
-### **NOVATEL GNSS/INS Sensors**
+## **NOVATEL GNSS/INS Sensors**
 
 NOVATEL GNSS/INS sensors which has ROS2 driver and tested by one or more community members are listed below:
 
