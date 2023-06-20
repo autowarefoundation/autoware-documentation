@@ -29,4 +29,11 @@ Service providers can combine these use cases to define user stories and check i
 
 ## Features
 
+- [Interface](./features/interface.md)
+- [Operation Mode](./features/operation_mode.md)
+- [Routing](./features/routing.md)
+- [Localization](./features/localization.md)
+- [Motion](./features/motion.md)
+- [Planning](./features/planning-factors.md)
+- [Fail-safe](./features/fail-safe.md)
 - [Vehicle status](./features/vehicle-status.md)

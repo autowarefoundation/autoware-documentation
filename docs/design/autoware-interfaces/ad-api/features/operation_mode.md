@@ -1,4 +1,6 @@
-# Operation Mode API
+# Operation Mode
+
+## Related API
 
 - {{ link_ad_api('/api/operation_mode/state') }}
 - {{ link_ad_api('/api/operation_mode/change_to_autonomous') }}
@@ -22,7 +24,7 @@ Autoware control mode has four operation modes.
 | Local      | Manually control the vehicle from nearby with some device such as a joystick. |
 | Remote     | Manually control the vehicle from a web application on the cloud.             |
 
-![operation-mode-architecture](./architecture.drawio.svg)
+![operation-mode-architecture](./operation_mode/architecture.drawio.svg)
 
 ## States
 
