@@ -1,0 +1,4 @@
+nav:
+  - index.md
+  - YabLoc: yabloc-guide.md
+  - Eagleye: eagleye-integration-guide.md
