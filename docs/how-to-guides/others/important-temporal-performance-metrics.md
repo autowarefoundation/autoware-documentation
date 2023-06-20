@@ -4,7 +4,7 @@
 
 ### Objective of the page
 
-This page introduces important metrics to evaluate temporal performance on components of Autoware.
+This page introduces important metrics to evaluate temporal performance on components of Autoware. The term "temporal performance" is often used in the page in order to distinguish between functional performance, which referred to as accuracy as well, and time-related performance.
 
 It is expected that most algorithms employed for Autoware are executed with high frequency and short response time as possible. In order to achieve safe autonomous driving, one of the desired outcomes is no time gap between perceived and actual situation. The time gap is commonly referred to as delay. If the delay is significant, the system may determine trajectory and maneuver based on outdated situation. Consequently, if the actual situation differs from the perceived one due to the delay, the system may make unexpected decisions.
 
