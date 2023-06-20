@@ -27,8 +27,8 @@ So think of the vehicle interface as a module that runs the hardware to realize 
 This page shows you a brief explanation how to implement your vehicle interface, but [you can see further information of vehicle interface in the "design" page](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/). **Note that there is no package named "vehicle interface" prepared in Autoware. It is a necessary package to actuate your vehicle, but you have to create one by yourself since it is very specific to your hardware.** For example, if you are using a by-wire kit [PACMod](https://autonomoustuff.com/platform/pacmod), a vehicle interface named [`pacmod_interface` published by TIER IV, Inc.](https://github.com/tier4/pacmod_interface/tree/main) is available. However, if you have constructed something original and haven't found an open source vehicle interface applicable, you have to implement your own vehilce interface from scratch.
 
 ---
-
-If you have found a ROS2 package or support for your hardware, you can implement your own `vehicle interface` from it. Of course you can make your own from scratch.
+## How to implement a vehicle interface
+The following instructions describe how to create a vehicle interface.
 
 1. It is recommended to create your vehicle interface at `<your-autoware-dir>/src/vehicle/external`
 ``` bash
@@ -44,7 +44,7 @@ ros2 pkg create --build-type ament_cmake my_vehicle_interface
 
   Do not get confused. First, you need to create a launch file for your own vehicle interface module (like `my_vehicle_interface.launch.xml`) **and then include that to `vehicle_interface.launch.xml` which exists in another directory.** Here are the details.
 
-  1. Add a `launch` directory in the `my_vehicle_interface` directory, and create a launch file of your own vehicle interface in it. Take a look at [Creating a launch file](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html) in the ROS2 documentation.
+  1. Add a `launch` directory in the `my_vehicle_interface` directory, and create a launch file of your own vehicle interface in it. Take a look at [Creating a launch file](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html) in the ROS 2 documentation.
   2. Next, go to `<your-autoware-dir>/src/vehicle`, copy the directory `/sample_vehicle_launch/`, and paste it to the same place (which means it should be lined up with `external` and `sample_vehicle_launch`). 
   3. You have to rename each "sample_vehicle" to something else. For example, if you want to rename "sample_vehicle" to "my_vehicle_name", you need to change the following. Note that it is restricted to keep the "_launch" and "_description" part. 
     - Rename the directories
@@ -109,7 +109,7 @@ ros2 launch autoware_launch planning.launch.xml map_path:=$HOME/autoware_map/sam
 
 ### Tips
 
-- You can subdivide your vehicle interface into smaller packages if you want. Then your directory structure may look like this (not the only though).
+- You can subdivide your vehicle interface into smaller packages if you want. Then your directory structure may look like below (not the only way though). Do not forget to launch all packages in `my_vehicle_interface.launch.xml`.
 ``` bash
 /<your-autoware-dir>/
   /src/
@@ -129,7 +129,20 @@ ros2 launch autoware_launch planning.launch.xml map_path:=$HOME/autoware_map/sam
           README.md
           package.xml
 ```
-  Do not forget to launch all packages in my_vehicle_interface.launch.xml.
+
+- If you are using a vehicle interface and launch package from a open git repository, or created your own as a git repository, it is highly recommeded to add those repositories to your `autoware.repos` file which is located to directly under your autoware folder like the example below. You can specify the branch or commit hash by the version tag.
+``` yaml title="autoware.repos"
+# vehicle (this section should be somewhere in autoware.repos and add the below)
+vehicle/my_vehicle_name_launch:
+  type: git
+  url: https://github.com/<repository-name-A>/my_vehicle_name_launch.git
+  version: main
+vehicle/external/my_vehicle_interface:
+  type: git
+  url: https://github.com/<repository-name-B>/my_vehicle_interface.git
+  version: main
+```
+  Then you can import your entire environment easily to another local device by using the `vcs import` command. (See [the source installation guide](/autoware-documentation/installation/autoware/source-installation/#how-to-set-up-a-workspace))
 
 ---
 
@@ -151,7 +164,7 @@ In general, Ackermann kinematic model accepts the longitudinal speed $v$ and the
 </figure>
 
 ### Control
-Autoware publishes a ROS2 topic named `control_cmd` from several types of publishers.
+Autoware publishes a ROS 2 topic named `control_cmd` from several types of publishers.
 A `control_cmd` topic is a [`AckermannControlCommand`](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl) type message that contains
 ``` bash title="AckermannControlCommand"
   builtin_interfaces/Time stamp
