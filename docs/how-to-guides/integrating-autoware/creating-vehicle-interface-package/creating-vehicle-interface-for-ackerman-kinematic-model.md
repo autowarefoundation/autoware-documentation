@@ -45,7 +45,7 @@ The following instructions describe how to create a vehicle interface.
   ```bash
   ros2 pkg create --build-type ament_cmake my_vehicle_interface
   ```
-  
+
 3. After you implement your vehicle interface or you want to debug it by launching it, create a launch file of your vehicle interface, and include it to `vehicle_interface.launch.xml`.
 
   Do not get confused. First, you need to create a launch file for your own vehicle interface module (like `my_vehicle_interface.launch.xml`) **and then include that to `vehicle_interface.launch.xml` which exists in another directory.** Here are the details.
@@ -153,7 +153,7 @@ There are some tips that may help you.
     version: main
   ```
 
-  Then you can import your entire environment easily to another local device by using the `vcs import` command. (See [the source installation guide](/autoware-documentation/installation/autoware/source-installation/#how-to-set-up-a-workspace))
+  Then you can import your entire environment easily to another local device by using the `vcs import` command. (See [the source installation guide](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#how-to-set-up-a-workspace))
 
 ---
 
