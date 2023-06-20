@@ -35,32 +35,22 @@ This page shows you a brief explanation how to implement your vehicle interface,
 The following instructions describe how to create a vehicle interface.
 
 1. It is recommended to create your vehicle interface at `<your-autoware-dir>/src/vehicle/external`
-
-```bash
-cd <your-autoware-dir>/src/vehicle/external
-```
-
+  ```bash
+  cd <your-autoware-dir>/src/vehicle/external
+  ```
 2. If there is an already complete vehicle interface package (like [`pacmod_interface`](https://github.com/tier4/pacmod_interface/tree/main)), you can install it to your environment. If not, you have to implement your own vehicle interface by yourself. Create a new package by `ros2 pkg create`. The following example is creating a vehicle interface package named `my_vehicle_interface`. Write your implementation of vehicle interface in `my_vehicle_interface/src`.
-
-```bash
-ros2 pkg create --build-type ament_cmake my_vehicle_interface
-```
-
+  ```bash
+  ros2 pkg create --build-type ament_cmake my_vehicle_interface
+  ```
 3. After you implement your vehicle interface or you want to debug it by launching it, create a launch file of your vehicle interface, and include it to `vehicle_interface.launch.xml`.
-
-Do not get confused. First, you need to create a launch file for your own vehicle interface module (like `my_vehicle_interface.launch.xml`) **and then include that to `vehicle_interface.launch.xml` which exists in another directory.** Here are the details.
-
-1. Add a `launch` directory in the `my_vehicle_interface` directory, and create a launch file of your own vehicle interface in it. Take a look at [Creating a launch file](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html) in the ROS 2 documentation.
-2. Next, go to `<your-autoware-dir>/src/vehicle`, copy the directory `/sample_vehicle_launch/`, and paste it to the same place (which means it should be lined up with `external` and `sample_vehicle_launch`).
-3. You have to rename each "sample_vehicle" to something else. For example, if you want to rename "sample_vehicle" to "my_vehicle_name", you need to change the following. Note that it is restricted to keep the "\_launch" and "\_description" part.
-
-
+  Do not get confused. First, you need to create a launch file for your own vehicle interface module (like `my_vehicle_interface.launch.xml`) **and then include that to `vehicle_interface.launch.xml` which exists in another directory.** Here are the details.
+  1. Add a `launch` directory in the `my_vehicle_interface` directory, and create a launch file of your own vehicle interface in it. Take a look at [Creating a launch file](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html) in the ROS 2 documentation.
+  2. Next, go to `<your-autoware-dir>/src/vehicle`, copy the directory `/sample_vehicle_launch/`, and paste it to the same place (which means it should be lined up with `external` and `sample_vehicle_launch`).
+  3. You have to rename each "sample_vehicle" to something else. For example, if you want to rename "sample_vehicle" to "my_vehicle_name", you need to change the following. Note that it is restricted to keep the "\_launch" and "\_description" part.
     - Rename the directories
-
       - `sample_vehicle_launch` &rarr; `my_vehicle_name_launch`
       - `my_vehicle_name_launch/sample_vehicle_launch` &rarr; `my_vehicle_name_launch/my_vehicle_name_launch`
       - `my_vehicle_name_launch/sample_vehicle_description` &rarr; `my_vehicle_name_launch/my_vehicle_name_description`
-
     - After you rename your directories, rename each "sample_vehicle" to "my_vehicle_name" in the source code.
       - `my_vehicle_name_description/CMakeLists.txt`
       - `my_vehicle_name_description/package.xml`
@@ -68,9 +58,7 @@ Do not get confused. First, you need to create a launch file for your own vehicl
       - `my_vehicle_name_launch/CMakeLists.txt`
       - `my_vehicle_name_launch/package.xml`
       - `README.md` (not necessary)
-
     Then, your folder structure should be like this. (Some directories and files are omitted for simplicity)
-
     ```bash
     /<your-autoware-dir>/
       /src/
@@ -95,30 +83,24 @@ Do not get confused. First, you need to create a launch file for your own vehicl
               CMakeLists.txt
               package.xml
     ```
+  4. Include your launch file to `my_vehicle_name_launch/my_vehicle_name_launch/launch/vehicle_interface.launch.xml` by opening it and add the include terms like below.
+    ```xml title="vehicle_interface.launch.xml"
+    <?xml version="1.0" encoding="UTF-8"?>
+    <launch>
+        <arg name="vehicle_id" default="$(env VEHICLE_ID default)"/>
 
-4. Include your launch file to `my_vehicle_name_launch/my_vehicle_name_launch/launch/vehicle_interface.launch.xml` by opening it and add the include terms like below.
-
-```xml title="vehicle_interface.launch.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<launch>
-    <arg name="vehicle_id" default="$(env VEHICLE_ID default)"/>
-
-    <include file="$(find-pkg-share my_vehicle_interface)/launch/my_vehicle_interface.launch.xml">
-    </include>
-</launch>
-```
-
+        <include file="$(find-pkg-share my_vehicle_interface)/launch/my_vehicle_interface.launch.xml">
+        </include>
+    </launch>
+    ```
 4. Build three packages `my_vehicle_interface`, `my_vehicle_name_launch` and `my_vehicle_name_description` by `colcon build`, or you can just build the entire Autoware if you have done other things.
-
-```bash
-colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select my_vehicle_interface my_vehicle_name_launch my_vehicle_name_description
-```
-
+  ```bash
+  colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select my_vehicle_interface my_vehicle_name_launch my_vehicle_name_description
+  ```
 5. Finally, you are done implementing your vehicle interface module! Be careful that you need to launch Autoware with the proper `vehicle_model` option like the example below. This example is launching planning simulator.
-
-```bash
-ros2 launch autoware_launch planning.launch.xml map_path:=$HOME/autoware_map/sample-map-planning vehicle_model:=my_vehicle_name sensor_model:=sample_sensor_kit
-```
+  ```bash
+  ros2 launch autoware_launch planning.launch.xml map_path:=$HOME/autoware_map/sample-map-planning vehicle_model:=my_vehicle_name sensor_model:=sample_sensor_kit
+  ```
 
 ### Tips
 
@@ -146,7 +128,7 @@ There are some tips that may help you.
             package.xml
   ```
 
-- If you are using a vehicle interface and launch package from a open git repository, or created your own as a git repository, it is highly recommeded to add those repositories to your `autoware.repos` file which is located to directly under your autoware folder like the example below. You can specify the branch or commit hash by the version tag.
+- If you are using a vehicle interface and launch package from a open git repository, or created your own as a git repository, it is highly recommended to add those repositories to your `autoware.repos` file which is located to directly under your autoware folder like the example below. You can specify the branch or commit hash by the version tag.
 
   ```yaml title="autoware.repos"
   # vehicle (this section should be somewhere in autoware.repos and add the below)
@@ -172,7 +154,7 @@ Autoware now supports control inputs for vehicles based on an Ackermann kinemati
 
 ### Geometry
 
-The basic style of Ackermann kinematic model has four wheels with an Ackermann link on the front, and it is powered by the rear wheels. The keypoint of Ackermann kinematic model is that the axes of all wheels intersect at a same point, which means all wheels will trace a circular trajectory with a different radii but a common center point. Therefore, this model has a great advantage that it minimizes the slippage of the wheels, and prevent tires to get worn soon.
+The basic style of Ackermann kinematic model has four wheels with an Ackermann link on the front, and it is powered by the rear wheels. The key point of Ackermann kinematic model is that the axes of all wheels intersect at a same point, which means all wheels will trace a circular trajectory with a different radii but a common center point. Therefore, this model has a great advantage that it minimizes the slippage of the wheels, and prevent tires to get worn soon.
 
 In general, Ackermann kinematic model accepts the longitudinal speed $v$ and the steering angle $\phi$ as inputs. In autoware, $\phi$ is positive if it is steered counter clockwise, so the steering angle in the figure below is actually negative.
 
