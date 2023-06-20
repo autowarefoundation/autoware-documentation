@@ -41,12 +41,14 @@ if(BUILD_TESTING)
 
   ament_add_ros_isolated_gtest(test_my_cool_pkg test/test_my_cool_pkg.cpp)
   target_link_libraries(test_my_cool_pkg ${PROJECT_NAME})
+  target_include_directories(test_my_cool_pkg PRIVATE src)  # For private headers.
 ...
 endif()
 ```
 
 This automatically links the test with the default main function provided by `gtest`.
 The code under test is usually in a different CMake target (`${PROJECT_NAME}` in the example) and its shared object for linking needs to be added.
+If the test source files include private headers in the src directory, it need to add the src directory to include path.
 
 To register a new `gtest` item, wrap the test code with the macro `TEST ()`.
 `TEST ()` is a predefined macro that helps generate the final test code,
