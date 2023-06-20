@@ -77,33 +77,35 @@ BehaviorとMotionの分離について。Planning全体を振る舞いを決定�
 
 ### Discussions
 
-The following provides discussion points on trade-offs in the architecture. From this information, you will understand the current design philosophy of the Planning Component, its challenges, and potential improvement.
+The following provides discussion points on trade-offs in the architecture. From this information, you can see the current design limitation, challenges, and potential improvement.
 
 **Rationale for the separation of planning and other components**
-By developing the planning, perception, localzition, and control components separately, it becomes easy to collaborate with third-party components in the component level. However, there's a trade-off between performance and extensibility here. For instance, a perception component would ideally perform recognition and motion prediction only for the objects that the planning component needs, but separating the components hinders such close communication. Additionally, separating planning and control makes it harder to consider vehicle motion performance when planning. To compensate for this, it's necessary to either increase the information exchanged via the interface or increase the computation load.
+By developing the planning, perception, localization, and control components separately, it becomes easy to collaborate with third-party components in the component level. However, there's a trade-off between performance and extensibility here. For instance, a perception component would ideally perform recognition and motion prediction only for the objects that the planning component needs, but separating the components hinders such close communication. Additionally, separating planning and control makes it harder to consider vehicle motion performance when planning. To compensate for this, it's necessary to either increase the information exchanged via the interface or increase the computation load.
 
 **Rationale for introducing the Scenario Planning layer**
 There are different requirements for interfaces between driving in well-structured lanes and driving in a free-space area like a parking lot. For example, while Lane Driving can handle routes with map IDs, this is not appropriate for planning in free space. The mechanism that switches planning sub-components at the scenario level (Lane Driving, Parking, etc) enables a flexible design of the interface, however, it has a drawbacks of the reuse of modules across different scenarios.
 
 
 **Rationale for the separation of Behavior and Motion**
-The classic approach to Planning involves dividing it into "Behavior", which decides the action, and "Motion", which determines the final movement. However, this separation implies a trade-off with performance, as performance tends to degrade with increasing separation of functions. For example, Behavior needs to make decisions without prior knowledge of the computations that Motion will eventually perform, which generally results in conservative decision-making. On the other hand, if behavior and motion are integrated, motion performance and decision-making become interdependent, creating challenges in terms of expandability, such as when you wish to extend only the decision-making function to follow a regional traffic rules.
+One of the classic approach to Planning involves dividing it into "Behavior", which decides the action, and "Motion", which determines the final movement. However, this separation implies a trade-off with performance, as performance tends to degrade with increasing separation of functions. For example, Behavior needs to make decisions without prior knowledge of the computations that Motion will eventually perform, which generally results in conservative decision-making. On the other hand, if behavior and motion are integrated, motion performance and decision-making become interdependent, creating challenges in terms of expandability, such as when you wish to extend only the decision-making function to follow a regional traffic rules.
 
 To understand this background. this [previously discussed document](https://github.com/tier4/AutowareArchitectureProposal.proj/blob/main/docs/design/software_architecture/Planning/DesignRationale.md) may be useful.
 
 
-### Policies
+### Mechanism and policy
 
-様々なニーズやODDへの適応は、異なるpolicyという形で表現することができます。例えば、自動走行レベルにおいて、Planningは以下のpolicyを提供します。
+Planningにおいて、様々なニーズやODDへの適応するために、いくつかのポリシーを定義します。例えば、自動走行レベルにおいて、Planningは以下のpolicyを提供します。
 
 - **Fully-autonomous** that delegates all decision makings to the system, thus the system is responsible for the safety.
 - **Semi-autonomous** that delegates most of decision makings to the system but the rest of decision makings strictly defined remain with the human operator, thus both the system and the human operator are responsible for the safety.
 - **Motion-autonomous** that delegates only the low-level motion plan to the system, while high-level mission and behavior plannings remain with the human operator, thus the human operator is responsible for the safety.
 
-このpolicyは求められているユースケースやODDによって変わります。走行前に決定されているかもしれないし、走行中に動的に切り替わる可能性もあります。ここで、必ずしもFully-autonomousのみが最終目標ではないことに注意してください。期待するODDやセンサー構成、センサーコストによっては、Semi-autonomousの前提でシステムを作成することもあります。我々のゴールは、これらのポリシーが柔軟に変更可能であるアーキテクチャを設計することです。
+このpolicyは求められているユースケースやODDによって変わります。走行前に決定されているかもしれないし、走行中に動的に切り替わる可能性もあります。ここで、必ずしもFully-autonomousのみがゴールではないことに注意してください。期待するODDやセンサー構成、センサーコストによっては、Semi-autonomousの前提でシステムを作成することもあります。我々のゴールは、これらのポリシーが柔軟に変更可能であるアーキテクチャを設計することです。
 
 TODO: このautonomous levelのポリシー変更は設計方針が決まっていないので要議論。HMIとの連携でこれらの実現は可能かと思われるが、厳密に検討されていない。
 
+
+It is extremely important to separate the mechanism and policy, allowing us to modularize the planning components not only from the software point of view but also from the actual logic point of view. In the literature, the planning system framework often falls into a hierarchical framework and a parallel framework. The hierarchical framework classifies the tasks into multiple stages, and they are executed in the order of stages constructed hierarchically. The parallel framework, on the other hand, does not construct a hierarchy of the tasks but allows the  features to have their own mechanism. Examples of these frameworks are depicted below.
 
 <!-- 以下、planning design docから -->
 
