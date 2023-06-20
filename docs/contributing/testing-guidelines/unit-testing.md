@@ -48,7 +48,7 @@ endif()
 
 This automatically links the test with the default main function provided by `gtest`.
 The code under test is usually in a different CMake target (`${PROJECT_NAME}` in the example) and its shared object for linking needs to be added.
-If the test source files include private headers in the src directory, it need to add the src directory to include path.
+If the test source files include private headers from the `src` directory, the directory needs to be added to the include path using `target_include_directories()` function.
 
 To register a new `gtest` item, wrap the test code with the macro `TEST ()`.
 `TEST ()` is a predefined macro that helps generate the final test code,
