@@ -42,4 +42,4 @@ Crystal Rugged solutions which is used for autonomous driving and tested by one 
 | ----------------------- | --------------------- | ------------------- | ------------------------------------------------ | ---------------------------------------------- | --------------------- |
 | AVC 0161-AC             | Intel® Xeon® Scalable | Dual GPU RTX Series | 2TB RAM,CAN, USB, Ethernet, Serial, Hot-Swap SSD | 10-32 VoltVibration:2 G RMS 10-1000 Hz, 3 axes | -                     |
 
-Link to company website is [here.](https://www.crystalrugged.com/product/avc1529-ai-autonomy-solution/)
+Link to company website is [here.](https://www.crystalrugged.com/product/AVC0161-Ai-Autonomy-Solution/)
