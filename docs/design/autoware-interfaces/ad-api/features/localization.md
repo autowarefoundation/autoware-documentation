@@ -1,4 +1,6 @@
-# Localization API
+# Localization
+
+## Related API
 
 - {{ link_ad_api('/api/localization/initialization_state') }}
 - {{ link_ad_api('/api/localization/initialize') }}
@@ -9,7 +11,7 @@ This API manages the initialization of localization. Autoware requires a global 
 
 ## States
 
-![localization-initialization_state-state](./state.drawio.svg)
+![localization-initialization-state](./localization/state.drawio.svg)
 
 | State         | Description                                                                      |
 | ------------- | -------------------------------------------------------------------------------- |

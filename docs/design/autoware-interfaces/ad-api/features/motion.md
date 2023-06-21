@@ -1,4 +1,6 @@
-# Motion API
+# Motion
+
+## Related API
 
 - {{ link_ad_api('/api/motion/state') }}
 - {{ link_ad_api('/api/motion/accept_start') }}
@@ -17,7 +19,7 @@ In this state, calling the start API changes the state to MOVING and the vehicle
 This mechanism can add processing such as announcements before the vehicle starts.
 Depending on the configuration, the state may transition directly from STOPPED to MOVING.
 
-![motion-state](./docs/state.drawio.svg)
+![motion-state](./motion/state.drawio.svg)
 
 | State            | Description                                     |
 | ---------------- | ----------------------------------------------- |
