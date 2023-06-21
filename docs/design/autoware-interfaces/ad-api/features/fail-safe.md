@@ -1,4 +1,6 @@
-# Fail-safe API
+# Fail-safe
+
+## Related API
 
 - {{ link_ad_api('/api/fail_safe/mrm_state') }}
 
@@ -11,14 +13,14 @@ For safety, Autoware switches the operation to MRM when an abnormality is detect
 Since the required behavior differs depending on the situation, MRM is implemented in various places as a specific mode in a normal module or as an independent module.
 The fail-safe module selects the behavior of MRM according to the abnormality and switches the gate output to that command.
 
-![fail-safe-architecture](./architecture.drawio.svg)
+![fail-safe-architecture](./fail-safe/architecture.drawio.svg)
 
 ## States
 
 The MRM state indicates whether MRM is operating. This state also provides success or failure.
 Generally, MRM will switch to another behavior if it fails.
 
-![mrm-state](./mrm-state.drawio.svg)
+![mrm-state](./fail-safe/mrm-state.drawio.svg)
 
 | State     | Description                                                |
 | --------- | ---------------------------------------------------------- |
@@ -32,7 +34,7 @@ Generally, MRM will switch to another behavior if it fails.
 There is a dependency between MRM behaviors. For example, it switches from a comfortable stop to a emergency stop, but not the other way around.
 This is service dependent. Autoware supports the following transitions by default.
 
-![mrm-behavior](./mrm-behavior.drawio.svg)
+![mrm-behavior](./fail-safe/mrm-behavior.drawio.svg)
 
 | State            | Description                                                               |
 | ---------------- | ------------------------------------------------------------------------- |

@@ -10,5 +10,6 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Change the operation mode to remote. For details, see the [operation mode](./index.md).
+Change the operation mode to remote.
+For details, see the [operation mode](../../../features/operation_mode.md).
 {% endblock %}
