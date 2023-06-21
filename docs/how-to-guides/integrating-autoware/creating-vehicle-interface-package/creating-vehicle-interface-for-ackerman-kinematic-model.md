@@ -55,17 +55,17 @@ The following instructions describe how to create a vehicle interface.
   2. Next, go to `<your-autoware-dir>/src/vehicle`, copy the directory `/sample_vehicle_launch/`, and paste it to the same place (which means it should be lined up with `external` and `sample_vehicle_launch`).
 
   3. You have to rename each "sample_vehicle" to something else. For example, if you want to rename "sample_vehicle" to "my_vehicle_name", you need to change the following. Note that it is restricted to keep the "\_launch" and "\_description" part.
-    - Rename the directories
-      - `sample_vehicle_launch` &rarr; `my_vehicle_name_launch`
-      - `my_vehicle_name_launch/sample_vehicle_launch` &rarr; `my_vehicle_name_launch/my_vehicle_name_launch`
-      - `my_vehicle_name_launch/sample_vehicle_description` &rarr; `my_vehicle_name_launch/my_vehicle_name_description`
-    - After you rename your directories, rename each "sample_vehicle" to "my_vehicle_name" in the source code.
-      - `my_vehicle_name_description/CMakeLists.txt`
-      - `my_vehicle_name_description/package.xml`
-      - `my_vehicle_name_description/urdf/vehicle.xacro` (there are two parts)
-      - `my_vehicle_name_launch/CMakeLists.txt`
-      - `my_vehicle_name_launch/package.xml`
-      - `README.md` (not necessary)
+  - Rename the directories
+    - `sample_vehicle_launch` &rarr; `my_vehicle_name_launch`
+    - `my_vehicle_name_launch/sample_vehicle_launch` &rarr; `my_vehicle_name_launch/my_vehicle_name_launch`
+    - `my_vehicle_name_launch/sample_vehicle_description` &rarr; `my_vehicle_name_launch/my_vehicle_name_description`
+  - After you rename your directories, rename each "sample_vehicle" to "my_vehicle_name" in the source code.
+    - `my_vehicle_name_description/CMakeLists.txt`
+    - `my_vehicle_name_description/package.xml`
+    - `my_vehicle_name_description/urdf/vehicle.xacro` (there are two parts)
+    - `my_vehicle_name_launch/CMakeLists.txt`
+    - `my_vehicle_name_launch/package.xml`
+    - `README.md` (not necessary)
     Then, your folder structure should be like this. (Some directories and files are omitted for simplicity)
     ```bash
     /<your-autoware-dir>/
