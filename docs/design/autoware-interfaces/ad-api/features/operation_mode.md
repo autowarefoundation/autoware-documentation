@@ -1,4 +1,4 @@
-# Operation Mode
+# Operation mode
 
 ## Related API
 
