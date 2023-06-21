@@ -22,5 +22,6 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Get the operation mode state. For details, see the [operation mode](./index.md).
+Get the operation mode state.
+For details, see the [operation mode](../../../features/operation_mode.md).
 {% endblock %}
