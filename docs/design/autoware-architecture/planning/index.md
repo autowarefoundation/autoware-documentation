@@ -10,7 +10,7 @@ Furthermore, detailed design of the reference imprementations and provided featr
 
 The role of the Planning component is to generate a trajectory (path and velocity) of the self-driving vehicle that is safe and well-regulated while satisfying the given mission.
 
-In our overall design, we emphasize the concept of [microautonomy architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts). This term refers to a design approach that focuses on the proper modularization of functions, clear definition of interfaces between these modules, and as a result, high expandability of the system. Therefore, the goal of the Planning component is set not to solve every conceivable complex use case (although we do aim to support basic ones), but rather to provide a platform that can be customized to the user's needs and can facilitate the development of additional features.
+In our overall design, we emphasize the concept of [microautonomy architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts). This term refers to a design approach that focuses on the proper modularization of functions, clear definition of interfaces between these modules, and as a result, high expandability of the system. Given this context, the goal of the Planning component is set not to solve every conceivable complex use case (although we do aim to support basic ones), but rather to provide a platform that can be customized to the user's needs and can facilitate the development of additional features.
 
 To clarify the design concepts, the following points are listed as goals and non-goals.
 
