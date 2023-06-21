@@ -2,9 +2,9 @@
 
 ## Purpose of this document
 
-This document outlines the goals, high-level design strategies, and related rationales in the development of the Planning Component. Through this document, all OSS developers will be able to comprehend the design philosophy, goals and constraints under which the Planning Component is designed. This will enable them to participate seamlessly in the development.
+This document outlines the high-level design strategies, goals and related rationales in the development of the Planning Component. Through this document, it is expected that all OSS developers will comprehend the design philosophy, goals and constraints under which the Planning Component is designed, and participate seamlessly in the development.
 
-Furthermore, a list of concrete reference implementations and provided features is also included in the latter part of this document, while this information might be managed separately in the future. This allows developers and users to understand what is currently possible with the Planning Component, how to utilize, expand, or add to its features.
+Furthermore, detailed design of the reference imprementations and provided featres are are included in the latter part of this document, while this information might be managed separately in the future. This allows developers and users to understand what is currently available with the Planning Component, how to utilize, expand, or add to its features.
 
 ## Goals and non-goals
 
