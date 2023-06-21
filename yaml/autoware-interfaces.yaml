@@ -1,4 +1,7 @@
 types:
+  autoware_adapi_v1_msgs/msg/DoorCommand:
+    msg:
+      command: uint8
   autoware_adapi_v1_msgs/msg/DoorLayout:
     msg:
       description: string
@@ -131,7 +134,7 @@ types:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/GetDoorLayout:
     res:
-      doors: autoware_adapi_v1_msgs/msg/DoorLayout
+      doors: autoware_adapi_v1_msgs/msg/DoorLayout[]
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/GetVehicleDimensions:
     res:
@@ -140,6 +143,11 @@ types:
   autoware_adapi_v1_msgs/srv/InitializeLocalization:
     req:
       pose: geometry_msgs/msg/PoseWithCovarianceStamped[<=1]
+    res:
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/SetDoorCommand:
+    req:
+      doors: autoware_adapi_v1_msgs/msg/DoorCommand[]
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/SetRoute:

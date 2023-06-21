@@ -10,5 +10,6 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Publish door status in array according to the door location information that received from vehicle info service.
+The status of each door such as opened or closed.
+The array index corresponds to the door layout.
 {% endblock %}
