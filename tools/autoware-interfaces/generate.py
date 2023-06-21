@@ -88,7 +88,8 @@ def main():
     # Create a list of data types used in adapi.
     adapi = Path("docs/design/autoware-interfaces/ad-api/list/api")
     pages = (load_markdown_metadata(path) for path in adapi.glob("**/*.md"))
-    names = (yaml["type"]["name"] for yaml in pages if yaml)
+    pages = [page for page in pages if page]
+    names = (page["type"]["name"] for page in pages)
 
     # Create a field list for each data type.
     visited = set()
@@ -136,5 +137,17 @@ def main():
         path = base.joinpath(name).with_suffix(".md")
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text)
+
+    ## Generate api list page.
+    text = "# List of Autoware AD API\n\n"
+    for title in sorted(page["title"] for page in pages):
+        text += f"- [{title}](.{title}.md)\n"
+    Path("docs/design/autoware-interfaces/ad-api/list/index.md").write_text(text)
+
+    ## Generate api type page.
+    text = "# Types of Autoware AD API\n\n"
+    for spec in sorted(specs):
+        text += f"- [{spec}](./{spec}.md)\n"
+    Path("docs/design/autoware-interfaces/ad-api/types/index.md").write_text(text)
 
 main()
