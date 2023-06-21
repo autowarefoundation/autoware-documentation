@@ -4,24 +4,41 @@
 
 This document outlines the high-level design strategies, goals and related rationales in the development of the Planning Component. Through this document, it is expected that all OSS developers will comprehend the design philosophy, goals and constraints under which the Planning Component is designed, and participate seamlessly in the development.
 
+このドキュメントは Planning コンポーネントの開発における目標、ハイレベルな設計方針、およびそれらの議論ポイントをまとめています。このドキュメントを通じて、すべてのOSS開発者はPlanning コンポーネントがどのような設計思想、目標、制約の下で設計されているかを理解することができ、それによってスムーズに開発に参加することができます。
+
 Furthermore, detailed design of the reference imprementations and provided featres are are included in the latter part of this document, while this information might be managed separately in the future. This allows developers and users to understand what is currently available with the Planning Component, how to utilize, expand, or add to its features.
+
+ドキュメントの後半では、詳細設計としてリファレンス実装や提供機能の一覧も記載しています（この情報は将来的に別のドキュメントで管理されるかもしれません）。これにより、開発者やユーザーは Planning コンポーネントの現在の実装、およびそれらをどのように活用、拡張するかを理解することができます。
 
 ## Goals and non-goals
 
 The role of the Planning component is to generate a trajectory (path and velocity) of the self-driving vehicle that is safe and well-regulated while satisfying the given mission.
 
+Planning コンポーネントの役割は、与えられたミッションを満たしつつ、安全で交通ルールに基づいた自動運転車両の目標軌道（経路と速度）を生成することです。
+
 In our overall design, we emphasize the concept of [microautonomy architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts). This term refers to a design approach that focuses on the proper modularization of functions, clear definition of interfaces between these modules, and as a result, high expandability of the system. Given this context, the goal of the Planning component is set not to solve every conceivable complex use case (although we do aim to support basic ones), but rather to provide a platform that can be customized to the user's needs and can facilitate the development of additional features.
 
+Planningの全体設計において、我々は [microautonomy architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts) の概念を重視しています。microautonomy とは、適切な機能のモジュール化やインターフェースの明確な定義に基づき、システムの高い拡張性を焦点を当てた設計コンセプトです。そのため Planning component の目標は、すべての考えられる複雑なユースケースを解決することではなく（基本的なものはサポートすることを目指していますが）、ユーザーのニーズに合わせてカスタマイズでき、第三者によって機能が容易に追加可能なプラットフォームを提供することに設定されています。
+
 To clarify the design concepts, the following points are listed as goals and non-goals.
+
+この設計コンセプトを明確にするため、以下に Goal と Non-Goal をリスト化します。
 
 **Goals:**
 
 - The basic functions are provided so that a simple Operational Design Domain (ODD) can be defined.
+  - **TODO**: need more information for the "simple ODD"
 - The functionality is modularized to accommodate the third-party components. That is, a complicated or realistic ODD needs not be defined by the basic functions provided by default.
+  - **TODO**: need to clarify the meaning of the "realistic ODD"
 - The capability is extensible with the third-party components or the decision of human operators.
 
 <!-- Not sure what the following says. -->
  <!-- - The mechanism and policy are separated to allow the system or operators to change the behavior of the ego vehicle. Ultimately speaking, the policy can be set to crash an obstacle and the mechanism always follows. Otherwise, the system is not safe from the design point of view. -->
+
+- シンプルな運用設計領域（ODD）を定義できるレベルの基本的なplanning機能を提供する
+  - **TODO**: シンプルの定義はもう少し詳しく書いたほうが良いかも
+- サードパーティによる機能の追加が容易なように、planningの機能はモジュール化されている。
+- 人間の操作者の決定やサードパーティのコンポーネントによって機能を拡張できる。
 
 **Non-goals:**
 
@@ -30,7 +47,14 @@ To clarify the design concepts, the following points are listed as goals and non
 - The Planning component is not designed to always outperform human drivers.
 - The Planning component is not capable of “never crashes”.
 
+- Planningコンポーネントは自己完結している必要はない。ただし、サードパーティと共に拡張・強化することができることは必要。
+- Planningコンポーネントは自動運転としての完全な機能を目指しているわけではない。
+- Planningコンポーネントは常に人間のドライバーを上回るように設計されているわけではない。
+- Planningコンポーネントは「絶対に衝突しない」という性能を持っているわけではない。
+
 While performance such as "never crashes" is not a present goals, we need to create an architecture that can potentially achieve such a state with third-party components or decision of human operators or future enhancement.
+
+「絶対に衝突しない」といった性能は現在の目標ではありませんが、サードパーティのコンポーネントや人間の操作者の決定、または将来の強化によってそのような状態を達成できるようなアーキテクチャを作成することは我々の目標です。
 
 ## Requirements
 
@@ -48,6 +72,8 @@ This diagram describes the high-level architecture of the Planning Component.
 
 The Planning component consists of the following sub-components:
 
+Planning コンポーネントはいくつかのサブコンポーネントからなります。
+
 - **Mission Planning**: Calculates the route from a starting position and a given goal based on map information.
 - **Scenario Planning**: Determines the trajectory based on the current scenario, such as Lane Driving or Parking.
   - **Lane Driving**: Calculates the trajectory for driving within constructed lanes.
@@ -56,20 +82,41 @@ The Planning component consists of the following sub-components:
   - **Parking**: Calculates the trajectory for parking in unstructured areas.
 - **Validation**: Verifies the safety of the trajectory.
 
+- **Mission Planning**: 地図情報をもとに、初期位置からゴールまでのルートを計算します。
+- **Scenario Planning**: Lane Driving や Parkingなどのシナリオに基づいて、適切な目標軌道を計算します。
+  - **Lane Driving**: レーン構造が存在する場所において、適切な目標軌道を計算します。
+    - **Behavior Planner**: 交通ルールや安全を考慮して適切な経路を計算します。
+    - **Motion Planner**: Behavior Plannerの出力を元に、車両運動や乗り心地を考慮した目標軌道を計算します。
+  - **Parking**: 駐車場などのフリースペース環境において、適切な目標軌道を計算します。
+- **Validation**: 計算された目標軌道の安全性を検証します。
+
 Following the microautonomy architecture, we adopt a modular system framework where the tasks are implemented as modules that can be dynamically loaded and unloaded to achieve different features depending on the given use cases. For instance, the Behavior Planning component includes modules such as lane change, intersection, and crosswalk modules.
+
+ここでは microautonomy アーキテクチャに従い、モジュール型のシステムフレームワークを採用しています。planningの機能はモジュールとして実装され、これらのモジュールは与えられたユースケースに応じて動的にロードおよびアンロードされます。例えば、behavior planning のサブコンポーネントには、レーンチェンジ、交差点、横断歩道モジュールなどのモジュールが含まれています。
 
 ### Discussions
 
 The following provides discussion points on trade-offs in the architecture. From this information, you can see the current design limitation, challenges, and potential improvement.
 
+以下では、アーキテクチャのトレードオフについての議論のポイントを提供します。この情報から、現在の設計の限界、課題、そして潜在的な改善点が見えてきます。
+
 **Separation of planning and other components**
 By developing the planning, perception, localization, and control components separately, it becomes easy to collaborate with third-party components in the component level. However, there's a trade-off between performance and extensibility here. For instance, a perception component would ideally perform recognition and motion prediction only for the objects that the planning component needs, but separating the components hinders such close communication. Additionally, separating planning and control makes it harder to consider vehicle motion performance when planning. To compensate for this, it's necessary to either increase the information exchanged via the interface or increase the computation load.
+
+**planningと他のコンポーネントの分離**
+planning、perception、localization、controlなどのコンポーネントを分離して開発することで、サードパーティ製のコンポーネントとの連携が容易になります。しかし、ここではパフォーマンスと拡張性の間にトレードオフがあります。例えば、perception コンポーネントは理想的には planning コンポーネントが必要とするオブジェクトだけを認識すれば十分ですが、コンポーネントを分離することでそのような密接なコミュニケーションが難しくなり、不要なオブジェクトに対しても処理を実行する必要があります。また、計画と制御を分離すると、計画時に車両の運動性能を考慮することが難しくなるという性能面の欠点があります。これを補うためには、インターフェースの情報量を増やすか、計算負荷を増やすなど対応が必要になります。
 
 **Introducing the Scenario Planning layer**
 There are different requirements for interfaces between driving in well-structured lanes and driving in a free-space area like a parking lot. For example, while Lane Driving can handle routes with map IDs, this is not appropriate for planning in free space. The mechanism that switches planning sub-components at the scenario level (Lane Driving, Parking, etc) enables a flexible design of the interface, however, it has a drawbacks of the reuse of modules across different scenarios.
 
+**Scenario Planning の導入**
+整備されたレーンを走行する場合と、駐車場のような自由空間での走行では、インターフェースに対する情報要求が異なります。例えば、レーン走行中は地図のレーン情報を処理できますが、これは自由空間での計画には適していません。シナリオレベル（Lane Driving / Parking）で Planning サブコンポーネントを切り替えるメカニズムは、インターフェースの柔軟な設計を可能にしますが、異なるシナリオ間でモジュールを再利用できなくなるという欠点もあります。
+
 **Separation of Behavior and Motion**
 One of the classic approach to Planning involves dividing it into "Behavior", which decides the action, and "Motion", which determines the final movement. However, this separation implies a trade-off with performance, as performance tends to degrade with increasing separation of functions. For example, Behavior needs to make decisions without prior knowledge of the computations that Motion will eventually perform, which generally results in conservative decision-making. On the other hand, if behavior and motion are integrated, motion performance and decision-making become interdependent, creating challenges in terms of expandability, such as when you wish to extend only the decision-making function to follow a regional traffic rules.
+
+**Behavior と Motion の分離**
+Planningコンポーネントを行動を決定する "Behavior" と、最終的な動きを決定する ”Motion” に分けることは古典的なアプローチの一つです。しかし、この方針にはパフォーマンスとのトレードオフが存在します。機能の分離が進むとパフォーマンスは一般的に低下する傾向があります。例えば、Behavior は、最終的に Motion が行う計算結果を知るより前に意思決定を行わなければならないため、一般的に保守的な意思決定が行われます。一方、BehaviorとMotionが一体化している場合、運動性能と意思決定が依存するため、例えば国ごとに異なる交通ルールに従うために意思決定機能を拡張する場合において運動性能を考慮する必要があるといった拡張性の課題が生じます。
 
 To understand this background, this [previously discussed document](https://github.com/tier4/AutowareArchitectureProposal.proj/blob/main/docs/design/software_architecture/Planning/DesignRationale.md) may be useful.
 
@@ -81,7 +128,15 @@ In planning, several policies are defined to achieve various user's needs and OD
 - **Semi-autonomous** that delegates most of decision makings to the system but the rest of decision makings strictly defined remain with the human operator, thus both the system and the human operator are responsible for the safety.
 - **Motion-autonomous** that delegates only the low-level motion plan to the system, while high-level mission and behavior plannings remain with the human operator, thus the human operator is responsible for the safety.
 
+Planningでは、様々なODDやユーザーのニーズを達成するために、いくつかのポリシーが定義されます。例えば、自動運転のレベルにおいて、Planningは以下のポリシーを提供します。
+
+- **Fully-autonomous** ：すべての意思決定をシステムに委ね、システムが安全性を担保します。
+- **Semi-autonomous**：ほとんどの意思決定をシステムに委ねますが、一部の意思決定は人間のオペレーターに委ねられ、システムと人間のオペレーターの両方が安全性を担保します。
+- **Motion-autonomous**：低レベルの運動計画のみをシステムに委ね、高レベルのミッションと行動計画は人間のオペレーターが行い、人間のオペレーターが安全性を担保します。
+
 This policy can vary depending on the desired use cases and ODDs. It might be determined before driving begins, or it may switch dynamically during operation. The activated modules and their configuration change according to the policy to achieve the expected behaviors. Note that our goal is not necessarily to achieve only fully-autonomous. Depending on the expected ODD, sensor configuration, and sensor costs, we may also design the system on the premise of semi-autonomy. Our goal as an OSS platform is to design an architecture that allows for flexible changes to these policies. [Separation the mechanism and policy](https://en.wikipedia.org/wiki/Separation_of_mechanism_and_policy) allows us to modularize the planning components not only from the software point of view but also from the actual logic point of view.
+
+このポリシーは、求められるユースケースやODDにより変わります。これは走行前に決定されるかもしれませんし、走行中に動的に切り替わる可能性もあります。起動するモジュールやその設定はポリシーに従って変更され、期待される行動が実現されます。ここで注意すべきは、我々の目標が必ずしも Fully-autonomous だけであるわけではないということです。期待するODD、センサーの構成、センサーコストにより、Semi-autonomous を前提としたシステム設計を行うこともあります。OSSプラットフォームとしての我々の目標は、これらのポリシーを柔軟に変更できるアーキテクチャを設計することです。メカニズムとポリシーを分離することで、ソフトウェアの観点だけでなく、実際のロジックの観点からも計画コンポーネントをモジュラ化することが可能になります。
 
 **TODO:** How to handle the policy of the autonomous level has not yet been finalized and needs further discussion. While it is believed that these can be implemented in collaboration with the Human-Machine Interface, further investigation and discussion is needed.
 
@@ -138,7 +193,11 @@ This section describes the inputs and outputs of the Planning Component and of i
 
 As mentioned in the goal session, this planning module is designed to be extensible by third-party components. When incorporating third-party components, there are several approaches.
 
+ゴールのセッションで述べたように、このPlanningコンポーネントはサードパーティのコンポーネントによる拡張を可能にするように設計されています。サードパーティのコンポーネントを組み込む際にはいくつかの方法があります。
+
 As stated in the figure, you can completely replace the entire planning function, replace or add to the planning sub-components, or add new modules into the existing planning component. The latter part offers advantages as it allows for cooperation with the existing Planning functions, but it does require adherence to the detailed interfaces defined within the Planning Component. Conversely, while replacing the entire planning function enables you to utilize other components of Autoware, it does not allow for integration with the existing planning functions. For specific instructions on how to add new modules and expand its functionality, please refer to the forthcoming documentation or guidelines (WIP).
+
+図に示した通り、機能の追加には「Planning Componentを完全に置き換える」、「Planningのサブコンポーネントを置き換えるまたは追加する」、「既存のPlanningコンポーネントに新たなモジュールを追加する」方法があります。後者の方法ほど、既存のPlanning機能との連携が可能であるという利点がありますが、Planningコンポーネント内で定義されている詳細なインターフェースに従う必要があります。一方、Planning機能全体を置き換えることにより、大枠のinterfaceを揃えるだけでAutowareの他のコンポーネントを利用することができますが、既存のPlanning機能との統合はできません。新しいモジュールを追加し、その機能を拡張する具体的な指示については、近日公開予定のドキュメンテーションまたはガイドライン（作業中）をご参照ください。
 
 ![how-to-add-new-modules](image/how-to-add-new-modules.drawio.svg)
 
