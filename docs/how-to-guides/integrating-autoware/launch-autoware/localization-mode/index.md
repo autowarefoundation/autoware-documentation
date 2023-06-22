@@ -10,14 +10,14 @@
 ## How to launch YabLoc
 
 YabLocはカメラベースの位置推定手法です。
-YabLocをndt_scan_matcherに代わってpose_estimatorとして利用する場合はAutowareの起動時に次のように`localization_mode:=yabloc`を追加してください。
+YabLocをndt_scan_matcherに代わってpose_estimatorとして利用する場合はAutowareの起動時に次のように`localization_mode:=camera`を追加してください。
 
 ```bash
 ros2 launch autoware_launch autoware.launch.xml vehicle_model:=YOUR_VEHICLE sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP \
-    localization_mode:=yabloc
+    localization_mode:=camera
 ```
 
-`localization_mode`はデフォルトでは`ndt`であり、特に指定をしない場合は`localization_mode:=ndt`として扱われます。
+`localization_mode`はデフォルトでは`lidar`であり、特に指定をしない場合は`localization_mode:=lidar`として扱われます。
 このコマンドライン引数を指定することにより、自動でYabLoのノードが起動し、NDTのノードは起動しないようになります。
 
 YabLocの詳細は [YabLoc Guide](yabloc-guide.md)を見てください。
