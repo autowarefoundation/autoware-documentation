@@ -34,17 +34,20 @@ This page shows you a brief explanation how to implement your vehicle interface,
 
 The following instructions describe how to create a vehicle interface.
 
+<!-- markdownlint-disable MD029 -->
+<!-- Since MD029 cannot recognize nested lists when the indents are defined as two spaces in mdx_truly_sane_lists -->
+
 1. It is recommended to create your vehicle interface at `<your-autoware-dir>/src/vehicle/external`
 
-  ```bash
-  cd <your-autoware-dir>/src/vehicle/external
-  ```
+    ```bash
+    cd <your-autoware-dir>/src/vehicle/external
+    ```
 
 2. If there is an already complete vehicle interface package (like [`pacmod_interface`](https://github.com/tier4/pacmod_interface/tree/main)), you can install it to your environment. If not, you have to implement your own vehicle interface by yourself. Create a new package by `ros2 pkg create`. The following example is creating a vehicle interface package named `my_vehicle_interface`. Write your implementation of vehicle interface in `my_vehicle_interface/src`.
 
-  ```bash
-  ros2 pkg create --build-type ament_cmake my_vehicle_interface
-  ```
+    ```bash
+    ros2 pkg create --build-type ament_cmake my_vehicle_interface
+    ```
 
 3. After you implement your vehicle interface or you want to debug it by launching it, create a launch file of your vehicle interface, and include it to `vehicle_interface.launch.xml`.
 
@@ -55,44 +58,21 @@ The following instructions describe how to create a vehicle interface.
   2. Next, go to `<your-autoware-dir>/src/vehicle`, copy the directory `/sample_vehicle_launch/`, and paste it to the same place (which means it should be lined up with `external` and `sample_vehicle_launch`).
 
   3. You have to rename each "sample_vehicle" to something else. For example, if you want to rename "sample_vehicle" to "my_vehicle_name", you need to change the following. Note that it is restricted to keep the "\_launch" and "\_description" part.
-  - Rename the directories
-    - `sample_vehicle_launch` &rarr; `my_vehicle_name_launch`
-    - `my_vehicle_name_launch/sample_vehicle_launch` &rarr; `my_vehicle_name_launch/my_vehicle_name_launch`
-    - `my_vehicle_name_launch/sample_vehicle_description` &rarr; `my_vehicle_name_launch/my_vehicle_name_description`
-  - After you rename your directories, rename each "sample_vehicle" to "my_vehicle_name" in the source code.
-    - `my_vehicle_name_description/CMakeLists.txt`
-    - `my_vehicle_name_description/package.xml`
-    - `my_vehicle_name_description/urdf/vehicle.xacro` (there are two parts)
-    - `my_vehicle_name_launch/CMakeLists.txt`
-    - `my_vehicle_name_launch/package.xml`
-    - `README.md` (not necessary)
-    Then, your folder structure should be like this. (Some directories and files are omitted for simplicity)
-    ```bash
-    /<your-autoware-dir>/
-      /src/
-        /vehicle/
-          /external/
-            /my_vehicle_interface/
-              /launch/
-                my_vehicle_interface.launch.xml
-              /src/
-                ...
-              CMakeLists.txt
-              README.md
-              package.xml
-          /sample_vehicle_launch/
-            ...
-          /my_vehicle_name_launch/
-            /my_vehicle_name_description/
-              ...
-            /my_vehicle_name_launch/
-              /launch/
-                vehicle_interface.launch.xml
-              CMakeLists.txt
-              package.xml
-    ```
+  
+    - Rename the directories
+      - `sample_vehicle_launch` &rarr; `my_vehicle_name_launch`
+      - `my_vehicle_name_launch/sample_vehicle_launch` &rarr; `my_vehicle_name_launch/my_vehicle_name_launch`
+      - `my_vehicle_name_launch/sample_vehicle_description` &rarr; `my_vehicle_name_launch/my_vehicle_name_description`
+    - After you rename your directories, rename each "sample_vehicle" to "my_vehicle_name" in the source code.
+      - `my_vehicle_name_description/CMakeLists.txt`
+      - `my_vehicle_name_description/package.xml`
+      - `my_vehicle_name_description/urdf/vehicle.xacro` (there are two parts)
+      - `my_vehicle_name_launch/CMakeLists.txt`
+      - `my_vehicle_name_launch/package.xml`
+      - `README.md` (not necessary)
 
   4. Include your launch file to `my_vehicle_name_launch/my_vehicle_name_launch/launch/vehicle_interface.launch.xml` by opening it and add the include terms like below.
+
     ```xml title="vehicle_interface.launch.xml"
     <?xml version="1.0" encoding="UTF-8"?>
     <launch>
@@ -104,14 +84,18 @@ The following instructions describe how to create a vehicle interface.
     ```
 
 4. Build three packages `my_vehicle_interface`, `my_vehicle_name_launch` and `my_vehicle_name_description` by `colcon build`, or you can just build the entire Autoware if you have done other things.
-  ```bash
-  colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select my_vehicle_interface my_vehicle_name_launch my_vehicle_name_description
-  ```
+
+    ```bash
+    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select my_vehicle_interface my_vehicle_name_launch my_vehicle_name_description
+    ```
 
 5. Finally, you are done implementing your vehicle interface module! Be careful that you need to launch Autoware with the proper `vehicle_model` option like the example below. This example is launching planning simulator.
-  ```bash
-  ros2 launch autoware_launch planning.launch.xml map_path:=$HOME/autoware_map/sample-map-planning vehicle_model:=my_vehicle_name sensor_model:=sample_sensor_kit
-  ```
+
+    ```bash
+    ros2 launch autoware_launch planning.launch.xml map_path:=$HOME/autoware_map/sample-map-planning vehicle_model:=my_vehicle_name sensor_model:=sample_sensor_kit
+    ```
+
+<!-- markdownlint-enable MD029 -->
 
 ### Tips
 
