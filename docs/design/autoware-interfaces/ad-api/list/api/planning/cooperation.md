@@ -33,18 +33,19 @@ These decisions are designed to assign behavior to activate that is considered h
 | velocity (stop) | stop          | pass            |
 | steering (path) | keep the path | change the path |
 
-The operator decision is actually either deactivate, activate, autonomous, or default.
+The operator decision is actually either deactivate, activate, autonomous, or none.
 If the operator selects deactivate or activate, the module decision is ignored and the operator decision is used instead.
 If the operator selects autonomous, the module decision is used.
-The default is the initial value of the operator decision.
-If the operator decision is default, it is evaluated according to the default policy set for each module type.
+The none is the initial value of the operator decision and means that the operator has not selected any decision.
+If the operator decision is none, it is evaluated according to the cooperation policies set for each module type.
 
-The default policy is either deactivate or autonomous, and is initialized by system settings.
-These meanings are the same as the operator decision.
-The purpose of the default policy is to set whether the operator decision is required.
-The deactivate policy is a defensive setting and not perform risky behavior until instructed by the operator.
-The autonomous policy can perform both behavior without operator instruction.
-Also, the operator can change the default policies.
+The cooperation policy is either required or optional, and is initialized by system settings.
+The required policy evaluates none decision as deactivate to minimize risk.
+Therefore, the operator decision is required to continue driving.
+The optional policy evaluates none decision as autonomous to continue driving.
+This allows the vehicle to drive without the operator decision.
+The cooperation policies can also be changed by the operator.
+Note that this setting is common per module, so changing it will affect all scenes in the same module.
 
 ![cooperation-state](./docs/cooperation-state.drawio.svg)
 
@@ -52,12 +53,12 @@ Also, the operator can change the default policies.
 
 This is an example of cooperation for lane change module. The behaviors by the combination of decisions are as follows.
 
-| Operator decision | Default policy | Module decision | Description                                                                                                    |
-| ----------------- | -------------- | --------------- | -------------------------------------------------------------------------------------------------------------- |
-| deactivate        | -              | -               | The operator instructs to keep lane regardless the module decision. So it keeps lane by operator decision.     |
-| activate          | -              | -               | The operator instructs to change lane regardless the module decision. So it changes lane by operator decision. |
-| autonomous        | -              | deactivate      | The operator instructs to follow the module decision. So it keeps lane by module decision.                     |
-| autonomous        | -              | activate        | The operator instructs to follow the module decision. So it changes lane by module decision.                   |
-| default           | deactivate     | -               | The deactivate default policy is used because no operator instruction. So it keeps lane by deactivate policy.  |
-| default           | autonomous     | deactivate      | The autonomous default policy is used because no operator instruction. So it keeps lane by module decision.    |
-| default           | autonomous     | activate        | The autonomous default policy is used because no operator instruction. So it change lane by module decision.   |
+| Operator decision | Policy   | Module decision | Description                                                                                                    |
+| ----------------- | -------- | --------------- | -------------------------------------------------------------------------------------------------------------- |
+| deactivate        | -        | -               | The operator instructs to keep lane regardless the module decision. So it keeps lane by operator decision.     |
+| activate          | -        | -               | The operator instructs to change lane regardless the module decision. So it changes lane by operator decision. |
+| autonomous        | -        | deactivate      | The operator instructs to follow the module decision. So it keeps lane by module decision.                     |
+| autonomous        | -        | activate        | The operator instructs to follow the module decision. So it changes lane by module decision.                   |
+| none              | required | -               | The required policy is used because no operator instruction. So it keeps lane the same as deactivate.          |
+| none              | optional | deactivate      | The optional policy is used because no operator instruction. So it keeps lane by module decision.              |
+| none              | optional | activate        | The optional policy is used because no operator instruction. So it change lane by module decision.             |
