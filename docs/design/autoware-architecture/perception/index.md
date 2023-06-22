@@ -36,7 +36,7 @@ In other words, it means the following:
 - The capability is extensible with the third-party components.
 - The Perception component is designed to provide a platform that enables autoware users to develop the complete functionality and capability.
 - The Perception component is designed to provide a platform that enables autoware users to develop the autonomous driving system which always outperforms human drivers.
-- The Perception component is designed to provide a platform that enables autoware users to develop the autonomous driving system achiving "zero overlooks" or "error-free recognition".
+- The Perception component is designed to provide a platform that enables autoware users to develop the autonomous driving system achieving "zero overlooks" or "error-free recognition".
 - The basic functions are provided so that a simple ODD can be defined.
 
 **Non-goals:**
@@ -74,7 +74,7 @@ The following describes the input/output concept between Perception Component an
   - Vehicle motion information: Includes the ego vehicle's position.
 - **From Map**
   - Vector Map: Contains all static information about the environment, including lane aria information.
-  <!-- for filtering unkown objects outside lane and the locations of traffic lights. -->
+  <!-- for filtering unknown objects outside lane and the locations of traffic lights. -->
 - Point Cloud Map: The Perception Component can utilize it for compare map filter.
 
 ### Output from the perception component
@@ -94,7 +94,7 @@ As mentioned in the goal session, this perception module is designed to be exten
 <!-- linuxが様々な機能を柔軟に追加できるように、autowareも、様々な機能を柔軟に追加できるようにしている。 -->
 <!-- 逆に言えば、これらの機能は、linuxのように、柔軟に様々なPolicyを達成できるように設計されているとより望ましい。 -->
 
-- Perception ComponentのFuncionsは、様々なODDにおける自動運転システム開発を実現できるようにdesignされています。
+- Perception ComponentのFunctionsは、様々なODDにおける自動運転システム開発を実現できるようにdesignされています。
 - TODO: 残りも記載する
 
 | Feature                      | Description                                                                                                                                                                                   | Requirements                                                    | Packages                                                                                                                                                                                                                           |
