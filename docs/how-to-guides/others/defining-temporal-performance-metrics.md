@@ -1,14 +1,14 @@
-# Important temporal performance metrics on components
+# Defining temporal performance metrics on components
 
-## Motivation to list temporal performance metrics
+## Motivation to defining temporal performance metrics
 
 ### Objective of the page
 
-This page introduces important metrics to evaluate temporal performance on components of Autoware. The term "temporal performance" is often used throughout the page in order to distinguish between functional performance, which referred to as accuracy as well, and time-related performance.
+This page introduces policies to define metrics to evaluate temporal performance on components of Autoware. The term "temporal performance" is often used throughout the page in order to distinguish between functional performance, which referred to as accuracy as well, and time-related performance.
 
-It is expected that most algorithms employed for Autoware are executed with high frequency and short response time as possible. In order to achieve safe autonomous driving, one of the desired outcomes is no time gap between perceived and actual situation. The time gap is commonly referred to as delay. If the delay is significant, the system may determine trajectory and maneuver based on outdated situation. Consequently, if the actual situation differs from the perceived one due to the delay, the system may make unexpected decisions.
+It is expected that most algorithms employed for Autoware are executed with as high frequency and short response time as possible. In order to achieve safe autonomous driving, one of the desired outcomes is no time gap between perceived and actual situation. The time gap is commonly referred to as delay. If the delay is significant, the system may determine trajectory and maneuver based on outdated situation. Consequently, if the actual situation differs from the perceived one due to the delay, the system may make unexpected decisions.
 
-As mentioned earlier, this page presents lists of temporal performance metrics that are crucial for the main functionalities of Autoware: Localization, Perception, Planning, and Control.
+As mentioned above, this page presents the policies to define metrics. Besides, the page contains lists of sample metrics that are crucial for the main functionalities of Autoware: Localization, Perception, Planning, and Control.
 
 !!! note
 
@@ -18,7 +18,7 @@ As mentioned earlier, this page presents lists of temporal performance metrics t
 
 Temporal performance metrics are important for evaluating Autoware. These metrics are particularly useful for assessing delays caused by new algorithms and logic. They can be employed when comparing the temporal performance of software on a desktop computer with that on a vehicle during the vehicle integration phase.
 
-In addition, these metrics are useful for designers and evaluators of middleware, operating systems, and computers. They are selected based on user and product requirements. One of these requirements is to provide sufficient temporal performance for executing Autoware. "Sufficient temporal performance" is defined as a temporal performance requirement, but it can be challenging to define the requirement because it varies depending on the product type, operational design domain (ODD), and other factors. Then, this page specifically focuses on temporal performance metrics rather than requirements.
+In addition, these metrics are useful for designers and evaluators of middleware, operating systems, and computers. They are selected based on user and product requirements. One of these requirements is to provide sufficient temporal performance for executing Autoware. "Sufficient temporal performance" is defined as a temporal performance requirement, but it can be challenging to define the requirement because it varies depending on the product type, Operational Design Domain (ODD), and other factors. Then, this page specifically focuses on temporal performance metrics rather than requirements.
 
 Temporal performance metrics are important for evaluating the reliability of Autoware. However, ensuring the reliability of Autoware requires consideration of not only temporal performance metrics but also other metrics.
 
@@ -28,13 +28,27 @@ There are several tools available for evaluating Autoware according to the metri
 
 !!! note
 
-    TIER IV plans to measure Autoware and provide a performance evaluation report periodically. An example of such a report can be found [here](https://tier4.github.io/CARET_report/), although it may not include all of the metrics listed.
+    TIER IV plans to measure Autoware, which is running according to [the tutorial](../../tutorials/), and provide a performance evaluation report periodically. An example of such a report can be found [here](https://tier4.github.io/CARET_report/), although it may not include all of the metrics listed.
 
-The page does not aim to provide instructions on how to use these tools or measure the metrics. its primary focus is on the metrics themselves, as they are more important than the specific tools used. These metrics retain their relevance regardless of the employed platform.
+The page does not aim to provide instructions on how to use these tools or measure the metrics. Its primary focus is on the metrics themselves, as they are more important than the specific tools used. These metrics retain their relevance regardless of the employed platform.
 
-## Temporal performance metrics list
+## Policies to define temporal performance metrics
 
-This section is divided into multiple subsections, each containing a model diagram and an accompanying list that explains the important temporal performance metrics. Each model is equipped with checkpoints that serve as indicators for these metrics.
+As mentioned above, the configuration of Autoware varies according to the product type, ODD, and other factors. The variety of configurations makes it difficult to define the uniform metrics for evaluating Autoware.  
+However, the policies to define them are basically reused even when the configuration changed. Each of temporal performance metrics is categorized into two types: execution frequency and response time. Although there are many types of metrics, such as communication latency, the only two types are taken into account for ease.  
+Execution frequency is observed using rate of message for Inter-Process Communication (IPC). You will find an enormous number of messages in Autoware, but you don't have to take care of all. Some messages might be crucial to functionality and they should be picked up for evaluation.  
+Response time is duration elapsed through a series of processing. A series of processing is mentioned as a path. Response time is calculated from timestamps of starting and ending of a path. Thought a lot of paths can be defined in Autoware, you have to choose significant paths.
+
+As a hint, here are several characteristics of message and path in order to pick up metrics.
+
+1. Messages and paths on boundaries where observed values from sensors are consumed
+1. Messages and paths on boundaries of functions, e.g. a boundary of perception and planning
+1. Messages and paths on boundaries where two different messages are synchronized and merged
+1. Messages who must be transmitted at expected frequency for example vehicle command messages
+
+## List of sample metrics
+
+This section demonstrates how to metrics according to the policies explained. section is divided into multiple subsections, each containing a model diagram and an accompanying list that explains the important temporal performance metrics. Each model is equipped with checkpoints that serve as indicators for these metrics.
 
 The first subsection presents the top-level temporal performance metrics, which are depicted in the abstract structure of Autoware as a whole. The detailed metrics are not included in the model as they would add complexity to it. Instead, the subsequent section introduces the detailed metrics. The detailed metrics are subject to more frequent updates compared to the top-level ones, which is another reason for categorizing them separately.
 
