@@ -1,5 +1,6 @@
 ---
 title: /api/motion/accept_start
+status: not released
 method: function call
 type:
   name: autoware_adapi_v1_msgs/srv/AcceptStart

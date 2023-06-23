@@ -1,5 +1,6 @@
 ---
 title: /api/routing/clear_route
+status: v1.0.0
 method: function call
 type:
   name: autoware_adapi_v1_msgs/srv/ClearRoute
