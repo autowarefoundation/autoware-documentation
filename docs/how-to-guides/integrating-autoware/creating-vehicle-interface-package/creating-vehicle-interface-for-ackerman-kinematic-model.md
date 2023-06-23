@@ -59,39 +59,37 @@ Do not get confused. First, you need to create a launch file for your own vehicl
 
 3. You have to rename each "sample_vehicle" to something else. For example, if you want to rename "sample_vehicle" to "my_vehicle_name", you need to change the following. Note that it is restricted to keep the "\_launch" and "\_description" part.
 
-
-    - Rename the directories
-      - `sample_vehicle_launch` &rarr; `my_vehicle_name_launch`
-      - `my_vehicle_name_launch/sample_vehicle_launch` &rarr; `my_vehicle_name_launch/my_vehicle_name_launch`
-      - `my_vehicle_name_launch/sample_vehicle_description` &rarr; `my_vehicle_name_launch/my_vehicle_name_description`
-    - After you rename your directories, rename each "sample_vehicle" to "my_vehicle_name" in the source code.
-      - `my_vehicle_name_description/CMakeLists.txt`
-      - `my_vehicle_name_description/package.xml`
-      - `my_vehicle_name_description/urdf/vehicle.xacro` (there are two parts)
-      - `my_vehicle_name_launch/CMakeLists.txt`
-      - `my_vehicle_name_launch/package.xml`
-      - `README.md` (not necessary)
+   - Rename the directories
+     - `sample_vehicle_launch` &rarr; `my_vehicle_name_launch`
+     - `my_vehicle_name_launch/sample_vehicle_launch` &rarr; `my_vehicle_name_launch/my_vehicle_name_launch`
+     - `my_vehicle_name_launch/sample_vehicle_description` &rarr; `my_vehicle_name_launch/my_vehicle_name_description`
+   - After you rename your directories, rename each "sample_vehicle" to "my_vehicle_name" in the source code.
+     - `my_vehicle_name_description/CMakeLists.txt`
+     - `my_vehicle_name_description/package.xml`
+     - `my_vehicle_name_description/urdf/vehicle.xacro` (there are two parts)
+     - `my_vehicle_name_launch/CMakeLists.txt`
+     - `my_vehicle_name_launch/package.xml`
+     - `README.md` (not necessary)
 
 4. Include your launch file to `my_vehicle_name_launch/my_vehicle_name_launch/launch/vehicle_interface.launch.xml` by opening it and add the include terms like below.
 
+   ```xml title="vehicle_interface.launch.xml"
+   <?xml version="1.0" encoding="UTF-8"?>
+   <launch>
+       <arg name="vehicle_id" default="$(env VEHICLE_ID default)"/>
 
-    ```xml title="vehicle_interface.launch.xml"
-    <?xml version="1.0" encoding="UTF-8"?>
-    <launch>
-        <arg name="vehicle_id" default="$(env VEHICLE_ID default)"/>
+       <include file="$(find-pkg-share my_vehicle_interface)/launch/my_vehicle_interface.launch.xml">
+       </include>
+   </launch>
+   ```
 
-        <include file="$(find-pkg-share my_vehicle_interface)/launch/my_vehicle_interface.launch.xml">
-        </include>
-    </launch>
-    ```
-
-4. Build three packages `my_vehicle_interface`, `my_vehicle_name_launch` and `my_vehicle_name_description` by `colcon build`, or you can just build the entire Autoware if you have done other things.
+5. Build three packages `my_vehicle_interface`, `my_vehicle_name_launch` and `my_vehicle_name_description` by `colcon build`, or you can just build the entire Autoware if you have done other things.
 
    ```bash
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select my_vehicle_interface my_vehicle_name_launch my_vehicle_name_description
    ```
 
-5. Finally, you are done implementing your vehicle interface module! Be careful that you need to launch Autoware with the proper `vehicle_model` option like the example below. This example is launching planning simulator.
+6. Finally, you are done implementing your vehicle interface module! Be careful that you need to launch Autoware with the proper `vehicle_model` option like the example below. This example is launching planning simulator.
 
    ```bash
    ros2 launch autoware_launch planning.launch.xml map_path:=$HOME/autoware_map/sample-map-planning vehicle_model:=my_vehicle_name sensor_model:=sample_sensor_kit
