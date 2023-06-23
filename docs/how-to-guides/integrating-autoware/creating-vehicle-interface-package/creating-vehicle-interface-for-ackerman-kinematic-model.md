@@ -51,13 +51,13 @@ The following instructions describe how to create a vehicle interface.
 
 3. After you implement your vehicle interface or you want to debug it by launching it, create a launch file of your vehicle interface, and include it to `vehicle_interface.launch.xml`.
 
-Do not get confused. First, you need to create a launch file for your own vehicle interface module (like `my_vehicle_interface.launch.xml`) **and then include that to `vehicle_interface.launch.xml` which exists in another directory.** Here are the details.
+   Do not get confused. First, you need to create a launch file for your own vehicle interface module (like `my_vehicle_interface.launch.xml`) **and then include that to `vehicle_interface.launch.xml` which exists in another directory.** Here are the details.
 
-1. Add a `launch` directory in the `my_vehicle_interface` directory, and create a launch file of your own vehicle interface in it. Take a look at [Creating a launch file](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html) in the ROS 2 documentation.
+   1. Add a `launch` directory in the `my_vehicle_interface` directory, and create a launch file of your own vehicle interface in it. Take a look at [Creating a launch file](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html) in the ROS 2 documentation.
 
-2. Next, go to `<your-autoware-dir>/src/vehicle`, copy the directory `/sample_vehicle_launch/`, and paste it to the same place (which means it should be lined up with `external` and `sample_vehicle_launch`).
+   2. Next, go to `<your-autoware-dir>/src/vehicle`, copy the directory `/sample_vehicle_launch/`, and paste it to the same place (which means it should be lined up with `external` and `sample_vehicle_launch`).
 
-3. You have to rename each "sample_vehicle" to something else. For example, if you want to rename "sample_vehicle" to "my_vehicle_name", you need to change the following. Note that it is restricted to keep the "\_launch" and "\_description" part.
+   3. You have to rename each "sample_vehicle" to something else. For example, if you want to rename "sample_vehicle" to "my_vehicle_name", you need to change the following. Note that it is restricted to keep the "\_launch" and "\_description" part.
 
    - Rename the directories
      - `sample_vehicle_launch` &rarr; `my_vehicle_name_launch`
@@ -71,7 +71,7 @@ Do not get confused. First, you need to create a launch file for your own vehicl
      - `my_vehicle_name_launch/package.xml`
      - `README.md` (not necessary)
 
-4. Include your launch file to `my_vehicle_name_launch/my_vehicle_name_launch/launch/vehicle_interface.launch.xml` by opening it and add the include terms like below.
+   4. Include your launch file to `my_vehicle_name_launch/my_vehicle_name_launch/launch/vehicle_interface.launch.xml` by opening it and add the include terms like below.
 
    ```xml title="vehicle_interface.launch.xml"
    <?xml version="1.0" encoding="UTF-8"?>
@@ -83,13 +83,13 @@ Do not get confused. First, you need to create a launch file for your own vehicl
    </launch>
    ```
 
-5. Build three packages `my_vehicle_interface`, `my_vehicle_name_launch` and `my_vehicle_name_description` by `colcon build`, or you can just build the entire Autoware if you have done other things.
+4. Build three packages `my_vehicle_interface`, `my_vehicle_name_launch` and `my_vehicle_name_description` by `colcon build`, or you can just build the entire Autoware if you have done other things.
 
    ```bash
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select my_vehicle_interface my_vehicle_name_launch my_vehicle_name_description
    ```
 
-6. Finally, you are done implementing your vehicle interface module! Be careful that you need to launch Autoware with the proper `vehicle_model` option like the example below. This example is launching planning simulator.
+5. Finally, you are done implementing your vehicle interface module! Be careful that you need to launch Autoware with the proper `vehicle_model` option like the example below. This example is launching planning simulator.
 
    ```bash
    ros2 launch autoware_launch planning.launch.xml map_path:=$HOME/autoware_map/sample-map-planning vehicle_model:=my_vehicle_name sensor_model:=sample_sensor_kit
