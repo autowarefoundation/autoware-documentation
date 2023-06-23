@@ -1,4 +1,6 @@
-# Route API
+# Routing
+
+## Related API
 
 - {{ link_ad_api('/api/routing/state') }}
 - {{ link_ad_api('/api/routing/route') }}
@@ -14,7 +16,7 @@ There are two ways to set the route. The one is a generic method that uses pose,
 
 ## States
 
-![route-state](./state.drawio.svg)
+![route-state](./routing/state.drawio.svg)
 
 | State    | Description                                        |
 | -------- | -------------------------------------------------- |

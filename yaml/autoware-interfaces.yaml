@@ -16,6 +16,23 @@ types:
       cancellable: bool
       cooperator: autoware_adapi_v1_msgs/msg/CooperationDecision
       uuid: unique_identifier_msgs/msg/UUID
+  autoware_adapi_v1_msgs/msg/DoorLayout:
+    msg:
+      description: string
+      roles: uint8[]
+  autoware_adapi_v1_msgs/msg/DoorStatus:
+    msg:
+      status: uint8
+  autoware_adapi_v1_msgs/msg/DoorStatusArray:
+    msg:
+      doors: autoware_adapi_v1_msgs/msg/DoorStatus[]
+      stamp: builtin_interfaces/msg/Time
+  autoware_adapi_v1_msgs/msg/Gear:
+    msg:
+      status: uint8
+  autoware_adapi_v1_msgs/msg/HazardLights:
+    msg:
+      status: uint8
   autoware_adapi_v1_msgs/msg/LocalizationInitializationState:
     msg:
       stamp: builtin_interfaces/msg/Time
@@ -83,6 +100,35 @@ types:
     msg:
       factors: autoware_adapi_v1_msgs/msg/SteeringFactor[]
       header: std_msgs/msg/Header
+  autoware_adapi_v1_msgs/msg/TurnIndicators:
+    msg:
+      status: uint8
+  autoware_adapi_v1_msgs/msg/VehicleDimensions:
+    msg:
+      footprint: geometry_msgs/msg/Polygon
+      front_overhang: float32
+      height: float32
+      left_overhang: float32
+      rear_overhang: float32
+      right_overhang: float32
+      wheel_base: float32
+      wheel_radius: float32
+      wheel_tread: float32
+      wheel_width: float32
+  autoware_adapi_v1_msgs/msg/VehicleKinematics:
+    msg:
+      accel: geometry_msgs/msg/AccelWithCovarianceStamped
+      geographic_pose: geographic_msgs/msg/GeoPointStamped
+      pose: geometry_msgs/msg/PoseWithCovarianceStamped
+      twist: geometry_msgs/msg/TwistWithCovarianceStamped
+  autoware_adapi_v1_msgs/msg/VehicleStatus:
+    msg:
+      energy_percentage: float32
+      gear: autoware_adapi_v1_msgs/msg/Gear
+      hazard_lights: autoware_adapi_v1_msgs/msg/HazardLights
+      stamp: builtin_interfaces/msg/Time
+      steering_tire_angle: float64
+      turn_indicators: autoware_adapi_v1_msgs/msg/TurnIndicators
   autoware_adapi_v1_msgs/msg/VelocityFactor:
     msg:
       behavior: string
@@ -109,6 +155,13 @@ types:
   autoware_adapi_v1_msgs/srv/GetCooperationDefaults:
     res:
       defaults: autoware_adapi_v1_msgs/msg/CooperationDefault[]
+  autoware_adapi_v1_msgs/srv/GetDoorLayout:
+    res:
+      doors: autoware_adapi_v1_msgs/msg/DoorLayout
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/GetVehicleDimensions:
+    res:
+      dimensions: autoware_adapi_v1_msgs/msg/VehicleDimensions
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/InitializeLocalization:
     req:

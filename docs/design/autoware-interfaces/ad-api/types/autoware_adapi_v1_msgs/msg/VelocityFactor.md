@@ -46,6 +46,7 @@ uint16 SIDEWALK = 13
 uint16 LANE_CHANGE = 14
 uint16 AVOIDANCE = 15
 uint16 EMERGENCY_STOP_OPERATION = 16
+uint16 NO_DRIVABLE_LANE = 17
 
 # deprecated variables
 uint16 type
