@@ -34,21 +34,26 @@ The page does not aim to provide instructions on how to use these tools or measu
 
 ## Policies to define temporal performance metrics
 
-As mentioned above, the configuration of Autoware varies according to the product type, ODD, and other factors. The variety of configurations makes it difficult to define the uniform metrics for evaluating Autoware.  
-However, the policies to define them are basically reused even when the configuration changed. Each of temporal performance metrics is categorized into two types: execution frequency and response time. Although there are many types of metrics, such as communication latency, the only two types are taken into account for ease.  
-Execution frequency is observed using rate of message for Inter-Process Communication (IPC). You will find an enormous number of messages in Autoware, but you don't have to take care of all. Some messages might be crucial to functionality and they should be picked up for evaluation.  
-Response time is duration elapsed through a series of processing. A series of processing is mentioned as a path. Response time is calculated from timestamps of starting and ending of a path. Thought a lot of paths can be defined in Autoware, you have to choose significant paths.
+As mentioned above, the configuration of Autoware varies by the product type, ODD, and other factors. The variety of configurations makes it difficult to define the uniform metrics for evaluating Autoware.  
+However, the policies used to define them are basically reused even when the configuration changes. Each of temporal performance metrics is categorized into two types: **execution frequency** and **response time**. Although there are many types of metrics, such as communication latency, the only two types are considered for simplicity.  
+Execution frequency is observed using rate of Inter-Process Communication (IPC) messages. You will find an enormous number of messages in Autoware, but you don't have to take care of all. Some messages might be critical to functionality and they should be chosen for evaluation.  
+Response time is duration elapsed through a series of processing. A series of processing is referred to as a path. Response time is calculated from timestamps of start and end of a path. Althought many paths can be defined in Autoware, you have to choose significant paths.
 
-As a hint, here are several characteristics of message and path in order to pick up metrics.
+As a hint, here are some characteristics of message and path in order to choose metrics.
 
 1. Messages and paths on boundaries where observed values from sensors are consumed
-1. Messages and paths on boundaries of functions, e.g. a boundary of perception and planning
-1. Messages and paths on boundaries where two different messages are synchronized and merged
-1. Messages who must be transmitted at expected frequency for example vehicle command messages
+2. Messages and paths on boundaries of functions, e.g., a boundary of perception and planning
+3. Messages and paths on boundaries where timer-based frequency is switched
+4. Messages and paths on boundaries where two different messages are synchronized and merged
+5. Messages that must be transmitted at expected frequency, e.g., vehicle command messages
+
+Those hints would be helpful for most configurations but there may be exclusions. Defining metrics precisely requires an  understanding of configuration.
+
+In addition, it is recommended that metrics be determined incrementally from the architectural level to the detailed design and implementation level. Mixing metrics at different levels of granularity can be confusing.
 
 ## List of sample metrics
 
-This section demonstrates how to metrics according to the policies explained. section is divided into multiple subsections, each containing a model diagram and an accompanying list that explains the important temporal performance metrics. Each model is equipped with checkpoints that serve as indicators for these metrics.
+This section demonstrates how to define metrics according to the policies explained and has lists of the metrics for Autoware launched according to [the tutorial](../../tutorials/). The section is divided into multiple subsections, each containing a model diagram and an accompanying list that explains the important temporal performance metrics. Each model is equipped with checkpoints that serve as indicators for these metrics.
 
 The first subsection presents the top-level temporal performance metrics, which are depicted in the abstract structure of Autoware as a whole. The detailed metrics are not included in the model as they would add complexity to it. Instead, the subsequent section introduces the detailed metrics. The detailed metrics are subject to more frequent updates compared to the top-level ones, which is another reason for categorizing them separately.
 
