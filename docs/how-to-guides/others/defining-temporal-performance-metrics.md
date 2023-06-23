@@ -47,7 +47,7 @@ As a hint, here are some characteristics of message and path in order to choose 
 4. Messages and paths on boundaries where two different messages are synchronized and merged
 5. Messages that must be transmitted at expected frequency, e.g., vehicle command messages
 
-Those hints would be helpful for most configurations but there may be exclusions. Defining metrics precisely requires an  understanding of configuration.
+Those hints would be helpful for most configurations but there may be exclusions. Defining metrics precisely requires an understanding of configuration.
 
 In addition, it is recommended that metrics be determined incrementally from the architectural level to the detailed design and implementation level. Mixing metrics at different levels of granularity can be confusing.
 
