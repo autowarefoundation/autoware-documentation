@@ -3,7 +3,6 @@
 title: autoware_adapi_v1_msgs/msg/CooperationDecision
 used:
   - autoware_adapi_v1_msgs/msg/CooperationCommand
-  - autoware_adapi_v1_msgs/msg/CooperationDefault
   - autoware_adapi_v1_msgs/msg/CooperationStatus
 ---
 

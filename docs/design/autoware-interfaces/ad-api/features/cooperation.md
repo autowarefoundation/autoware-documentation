@@ -1,19 +1,21 @@
-# Cooperation API
+# Cooperation
+
+## Related API
 
 - {{ link_ad_api('/api/planning/velocity_factors') }}
 - {{ link_ad_api('/api/planning/steering_factors') }}
 - {{ link_ad_api('/api/planning/cooperation/set_commands') }}
-- {{ link_ad_api('/api/planning/cooperation/set_defaults') }}
-- {{ link_ad_api('/api/planning/cooperation/get_defaults') }}
+- {{ link_ad_api('/api/planning/cooperation/set_policies') }}
+- {{ link_ad_api('/api/planning/cooperation/get_policies') }}
 
 ## Description
 
 Some planning modules can receive the operator decision and reflect it in their behavior.
 These modules have their own decisions, but their behavior is based on the operator decisions.
 The operator can check the module decision and change the operator decision if necessary.
-If the module supports this feature, [cooperation status](../../../types/autoware_adapi_v1_msgs/msg/CooperationStatus.md) is provided in [velocity factors or steering factors](./index.md).
+If the module supports this feature, [cooperation status](../types/autoware_adapi_v1_msgs/msg/CooperationStatus.md) is provided in [velocity factors or steering factors](./planning-factors.md).
 
-![cooperation-architecture](./docs/cooperation-architecture.drawio.svg)
+![cooperation-architecture](./cooperation/architecture.drawio.svg)
 
 ## Scene ID
 
@@ -47,7 +49,7 @@ This allows the vehicle to drive without the operator decision.
 The cooperation policies can also be changed by the operator.
 Note that this setting is common per module, so changing it will affect all scenes in the same module.
 
-![cooperation-state](./docs/cooperation-state.drawio.svg)
+![cooperation-state](./cooperation/state.drawio.svg)
 
 ## Examples
 

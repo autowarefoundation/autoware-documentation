@@ -15,5 +15,6 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Set the operator's decision for cooperation. For details, see the [cooperation](../cooperation.md).
+Set the operator's decision for cooperation.
+For details, see the [cooperation](../../../../features/cooperation.md).
 {% endblock %}

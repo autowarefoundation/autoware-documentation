@@ -6,10 +6,10 @@ types:
   autoware_adapi_v1_msgs/msg/CooperationDecision:
     msg:
       decision: uint8
-  autoware_adapi_v1_msgs/msg/CooperationDefault:
+  autoware_adapi_v1_msgs/msg/CooperationPolicy:
     msg:
       behavior: string
-      cooperator: autoware_adapi_v1_msgs/msg/CooperationDecision
+      type: uint8
   autoware_adapi_v1_msgs/msg/CooperationStatus:
     msg:
       autonomous: autoware_adapi_v1_msgs/msg/CooperationDecision
@@ -152,9 +152,10 @@ types:
   autoware_adapi_v1_msgs/srv/ClearRoute:
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
-  autoware_adapi_v1_msgs/srv/GetCooperationDefaults:
+  autoware_adapi_v1_msgs/srv/GetCooperationPolicies:
     res:
-      defaults: autoware_adapi_v1_msgs/msg/CooperationDefault[]
+      policies: autoware_adapi_v1_msgs/msg/CooperationPolicy[]
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/GetDoorLayout:
     res:
       doors: autoware_adapi_v1_msgs/msg/DoorLayout
@@ -173,9 +174,9 @@ types:
       commands: autoware_adapi_v1_msgs/msg/CooperationCommand[]
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
-  autoware_adapi_v1_msgs/srv/SetCooperationDefaults:
+  autoware_adapi_v1_msgs/srv/SetCooperationPolicies:
     req:
-      defaults: autoware_adapi_v1_msgs/msg/CooperationDefault[]
+      policies: autoware_adapi_v1_msgs/msg/CooperationPolicy[]
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/SetRoute:

@@ -1,5 +1,9 @@
 # Types of Autoware AD API
 
+- [autoware_adapi_v1_msgs/msg/CooperationCommand](./autoware_adapi_v1_msgs/msg/CooperationCommand.md)
+- [autoware_adapi_v1_msgs/msg/CooperationDecision](./autoware_adapi_v1_msgs/msg/CooperationDecision.md)
+- [autoware_adapi_v1_msgs/msg/CooperationPolicy](./autoware_adapi_v1_msgs/msg/CooperationPolicy.md)
+- [autoware_adapi_v1_msgs/msg/CooperationStatus](./autoware_adapi_v1_msgs/msg/CooperationStatus.md)
 - [autoware_adapi_v1_msgs/msg/DoorLayout](./autoware_adapi_v1_msgs/msg/DoorLayout.md)
 - [autoware_adapi_v1_msgs/msg/DoorStatus](./autoware_adapi_v1_msgs/msg/DoorStatus.md)
 - [autoware_adapi_v1_msgs/msg/DoorStatusArray](./autoware_adapi_v1_msgs/msg/DoorStatusArray.md)
@@ -27,9 +31,12 @@
 - [autoware_adapi_v1_msgs/srv/AcceptStart](./autoware_adapi_v1_msgs/srv/AcceptStart.md)
 - [autoware_adapi_v1_msgs/srv/ChangeOperationMode](./autoware_adapi_v1_msgs/srv/ChangeOperationMode.md)
 - [autoware_adapi_v1_msgs/srv/ClearRoute](./autoware_adapi_v1_msgs/srv/ClearRoute.md)
+- [autoware_adapi_v1_msgs/srv/GetCooperationPolicies](./autoware_adapi_v1_msgs/srv/GetCooperationPolicies.md)
 - [autoware_adapi_v1_msgs/srv/GetDoorLayout](./autoware_adapi_v1_msgs/srv/GetDoorLayout.md)
 - [autoware_adapi_v1_msgs/srv/GetVehicleDimensions](./autoware_adapi_v1_msgs/srv/GetVehicleDimensions.md)
 - [autoware_adapi_v1_msgs/srv/InitializeLocalization](./autoware_adapi_v1_msgs/srv/InitializeLocalization.md)
+- [autoware_adapi_v1_msgs/srv/SetCooperationCommands](./autoware_adapi_v1_msgs/srv/SetCooperationCommands.md)
+- [autoware_adapi_v1_msgs/srv/SetCooperationPolicies](./autoware_adapi_v1_msgs/srv/SetCooperationPolicies.md)
 - [autoware_adapi_v1_msgs/srv/SetRoute](./autoware_adapi_v1_msgs/srv/SetRoute.md)
 - [autoware_adapi_v1_msgs/srv/SetRoutePoints](./autoware_adapi_v1_msgs/srv/SetRoutePoints.md)
 - [autoware_adapi_version_msgs/srv/InterfaceVersion](./autoware_adapi_version_msgs/srv/InterfaceVersion.md)
