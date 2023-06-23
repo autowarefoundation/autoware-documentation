@@ -23,4 +23,5 @@ def define_env(env):
         for field in name.split("."):
             type = type.split("[")[0]
             type = specs[type][ext][field]
+            ext = "msg"
         return type

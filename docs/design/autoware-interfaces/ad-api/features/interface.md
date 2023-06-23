@@ -1,4 +1,6 @@
-# Interface API
+# Interface
+
+## Related API
 
 - {{ link_ad_api('/api/interface/version') }}
 

@@ -1,4 +1,6 @@
-# Planning API
+# Planning factors
+
+## Related API
 
 - {{ link_ad_api('/api/planning/velocity_factors') }}
 - {{ link_ad_api('/api/planning/steering_factors') }}
@@ -16,7 +18,7 @@ As the vehicle approaches the stop position, this factor appears with a status o
 And when the vehicle reaches that position and stops, the status will be STOPPED.
 The pose indicates the stop position or the base link if the stop position cannot be calculated.
 
-![velocity-factors](./docs/velocity-factors.drawio.svg)
+![velocity-factors](./planning-factors/velocity-factors.drawio.svg)
 
 | Factor Type                 | Description                                                              |
 | --------------------------- | ------------------------------------------------------------------------ |
@@ -45,7 +47,7 @@ As the vehicle approaches the position to start steering, this factor appears wi
 And when the vehicle reaches that position, the status will be TURNING.
 The pose indicates the start position when APPROACHING and the end position when TURNING.
 
-![steering-factors-1](./docs/steering-factors-1.drawio.svg)
+![steering-factors-1](./planning-factors/steering-factors-1.drawio.svg)
 
 In cases such as lane change and avoidance, the vehicle will start steering at any position in the range depending on the situation.
 As the vehicle approaches the start position of the range, this factor appears with a status of APPROACHING.
@@ -54,7 +56,7 @@ Then, when it is possible, the vehicle will start steering and the status will b
 The pose indicates the start of the range (A) when APPROACHING and the end of the range (B) when TRYING.
 The position to end steering (C to D) for TURNING depends on the position to start steering.
 
-![steering-factors-2](./docs/steering-factors-2.drawio.svg)
+![steering-factors-2](./planning-factors/steering-factors-2.drawio.svg)
 
 | Factor Type           | Description                                                              |
 | --------------------- | ------------------------------------------------------------------------ |

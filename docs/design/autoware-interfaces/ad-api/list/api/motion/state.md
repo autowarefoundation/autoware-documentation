@@ -10,5 +10,6 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Get the motion state. For details, see the [motion state](./index.md).
+Get the motion state.
+For details, see the [motion state](../../../features/motion.md).
 {% endblock %}

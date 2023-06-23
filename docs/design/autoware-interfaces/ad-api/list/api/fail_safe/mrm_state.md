@@ -12,5 +12,6 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Get the MRM state. For details, see the [fail-safe](./index.md).
+Get the MRM state.
+For details, see the [fail-safe](../../../features/fail-safe.md).
 {% endblock %}
