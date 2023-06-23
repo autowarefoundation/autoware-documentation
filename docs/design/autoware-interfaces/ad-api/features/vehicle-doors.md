@@ -4,7 +4,7 @@
 
 - {{ link_ad_api('/api/vehicle/doors/layout') }}
 - {{ link_ad_api('/api/vehicle/doors/status') }}
-- {{ link_ad_api('/api/vehicle/doors/command') }}
+- {{ link_ad_api('/api/vehicle/doors/operate') }}
 
 ## Description
 

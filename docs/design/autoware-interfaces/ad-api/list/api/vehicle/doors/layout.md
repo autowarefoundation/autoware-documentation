@@ -16,5 +16,5 @@ type:
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
 Get the door layout. It is an array of roles and descriptions for each door.
-The array index corresponds to the door status and command.
+The array index corresponds to the door status and operate.
 {% endblock %}
