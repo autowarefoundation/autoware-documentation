@@ -10,6 +10,7 @@ The same procedure could likely apply when operating on real hardware.
 It is assumed that the method intended for addition has already been verified well with public datasets and so on.
 
 ## 1. Running Autoware in its standard configuration
+
 First of all, it is important to be able to run the standard Autoware to establish a basis for performance and behavior comparison.
 
 Autoware constantly incorporates new features.
@@ -20,6 +21,7 @@ Therefore, [AWSIM simulator](https://autowarefoundation.github.io/autoware-docum
 If you are using actual hardware, please refer to the [How-to guides](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/).
 
 ## 2. Recording a rosbag using Autoware
+
 Before developing a new node, it is recommended to record a rosbag in order to evaluate.
 If you need a new sensor, you should add it to your vehicle or AWSIM.
 
@@ -33,6 +35,7 @@ After data recording, verifying the smooth flow of sensor data and unchanged tim
 This verification can be accomplished, for example, by inspecting the image data with `rqt_image_view` during `ros2 bag play`.
 
 ## 3. Developing the new node
+
 When developing a new node, it could be beneficial to reference a package that is similar to the one you intend to create.
 
 It is advisable to thoroughly read the [Design page](https://autowarefoundation.github.io/autoware-documentation/main/design/), contemplate the addition or replacement of nodes in Autoware, and then implement your solution.
@@ -43,6 +46,7 @@ If you want to replace this with a different approach, implement a node which pr
 `ndt_scan_matcher` is launched as [pose_estimator](https://github.com/autowarefoundation/autoware.universe/blob/main/launch/tier4_localization_launch/launch/pose_estimator/pose_estimator.launch.xml), so it is necessary to replace the launch file as well.
 
 ## 4. Evaluating by a rosbag-based simulator
+
 Once the new node is implemented, it is time to evaluate it.
 [logging_simulator](https://autowarefoundation.github.io/autoware-documentation/main/tutorials/ad-hoc-simulation/rosbag-replay-simulation/) is a tool of how to evaluate the new node using the rosbag captured in step 2.
 
@@ -67,6 +71,7 @@ If you remap the topics related to the localization that you want to verify this
 There is [ros2bag_extensions](https://github.com/tier4/ros2bag_extensions) available to filter the rosbag file and create a new rosbag file that contains only the topics you need.
 
 ## 5. Evaluating in a realtime environment
+
 Once you have sufficiently verified the behavior in the logging_simulator, let's run it as Autoware with new nodes added in the realtime environment (AWSIM in this case).
 
 To debug Autoware, the method described at [debug-autoware](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/others/debug-autoware/) is useful.
@@ -76,6 +81,7 @@ In such cases, consider using
 the [tier4_automatic_goal_rviz_plugin](https://github.com/autowarefoundation/autoware.universe/tree/main/common/tier4_automatic_goal_rviz_plugin).
 
 ## 6. Sharing the results
+
 If your implementation works successfully, please consider a pull request to Autoware.
 
 It is also a good idea to start by presenting your ideas in Discussion at [Show and tell](https://github.com/orgs/autowarefoundation/discussions/categories/show-and-tell).
