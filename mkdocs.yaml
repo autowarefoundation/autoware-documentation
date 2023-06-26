@@ -3,7 +3,7 @@ site_url: https://autowarefoundation.github.io/autoware-documentation
 repo_url: https://github.com/autowarefoundation/autoware
 edit_uri: https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/
 docs_dir: docs
-copyright: Copyright &copy; 2022 The Autoware Foundation
+copyright: Copyright &copy; 2023 The Autoware Foundation
 
 theme:
   name: material
@@ -15,6 +15,7 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
+    - navigation.footer
   favicon: assets/images/autoware-foundation.png
   icon:
     logo: fontawesome/solid/car
@@ -44,15 +45,20 @@ extra_css:
   - https://use.fontawesome.com/releases/v5.15.4/css/all.css
 
 extra_javascript:
-  - https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  - assets/js/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 plugins:
   - awesome-pages
   - exclude:
       regex:
-        - ^(?!(.*/)?assets/).*\.(?!(.*\.)?md|(.*\.)?svg|(.*\.)?png|(.*\.)?jpg).*$
+        - ^(?!(.*/)?assets/).*\.(?!(.*\.)?md|(.*\.)?svg|(.*\.)?png|(.*\.)?gif|(.*\.)?jpg).*$
         - ^(.*/)?[^.]*$
-  - macros
+  - macros:
+      include_yaml:
+        - autoware_interfaces: yaml/autoware-interfaces.yaml
+  - mkdocs-video
   - same-dir
   - search
 
@@ -62,19 +68,21 @@ markdown_extensions:
   - attr_list
   - codehilite:
       guess_lang: false
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
   - fontawesome_markdown
   - footnotes
+  - md_in_html
   - mdx_math
   - mdx_truly_sane_lists:
       nested_indent: 2
   - plantuml_markdown:
       server: http://www.plantuml.com/plantuml
       format: svg
-  - pymdownx.arithmatex
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.highlight
   - pymdownx.snippets:
       auto_append:

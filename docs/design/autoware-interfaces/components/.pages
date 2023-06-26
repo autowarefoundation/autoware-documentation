@@ -4,5 +4,7 @@ nav:
   - Interfaces (future): interfaces-future.md
   - planning.md
   - control.md
+  - localization.md
+  - map.md
   - vehicle-interface.md
   - vehicle-dimensions.md

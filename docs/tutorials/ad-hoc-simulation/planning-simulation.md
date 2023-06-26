@@ -34,13 +34,7 @@ ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autowa
 
 ![after-autoware-launch](images/planning/lane-following/after-autoware-launch.png)
 
-#### 2. Add Autoware State Panel
-
-This panel is useful when running planning simulations. To add the panel, click `Panels -> Add new panel`, select `AutowareStatePanel`, and then click `OK`.
-
-![after-autoware-launch](images/planning/lane-following/open-autoware-state-panel.png)
-
-#### 3. Set an initial pose for the ego vehicle
+#### 2. Set an initial pose for the ego vehicle
 
 ![set-initial-pose](images/planning/lane-following/set-initial-pose.png)
 
@@ -54,7 +48,7 @@ b) In the 3D View pane, click and hold the left-mouse button, and then drag to s
 
     To confirm the direction of the lane, check the arrowheads displayed on the map.
 
-#### 4. Set a goal pose for the ego vehicle
+#### 3. Set a goal pose for the ego vehicle
 
 a) Click the `2D Goal Pose` button in the toolbar, or hit the `G` key.
 
@@ -62,16 +56,19 @@ b) In the 3D View pane, click and hold the left-mouse button, and then drag to s
 
 ![set-goal-pose](images/planning/lane-following/set-goal-pose.png)
 
-#### 5. Engage the ego vehicle
+#### 4. Start the ego vehicle
 
-Now you can start the ego vehicle driving by clicking the `Engage` button in `AutowareStatePanel`. Alteratively, you can manually engage the vehicle by running the following command:
+Now you can start the ego vehicle driving by clicking the `AUTO` button on `OperationMode` in `AutowareStatePanel`.
+Alteratively, you can manually start the vehicle by running the following command:
 
 ```bash
 source ~/autoware/install/setup.bash
-ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: true" -1
+ros2 service call /api/operation_mode/change_to_autonomous autoware_adapi_v1_msgs/srv/ChangeOperationMode {}
 ```
 
-![start-driving](images/planning/lane-following/engage-and-start-planning.png)
+After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button is grayed out.
+
+![start-driving](images/planning/lane-following/start-driving.png)
 
 ### Parking scenario
 
@@ -83,6 +80,44 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage "engage: t
 3. After that, the vehicle will reverse into the destination parking spot.
 
    ![parking-maneuver](images/planning/parking/parking-maneuver.png)
+
+### Lane change scenario
+
+1. Download and unpack Nishishinjuku map.
+
+   ```bash
+   gdown -O ~/autoware_map/ 'https://github.com/tier4/AWSIM/releases/download/v1.1.0/nishishinjuku_autoware_map.zip'
+   unzip -d ~/autoware_map ~/autoware_map/nishishinjuku_autoware_map.zip
+   ```
+
+2. Launch autoware with Nishishinjuku map with following command:
+
+   ```bash
+   source ~/autoware/install/setup.bash
+   ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware_map/nishishinjuku_autoware_map vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+   ```
+
+   ![open-nishishinjuku-map](images/planning/lane-change/open-nishishinjuku-map.png)
+
+3. Set an initial pose and a goal pose in adjacent lanes.
+
+   ![set-position-and-goal](images/planning/lane-change/set-position-and-goal.png)
+
+4. Engage the ego vehicle. It will make a lane change along the planned path.
+
+   ![lane-changing](images/planning/lane-change/lane-changing.png)
+
+### Avoidance scenario
+
+1. Set an initial pose and a goal pose in the same lane. A path will be planned.
+
+   ![set-position-and-goal](images/planning/avoidance/set-position-and-goal.png)
+
+2. Set a "2D Dummy Bus" on the roadside. A new path will be planned.
+
+   ![set-dummy-bus](images/planning/avoidance/set-dummy-bus.png)
+
+3. Engage the ego vehicle. It will avoid the obstacle along the newly planned path.
 
 ## Advanced Simulations
 
