@@ -5,13 +5,13 @@ This page introduces a module vehicle_interface and explains how to implement it
 ## What is a vehicle interface
 
 `vehicle interface` is an interface that connects the control commands and your hardware.  
-Autoware publishes control commands such as
+Autoware publishes control commands such as:
 
-- Longitudinal control
+- Velocity control
 - Steering control
 - Car light commands
 
-Then, `vehicle interface` converts these commands into actuation such like
+Then, `vehicle interface` converts these commands into actuation such like:
 
 - Motors and breaks
 - The steering wheel
