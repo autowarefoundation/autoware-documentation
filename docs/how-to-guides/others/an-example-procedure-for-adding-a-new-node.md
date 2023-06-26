@@ -54,13 +54,13 @@ It works by replacing the command to start Autoware with logging_simulator.
 
 For example, if the AWSIM-compatible execution command is
 
-```
+```bash
 ros2 launch autoware_launch e2e_simulator.launch.xml ...
 ```
 
 then the command to start logging_simulator is
 
-```
+```bash
 ros2 launch autoware_launch logging_simulator.launch.xml ...
 ```
 
