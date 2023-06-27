@@ -16,7 +16,7 @@ The diagram below illustrates the basic principle of YabLoc. It extracts road su
 ### YabLoc Packages
 
 - [yabloc_common](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/yabloc/yabloc_common/README.md)
-- [yabloc_imgproc](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/yabloc/yabloc_imgproc/README.md)
+- [yabloc_image_processing](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/yabloc/yabloc_image_processing/README.md)
 - [yabloc_particle_filter](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/yabloc/yabloc_particle_filter/README.md)
 - [yabloc_pose_initializer](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/yabloc/yabloc_pose_initializer/README.md)
 
@@ -53,9 +53,9 @@ ros2 launch autoware_launch logging_simulator.launch.xml \
 
 ### Outputs
 
-| Name                                                  | Type                                          |
-| ----------------------------------------------------- | --------------------------------------------- |
-| `/localicazation/pose_estimator/pose_with_covariance` | `geometry_msgs/msg/PoseWithCovarianceStamped` |
+| Name                                                | Type                                          |
+| --------------------------------------------------- | --------------------------------------------- |
+| `/localization/pose_estimator/pose_with_covariance` | `geometry_msgs/msg/PoseWithCovarianceStamped` |
 
 ## Visualization
 
@@ -65,11 +65,11 @@ These topics are not visualized by default.
 
 ![yabloc rviz](images/yabloc-integration-guide/yabloc_rviz_description.png){width="800"}
 
-| index | topic name                                              | description                                                                                                                                                            |
-| ----- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1     | `/localicazation/yabloc/pf/predicted_particle_marker`   | particle distribution of particle fitler. Red particles are probable candidate.                                                                                        |
-| 2     | `/localicazation/yabloc/pf/scored_cloud`                | 3D projected line segments. the color indicates how well they match the map.                                                                                           |
-| 3     | `/localicazation/yabloc/imgproc/lanelet2_overlay_image` | overlay of lanelet2 (yellow lines) onto image based on estimated pose. If they match well with the actual road markings, it means that the localization performs well. |
+| index | topic name                                                     | description                                                                                                                                                            |
+| ----- | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | `/localization/yabloc/pf/predicted_particle_marker`            | particle distribution of particle filter. Red particles are probable candidate.                                                                                        |
+| 2     | `/localization/yabloc/pf/scored_cloud`                         | 3D projected line segments. the color indicates how well they match the map.                                                                                           |
+| 3     | `/localization/yabloc/image_processing/lanelet2_overlay_image` | overlay of lanelet2 (yellow lines) onto image based on estimated pose. If they match well with the actual road markings, it means that the localization performs well. |
 
 ### Image topics for debug
 
@@ -77,13 +77,13 @@ These topics are not visualized by default.
 
 ![yabloc image topics](images/yabloc-integration-guide/yabloc_image_description.png){width="800"}
 
-| index | topic name                                                       | description                                                                     |
-| ----- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| 1     | `/localicazation/yabloc/pf/cost_map_image`                       | cost map made from lanelet2                                                     |
-| 2     | `/localicazation/yabloc/pf/match_image`                          | projected line segments                                                         |
-| 3     | `/localicazation/yabloc/imgproc/image_with_colored_line_segment` | classifified line segments. green line segments are used in particle correction |
-| 4     | `/localicazation/yabloc/imgproc/lanelet2_overlay_image`          | overlay of lanelet2                                                             |
-| 5     | `/localicazation/yabloc/imgproc/segmented_image`                 | graph based segmentation result                                                 |
+| index | topic name                                                              | description                                                                   |
+| ----- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| 1     | `/localization/yabloc/pf/cost_map_image`                                | cost map made from lanelet2                                                   |
+| 2     | `/localization/yabloc/pf/match_image`                                   | projected line segments                                                       |
+| 3     | `/localization/yabloc/image_processing/image_with_colored_line_segment` | classified line segments. green line segments are used in particle correction |
+| 4     | `/localization/yabloc/image_processing/lanelet2_overlay_image`          | overlay of lanelet2                                                           |
+| 5     | `/localization/yabloc/image_processing/segmented_image`                 | graph based segmentation result                                               |
 
 ## Limitation
 
@@ -92,6 +92,6 @@ These topics are not visualized by default.
   - Also, in most cases, NDT is superior to YabLoc, so there is less benefit to running them at the same time.
 - It does not estimate roll and pitch, therefore some of the perception nodes may not work well.
 - It doesn't support multiple cameras now. But it will in the future.
-- In places where there are few road surface markings, such as intersections, the estimation heavily relies on GNSS, IMU, and vhielce twist.
+- In places where there are few road surface markings, such as intersections, the estimation heavily relies on GNSS, IMU, and vehicles twist.
 - If the road boundary or road surface markings are not included in the Lanelet2, the estimation fails.
 - The sample rosbag provided in the autoware tutorial does not include images, so it is not possible to run YabLoc with it.

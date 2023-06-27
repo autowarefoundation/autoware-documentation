@@ -114,7 +114,7 @@ Once dynamic initialization is complete, the Eagleye will be able to provide cor
 
 - **TODO**
 
-## Note on georeferencing
+## Note on georeferenced maps
 
 Note that the output position might not appear to be in the point cloud maps if you are using maps that are not properly georeferenced.
 In the case of a single GNSS antenna, initial position estimation (dynamic initialization) can take several seconds to complete after starting to run in an environment where GNSS positioning is available.

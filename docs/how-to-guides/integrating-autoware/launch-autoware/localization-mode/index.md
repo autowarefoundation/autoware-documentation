@@ -63,8 +63,8 @@ The following table shows the available arguments, along with the corresponding 
 
 | pose_estimator_mode | pose estimator method           | twist estimator method          |
 | ------------------- | ------------------------------- | ------------------------------- |
-| `lidar`(default)    | ndt_scan_matcher (default)      | eagleye as twist_estiamtor      |
-| `gnss`              | eagleye as pose_twist_estiamtor | eagleye as pose_twist_estiamtor |
+| `lidar`(default)    | ndt_scan_matcher (default)      | eagleye as twist_estimator      |
+| `gnss`              | eagleye as pose_twist_estimator | eagleye as pose_twist_estimator |
 
 **Example of using Eagleye as the pose twist estimator:**
 

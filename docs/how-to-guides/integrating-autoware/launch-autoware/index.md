@@ -34,7 +34,7 @@ There are options available to switch between different methods for some compone
 For example, by specifying `localization_mode` or `perception_mode`, you can switch localization and perception methods, respectively.
 These options allow you to choose the desired algorithms or sensor configurations for the respective functionalities.
 
-For options on eagye component, please refer to the subpages.
+For options on eagleye component, please refer to the sub-pages.
 
 - [localization-mode](localization-mode/index.md)
 - [perception-mode](perception.md)
@@ -47,7 +47,7 @@ If not or if the automatic initialization returns an incorrect position, you nee
 
 1. Click the 2D Pose estimate button in the toolbar, or hit the P key
 
-   ![2D Pose estiamte](images/2d_pose_estimate.png)
+   ![2D Pose estimate](images/2d_pose_estimate.png)
 
 2. In the 3D View pane, click and hold the left mouse button, and then drag to set the direction for the initial pose.
 
@@ -57,7 +57,7 @@ Set a goal pose for the ego vehicle.
 
 1. Click the 2D Nav Goal button in the toolbar, or hit the G key
 
-   ![2D Pose estiamte](images/2d_goal_pose.png)
+   ![2D Pose estimate](images/2d_goal_pose.png)
 
 2. In the 3D View pane, click and hold the left mouse button, and then drag to set the direction for the goal pose.
    If successful, you will see the calculated planning path on RViz.
