@@ -5,7 +5,7 @@ For the details of the integration proposal, please refer to [this discussion](h
 
 ## What is Eagleye?
 
-Eagleye is an open-source GNSS/IMU-based localizer initially developed by [MAP IV. Inc](https://map4.jp/). It provides a cost-effective alternative to LiDAR and point cloud-based localization by using low-cost GNSS and IMU sensors to provide vehicle position, orientation, and altitude information. 
+Eagleye is an open-source GNSS/IMU-based localizer initially developed by [MAP IV. Inc](https://map4.jp/). It provides a cost-effective alternative to LiDAR and point cloud-based localization by using low-cost GNSS and IMU sensors to provide vehicle position, orientation, and altitude information.
 
 ### Dependencies
 
@@ -14,7 +14,6 @@ The below packages are automatically installed during the setup of Autoware as t
 1. [Eagleye](https://github.com/MapIV/eagleye.git) (autoware-main branch)
 2. [RTKLIB ROS Bridge](https://github.com/MapIV/rtklib_ros_bridge.git) (ros2-v0.1.0 branch)
 3. [LLH Converter](https://github.com/MapIV/llh_converter.git) (ros2 branch)
-
 
 ## Architecture
 
@@ -28,8 +27,7 @@ Eagleye can be utilized in the Autoware localization stack in two ways:
 
    ![Eagleye pose twist integration](images/eagleye-integration-guide/eagleye_pose_twist.drawio.svg)
 
-
-**Note: RTK positioning is required when using Eagleye as the pose estimator.** 
+**Note: RTK positioning is required when using Eagleye as the pose estimator.**
 On the other hand, it is not mandatory when using it as the twist estimator.
 
 ## Requirements
@@ -54,13 +52,12 @@ Your GNSS ROS driver must publish the following messages:
 
 Eagleye has been tested with the following example GNSS ROS drivers: ublox_gps and septentrio_gnss_driver. The settings needed for each of these drivers are as follows:
 
-| GNSS ROS drivers                                                                              | modification                                                                                                                                                                                        |
-|-----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [ublox_gps](https://github.com/KumarRobotics/ublox/tree/ros2/ublox_gps)                       | No additional settings are required. It publishes `sensor_msgs/msg/NavSatFix` and `geometry_msgs/msg/TwistWithCovarianceStamped` required by Eagleye with default settings.  |
-| [septentrio_gnss_driver](https://github.com/septentrio-gnss/septentrio_gnss_driver/tree/ros2) | Set `publish.navsatfix` and `publish.twist` in the config file [`gnss.yaml`](https://github.com/septentrio-gnss/septentrio_gnss_driver/blob/ros2/config/gnss.yaml#L90) to `true`                    |
+| GNSS ROS drivers                                                                              | modification                                                                                                                                                                     |
+| --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [ublox_gps](https://github.com/KumarRobotics/ublox/tree/ros2/ublox_gps)                       | No additional settings are required. It publishes `sensor_msgs/msg/NavSatFix` and `geometry_msgs/msg/TwistWithCovarianceStamped` required by Eagleye with default settings.      |
+| [septentrio_gnss_driver](https://github.com/septentrio-gnss/septentrio_gnss_driver/tree/ros2) | Set `publish.navsatfix` and `publish.twist` in the config file [`gnss.yaml`](https://github.com/septentrio-gnss/septentrio_gnss_driver/blob/ros2/config/gnss.yaml#L90) to `true` |
 
 ## Parameter Modifications for Integration into Your Vehicle
-
 
 ### topic name & topic type
 
@@ -79,7 +76,8 @@ gnss:
   llh_source_topic: /sensing/gnss/ublox/nav_sat_fix
 ```
 
-### sensor frequency 
+### sensor frequency
+
 Also, the frequency of GNSS and IMU must be set in [`eagleye_config.yaml`](https://github.com/MapIV/autoware_launch/blob/3f04a9dd7bc4a4c49d4ec790e3f6b9958ab822da/autoware_launch/config/localization/eagleye_config.param.yaml#L36)
 
 ```yaml
@@ -103,19 +101,18 @@ Basically, these do not need to be changed .
 Eagleye requires an initialization process for proper operation. **Without initialization, the output for twist will be in the raw value, and the pose data will not be available.**
 
 ### 1. Static Initialization
+
 The first step is static initialization, which involves allowing the Eagleye to remain stationary for approximately 5 seconds after startup to estimate the yaw-rate offset.
 
 ### 2. Dynamic initialization
-The next step is dynamic initialization, which involves running the Eagleye in a straight line for approximately 30 seconds. This process estimates the scale factor of wheel speed and azimuth angle. 
 
+The next step is dynamic initialization, which involves running the Eagleye in a straight line for approximately 30 seconds. This process estimates the scale factor of wheel speed and azimuth angle.
 
 Once dynamic initialization is complete, the Eagleye will be able to provide corrected twist and pose data.
 
-
 ### How to check the progress of initialization
 
-**TODO**
-
+- **TODO**
 
 ## Note on georeferencing
 

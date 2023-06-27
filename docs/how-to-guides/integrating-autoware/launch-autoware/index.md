@@ -18,7 +18,7 @@ Launch Autoware with the following command:
 ros2 launch autoware_launch autoware.launch.xml vehicle_model:=YOUR_VEHICLE sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP
 ```
 
-It is possible to specify which components to launch using command-line arguments. 
+It is possible to specify which components to launch using command-line arguments.
 For example, if you don't need to launch perception, planning, and control for localization debuging purposes, you can launch the following:
 
 ```bash
@@ -30,13 +30,14 @@ ros2 launch autoware_launch autoware.launch.xml vehicle_model:=YOUR_VEHICLE sens
 
 The basic command-line options are documented in [autoware.launch.xml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/autoware.launch.xml).
 
-There are options available to switch between different methods for each component.
+There are options available to switch between different methods for some component.
 For example, by specifying `localization_mode` or `perception_mode`, you can switch localization and perception methods, respectively.
-These options allow you to choose the desired algorithms or techniques for the respective functionalities.
+These options allow you to choose the desired algorithms or sensor configurations for the respective functionalities.
 
 For options on eagye component, please refer to the subpages.
-* [localization-mode](localization-mode/index.md)
-* [perception-mode](perception.md) 
+
+- [localization-mode](localization-mode/index.md)
+- [perception-mode](perception.md)
 
 ## Set initial pose
 
@@ -46,11 +47,9 @@ If not or if the automatic initialization returns an incorrect position, you nee
 
 1. Click the 2D Pose estimate button in the toolbar, or hit the P key
 
-    ![2D Pose estiamte](images/2d_pose_estimate.png)
-
+   ![2D Pose estiamte](images/2d_pose_estimate.png)
 
 2. In the 3D View pane, click and hold the left mouse button, and then drag to set the direction for the initial pose.
-
 
 ## Set goal pose
 
@@ -58,12 +57,12 @@ Set a goal pose for the ego vehicle.
 
 1. Click the 2D Nav Goal button in the toolbar, or hit the G key
 
-    ![2D Pose estiamte](images/2d_goal_pose.png)
+   ![2D Pose estiamte](images/2d_goal_pose.png)
 
 2. In the 3D View pane, click and hold the left mouse button, and then drag to set the direction for the goal pose.
    If successful, you will see the calculated planning path on RViz.
 
-    ![route planning](images/route_planning_is_complete.png){width="800"}
+   ![route planning](images/route_planning_is_complete.png){width="800"}
 
 ## Engage
 
@@ -74,13 +73,10 @@ source ~/autoware.YOURS/install/setup.bash
 ros2 topic pub /autoware.YOURS/engage autoware_auto_vehicle_msgs/msg/Engage "engage: true" -1
 ```
 
-
 You can also engage via RViz with "AutowareStatePanel".
 The panel can be found in `Panels > Add New Panel > tier4_state_rviz_plugin > AutowareStatePanel`.
 
-
 Once the route is computed, the "AUTO" button becomes active. Pressing the AUTO button engages the autonomous driving mode.
-
 
 ![autoware state panel](images/autoware_state_panel_before.png)
 

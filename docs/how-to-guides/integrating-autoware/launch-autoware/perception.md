@@ -24,10 +24,10 @@ ros2 launch autoware_launch autoware.launch.xml vehicle_model:=YOUR_VEHICLE sens
 
 `perception_mode:=camera_lidar_fusion`
 
-## Camera LiDAR Radar fusion 
+## Camera LiDAR Radar fusion
 
 `perception_mode:=camera_lidar_radar_fusion`
 
-## LiDAR Radar fusion 
+## LiDAR Radar fusion
 
 `perception_mode:=lidar_radar_fusion`
