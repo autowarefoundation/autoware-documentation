@@ -11,7 +11,7 @@ Autoware publishes control commands such as:
 - Steering control
 - Car light commands
 
-Then, the vehicle interface converts these commands into actuations such like:
+Then, the vehicle interface converts these commands into actuation such like:
 
 - Motor and brake activation
 - Steering wheel operation
