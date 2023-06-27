@@ -19,7 +19,7 @@ ros2 launch autoware_launch autoware.launch.xml vehicle_model:=YOUR_VEHICLE sens
 ```
 
 It is possible to specify which components to launch using command-line arguments.
-For example, if you don't need to launch perception, planning, and control for localization debuging purposes, you can launch the following:
+For example, if you don't need to launch perception, planning, and control for localization debug, you can launch the following:
 
 ```bash
 ros2 launch autoware_launch autoware.launch.xml vehicle_model:=YOUR_VEHICLE sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP \
