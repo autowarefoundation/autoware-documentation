@@ -1,10 +1,7 @@
 # Localization mode
 
-!!! warning
-
-    Under Construction
-
-AutowareのLocalizationコンポーネントは複数の異なるセンサ構成で動く位置推定手法を提供しています。
+The Autoware provides multiple localization methods that work with multiple different sensor configurations. 
+The table below shows the supported sensor configurations and their corresponding algorithms.
 
 | localization mode | method  | map type        |
 |-------------------|---------|-----------------|
@@ -14,15 +11,16 @@ AutowareのLocalizationコンポーネントは複数の異なるセンサ構成
 
 ## How to launch LiDAR-based localizer (default)
 
-Autowreのデフォルトでは自己位置推定は[ndt_scan_matcher](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/ndt_scan_matcher)が起動します。
-
+By default, Autoware launches [ndt_scan_matcher](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/ndt_scan_matcher) for self-localization.
 ## How to launch camera-based localizer
 
-カメラベースの位置推定手法としてはYabLocが利用できます。 YabLocの詳細は [YabLoc Guide](yabloc-guide.md)を見てください。
+You can use YabLoc as a camera-based localization method. For more details on YabLoc, please refer to the [YabLoc Guide](yabloc-guide.md).
 
-YabLocをndt_scan_matcherに代わってpose_estimatorとして利用する場合はAutowareの起動時に次のように`localization_mode:=camera`を追加してください。
-デフォルトでは`localization_mode:=lidar`になっています。
-コマンドライン引数を指定することにより、自動でYabLocのノードが起動し、NDTのノードは起動しないようになります。
+To use YabLoc as a pose_estimator, add `localization_mode:=camera` when launching Autoware. 
+By default, the `localization_mode` is set to `lidar`.
+By specifying this command-line argument, YabLoc nodes will be automatically launched while the NDT nodes will not be started.
+
+Here is an example of a launch command:
 
 ```bash
 ros2 launch autoware_launch autoware.launch.xml \
@@ -33,28 +31,18 @@ ros2 launch autoware_launch autoware.launch.xml \
 
 ## How to launch GNSS/IMU-based localizer
 
-GNSS/IMU-based localizerとしてEagleyeが利用可能です。
-Eagleyeの詳細は [Eagleye Guide](eagleye-guide.md)を見てください。
-
-Eagleyeはtwist_estimatorとしてのオプションでもあり、pose_estimatorとtwist_estimator両方の代替オプションでもあります。
-現状ではEagleyeの利用するためにはコマンドライン引数での指定に加えてlaunchファイルの修正が必要です。
-
-### Available Options
+You can use Eagleye as a GNSS/IMU-based localization method. For more details on Eagleye, please refer to the [Eagleye Guide](eagleye-guide.md).
 
 Eagleye has a function for position estimation and twist estimation, namely `pose_estimator` and `twist_estimator`, respectively.
+When running Eagleye in twist_estimator mode, ndt_scan_matcher is used as the pose_estimator.
+Eagleye will improve scan matching by providing accurate twists using GNSS doppler.
 
-| localization launch                                               | twist estimator                         | pose estimator                          |
-|-------------------------------------------------------------------|-----------------------------------------|-----------------------------------------|
-| `tier4_localization_launch`                                       | `gyro_odometry`                         | `ndt_scan_matcher`                      |
-| `map4_localization_launch/eagleye_twist_localization_launch`      | `eagleye_rt`<br>(gyro/odom/gnss fusion) | `ndt_scan_matcher`                      |
-| `map4_localization_launch/eagleye_pose_twist_localization_launch` | `eagleye_rt`<br>(gyro/odom/gnss fusion) | `eagleye_rt`<br>(gyro/odom/gnss fusion) |
+To use Eagleye, it requires both specifying the command-line arguments and modifying the launch file.
 
 ### 1. Modifying Autoware launch files
 
-Please refer to `map4_localization_launch` in the `autoware.universe` package and `map4_localization_component.launch.xml` in `autoware_launch` package for information on how to modify the localization launch.
-
-
-When using Eagleye, comment out `tier4_localization_component.launch.xml` and start `map4_localization_component.launch.xml` in `autoware.launch.xml`.
+When using Eagleye, comment out `tier4_localization_component.launch.xml` and start `map4_localization_component.launch.xml` in [`autoware.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/autoware.launch.xml).
+Please refer to the following snippet for the modification details:
 
 ```xml
   <!-- Localization -->
@@ -64,20 +52,21 @@ When using Eagleye, comment out `tier4_localization_component.launch.xml` and st
   </group>
 ```
 
+NOTE: Please refer to [`map4_localization_launch`](https://github.com/autowarefoundation/autoware.universe/tree/main/launch/map4_localization_launch) in the `autoware.universe` package and [`map4_localization_component.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/components/map4_localization_component.launch.xml) in `autoware_launch` package for information on how to modify the localization launch.
+
 ### 2. Execution command
 
-Enable Eagleye in Autoware by switching the localization module in autoware.launch.xml and the `pose_estimator_mode` parameter in `map4_localization_component.launch.xml` in `autoware.launch.xml`.
+Once you have modified the launch file, you can use Eagleye by specifying the `pose_estimator_mode` through command-line arguments.
 
-| twist_estimator_mode        | pose_estimator_mode | method                          |
-|-----------------------------|---------------------|---------------------------------|
-| `gyro_odom_fusion`(default) | `lidar`(default)    | NDT (default)                   |
-| `gyro_odom_gnss_fusion`     | `lidar`(default)    | eagleye as twist_estiamtor      |
-| `gyro_odom_fusion`(default) | `gnss`              | eagleye as pose_twist_estiamtor |
-| `gyro_odom_gnss_fusion`     | `gnss`              | NOT supported                   |
+The following table shows the available arguments, along with the corresponding estimation methods.
 
-In Autoware, you can set the pose estimator to GNSS by setting `pose_estimator_mode:=gnss` in `map4_localization_component.launch.xml` in `autoware_launch` package.
+| pose_estimator_mode | pose_estimator method           | twist_estimator method          |
+|---------------------|---------------------------------|---------------------------------|
+| `lidar`(default)    | ndt_scan_matcher (default)      | eagleye as twist_estiamtor      |
+| `gnss`              | eagleye as pose_twist_estiamtor | eagleye as pose_twist_estiamtor |
 
-**Eagleyeをpose_estiamtorとして使う方法**
+
+**Example of using Eagleye as the pose twist estimator:**
 ```bash
 ros2 launch autoware_launch autoware.launch.xml \
   vehicle_model:=YOUR_VEHICLE \
@@ -85,10 +74,10 @@ ros2 launch autoware_launch autoware.launch.xml \
   pose_estimator_mode:=gnss # Add this argument
 ```
 
-**Eagleyeをtwist_estiamtorとして使う方法**
+**Example of using Eagleye as the twist estimator:**
 ```bash
 ros2 launch autoware_launch autoware.launch.xml \
   vehicle_model:=YOUR_VEHICLE \
   sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP \
-  twist_estimator_mode:=gyro_odom_gnss_fusion # Add this argument
+  pose_estimator_mode:=lidar # Not mandatory, as it is the default.
 ```

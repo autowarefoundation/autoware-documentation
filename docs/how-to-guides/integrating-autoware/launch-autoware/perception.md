@@ -4,7 +4,8 @@
 
     Under Construction
 
-Autowareの起動時に次のように`perception_mode`を指定することで、どのセンサ構成で認識をするかを切り替えることができます。
+By specifying the `perception_mode`, users can switch between different sensor configurations for perception.
+This allows you to choose the specific sensor setup that you want to use for the perception tasks.
 
 ```bash
 ros2 launch autoware_launch autoware.launch.xml vehicle_model:=YOUR_VEHICLE sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP \

@@ -7,8 +7,6 @@ For the details of the integration proposal, please refer to [this discussion](h
 
 Eagleye is an open-source GNSS/IMU-based localizer initially developed by [MAP IV. Inc](https://map4.jp/). It provides a cost-effective alternative to LiDAR and point cloud-based localization by using low-cost GNSS and IMU sensors to provide vehicle position, orientation, and altitude information. 
 
-The users can choose between LiDAR and point cloud-based localization stacks or GNSS/IMU-based Eagleye localizer, depending on their specific needs and operating environment.
-
 ### Dependencies
 
 The below packages are automatically installed during the setup of Autoware as they are listed in [autoware.repos](https://github.com/autowarefoundation/autoware/blob/main/autoware.repos).
@@ -93,7 +91,7 @@ common:
 ### Conversion from fix to pose
 
 The parameters for converting `sensor_msgs/msg/NavSatFix` to `geometry_msgs/msg/PoseWithCovarianceStamped` is listed in [`fix2pose.yaml`](https://github.com/MapIV/eagleye/blob/autoware-main/eagleye_util/fix2pose/launch/fix2pose.xml).
-If you use a different geoid or projection method, change these parameters.
+If you use a different geoid or projection type, change these parameters.
 
 ### Other parameters
 
