@@ -40,9 +40,7 @@ Eagleye will improve scan matching by providing accurate twists using GNSS doppl
 
 To use Eagleye, it requires both specifying the command-line arguments and modifying the launch file.
 
-### 1. Modifying Autoware launch files
-
-When using Eagleye, comment out `tier4_localization_component.launch.xml` and start `map4_localization_component.launch.xml` in [`autoware.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/autoware.launch.xml).
+Firstly, please modify the commented-out line and change it to launch `map4_localization_component.launch.xml` instead of `tier4_localization_component.launch.xml` in [`autoware.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/autoware.launch.xml).
 Please refer to the following snippet for the modification details:
 
 ```xml
@@ -55,16 +53,7 @@ Please refer to the following snippet for the modification details:
 
 NOTE: Please refer to [`map4_localization_launch`](https://github.com/autowarefoundation/autoware.universe/tree/main/launch/map4_localization_launch) in the `autoware.universe` package and [`map4_localization_component.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/components/map4_localization_component.launch.xml) in `autoware_launch` package for information on how to modify the localization launch.
 
-### 2. Execution command
-
 Once you have modified the launch file, you can use Eagleye by specifying the `pose_estimator_mode` through command-line arguments.
-
-The following table shows the available arguments, along with the corresponding estimation methods.
-
-| pose_estimator_mode | pose estimator method           | twist estimator method          |
-| ------------------- | ------------------------------- | ------------------------------- |
-| `lidar`(default)    | ndt_scan_matcher (default)      | eagleye as twist_estimator      |
-| `gnss`              | eagleye as pose_twist_estimator | eagleye as pose_twist_estimator |
 
 **Example of using Eagleye as the pose twist estimator:**
 
