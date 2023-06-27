@@ -18,10 +18,10 @@ The diagram below illustrates the basic principle of YabLoc. It extracts road su
 - [yabloc_particle_filter](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/yabloc/yabloc_particle_filter/README.md)
 - [yabloc_pose_initializer](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/yabloc/yabloc_pose_initializer/README.md)
 
-## How to Launch
+## How to Launch YabLoc
 
-When launching autoware, if you set `localization_mode:=yabloc` as an argument, YabLoc will be launched instead of NDT.
-By default, `localization_mode` is `ndt`.
+When launching autoware, if you set `localization_mode:=camera` as an argument, YabLoc will be launched instead of NDT.
+By default, `localization_mode` is `lidar`.
 
 A sample command to use YabLoc is as follows
 

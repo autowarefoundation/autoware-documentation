@@ -1,11 +1,12 @@
 # Using Eagleye with Autoware
 
 This page will show you how to set up [Eagleye](https://github.com/MapIV/eagleye) in order to use it with Autoware.
-For the details of the integration proposal, please refer to [this](https://github.com/orgs/autowarefoundation/discussions/3257) Discussion.
+For the details of the integration proposal, please refer to [this discussion](https://github.com/orgs/autowarefoundation/discussions/3257).
 
 ## What is Eagleye?
 
 Eagleye is an open-source GNSS/IMU-based localizer initially developed by [MAP IV. Inc](https://map4.jp/). It provides a cost-effective alternative to LiDAR and point cloud-based localization by using low-cost GNSS and IMU sensors to provide vehicle position, orientation, and altitude information. 
+
 The users can choose between LiDAR and point cloud-based localization stacks or GNSS/IMU-based Eagleye localizer, depending on their specific needs and operating environment.
 
 ### Dependencies
@@ -57,7 +58,7 @@ Eagleye has been tested with the following example GNSS ROS drivers: ublox_gps a
 
 | GNSS ROS drivers                                                                              | modification                                                                                                                                                                                        |
 |-----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [ublox_gps](https://github.com/KumarRobotics/ublox/tree/ros2/ublox_gps)                       | It publishes `sensor_msgs/msg/NavSatFix` and `geometry_msgs/msg/TwistWithCovarianceStamped` required by Eagleye with default settings. Therefore, no additional settings are required. |
+| [ublox_gps](https://github.com/KumarRobotics/ublox/tree/ros2/ublox_gps)                       | No additional settings are required. It publishes `sensor_msgs/msg/NavSatFix` and `geometry_msgs/msg/TwistWithCovarianceStamped` required by Eagleye with default settings.  |
 | [septentrio_gnss_driver](https://github.com/septentrio-gnss/septentrio_gnss_driver/tree/ros2) | Set `publish.navsatfix` and `publish.twist` in the config file [`gnss.yaml`](https://github.com/septentrio-gnss/septentrio_gnss_driver/blob/ros2/config/gnss.yaml#L90) to `true`                    |
 
 ## Parameter Modifications for Integration into Your Vehicle
@@ -89,56 +90,15 @@ common:
   gnss_rate: 5
 ```
 
-### fix to pose
+### Conversion from fix to pose
 
-これは変更する必要があるの?
-
-Additionally, the parameters for converting `sensor_msgs/msg/NavSatFix` to `geometry_msgs/msg/PoseWithCovarianceStamped` is listed in [`fix2pose.yaml`](https://github.com/MapIV/eagleye/blob/autoware-main/eagleye_util/fix2pose/launch/fix2pose.xml).
+The parameters for converting `sensor_msgs/msg/NavSatFix` to `geometry_msgs/msg/PoseWithCovarianceStamped` is listed in [`fix2pose.yaml`](https://github.com/MapIV/eagleye/blob/autoware-main/eagleye_util/fix2pose/launch/fix2pose.xml).
+If you use a different geoid or projection method, change these parameters.
 
 ### Other parameters
 
 The other parameters are described [here](https://github.com/MapIV/eagleye/tree/autoware-main/eagleye_rt/config).
 Basically, these do not need to be changed .
-
-## Execution
-
-You need to change Autoware's launch files to use Eagleye.
-
-### Modifying Autoware launch files
-
-Please refer to `map4_localization_launch` in the `autoware.universe` package and `map4_localization_component.launch.xml` in `autoware_launch` package for information on how to modify the localization launch.
-
-Eagleye has a function for position estimation and twist estimation, namely `pose_estimator` and `twist_estimator`, respectively.
-
-| localization launch                                               | twist estimator                     | pose estimator                      |
-|-------------------------------------------------------------------|-------------------------------------|-------------------------------------|
-| `tier4_localization_launch`                                       | `gyro_odometry`                     | `ndt_scan_matcher`                  |
-| `map4_localization_launch/eagleye_twist_localization_launch`      | `eagleye_rt`(gyro/odom/gnss fusion) | `ndt_scan_matcher`                  |
-| `map4_localization_launch/eagleye_pose_twist_localization_launch` | `eagleye_rt`(gyro/odom/gnss fusion) | `eagleye_rt`(gyro/odom/gnss fusion) |
-
-
-twist_estimatorの変更のしかたが書いてない。
-
-In Autoware, you can set the pose estimator to GNSS by setting `pose_estimator_mode:=gnss` in `map4_localization_component.launch.xml` in `autoware_launch` package.
-Note that the output position might not appear to be in the point cloud maps if you are using maps that are not properly georeferenced.
-In the case of a single GNSS antenna, initial position estimation (dynamic initialization) can take several seconds to complete after starting to run in an environment where GNSS positioning is available.
-
-Alternatively, the twist estimator can be set to Eagleye and the pose estimator to NDT by specifying `pose_estimator_mode:=lidar` in the same launch file.
-Unlike Eagleye position estimation, Eagleye twist estimation first outputs uncorrected raw values when activated, and then outputs corrected twists as soon as static initialization is complete.
-
-### Execution command
-
-Enable Eagleye in Autoware by switching the localization module in autoware.launch.xml and the `pose_estimator_mode` parameter in `map4_localization_component.launch.xml` in `autoware.launch.xml`.
-
-When using Eagleye, comment out `tier4_localization_component.launch.xml` and start `map4_localization_component.launch.xml` in `autoware.launch.xml`.
-
-```xml
-  <!-- Localization -->
-  <group if="$(var launch_localization)">
-    <!-- <include file="$(find-pkg-share autoware_launch)/launch/components/tier4_localization_component.launch.xml"/> -->
-    <include file="$(find-pkg-share autoware_launch)/launch/components/map4_localization_component.launch.xml"/>
-  </group>
-```
 
 ## Notes on initialization
 
@@ -152,3 +112,14 @@ The next step is dynamic initialization, which involves running the Eagleye in a
 
 
 Once dynamic initialization is complete, the Eagleye will be able to provide corrected twist and pose data.
+
+
+### How to check the progress of initialization
+
+**TODO**
+
+
+## Note on georeferencing
+
+Note that the output position might not appear to be in the point cloud maps if you are using maps that are not properly georeferenced.
+In the case of a single GNSS antenna, initial position estimation (dynamic initialization) can take several seconds to complete after starting to run in an environment where GNSS positioning is available.
