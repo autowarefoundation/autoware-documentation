@@ -3,11 +3,11 @@
 The Autoware provides multiple localization methods that work with multiple different sensor configurations.
 The table below shows the supported sensor configurations and their corresponding algorithms.
 
-| localization mode | method  | map type        |
-| ----------------- | ------- | --------------- |
-| LiDAR-based       | NDT     | point cloud map |
-| camera-based      | YabLoc  | vector map      |
-| GNSS/IMU-based    | Eagleye | -               |
+| localization mode | algorithm | map type        |
+| ----------------- | --------- | --------------- |
+| LiDAR-based       | NDT       | point cloud map |
+| camera-based      | YabLoc    | vector map      |
+| GNSS/IMU-based    | Eagleye   | -               |
 
 ## LiDAR-based localizer (default)
 
@@ -15,7 +15,8 @@ By default, Autoware launches [ndt_scan_matcher](https://github.com/autowarefoun
 
 ## Camera-based localizer
 
-You can use YabLoc as a camera-based localization method. For more details on YabLoc, please refer to the [YabLoc Guide](yabloc-guide.md).
+You can use YabLoc as a camera-based localization method.
+For more details on YabLoc, please refer to the [README of YabLoc](https://github.com/autowarefoundation/autoware.universe/blob/main/localization/yabloc/README.md) in autoware.universe.
 
 To use YabLoc as a pose_estimator, add `localization_mode:=camera` when launching Autoware.
 By default, the `localization_mode` is set to `lidar`.
@@ -32,7 +33,7 @@ ros2 launch autoware_launch autoware.launch.xml \
 
 ## GNSS/IMU-based localizer
 
-You can use Eagleye as a GNSS/IMU-based localization method. For more details on Eagleye, please refer to the [Eagleye Guide](eagleye-guide.md).
+You can use Eagleye as a GNSS/IMU-based localization method. For more details on Eagleye, please refer to the [Eagleye](eagleye-guide.md).
 
 Eagleye has a function for position estimation and twist estimation, namely `pose_estimator` and `twist_estimator`, respectively.
 When running Eagleye in twist_estimator mode, ndt_scan_matcher is used as the pose_estimator.
