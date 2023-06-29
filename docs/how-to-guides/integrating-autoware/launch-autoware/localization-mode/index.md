@@ -73,3 +73,42 @@ ros2 launch autoware_launch autoware.launch.xml \
   sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP \
   pose_estimator_mode:=lidar # Not mandatory, as it is the default.
 ```
+
+## Comprehensive Options Table
+
+The table indicates which pose_estimator and twist_estimator are called based on the invoked launch file and provided arguments.
+
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th colspan=2>localization_mode</th>
+            <th colspan=2>pose_estimator_mode</th>
+        </tr>
+        <tr>
+            <th>launch file</th>
+            <th>lidar (default)</th>
+            <th>camera</th>
+            <th>lidar (default)</th>
+            <th>gnss</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=1>tier4_localization_component</td>
+            <td>ndt_scan_matcher<br>gyro_odometer</td>
+            <td>yabloc<br>gyro_odometer</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td rowspan=1>map4_localization_component</td>
+            <td>-</td>
+            <td>-</td>
+            <td>ndt_scan_matcher<br>eagleye</td>
+            <td>eagleye<br>eagleye</td>
+        </tr>
+    </tbody>
+</table>
+
+The top row of cells indicate pose_estimator and the bottom row indicates twist_estimator.
