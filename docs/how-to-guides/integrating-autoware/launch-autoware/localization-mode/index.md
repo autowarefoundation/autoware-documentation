@@ -78,42 +78,52 @@ ros2 launch autoware_launch autoware.launch.xml \
 
 The table below indicates which pose_estimator and twist_estimator are called based on the invoked launch file and provided arguments.
 
-|                              | localization_mode<br>=lidar(default) | localization_mode<br>=camera | pose_estimator_mode<br>=lidar(default) | pose_estimator_mode<br>=camera |
-| ---------------------------- | ------------------------------------ | ---------------------------- | -------------------------------------- | ------------------------------ |
-| tier4_localization_component | ndt_scan_matcher<br>gyro_odometer    | yabloc<br>gyro_odometer      | -                                      | -                              |
-| map4_localization_component  | -                                    | -                            | ndt_scan_matcher<br>eagleye            | eagleye<br>eagleye             |
-
 <table>
     <thead>
         <tr>
-            <th></th>
-            <th colspan=2>localization_mode</th>
-            <th colspan=2>pose_estimator_mode</th>
+            <th colspan=3>tier4_localization_component.launch.xml</th>
         </tr>
         <tr>
-            <th>launch file</th>
-            <th>lidar (default)</th>
-            <th>camera</th>
-            <th>lidar (default)</th>
-            <th>gnss</th>
+            <th>localization_mode</th>
+            <th>pose_estimator</th>
+            <th>twist_estimator</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td rowspan=1>tier4_localization_component</td>
-            <td>ndt_scan_matcher<br>gyro_odometer</td>
-            <td>yabloc<br>gyro_odometer</td>
-            <td>-</td>
-            <td>-</td>
+            <td>lidar (default)</td>
+            <td>ndt_scan_matcher</td>
+            <td>gyro_odometer</td>
         </tr>
         <tr>
-            <td rowspan=1>map4_localization_component</td>
-            <td>-</td>
-            <td>-</td>
-            <td>ndt_scan_matcher<br>eagleye</td>
-            <td>eagleye<br>eagleye</td>
+            <td>camera</td>
+            <td>yabloc</td>
+            <td>gyro_odometer</td>
         </tr>
     </tbody>
 </table>
 
-The top row of cells indicate pose_estimator and the bottom row indicates twist_estimator.
+<table>
+    <thead>
+        <tr>
+            <th colspan=3>map4_localization_component.launch.xml</th>
+        </tr>
+        <tr>
+            <th>pose_estimator_mode</th>
+            <th>pose_estimator</th>
+            <th>twist_estimator</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>lidar (default)</td>
+            <td>ndt_scan_matcher</td>
+            <td>eagleye</td>
+        </tr>
+        <tr>
+            <td>gnss</td>
+            <td>eagleye</td>
+            <td>eagleye</td>
+        </tr>
+    </tbody>
+</table>
