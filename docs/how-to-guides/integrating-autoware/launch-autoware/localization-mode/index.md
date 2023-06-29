@@ -9,6 +9,50 @@ The table below shows the supported sensor configurations and their correspondin
 | camera-based      | YabLoc    | vector map      |
 | GNSS/IMU-based    | Eagleye   | -               |
 
+## Comprehensive Options Table
+
+The table indicates which pose_estimator and twist_estimator are called based on the invoked launch file and provided arguments.
+
+|                              | localization_mode<br>=lidar       | localization_mode<br>=camera | pose_estimator_mode<br>=lidar | pose_estimator_mode<br>=camera |
+| ---------------------------- | --------------------------------- | ---------------------------- | ----------------------------- | ------------------------------ |
+| tier4_localization_component | ndt_scan_matcher<br>gyro_odometer | yabloc<br>gyro_odometer      | -                             | -                              |
+| map4_localization_component  | -                                 | -                            | ndt_scan_matcher<br>eagleye   | eagleye<br>eagleye             |
+
+The top row indicate pose_estimator and the bottom row indicates twist_estimator.
+
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th colspan=2>localization_mode</th>
+            <th colspan=2>pose_estimator_mode</th>
+        </tr>
+        <tr>
+            <th>launch file</th>
+            <th>lidar (default)</th>
+            <th>camera</th>
+            <th>lidar (default)</th>
+            <th>gnss</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=1>tier4_localization_component</td>
+            <td>ndt_scan_matcher<br>gyro_odometer</td>
+            <td>yabloc<br>gyro_odometer</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td rowspan=1>map4_localization_component</td>
+            <td>-</td>
+            <td>-</td>
+            <td>ndt_scan_matcher<br>eagleye</td>
+            <td>eagleye<br>eagleye</td>
+        </tr>
+    </tbody>
+</table>
+
 ## LiDAR-based localizer (default)
 
 By default, Autoware launches [ndt_scan_matcher](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/ndt_scan_matcher) for localization.
@@ -73,14 +117,3 @@ ros2 launch autoware_launch autoware.launch.xml \
   sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP \
   pose_estimator_mode:=lidar # Not mandatory, as it is the default.
 ```
-
-## Comprehensive Options Table
-
-The table indicates which pose_estimator and twist_estimator are called based on the invoked launch file and provided arguments.
-
-|                              | localization_mode<br>=lidar       | localization_mode<br>=camera | pose_estimator_mode<br>=lidar | pose_estimator_mode<br>=camera |
-| ---------------------------- | --------------------------------- | ---------------------------- | ----------------------------- | ------------------------------ |
-| tier4_localization_component | ndt_scan_matcher<br>gyro_odometer | yabloc<br>gyro_odometer      | -                             | -                              |
-| map4_localization_component  | -                                 | -                            | ndt_scan_matcher<br>eagleye   | eagleye<br>eagleye             |
-
-The top row indicate pose_estimator and the bottom row indicates twist_estimator.
