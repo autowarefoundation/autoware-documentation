@@ -1,4 +1,3 @@
-
 # Creating Autoware meta-repository
 
 ## What is Meta-repository?
@@ -13,15 +12,17 @@ Note: vcs stands for Version Control System, such as Git or Subversion.
 
 ## How to create and custmize your autoware meta-repository
 
-
 ### 1. Fork autoware repository
+
 If you want to integrate Autoware into your vehicle, the first step is to create an Autoware meta-repository.
 
-One easy way is to fork [autowarefoundation/autoware](https://github.com/autowarefoundation/autoware)  and clone it.
+One easy way is to fork [autowarefoundation/autoware](https://github.com/autowarefoundation/autoware) and clone it.
 For how to fork a repository, refer to [GitHub Docs](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
+
 ```bash
 git clone https://github.com/YOUR_NAME/autoware.git
 ```
+
 If you set up multiple types of vehicles, adding a suffix like `autoware.vehicle_A` or `autoware.vehicle_B` is recommended
 
 ### 2. Custamize your autoware.repos for your enviroment
@@ -35,11 +36,12 @@ Please edit the parameters in Autoware's `autoware_individual_params` and `autow
 If you want to fork `autoware_individual_params` and make modifications, it would be as follows:
 
 Example: If you fork `individual_params` and rename `autoware_individual_params.vehicle_A`:
+
 ```diff
 - param/autoware_individual_params:
 -   type: git
--   url: https://github.com/autowarefoundation/autoware_individual_params 
--   version: main 
+-   url: https://github.com/autowarefoundation/autoware_individual_params
+-   version: main
 + param/autoware_individual_params.vehicle_A:
 +   type: git
 +   url: https://github.com/YOUR_NAME/autoware_individual_params.vehicle_A
@@ -47,6 +49,7 @@ Example: If you fork `individual_params` and rename `autoware_individual_params.
 ```
 
 Please refer to the following documentation link for instructions on how to create and customize each `vehicle_interface`:
+
 - [creating-vehicle-and-sensor-description](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/creating-vehicle-and-sensor-description)
 - [creating-vehicle-interface-package](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-vehicle-interface-for-ackerman-kinematic-model/)
 - [customizing-for-differential-drive-model](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/customizing-for-differential-drive-model/)
