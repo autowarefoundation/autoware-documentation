@@ -1,5 +1,6 @@
 ---
 title: /api/vehicle/status
+status: not released
 method: notification
 type:
   name: autoware_adapi_v1_msgs/msg/VehicleStatus
