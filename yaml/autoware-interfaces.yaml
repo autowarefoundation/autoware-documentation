@@ -1,11 +1,12 @@
 types:
+  autoware_adapi_v1_msgs/msg/DoorCommand:
+    msg:
+      command: uint8
+      index: uint32
   autoware_adapi_v1_msgs/msg/DoorLayout:
     msg:
       description: string
       roles: uint8[]
-  autoware_adapi_v1_msgs/msg/DoorOperation:
-    msg:
-      operation: uint8
   autoware_adapi_v1_msgs/msg/DoorStatus:
     msg:
       status: uint8
@@ -145,9 +146,9 @@ types:
       pose: geometry_msgs/msg/PoseWithCovarianceStamped[<=1]
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
-  autoware_adapi_v1_msgs/srv/SetDoorOperation:
+  autoware_adapi_v1_msgs/srv/SetDoorCommand:
     req:
-      doors: autoware_adapi_v1_msgs/msg/DoorOperation[]
+      doors: autoware_adapi_v1_msgs/msg/DoorCommand[]
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/SetRoute:
