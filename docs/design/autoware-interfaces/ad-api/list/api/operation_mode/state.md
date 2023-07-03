@@ -1,5 +1,6 @@
 ---
 title: /api/operation_mode/state
+status: v1.0.0
 method: notification
 type:
   name: autoware_adapi_v1_msgs/msg/OperationModeState

@@ -1,5 +1,6 @@
 ---
 title: /api/vehicle/doors/layout
+status: not released
 method: function call
 type:
   name: autoware_adapi_v1_msgs/srv/GetDoorLayout
