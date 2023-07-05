@@ -1,5 +1,6 @@
 ---
 title: /api/planning/cooperation/set_policies
+status: not released
 method: function call
 type:
   name: autoware_adapi_v1_msgs/srv/SetCooperationPolicies
