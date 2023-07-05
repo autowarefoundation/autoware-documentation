@@ -1,5 +1,6 @@
 ---
 title: /api/planning/steering_factors
+status: not released
 method: realtime stream
 type:
   name: autoware_adapi_v1_msgs/msg/SteeringFactorArray
