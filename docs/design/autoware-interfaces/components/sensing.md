@@ -42,7 +42,7 @@ graph TD
     <font size=1>geometry_msgs/TwistWithCovarianceStamped</font size>"):::cls_sen
     msg_gnssacc_sen("<font size=2><b>GNSS-INS Acceleration</b></font size>
     <font size=1>geometry_msgs/AccelWithCovarianceStamped</font size>"):::cls_sen
-    
+
     cmp_drv --> msg_ult --> cmp_sen
     cmp_drv --> msg_img --> cmp_sen
     cmp_drv --> msg_rdr_t --> cmp_sen
@@ -52,7 +52,7 @@ graph TD
     cmp_drv --> msg_gnssori --> cmp_sen
     cmp_drv --> msg_gnssvel --> cmp_sen
     cmp_drv --> msg_gnssacc --> cmp_sen
-    
+
     cmp_sen --> msg_ult_sen
     cmp_sen --> msg_img_sen
     cmp_sen --> msg_gnssori_sen
@@ -134,7 +134,6 @@ Initial acceleration from GNSS driver.
 
 - [geometry_msgs/AccelWithCovarianceStamped](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/AccelWithCovarianceStamped.msg)
 
-
 ## Output
 
 ### Ultrasonics
@@ -178,7 +177,6 @@ Initial pose of the ego vehicle from GNSS. Used by the Localization.
 Orientation info from GNSS. Used by the Localization.
 
 - [sensor_msgs/Imu](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Imu.msg)
-
 
 ### GNSS velocity
 
