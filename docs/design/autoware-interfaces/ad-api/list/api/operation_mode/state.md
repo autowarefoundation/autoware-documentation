@@ -1,5 +1,6 @@
 ---
 title: /api/operation_mode/state
+status: v1.0.0
 method: notification
 type:
   name: autoware_adapi_v1_msgs/msg/OperationModeState
@@ -22,5 +23,6 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Get the operation mode state. For details, see the [operation mode](./index.md).
+Get the operation mode state.
+For details, see the [operation mode](../../../features/operation_mode.md).
 {% endblock %}

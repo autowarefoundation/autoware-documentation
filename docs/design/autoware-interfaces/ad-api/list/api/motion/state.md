@@ -1,5 +1,6 @@
 ---
 title: /api/motion/state
+status: not released
 method: notification
 type:
   name: autoware_adapi_v1_msgs/msg/MotionState
@@ -10,5 +11,6 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Get the motion state. For details, see the [motion state](./index.md).
+Get the motion state.
+For details, see the [motion state](../../../features/motion.md).
 {% endblock %}

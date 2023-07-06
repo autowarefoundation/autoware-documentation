@@ -1,5 +1,6 @@
 ---
 title: /api/localization/initialize
+status: v1.0.0
 method: function call
 type:
   name: autoware_adapi_v1_msgs/srv/InitializeLocalization
@@ -13,5 +14,6 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Request to initialize localization. For details, see the [pose state](./index.md).
+Request to initialize localization.
+For details, see the [localization](../../../features/localization.md).
 {% endblock %}

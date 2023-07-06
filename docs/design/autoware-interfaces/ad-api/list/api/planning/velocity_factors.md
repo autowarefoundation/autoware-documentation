@@ -1,5 +1,6 @@
 ---
 title: /api/planning/velocity_factors
+status: not released
 method: realtime stream
 type:
   name: autoware_adapi_v1_msgs/msg/VelocityFactorArray
@@ -19,5 +20,5 @@ type:
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
 Get the velocity factors, sorted in ascending order of distance.
-For details, see the [planning](./index.md).
+For details, see the [planning factors](../../../features/planning-factors.md).
 {% endblock %}

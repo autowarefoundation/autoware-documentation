@@ -1,5 +1,6 @@
 ---
 title: /api/routing/set_route_points
+status: v1.0.0
 method: function call
 type:
   name: autoware_adapi_v1_msgs/srv/SetRoutePoints
