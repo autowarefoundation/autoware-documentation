@@ -14,7 +14,7 @@ Velodyne Lidars which has ROS2 driver and tested by one or more community member
 Link to ROS2 drivers:  
  [https://github.com/ros-drivers/velodyne/tree/ros2/velodyne_pointcloud](https://github.com/ros-drivers/velodyne/tree/ros2/velodyne_pointcloud)  
  [https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/tree/master/src/drivers/velodyne_nodes](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/tree/master/src/drivers/velodyne_nodes)
- [https://github.com/autowarefoundation/awf_velodyne/tree/tier4/universe](https://github.com/autowarefoundation/awf_velodyne/tree/tier4/universe)
+[https://github.com/autowarefoundation/awf_velodyne/tree/tier4/universe](https://github.com/autowarefoundation/awf_velodyne/tree/tier4/universe)
 
 Link to company website:  
 [https://velodynelidar.com/](https://velodynelidar.com/)
