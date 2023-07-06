@@ -14,6 +14,7 @@ Velodyne Lidars which has ROS2 driver and tested by one or more community member
 Link to ROS2 drivers:  
  [https://github.com/ros-drivers/velodyne/tree/ros2/velodyne_pointcloud](https://github.com/ros-drivers/velodyne/tree/ros2/velodyne_pointcloud)  
  [https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/tree/master/src/drivers/velodyne_nodes](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/tree/master/src/drivers/velodyne_nodes)
+ [https://github.com/autowarefoundation/awf_velodyne/tree/tier4/universe](https://github.com/autowarefoundation/awf_velodyne/tree/tier4/universe)
 
 Link to company website:  
 [https://velodynelidar.com/](https://velodynelidar.com/)
@@ -74,8 +75,8 @@ Link to company website:
 Livox Lidars which has ROS2 driver and tested by one or more community members are listed below:
 
 | Supported Products List | Range | FOV (V), (H)      | ROS2 Driver | Autoware Tested (Y/N) |
-| ----------------------- | ----- | ----------------- | ----------- | --------------------- | --- |
-| Horizon                 | 260m  | (81.7°), (25.1°)  | Y           | Y                     | -   |
+| ----------------------- | ----- | ----------------- | ----------- | --------------------- |
+| Horizon                 | 260m  | (81.7°), (25.1°)  | Y           | Y                     |
 | Mid-70                  | 90m   | (70.4°), (77.2°)  | Y           | -                     |
 | Avia                    | 190m  | (70.4°), Circular | Y           | -                     |
 | HAP                     | 150m  | (25°), (120°)     | -           | -                     |

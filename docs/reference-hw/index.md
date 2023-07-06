@@ -1,4 +1,4 @@
-# Refrence HW Design
+# Reference HW Design
 
 This document is created to describe and give additional information of the sensors and systems supported by Autoware.Auto software.
 

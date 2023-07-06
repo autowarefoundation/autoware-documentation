@@ -15,7 +15,7 @@ Link to company website:
 
 Logitech joysticks which are used for autonomous driving and tested by one or more community members are listed below:
 
-| Supported Products | Op.Frequency                | Controller               | ROS2 Support | Autoware Tested (Y/N) |
+| Supported Products | Op.Frequency                | Controller               | ROS2 Support | Autoware Tested (Y/N) |     |
 | ------------------ | --------------------------- | ------------------------ | ------------ | --------------------- | --- |
 | Logitech F-710     | 2.4 GHz Wireless, 10m range | (2) 2-axis joysticks<br> | (18) buttons | Y                     | Y   |
 
