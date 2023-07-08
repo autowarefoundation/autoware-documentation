@@ -7,7 +7,7 @@
 ### 3D Object Predictions
 
 set of perceived objects around ego that need to be avoided when planning a trajectory. Published by the Perception module.
-(See Output of Perception.)
+(See Output of [Perception](perception-interface.cd).)
 
 ### Traffic Light Response
 
