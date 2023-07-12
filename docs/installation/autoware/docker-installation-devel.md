@@ -53,7 +53,13 @@ You might need to log out and log back to make the current user able to use dock
    mkdir ~/autoware_map
    ```
 
-2. Launch a Docker container.
+2. Pull the Docker image
+
+   ```bash
+   docker pull ghcr.io/autowarefoundation/autoware-universe:latest-cuda
+   ```
+
+3. Launch a Docker container.
 
    - For amd64 architecture computers with NVIDIA GPU:
 
@@ -77,14 +83,14 @@ You might need to log out and log back to make the current user able to use dock
    cd autoware
    ```
 
-3. Create the `src` directory and clone repositories into it.
+4. Create the `src` directory and clone repositories into it.
 
    ```bash
    mkdir src
    vcs import src < autoware.repos
    ```
 
-4. Update dependent ROS packages.
+5. Update dependent ROS packages.
 
    The dependency of Autoware may change after the Docker image was created.
    In that case, you need to run the following commands to update the dependency.
@@ -95,13 +101,13 @@ You might need to log out and log back to make the current user able to use dock
    rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 
-5. Build the workspace.
+6. Build the workspace.
 
    ```bash
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
 
-   If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting.md#build-issues).
+   If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting/index.md#build-issues).
 
 ## How to update a workspace
 
