@@ -8,6 +8,7 @@ We define the start delay as the time between
 (a) when Autoware decides to make the ego vehicle start and
 (b) when the vehicle actually starts moving.
 More precisely:
+
 - (a) is the time when the speed or acceleration command output by Autoware switches to a non-zero value.
 - (b) is the time when the measured velocity of the ego vehicle switches to a positive value.
 
@@ -21,10 +22,11 @@ from _parked_ to _drive_ and instantly releases the brake to push the throttle p
 ![Manual driving delays](./images/start-delays/manual_driving.png)
 
 There are multiple things to note from this figure.
+
 - Brake (red): despite the driver instantly releasing the brake pedal,
-we see that the measured brake takes around `150ms` to go from `100%` to `0%`.
+  we see that the measured brake takes around `150ms` to go from `100%` to `0%`.
 - Gear (orange): the driver switches gear _before_ releasing the brake pedal, but the gear is measured to switch _after_
-the brake is released.
+  the brake is released.
 - Throttle (green) and velocity (blue): the driver pushes the throttle pedal and the vehicle is measured to start moving around `500ms` later.
 
 ## Gear delay
@@ -51,7 +53,7 @@ This lingering brake may prevent or delay the initial motion of the ego vehicle.
 When pushing the throttle pedal, the wheels of the vehicle do not instantly start rotating.
 This is partly due to the inertia of the vehicle,
 but also to the motor which may take a significant time to start applying
-some torque to the wheels (see https://en.wikipedia.org/wiki/Throttle_response).
+some torque to the wheels (see <https://en.wikipedia.org/wiki/Throttle_response>).
 
 Increasing the initial throttle may reduce the start delay but can cause uncomfortably high initial accelerations.
 
