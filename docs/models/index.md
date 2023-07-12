@@ -34,5 +34,12 @@ $ wget https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_backbone
        https://awf.ml.dev.web.auto/perception/models/yolox-tiny.onnx \
        https://awf.ml.dev.web.auto/perception/models/yolox-sPlus-opt.onnx \
        https://awf.ml.dev.web.auto/perception/models/yolox-sPlus-opt.EntropyV2-calibration.table \
-       https://awf.ml.dev.web.auto/perception/models/label.txt
+       https://awf.ml.dev.web.auto/perception/models/label.txt \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier_mobilenetv2_batch_1.onnx \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier_mobilenetv2_batch_4.onnx \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier_mobilenetv2_batch_6.onnx \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier_efficientNet_b1_batch_1.onnx \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier_efficientNet_b1_batch_4.onnx \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier_efficientNet_b1_batch_6.onnx \
+       https://awf.ml.dev.web.auto/perception/models/lamp_labels.txt
 ```
