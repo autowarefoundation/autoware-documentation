@@ -31,5 +31,8 @@ $ wget https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_backbone
        https://awf.ml.dev.web.auto/perception/models/yolov5m.onnx \
        https://awf.ml.dev.web.auto/perception/models/yolov5s.onnx \
        https://awf.ml.dev.web.auto/perception/models/yolov5x.onnx \
-       https://awf.ml.dev.web.auto/perception/models/yolox-tiny.onnx
+       https://awf.ml.dev.web.auto/perception/models/yolox-tiny.onnx \
+       https://awf.ml.dev.web.auto/perception/models/yolox-sPlus-opt.onnx \
+       https://awf.ml.dev.web.auto/perception/models/yolox-sPlus-opt.EntropyV2-calibration.table \
+       https://awf.ml.dev.web.auto/perception/models/label.txt
 ```
