@@ -92,21 +92,33 @@ map of the environment. See Iutputs of Planning.
       - [geometry_msgs::msg::Polygon](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/Polygon.html) polygon
       - float height
 
-### Traffic Light Response
+### Traffic Signals
 
-traffic light signals recognized by object detection model.**The message definition is under discussion.**
+traffic signals recognized by object detection model.
 
-- TrafficLightResponse
-  - uint64 traffic_light_id
-  - uint8 traffic_light_state
-
-With the traffic_light_state being one of the following
-
-- GREEN = 1
-- GREEN_BLINKING = 2
-- YELLOW = 3
-- YELLOW_BLINKING = 4
-- RED = 5
-- RED_BLINKING = 6
-- OFF = 7
-- UNKNOWN = 8
+- [autoware_perception_msgs::msg::TrafficSignalArray](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/TrafficSignalArray.msg)
+  - [autoware_perception_msgs::msg::TrafficSignal](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/TrafficSignal.msg) signals
+    - [autoware_perception_msgs::msg::TrafficSignalElement](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/TrafficSignalElement.msg) elements
+      - unint8 UNKNOWN = 0
+      - uint8 Red = 1
+      - uint8 AMBER = 2
+      - uint8 WHITE = 4
+      - uint8 CIRCLE = 1
+      - uint8 LEFT_ARROW = 2
+      - uint8 RIGHT_ARROW = 3
+      - uint8 UP_ARROW = 4
+      - uint8 UP_LEFT_ARROW=5
+      - uint8 UP_RIGHT_ARROW=6
+      - uint8 DOWN_ARROW = 7
+      - uint8 DOWN_LEFT_ARROW = 8
+      - uint8 DOWN_RIGHT_ARROW = 9
+      - uint8 CROSS = 10
+      - uint8 SOLID_OFF = 1
+      - uint8 SOLID_ON = 2
+      - uint8 FLASHING = 3
+      - uint8 color
+      - uint8 shape
+      - uint8 status
+      - float32 confidence
+    - int64 traffic_signal_id
+  - [builtin_interfaces::msg::Time](https://github.com/ros2/rcl_interfaces/blob/rolling/builtin_interfaces/msg/Time.msg) stamp
