@@ -9,7 +9,7 @@ Current localization launcher implemented by TIER IV supports multiple localizat
 ## NDT scan matcher: a LiDAR and pointcloud map based pose estimator (default)
 
 By default, Autoware launches [ndt_scan_matcher](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/ndt_scan_matcher) for pose estimator.
-In order to launch this explicitely, you need to specify as follows:
+In order to launch this explicitly, you need to specify as follows:
 
 ```bash
 ros2 launch autoware_launch autoware.launch.xml ... pose_source:=ndt ...
@@ -20,7 +20,7 @@ Note that currently `pose_source` is set to NDT as default, so you can skip this
 ## Gyro Odometer: an IMU & wheel odometry based twist estimator (default)
 
 By default, Autoware launches [gyro_odometer](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/gyro_odometer) for twist estimator.
-In order to launch this explicitely, you need to specify as follows:
+In order to launch this explicitly, you need to specify as follows:
 
 ```bash
 ros2 launch autoware_launch autoware.launch.xml ... twist_source:=gyro_odom ...
