@@ -3,28 +3,30 @@
 Current localization launcher implemented by TIER IV supports multiple localization methods, both pose estimators and twist estimators.
 `tier4_localization_component.launch.xml` has two arguments to select which estimators to launch:
 
-- `pose_source` : an argument to select pose_estimator, currently supporting `ndt` (default), `yabloc`, and `eagleye` 
-- `twist_source` : an argument to select twist_estimator, currently supporting `gyro_odom` (default), and `eagleye` 
+- `pose_source` : an argument to select pose_estimator, currently supporting `ndt` (default), `yabloc`, and `eagleye`
+- `twist_source` : an argument to select twist_estimator, currently supporting `gyro_odom` (default), and `eagleye`
 
 ## NDT scan matcher: a LiDAR and pointcloud map based pose estimator (default)
 
 By default, Autoware launches [ndt_scan_matcher](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/ndt_scan_matcher) for pose estimator.
 In order to launch this explicitely, you need to specify as follows:
+
 ```bash
-$ ros2 launch autoware_launch autoware.launch.xml ... pose_source:=ndt ...
+ros2 launch autoware_launch autoware.launch.xml ... pose_source:=ndt ...
 ```
+
 Note that currently `pose_source` is set to NDT as default, so you can skip this argument.
 
-
 ## Gyro Odometer: an IMU & wheel odometry based twist estimator (default)
+
 By default, Autoware launches [gyro_odometer](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/gyro_odometer) for twist estimator.
 In order to launch this explicitely, you need to specify as follows:
 
 ```bash
 ros2 launch autoware_launch autoware.launch.xml ... twist_source:=gyro_odom ...
 ```
-Note that currently `twist_source` is set to Gyro Odometer as default, so you can skip this argument.
 
+Note that currently `twist_source` is set to Gyro Odometer as default, so you can skip this argument.
 
 ## YabLoc: a camera and vector map based pose estimator
 
