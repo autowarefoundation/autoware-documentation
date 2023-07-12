@@ -25,7 +25,7 @@ Service providers can combine these use cases to define user stories and check i
 - [Drive to the designated position](./use-cases/drive-designated-position.md)
 - [Get on and get off](./use-cases/get-on-off.md)
 - [Vehicle monitoring](./use-cases/vehicle-monitoring.md)
-- [Request to cooperate](./use-cases/request-to-cooperate.md)
+- [Vehicle operation](./use-cases/vehicle-operation.md)
 
 ## Features
 
@@ -35,5 +35,6 @@ Service providers can combine these use cases to define user stories and check i
 - [Localization](./features/localization.md)
 - [Motion](./features/motion.md)
 - [Planning](./features/planning-factors.md)
+- [Cooperation](./features/cooperation.md)
 - [Fail-safe](./features/fail-safe.md)
 - [Vehicle status](./features/vehicle-status.md)
