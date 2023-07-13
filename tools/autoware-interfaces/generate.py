@@ -36,8 +36,15 @@ def load_markdown_metadata(path: Path):
     lines = path.read_text().splitlines()
     if (2 < len(lines)) and (lines[0] == "---"):
         data = lines[1:lines.index("---", 1)]
-        return yaml.safe_load("\n".join(data))
+        data = yaml.safe_load("\n".join(data))
+        return test_markdown_metadata(data, path)
     return None
+
+
+def test_markdown_metadata(data, path):
+    if "status" not in data:
+        raise KeyError(f"status in {path}")
+    return data
 
 
 def is_documentation_msg(name: str):
@@ -89,12 +96,12 @@ def main():
     adapi = Path("docs/design/autoware-interfaces/ad-api/list/api")
     pages = (load_markdown_metadata(path) for path in adapi.glob("**/*.md"))
     pages = [page for page in pages if page]
-    names = (page["type"]["name"] for page in pages)
 
     # Create a field list for each data type.
+    names = (page["type"]["name"] for page in pages)
+    specs = {}
     visited = set()
     depends = set(names)
-    specs = {}
     while depends:
         name = depends.pop()
         parse_rosidl_file(depends, visited, specs, name)
@@ -116,7 +123,9 @@ def main():
 
     # Clean up data type pages.
     base = Path("docs/design/autoware-interfaces/ad-api/types")
-    shutil.rmtree(base)
+    for path in base.iterdir():
+        if path.is_dir():
+            shutil.rmtree(path)
 
     # Generate data type pages.
     for name in specs:
