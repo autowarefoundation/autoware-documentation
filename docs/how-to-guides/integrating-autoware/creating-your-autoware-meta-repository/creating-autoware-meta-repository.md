@@ -25,7 +25,7 @@ git clone https://github.com/YOUR_NAME/autoware.git
 
 If you set up multiple types of vehicles, adding a suffix like `autoware.vehicle_A` or `autoware.vehicle_B` is recommended
 
-### 2. Custoamize your autoware.repos for your environment
+### 2. Customize your autoware.repos for your environment
 
 You need to customize `autoware.repos` for your own vehicle's Autoware.
 
