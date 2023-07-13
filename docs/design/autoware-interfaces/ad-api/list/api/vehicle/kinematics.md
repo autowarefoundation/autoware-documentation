@@ -1,5 +1,6 @@
 ---
 title: /api/vehicle/kinematics
+status: not released
 method: realtime stream
 type:
   name: autoware_adapi_v1_msgs/msg/VehicleKinematics
