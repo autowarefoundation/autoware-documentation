@@ -10,7 +10,7 @@ By using Ansible and vcs, you can automatically set up your Autoware.
 
 Note: vcs stands for Version Control System, such as Git or Subversion.
 
-## How to create and custmize your autoware meta-repository
+## How to create and customize your autoware meta-repository
 
 ### 1. Fork autoware repository
 
@@ -25,9 +25,9 @@ git clone https://github.com/YOUR_NAME/autoware.git
 
 If you set up multiple types of vehicles, adding a suffix like `autoware.vehicle_A` or `autoware.vehicle_B` is recommended
 
-### 2. Custamize your autoware.repos for your enviroment
+### 2. Custoamize your autoware.repos for your environment
 
-You need to custmize `autoware.repos` for your own vehicle's Autoware.
+You need to customize `autoware.repos` for your own vehicle's Autoware.
 
 For example, if you want to customize the parameters in your `individual_params` or `autoware_launch` package to fit your vehicle, you can modify the configuration of each package and use them accordingly.
 
@@ -54,4 +54,4 @@ Please refer to the following documentation link for instructions on how to crea
 - [creating-vehicle-interface-package](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-vehicle-interface-for-ackerman-kinematic-model/)
 - [customizing-for-differential-drive-model](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/customizing-for-differential-drive-model/)
 
-Please remember to add all your custom packages, such as interfaces and descriptions, to your `autoware.repos` to ensure that your packages are properley included and managed within the Autoware repository.
+Please remember to add all your custom packages, such as interfaces and descriptions, to your `autoware.repos` to ensure that your packages are properly included and managed within the Autoware repository.
