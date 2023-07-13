@@ -50,19 +50,58 @@ This lingering brake may prevent or delay the initial motion of the ego vehicle.
 
 ## Throttle response
 
+For vehicles with throttle control,
+one of the main cause of start delays is due to the
+[throttle response](https://en.wikipedia.org/wiki/Throttle_response) of the vehicle.
 When pushing the throttle pedal, the wheels of the vehicle do not instantly start rotating.
 This is partly due to the inertia of the vehicle,
 but also to the motor which may take a significant time to start applying
-some torque to the wheels (see <https://en.wikipedia.org/wiki/Throttle_response>).
+some torque to the wheels.
 
-Increasing the initial throttle may reduce the start delay but can cause uncomfortably high initial accelerations.
+It may be possible to tune some vehicle side parameters to reduce this delay,
+but it is often done at the cost of reduced energy efficiency.
 
-## Conversion to actuation commands
+On the Autoware side, the only way to decrease this delay is to increase the initial throttle
+but this can cause uncomfortably high initial accelerations.
 
-Depending on the vehicle interface, it may be necessary to convert the control command calculated by Autoware into
-an actuation message suitable for the low level vehicle controls.
-This conversion can be a source of delays if the initial acceleration of Autoware is not converted to a high enough actuation value.
+## Initial acceleration and throttle
 
-Such conversion is usually calibrated automatically using the
-[`accel_brake_map`](https://autowarefoundation.github.io/autoware.universe/main/vehicle/accel_brake_map_calibrator/accel_brake_map_calibrator/) module,
-but manual tuning may be necessary to reduce the start delays.
+As we just discussed, for vehicles with throttle control, an increased initial throttle value can reduce the start delay.
+
+Since Autoware outputs an acceleration value, the conversion module
+[`raw_vehicle_cmd_converter`](https://autowarefoundation.github.io/autoware.universe/main/vehicle/raw_vehicle_cmd_converter/)
+is used to map the acceleration value from Autoware to a throttle value to be sent to the vehicle.
+Such mapping is usually calibrated automatically using the
+[`accel_brake_map_calibrator`](https://autowarefoundation.github.io/autoware.universe/main/vehicle/accel_brake_map_calibrator/accel_brake_map_calibrator/) module,
+but it may produce a low initial throttle which leads to high start delays.
+
+In order to increase the initial throttle, there are two options:
+increase the initial acceleration output by Autoware,
+or modify the acceleration to throttle mapping.
+
+The initial acceleration output by Autoware can be tuned in the
+[`motion_velocity_smoother`](https://autowarefoundation.github.io/autoware.universe/main/planning/motion_velocity_smoother/)
+with parameters `engage_velocity` and `engage_acceleration`.
+However, the [`vehicle_cmd_gate`](https://autowarefoundation.github.io/autoware.universe/main/control/vehicle_cmd_gate/)
+applies a filter on the control command to prevent too sudden changes in jerk and acceleration,
+limitting the maximum allowed acceleration while the ego vehicle is stopped.
+
+Alternatively, the mapping of acceleration can be tuned to increase the throttle corresponding to the initial acceleration.
+If we look at an example
+[acceleration map](https://github.com/tier4/autoware_individual_params/blob/main/individual_params/config/default/pacmod/accel_map.csv),
+it does the following conversion:
+when the ego velocity is `0` (first column), acceleration values between `0.631` (first row) and `0.836` (second row)
+are converted to a throttle between `0%` and `10%`.
+This means that any initial acceleration bellow `0.631m/s²` will not produce any throttle.
+Keep in mind that after tuning the acceleration map,
+it may be necessary to also update the
+[`brake map`](https://github.com/tier4/autoware_individual_params/blob/main/individual_params/config/default/pacmod/brake_map.csv).
+
+| default | *0*   | 1.39  | 2.78  | 4.17  | 5.56   | 6.94   | 8.33   | 9.72   | 11.11  | 12.5   | 13.89  |
+|---------|-------|-------|-------|-------|--------|--------|--------|--------|--------|--------|--------|
+| 0       | *0.631* | 0.11  | -0.04 | -0.04 | -0.041 | -0.096 | -0.137 | -0.178 | -0.234 | -0.322 | -0.456 |
+| 0.1     | *0.836* | 0.57  | 0.379 | 0.17  | 0.08   | 0.07   | 0.068  | 0.027  | -0.03  | -0.117 | -0.251 |
+| 0.2     | *1.129* | 0.863 | 0.672 | 0.542 | 0.4    | 0.38   | 0.361  | 0.32   | 0.263  | 0.176  | 0.042  |
+| 0.3     | *1.559* | 1.293 | 1.102 | 0.972 | 0.887  | 0.832  | 0.791  | 0.75   | 0.694  | 0.606  | 0.472  |
+| 0.4     | *2.176* | 1.909 | 1.718 | 1.588 | 1.503  | 1.448  | 1.408  | 1.367  | 1.31   | 1.222  | 1.089  |
+| 0.5     | *3.027* | 2.76  | 2.57  | 2.439 | 2.354  | 2.299  | 2.259  | 2.218  | 2.161  | 2.074  | 1.94   |
