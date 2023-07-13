@@ -33,8 +33,8 @@ Note that currently `twist_source` is set to Gyro Odometer as default, so you ca
 You can use YabLoc as a camera-based localization method.
 For more details on YabLoc, please refer to the [README of YabLoc](https://github.com/autowarefoundation/autoware.universe/blob/main/localization/yabloc/README.md) in autoware.universe.
 
-To use YabLoc as a pose_estimator, add `localization_mode:=camera` when launching Autoware.
-By default, the `localization_mode` is set to `lidar`.
+To use YabLoc as a pose_estimator, add `pose_source:=yabloc` when launching Autoware.
+By default, the `pose_source` is set to `ndt`.
 By specifying this command-line argument, YabLoc nodes will be automatically launched while the NDT nodes will not be started.
 
 Here is an example of a launch command:
