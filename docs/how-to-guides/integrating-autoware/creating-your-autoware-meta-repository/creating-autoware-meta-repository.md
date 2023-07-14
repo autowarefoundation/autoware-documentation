@@ -2,13 +2,13 @@
 
 ## What is Meta-repository?
 
-A meta-repository is a repository that manages multiple repositories, and Autoware is one of them.
+A meta-repository is a repository that manages multiple repositories, and [Autoware](https://github.com/autowarefoundation/autoware) is one of them.
 It serves as a centralized control point for referencing, configuring, and versioning other repositories.
 
-By using Ansible and vcs, you can automatically set up your Autoware.
+By using Ansible and VCS, you can automatically set up your Autoware.
 `autoware.repos` file manages the configuration of multiple repositories.
 
-Note: vcs stands for Version Control System, such as Git or Subversion.
+Note: VCS stands for Version Control System, such as Git or Subversion.
 
 ## How to create and customize your autoware meta-repository
 
