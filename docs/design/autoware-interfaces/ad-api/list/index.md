@@ -21,6 +21,7 @@
 - [/api/routing/set_route_points](./api/routing/set_route_points.md)
 - [/api/routing/state](./api/routing/state.md)
 - [/api/vehicle/dimensions](./api/vehicle/dimensions.md)
+- [/api/vehicle/doors/command](./api/vehicle/doors/command.md)
 - [/api/vehicle/doors/layout](./api/vehicle/doors/layout.md)
 - [/api/vehicle/doors/status](./api/vehicle/doors/status.md)
 - [/api/vehicle/kinematics](./api/vehicle/kinematics.md)
