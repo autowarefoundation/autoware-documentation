@@ -1,5 +1,6 @@
 # Types of Autoware AD API
 
+- [autoware_adapi_v1_msgs/msg/DoorCommand](./autoware_adapi_v1_msgs/msg/DoorCommand.md)
 - [autoware_adapi_v1_msgs/msg/DoorLayout](./autoware_adapi_v1_msgs/msg/DoorLayout.md)
 - [autoware_adapi_v1_msgs/msg/DoorStatus](./autoware_adapi_v1_msgs/msg/DoorStatus.md)
 - [autoware_adapi_v1_msgs/msg/DoorStatusArray](./autoware_adapi_v1_msgs/msg/DoorStatusArray.md)
@@ -30,6 +31,7 @@
 - [autoware_adapi_v1_msgs/srv/GetDoorLayout](./autoware_adapi_v1_msgs/srv/GetDoorLayout.md)
 - [autoware_adapi_v1_msgs/srv/GetVehicleDimensions](./autoware_adapi_v1_msgs/srv/GetVehicleDimensions.md)
 - [autoware_adapi_v1_msgs/srv/InitializeLocalization](./autoware_adapi_v1_msgs/srv/InitializeLocalization.md)
+- [autoware_adapi_v1_msgs/srv/SetDoorCommand](./autoware_adapi_v1_msgs/srv/SetDoorCommand.md)
 - [autoware_adapi_v1_msgs/srv/SetRoute](./autoware_adapi_v1_msgs/srv/SetRoute.md)
 - [autoware_adapi_v1_msgs/srv/SetRoutePoints](./autoware_adapi_v1_msgs/srv/SetRoutePoints.md)
 - [autoware_adapi_version_msgs/srv/InterfaceVersion](./autoware_adapi_version_msgs/srv/InterfaceVersion.md)
