@@ -12,7 +12,7 @@ Note: VCS stands for Version Control System, such as Git or Subversion.
 
 ## How to create and customize your autoware meta-repository
 
-### 1. Fork autoware repository
+### 1. Create autoware repository
 
 If you want to integrate Autoware into your vehicle, the first step is to create an Autoware meta-repository.
 
