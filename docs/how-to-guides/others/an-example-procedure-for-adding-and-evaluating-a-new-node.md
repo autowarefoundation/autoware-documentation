@@ -1,11 +1,10 @@
-# An example procedure for adding a new node - Case of localization
+# An example procedure for adding and evaluating a new node
 
 ## Overview
 
 This page provides a guide for evaluating Autoware when a new node is implemented, especially about developing a novel localization node.
 
-To keep things simple, an example of operation within AWSIM, as opposed to actual hardware, is provided.
-The same procedure could likely apply when operating on real hardware.
+The workflow involves initial testing and rosbag recording using a real vehicle or AWSIM, implementing the new node, subsequent testing using the recorded rosbag, and finally evaluating with a real vehicle or AWSIM.
 
 It is assumed that the method intended for addition has already been verified well with public datasets and so on.
 
@@ -50,35 +49,25 @@ If you want to replace this with a different approach, implement a node which pr
 Once the new node is implemented, it is time to evaluate it.
 [logging_simulator](https://autowarefoundation.github.io/autoware-documentation/main/tutorials/ad-hoc-simulation/rosbag-replay-simulation/) is a tool of how to evaluate the new node using the rosbag captured in step 2.
 
-It works by replacing the command to start Autoware with logging_simulator.
+When you run the logging_simulator, you can set `planning:=false` or `control:=false` to disable the launch of specific component nodes.
 
-For example, if the AWSIM-compatible execution command is
-
-```bash
-ros2 launch autoware_launch e2e_simulator.launch.xml ...
-```
-
-then the command to start logging_simulator is
-
-```bash
-ros2 launch autoware_launch logging_simulator.launch.xml ...
-```
+`ros2 launch autoware_launch logging_simulator.launch.xml ... planning:=false control:=false`
 
 After launching logging_simulator, the rosbag file obtained in step 2 should be replayed using `ros2 bag play <rosbag_file>`.
 
 If you remap the topics related to the localization that you want to verify this time, Autoware will use the data it is calculating this time instead of the data it recorded.
+Also, using the `--topics` option of `ros2 bag play`, you can publish only specific topics in rosbag.
 
 There is [ros2bag_extensions](https://github.com/tier4/ros2bag_extensions) available to filter the rosbag file and create a new rosbag file that contains only the topics you need.
 
 ## 5. Evaluating in a realtime environment
 
-Once you have sufficiently verified the behavior in the logging_simulator, let's run it as Autoware with new nodes added in the realtime environment (AWSIM in this case).
+Once you have sufficiently verified the behavior in the logging_simulator, let's run it as Autoware with new nodes added in the realtime environment.
 
 To debug Autoware, the method described at [debug-autoware](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/others/debug-autoware/) is useful.
 
 For reproducibility, you may want to fix the GoalPose.
-In such cases, consider using
-the [tier4_automatic_goal_rviz_plugin](https://github.com/autowarefoundation/autoware.universe/tree/main/common/tier4_automatic_goal_rviz_plugin).
+In such cases, consider using the [tier4_automatic_goal_rviz_plugin](https://github.com/autowarefoundation/autoware.universe/tree/main/common/tier4_automatic_goal_rviz_plugin).
 
 ## 6. Sharing the results
 
