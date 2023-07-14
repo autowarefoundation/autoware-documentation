@@ -35,5 +35,6 @@ Service providers can combine these use cases to define user stories and check i
 - [Localization](./features/localization.md)
 - [Motion](./features/motion.md)
 - [Planning](./features/planning-factors.md)
+- [Perception](./features/perception.md)
 - [Fail-safe](./features/fail-safe.md)
 - [Vehicle status](./features/vehicle-status.md)
