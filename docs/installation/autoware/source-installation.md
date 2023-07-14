@@ -101,8 +101,9 @@ sudo apt-get -y install git
 
    ```bash
    cd autoware
-   git pull
+   git pull <remote> <your branch>
    ```
+   `<remote>` is usually `git@github.com:autowarefoundation/autoware.git`
 
 2. Update the repositories.
 
