@@ -23,10 +23,10 @@ graph TD
     <font size=1>autoware_auto_perception_msgs/PredictedObjects</font size>"):::cls_per
     
     msg_tl("<font size=2><b>Traffic Light Response </b></font size>
-    <font size=1>TBD</font size>"):::cls_per
+    <font size=1>autoware_perception_msgs/TrafficSignalArray</font size>"):::cls_per
 
-    msg_tq("<font size=2><b>Traffic Light Recognition</b></font size>
-    <font size=1>autoware_perception_msgs/TrafficSignalArray</font size>"):::cls_plan
+    msg_tq("<font size=2><b>Traffic Light Query </b></font size>
+    <font size=1>TBD</font size>"):::cls_plan
     
 
     cmp_drv --> msg_img --> cmp_per
