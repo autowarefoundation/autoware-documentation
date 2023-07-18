@@ -2,7 +2,7 @@
 
 ## Related API
 
-- {{ link_ad_api('/api/perception/object_recognition/objects') }}
+- {{ link_ad_api('/api/perception/objects') }}
 
 ## Description
 

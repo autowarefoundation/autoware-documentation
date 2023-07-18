@@ -1,5 +1,5 @@
 ---
-title: /api/perception/object_recognition/objects
+title: /api/perception/objects
 status: v1.0.0
 method: realtime stream
 type:
