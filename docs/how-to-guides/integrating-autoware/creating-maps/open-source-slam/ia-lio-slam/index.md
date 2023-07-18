@@ -96,7 +96,7 @@ Check original repo link for example dataset.
 
 ## Contact
 
-- Maintainer: Kevin Jung (`Github: minwoo0611`)
+- Maintainer: Kevin Jung (`GitHub: minwoo0611`)
 
 ## Paper
 
