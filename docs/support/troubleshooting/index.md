@@ -202,30 +202,34 @@ Some modules may not be launched properly at runtime, and you may see "process h
 You can use the gdb tool to locate where the problem is occurring.
 
 Debug build the module you wish to analyze under your autoware workspace
+
 ```bash
 colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug --packages-up-to <the modules you wish to analyze> --catkin-skip-building-tests --symlink-install
 ```
+
 In this state, when a died process occurs when you run the autoware again, a core file will be created.
 Remeber to remove the size limit of the core file.
+
 ```bash
 ulimit -c unlimited
 ```
 
 Rename the core file as `core.<PID>`.
+
 ```bash
 echo core | sudo tee /proc/sys/kernel/core_pattern
 echo -n 1 | sudo tee /proc/sys/kernel/core_uses_pid
 ```
 
 Launch the autoware again. When a died process occurs, a core file will be created.
-'ll -ht' helps you to check if it was created.
+`ll -ht` helps you to check if it was created.
 
 Invoke gdb tool.
+
 ```bash
 gdb <executable file> <core file>
 #You can find the `<executable file>` in the error message.
 ```
 
-'bt' backtraces the stack of callbacks where a process dies.
-'f <frame number>' shows you the detail of a frame, and 'l' shows you the code.
-
+`bt` backtraces the stack of callbacks where a process dies.
+`f <frame number>` shows you the detail of a frame, and `l` shows you the code.
