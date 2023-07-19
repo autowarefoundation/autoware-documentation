@@ -1,5 +1,6 @@
 ---
 title: /api/vehicle/doors/status
+status: not released
 method: notification
 type:
   name: autoware_adapi_v1_msgs/msg/DoorStatusArray
@@ -10,5 +11,5 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Publish door status in array according to the door location information that received from vehicle info service.
+The status of each door such as opened or closed.
 {% endblock %}

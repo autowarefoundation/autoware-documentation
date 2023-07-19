@@ -68,7 +68,7 @@ Place source files and private header files.
 
 #### `test`
 
-Place source files for testing.
+Place source files for testing. See [unit testing](../../testing-guidelines/unit-testing.md) for details.
 
 ## Python package
 

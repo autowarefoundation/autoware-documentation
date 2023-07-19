@@ -13,7 +13,8 @@
 - [Determining component dependencies](others/determining-component-dependencies.md)
 - [Advanced usage of colcon](others/advanced-usage-of-colcon.md)
 - [Applying Clang-Tidy to ROS packages](others/applying-clang-tidy-to-ros-packages.md)
-- [Using Eagleye in Autoware](others/eagleye-integration-guide.md)
+- [Defining temporal performance metrics on components](others/defining-temporal-performance-metrics.md)
+- [An example procedure for adding and evaluating a new node](others/an-example-procedure-for-adding-and-evaluating-a-new-node.md)
 
 TODO: Write the following contents.
 

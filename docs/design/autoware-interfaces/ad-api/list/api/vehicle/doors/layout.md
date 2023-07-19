@@ -1,5 +1,6 @@
 ---
 title: /api/vehicle/doors/layout
+status: not released
 method: function call
 type:
   name: autoware_adapi_v1_msgs/srv/GetDoorLayout
@@ -14,5 +15,5 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Get the door layout. It is an array of pose for each door. The array index corresponds to the door status.
+Get the door layout. It is an array of roles and descriptions for each door.
 {% endblock %}
