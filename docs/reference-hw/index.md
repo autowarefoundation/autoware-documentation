@@ -1,0 +1,70 @@
+# Reference HW Design
+
+This document is created to describe and give additional information of the sensors and systems supported by Autoware.Auto software.
+
+All equipment listed in this document has available ROS2 drivers and has been tested by one or more of the community members on field in autonomous vehicle and robotics applications.
+
+The listed sensors and systems are not sold, developed or given direct technical support by the Autoware community. Having said that any ROS2 and Autoware related issue regarding the hardware usage could be asked using the community guidelines which found [here.](https://answers.ros.org/questions/ask/?tags=autoware)
+
+The documents consists of the sections listed below:
+
+- AD COMPUTERs
+
+  - ADLINK In-Vehicle Computers
+    - NXP In-Vehicle Computers
+    - NEOUSYS In-Vehicle Computers
+    - Crystal Rugged In-Vehicle Computers
+
+- LiDARs
+
+  - Velodyne 3D LiDAR Sensors
+  - Robosense 3D LiDAR Sensors
+  - HESAI 3D LiDAR Sensors
+  - Leishen 3D LiDAR Sensors
+  - Livox 3D LiDAR Sensors
+  - Ouster 3D LiDAR Sensors
+
+- RADARs
+
+  - Smartmicro Automotive Radars
+  - Aptiv Automotive Radars
+  - Continental Engineering Radars
+
+- CAMERAs
+
+  - FLIR Machine Vision Cameras
+  - Lucid Vision Cameras
+  - Allied Vision Cameras
+
+- Thermal CAMERAs
+
+  - FLIR Thermal Automotive Dev. Kit
+
+- IMU, AHRS & GNSS/INS
+
+  - NOVATEL GNSS/INS Sensors
+  - XSENS GNSS/INS & IMU Sensors
+  - SBG GNSS/INS & IMU Sensors
+  - Applanix GNSS/INS Sensors
+  - POLYEXPLORE GNSS/INS Sensors
+
+- Vehicle Drive By Wire Suppliers
+
+  - New Eagle DBW Solutions
+  - Dataspeed DBW Solutions
+  - AStuff Pacmod DBW Solutions
+  - Schaffler-Paravan Spacedrive DBW Solutions
+
+- Vehicle Platform Suppliers
+
+  - PIX MOVING Autonomous Vehicle Solutions
+  - Autonomoustuff AV Solutions
+  - NAVYA AV Solutions
+  - ZING ROBOTICS AV Solutions
+
+- Remote Drive
+
+  - FORT ROBOTICS
+  - LOGITECH
+
+- Full Drivers List
