@@ -41,6 +41,7 @@ Be aware that the following manuals are for _ver.22.R2_
 
 ## Technical Support
 
+<!-- cspell: ignore Hyeongseok　Jeon　-->
 Hyeongseok Jeon will give full technical support
 
 - hsjeon@morai.ai

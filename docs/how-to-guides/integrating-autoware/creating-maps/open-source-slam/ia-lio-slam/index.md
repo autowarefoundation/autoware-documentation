@@ -41,7 +41,7 @@
     ```
 
 - [GTSAM](https://github.com/borglab/gtsam/releases) (Georgia Tech Smoothing and Mapping library)
-
+<!-- cspell: ignore DGTSAM -->
   ```bash
   wget -O ~/Downloads/gtsam.zip https://github.com/borglab/gtsam/archive/4.0.2.zip
   cd ~/Downloads/ && unzip gtsam.zip -d ~/Downloads/
@@ -95,7 +95,7 @@
 Check original repo link for example dataset.
 
 ## Contact
-
+<!-- cspell: ignore minwoo -->
 - Maintainer: Kevin Jung (`GitHub: minwoo0611`)
 
 ## Paper
@@ -116,5 +116,5 @@ Part of the code is adapted from [LIO-SAM (IROS-2020)](https://github.com/Tixiao
 ```
 
 ## Acknowledgements
-
+<!-- cspell: ignore Englot  Ratti -->
 - IA-LIO-SAM is based on LIO-SAM (T. Shan, B. Englot, D. Meyers, W. Wang, C. Ratti, and D. Rus. LIO-SAM: Tightly-coupled Lidar Inertial Odometry via Smoothing and Mapping).
