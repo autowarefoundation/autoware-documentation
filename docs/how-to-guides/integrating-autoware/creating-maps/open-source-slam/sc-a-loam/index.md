@@ -20,7 +20,7 @@
 - GTSAM version 4.x.
 
 - If GTSAM is not installed, follow the steps below.
-
+<!-- cspell: ignore DGTSAM -->
   ```bash
     wget -O ~/Downloads/gtsam.zip https://github.com/borglab/gtsam/archive/4.0.2.zip
     cd ~/Downloads/ && unzip gtsam.zip -d ~/Downloads/
@@ -38,8 +38,8 @@
 
 ### 1) Build
 
-- First, install the abovementioned dependencies and follow below lines.
-
+- First, install the above mentioned dependencies and follow below lines.
+<!-- cspell: ignore scaloam -->
   ```bash
    mkdir -p ~/catkin_scaloam_ws/src
    cd ~/catkin_scaloam_ws/src
@@ -59,7 +59,7 @@
 - If encountering ghosting error or loop is not closed, change the scan context parameters.
 - Adjust the scan context settings with the parameters in the marked area.
 
-<p><img src="images/scancontext.png" width=719></p>
+<p><img src="images/scan_context.png" width=719></p>
 
 ### 3) Run
 
@@ -79,7 +79,7 @@ roslaunch aloam_velodyne aloam_mulran.launch
 
 ### Riverside 01, MulRan dataset
 
-- The MulRan dataset provides lidar scans (Ouster OS1-64, horizontally mounted, 10Hz) and consumer level gps (U-Blox EVK-7P, 4Hz) data.
+- The MulRan dataset provides lidar scans (Ouster OS1-64, horizontally mounted, 10Hz) and consumer level gps (u-blox EVK-7P, 4Hz) data.
 - About how to use (publishing data) data: see here [https://github.com/irapkaist/file_player_mulran](https://github.com/irapkaist/file_player_mulran)
 - example videos on Riverside 01 sequence.
 
@@ -95,7 +95,7 @@ roslaunch aloam_velodyne aloam_mulran.launch
 ### KITTI 05
 
 - For KITTI (HDL-64 sensor), run using the command
-
+<!-- cspell: ignore aloam -->
   ```bash
   roslaunch aloam_velodyne aloam_velodyne_HDL_64.launch # for KITTI dataset setting
   ```
