@@ -24,7 +24,7 @@
 
 - ROS
 - PCL
-- Gtsam
+- GTSAM
 
 ```bash
 wget -O ~/Downloads/gtsam.zip https://github.com/borglab/gtsam/archive/4.0.0-alpha2.zip
@@ -83,15 +83,15 @@ sudo make install
 
   - Example result captures
     <p><img src="images/kaist03.png" width=712pix></p>
-  - [download the KAIST03 pcd map](https://www.dropbox.com/s/w599ozdg7h6215q/KAIST03.pcd?dl=0) made by FAST-LIO-SLAM, 500MB
+  - [download the KAIST 03 pcd map](https://www.dropbox.com/s/w599ozdg7h6215q/KAIST03.pcd?dl=0) made by FAST-LIO-SLAM, 500MB
 
 - [Example Video 2](https://youtu.be/94mC05PesvQ) (Riverside 02 sequence of [MulRan dataset](https://sites.google.com/view/mulran-pr/dataset))
   - Example result captures
     <p><img src="images/riverside02.png" width=712pix></p>
-  - [download the Riverisde02 pcd map](https://www.dropbox.com/s/1aolth7ry4odxo4/Riverside02.pcd?dl=0) made by FAST-LIO-SLAM, 400MB
+  - [download the Riverside 02 pcd map](https://www.dropbox.com/s/1aolth7ry4odxo4/Riverside02.pcd?dl=0) made by FAST-LIO-SLAM, 400MB
 
 ## Acknowledgements
-
+<!-- cspell: ignore Giseop -->
 - Thanks for [FAST_LIO](https://github.com/hku-mars/FAST_LIO) authors.
 - You may have an interest in [this version of FAST-LIO + Loop closure](https://github.com/yanliang-wang/FAST_LIO_LC), implemented by [yanliang-wang](https://github.com/yanliang-wang)
 - Maintainer: Giseop Kim (`paulgkim@kaist.ac.kr`)
