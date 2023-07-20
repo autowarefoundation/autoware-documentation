@@ -23,7 +23,7 @@
 
 - ROS
 - PCL
-- Gtsam
+- GTSAM
 
 ```bash
 wget -O ~/Downloads/gtsam.zip https://github.com/borglab/gtsam/archive/4.0.0-alpha2.zip
@@ -46,10 +46,10 @@ catkin_make
 ```
 
 ### 2) Set parameters
-
+<!-- cspell: ignore Scancontext -->
 - Set imu and lidar topic on `include/utility.h`
 - Set lidar properties on `include/utility.h`
-- Set scancontex settings on `include/Scancontext.h`
+- Set scan context settings on `include/Scancontext.h`
 
 (Do not forget to rebuild after setting parameters.)
 
@@ -69,8 +69,8 @@ roslaunch lego_loam run.launch
 - <a href="https://youtu.be/MtQ8-PiBK3E?t=194"> Video 1: DCC (MulRan dataset)</a>
 - <a href="https://youtu.be/p-NsVs8GATA?t=436"> Video 2: Riverside (MulRan dataset) </a>
 - <a href="https://youtu.be/bEqCehMJ_Hk"> Video 3: KAIST (MulRan dataset) </a>
-
-<p><img src="images/mulran_merged.png" width=719></p>
+<!-- cspell: ignore pangyo -->
+<p><img src="images/MulRan_merged.png" width=719></p>
 <p><img src="images/pangyo_merged.png" width=719></p>
 
 ## MulRan dataset
@@ -104,5 +104,5 @@ and
 ```
 
 ## Contact
-
+<!-- cspell: ignore Giseop -->
 - Maintainer: Giseop Kim (`paulgkim@kaist.ac.kr`)

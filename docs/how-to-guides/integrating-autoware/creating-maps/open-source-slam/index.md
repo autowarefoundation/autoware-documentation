@@ -1,6 +1,6 @@
 # Available Open Source SLAM
 
-This page provides the list of available open source Simultaneous Localization And Mapping (SLAM) implementation that can be used to generete a point cloud (.pcd) map file.
+This page provides the list of available open source Simultaneous Localization And Mapping (SLAM) implementation that can be used to generate a point cloud (.pcd) map file.
 
 ## Selecting which implementation to use
 
@@ -15,6 +15,8 @@ The notable open-source SLAM implementations that are based on ROS 1 include [hd
 Most of these algorithms already have a built-in loop-closure and pose graph optimization. However, if the built-in, automatic loop-closure fails or does not work correctly, you can use [Interactive SLAM](https://github.com/SMRT-AIST/interactive_slam) to adjust and optimize a pose graph manually.
 
 ## List of Third Party SLAM Implementations
+
+<!-- cspell: ignore UGICP ISCLOAM Suitesparse -->
 
 <br>
 <br>

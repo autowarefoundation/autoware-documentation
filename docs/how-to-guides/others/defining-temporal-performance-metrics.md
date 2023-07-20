@@ -37,7 +37,7 @@ The page does not aim to provide instructions on how to use these tools or measu
 As mentioned above, the configuration of Autoware varies by the product type, ODD, and other factors. The variety of configurations makes it difficult to define the uniform metrics for evaluating Autoware.  
 However, the policies used to define them are basically reused even when the configuration changes. Each of temporal performance metrics is categorized into two types: **execution frequency** and **response time**. Although there are many types of metrics, such as communication latency, the only two types are considered for simplicity.  
 Execution frequency is observed using rate of Inter-Process Communication (IPC) messages. You will find an enormous number of messages in Autoware, but you don't have to take care of all. Some messages might be critical to functionality and they should be chosen for evaluation.  
-Response time is duration elapsed through a series of processing. A series of processing is referred to as a path. Response time is calculated from timestamps of start and end of a path. Althought many paths can be defined in Autoware, you have to choose significant paths.
+Response time is duration elapsed through a series of processing. A series of processing is referred to as a path. Response time is calculated from timestamps of start and end of a path. Although many paths can be defined in Autoware, you have to choose significant paths.
 
 As a hint, here are some characteristics of message and path in order to choose metrics.
 
@@ -72,7 +72,7 @@ The following three policies assist in selecting the top-level performance metri
 - Showing the minimum metrics for the Vehicle Interface, as they may vary depending on the target vehicle
 
 Additionally, it is assumed that algorithms are implemented as multiple nodes and function as a pipeline processing system.
-
+<!-- cspell: ignore AWOV OSEG -->
 | ID       | Representation in the model                          | Metric meaning                                                                                                   | Related functionality | Reference value | Reason to choose it as a metric                                                                               | Note                                                               |
 | -------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------- | --------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
 | AWOV-001 | **Message rate** from CPA #9 to CPA #18              | Update rate of result from Prediction to Planning.                                                               | Perception            | 10 Hz           | Planning relies on fresh and up-to-date perceived data from Perception for creating accurate trajectory.      |                                                                    |
