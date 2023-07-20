@@ -61,7 +61,7 @@ This is an example of the several drivetrain types in the vehicle interface.
 | JPN TAXI     | Steering angle       | Accel/brake pedal position                                        | Acceleration lookup table conversion for longitudinal                                                                                              |
 | GSM8         | Steering EPS voltage | Acceleration motor voltage, Deceleration brake hydraulic pressure | lookup table and PID conversion for lateral and longitudinal                                                                                       |
 | YMC Golfcart | Steering angle       | Velocity                                                          |                                                                                                                                                    |
-| Logiee      | yaw rate             | Velocity                                                          |                                                                                                                                                    |
+| Logiee       | yaw rate             | Velocity                                                          |                                                                                                                                                    |
 | F1 TENTH     | Steering angle       | Motor RPM                                                         | [interface code](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/blob/master/src/drivers/vesc_interface/src/vesc_interface.cpp) |
 
 ## Control Feature Design

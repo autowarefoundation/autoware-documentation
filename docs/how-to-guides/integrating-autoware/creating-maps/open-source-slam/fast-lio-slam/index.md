@@ -91,7 +91,9 @@ sudo make install
   - [download the Riverside 02 pcd map](https://www.dropbox.com/s/1aolth7ry4odxo4/Riverside02.pcd?dl=0) made by FAST-LIO-SLAM, 400MB
 
 ## Acknowledgements
+
 <!-- cspell: ignore Giseop -->
+
 - Thanks for [FAST_LIO](https://github.com/hku-mars/FAST_LIO) authors.
 - You may have an interest in [this version of FAST-LIO + Loop closure](https://github.com/yanliang-wang/FAST_LIO_LC), implemented by [yanliang-wang](https://github.com/yanliang-wang)
 - Maintainer: Giseop Kim (`paulgkim@kaist.ac.kr`)
