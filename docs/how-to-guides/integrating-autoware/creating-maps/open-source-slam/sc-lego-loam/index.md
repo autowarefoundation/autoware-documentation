@@ -46,7 +46,9 @@ catkin_make
 ```
 
 ### 2) Set parameters
+
 <!-- cspell: ignore Scancontext -->
+
 - Set imu and lidar topic on `include/utility.h`
 - Set lidar properties on `include/utility.h`
 - Set scan context settings on `include/Scancontext.h`
@@ -69,9 +71,9 @@ roslaunch lego_loam run.launch
 - <a href="https://youtu.be/MtQ8-PiBK3E?t=194"> Video 1: DCC (MulRan dataset)</a>
 - <a href="https://youtu.be/p-NsVs8GATA?t=436"> Video 2: Riverside (MulRan dataset) </a>
 - <a href="https://youtu.be/bEqCehMJ_Hk"> Video 3: KAIST (MulRan dataset) </a>
-<!-- cspell: ignore pangyo -->
-<p><img src="images/MulRan_merged.png" width=719></p>
-<p><img src="images/pangyo_merged.png" width=719></p>
+  <!-- cspell: ignore pangyo -->
+  <p><img src="images/MulRan_merged.png" width=719></p>
+  <p><img src="images/pangyo_merged.png" width=719></p>
 
 ## MulRan dataset
 
@@ -104,5 +106,7 @@ and
 ```
 
 ## Contact
+
 <!-- cspell: ignore Giseop -->
+
 - Maintainer: Giseop Kim (`paulgkim@kaist.ac.kr`)
