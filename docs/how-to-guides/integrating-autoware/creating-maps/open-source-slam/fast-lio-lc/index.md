@@ -51,7 +51,9 @@
 ```
 
 ### 2) Set parameters
+
 <!-- cspell: ignore mulran -->
+
 - After downloading the repository, change topic and sensor settings on the config file (`workspace/src/FAST_LIO_LC/FAST_LIO/config/ouster64_mulran.yaml`) with the lidar topic name in your bag file.
 
  <img src="images/config_info.png" width="712" >
@@ -63,7 +65,9 @@
 - To enable auto-save, `pcd_save_enable` must be `1` from the launch file (`workspace/src/FAST_LIO_LC/FAST_LIO/launch/mapping_ouster64_mulran.launch`).
 
 ### 3) Run
+
 <!-- cspell: ignore aloam fastlio -->
+
 - For Ouster OS1-64
 
       # open new terminal: run FAST-LIO
@@ -91,6 +95,7 @@
 Check original repository link for example dataset.
 
 ## Contact
+
 <!-- cspell: ignore  Yanliang -->
 
 - Maintainer: Yanliang Wang (`wyl410922@qq.com`)

@@ -72,7 +72,9 @@ The following three policies assist in selecting the top-level performance metri
 - Showing the minimum metrics for the Vehicle Interface, as they may vary depending on the target vehicle
 
 Additionally, it is assumed that algorithms are implemented as multiple nodes and function as a pipeline processing system.
+
 <!-- cspell: ignore AWOV OSEG -->
+
 | ID       | Representation in the model                          | Metric meaning                                                                                                   | Related functionality | Reference value | Reason to choose it as a metric                                                                               | Note                                                               |
 | -------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------- | --------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
 | AWOV-001 | **Message rate** from CPA #9 to CPA #18              | Update rate of result from Prediction to Planning.                                                               | Perception            | 10 Hz           | Planning relies on fresh and up-to-date perceived data from Perception for creating accurate trajectory.      |                                                                    |

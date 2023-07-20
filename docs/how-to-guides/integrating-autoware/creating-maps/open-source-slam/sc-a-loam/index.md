@@ -20,7 +20,7 @@
 - GTSAM version 4.x.
 
 - If GTSAM is not installed, follow the steps below.
-<!-- cspell: ignore DGTSAM -->
+  <!-- cspell: ignore DGTSAM -->
   ```bash
     wget -O ~/Downloads/gtsam.zip https://github.com/borglab/gtsam/archive/4.0.2.zip
     cd ~/Downloads/ && unzip gtsam.zip -d ~/Downloads/
@@ -39,7 +39,8 @@
 ### 1) Build
 
 - First, install the above mentioned dependencies and follow below lines.
-<!-- cspell: ignore scaloam -->
+  <!-- cspell: ignore scaloam -->
+
   ```bash
    mkdir -p ~/catkin_scaloam_ws/src
    cd ~/catkin_scaloam_ws/src
@@ -95,7 +96,8 @@ roslaunch aloam_velodyne aloam_mulran.launch
 ### KITTI 05
 
 - For KITTI (HDL-64 sensor), run using the command
-<!-- cspell: ignore aloam -->
+  <!-- cspell: ignore aloam -->
+
   ```bash
   roslaunch aloam_velodyne aloam_velodyne_HDL_64.launch # for KITTI dataset setting
   ```
