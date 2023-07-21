@@ -26,14 +26,16 @@ Here Autoware decides not to change lanes a second time due to the obstacle, so 
 
 ## Architecture
 
-Modules that support RTC use the merged decisions shown in the following architecture instead of their own module decisions.
-These modules provides [cooperation status](../types/autoware_adapi_v1_msgs/msg/CooperationStatus.md) in [velocity factors or steering factors](./planning-factors.md),
-and can receive the operator decision and cooperation policy.
+Modules that support RTC have the operator decision and cooperation policy in addition to the module decision as shown below.
+These modules use the merged decision instead of module decision when planning vehicle behavior.
 The cooperation policy is used when there is no operator decision and has a default value set by the system settings.
+If the module supports RTC, these information are available in [velocity factors or steering factors](./planning-factors.md) as [cooperation status](../types/autoware_adapi_v1_msgs/msg/CooperationStatus.md) .
 
 ![cooperation-architecture](./cooperation/architecture.drawio.svg)
 
-The merged decision is determined from the module decision, operator decision, and cooperation policy.
+## Sequence
+
+T.B.D.
 
 ## Decisions
 
