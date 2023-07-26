@@ -27,17 +27,32 @@ Here Autoware decides not to change lanes a second time due to the obstacle, so 
 ## Architecture
 
 Modules that support RTC have the operator decision and cooperation policy in addition to the module decision as shown below.
-These modules use the merged decision instead of module decision when planning vehicle behavior.
+These modules use the merged decision that is determined by these values when planning vehicle behavior.
+See decisions section for details of these values.
 The cooperation policy is used when there is no operator decision and has a default value set by the system settings.
-If the module supports RTC, these information are available in [velocity factors or steering factors](./planning-factors.md) as [cooperation status](../types/autoware_adapi_v1_msgs/msg/CooperationStatus.md) .
+If the module supports RTC, these information are available in [velocity factors or steering factors](./planning-factors.md) as [cooperation status](../types/autoware_adapi_v1_msgs/msg/CooperationStatus.md).
 
 ![cooperation-architecture](./cooperation/architecture.drawio.svg)
 
 ## Sequence
 
-T.B.D.
+Here is an example sequence that overrides the scene decision to force a lane change. This assumes the second scene in the example situation given earlier.
+
+1. A module creates a scene with generated ID BBBB when approaching a place where a lane change is needed.
+2. The scene determines the module decision from the current situation.
+3. The scene determines the merged decision. Since there is no operator decision, so the cooperation policy is used.
+4. The scene plans the vehicle to keep the lane.
+5. The scene sends a cooperation status.
+6. The operator receives the cooperation status.
+7. The operator sends a cooperation command.
+8. The scene receives the cooperation command and update the operator decision.
+9. The scene updates the module decision from the current situation.
+10. The scene updates the merged decision. The received operator decision is used.
+11. The scene plans the vehicle to change the lane.
 
 ## Decisions
+
+There are four variables used for RTC, each of which takes the value shown in the table.
 
 | Name               | Values                                 |
 | ------------------ | -------------------------------------- |
@@ -46,7 +61,6 @@ T.B.D.
 | operator decision  | deactivate, activate, autonomous, none |
 | cooperation policy | required, optional                     |
 
-The module decision is either deactivate or activate. The operator decision is also evaluated in one of these.
 Its meaning depends on the module and is shown in the table below.
 These decisions are designed to assign behavior to activate that is considered high risk.
 
