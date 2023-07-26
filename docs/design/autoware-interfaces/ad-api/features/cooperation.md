@@ -52,49 +52,40 @@ Here is an example sequence that overrides the scene decision to force a lane ch
 
 ## Decisions
 
-There are four variables used for RTC, each of which takes the value shown in the table.
+The merged decision is determined by the module decision, operator decision, and cooperation policy, each of which takes the value shown in the table below.
 
-| Name               | Values                                 |
+| Status             | Values                                 |
 | ------------------ | -------------------------------------- |
 | merged decision    | deactivate, activate                   |
 | module decision    | deactivate, activate                   |
 | operator decision  | deactivate, activate, autonomous, none |
 | cooperation policy | required, optional                     |
 
-Its meaning depends on the module and is shown in the table below.
-These decisions are designed to assign behavior to activate that is considered high risk.
+The meanings of these values are as follows. Note that the cooperation policy is common per module, so changing it will affect all scenes in the same module.
 
-| Factor Type     | Deactivate    | Activate        |
-| --------------- | ------------- | --------------- |
-| velocity (stop) | stop          | pass            |
-| steering (path) | keep the path | change the path |
+| Value      | Description                                                                                |
+| ---------- | ------------------------------------------------------------------------------------------ |
+| deactivate | An operator/module decision to plan vehicle behavior with priority on safety.              |
+| activate   | An operator/module decision to plan vehicle behavior with priority on driving.             |
+| autonomous | An operator decision that follows the module decision.                                     |
+| none       | An initial value for operator decision, indicating that there is no operator decision yet. |
+| required   | A policy that requires the operator decision to continue driving.                          |
+| optional   | A policy that does not require the operator decision to continue driving.                  |
 
-The operator decision is actually either deactivate, activate, autonomous, or none.
-If the operator selects deactivate or activate, the module decision is ignored and the operator decision is used instead.
-If the operator selects autonomous, the module decision is used.
-The none is the initial value of the operator decision and means that the operator has not selected any decision.
-If the operator decision is none, it is evaluated according to the cooperation policies set for each module type.
+The following flow is how the merged decision is determined.
 
-The cooperation policy is either required or optional, and is initialized by system settings.
-The required policy evaluates none decision as deactivate to minimize risk.
-Therefore, the operator decision is required to continue driving.
-The optional policy evaluates none decision as autonomous to continue driving.
-This allows the vehicle to drive without the operator decision.
-The cooperation policies can also be changed by the operator.
-Note that this setting is common per module, so changing it will affect all scenes in the same module.
-
-![cooperation-state](./cooperation/state.drawio.svg)
+![cooperation-decisions](./cooperation/decisions.drawio.svg)
 
 ## Examples
 
 This is an example of cooperation for lane change module. The behaviors by the combination of decisions are as follows.
 
-| Operator decision | Policy   | Module decision | Description                                                                                                    |
-| ----------------- | -------- | --------------- | -------------------------------------------------------------------------------------------------------------- |
-| deactivate        | -        | -               | The operator instructs to keep lane regardless the module decision. So it keeps lane by operator decision.     |
-| activate          | -        | -               | The operator instructs to change lane regardless the module decision. So it changes lane by operator decision. |
-| autonomous        | -        | deactivate      | The operator instructs to follow the module decision. So it keeps lane by module decision.                     |
-| autonomous        | -        | activate        | The operator instructs to follow the module decision. So it changes lane by module decision.                   |
-| none              | required | -               | The required policy is used because no operator instruction. So it keeps lane the same as deactivate.          |
-| none              | optional | deactivate      | The optional policy is used because no operator instruction. So it keeps lane by module decision.              |
-| none              | optional | activate        | The optional policy is used because no operator instruction. So it change lane by module decision.             |
+| Operator decision | Policy   | Module decision | Description                                                                                                                     |
+| ----------------- | -------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| deactivate        | -        | -               | The operator instructs to keep lane regardless the module decision. So the vehicle keeps the lane by the operator decision.     |
+| activate          | -        | -               | The operator instructs to change lane regardless the module decision. So the vehicle changes the lane by the operator decision. |
+| autonomous        | -        | deactivate      | The operator instructs to follow the module decision. So the vehicle keeps the lane by the module decision.                     |
+| autonomous        | -        | activate        | The operator instructs to follow the module decision. So the vehicle changes the lane by the module decision.                   |
+| none              | required | -               | The required policy is used because no operator instruction. So the vehicle keeps the lane by the cooperation policy.           |
+| none              | optional | deactivate      | The optional policy is used because no operator instruction. So the vehicle keeps the lane by the module decision.              |
+| none              | optional | activate        | The optional policy is used because no operator instruction. So the vehicle change the lane by the module decision.             |
