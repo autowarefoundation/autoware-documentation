@@ -83,7 +83,6 @@ pcd_00.pcd: [1200, 2500] # -> 1200 < x < 1300, 2500 < y < 2650
 pcd_01.pcd: [1300, 2500] # -> 1300 < x < 1400, 2500 < y < 2650
 pcd_02.pcd: [1200, 2650] # -> 1200 < x < 1300, 2650 < y < 2800
 pcd_03.pcd: [1400, 2650] # -> 1400 < x < 1500, 2650 < y < 2800
-...
 ```
 
 You may use [pointcloud_divider](https://github.com/MapIV/pointcloud_divider) from MAP IV for dividing pointcloud map as well as generating the compatible metadata.yaml.
@@ -96,7 +95,7 @@ To load multiple PCD files when launching Autoware, specify the name of the dire
 pointcloud_map_file:=pointcloud_map
 ```
 
-This argument is concatenated with the `map_path` argument given to Autoware, and all *.pcd files located in that directory will be loaded.
+This argument is concatenated with the `map_path` argument given to Autoware, and all \*.pcd files located in that directory will be loaded.
 
 #### Vector Map
 
