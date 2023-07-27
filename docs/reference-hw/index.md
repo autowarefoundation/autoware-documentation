@@ -50,6 +50,7 @@ The documents consists of the sections listed below:
 
 - Vehicle Drive By Wire Suppliers
   <!-- cspell: ignore Paravan -->
+
   - New Eagle DBW Solutions
   - Dataspeed DBW Solutions
   - AStuff Pacmod DBW Solutions
