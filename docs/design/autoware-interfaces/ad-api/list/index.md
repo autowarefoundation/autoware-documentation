@@ -13,6 +13,7 @@
 - [/api/operation_mode/disable_autoware_control](./api/operation_mode/disable_autoware_control.md)
 - [/api/operation_mode/enable_autoware_control](./api/operation_mode/enable_autoware_control.md)
 - [/api/operation_mode/state](./api/operation_mode/state.md)
+- [/api/perception/objects](./api/perception/objects.md)
 - [/api/planning/steering_factors](./api/planning/steering_factors.md)
 - [/api/planning/velocity_factors](./api/planning/velocity_factors.md)
 - [/api/routing/clear_route](./api/routing/clear_route.md)
