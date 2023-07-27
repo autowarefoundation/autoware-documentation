@@ -61,12 +61,12 @@ If it is split into multiple files, Autoware assumes the following directory str
 ```bash
 sample-map-rosbag
 ├── lanelet2_map.osm
-├── pointcloud_map
-├── pcd_00.pcd
-├── pcd_01.pcd
-├── pcd_02.pcd
-├── ...
-└── pointcloud_map_metadata.yaml
+└── pointcloud_map
+    ├── pcd_00.pcd
+    ├── pcd_01.pcd
+    ├── pcd_02.pcd
+    ├── ...
+    └── pointcloud_map_metadata.yaml
 ```
 
 Note that, if you split the map into multiple files, you must meet the following additional conditions:
@@ -79,13 +79,24 @@ Metadata should look like as follows:
 ```yaml
 x_resolution: 100.0
 y_resolution: 150.0
-A.pcd: [1200, 2500] # -> 1200 < x < 1300, 2500 < y < 2650
-B.pcd: [1300, 2500] # -> 1300 < x < 1400, 2500 < y < 2650
-C.pcd: [1200, 2650] # -> 1200 < x < 1300, 2650 < y < 2800
-D.pcd: [1400, 2650] # -> 1400 < x < 1500, 2650 < y < 2800
+pcd_00.pcd: [1200, 2500] # -> 1200 < x < 1300, 2500 < y < 2650
+pcd_01.pcd: [1300, 2500] # -> 1300 < x < 1400, 2500 < y < 2650
+pcd_02.pcd: [1200, 2650] # -> 1200 < x < 1300, 2650 < y < 2800
+pcd_03.pcd: [1400, 2650] # -> 1400 < x < 1500, 2650 < y < 2800
+...
 ```
 
 You may use [pointcloud_divider](https://github.com/MapIV/pointcloud_divider) from MAP IV for dividing pointcloud map as well as generating the compatible metadata.yaml.
+
+To load multiple PCD files when launching Autoware, specify the name of the directory containing the PCD files as an argument.
+
+[Example]
+
+```bash
+pointcloud_map_file:=pointcloud_map
+```
+
+This argument is concatenated with the `map_path` argument given to Autoware, and all *.pcd files located in that directory will be loaded.
 
 #### Vector Map
 
