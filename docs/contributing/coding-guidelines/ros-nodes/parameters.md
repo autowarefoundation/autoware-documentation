@@ -69,6 +69,7 @@ The parameter file is minimal as there is no need to provide the user with addit
     INSERT_PARAMETER_1_NAME: INSERT_PARAMETER_1_VALUE
     INSERT_PARAMETER_N_NAME: INSERT_PARAMETER_N_VALUE
 ```
+
 Note: `/**` is used instead of the explicit node namespace, this allows the parameter file to be passed to a ROS node which has been [remapped](https://design.ros2.org/articles/static_remapping.html).
 
 To adapt the template to the ROS node, replace each `INSERT_PARAMETER_..._NAME` and `INSERT_PARAMETER_..._VALUE` for all parameters. Each [declare_parameter(...)](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb) takes one parameter as input. All the parameter files should have the `.param.yaml` suffix so that the auto-format can be applied properly.
