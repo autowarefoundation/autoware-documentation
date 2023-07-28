@@ -49,8 +49,8 @@ Your GNSS ROS driver must publish the following messages:
 
 - `sensor_msgs/msg/NavSatFix`: This message contains latitude, longitude, and height information.
 - `geometry_msgs/msg/TwistWithCovarianceStamped`: This message contains gnss doppler velocity information.
-
-Eagleye has been tested with the following example GNSS ROS drivers: ublox_gps and septentrio_gnss_driver. The settings needed for each of these drivers are as follows:
+  <!-- cspell: ignore ublox -->
+  Eagleye has been tested with the following example GNSS ROS drivers: ublox_gps and septentrio_gnss_driver. The settings needed for each of these drivers are as follows:
 
 | GNSS ROS drivers                                                                              | modification                                                                                                                                                                     |
 | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
