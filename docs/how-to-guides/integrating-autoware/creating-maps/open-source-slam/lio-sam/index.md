@@ -27,7 +27,7 @@
 
 - ROS
 - PCL
-- [Gtsam](https://gtsam.org/get_started/) (Georgia Tech Smoothing and Mapping library)
+- [GTSAM](https://gtsam.org/get_started/) (Georgia Tech Smoothing and Mapping library)
 
   ```bash
   sudo add-apt-repository ppa:borglab/gtsam-release-4.0
