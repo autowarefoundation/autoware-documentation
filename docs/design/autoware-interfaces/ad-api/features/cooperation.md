@@ -10,10 +10,10 @@
 
 ## Description
 
-Request to cooperate (RTC) is a feature that the operator supports the decision in autonomous driving mode.
-The planning component manages each situation that requires decision as a scene.
+Request to cooperate (RTC) is a feature that enables a human operator to support the decision in autonomous driving mode.
 Autoware usually drives the vehicle using its own decisions, but the operator may prefer to make their decisions in experiments and complex situations.
 
+The planning component manages each situation that requires decision as a scene.
 Each scene has an ID that doesn't change until the scene is completed or canceled.
 The operator can override the decision of the target scene using this ID.
 In practice, the user interface application can hides the specification of the ID and provides an abstracted interface to the operator.
