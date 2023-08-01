@@ -33,7 +33,7 @@ The Planning component consists of the following sub-components:
 - **Mission Planning**: Calculates the route based on the given goal and map information.
 - **Scenario Planning**: Determines the trajectory based on the current scenario, such as Lane Driving or Parking.
   - **Lane Driving**: Calculates the trajectory for driving within constructed lanes.
-    - **Behavior Planner**: Calculates suitable trajectory based on safety considerations and traffic rules.
+    - **Behavior Planner**: Calculates suitable path based on safety considerations and traffic rules.
     - **Motion Planner**: Calculates suitable trajectory for the vehicle by taking into account safety factors, vehicle motion considerations, and instructions from the behavior planner.
   - **Parking**: Calculates the trajectory for parking in unstructured areas.
 - **Validation**: Verifies the safety of the trajectory.
