@@ -43,7 +43,7 @@ Note that vehicle-specific values such as pedal positions and low-level informat
 
 Autoware is designed to be an autonomous driving platform able to accommodate vehicles with various drivetrain types.
 
-This is an explanation of how Autoware handles the standardization of systems with different vehicle drivetrains. The interfaces for vehicle drivetrains are diverse, including steering angle, steering angular velocity, steering torque, speed, accel/brake pedals, and brake pressure. To accommodate these differences, Autoware adds an adapter module between the control component and the vehicle interface. This module performs the conversion between the proprietary message types used by the vehicle (such as brake pressure) and the generic types used by Autoware (such as desired acceleration). By providing this conversion information, the differences in vehicle drivetrain can be accommodated.
+This is an explanation of how Autoware handles the standardization of systems with different vehicle drivetrain. The interfaces for vehicle drivetrain are diverse, including steering angle, steering angular velocity, steering torque, speed, accel/brake pedals, and brake pressure. To accommodate these differences, Autoware adds an adapter module between the control component and the vehicle interface. This module performs the conversion between the proprietary message types used by the vehicle (such as brake pressure) and the generic types used by Autoware (such as desired acceleration). By providing this conversion information, the differences in vehicle drivetrain can be accommodated.
 
 If the information is not known in advance, an automatic calibration tool can be used. Calibration will occur within limited degrees of freedom, generating the information necessary for the drivetrain conversion automatically.
 
@@ -61,7 +61,7 @@ This is an example of the several drivetrain types in the vehicle interface.
 | JPN TAXI     | Steering angle       | Accel/brake pedal position                                        | Acceleration lookup table conversion for longitudinal                                                                                              |
 | GSM8         | Steering EPS voltage | Acceleration motor voltage, Deceleration brake hydraulic pressure | lookup table and PID conversion for lateral and longitudinal                                                                                       |
 | YMC Golfcart | Steering angle       | Velocity                                                          |                                                                                                                                                    |
-| Logiees      | yaw rate             | Velocity                                                          |                                                                                                                                                    |
+| Logiee       | yaw rate             | Velocity                                                          |                                                                                                                                                    |
 | F1 TENTH     | Steering angle       | Motor RPM                                                         | [interface code](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/blob/master/src/drivers/vesc_interface/src/vesc_interface.cpp) |
 
 ## Control Feature Design

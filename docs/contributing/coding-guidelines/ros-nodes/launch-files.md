@@ -2,7 +2,7 @@
 
 ## Overview
 
-Autoware use ROS2 launch system to startup the software. Please see the [official documentation](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html) to get a basic understanding about ROS 2 Launch system if you are not familiar with it.
+Autoware use ROS 2 launch system to startup the software. Please see the [official documentation](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html) to get a basic understanding about ROS 2 Launch system if you are not familiar with it.
 
 ## Guideline
 
@@ -60,7 +60,7 @@ In order to automatically load the newly added package when starting Autoware, y
 
 ## Parameter management
 
-Another purpose of introducing the `autoware_launch` repository is to facilitate the parameter management of Autoware. Thinking about this situation: if we want to integrate Autoware to a specific vehicle and modify parameters, we have to fork `autoware.universe` which also has a lot of code other than parameters and is frequently updated by developers. By intergrating these parameters in `autoware_launch`, we can customize the Autoware parameters just by forking `autoware_launch` repository. Taking the localization module as an examples:
+Another purpose of introducing the `autoware_launch` repository is to facilitate the parameter management of Autoware. Thinking about this situation: if we want to integrate Autoware to a specific vehicle and modify parameters, we have to fork `autoware.universe` which also has a lot of code other than parameters and is frequently updated by developers. By integrating these parameters in `autoware_launch`, we can customize the Autoware parameters just by forking `autoware_launch` repository. Taking the localization module as an examples:
 
 1. all the “launch parameters” for localization component is listed in the files under `autoware_launch/autoware_launch/config/localization`.
 2. the "launch parameters" file paths are set in the `autoware_launch/autoware_launch/launch/components/tier4_localization_component.launch.xml` file.

@@ -2,9 +2,9 @@
 
 This document is created to describe and give additional information of the sensors and systems supported by Autoware.Auto software.
 
-All equipment listed in this document has available ROS2 drivers and has been tested by one or more of the community members on field in autonomous vehicle and robotics applications.
+All equipment listed in this document has available ROS 2 drivers and has been tested by one or more of the community members on field in autonomous vehicle and robotics applications.
 
-The listed sensors and systems are not sold, developed or given direct technical support by the Autoware community. Having said that any ROS2 and Autoware related issue regarding the hardware usage could be asked using the community guidelines which found [here.](https://answers.ros.org/questions/ask/?tags=autoware)
+The listed sensors and systems are not sold, developed or given direct technical support by the Autoware community. Having said that any ROS 2 and Autoware related issue regarding the hardware usage could be asked using the community guidelines which found [here.](https://answers.ros.org/questions/ask/?tags=autoware)
 
 The documents consists of the sections listed below:
 
@@ -12,7 +12,7 @@ The documents consists of the sections listed below:
 
   - ADLINK In-Vehicle Computers
     - NXP In-Vehicle Computers
-    - NEOUSYS In-Vehicle Computers
+    - Neousys In-Vehicle Computers
     - Crystal Rugged In-Vehicle Computers
 
 - LiDARs
@@ -42,18 +42,19 @@ The documents consists of the sections listed below:
 
 - IMU, AHRS & GNSS/INS
 
-  - NOVATEL GNSS/INS Sensors
-  - XSENS GNSS/INS & IMU Sensors
+  - NovAtel GNSS/INS Sensors
+  - XSens GNSS/INS & IMU Sensors
   - SBG GNSS/INS & IMU Sensors
   - Applanix GNSS/INS Sensors
-  - POLYEXPLORE GNSS/INS Sensors
+  - PolyExplore GNSS/INS Sensors
 
 - Vehicle Drive By Wire Suppliers
+  <!-- cspell: ignore Paravan -->
 
   - New Eagle DBW Solutions
   - Dataspeed DBW Solutions
   - AStuff Pacmod DBW Solutions
-  - Schaffler-Paravan Spacedrive DBW Solutions
+  - Schaeffler-Paravan Space Drive DBW Solutions
 
 - Vehicle Platform Suppliers
 
