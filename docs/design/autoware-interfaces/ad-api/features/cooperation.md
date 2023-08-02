@@ -21,6 +21,7 @@ In practice, the user interface application can hides the specification of the I
 For example, in the situation in the diagram below, change lanes twice and turn left at the intersection.
 There are three scenes and each has a decision to change or keep the lane, turn left or wait.
 Here Autoware decides not to change lanes a second time due to the obstacle, so the vehicle will stop there.
+Using RTC, the operator can override these decisions to continue driving the vehicle to the goal.
 
 ![cooperation-scenes](./cooperation/scenes.drawio.svg)
 
