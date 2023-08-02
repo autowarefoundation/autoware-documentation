@@ -15,19 +15,19 @@ graph TD
 
     msg_lanenet("<font size=2><b>Lanelet2 Map</b></font size>
     <font size=1>autoware_auto_mapping_msgs/HADMapBin</font size>"):::cls_loc
-    
+
     msg_vks("<font size=2><b>Vehicle Kinematic State</b></font size>
     <font size=1>nav_msgs/Odometry</font size>"):::cls_loc
 
     msg_obj("<font size=2><b>3D Object Predictions </b></font size>
     <font size=1>autoware_auto_perception_msgs/PredictedObjects</font size>"):::cls_per
-    
+
     msg_tl("<font size=2><b>Traffic Light Response </b></font size>
     <font size=1>autoware_perception_msgs/TrafficSignalArray</font size>"):::cls_per
 
     msg_tq("<font size=2><b>Traffic Light Query </b></font size>
     <font size=1>TBD</font size>"):::cls_plan
-    
+
 
     cmp_sen --> msg_img --> cmp_per
     cmp_sen --> msg_ldr --> cmp_per
