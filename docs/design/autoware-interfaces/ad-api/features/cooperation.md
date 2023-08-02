@@ -36,19 +36,20 @@ If the module supports RTC, these information are available in [velocity factors
 
 ## Sequence
 
-Here is an example sequence that overrides the scene decision to force a lane change. This assumes the second scene in the example situation given earlier.
+This is an example sequence that overrides the scene decision to force a lane change. It is for the second scene in the diagram in the architecture section.
+Here let's assume the cooperation policy is set to optional, see the decisions section described later for details.
 
-1. A module creates a scene with generated ID BBBB when approaching a place where a lane change is needed.
-2. The scene determines the module decision from the current situation.
-3. The scene determines the merged decision. Since there is no operator decision, so the cooperation policy is used.
-4. The scene plans the vehicle to keep the lane.
-5. The scene sends a cooperation status.
+1. A planning module creates a scene instance with unique ID when approaching a place where a lane change is needed.
+2. The scene instance generates the module decision from the current situation. In this case, the module decision is not to do a lane change due to the obstacle.
+3. The scene instance generates the merged decision. At this point, there is no operator decision yet, so it is based on the module decision.
+4. The scene instance plans the vehicle to keep the lane according to the merged decision.
+5. The scene instance sends a cooperation status.
 6. The operator receives the cooperation status.
-7. The operator sends a cooperation command.
-8. The scene receives the cooperation command and update the operator decision.
-9. The scene updates the module decision from the current situation.
-10. The scene updates the merged decision. The received operator decision is used.
-11. The scene plans the vehicle to change the lane.
+7. The operator sends a cooperation command to override the module decision and to do a lane change.
+8. The scene instance receives the cooperation command and update the operator decision.
+9. The scene instance updates the module decision from the current situation.
+10. The scene instance updates the merged decision. It is based on the operator decision received.
+11. The scene instance plans the vehicle to change the lane according to the merged decision.
 
 ## Decisions
 
