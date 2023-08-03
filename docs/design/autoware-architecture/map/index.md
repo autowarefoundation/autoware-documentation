@@ -31,16 +31,17 @@ The Map component consists of the following sub-components:
 - **Vector Map Loading**: Load and publish vector map
 - **Projection Loading**: Load and publish projection information for conversion between local coordinate (x, y, z) and geodetic coordinate (latitude, longitude, altitude)
 
-
 ## 4. Component interface
 
 ### Input to the map component
+
 - **From file system**
   - Point cloud map and its metadata file
   - Vector map
   - Projection information
 
 ### Output from the map component
+
 - **To Sensing**
   - Projection information: Used to convert GNSS data from geodetic coordinate system to local coordinate system
 - **To Localization**
