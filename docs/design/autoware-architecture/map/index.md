@@ -17,17 +17,42 @@ A vector map contains highly accurate information about a road network, lane geo
 
 A 3D point cloud map is primarily used for LiDAR-based localization and part of perception in Autoware. In order to determine the current position and orientation of the vehicle, a live scan captured from one or more LiDAR units is matched against a pre-generated 3D point cloud map. Therefore, an accurate point cloud map is crucial for good localization results. However, if the vehicle has an alternate localization method with enough accuracy, for example using camera-based localization, point cloud map may not be required to use Autoware.
 
+In addition to above two types of maps, Autoware also requires a supplemental file for specifying the coordinate system of the map in geodetic system.
+
 ## 3. Architecture
 
-!!! warning
+This diagram describes the high-level architecture of Map component in Autoware.
 
-    Under Construction
+![map component architecture](image/high-level-map-diagram.drawio.svg){width="800"}
 
-## 4. Features
+The Map component consists of the following sub-components:
 
-!!! warning
+- **Point Cloud Map Loading**: Load and publish point cloud map
+- **Vector Map Loading**: Load and publish vector map
+- **Projection Loading**: Load and publish projection information for conversion between local coordinate (x, y, z) and geodetic coordinate (latitude, longitude, altitude)
 
-    Under Construction
+
+## 4. Component interface
+
+### Input to the map component
+- **From file system**
+  - Point cloud map and its metadata file
+  - Vector map
+  - Projection information
+
+### Output from the map component
+- **To Sensing**
+  - Projection information: Used to convert GNSS data from geodetic coordinate system to local coordinate system
+- **To Localization**
+  - Point cloud map: Used for LiDAR-based localization
+  - Vector map: Used for localization methods based on road markings, etc
+- **To Perception**
+  - Point cloud map: Used for obstacle segmentation by comparing LiDAR and point cloud map
+  - Vector map: Used for vehicle trajectory prediction
+- **To Planning**
+  - Vector map: Used for behavior planning
+- **To API layer**
+  - Projection information: Used to convert localization results from local coordinate system to geodetic coordinate system
 
 ## 5. Map Specification
 
@@ -87,7 +112,7 @@ D.pcd: [1400, 2650] # -> 1400 < x < 1500, 2650 < y < 2800
 
 You may use [pointcloud_divider](https://github.com/MapIV/pointcloud_divider) from MAP IV for dividing pointcloud map as well as generating the compatible metadata.yaml.
 
-#### Vector Map
+### Vector Map
 
 The vector cloud map must be supplied as a file with the following requirements:
 
