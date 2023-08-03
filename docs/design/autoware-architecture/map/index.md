@@ -67,50 +67,13 @@ The point cloud map must be supplied as a file with the following requirements:
 - Its resolution should be at least 0.2 m to yield reliable localization results.
 - It can be in either local or global coordinates, but must be in global coordinates (georeferenced) to use GNSS data for localization.
 
+For more details on divided map format, please refer to [the Readme of `map_loader` in Autoware Universe](https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/README.md).
+
 !!! note
 
     Three global coordinate systems are currently supported by Autoware, including [Military Grid Reference System (MGRS)](https://en.wikipedia.org/wiki/Military_Grid_Reference_System), [Universal Transverse Mercator (UTM)](https://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system), and [Japan Rectangular Coordinate System](https://ja.wikipedia.org/wiki/%E5%B9%B3%E9%9D%A2%E7%9B%B4%E8%A7%92%E5%BA%A7%E6%A8%99%E7%B3%BB).
     However, MGRS is a preferred coordinate system for georeferenced maps.
     In a map with MGRS coordinate system, the X and Y coordinates of each point represent the point's location within the 100,000-meter square, while the Z coordinate represents the point's elevation.
-
-If it is split into a single file, Autoware assumes the following directory structure by default.
-
-```bash
-sample-map-rosbag
-├── lanelet2_map.osm
-├── pointcloud_map.pcd
-```
-
-If it is split into multiple files, Autoware assumes the following directory structure by default.
-
-```bash
-sample-map-rosbag
-├── lanelet2_map.osm
-├── pointcloud_map
-├── pcd_00.pcd
-├── pcd_01.pcd
-├── pcd_02.pcd
-├── ...
-└── pointcloud_map_metadata.yaml
-```
-
-Note that, if you split the map into multiple files, you must meet the following additional conditions:
-
-- It must be split by lines parallel to the x-y axis.
-- Additional metadata must be provided as well.
-
-Metadata should look like as follows:
-
-```yaml
-x_resolution: 100.0
-y_resolution: 150.0
-A.pcd: [1200, 2500] # -> 1200 < x < 1300, 2500 < y < 2650
-B.pcd: [1300, 2500] # -> 1300 < x < 1400, 2500 < y < 2650
-C.pcd: [1200, 2650] # -> 1200 < x < 1300, 2650 < y < 2800
-D.pcd: [1400, 2650] # -> 1400 < x < 1500, 2650 < y < 2800
-```
-
-You may use [pointcloud_divider](https://github.com/MapIV/pointcloud_divider) from MAP IV for dividing pointcloud map as well as generating the compatible metadata.yaml.
 
 ### Vector Map
 

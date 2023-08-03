@@ -22,7 +22,7 @@
 
 - [ROS](http://wiki.ros.org/noetic/Installation/Ubuntu)
 - [PCL](https://pointclouds.org/downloads/#linux)
-- [Gtsam](https://gtsam.org/get_started/)
+- [GTSAM](https://gtsam.org/get_started/)
 - [Ceres Solver](http://www.ceres-solver.org/installation.html)
 - For visualization purpose, this package uses hector trajectory sever, you may install the package by
 

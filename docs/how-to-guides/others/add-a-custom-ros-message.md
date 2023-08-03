@@ -12,7 +12,7 @@ During the Autoware development, you will probably need to define your own messa
 
    - [tier4_autoware_msgs](https://github.com/tier4/tier4_autoware_msgs) is an example of that.
 
-The following is a simple tutorial of adding a message package to `autoware_msgs`. For the general ROS2 tutorial, see [Create custom msg and srv files](http://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.html).
+The following is a simple tutorial of adding a message package to `autoware_msgs`. For the general ROS 2 tutorial, see [Create custom msg and srv files](http://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.html).
 
 ## How to create custom message
 

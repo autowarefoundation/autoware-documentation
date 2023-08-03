@@ -13,4 +13,9 @@ It is also possible to determine the actual distance to an object from the vehic
 ## Planning factors
 
 The [planning factors](../features/planning-factors.md) provides the planning status of the vehicle.
-HMI can be used to warn of sudden movements of the vehicle, and to share the stop reason with passengers for comfortable driving.
+HMI can use this to warn of sudden movements of the vehicle, and to share the stop reason with passengers for comfortable driving.
+
+## Detected objects
+
+The [perception](../features/perception.md) provides the objects detected by Autoware.
+HMI can use this to visualize objects around the vehicle.

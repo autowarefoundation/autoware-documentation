@@ -1,3 +1,5 @@
+<!-- cspell: ignore ISCLOAM -->
+
 # ISCLOAM
 
 ## What is ISCLOAM?
