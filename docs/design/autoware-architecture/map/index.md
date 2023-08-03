@@ -89,3 +89,14 @@ The vector cloud map must be supplied as a file with the following requirements:
 !!! warning
 
     Under Construction
+
+### Projection information
+
+The projection information must be supplied as a file with the following requirements:
+
+- It must be in YAML format, provided into `map_projection_loader` in current Autoware Universe implementation.
+- The file must contain the following information:
+  - The name of the projection method used to convert between local and global coordinates
+  - The parameters of the projection method (depending on the projection method)
+
+For further information, please refer to [the Readme of `map_projection_loader` in Autoware Universe](https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/README.md).
