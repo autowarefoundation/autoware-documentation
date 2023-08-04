@@ -91,7 +91,7 @@ The vector cloud map must be supplied as a file with the following requirements:
 
     Under Construction
 
-### Projection information
+### Projection Information
 
 The projection information must be supplied as a file with the following requirements:
 
