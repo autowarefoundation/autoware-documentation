@@ -61,7 +61,7 @@ The Map component consists of the following sub-components:
 
 The point cloud map must be supplied as a file with the following requirements:
 
-- The pointcloud map should be projected on the same coordinate defined in `map_projection_loader` in order to be consistent with the lanelet2 map and other packages that converts between local and geodetic coordinates. For more information, please refer to [the readme of `map_projection_loader`](https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_projection_loader/README.md).
+- The point cloud map must be projected on the same coordinate defined in `map_projection_loader` in order to be consistent with the lanelet2 map and other packages that converts between local and geodetic coordinates. For more information, please refer to [the readme of `map_projection_loader`](https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_projection_loader/README.md).
 - It must be in the [PCD (Point Cloud Data) file format](https://pointclouds.org/documentation/tutorials/pcd_file_format.html), but can be a single PCD file or divided into multiple PCD files.
 - Each point in the map must contain X, Y, and Z coordinates.
 - An intensity or RGB value for each point may be optionally included.
