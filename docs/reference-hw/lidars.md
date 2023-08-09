@@ -12,6 +12,7 @@ Velodyne Lidars which has ROS 2 driver and tested by one or more community membe
 | Puck Hi-res             | 100m  | (+10°)/(-10°), (360°) | Y            | Y                     |
 
 Link to ROS 2 drivers:  
+ [https://github.com/tier4/nebula](https://github.com/tier4/nebula)
  [https://github.com/ros-drivers/velodyne/tree/ros2/velodyne_pointcloud](https://github.com/ros-drivers/velodyne/tree/ros2/velodyne_pointcloud)  
  [https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/tree/master/src/drivers/velodyne_nodes](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/tree/master/src/drivers/velodyne_nodes)
 [https://github.com/autowarefoundation/awf_velodyne/tree/tier4/universe](https://github.com/autowarefoundation/awf_velodyne/tree/tier4/universe)
@@ -43,11 +44,13 @@ Hesai Lidars which has ROS 2 driver and tested by one or more community members 
 | Supported Products List | Range | FOV (V), (H)           | ROS 2 Driver | Autoware Tested (Y/N) |
 | ----------------------- | ----- | ---------------------- | ------------ | --------------------- |
 | Pandar 128              | 200m  | (+15°)/(-25°), (360°)  | Y            | -                     |
-| Pandar 64               | 200m  | (+15°)/(-25°), (360°)  | Y            | -                     |
-| Pandar XT               | 120m  | (+15°)/(-16°), (360°)  | Y            | -                     |
-| Pandar QT               | 20m   | (-52.1°/+52.1°)/(360°) | Y            | -                     |
+| Pandar 64               | 200m  | (+15°)/(-25°), (360°)  | Y            | Y                     |
+| Pandar 40P              | 200m  | (+15°)/(-25°), (360°)  | Y            | Y                     |
+| Pandar XT               | 120m  | (+15°)/(-16°), (360°)  | Y            | Y                     |
+| Pandar QT               | 20m   | (-52.1°/+52.1°)/(360°) | Y            | Y                     |
 
-Link to ROS 2 driver:  
+Link to ROS 2 drivers:
+[https://github.com/tier4/nebula](https://github.com/tier4/nebula)  
 [https://github.com/HesaiTechnology/HesaiLidar_General_ROS](https://github.com/HesaiTechnology/HesaiLidar_General_ROS)
 
 Link to company website:  
