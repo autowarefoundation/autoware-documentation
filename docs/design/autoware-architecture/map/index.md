@@ -17,17 +17,43 @@ A vector map contains highly accurate information about a road network, lane geo
 
 A 3D point cloud map is primarily used for LiDAR-based localization and part of perception in Autoware. In order to determine the current position and orientation of the vehicle, a live scan captured from one or more LiDAR units is matched against a pre-generated 3D point cloud map. Therefore, an accurate point cloud map is crucial for good localization results. However, if the vehicle has an alternate localization method with enough accuracy, for example using camera-based localization, point cloud map may not be required to use Autoware.
 
+In addition to above two types of maps, Autoware also requires a supplemental file for specifying the coordinate system of the map in geodetic system.
+
 ## 3. Architecture
 
-!!! warning
+This diagram describes the high-level architecture of Map component in Autoware.
 
-    Under Construction
+![map component architecture](image/high-level-map-diagram.drawio.svg){width="800"}
 
-## 4. Features
+The Map component consists of the following sub-components:
 
-!!! warning
+- **Point Cloud Map Loading**: Load and publish point cloud map
+- **Vector Map Loading**: Load and publish vector map
+- **Projection Loading**: Load and publish projection information for conversion between local coordinate (x, y, z) and geodetic coordinate (latitude, longitude, altitude)
 
-    Under Construction
+## 4. Component interface
+
+### Input to the map component
+
+- **From file system**
+  - Point cloud map and its metadata file
+  - Vector map
+  - Projection information
+
+### Output from the map component
+
+- **To Sensing**
+  - Projection information: Used to convert GNSS data from geodetic coordinate system to local coordinate system
+- **To Localization**
+  - Point cloud map: Used for LiDAR-based localization
+  - Vector map: Used for localization methods based on road markings, etc
+- **To Perception**
+  - Point cloud map: Used for obstacle segmentation by comparing LiDAR and point cloud map
+  - Vector map: Used for vehicle trajectory prediction
+- **To Planning**
+  - Vector map: Used for behavior planning
+- **To API layer**
+  - Projection information: Used to convert localization results from local coordinate system to geodetic coordinate system
 
 ## 5. Map Specification
 
@@ -35,6 +61,7 @@ A 3D point cloud map is primarily used for LiDAR-based localization and part of 
 
 The point cloud map must be supplied as a file with the following requirements:
 
+- The point cloud map must be projected on the same coordinate defined in `map_projection_loader` in order to be consistent with the lanelet2 map and other packages that converts between local and geodetic coordinates. For more information, please refer to [the readme of `map_projection_loader`](https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_projection_loader/README.md).
 - It must be in the [PCD (Point Cloud Data) file format](https://pointclouds.org/documentation/tutorials/pcd_file_format.html), but can be a single PCD file or divided into multiple PCD files.
 - Each point in the map must contain X, Y, and Z coordinates.
 - An intensity or RGB value for each point may be optionally included.
@@ -42,7 +69,7 @@ The point cloud map must be supplied as a file with the following requirements:
 - Its resolution should be at least 0.2 m to yield reliable localization results.
 - It can be in either local or global coordinates, but must be in global coordinates (georeferenced) to use GNSS data for localization.
 
-For more details on divided map format, please refer to [the Readme of `map_loader` in Autoware Universe](https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/README.md).
+For more details on divided map format, please refer to [the readme of `map_loader` in Autoware Universe](https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/README.md).
 
 !!! note
 
@@ -50,7 +77,7 @@ For more details on divided map format, please refer to [the Readme of `map_load
     However, MGRS is a preferred coordinate system for georeferenced maps.
     In a map with MGRS coordinate system, the X and Y coordinates of each point represent the point's location within the 100,000-meter square, while the Z coordinate represents the point's elevation.
 
-#### Vector Map
+### Vector Map
 
 The vector cloud map must be supplied as a file with the following requirements:
 
@@ -63,3 +90,14 @@ The vector cloud map must be supplied as a file with the following requirements:
 !!! warning
 
     Under Construction
+
+### Projection Information
+
+The projection information must be supplied as a file with the following requirements:
+
+- It must be in YAML format, provided into `map_projection_loader` in current Autoware Universe implementation.
+- The file must contain the following information:
+  - The name of the projection method used to convert between local and global coordinates
+  - The parameters of the projection method (depending on the projection method)
+
+For further information, please refer to [the readme of `map_projection_loader` in Autoware Universe](https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_projection_loader/README.md).
