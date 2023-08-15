@@ -70,17 +70,35 @@ The parameter file is minimal as there is no need to provide the user with addit
     INSERT_PARAMETER_N_NAME: INSERT_PARAMETER_N_VALUE
 ```
 
-The parameter file path is `INSERT_PATH_TO_PACKAGE/config/` and parameter file name is `INSERT_NODE_NAME.param.yaml`. To adapt the template to the ROS node, replace each `INSERT_PARAMETER_..._NAME` and `INSERT_PARAMETER_..._VALUE` for all parameters. Each [declare_parameter(...)](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb) takes one parameter as input.
-
-See example: _Lidar Apollo Segmentation TVM Nodes_ [parameter file](https://github.com/autowarefoundation/autoware.universe/blob/main/perception/lidar_apollo_segmentation_tvm_nodes/config/lidar_apollo_segmentation_tvm_nodes.param.yaml)
-
 Note: `/**` is used instead of the explicit node namespace, this allows the parameter file to be passed to a ROS node which has been [remapped](https://design.ros2.org/articles/static_remapping.html).
 
-## Launch parameter file
+To adapt the template to the ROS node, replace each `INSERT_PARAMETER_..._NAME` and `INSERT_PARAMETER_..._VALUE` for all parameters. Each [declare_parameter(...)](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb) takes one parameter as input. All the parameter files should have the `.param.yaml` suffix so that the auto-format can be applied properly.
 
-- Launch parameter files store the customized parameters for user's vehicle.
-  - For example, [the customized parameter of `behavior_path_planner` stored under `autoware_launch`](https://github.com/autowarefoundation/autoware_launch/tree/5fa613b9d80bf4f0db77efde03a43f7ede6bac86/autoware_launch/config)
-  - Launch parameter files are stored under `autoware_launch`.
+Autoware has the following two types of parameter files for ROS packages:
+
+- **Node parameter file**
+  - Node parameter files store the default parameters provided for each package in Autoware.
+    - For example, [the parameter of `behavior_path_planner`](https://github.com/autowarefoundation/autoware.universe/tree/245242cee866de2d113e89c562353c5fc17f1f98/planning/behavior_path_planner/config)
+  - All nodes in Autoware must have a parameter file if ROS parameters are declared in the node.
+  - For `FOO_package`, the parameter is expected to be stored in `FOO_package/config`.
+  - The launch file for individual packages must load node parameter by default:
+
+```xml
+<launch>
+  <arg name="foo_node_param_path" default="$(find-pkg-share FOO_package)/config/foo_node.param.yaml" />
+
+  <node pkg="FOO_package" exec="foo_node">
+    ...
+    <param from="$(var foo_node_param_path)" />
+  </node>
+</launch>
+```
+
+- **Launch parameter file**
+  - When a user creates a launch package for the user's vehicle, the user should copy node parameter files for the nodes that are called in the launch file as "launch parameter files".
+  - Launch parameter files are then customized specifically for user's vehicle.
+    - For example, [the customized parameter of `behavior_path_planner` stored under `autoware_launch`](https://github.com/autowarefoundation/autoware_launch/tree/5fa613b9d80bf4f0db77efde03a43f7ede6bac86/autoware_launch/config)
+  - The examples for launch parameter files are stored under `autoware_launch`.
 
 ## JSON Schema
 
