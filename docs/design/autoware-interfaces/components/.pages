@@ -4,5 +4,7 @@ nav:
   - control.md
   - localization.md
   - map.md
+  - sensing.md
+  - perception-interface.md
   - vehicle-interface.md
   - vehicle-dimensions.md
