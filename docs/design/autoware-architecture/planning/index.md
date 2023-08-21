@@ -1,5 +1,18 @@
 # Planning component design
 
+- discussionsはトレードオフ選定とかにしたい
+- サードパーティによって拡張というよりは、誰でも拡張できるって言い回しのほうが良いはず
+- mission plannerの使われ方を重点的に考えよう。FMSとして機能が外だしされることがあるから、これは別れてるのよ。
+- ハイレベルなデザインと詳細なデザインではなく、アーキテクチャのためのデザイン（要求ベース、これがやりたい）と、アーキテクチャ（詳細なフロー）ができるはず。
+- デザインの部分に、ポリシーによる変更がわかるような書き方があると良い。ポリシーA（右側走行）になったときに、いくつかのモジュールが特定の設定で起動する。どう図にするか。。。
+- このポリシーに対して、何がどうかわるかという例があるといい。自動運転レベルが変わったときに、HMIとの連携がこう変わって、軌道モジュールがこう変わる、とか。
+- ハイレベルに対するユースケースを上げる
+- 車両の振る舞いのユースケース
+  - 話ゴールやチェくポイント、NGポイントを与えてplanning内部でルートを計算して進む / 渋滞情報を加味したルートを外部から与えて走行する
+開発者のユースケース
+  - 中の作りの話（実装や設計レベル）：機能の差し替えができていてほしいので（レーンチェンジAとレーンチェンジBとか）、柔軟に変更できる必要があり、各機能はモジュールとして実装される。
+
+
 ## Purpose of this document
 
 This document outlines the high-level design strategies, goals and related rationales in the development of the Planning Component. Through this document, it is expected that all OSS developers will comprehend the design philosophy, goals and constraints under which the Planning Component is designed, and participate seamlessly in the development.
@@ -69,6 +82,7 @@ WIP
 This diagram describes the high-level architecture of the Planning Component.
 
 ![overall-planning-architecture](image/high-level-planning-diagram.drawio.svg)
+![overall-planning-architecture](image/high-level-planning-diagram-miyake-reviewed.drawio.svg)
 
 The Planning component consists of the following sub-components:
 
@@ -94,7 +108,7 @@ Following the microautonomy architecture, we adopt a modular system framework wh
 
 ここでは microautonomy アーキテクチャに従い、モジュール型のシステムフレームワークを採用しています。planningの機能はモジュールとして実装され、これらのモジュールは与えられたユースケースに応じて動的にロードおよびアンロードされます。例えば、behavior planning のサブコンポーネントには、レーンチェンジ、交差点、横断歩道モジュールなどのモジュールが含まれています。
 
-### Discussions
+### Discussions -> わからん。trade-off選定とかにしよう。
 
 The following provides discussion points on trade-offs in the architecture. From this information, you can see the current design limitation, challenges, and potential improvement.
 
