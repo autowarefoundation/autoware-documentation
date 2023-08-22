@@ -117,16 +117,17 @@ Autoware has the following two types of parameter files for ROS packages:
           "type": "INSERT_TYPE",
           "description": "INSERT_DESCRIPTION",
           "default": "INSERT_DEFAULT",
-          "INSERT_BOUND_CONDITION(S)": "INSERT_BOUND_VALUE(S)"
+          "INSERT_BOUND_CONDITION(S)": INSERT_BOUND_VALUE(S)
         },
         "INSERT_PARAMETER_N_NAME": {
           "type": "INSERT_TYPE",
           "description": "INSERT_DESCRIPTION",
           "default": "INSERT_DEFAULT",
-          "INSERT_BOUND_CONDITION(S)": "INSERT_BOUND_VALUE(S)"
+          "INSERT_BOUND_CONDITION(S)": INSERT_BOUND_VALUE(S)
         }
       },
-      "required": ["INSERT_PARAMETER_1_NAME", "INSERT_PARAMETER_N_NAME"]
+      "required": ["INSERT_PARAMETER_1_NAME", "INSERT_PARAMETER_N_NAME"],
+      "additionalProperties": false
     }
   },
   "properties": {
@@ -137,10 +138,12 @@ Autoware has the following two types of parameter files for ROS packages:
           "$ref": "#/definitions/INSERT_ROS_NODE_NAME"
         }
       },
-      "required": ["ros__parameters"]
+      "required": ["ros__parameters"],
+      "additionalProperties": false
     }
   },
-  "required": ["/**"]
+  "required": ["/**"],
+  "additionalProperties": false
 }
 ```
 
