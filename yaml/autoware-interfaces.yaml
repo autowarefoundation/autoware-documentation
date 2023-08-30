@@ -207,6 +207,8 @@ types:
   autoware_adapi_v1_msgs/srv/SetCooperationPolicies:
     req:
       policies: autoware_adapi_v1_msgs/msg/CooperationPolicy[]
+    res:
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/SetDoorCommand:
     req:
       doors: autoware_adapi_v1_msgs/msg/DoorCommand[]
