@@ -16,6 +16,10 @@ types:
       cancellable: bool
       cooperator: autoware_adapi_v1_msgs/msg/CooperationDecision
       uuid: unique_identifier_msgs/msg/UUID
+  autoware_adapi_v1_msgs/msg/DoorCommand:
+    msg:
+      command: uint8
+      index: uint32
   autoware_adapi_v1_msgs/msg/DoorLayout:
     msg:
       description: string
@@ -27,6 +31,28 @@ types:
     msg:
       doors: autoware_adapi_v1_msgs/msg/DoorStatus[]
       stamp: builtin_interfaces/msg/Time
+  autoware_adapi_v1_msgs/msg/DynamicObject:
+    msg:
+      classification: autoware_adapi_v1_msgs/msg/ObjectClassification[]
+      existence_probability: float64
+      id: unique_identifier_msgs/msg/UUID
+      kinematics: autoware_adapi_v1_msgs/msg/DynamicObjectKinematics
+      shape: shape_msgs/msg/SolidPrimitive
+  autoware_adapi_v1_msgs/msg/DynamicObjectArray:
+    msg:
+      header: std_msgs/msg/Header
+      objects: autoware_adapi_v1_msgs/msg/DynamicObject[]
+  autoware_adapi_v1_msgs/msg/DynamicObjectKinematics:
+    msg:
+      accel: geometry_msgs/msg/Accel
+      pose: geometry_msgs/msg/Pose
+      predicted_paths: autoware_adapi_v1_msgs/msg/DynamicObjectPath[]
+      twist: geometry_msgs/msg/Twist
+  autoware_adapi_v1_msgs/msg/DynamicObjectPath:
+    msg:
+      confidence: float64
+      path: geometry_msgs/msg/Pose[]
+      time_step: builtin_interfaces/msg/Duration
   autoware_adapi_v1_msgs/msg/Gear:
     msg:
       status: uint8
@@ -46,6 +72,10 @@ types:
       behavior: uint16
       stamp: builtin_interfaces/msg/Time
       state: uint16
+  autoware_adapi_v1_msgs/msg/ObjectClassification:
+    msg:
+      label: uint8
+      probability: float64
   autoware_adapi_v1_msgs/msg/OperationModeState:
     msg:
       is_autonomous_mode_available: bool
@@ -158,7 +188,7 @@ types:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/GetDoorLayout:
     res:
-      doors: autoware_adapi_v1_msgs/msg/DoorLayout
+      doors: autoware_adapi_v1_msgs/msg/DoorLayout[]
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/GetVehicleDimensions:
     res:
@@ -177,6 +207,9 @@ types:
   autoware_adapi_v1_msgs/srv/SetCooperationPolicies:
     req:
       policies: autoware_adapi_v1_msgs/msg/CooperationPolicy[]
+  autoware_adapi_v1_msgs/srv/SetDoorCommand:
+    req:
+      doors: autoware_adapi_v1_msgs/msg/DoorCommand[]
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/SetRoute:

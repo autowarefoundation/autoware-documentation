@@ -11,6 +11,7 @@ used:
   - autoware_adapi_v1_msgs/srv/InitializeLocalization
   - autoware_adapi_v1_msgs/srv/SetCooperationCommands
   - autoware_adapi_v1_msgs/srv/SetCooperationPolicies
+  - autoware_adapi_v1_msgs/srv/SetDoorCommand
   - autoware_adapi_v1_msgs/srv/SetRoute
   - autoware_adapi_v1_msgs/srv/SetRoutePoints
 ---

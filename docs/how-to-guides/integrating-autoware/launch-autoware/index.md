@@ -31,12 +31,12 @@ ros2 launch autoware_launch autoware.launch.xml vehicle_model:=YOUR_VEHICLE sens
 The basic command-line options are documented in [autoware.launch.xml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/autoware.launch.xml).
 
 There are options available to switch between different methods for some component.
-For example, by specifying `localization_mode` or `perception_mode`, you can switch localization and perception methods, respectively.
+For example, by specifying `pose_source`/`twist_source` or `perception_mode`, you can switch localization and perception methods, respectively.
 These options allow you to choose the desired algorithms or sensor configurations for the respective functionalities.
 
 For options on eagleye component, please refer to the sub-pages.
 
-- [localization-mode](localization-mode/index.md)
+- [localization-mode](localization-methods/index.md)
 - [perception-mode](perception.md)
 
 ## Set initial pose

@@ -12,7 +12,7 @@ uses:
 ```txt
 ---
 autoware_adapi_v1_msgs/ResponseStatus status
-autoware_adapi_v1_msgs/DoorLayout doors
+autoware_adapi_v1_msgs/DoorLayout[] doors
 ```
 
 {% endblock %}
