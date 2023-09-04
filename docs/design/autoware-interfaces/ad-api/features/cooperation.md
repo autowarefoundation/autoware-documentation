@@ -18,8 +18,8 @@ Each scene has an ID that doesn't change until the scene is completed or cancele
 The operator can override the decision of the target scene using this ID.
 In practice, the user interface application can hides the specification of the ID and provides an abstracted interface to the operator.
 
-For example, in the situation in the diagram below, change lanes twice and turn left at the intersection.
-There are three scenes and each has a decision to change or keep the lane, turn left or wait.
+For example, in the situation in the diagram below, vehicle is expected to make two lane changes and turning left at the intersection.
+Therefore the planning component generates three scene instances for each required action, and each scene instance will wait for the decision to be made, in this case "changing or keeping lane" and "turning left or waiting at the intersection".
 Here Autoware decides not to change lanes a second time due to the obstacle, so the vehicle will stop there.
 However, operator could overwrite that decision through RTC function and force the lane change so that vehicle could reach to it's goal. 
 Using RTC, the operator can override these decisions to continue driving the vehicle to the goal.
