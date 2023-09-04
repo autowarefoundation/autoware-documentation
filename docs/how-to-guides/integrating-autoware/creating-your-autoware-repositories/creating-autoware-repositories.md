@@ -19,12 +19,12 @@ such as Git or Subversion.
 If you want to integrate Autoware into your vehicle, the first step is to create an Autoware meta-repository.
 
 One easy way is to fork autoware repository and clone it.
-(For how to fork a repository, refer to [GitHub Docs](https://docs.github.com/en/get-started/quickstart/fork-a-repo)) 
+(For how to fork a repository, refer to [GitHub Docs](https://docs.github.com/en/get-started/quickstart/fork-a-repo))
 
 - In order to do that,
   please go to the [autoware](https://github.com/autowarefoundation/autoware) repository
-  and click the fork button. 
-For example,
+  and click the fork button.
+  For example,
   we will integrate `tutorial_vehicle` for these guidelines
   (If you set up multiple types of vehicles,
   adding a suffix like `autoware.vehicle_A` or `autoware.vehicle_B` is recommended),
@@ -33,10 +33,13 @@ For example,
 ![forking-autoware_repository.png](images%2Fforking-autoware_repository.png)
 
 Then click "Create fork" button to continue. After that, we can clone our fork repository on our local system.
+
 ```bash
 git clone https://github.com/YOUR_NAME/autoware.git
 ```
+
 For example, it should be for our documentation:
+
 ```bash
 git clone https://github.com/leo-drive/autoware.tutorial_vehicle.git
 ```
@@ -45,12 +48,12 @@ git clone https://github.com/leo-drive/autoware.tutorial_vehicle.git
 
 For integrating autoware on your own individual vehicles, you need fork and modify the following repositories as well:
 
-- [sample_sensor_kit](https://github.com/autowarefoundation/sample_sensor_kit_launch): This repository will be used for sensing launch files, their pipelines-organizations and sensor descriptions. 
-Please fork and rename as autoware meta-repository. At this point, our forked repository name will be `tutorial_vehicle_sensor_kit`.
-- [sample_vehicle_launch](https://github.com/autowarefoundation/sample_vehicle_launch): This repository will be used for vehicle launch files, vehicle_descriptions and vehicle_model. 
-Please fork and rename this repository as well. At this point, our forked repository name will be `tutorial_vehicle_launch`.
-- [autoware_individual_params](https://github.com/autowarefoundation/autoware_individual_params): This repository stores parameters that change depending on each vehicle (i.e. sensor calibrations). Please fork 
-and rename this repository as well, our forked repository name will be `tutorial_vehicle_individual_params`.
+- [sample_sensor_kit](https://github.com/autowarefoundation/sample_sensor_kit_launch): This repository will be used for sensing launch files, their pipelines-organizations and sensor descriptions.
+  Please fork and rename as autoware meta-repository. At this point, our forked repository name will be `tutorial_vehicle_sensor_kit`.
+- [sample_vehicle_launch](https://github.com/autowarefoundation/sample_vehicle_launch): This repository will be used for vehicle launch files, vehicle_descriptions and vehicle_model.
+  Please fork and rename this repository as well. At this point, our forked repository name will be `tutorial_vehicle_launch`.
+- [autoware_individual_params](https://github.com/autowarefoundation/autoware_individual_params): This repository stores parameters that change depending on each vehicle (i.e. sensor calibrations). Please fork
+  and rename this repository as well, our forked repository name will be `tutorial_vehicle_individual_params`.
 - [autoware_launch](https://github.com/autowarefoundation/autoware_launch): This contains node configurations and their parameters for Autoware. Please fork
   and rename this repository as previous forked repositories, our forked repository name will be `autoware_launch.tutorial_vehicle`.
 
@@ -62,7 +65,7 @@ information is included in this file.
 
 Now we can add forked individual repositories to `autoware.repos` file.
 So, if we use vcs with importing (vcs import < autoware.repos) or pulling (vcs pull src),
-then these operations occur on forked repos. 
+then these operations occur on forked repos.
 
 #### 2.1 Adding individual repos to autoware.repos
 
@@ -75,6 +78,7 @@ In example at this tutorial,
 the necessary changes for our forked `tutorial_vehicle` repos should be like this:
 
 - Sensor Kit:
+
   ```diff
   - sensor_kit/sample_sensor_kit_launch:
   -   type: git
@@ -87,6 +91,7 @@ the necessary changes for our forked `tutorial_vehicle` repos should be like thi
   ```
 
 - Vehicle Launch:
+
   ```diff
   - vehicle/sample_vehicle_launch:
   -   type: git
@@ -99,6 +104,7 @@ the necessary changes for our forked `tutorial_vehicle` repos should be like thi
   ```
 
 - Individual Params:
+
   ```diff
   - param/autoware_individual_params:
   -   type: git
@@ -111,6 +117,7 @@ the necessary changes for our forked `tutorial_vehicle` repos should be like thi
   ```
 
 - Autoware Launch:
+
   ```diff
   - launcher/autoware_launch:
   -   type: git
@@ -121,10 +128,9 @@ the necessary changes for our forked `tutorial_vehicle` repos should be like thi
   +   url: https://github.com/leo-drive/autoware_launch.tutorial_vehicle.git
   +   version: main
   ```
-  
+
 After that, we are ready to use `vcs import < autoware.repos`.
 This commands imports our prepared repositories right now.
-
 
 Please refer to the following documentation link for instructions on how to create and customize each `vehicle_interface`:
 
