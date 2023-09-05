@@ -9,7 +9,8 @@ types:
   autoware_adapi_v1_msgs/msg/CooperationPolicy:
     msg:
       behavior: string
-      type: uint8
+      policy: uint8
+      sequence: string
   autoware_adapi_v1_msgs/msg/CooperationStatus:
     msg:
       autonomous: autoware_adapi_v1_msgs/msg/CooperationDecision
