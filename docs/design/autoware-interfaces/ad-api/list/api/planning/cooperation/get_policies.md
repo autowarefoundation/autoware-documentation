@@ -9,7 +9,9 @@ type:
       text: response status
     - name: policies.behavior
       text: The type of the target behavior.
-    - name: policies.type
+    - name: policies.sequence
+      text: The type of the target sequence.
+    - name: policies.policy
       text: The type of the cooporation policy.
 ---
 
