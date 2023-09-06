@@ -4,6 +4,9 @@
 
 - [Overview](integrating-autoware/overview.md)
 
+## Training machine learning models
+- [Training Traffic Light Classifier Module](training-machine-learning-models/training-traffic-light-classifier-model.md)
+
 ## Others
 
 - [Debug Autoware](others/debug-autoware.md)
