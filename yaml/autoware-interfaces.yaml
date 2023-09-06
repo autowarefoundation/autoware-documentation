@@ -1,4 +1,22 @@
 types:
+  autoware_adapi_v1_msgs/msg/CooperationCommand:
+    msg:
+      cooperator: autoware_adapi_v1_msgs/msg/CooperationDecision
+      uuid: unique_identifier_msgs/msg/UUID
+  autoware_adapi_v1_msgs/msg/CooperationDecision:
+    msg:
+      decision: uint8
+  autoware_adapi_v1_msgs/msg/CooperationPolicy:
+    msg:
+      behavior: string
+      policy: uint8
+      sequence: string
+  autoware_adapi_v1_msgs/msg/CooperationStatus:
+    msg:
+      autonomous: autoware_adapi_v1_msgs/msg/CooperationDecision
+      cancellable: bool
+      cooperator: autoware_adapi_v1_msgs/msg/CooperationDecision
+      uuid: unique_identifier_msgs/msg/UUID
   autoware_adapi_v1_msgs/msg/DoorCommand:
     msg:
       command: uint8
@@ -100,10 +118,13 @@ types:
       state: uint16
   autoware_adapi_v1_msgs/msg/SteeringFactor:
     msg:
+      behavior: string
+      cooperation: autoware_adapi_v1_msgs/msg/CooperationStatus[<=1]
       detail: string
       direction: uint16
       distance: float32[2]
       pose: geometry_msgs/msg/Pose[2]
+      sequence: string
       status: uint16
       type: uint16
   autoware_adapi_v1_msgs/msg/SteeringFactorArray:
@@ -141,9 +162,12 @@ types:
       turn_indicators: autoware_adapi_v1_msgs/msg/TurnIndicators
   autoware_adapi_v1_msgs/msg/VelocityFactor:
     msg:
+      behavior: string
+      cooperation: autoware_adapi_v1_msgs/msg/CooperationStatus[<=1]
       detail: string
       distance: float32
       pose: geometry_msgs/msg/Pose
+      sequence: string
       status: uint16
       type: uint16
   autoware_adapi_v1_msgs/msg/VelocityFactorArray:
@@ -159,6 +183,10 @@ types:
   autoware_adapi_v1_msgs/srv/ClearRoute:
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/GetCooperationPolicies:
+    res:
+      policies: autoware_adapi_v1_msgs/msg/CooperationPolicy[]
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/GetDoorLayout:
     res:
       doors: autoware_adapi_v1_msgs/msg/DoorLayout[]
@@ -170,6 +198,16 @@ types:
   autoware_adapi_v1_msgs/srv/InitializeLocalization:
     req:
       pose: geometry_msgs/msg/PoseWithCovarianceStamped[<=1]
+    res:
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/SetCooperationCommands:
+    req:
+      commands: autoware_adapi_v1_msgs/msg/CooperationCommand[]
+    res:
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/SetCooperationPolicies:
+    req:
+      policies: autoware_adapi_v1_msgs/msg/CooperationPolicy[]
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/SetDoorCommand:
