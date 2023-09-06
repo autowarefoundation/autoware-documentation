@@ -99,7 +99,7 @@ traffic signals recognized by object detection model.
 - [autoware_perception_msgs::msg::TrafficSignalArray](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/TrafficSignalArray.msg)
   - [autoware_perception_msgs::msg::TrafficSignal](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/TrafficSignal.msg) signals
     - [autoware_perception_msgs::msg::TrafficSignalElement](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/TrafficSignalElement.msg) elements
-      - unint8 UNKNOWN = 0
+      - uint8 UNKNOWN = 0
       - uint8 Red = 1
       - uint8 AMBER = 2
       - uint8 WHITE = 4
