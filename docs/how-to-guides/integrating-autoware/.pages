@@ -6,3 +6,4 @@ nav:
   - 4. Creating maps: creating-maps
   - 5. Launch Autoware: launch-autoware
   - 6. Tuning parameters and performance: tuning-parameters-and-performance
+  - 7. Training machine learning models: training-machine-learning-models
