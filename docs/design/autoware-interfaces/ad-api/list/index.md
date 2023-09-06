@@ -1,6 +1,7 @@
 # List of Autoware AD API
 
 - [/api/fail_safe/mrm_state](./api/fail_safe/mrm_state.md)
+- [/api/fail_safe/rti_state](./api/fail_safe/rti_state.md)
 - [/api/interface/version](./api/interface/version.md)
 - [/api/localization/initialization_state](./api/localization/initialization_state.md)
 - [/api/localization/initialize](./api/localization/initialize.md)

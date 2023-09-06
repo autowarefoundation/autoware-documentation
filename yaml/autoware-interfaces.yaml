@@ -116,6 +116,11 @@ types:
     msg:
       stamp: builtin_interfaces/msg/Time
       state: uint16
+  autoware_adapi_v1_msgs/msg/RtiState:
+    msg:
+      message: string
+      stamp: builtin_interfaces/msg/Time
+      state: uint16
   autoware_adapi_v1_msgs/msg/SteeringFactor:
     msg:
       behavior: string
