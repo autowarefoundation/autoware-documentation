@@ -10,7 +10,7 @@ For example, in the lidar-lidar or camera-lidar calibration phase,
 we will need initial calibration for getting accurate and successful calibration results.
 
 We need a sample bag file for the calibration process
-which include raw lidar topics and camera topics.
+which includes raw lidar topics and camera topics.
 So our tutorial_vehicle's recorded topics should like this:
 
 <details><summary>ROS 2 Bag example for our calibration process</summary>
@@ -197,7 +197,7 @@ The final version of the manual_sensor_kit.launch.xml for tutorial_vehicle shoul
     </node>
 
     <!-- extrinsic_manual_calibrator -->
-    <!-- Please create launch for all sensor which you used. -->
+    <!-- Please create a launch for all sensors that you used. -->
     <include file="$(find-pkg-share extrinsic_manual_calibrator)/launch/calibrator.launch.xml">
         <arg name="ns" value="$(var parent_frame)/rs_helios_top_base_link"/>
         <arg name="parent_frame" value="$(var parent_frame)"/>
@@ -246,18 +246,18 @@ For tutorial vehicle:
 ros2 launch extrinsic_calibration_manager calibration.launch.xml  mode:=manual sensor_model:=tutorial_vehicle_sensor_kit vehicle_model:=tutorial_vehicle vehicle_id:=tutorial_vehicle
 ```
 
-Then play ROS2 BAG file:
+Then play ROS 2 bag file:
 ```bash
 ros2 bag play <rosbag_path> --clock -l -r 0.2 \
   --remap /tf:=/null/tf /tf_static:=/null/tf_static # if tf is recorded
 ```
 
-You will show to manual  rqt_reconfigure window,
+You will show to a manual rqt_reconfigure window,
 we will update calibrations by hand according to the rviz2 results.
 
 - Press `Refresh` button then press `Expand All` button. The frames on tutorial_vehicle should like this:
 
-![forking-autoware_repository.png](images%2Fmanual-calibration.png)
+![forking-autoware_repository.png](images/manual-calibration.png)
 
 !!! warning
 
