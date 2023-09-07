@@ -35,7 +35,7 @@ camera-lidar, ground-lidar etc. In order to calibrate our sensors,
 we will modify `extrinsic_calibration_package` for our sensor kit.
 
 - [Generic Calibration](./generic-calibration.md)
-- Lidar-Lidar Calibration
+- [Lidar-Lidar Calibration](./lidar-lidar-calibration.md)
   - [Map-Based Lidar-Lidar Calibration](https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_extrinsic_map_based.md)
   - [Mapping-Based Lidar-Lidar Calibration](https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_extrinsic_mapping_based.md)
 - [Ground Plane-Lidar Calibration](https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_extrinsic_ground_plane.md)
