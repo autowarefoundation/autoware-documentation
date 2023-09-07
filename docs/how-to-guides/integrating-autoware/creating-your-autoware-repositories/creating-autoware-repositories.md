@@ -30,7 +30,7 @@ One easy way is to fork autoware repository and clone it.
   adding a suffix like `autoware.vehicle_A` or `autoware.vehicle_B` is recommended),
   so our forking should be like this:
 
-![forking-autoware_repository.png](images%2Fforking-autoware_repository.png)
+![forking-autoware_repository.png](images/forking-autoware_repository.png)
 
 Then click "Create fork" button to continue. After that, we can clone our fork repository on our local system.
 
