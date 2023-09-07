@@ -34,7 +34,6 @@ Topic information: Topic: /sensing/lidar/top/pointcloud_raw | Type: sensor_msgs/
 </p>
 </details>
 
-
 First of all, we will start with creating and modifying `extrinsic_calibration_manager` launch files:
 
 ```bash
@@ -43,6 +42,7 @@ cd extrinsic_calibration_manager/launch
 mkdir <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve mkdir tutorial_vehicle_sensor_kit
 touch manual.launch.xml manual_sensor_kit.launch.xml
 ```
+
 The created `manual.launch.xml` and `manual_sensor_kit.launch.xml` are version of sample sensor kit
 [aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1) provided from Tier IV.
 
@@ -51,6 +51,7 @@ please open this file on a text editor which will you prefer (code, gedit etc.).
 Example for out tutorial vehicle should be like these steps:
 
 - Let's start with adding vehicle_id and sensor model names. (Optionally, values are not important. These parameters Overrode from launch argument)
+
 ```diff
 + <?xml version="1.0" encoding="UTF-8"?>
 + <launch>
@@ -60,7 +61,8 @@ Example for out tutorial vehicle should be like these steps:
 ```
 
 - After that, we will launch our sensor_kit for manual sensor calibration,
-so we must add these lines on manual.launch.xml: 
+so we must add these lines on manual.launch.xml:
+
 ```diff
 +   <group>
 +     <push-ros-namespace namespace="sensor_kit"/>
@@ -93,6 +95,7 @@ The final version of the file (manual.launch.xml) for tutorial_vehicle should be
 </launch>
 
 ```
+
 </p>
 </details>
 
@@ -101,6 +104,7 @@ we will be ready to implement manual_sensor_kit.launch.xml for the own sensor mo
 
 - We will start adding sensor_kit and vehicle_id as `manual.launch.xml`.
 Optionally, you can modify sensor_model and vehicle_id over this xml snippet:
+
 ```diff
 + <?xml version="1.0" encoding="UTF-8"?>
 + <launch>
@@ -121,6 +125,7 @@ Optionally, you can modify sensor_model and vehicle_id over this xml snippet:
 
 - Then, we will add all our sensor frames on extrinsic_calibration_manages as child frames.
 For tutorial_vehicle there are four sensors (two lidar, one camera, one gnss/ins), so it will be like this:
+
 ```diff
 +   <!-- extrinsic_calibration_manager -->
 +   <node pkg="extrinsic_calibration_manager" exec="extrinsic_calibration_manager" name="extrinsic_calibration_manager" output="screen">
@@ -136,6 +141,7 @@ For tutorial_vehicle there are four sensors (two lidar, one camera, one gnss/ins
 
 - Lastly, we will launch a manual calibrator each frame for our sensors,
 please update namespace (ns) and child_frame argument on `tutorial_vehicle` example:
+
 ```diff
 +  <!-- extrinsic_manual_calibrator -->
 +  <include file="$(find-pkg-share extrinsic_manual_calibrator)/launch/calibrator.launch.xml">
@@ -225,6 +231,7 @@ The final version of the manual_sensor_kit.launch.xml for tutorial_vehicle shoul
 
 
 ```
+
 </p>
 </details>
 
@@ -235,18 +242,20 @@ we need to build package:
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select extrinsic_calibration_manager
 ```
 
-So, we are ready to launch and use manual calibrator. 
+So, we are ready to launch and use manual calibrator.
 
 ```bash
 ros2 launch extrinsic_calibration_manager calibration.launch.xml  mode:=manual sensor_model:=<OWN-SENSOR-KIT> vehicle_model:=<OWN-VEHICLE-MODEL> vehicle_id:=<VEHICLE-ID>
 ```
 
-For tutorial vehicle: 
+For tutorial vehicle:
+
 ```bash
 ros2 launch extrinsic_calibration_manager calibration.launch.xml  mode:=manual sensor_model:=tutorial_vehicle_sensor_kit vehicle_model:=tutorial_vehicle vehicle_id:=tutorial_vehicle
 ```
 
 Then play ROS 2 bag file:
+
 ```bash
 ros2 bag play <rosbag_path> --clock -l -r 0.2 \
   --remap /tf:=/null/tf /tf_static:=/null/tf_static # if tf is recorded
