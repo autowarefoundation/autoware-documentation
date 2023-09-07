@@ -12,7 +12,7 @@ type:
     - name: policies.sequence
       text: The type of the target sequence.
     - name: policies.policy
-      text: The type of the cooporation policy.
+      text: The type of the cooperation policy.
 ---
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
