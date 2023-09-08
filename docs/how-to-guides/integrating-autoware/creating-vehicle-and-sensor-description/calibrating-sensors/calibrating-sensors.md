@@ -36,4 +36,4 @@ we will modify `extrinsic_calibration_package` for our sensor kit.
 
 - [Generic Calibration](./generic-calibration.md)
 - [Lidar-Lidar Calibration](./lidar-lidar-calibration.md)
-  - [Ground Plane-Lidar Calibration](https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_extrinsic_ground_plane.md)
+  - [Ground Plane-Lidar Calibration](./ground-lidar-calibration.md)

@@ -1,4 +1,4 @@
-# Lidar-Lidar Calibration
+# Lidar-Lidar calibration
 
 ## Overview
 
@@ -29,11 +29,11 @@ If you want more details about these methods such as usage, troubleshooting etc.
     Start:             Sep  5 2023 11:23:51.105 (1693902231.105)
     End:               Sep  5 2023 11:25:43.808 (1693902343.808)
     Messages:          2256
-    Topic information: Topic: /sensing/lidar/right/pointcloud_raw | Type: sensor_msgs/msg/PointCloud2 | Count: 1128 | Serialization Format: cdr
+    Topic information: Topic: /sensing/lidar/front/pointcloud_raw | Type: sensor_msgs/msg/PointCloud2 | Count: 1128 | Serialization Format: cdr
                        Topic: /sensing/lidar/top/pointcloud_raw | Type: sensor_msgs/msg/PointCloud2 | Count: 1128 | Serialization Format: cdr
     ```
 
-## Mapping-based lidar-lidar
+## Mapping-based lidar-lidar calibration
 
 We start with creating launch file four our vehicle like "Extrinsic Manual Calibration"
 process:
@@ -70,7 +70,7 @@ Then we will continue with adding vehicle_id and sensor model names to the `mapp
     ```
 
 After that, we will launch our sensor_kit for mapping-based lidar-lidar calibration,
-so we must add these lines on manual.launch.xml:
+so we must add these lines on mapping_based.launch.xml:
 
 ```diff
 +   <group>
