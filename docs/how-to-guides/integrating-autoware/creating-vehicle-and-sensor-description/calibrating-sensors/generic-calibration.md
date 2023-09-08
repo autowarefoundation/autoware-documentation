@@ -30,12 +30,15 @@ So our tutorial_vehicle's recorded topics should like this:
                         Topic: /sensing/camera/camera0/camera_info | Type: sensor_msgs/msg/CameraInfo | Count: 2561 | Serialization Format: cdr
     ```
 
+## Extrinsic Manual Based Calibration
+
 First of all, we will start with creating and modifying `extrinsic_calibration_manager` launch files:
 
 ```bash
 cd <YOUR-OWN-AUTOWARE-DIRECTORY>/src/autoware/calibration_tools/sensor
 cd extrinsic_calibration_manager/launch
 mkdir <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve mkdir tutorial_vehicle_sensor_kit
+cd <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit
 touch manual.launch.xml manual_sensor_kit.launch.xml
 ```
 
@@ -95,15 +98,14 @@ The final version of the file (manual.launch.xml) for tutorial_vehicle should be
 After the completing of manual.launch.xml file,
 we will be ready to implement manual_sensor_kit.launch.xml for the own sensor model:
 
-We will start adding sensor_kit and vehicle_id as `manual.launch.xml`.
 Optionally, you can modify sensor_model and vehicle_id over this xml snippet:
 
 ```diff
 + <?xml version="1.0" encoding="UTF-8"?>
 + <launch>
-+   <arg name="vehicle_id" default="tutorial_vehicle"/>  <!-- Please Update with your own vehicle_id -->
++   <arg name="vehicle_id" default="tutorial_vehicle"/>  <!-- You can update with your own vehicle_id -->
 +
-+   <let name="sensor_model" value="tutorial_vehicle_sensor_kit"/> <!-- Please Update with your own sensor_kit -->
++   <let name="sensor_model" value="tutorial_vehicle_sensor_kit"/> <!-- You can update with your own sensor_kit -->
 +   <let name="parent_frame" value="sensor_kit_base_link"/>
 +
 +   <!-- extrinsic_calibration_client -->
@@ -170,9 +172,9 @@ The final version of the manual_sensor_kit.launch.xml for tutorial_vehicle shoul
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <launch>
-        <arg name="vehicle_id" default="tutorial_vehicle"/> <!-- Please Update with your own vehicle_id -->
+        <arg name="vehicle_id" default="tutorial_vehicle"/> <!-- You can update with your own vehicle_id -->
 
-        <let name="sensor_model" value="tutorial_vehicle_sensor_kit"/> <!-- Please Update with your own sensor model -->
+        <let name="sensor_model" value="tutorial_vehicle_sensor_kit"/> <!-- You can update with your own sensor model -->
         <let name="parent_frame" value="sensor_kit_base_link"/>
 
         <!-- extrinsic_calibration_client -->
