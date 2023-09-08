@@ -25,9 +25,9 @@ So our tutorial_vehicle's recorded topics should like this:
     End:               Sep  6 2023 13:46:43.914 (1693997203.914)
     Messages:          8504
     Topic information: Topic: /sensing/lidar/top/pointcloud_raw | Type: sensor_msgs/msg/PointCloud2 | Count: 1691 | Serialization Format: cdr
-                        Topic: /sensing/lidar/front/pointcloud_raw | Type: sensor_msgs/msg/PointCloud2 | Count: 1691 | Serialization Format: cdr
-                        Topic: /sensing/camera/camera0/image_rect | Type: sensor_msgs/msg/Image | Count: 2561 | Serialization Format: cdr
-                        Topic: /sensing/camera/camera0/camera_info | Type: sensor_msgs/msg/CameraInfo | Count: 2561 | Serialization Format: cdr
+                       Topic: /sensing/lidar/front/pointcloud_raw | Type: sensor_msgs/msg/PointCloud2 | Count: 1691 | Serialization Format: cdr
+                       Topic: /sensing/camera/camera0/image_rect | Type: sensor_msgs/msg/Image | Count: 2561 | Serialization Format: cdr
+                       Topic: /sensing/camera/camera0/camera_info | Type: sensor_msgs/msg/CameraInfo | Count: 2561 | Serialization Format: cdr
     ```
 
 ## Extrinsic Manual Based Calibration
@@ -59,7 +59,7 @@ Let's start with adding vehicle_id and sensor model names. (Optionally, values a
 +   <let name="sensor_model" value="<YOUR_SENSOR_KIT_NAME>"/>
 ```
 
-??? note "i.e. tutorial_vehicle"
+??? note "i.e. vehicle_id and sensor_model definition on tutorial_vehicle (manual.launch.xml)"
 
     ```xml
      <?xml version="1.0" encoding="UTF-8"?>
@@ -131,7 +131,7 @@ Optionally, you can modify sensor_model and vehicle_id over this xml snippet as 
 +   </node>
 ```
 
-??? note "i.e. vehicle_id and sensor_model definition on tutorial_vehicle"
+??? note "i.e. vehicle_id and sensor_model definition on tutorial_vehicle (manual_sensor_kit.launch.xml)"
 
     ```xml
     + <?xml version="1.0" encoding="UTF-8"?>
@@ -303,13 +303,13 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --package
 So, we are ready to launch and use manual calibrator.
 
 ```bash
-ros2 launch extrinsic_calibration_manager calibration.launch.xml  mode:=manual sensor_model:=<OWN-SENSOR-KIT> vehicle_model:=<OWN-VEHICLE-MODEL> vehicle_id:=<VEHICLE-ID>
+ros2 launch extrinsic_calibration_manager calibration.launch.xml mode:=manual sensor_model:=<OWN-SENSOR-KIT> vehicle_model:=<OWN-VEHICLE-MODEL> vehicle_id:=<VEHICLE-ID>
 ```
 
 For tutorial vehicle:
 
 ```bash
-ros2 launch extrinsic_calibration_manager calibration.launch.xml  mode:=manual sensor_model:=tutorial_vehicle_sensor_kit vehicle_model:=tutorial_vehicle vehicle_id:=tutorial_vehicle
+ros2 launch extrinsic_calibration_manager calibration.launch.xml mode:=manual sensor_model:=tutorial_vehicle_sensor_kit vehicle_model:=tutorial_vehicle vehicle_id:=tutorial_vehicle
 ```
 
 Then play ROS 2 bag file:
@@ -320,7 +320,7 @@ ros2 bag play <rosbag_path> --clock -l -r 0.2 \
 ```
 
 You will show to a manual rqt_reconfigure window,
-we will update calibrations by hand according to the rviz2 results.
+we will update calibrations by hand according to the rviz2 results of sensors.
 
 - Press `Refresh` button then press `Expand All` button. The frames on tutorial_vehicle should like this:
 
@@ -332,5 +332,5 @@ we will update calibrations by hand according to the rviz2 results.
     and camera-lidar calibration. At this point, there is hard to calibrate two sensors with exactly same frame, so you should find
     approximately (it not must be perfect) calibration pairs between sensors.
 
-Here is the video for demonstrating a manual calibration process on tutorial vehicle:
+Here is the video for demonstrating a manual calibration process on tutorial_vehicle:
 ![type:video](https://youtube.com/embed/axHILP0PiaQ)
