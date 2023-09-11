@@ -8,7 +8,7 @@ This page explains how users can create maps that can be used for Autoware.
 
 Traditionally, a Mobile Mapping System (MMS) is used in order to create highly accurate large-scale point cloud maps. However, since a MMS requires high-end sensors for precise positioning, its operational cost can be very expensive and may not be suitable for a relatively small driving environment. Alternatively, a Simultaneous Localization And Mapping (SLAM) algorithm can be used to create a point cloud map from recorded LiDAR scans. Some of the useful open-source SLAM implementations are listed in this [page](open-source-slam/index.md).
 
-If you prefer proprietary software that is easy to use, you can try a fully automatic mapping tool from [MAP IV, Inc.](https://www.map4.jp/), [_MapIV Engine_](https://www.map4.jp/solutions/mapping-localization/map4engine/). They currently provide a trial license for Autoware users free of charge.
+If you prefer proprietary software that is easy to use, you can try a fully automatic mapping tool from [MAP IV, Inc.](https://www.map4.jp/), [_MapIV Engine_](https://www.map4.jp/solutions/mapping-localization/map4-engine/). They currently provide a trial license for Autoware users free of charge.
 
 ## Creating a vector map
 
