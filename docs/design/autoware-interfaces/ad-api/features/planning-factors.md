@@ -12,59 +12,58 @@ Applications can notify the vehicle behavior to the people around and visualize 
 
 ## Velocity factors
 
-The velocity factors is an array of information on the behavior that the vehicle stops (or slows down).
-Each factor has a type shown below, pose in the base link, distance, status, and detailed data depending on its type.
+The velocity factors is an array of information on the behavior that the vehicle stops or slows down.
+Each factor has a behavior type which is described below.
+Some behavior types have sequence and details as additional information.
+
+| Behavior                    | Description                                                                         |
+| --------------------------- | ----------------------------------------------------------------------------------- |
+| surrounding-obstacle        | There are obstacles immediately around the vehicle.                                 |
+| route-obstacle              | There are obstacles along the route ahead.                                          |
+| intersection                | There are obstacles in other lanes in the path.                                     |
+| crosswalk                   | There are obstacles on the crosswalk.                                               |
+| rear-check                  | There are obstacles behind that would be in a human driver's blind spot.            |
+| user-defined-attention-area | There are obstacles in the predefined attention area.                               |
+| no-stopping-area            | There is not enough space beyond the no stopping area.                              |
+| stop-sign                   | A stop by a stop sign.                                                              |
+| traffic-signal              | A stop by a traffic signal.                                                         |
+| v2x-gate-area               | A stop by a gate area. It has enter and leave as sequences and v2x type as details. |
+| merge                       | A stop before merging lanes.                                                        |
+| sidewalk                    | A stop before crossing the sidewalk.                                                |
+| lane-change                 | A lane change.                                                                      |
+| avoidance                   | A path change to avoid an obstacle in the current lane.                             |
+| emergency-operation         | A stop by emergency instruction from the operator.                                  |
+
+Each factor also provides status, poses in the base link frame, and distance from that pose.
 As the vehicle approaches the stop position, this factor appears with a status of APPROACHING.
 And when the vehicle reaches that position and stops, the status will be STOPPED.
-The pose indicates the stop position or the base link if the stop position cannot be calculated.
+The pose indicates the stop position, or the base link if the stop position cannot be calculated.
 
 ![velocity-factors](./planning-factors/velocity-factors.drawio.svg)
-
-| Factor Type                 | Description                                                              |
-| --------------------------- | ------------------------------------------------------------------------ |
-| SURROUNDING_OBSTACLE        | There are obstacles immediately around the vehicle.                      |
-| ROUTE_OBSTACLE              | There are obstacles along the route ahead.                               |
-| INTERSECTION                | There are obstacles in other lanes in the path.                          |
-| CROSSWALK                   | There are obstacles on the crosswalk.                                    |
-| REAR_CHECK                  | There are obstacles behind that would be in a human driver's blind spot. |
-| USER_DEFINED_DETECTION_AREA | There are obstacles in the predefined detection area.                    |
-| NO_STOPPING_AREA            | There is not enough space beyond the no stopping area.                   |
-| STOP_SIGN                   | A stop by a stop sign.                                                   |
-| TRAFFIC_SIGNAL              | A stop by a traffic signal.                                              |
-| V2I_GATE_CONTROL_ENTER      | A stop by a V2I gate entering.                                           |
-| V2I_GATE_CONTROL_LEAVE      | A stop by a V2I gate leaving.                                            |
-| MERGE                       | A stop before merging lanes.                                             |
-| SIDEWALK                    | A stop before crossing the sidewalk.                                     |
-| LANE_CHANGE                 | A lane change.                                                           |
-| AVOIDANCE                   | A path change to avoid an obstacle in the current lane.                  |
-| EMERGENCY_OPERATION         | A stop by emergency instruction from the operator.                       |
 
 ## Steering factors
 
 The steering factors is an array of information on the maneuver that requires use of turn indicators, such as turning left or right.
-Each factor has a type shown below, pose in the base link, distance, status, and detailed data depending on its type.
+Each factor has a behavior type which is described below and steering direction.
+Some behavior types have sequence and details as additional information.
+
+| Behavior            | Description                                                                 |
+| ------------------- | --------------------------------------------------------------------------- |
+| intersection        | A turning left or right at an intersection.                                 |
+| lane-change         | A lane change.                                                              |
+| avoidance           | A path change to avoid an obstacle. It has a sequence of change and return. |
+| start-planner       | T.B.D.                                                                      |
+| goal-planner        | T.B.D.                                                                      |
+| emergency-operation | A path change by emergency instruction from the operator.                   |
+
+Each factor also provides status, poses in the base link frame, and distances from that poses.
 As the vehicle approaches the position to start steering, this factor appears with a status of APPROACHING.
 And when the vehicle reaches that position, the status will be TURNING.
-The pose indicates the start position when APPROACHING and the end position when TURNING.
+The poses indicate the start and end position of the section where the status is TURNING.
 
 ![steering-factors-1](./planning-factors/steering-factors-1.drawio.svg)
 
 In cases such as lane change and avoidance, the vehicle will start steering at any position in the range depending on the situation.
-As the vehicle approaches the start position of the range, this factor appears with a status of APPROACHING.
-And when the vehicle reaches that position, the status will be TRYING.
-Then, when it is possible, the vehicle will start steering and the status will be TURNING.
-The pose indicates the start of the range (A) when APPROACHING and the end of the range (B) when TRYING.
-The position to end steering (C to D) for TURNING depends on the position to start steering.
+For these types, the section where the status is TURNING will be updated dynamically and the poses will follow that.
 
 ![steering-factors-2](./planning-factors/steering-factors-2.drawio.svg)
-
-| Factor Type           | Description                                                              |
-| --------------------- | ------------------------------------------------------------------------ |
-| INTERSECTION          | A turning left or right at an intersection.                              |
-| LANE_CHANGE           | A lane change.                                                           |
-| AVOIDANCE_PATH_CHANGE | A path change to avoid an obstacle in the current lane.                  |
-| AVOIDANCE_PATH_RETURN | A path change to return to the original lane after avoiding an obstacle. |
-| STATION               | T.B.D. (bus stop)                                                        |
-| PULL_OUT              | T.B.D.                                                                   |
-| PULL_OVER             | T.B.D.                                                                   |
-| EMERGENCY_OPERATION   | A path change by emergency instruction from the operator.                |
