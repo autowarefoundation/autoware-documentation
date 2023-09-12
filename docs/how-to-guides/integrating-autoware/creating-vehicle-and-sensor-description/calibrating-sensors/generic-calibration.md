@@ -30,7 +30,7 @@ So our tutorial_vehicle's recorded topics should like this:
                        Topic: /sensing/camera/camera0/camera_info | Type: sensor_msgs/msg/CameraInfo | Count: 2561 | Serialization Format: cdr
     ```
 
-## Extrinsic Manual Based Calibration
+## Extrinsic Manual-Based Calibration
 
 First of all, we will start with creating and modifying `extrinsic_calibration_manager` launch files:
 
@@ -203,7 +203,7 @@ please update namespace (ns) and child_frame argument on calibrator.launch.xml l
 +
 ```
 
-??? note "i.e. calibrator.launch.xml for each tutorial_vehicle's sensors"
+??? note "i.e., calibrator.launch.xml for each tutorial_vehicle's sensor"
 
     ```xml
     +  <!-- extrinsic_manual_calibrator -->

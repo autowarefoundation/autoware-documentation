@@ -106,7 +106,7 @@ The final version of the file (mapping_based.launch.xml) for tutorial_vehicle sh
     ```
 
 After the completing of mapping_based.launch.xml file,
-we will be ready to implement mapping_based_sensor_kit.launch.xml for the own sensor model:
+we will be ready to implement mapping_based_sensor_kit.launch.xml for the own sensor model.
 
 Optionally,
 you can modify sensor_kit and vehicle_id as `mapping_based.launch.xml`over this xml snippet:
@@ -417,7 +417,7 @@ First of all, we need to build extrinsic_calibration_manager package:
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select extrinsic_calibration_manager
 ```
 
-So, we are ready to launch and use manual calibrator.
+So, we are ready to launch and use mapping-based lidar-lidar calibrator.
 
 ```bash
 ros2 launch extrinsic_calibration_manager calibration.launch.xml mode:=mapping_based sensor_model:=<OWN-SENSOR-KIT> vehicle_model:=<OWN-VEHICLE-MODEL> vehicle_id:=<VEHICLE-ID>
@@ -434,10 +434,10 @@ you need
 to update it with your sensor information topics like the video,
 which included an end of the document.
 Also, you can save the rviz2 config on rviz directory,
-so you can use it later with modifying `mapping_based.launch.xml`.
+so you can use it later with modifying `mapping_based_sensor_kit.launch.xml`.
 
 ```diff
-extrinsic_mapping_based_calibrator/
+extrinsic_ground_plane_calibrator/
    └─ rviz/
 +        └─ tutorial_vehicle_sensor_kit.rviz
 ```
@@ -475,5 +475,5 @@ The green points indicate aligned point (calibration result).
 The calibration results will be saved automatically on your
 `dst_yaml` ($HOME/sensor_kit_calibration.yaml) at this tutorial.
 
-Here is the video for demonstrating a manual calibration process on tutorial_vehicle:
+Here is the video for demonstrating a mapping-based lidar-lidar calibration process on tutorial_vehicle:
 ![type:video](https://youtube.com/embed/--WBNP76GoE)
