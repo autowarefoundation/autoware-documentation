@@ -6,7 +6,7 @@
 
 ## Training machine learning models
 
-- [Training Traffic Light Classifier Module](training-machine-learning-models/training-traffic-light-classifier-model.md)
+- [Model Training and Deploying](training-machine-learning-models/training-models.md)
 
 ## Others
 
