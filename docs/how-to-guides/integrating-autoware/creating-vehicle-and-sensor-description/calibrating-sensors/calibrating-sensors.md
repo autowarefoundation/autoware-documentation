@@ -1,11 +1,11 @@
-# Starting with Tier IV's CalibrationTools
+# Starting with TIER IV's CalibrationTools
 
 ## Overview
 
 Autoware expects to have multiple sensors attached to the vehicle as input to perception, localization, and planning stack. These sensors must be calibrated correctly, and their positions must be defined using either urdf files (as in [sample_sensor_kit](https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_description)) or as tf launch files.
-In order to do that, we will use Tier IV' [CalibrationTools](https://github.com/tier4/CalibrationTools) repository.
+In order to do that, we will use TIER IV' [CalibrationTools](https://github.com/tier4/CalibrationTools) repository.
 
-## Installing Tier IV's CalibrationTools repositories on autoware
+## Installing TIER IV's CalibrationTools repositories on autoware
 
 After completing previous steps (creating your own autoware,
 creating a vehicle and sensor model etc.)
@@ -37,3 +37,4 @@ we will modify `extrinsic_calibration_package` for our sensor kit.
 - [Generic Calibration](./generic-calibration.md)
 - [Lidar-Lidar Calibration](./lidar-lidar-calibration.md)
   - [Ground Plane-Lidar Calibration](./ground-lidar-calibration.md)
+- [Lidar-Camera Calibration](./lidar-camera-calibration.md)

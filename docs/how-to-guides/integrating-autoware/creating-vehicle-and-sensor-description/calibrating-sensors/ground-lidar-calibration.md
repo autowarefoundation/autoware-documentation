@@ -37,12 +37,13 @@ We will start with creating launch file four our own vehicle like the previous s
 ```bash
 cd <YOUR-OWN-AUTOWARE-DIRECTORY>/src/autoware/calibration_tools/sensor
 cd extrinsic_calibration_manager/launch
-cd <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit
+cd <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit which is created in generic calibration
 touch ground_plane.launch.xml ground_plane_sensor_kit.launch.xml
 ```
 
 The created `ground_plane.launch.xml` and `ground_plane_sensor_kit.launch.xml` are version of sample sensor kit
-[aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1) provided from Tier IV.
+[aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1)
+provided from TIER IV.
 
 Then we will continue with adding vehicle_id and sensor model names to the `ground_plane.launch.xml`.
 (Optionally, values are not important. These parameters Overrode from launch argument)

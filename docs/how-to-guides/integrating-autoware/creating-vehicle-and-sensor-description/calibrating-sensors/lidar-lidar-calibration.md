@@ -3,10 +3,10 @@
 ## Overview
 
 In this tutorial,
-we will explain lidar-lidar calibration over [mapping-based lidar-lidar calibration tool](https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_extrinsic_mapping_based.md) of Tier IV's
+we will explain lidar-lidar calibration over [mapping-based lidar-lidar calibration tool](https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_extrinsic_mapping_based.md) of TIER IV's
 CalibrationTools.
 Also,
-[map-based lidar-lidar calibration method](https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_extrinsic_map_based.md) included in the Tier IV's tools.
+[map-based lidar-lidar calibration method](https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_extrinsic_map_based.md) included in the TIER IV's tools.
 [LL-Calib](https://github.com/autocore-ai/calibration_tools/tree/main/lidar-lidar-calib) on GitHub,
 provided by [AutoCore](https://autocore.ai/),
 is a lightweight toolkit for online/offline 3D LiDAR to LiDAR calibration.
@@ -41,12 +41,13 @@ process:
 ```bash
 cd <YOUR-OWN-AUTOWARE-DIRECTORY>/src/autoware/calibration_tools/sensor
 cd extrinsic_calibration_manager/launch
-cd <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit
+cd <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit which is created in generic calibration
 touch mapping_based.launch.xml mapping_based_sensor_kit.launch.xml
 ```
 
 The created `mapping_based.launch.xml` and `mapping_based_sensor_kit.launch.xml` are version of sample sensor kit
-[aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1) provided from Tier IV.
+[aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1)
+provided from TIER IV.
 
 Then we will continue with adding vehicle_id and sensor model names to the `mapping_based.launch.xml`.
 (Optionally, values are not important. These parameters Overrode from launch argument)

@@ -3,3 +3,4 @@ nav:
   - generic-calibration.md
   - lidar-lidar-calibration.md
   - ground-lidar-calibration.md
+  - lidar-camera-calibration.md

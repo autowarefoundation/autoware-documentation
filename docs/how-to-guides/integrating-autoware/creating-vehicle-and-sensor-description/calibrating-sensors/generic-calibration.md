@@ -43,7 +43,8 @@ touch manual.launch.xml manual_sensor_kit.launch.xml
 ```
 
 The created `manual.launch.xml` and `manual_sensor_kit.launch.xml` are version of sample sensor kit
-[aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1) provided from Tier IV.
+[aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1)
+provided from TIER IV.
 
 So, we can start modifying `manual.launch.xml`,
 please open this file on a text editor which will you prefer (code, gedit etc.).
