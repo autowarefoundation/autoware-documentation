@@ -1,3 +1,5 @@
 nav:
-  - Creating a vehicle interface for an Ackermann kinematic model: creating-a-vehicle-interface-for-an-ackermann-kinematic-model.md
+  - vehicle-interface.md
+  - creating-vehicle-interface.md
+  - ackermann-kinematic-model.md
   - customizing-for-differential-drive-model.md
