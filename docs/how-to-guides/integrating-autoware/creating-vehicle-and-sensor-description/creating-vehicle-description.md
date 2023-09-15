@@ -13,12 +13,12 @@ This page introduce following topics;
 
     [Here](https://github.com/leo-drive/tutorial_vehicle_launch) is the sample repository created for the tutorial vehicle.
 
-- You must change the sensor_kit with you forked at creating repository sections.
+- You must replace the `sample_vehicle_launch` with the one you forked when creating the Autoware repository page.
 
 ```diff
-vehicle/
--   ├─ sample_vehicle_launch/
-+   └─ VEHICLE-ID_vehicle_launch
+YOUR-OWN-AUTOWARE-DIR/src/vehicle/
+-       ├─ sample_vehicle_launch/
++       └─ VEHICLE-ID_vehicle_launch
 ```
 
 ## 1. VEHICLE-ID_vehicle_description
@@ -27,7 +27,7 @@ This package contains the parameters of the vehicle, macro files and fbx files.
 
 ### Folder Structure
 
-The folder structure of forked `VEHICLE-ID_vehicle_description` repository should be like this:
+The folder structure of forked `VEHICLE-ID_vehicle_description` should be like this:
 
 ```diff
 VEHICLE-ID_vehicle_description/
@@ -56,7 +56,7 @@ Used in the [crop-box-filter](https://autowarefoundation.github.io/autoware.univ
 [PointCloudPreprocessor](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture/sensing/data-types/point-cloud/).
 
 The original file is [mirror.param.yaml](https://github.com/autowarefoundation/sample_vehicle_launch/blob/main/sample_vehicle_description/config/mirror.param.yaml)
-included in [sample_vehicle_launch](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main) and given below.
+included in [sample_vehicle_launch](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main) and given below:
 
 ```yaml
 /**:
@@ -78,7 +78,7 @@ included in [sample_vehicle_launch](https://github.com/autowarefoundation/sample
 Configuration file for the simulator environment.
 
 The original file is [simulator_model.param.yaml](https://github.com/autowarefoundation/sample_vehicle_launch/blob/main/sample_vehicle_description/config/simulator_model.param.yaml)
-included in [sample_vehicle_launch](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main) and given below.
+included in [sample_vehicle_launch](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main) and given below:
 
 ??? note "mirror.param.yaml for sample_vehicle_launch"
 
@@ -108,27 +108,25 @@ included in [sample_vehicle_launch](https://github.com/autowarefoundation/sample
 Defines the vehicle dimensions. For more details on each parameter, please click [here](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-dimensions/).
 
 The original file is [vehicle_info.param.yaml](https://github.com/autowarefoundation/sample_vehicle_launch/blob/main/sample_vehicle_description/config/vehicle_info.param.yaml)
-included in [sample_vehicle_launch](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main) and given below.
+included in [sample_vehicle_launch](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main) and given below:
 
-??? note "vehicle_info.param.yaml for sample_vehicle_launch"
-
-    ```yaml
-    /**:
-    ros__parameters:
-        wheel_radius: 0.383 # The radius of the wheel, primarily used for dead reckoning.
-        wheel_width: 0.235 # The lateral width of a wheel tire, primarily used for dead reckoning.
-        wheel_base: 2.79 # between front wheel center and rear wheel center
-        wheel_tread: 1.64 # between left wheel center and right wheel center
-        front_overhang: 1.0 # between front wheel center and vehicle front
-        rear_overhang: 1.1 # between rear wheel center and vehicle rear
-        left_overhang: 0.128 # between left wheel center and vehicle left
-        right_overhang: 0.128 # between right wheel center and vehicle right
-        vehicle_height: 2.5
-        max_steer_angle: 0.70 # [rad]
-    ```
+```yaml
+/**:
+ros__parameters:
+    wheel_radius: 0.383 # The radius of the wheel, primarily used for dead reckoning.
+    wheel_width: 0.235 # The lateral width of a wheel tire, primarily used for dead reckoning.
+    wheel_base: 2.79 # between front wheel center and rear wheel center
+    wheel_tread: 1.64 # between left wheel center and right wheel center
+    front_overhang: 1.0 # between front wheel center and vehicle front
+    rear_overhang: 1.1 # between rear wheel center and vehicle rear
+    left_overhang: 0.128 # between left wheel center and vehicle left
+    right_overhang: 0.128 # between right wheel center and vehicle right
+    vehicle_height: 2.5
+    max_steer_angle: 0.70 # [rad]
+```
 
 The tutorial_vehicle file is [vehicle_info.param.yaml](https://github.com/leo-drive/tutorial_vehicle_launch/blob/main/tutorial_vehicle_description/config/vehicle_info.param.yaml)
-included in [tutorial_vehicle_launch](https://github.com/leo-drive/tutorial_vehicle_launch/tree/main) and given below.
+included in [tutorial_vehicle_launch](https://github.com/leo-drive/tutorial_vehicle_launch/tree/main) and given below:
 
 ??? note "vehicle_info.param.yaml for tutorial_vehicle_launch"
 
@@ -152,13 +150,13 @@ included in [tutorial_vehicle_launch](https://github.com/leo-drive/tutorial_vehi
 `vehicle.fbx` is a 3D model file used for visualization in RVIZ.
 You must add the fbx or dae file of your own vehicle.
 
-The file [lexus.dae](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_description/mesh) lexus vehicle for sample_vehicle_launch is given below.
+The 3D model of Lexus vehicle prepared for sample_vehicle_launch is [here](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_description/mesh).
 
 ### 5. vehicle.xacro
 
 `vehicle.xacro` is a macro file that defines the vehicle model.
 
-The original [vehicle.xacro](https://github.com/autowarefoundation/sample_vehicle_launch/blob/main/sample_vehicle_description/urdf/vehicle.xacro) file for sample_vehicle_launch is given below.
+The original [vehicle.xacro](https://github.com/autowarefoundation/sample_vehicle_launch/blob/main/sample_vehicle_description/urdf/vehicle.xacro) file for sample_vehicle_launch is given below:
 
 ??? note "vehicle.xacro for sample_vehicle_launch"
 
@@ -187,7 +185,7 @@ to the configuration of your vehicle's drive system.
 
 ### Folder Structure
 
-The folder structure of forked `VEHICLE-ID_vehicle_launch` repository should be like this:
+The folder structure of forked `VEHICLE-ID_vehicle_launch` should be like this:
 
 ```diff
 VEHICLE-ID_vehicle_launch/
@@ -197,7 +195,7 @@ VEHICLE-ID_vehicle_launch/
 
 If you are operating multiple vehicles, use the vehicle_id to switch to the corresponding configuration for each vehicle.
 
-The default file is [vehicle_interface.launch.xml](https://github.com/autowarefoundation/sample_vehicle_launch/blob/main/sample_vehicle_launch/launch/vehicle_interface.launch.xml) for sample_vehicle_launch is given below.
+The default file is [vehicle_interface.launch.xml](https://github.com/autowarefoundation/sample_vehicle_launch/blob/main/sample_vehicle_launch/launch/vehicle_interface.launch.xml) for sample_vehicle_launch is given below:
 
 ```yaml
 <?xml version="1.0" encoding="UTF-8"?>

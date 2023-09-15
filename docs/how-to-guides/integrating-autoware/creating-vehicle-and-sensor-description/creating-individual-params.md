@@ -24,17 +24,17 @@ This page introduces the necessary individual parameter files required by Autowa
 
     [Here](https://github.com/leo-drive/tutorial_vehicle_individual_params/tree/main) is the sample repository created for the tutorial vehicle.
 
-- You must change the sensor_kit with you forked at creating repository sections.
+- You must replace the `sample_sensor_kit` with the one you forked when creating the Autoware repository page.
 
 ```diff
-autoware_individual_params/individual_params/config/sensor_kit/
+autoware_individual_params/individual_params/config/<VEHICLE-ID>/
 -   ├─ sample_sensor_kit/
 +   └─ VEHICLE-ID_sensor_kit/
 ```
 
 ### Folder Structure
 
-The folder structure of forked `individual_params` repository should be like this:
+The folder structure of forked `individual_params` should be like this:
 
 ```diff
 individual_params/
@@ -50,9 +50,9 @@ individual_params/
 
 A file used by imu_corrector.
 
-The default [imu_corrector_param.yaml](https://github.com/autowarefoundation/autoware.universe/blob/main/sensing/imu_corrector/config/imu_corrector.param.yaml) included in [imu_corrector_package](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/imu_corrector),
-but it will be overridden by [autoware_individual_param](https://github.com/autowarefoundation/autoware_individual_params/tree/main/individual_params)
-The `imu_corrector_param.yaml` created for `sample_sensor_kit` is given below.
+The default [imu_corrector.param.yaml](https://github.com/autowarefoundation/autoware.universe/blob/main/sensing/imu_corrector/config/imu_corrector.param.yaml) included in [imu_corrector_package](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/imu_corrector),
+but it will be overridden by [autoware_individual_param](https://github.com/autowarefoundation/autoware_individual_params/tree/main/individual_params).
+The `imu_corrector_param.yaml` created for `sample_sensor_kit` is given below:
 
 ```yaml
 /**:
@@ -67,23 +67,29 @@ The `imu_corrector_param.yaml` created for `sample_sensor_kit` is given below.
 
 `imu_corrector_param.yaml` is calculated with [deviation_estimation_tools](https://github.com/tier4/CalibrationTools/blob/tier4/universe/localization/deviation_estimation_tools/ReadMe.md).
 
-The tutorial_vehicle's [imu_corrector_param.yaml](https://github.com/leo-drive/tutorial_vehicle_individual_params/blob/main/individual_params/config/tutorial_vehicle/tutorial_vehicle_sensor_kit/imu_corrector.param.yaml) file is given below.
+The tutorial_vehicle's [imu_corrector.param.yaml](https://github.com/leo-drive/tutorial_vehicle_individual_params/blob/main/individual_params/config/tutorial_vehicle/tutorial_vehicle_sensor_kit/imu_corrector.param.yaml) file is given below:
 
-```yaml
-/**:
-  ros__parameters:
-    angular_velocity_offset_x: -0.00017
-    angular_velocity_offset_y: 0.00206
-    angular_velocity_offset_z: -0.00006
-    angular_velocity_stddev_xx: 0.05779
-    angular_velocity_stddev_yy: 0.05779
-    angular_velocity_stddev_zz: 0.05779
-```
+??? note "imu_corrector_param.yaml for tutorial_vehicle_sensor_kit"
+
+    ```yaml
+    /**:
+      ros__parameters:
+        angular_velocity_offset_x: -0.00017
+        angular_velocity_offset_y: 0.00206
+        angular_velocity_offset_z: -0.00006
+        angular_velocity_stddev_xx: 0.05779
+        angular_velocity_stddev_yy: 0.05779
+        angular_velocity_stddev_zz: 0.05779
+    ```
 
 ## sensor_kit_calibration.yaml
 
-How it is created is explained [creating_sensor_description.md](./creating-sensor-description.md).
+- How it is created is explained in [Creating sensor kit description page](./creating-sensor-description.md).
+  `sensor_kit_calibration.yaml` will be same file which included in sensor_kit_description package. After the calibration
+  process, the calibration values will be changed.
 
 ## sensors_calibration.yaml
 
-How it is created is explained [creating_sensor_description.md](./creating-sensor-description.md).
+- How it is created is explained in [Creating sensor kit description page](./creating-sensor-description.md).
+  `sensor_kit_calibration.yaml` will be same file which included in sensor_kit_description package. After the calibration
+  process, the calibration values will be changed.
