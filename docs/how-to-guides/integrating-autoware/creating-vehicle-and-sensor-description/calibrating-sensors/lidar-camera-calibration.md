@@ -375,3 +375,73 @@ For tutorial vehicle:
 ```bash
 ros2 launch extrinsic_calibration_manager calibration.launch.xml mode:=mapping_based sensor_model:=tutorial_vehicle_sensor_kit vehicle_model:=tutorial_vehicle vehicle_id:=tutorial_vehicle
 ```
+
+Then, we need to play our bag file.
+
+```bash
+ros2 bag play <rosbag_path> --clock -l -r 0.2 \
+--remap /tf:=/null/tf /tf_static:=/null/tf_static # if tf is recorded
+```
+
+You will be shown a manual interactive calibrator rqt window and Rviz2.
+You must add your lidar sensor point cloud to Rviz2, then we can publish points for the calibrator.
+
+![interactive-calibrator](images/interactive-calibrator.png)
+
+After that, Let's start by pressing the 'Publish Point'
+button and selecting points on the point cloud that are also included in the projected image.
+Then,
+you need to click on the image point that corresponds to the projected lidar point on the image.
+You will see matched calibration points.
+
+![interactive-calibration-points.png](images/interactive-calibration-points.png)
+
+The red points indicate selected lidar points and green ones indicate selected image points.
+You must match the minimum 6 points to perform calibration.
+If you have a wrong match, you can remove this match by just clicking on them.
+After selecting points on image and lidar, you are ready to calibrate.
+If selected point match size is greater than 6, "Calibrate extrinsic" button will be enabled.
+Click this button and change tf source `Initial /tf` to `Calibrator` to see calibration results.
+
+![interactive-calibrator-results.png](images/interactive-calibrator-results.png)
+
+After the completion of the calibration,
+you need to save your calibration results via "Save calibration" button.
+The saved format is json,
+so you need
+to update calibration params at `sensor_kit_calibration.yaml` on `individual_params` and `sensor_kit_description` packages.
+
+??? note "sample calibration output"
+
+    ```json
+    {
+        "header": {
+            "stamp": {
+                "sec": 1694776487,
+                "nanosec": 423288443
+            },
+            "frame_id": "sensor_kit_base_link"
+        },
+        "child_frame_id": "camera0/camera_link",
+        "transform": {
+            "translation": {
+                "x": 0.054564283153017916,
+                "y": 0.040947512210503106,
+                "z": -0.071735410952332
+            },
+            "rotation": {
+                "x": -0.49984112274024817,
+                "y": 0.4905405357176159,
+                "z": -0.5086269994990131,
+                "w": 0.5008267267391722
+            }
+        },
+        "roll": -1.5517347113946862,
+        "pitch": -0.01711459479043047,
+        "yaw": -1.5694590141484235
+    }
+    ```
+
+Here is the video
+for demonstrating the lidar-camera calibration process on tutorial_vehicle:
+![type:video](https://youtube.com/embed/1q4nBml9jRA)

@@ -1,6 +1,6 @@
 nav:
   - calibrating-sensors.md
-  - generic-calibration.md
+  - manual-calibration.md
   - lidar-lidar-calibration.md
   - ground-lidar-calibration.md
   - lidar-camera-calibration.md

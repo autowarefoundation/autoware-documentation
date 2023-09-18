@@ -1,4 +1,4 @@
-# Generic calibration for all sensors
+# Manual calibration for all sensors
 
 ## Overview
 
