@@ -66,6 +66,8 @@ $ wget -P ~/autoware_data/tensorrt_yolox/ \
        https://awf.ml.dev.web.auto/perception/models/yolox-tiny.onnx \
        https://awf.ml.dev.web.auto/perception/models/yolox-sPlus-opt.onnx \
        https://awf.ml.dev.web.auto/perception/models/yolox-sPlus-opt.EntropyV2-calibration.table \
+       https://awf.ml.dev.web.auto/perception/models/object_detection_yolox_s/v1/yolox-sPlus-T4-960x960-pseudo-finetune.onnx \
+       https://awf.ml.dev.web.auto/perception/models/object_detection_yolox_s/v1/yolox-sPlus-T4-960x960-pseudo-finetune.EntropyV2-calibration.table \
        https://awf.ml.dev.web.auto/perception/models/label.txt
 
 
