@@ -34,7 +34,8 @@ for calibrating different sensor pairs such as lidar-lidar,
 camera-lidar, ground-lidar etc. In order to calibrate our sensors,
 we will modify `extrinsic_calibration_package` for our sensor kit.
 
-- [Generic Calibration](./generic-calibration.md)
+- [Manual Calibration](./manual-calibration.md)
 - [Lidar-Lidar Calibration](./lidar-lidar-calibration.md)
   - [Ground Plane-Lidar Calibration](./ground-lidar-calibration.md)
+- [Intrinsic Camera Calibration](./intrinsic-camera-calibration.md)
 - [Lidar-Camera Calibration](./lidar-camera-calibration.md)

@@ -10,7 +10,7 @@ in a way that aligns the points
 corresponding to the ground within the point cloud with the XY plane of the base_link.
 This means that only the z, roll, and pitch values of the tf undergo calibration,
 while the remaining x, y, and yaw values must be calibrated using other methods,
-such as [manual adjustment](./generic-calibration.md) or [mapping-based lidar-lidar calibration](./lidar-lidar-calibration.md).
+such as [manual adjustment](./manual-calibration.md) or [mapping-based lidar-lidar calibration](./lidar-lidar-calibration.md).
 
 You need to apply this calibration method to each lidar separately,
 so our bag should contain all lidars to be calibrated.
@@ -37,7 +37,7 @@ We will start with creating launch file four our own vehicle like the previous s
 ```bash
 cd <YOUR-OWN-AUTOWARE-DIRECTORY>/src/autoware/calibration_tools/sensor
 cd extrinsic_calibration_manager/launch
-cd <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit which is created in generic calibration
+cd <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit which is created in manual calibration
 touch ground_plane.launch.xml ground_plane_sensor_kit.launch.xml
 ```
 

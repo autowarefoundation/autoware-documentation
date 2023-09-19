@@ -15,7 +15,7 @@ another [Lidar-Camera calibration method](https://github.com/leo-drive/Calibrati
 
 !!! warning
 
-    Please get initial calibration results from [Generic Calibration](./generic-calibration.md) section, it is important for getting accurate results from this tool.
+    Please get initial calibration results from [Manual Calibration](./manual-calibration.md) section, it is important for getting accurate results from this tool.
     We will use initial calibration parameters that we calculated on previous step on this tutorial for lidar-camera extrinsic calibration.
 
 Your bag file must include calibration lidar topic and camera topics.
@@ -48,7 +48,7 @@ process:
 ```bash
 cd <YOUR-OWN-AUTOWARE-DIRECTORY>/src/autoware/calibration_tools/sensor
 cd extrinsic_calibration_manager/launch
-cd <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit which is created in generic calibration
+cd <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit which is created in manual calibration
 touch interactive.launch.xml interactive_sensor_kit.launch.xml
 ```
 

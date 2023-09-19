@@ -3,4 +3,5 @@ nav:
   - manual-calibration.md
   - lidar-lidar-calibration.md
   - ground-lidar-calibration.md
+  - intrinsic-camera-calibration.md
   - lidar-camera-calibration.md

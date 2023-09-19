@@ -15,7 +15,7 @@ If you want more details about these methods such as usage, troubleshooting etc.
 
 !!! warning
 
-    Please get initial calibration results from [Generic Calibration](./generic-calibration.md) section, it is important for getting accurate results from this tool.
+    Please get initial calibration results from [Manual Calibration](./manual-calibration.md) section, it is important for getting accurate results from this tool.
     We will use initial calibration parameters that we calculated on previous step on this tutorial.
 
 ??? note "ROS 2 Bag example of our calibration process for tutorial_vehicle"
@@ -41,7 +41,7 @@ process:
 ```bash
 cd <YOUR-OWN-AUTOWARE-DIRECTORY>/src/autoware/calibration_tools/sensor
 cd extrinsic_calibration_manager/launch
-cd <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit which is created in generic calibration
+cd <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit which is created in manual calibration
 touch mapping_based.launch.xml mapping_based_sensor_kit.launch.xml
 ```
 
@@ -471,7 +471,7 @@ After the calibration is completed, then you should rviz2 screen like the image 
 
 ![mapping-based-calibration-result](images/mapping-based-calibration-result.png)
 
-The red points indicate pointcloud that initial calibration results of [previous section](./generic-calibration.md).
+The red points indicate pointcloud that initial calibration results of [previous section](./manual-calibration.md).
 The green points indicate aligned point (calibration result).
 The calibration results will be saved automatically on your
 `dst_yaml` ($HOME/sensor_kit_calibration.yaml) at this tutorial.
