@@ -4,11 +4,11 @@
 
 [TIER IV's Automotive HDR cameras](https://sensor.tier4.jp/automotive-camera) which have ROS 2 driver and tested by TIER IV are listed below:
 
-| Supported Products List | MP  | FPS        | Interface         | HDR       | LFM  | Trigger <br> /Synchronization | Ingress <br> Protection | ROS 2 Driver | Autoware <br> Tested (Y/N) |
-| ----------------------- | --- | ---------- | ----------------- | --------- | ------ | ------- | ---------- | ------------ | ------------  |
-| C1                      | 2.5 | 30   | GMSL2 <br> / USB3 | Y <br>(120dB)  | Y      | Y       | IP69K      | Y            | Y             |
-| C2                      | 5.4 | 30   | GMSL2 <br> / USB3 | Y <br>(120dB)  | Y      | Y       | IP69K       | Y            | Y             |
-| C3 <br> (to be released in 2024) | 8.3 | 30   | GMSL2 <br> / TBD  | Y <br>(120dB)  | Y    | Y       | IP69K      | Y            | Y             |
+| Supported Products List          | MP  | FPS | Interface         | HDR           | LFM | Trigger <br> /Synchronization | Ingress <br> Protection | ROS 2 Driver | Autoware <br> Tested (Y/N) |
+| -------------------------------- | --- | --- | ----------------- | ------------- | --- | ----------------------------- | ----------------------- | ------------ | -------------------------- |
+| C1                               | 2.5 | 30  | GMSL2 <br> / USB3 | Y <br>(120dB) | Y   | Y                             | IP69K                   | Y            | Y                          |
+| C2                               | 5.4 | 30  | GMSL2 <br> / USB3 | Y <br>(120dB) | Y   | Y                             | IP69K                   | Y            | Y                          |
+| C3 <br> (to be released in 2024) | 8.3 | 30  | GMSL2 <br> / TBD  | Y <br>(120dB) | Y   | Y                             | IP69K                   | Y            | Y                          |
 
 Link to ROS 2 driver:  
 [https://github.com/tier4/ros2_v4l2_camera](https://github.com/tier4/ros2_v4l2_camera)
