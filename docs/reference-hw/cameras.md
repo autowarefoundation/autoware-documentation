@@ -14,7 +14,7 @@ Link to ROS 2 driver:
 [https://github.com/tier4/ros2_v4l2_camera](https://github.com/tier4/ros2_v4l2_camera)
 
 Link to product support site:  
-[TIER IV Edge.Auto documentation](hhttps://tier4.github.io/edge-auto-docs/index.html)
+[TIER IV Edge.Auto documentation](https://tier4.github.io/edge-auto-docs/index.html)
 
 Link to product web site:  
 [TIER IV Automotive Camera Solution](https://sensor.tier4.jp/automotive-camera)
