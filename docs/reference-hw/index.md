@@ -1,6 +1,6 @@
 # Reference HW Design
 
-This document is created to describe and give additional information of the sensors and systems supported by Autoware.Auto software.
+This document is created to describe and give additional information of the sensors and systems supported by Autoware.Universe software.
 
 All equipment listed in this document has available ROS 2 drivers and has been tested by one or more of the community members on field in autonomous vehicle and robotics applications.
 
@@ -35,6 +35,8 @@ The documents consists of the sections listed below:
   - FLIR Machine Vision Cameras
   - Lucid Vision Cameras
   - Allied Vision Cameras
+  - TierIV Cameras
+  - Neousys Technology Cameras
 
 - Thermal CAMERAs
 
@@ -47,11 +49,11 @@ The documents consists of the sections listed below:
   - SBG GNSS/INS & IMU Sensors
   - Applanix GNSS/INS Sensors
   - PolyExplore GNSS/INS Sensors
+  - Fix Position GNSS/INS Sensors
 
 - Vehicle Drive By Wire Suppliers
   <!-- cspell: ignore Paravan -->
 
-  - New Eagle DBW Solutions
   - Dataspeed DBW Solutions
   - AStuff Pacmod DBW Solutions
   - Schaeffler-Paravan Space Drive DBW Solutions
@@ -61,7 +63,6 @@ The documents consists of the sections listed below:
   - PIX MOVING Autonomous Vehicle Solutions
   - Autonomoustuff AV Solutions
   - NAVYA AV Solutions
-  - ZING ROBOTICS AV Solutions
 
 - Remote Drive
 
@@ -69,3 +70,9 @@ The documents consists of the sections listed below:
   - LOGITECH
 
 - Full Drivers List
+
+- AD Sensor Kit Suppliers
+
+  - LEO Drive AD Sensor Kit
+  - Tier IV AD Kit
+  - RoboSense AD Sensor Kit
