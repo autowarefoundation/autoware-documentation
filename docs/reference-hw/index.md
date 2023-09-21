@@ -35,7 +35,7 @@ The documents consists of the sections listed below:
   - FLIR Machine Vision Cameras
   - Lucid Vision Cameras
   - Allied Vision Cameras
-  - TierIV Cameras
+  - Tier IV Cameras
   - Neousys Technology Cameras
 
 - Thermal CAMERAs
@@ -74,5 +74,5 @@ The documents consists of the sections listed below:
 - AD Sensor Kit Suppliers
 
   - LEO Drive AD Sensor Kit
-  - Tier IV AD Kit
+  - TIER IV AD Kit
   - RoboSense AD Sensor Kit
