@@ -4,6 +4,10 @@
 
 - [Overview](integrating-autoware/overview.md)
 
+## Training machine learning models
+
+- [Model Training and Deploying](training-machine-learning-models/training-models.md)
+
 ## Others
 
 - [Debug Autoware](others/debug-autoware.md)
