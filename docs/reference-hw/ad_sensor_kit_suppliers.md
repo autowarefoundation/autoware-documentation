@@ -7,8 +7,8 @@
 LEO Drive Autonomy Essentials Kit contents are listed below:
 
 | Supported Products List | Camera                  | Lidar                                                              | GNSS/INS         | ROS 2 Support | Autoware Tested (Y/N) |
-| ----------------------- | ----------------------- | ------------------------------------------------------------------ | ---------------- | ------------ | --------------------- |
-| Autonomy Essentials Kit | 8x Lucid Vision TRI054S | 4x Velodyne Puck<br>1x Velodyne Alpha Prime<br>1x RoboSense Bpearl | 1x SBG Ellipse-D | Y            | Y                     |
+| ----------------------- | ----------------------- | ------------------------------------------------------------------ | ---------------- | ------------- | --------------------- |
+| Autonomy Essentials Kit | 8x Lucid Vision TRI054S | 4x Velodyne Puck<br>1x Velodyne Alpha Prime<br>1x RoboSense Bpearl | 1x SBG Ellipse-D | Y             | Y                     |
 
 Link to company website:  
 [https://leodrive.ai/](https://leodrive.ai/)
@@ -33,8 +33,8 @@ Link to company website:
 RoboSense L4 sensor fusion solution system contents are listed below:
 
 | Supported Products List | Camera | Lidar                                 | ECU      | ROS 2 Support | Autoware Tested (Y/N) |
-| ----------------------- | ------ | ------------------------------------- | -------- | ------------ | --------------------- |
-| P6                      | -      | 4x Automotive Grade Solid-state Lidar | Optional | -            | -                     |
+| ----------------------- | ------ | ------------------------------------- | -------- | ------------- | --------------------- |
+| P6                      | -      | 4x Automotive Grade Solid-state Lidar | Optional | -             | -                     |
 
 Link to company website:  
 [https://www.robosense.ai/en/rslidar/RS-Fusion-P6](https://www.robosense.ai/en/rslidar/RS-Fusion-P6)
