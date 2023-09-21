@@ -1,4 +1,4 @@
-# Model Training and Deploying
+# Training and Deploying Models
 
 ## Overview
 
