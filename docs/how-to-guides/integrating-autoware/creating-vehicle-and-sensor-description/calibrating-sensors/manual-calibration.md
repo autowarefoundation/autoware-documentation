@@ -50,7 +50,8 @@ So, we can start modifying `manual.launch.xml`,
 please open this file on a text editor which will you prefer (code, gedit etc.).
 Example for out tutorial vehicle should be like these steps:
 
-Let's start with adding vehicle_id and sensor model names. (Optionally, values are not important. These parameters Overrode from launch argument)
+Let's start with adding vehicle_id and sensor model names.
+(Optionally, values are not important. These parameters will be overridden by launch arguments)
 
 ```diff
 + <?xml version="1.0" encoding="UTF-8"?>

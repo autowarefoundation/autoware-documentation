@@ -7,11 +7,6 @@ we will explain lidar-lidar calibration over [mapping-based lidar-lidar calibrat
 CalibrationTools.
 Also,
 [map-based lidar-lidar calibration method](https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_extrinsic_map_based.md) included in the TIER IV's tools.
-[LL-Calib](https://github.com/autocore-ai/calibration_tools/tree/main/lidar-lidar-calib) on GitHub,
-provided by [AutoCore](https://autocore.ai/),
-is a lightweight toolkit for online/offline 3D LiDAR to LiDAR calibration.
-It's based on local mapping and "GICP" method to derive the relation between main and sub lidar.
-If you want more details about these methods such as usage, troubleshooting etc. please check the links above.
 
 !!! warning
 
@@ -50,7 +45,7 @@ The created `mapping_based.launch.xml` and `mapping_based_sensor_kit.launch.xml`
 provided from TIER IV.
 
 Then we will continue with adding vehicle_id and sensor model names to the `mapping_based.launch.xml`.
-(Optionally, values are not important. These parameters Overrode from launch argument)
+(Optionally, values are not important. These parameters will be overridden by launch arguments)
 
 ```diff
 + <?xml version="1.0" encoding="UTF-8"?>
@@ -204,7 +199,7 @@ calibration_lidar_base_frames and calibration_lidar_frames for calibrator.
     livox_front_right]"/>
     ```
 
-??? note "i.e., At the tutorial_vehicle it should be like this snippet."
+??? note "i.e., At the tutorial_vehicle it should be like this snippet"
 
     ```xml
     +   <let
@@ -476,5 +471,5 @@ The green points indicate aligned point (calibration result).
 The calibration results will be saved automatically on your
 `dst_yaml` ($HOME/sensor_kit_calibration.yaml) at this tutorial.
 
-Here is the video for demonstrating a mapping-based lidar-lidar calibration process on tutorial_vehicle:
+Here is the video for demonstrating the mapping-based lidar-lidar calibration process on tutorial_vehicle:
 ![type:video](https://youtube.com/embed/--WBNP76GoE)

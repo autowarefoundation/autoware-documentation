@@ -46,7 +46,7 @@ The created `ground_plane.launch.xml` and `ground_plane_sensor_kit.launch.xml` a
 provided from TIER IV.
 
 Then we will continue with adding vehicle_id and sensor model names to the `ground_plane.launch.xml`.
-(Optionally, values are not important. These parameters Overrode from launch argument)
+(Optionally, values are not important. These parameters will be overridden by launch arguments)
 
 ```diff
 + <?xml version="1.0" encoding="UTF-8"?>
@@ -101,7 +101,7 @@ The final version of the file (ground_plane.launch.xml) for tutorial_vehicle sho
 After the completing of ground_plane.launch.xml file,
 we will be ready to implement ground_plane_sensor_kit.launch.xml for the own sensor model.
 
-Optionally, (don't forget, these parameters overrode by ROS 2 launch arguments.)
+Optionally, (don't forget, these parameters will be overridden by launch arguments.)
 you can modify sensor_kit and vehicle_id as `ground_plane.launch.xml`over this xml snippet:
 (You can change rviz_profile path after the saving rviz config as video
 which included at the end of the page)
@@ -316,5 +316,5 @@ you can see the sensor_kit_calibration.yaml in your $HOME directory after the ca
 | :--------------------------------------------------------: | :-------------------------------------------------------------: |
 | ![before-ground-plane.png](images/before-ground-plane.png) | ![images/after-ground-plane.png](images/after-ground-plane.png) |
 
-Here is the video for demonstrating a ground plane - lidar calibration process on tutorial_vehicle:
+Here is the video for demonstrating the ground plane - lidar calibration process on tutorial_vehicle:
 ![type:video](https://youtube.com/embed/EqaF1fufjUc)

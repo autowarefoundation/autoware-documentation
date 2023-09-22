@@ -56,7 +56,7 @@ The created `interactive.launch.xml` and `interactive_sensor_kit.launch.xml` are
 [aip_xx1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_xx1) provided from TIER IV.
 
 Then we will continue with adding vehicle_id and sensor model names to the `mapping_based.launch.xml`.
-(Optionally, values are not important. These parameters Overrode from launch argument) Then,
+(Optionally, values are not important. These parameters will be overridden by launch arguments) Then,
 we will add camera_name for calibrating camera
 (can be one of the camera0, camera1, camera_front etc. as launch argument)
 and `use_concatenated_pointcloud` argument.
@@ -123,7 +123,7 @@ The final version of the file (interactive.launch.xml) for tutorial_vehicle shou
 After the completing of interactive.launch.xml file,
 we will be ready to implement interactive_sensor_kit.launch.xml for the own sensor model.
 
-Optionally, (don't forget, these parameters overrode by ROS 2 launch arguments.)
+Optionally, (don't forget, these parameters will be overridden by launch arguments.)
 you can modify sensor_kit and vehicle_id as `interactive.launch.xml`over this xml snippet.
 We will set parent_frame for calibration as `sensor_kit_base_link``:
 
