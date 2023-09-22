@@ -4,9 +4,9 @@
 
 - [Overview](integrating-autoware/overview.md)
 
-## Training machine learning models
+## Training Machine Learning Models
 
-- [Model Training and Deploying](training-machine-learning-models/training-models.md)
+- [Training and Deploying Models](training-machine-learning-models/training-models.md)
 
 ## Others
 
