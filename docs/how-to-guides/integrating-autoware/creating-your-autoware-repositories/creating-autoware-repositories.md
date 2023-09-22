@@ -49,7 +49,7 @@ git clone https://github.com/leo-drive/autoware.tutorial_vehicle.git
 For integrating autoware on your own individual vehicles, you need fork and modify the following repositories as well:
 
 - [sample_sensor_kit](https://github.com/autowarefoundation/sample_sensor_kit_launch): This repository will be used for sensing launch files, their pipelines-organizations and sensor descriptions.
-  Please fork and rename as autoware meta-repository. At this point, our forked repository name will be `tutorial_vehicle_sensor_kit`.
+  Please fork and rename as autoware meta-repository. At this point, our forked repository name will be `tutorial_vehicle_sensor_kit_launch`.
 - [sample_vehicle_launch](https://github.com/autowarefoundation/sample_vehicle_launch): This repository will be used for vehicle launch files, vehicle_descriptions and vehicle_model.
   Please fork and rename this repository as well. At this point, our forked repository name will be `tutorial_vehicle_launch`.
 - [autoware_individual_params](https://github.com/autowarefoundation/autoware_individual_params): This repository stores parameters that change depending on each vehicle (i.e. sensor calibrations). Please fork
@@ -84,9 +84,9 @@ the necessary changes for our forked `tutorial_vehicle` repos should be like thi
   -   type: git
   -   url: https://github.com/autowarefoundation/sample_sensor_kit_launch.git
   -   version: main
-  + sensor_kit/tutorial_vehicle_sensor_kit:
+  + sensor_kit/tutorial_vehicle_sensor_kit_launch:
   +   type: git
-  +   url: https://github.com/leo-drive/tutorial_vehicle_sensor_kit.git
+  +   url: https://github.com/leo-drive/tutorial_vehicle_sensor_kit_launch.git
   +   version: main
   ```
 
