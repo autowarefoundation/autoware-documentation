@@ -1,4 +1,4 @@
-# Creating vehicle description
+# # Creating a vehicle model for Autoware
 
 ## Introduction
 
@@ -105,7 +105,9 @@ included in [sample_vehicle_launch](https://github.com/autowarefoundation/sample
 
 ### 3. vehicle_info.param.yaml
 
-Defines the vehicle dimensions. For more details on each parameter, please click [here](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-dimensions/).
+Defines the vehicle dimensions.
+For more details on each parameter,
+please look at [vehicle dimensions](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-dimensions/) page.
 
 The original file is [vehicle_info.param.yaml](https://github.com/autowarefoundation/sample_vehicle_launch/blob/main/sample_vehicle_description/config/vehicle_info.param.yaml)
 included in [sample_vehicle_launch](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main) and given below:
@@ -113,16 +115,16 @@ included in [sample_vehicle_launch](https://github.com/autowarefoundation/sample
 ```yaml
 /**:
 ros__parameters:
-    wheel_radius: 0.383 # The radius of the wheel, primarily used for dead reckoning.
-    wheel_width: 0.235 # The lateral width of a wheel tire, primarily used for dead reckoning.
-    wheel_base: 2.79 # between front wheel center and rear wheel center
-    wheel_tread: 1.64 # between left wheel center and right wheel center
-    front_overhang: 1.0 # between front wheel center and vehicle front
-    rear_overhang: 1.1 # between rear wheel center and vehicle rear
-    left_overhang: 0.128 # between left wheel center and vehicle left
-    right_overhang: 0.128 # between right wheel center and vehicle right
-    vehicle_height: 2.5
-    max_steer_angle: 0.70 # [rad]
+  wheel_radius: 0.383 # The radius of the wheel, primarily used for dead reckoning.
+  wheel_width: 0.235 # The lateral width of a wheel tire, primarily used for dead reckoning.
+  wheel_base: 2.79 # between front wheel center and rear wheel center
+  wheel_tread: 1.64 # between left wheel center and right wheel center
+  front_overhang: 1.0 # between front wheel center and vehicle front
+  rear_overhang: 1.1 # between rear wheel center and vehicle rear
+  left_overhang: 0.128 # between left wheel center and vehicle left
+  right_overhang: 0.128 # between right wheel center and vehicle right
+  vehicle_height: 2.5
+  max_steer_angle: 0.70 # [rad]
 ```
 
 The tutorial_vehicle file is [vehicle_info.param.yaml](https://github.com/leo-drive/tutorial_vehicle_launch/blob/main/tutorial_vehicle_description/config/vehicle_info.param.yaml)

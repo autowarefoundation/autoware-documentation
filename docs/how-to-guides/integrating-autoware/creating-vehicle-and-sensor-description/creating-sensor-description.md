@@ -1,15 +1,15 @@
-# Creating sensor kit description
+# Creating a sensor model for Autoware
 
 ## Introduction
 
 The primary objective behind the development of this package is to delineate the sensor types,
 frame IDs, calibration parameters of all sensors, and to call initialization files for all sensors.
 
-This page introduces the following topics;
+This page introduces the following packages:
 
-- < VEHICLE-ID > \_sensor_kit_description
-- < VEHICLE-ID > \_sensor_kit_launch
-- common_sensor_launch
+- `<VEHICLE-ID>_sensor_kit_description`
+- `<VEHICLE-ID>_sensor_kit_launch`
+- `common_sensor_launch`
 
 !!! Note
 
@@ -18,7 +18,7 @@ This page introduces the following topics;
 - You must replace the `sample_sensor_kit_launch` with the one you forked when creating the Autoware repository page.
 
 ```diff
-sensor_kit/
+YOUR-OWN-AUTOWARE-DIR/src/sensor_kit/
 -   ├─ sample_sensor_kit_launch/
 +   └─ VEHICLE-ID_sensor_kit_launch/
 ```
@@ -29,7 +29,8 @@ The contents of this package encompass xacro-formatted macro files that serve as
 
 ### Folder Structure
 
-The folder structure of forked `VEHICLE-ID_sensor_kit_description` should be like this:
+The folder structure of `VEHICLE-ID_sensor_kit_description` package
+which included in our forked sensor kit repository should be like this:
 
 ```diff
 VEHICLE-ID_sensor_kit_description/
@@ -129,15 +130,14 @@ The original file is [sensors_calibration.yaml](https://github.com/autowarefound
     roll: -0.001
     pitch: 0.015
     yaw: -0.0364
-    .
-    .
-    .
+    ...
+    ...
+    ...
 ```
 
 The frame given as `base_link` in the above file can be defined as point 0 of the vehicle.
-For this point, the desired sensor frame or any point on the vehicle can be selected,
-and the most suitable point is the point defined as the "axle,"
-which is the middle of the two rear wheels of the vehicle.
+The base_link frame is used very frequently throughout the Autoware stack,
+and is a projection of the rear-axle center onto the ground surface.
 
 The tutorial_vehicle file is [sensors_calibration.yaml](https://github.com/leo-drive/tutorial_vehicle_sensor_kit/blob/main/tutorial_vehicle_sensor_kit_description/config/sensors_calibration.yaml) included in [tutorial_vehicle_sensor_kit](https://github.com/leo-drive/tutorial_vehicle_sensor_kit/tree/main) and given below:
 In sensors_calibration.yaml file, parent_frame's position relative to base_link is given in euler format as [x, y, z, roll, pitch, yaw].
@@ -156,7 +156,7 @@ In sensors_calibration.yaml file, parent_frame's position relative to base_link 
     ```
 
 In this example file, the top_lidar in the center of the vehicle is selected as the parent_frame, and it is prepared in such a way that the position of the parent_frame element relative to the axle of the vehicle is entered.
-The [x, y, z, roll, pitch, yaw] values in this file can be entered by base_link - lidar calibration or by measuring from the 3D model.
+The [x, y, z, roll, pitch, yaw] values in this file can be entered by measuring from the 3D model.
 
 ### 3. sensor_kit.xacro
 
@@ -362,7 +362,7 @@ VEHICLE-ID_sensor_kit_launch is where the launch files related to sensor startup
 
 ### Folder Structure
 
-The folder structure of forked `VEHICLE-ID_sensor_kit_launch` should be like this:
+The folder structure of `VEHICLE-ID_sensor_kit_launch` package which included in our forked sensor kit repository should be like this:
 
 ```diff
 VEHICLE-ID_sensor_kit_launch/
@@ -603,66 +603,6 @@ The original [gnss.launch.xml](https://github.com/autowarefoundation/sample_sens
     ```
 
 The tutorial_vehicle's [gnss.launch.xml](https://github.com/leo-drive/tutorial_vehicle_sensor_kit/blob/main/tutorial_vehicle_sensor_kit_launch/launch/gnss.launch.xml) file is given below:
-
-??? note "gnss.launch.xml for tutorial_vehicle_sensor_kit_launch"
-
-    ```xml
-    <launch>
-      <arg name="launch_driver" default="true"/>
-      <arg name="coordinate_system" default="1" description="0:UTM, 1:MGRS, 2:PLANE"/>
-      <arg name="vehicle_id" default="default" description="vehicle specific ID"/>
-      <arg name="height_system" default="1" description="0:Orthometric Height 1:Ellipsoid Height"/>
-      <arg name="gnss_pose_pub_method" default="0" description="0: Instant Value 1: Average Value 2: Median Value"/>
-
-      <group>
-        <push-ros-namespace namespace="gnss"/>
-        <!-- Switch topic name -->
-        <let name="navsatfix_topic_name" value="clap/ros/gps_nav_sat_fix" />
-
-        <let name="orientation_topic_name" value="clap/autoware_orientation"/>
-
-        <group if="$(var launch_driver)">
-          <!-- Clap B7 Driver -->
-          <node pkg="clap_b7_driver" exec="clap_b7_driver_node" name="clap_b7_driver" output="screen">
-            <param from="$(find-pkg-share clap_b7_driver)/config/clap_b7_driver.param.yaml"/>
-          </node>
-          <!-- ntrip Client -->
-          <include file="$(find-pkg-share ntrip_client_ros)/launch/ntrip_client_ros.launch.py"/>
-        </group>
-
-        <!-- NavSatFix to MGRS Pose -->
-        <include file="$(find-pkg-share gnss_poser)/launch/gnss_poser.launch.xml">
-          <arg name="input_topic_fix" value="$(var navsatfix_topic_name)"/>
-          <arg name="input_topic_orientation" value="$(var orientation_topic_name)"/>
-
-          <arg name="output_topic_gnss_pose" value="pose"/>
-          <arg name="output_topic_gnss_pose_cov" value="pose_with_covariance"/>
-          <arg name="output_topic_gnss_fixed" value="fixed"/>
-
-          <arg name="base_frame" value="base_link"/>
-          <arg name="gnss_base_frame" value="gnss_ins_base_link"/>
-          <arg name="gnss_frame" value="GNSS_INS/gnss_ins_link"/>
-          <arg name="map_frame" value="map"/>
-
-          <arg name="coordinate_system" value="$(var coordinate_system)"/>
-          <arg name="use_gnss_ins_orientation" value="true"/>
-          <arg name="height_system" value="$(var height_system)"/>
-
-          <arg name="buff_epoch" value="4"/>
-          <arg name="gnss_pose_pub_method" value="$(var gnss_pose_pub_method)"/>
-        </include>
-      </group>
-
-      <group>
-        <push-ros-namespace namespace="imu"/>
-        <include file="$(find-pkg-share imu_corrector)/launch/imu_corrector.launch.xml">
-          <arg name="input_topic" value="/sensing/gnss/clap/ros/imu"/>
-          <arg name="output_topic" value="imu_data"/>
-          <arg name="param_file" value="$(find-pkg-share individual_params)/config/$(var vehicle_id)/tutorial_vehicle_sensor_kit/imu_corrector.param.yaml"/>
-        </include>
-      </group>
-    </launch>
-    ```
 
 !!! Warning
 

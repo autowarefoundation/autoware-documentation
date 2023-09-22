@@ -84,12 +84,9 @@ The tutorial_vehicle's [imu_corrector.param.yaml](https://github.com/leo-drive/t
 
 ## sensor_kit_calibration.yaml
 
-- How it is created is explained in [Creating sensor kit description page](./creating-sensor-description.md).
-  `sensor_kit_calibration.yaml` will be same file which included in sensor_kit_description package. After the calibration
-  process, the calibration values will be changed.
+- How it is created is explained in [Creating sensor kit description page](./creating-sensor-description.md). `sensor_kit_calibration.yaml` will be same file which included in sensor_kit_description package. After the calibration process, the calibration values will be changed.
 
 ## sensors_calibration.yaml
 
 - How it is created is explained in [Creating sensor kit description page](./creating-sensor-description.md).
-  `sensor_kit_calibration.yaml` will be same file which included in sensor_kit_description package. After the calibration
-  process, the calibration values will be changed.
+  `sensors_calibration.yaml` will be the same file included in the `sensor_kit_description` package. After obtaining the main sensor frame (sensor_kit_base_link) positions related to the base_link (CAD data can be used for this purpose), these values will be changed.
