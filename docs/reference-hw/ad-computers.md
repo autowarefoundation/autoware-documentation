@@ -58,3 +58,16 @@ Crystal Rugged solutions which is used for autonomous driving and tested by one 
 | AVC1753                 | 10th Generation Intel® Core™ and Xeon®           | Optional (1 GPU)        | 128 GB DDR4 RAM, USB, Ethernet, NVMe U.2 SSD/ 3 SATA SSD | 8-36 VDC/ 120-240VAC 50/60Hz, Vibration: 5.5g, 5-2,000Hz, 60 min/axis, 3 axis | -                     |
 
 Link to company website is [here.](https://www.crystalrugged.com/products/ai-autonomous-vehicle-technology/)
+
+## **Vecow In-Vehicle Computers**
+
+![ad_comp-vecow.png](images/ad_comp-vecow.png)
+
+Vecow solutions which is used for autonomous driving and tested by one or more community members are listed below: 
+
+| Supported Products List | CPU                                              | GPU                     | RAM, Interfaces                                          | Environmental                                                                 | Autoware Tested (Y/N) |
+| ----------------------- | ------------------------------------------------ | ----------------------- | -------------------------------------------------------- | ----------------------------------------------------------------------------- | --------------------- | 
+|ECX-3800 PEG   |Intel® 13th/12th-Gen Core™  | 200W power of NVIDIA® or AMD graphics |64GB RAM, CAN, USB, Ethernet, PoE, Serial, M.2/SATA SSD, SIM Card | 12-50 Volt, Vibration:MIL-STD810G, Procedure I, 20°C to 45°C | - | 
+|IVX-1000 | Intel® 13th/12th-Gen Core™|NVIDIA Quadro® MXM Graphics |64GB RAM, Ethernet, PoE, Serial, M.2/SATA/mSATA SSD, SIM Card |16-160 Volt, Vibration: IEC 61373 : 2010, 40°C to 85°C | - |
+
+Link to company website is [here.](https://www.vecow.com/dispPageBox/vecow/VecowHp.aspx?ddsPageID=VECOW_EN)

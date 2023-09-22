@@ -69,3 +69,19 @@ Link to ROS 2 driver:
 
 Link to company website:  
 [https://www.alliedvision.com/en/products/camera-series/mako-g](https://www.alliedvision.com/en/products/camera-series/mako-g)
+
+## **Neousys Technology Camera**
+
+![images/camera-neousys.png](images/camera-neousys.png)
+
+Neousys Technology cameras which has ROS 2 driver and tested by one or more community members are listed below:
+
+| Supported Products List | MP  | FPS | Interface                                                                                                                                                                        | Sensor Format | Lens                                            | ROS 2 Driver | Autoware Tested (Y/N) |
+| ----------------------- | --- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------------------------------------- | ------------ | --------------------- |
+| AC-IMX390               | 2.0 | 30  | GMSL2 <br/> (over [PCIe-GL26 Grabber Card](https://www.neousys-tech.com/en/product/product-lines/in-vehicle-computing/vehicle-expansion-card/pcie-gl26-gmsl-frame-grabber-card)) | 1/2.7”        | 5-axis active adjustment with adhesive dispense | Y            | Y                     |
+
+Link to ROS 2 driver:  
+[https://github.com/ros-drivers/gscam](https://github.com/ros-drivers/gscam)
+
+Link to company website:  
+[https://www.neousys-tech.com/en/](https://www.neousys-tech.com/en/)
