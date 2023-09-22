@@ -63,11 +63,11 @@ Link to company website is [here.](https://www.crystalrugged.com/products/ai-aut
 
 ![ad_comp-vecow.png](images/ad_comp-vecow.png)
 
-Vecow solutions which is used for autonomous driving and tested by one or more community members are listed below: 
+Vecow solutions which is used for autonomous driving and tested by one or more community members are listed below:
 
-| Supported Products List | CPU                                              | GPU                     | RAM, Interfaces                                          | Environmental                                                                 | Autoware Tested (Y/N) |
-| ----------------------- | ------------------------------------------------ | ----------------------- | -------------------------------------------------------- | ----------------------------------------------------------------------------- | --------------------- | 
-|ECX-3800 PEG   |Intel® 13th/12th-Gen Core™  | 200W power of NVIDIA® or AMD graphics |64GB RAM, CAN, USB, Ethernet, PoE, Serial, M.2/SATA SSD, SIM Card | 12-50 Volt, Vibration:MIL-STD810G, Procedure I, 20°C to 45°C | - | 
-|IVX-1000 | Intel® 13th/12th-Gen Core™|NVIDIA Quadro® MXM Graphics |64GB RAM, Ethernet, PoE, Serial, M.2/SATA/mSATA SSD, SIM Card |16-160 Volt, Vibration: IEC 61373 : 2010, 40°C to 85°C | - |
+| Supported Products List | CPU                        | GPU                                   | RAM, Interfaces                                                   | Environmental                                                | Autoware Tested (Y/N) |
+| ----------------------- | -------------------------- | ------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------ | --------------------- |
+| ECX-3800 PEG            | Intel® 13th/12th-Gen Core™ | 200W power of NVIDIA® or AMD graphics | 64GB RAM, CAN, USB, Ethernet, PoE, Serial, M.2/SATA SSD, SIM Card | 12-50 Volt, Vibration:MIL-STD810G, Procedure I, 20°C to 45°C | -                     |
+| IVX-1000                | Intel® 13th/12th-Gen Core™ | NVIDIA Quadro® MXM Graphics           | 64GB RAM, Ethernet, PoE, Serial, M.2/SATA/mSATA SSD, SIM Card     | 16-160 Volt, Vibration: IEC 61373 : 2010, 40°C to 85°C       | -                     |
 
 Link to company website is [here.](https://www.vecow.com/dispPageBox/vecow/VecowHp.aspx?ddsPageID=VECOW_EN)
