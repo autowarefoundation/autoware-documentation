@@ -117,7 +117,7 @@ References:
 
 1. Calibration of sensor
 
-   The conversion relationship between every sensor coordinate system and `base_link` can be obtained through sensor calibration technology. How to calibrating your sensors refer to this link [calibrating your sensors](../../../how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/calibrating-sensors.md).
+   The conversion relationship between every sensor coordinate system and `base_link` can be obtained through sensor calibration technology. How to calibrating your sensors refer to this link [calibrating your sensors](../../../how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors).
 
 2. Localization
 
