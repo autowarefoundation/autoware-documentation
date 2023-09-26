@@ -61,7 +61,7 @@ sudo apt-get -y install git
     - [Install Nvidia CUDA](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/cuda#manual-installation)
     - [Install Nvidia cuDNN and TensorRT](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/tensorrt#manual-installation)
 
-    If you didn't use ansible script you will need to download some package artifacts as explained in [Manual loading of artifacts](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts). Otherwise some packages (mostly from perception) will not be able to run as they need these artifacts for the inference. 
+    If you didn't use ansible script you will need to download some package artifacts as explained in [Manual loading of artifacts](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts). Otherwise some packages (mostly from perception) will not be able to run as they need these artifacts for the inference.
 
 ## How to set up a workspace
 
