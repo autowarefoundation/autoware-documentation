@@ -36,7 +36,7 @@
    yabloc_pose_initializer
    ```
 
-   If not, please, follow [Manual dowloading of artifacts](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts).
+   If not, please, follow [Manual downloading of artifacts](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts).
 
 ### Note
 
