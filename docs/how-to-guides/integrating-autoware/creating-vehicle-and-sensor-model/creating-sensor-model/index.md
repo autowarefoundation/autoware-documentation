@@ -519,7 +519,7 @@ Moreover, [gnss_poser](https://github.com/autowarefoundation/autoware.universe/t
 we will use this package for initial pose of our vehicle but remember,
 your sensor_driver must provide [autoware gnss orientation message](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_sensing_msgs/msg/GnssInsOrientationStamped.msg) for this node.
 If you are ready with your GNSS/INS driver,
-you must set `navsatfix_topic_name` and `orientation_topic_name` variables at this launch file.
+you must set `navsatfix_topic_name` and `orientation_topic_name` variables at this launch file for [gnss_poser](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/gnss_poser) arguments.
 For Example, necessary modifications for <YOUR-GNSS-SENSOR> should be like this:
 
 ```diff
