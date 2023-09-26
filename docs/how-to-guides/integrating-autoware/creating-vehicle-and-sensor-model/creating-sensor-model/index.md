@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This page introduces the following packages for sensor the model:
+This page introduces the following packages for the sensor model:
 
 1. `common_sensor_launch`
 2. `<YOUR-VEHICLE-NAME>_sensor_kit_description`
@@ -45,7 +45,7 @@ Firstly, we need to rename the description and launch packages:
 After that,
 we will change our package names at `package.xml` file and `CmakeLists.txt` file at
 `sample_sensor_kit_description` and `sample_sensor_kit_launch` packages.
-So, open `package.xml` file and `CmakeLists.txt` file with any text editor or ide that you prefer.
+So, open `package.xml` file and `CmakeLists.txt` file with any text editor or IDE that you prefer.
 
 First Step: You need to change `<name>` attribute at `package.xml` file.
 
@@ -476,8 +476,35 @@ so the lidar group for Robosense Lidar should be like this structure:
 
     under construction
 
-The [nebula_node_container.py](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/common_sensor_launch/launch/nebula_node_container.launch.py) creates Lidar pipeline for autoware.
-The pointcloud preprocessing pipeline is constructed for each lidar please check [pointcloud_preprocessor](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/pointcloud_preprocessor) package for filters information.
+If you are using a Hesai lidar (i.e. PandarQT64,
+please check [nebula](https://github.com/tier4/nebula) driver page for supported sensors),
+you can add the group like this structure at `lidar.launch.xml`:
+
+```xml
+    <group>
+      <push-ros-namespace namespace="<YOUR-SENSOR-NAMESPACE>"/>
+      <include file="$(find-pkg-share common_sensor_launch)/launch/hesai_PandarQT64.launch.xml">
+        <arg name="max_range" value="100"/>
+        <arg name="sensor_frame" value="<YOUR-HESAI-SENSOR-FRAME>"/>
+        <arg name="sensor_ip" value="<YOUR-HESAI-SENSOR-IP>"/>
+        <arg name="host_ip" value="$(var host_ip)"/>
+        <arg name="data_port" value="<YOUR-HESAI-SENSOR-DATA-PORT>"/>
+        <arg name="scan_phase" value="0.0"/>
+        <arg name="cloud_min_angle" value="0"/>
+        <arg name="cloud_max_angle" value="360"/>
+        <arg name="launch_driver" value="$(var launch_driver)"/>
+        <arg name="vehicle_mirror_param_file" value="$(var vehicle_mirror_param_file)"/>
+        <arg name="use_pointcloud_container" value="$(var use_pointcloud_container)"/>
+        <arg name="container_name" value="$(var pointcloud_container_name)"/>
+      </include>
+    </group>
+```
+
+You can create <YOUR-LIDAR-MODEL>.launch.xml for common sensor launch,
+please check [`hesai_PandarQT64.launch.xml`](https://github.com/leo-drive/tutorial_vehicle_sensor_kit_launch/blob/main/common_sensor_launch/launch/hesai_PandarQT64.launch.xml) as an example.
+
+The [nebula_node_container.py](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/common_sensor_launch/launch/nebula_node_container.launch.py) creates the Lidar pipeline for autoware,
+the pointcloud preprocessing pipeline is constructed for each lidar please check [pointcloud_preprocessor](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/pointcloud_preprocessor) package for filters information as well.
 
 For example, If you want to change your `outlier_filter` method,
 you can modify the pipeline components like this way:
