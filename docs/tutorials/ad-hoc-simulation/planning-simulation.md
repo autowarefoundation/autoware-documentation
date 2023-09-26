@@ -15,6 +15,24 @@ unzip -d ~/autoware_map ~/autoware_map/sample-map-planning.zip
 
     Sample map: Copyright 2020 TIER IV, Inc.
 
+Check if you have `~/autoware_data` folder and files in it.
+
+```bash
+$ cd ~/autoware_data
+$ ls -C -w 30
+image_projection_based_fusion
+lidar_apollo_instance_segmentation
+lidar_centerpoint
+tensorrt_yolo
+tensorrt_yolox
+traffic_light_classifier
+traffic_light_fine_detector
+traffic_light_ssd_fine_detector
+yabloc_pose_initializer
+```
+
+If not, please, follow [Manual dowloading of artifacts](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts).
+
 ## Basic simulations
 
 ### Lane driving scenario
