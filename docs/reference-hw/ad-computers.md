@@ -10,11 +10,10 @@ ADLINK solutions which is used for autonomous driving and tested by one or more 
 
 | Supported Products List         | CPU                            | GPU                      | RAM, Interfaces                                              | Environmental                                  | Autoware Tested (Y/N) |
 | ------------------------------- | ------------------------------ | ------------------------ | ------------------------------------------------------------ | ---------------------------------------------- | --------------------- |
-| AVA-351001                      | Intel® Xeon® E-2278GE          | Dual RTX 5000            | 64GB RAM,CAN, USB, 10G Ethernet, DIO, Hot-Swap SSD, USIM     | 9~36 VDC, MIL-STD-810H,ISO 7637-2 & SAE 113-11 | Y                     |
-| SOAFEE’s AVA Developer Platform | Ampere Altra ARMv8             | optional                 | USB, Ethernet, DIO, M.2 NVMe SSDs                            | 110/220 AC                                     | Y                     |
-| RQX-58G                         | Carmel ARMv8.2 2.26GHz         | Nvidia Jetson AGX Xavier | USB, Ethernet, M.2 NVME SSD, CAN, USIM, GMSL2 Camera support | 9~36VDC                                        | Y                     |
-| RQX-59G                         | 8-core Arm® Cortex®-A78AE v8.2 | Nvidia Jetson AGX Orin   | USB, Ethernet, M.2 NVME SSD, CAN, USIM, GMSL2 Camera support | 9~36VDC                                        | N                     |
-| SOAFEE’s AVA AP1                | Ampere Altra ARMv8             | optional                 | CAN, USB, Ethernet, DIO, M.2 NVMe SSDs                       | 12 Volt                                        | Y                     |
+| AVA-3510                        | Intel® Xeon® E-2278GE          | Dual MXM RTX 5000        | 64GB RAM,CAN, USB, 10G Ethernet, DIO, Hot-Swap SSD, USIM     | 9~36 VDC, MIL-STD-810H,ISO 7637-2                          | Y                     |
+| SOAFEE’s AVA Developer Platform | Ampere Altra ARMv8             | optional                 | USB, Ethernet, DIO, M.2 NVMe SSDs                        | 110/220 AC                                                 | Y                     |
+| RQX-58G                         | 8-core Arm                     | Nvidia Jetson AGX Xavier | USB, Ethernet, M.2 NVME SSD, CAN, USIM, GMSL2 Camera support | 9~36VDC, IEC 60068-2-64: Operating 3Grms, 5-500 Hz, 3 axes | Y                     |
+| RQX-59G                         | 8-core Arm                     | Nvidia Jetson AGX Orin   | USB, Ethernet, M.2 NVME SSD, CAN, USIM, GMSL2 Camera support | 9~36VDC, IEC 60068-2-64: Operating 3Grms, 5-500 Hz, 3 axes | -                     |
 
 Link to company website is [here.](https://www.adlinktech.com/en/Connected-Autonomous-Vehicle-Solutions)
 
