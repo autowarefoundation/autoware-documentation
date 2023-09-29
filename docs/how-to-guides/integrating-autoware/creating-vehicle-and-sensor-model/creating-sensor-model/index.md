@@ -107,7 +107,7 @@ Also, we will set these values with "0" until the [calibration steps](../calibra
 
 We will define new frames for this file, and we will connect them `.xacro` files.
 We recommend naming as if your lidar sensor frame as "velodyne_top",
-you can add "\_base_link" to our calibration .yaml file. W
+you can add "\_base_link" to our calibration .yaml file.
 
 So, the sample file must be like:
 
@@ -532,9 +532,346 @@ thus we will not modify [nebula_node_container.py](https://github.com/autowarefo
 
 ### Camera Launching
 
-!!! warning
+In this section,
+we will launch our camera driver and 2D detection pipeline for Autoware for tutorial_vehicle.
+The reason we do this is that there is a one computer for tutorial_vehicle.
+If you are using two or more computers for Autoware,
+you can launch the camera and 2D detection pipeline separately.
+For example,
+you can clone your camera driver
+at `src/sensor_component/external` folder
+(please don't forget adding this driver to `autoware.repos` file):
 
-    under construction
+```diff
+<YOUR-AUTOWARE-DIR>
+   └─ src/
+         └─ sensor_component/
+            └─ external/
+                └─ YOUR-CAMERA-DRIVER
+```
+
+After that, you can just add your camera driver at `camera.launch.xml`:
+
+```diff
+    ...
++   <include file="$(find-pkg-share <YOUR-SENSOR-DRIVER>)/launch/YOUR-CAMERA-LAUNCH-FILE">
+    ...
+```
+
+Then, you can launch tensorrt_yolo node via adding yolo.launch.xml on your design like that:
+(i.e.,
+it is included in [tier4_perception_launch](https://github.com/autowarefoundation/autoware.universe/blob/ad69c2851b7b84e12c9f0c3b177fb6a9032bf284/launch/tier4_perception_launch/launch/object_recognition/detection/camera_lidar_fusion_based_detection.launch.xml#L49-L59) package in autwoare.universe)
+
+```xml
+  <include file="$(find-pkg-share tensorrt_yolo)/launch/yolo.launch.xml">
+    <arg name="image_raw0" value="$(var image_raw0)"/>
+    <arg name="image_raw1" value="$(var image_raw1)"/>
+    <arg name="image_raw2" value="$(var image_raw2)"/>
+    <arg name="image_raw3" value="$(var image_raw3)"/>
+    <arg name="image_raw4" value="$(var image_raw4)"/>
+    <arg name="image_raw5" value="$(var image_raw5)"/>
+    <arg name="image_raw6" value="$(var image_raw6)"/>
+    <arg name="image_raw7" value="$(var image_raw7)"/>
+    <arg name="image_number" value="$(var image_number)"/>
+  </include>
+```
+
+Since we are using the same computer for 2D detection pipeline and all Autoware nodes,
+we will design our camera and 2D detection pipeline
+using [composable nodes and container](https://docs.ros.org/en/humble/How-To-Guides/Launching-composable-nodes.html)
+structure.
+So, it will decrease our network interface usage.
+First of all, let's start with our camera sensor:
+[Lucid Vision TRIO54S](https://thinklucid.com/product/triton-5-mp-imx490/).
+We will use this sensor with [lucid_vision_driver](https://github.com/autowarefoundation/lucid_vision_driver) at the [autowarefoundation](https://github.com/autowarefoundation) organization.
+We can clone this driver `src/sensor_component/external` folder as well.
+After the cloning and the building camera driver,
+we will create "camera_node_container.launch.py"
+for launching camera and tensorrt_yolo node in same container.
+
+??? note "[`camera_node_container.launch.py`](https://github.com/leo-drive/tutorial_vehicle_sensor_kit_launch/blob/main/common_sensor_launch/launch/camera_node_container.launch.py) launch file for tutorial_vehicle"
+
+    ```py
+    import launch
+    from launch.actions import DeclareLaunchArgument
+    from launch.actions import SetLaunchConfiguration
+    from launch.conditions import IfCondition
+    from launch.conditions import UnlessCondition
+    from launch.substitutions.launch_configuration import LaunchConfiguration
+    from launch_ros.actions import ComposableNodeContainer
+    from launch_ros.descriptions import ComposableNode
+    from launch_ros.substitutions import FindPackageShare
+    from launch.actions import OpaqueFunction
+    import yaml
+
+    def launch_setup(context, *args, **kwargs):
+
+        output_topic= LaunchConfiguration("output_topic").perform(context)
+
+        image_name = LaunchConfiguration("input_image").perform(context)
+        camera_container_name = LaunchConfiguration("camera_container_name").perform(context)
+        camera_namespace = "/lucid_vision/" + image_name
+
+        # tensorrt params
+        gpu_id = int(LaunchConfiguration("gpu_id").perform(context))
+        mode = LaunchConfiguration("mode").perform(context)
+        calib_image_directory = FindPackageShare("tensorrt_yolo").perform(context) + "/calib_image/"
+        tensorrt_config_path = FindPackageShare('tensorrt_yolo').perform(context)+ "/config/" + LaunchConfiguration("yolo_type").perform(context) + ".param.yaml"
+
+        with open(tensorrt_config_path, "r") as f:
+            tensorrt_yaml_param = yaml.safe_load(f)["/**"]["ros__parameters"]
+
+        camera_param_path=FindPackageShare("lucid_vision_driver").perform(context)+"/param/"+image_name+".param.yaml"
+        with open(camera_param_path, "r") as f:
+            camera_yaml_param = yaml.safe_load(f)["/**"]["ros__parameters"]
+
+
+        container = ComposableNodeContainer(
+            name=camera_container_name,
+            package="rclcpp_components",
+            executable=LaunchConfiguration("container_executable"),
+            output="screen",
+            composable_node_descriptions=[
+                ComposableNode(
+                    package="lucid_vision_driver",
+                    plugin="ArenaCameraNode",
+                    name="arena_camera_node",
+                    parameters=[{
+                        "camera_name": camera_yaml_param['camera_name'],
+                        "frame_id": camera_yaml_param['frame_id'],
+                        "pixel_format": camera_yaml_param['pixel_format'],
+                        "serial_no": camera_yaml_param['serial_no'],
+                        "camera_info_url": camera_yaml_param['camera_info_url'],
+                        "fps": camera_yaml_param['fps'],
+                        "horizontal_binning": camera_yaml_param['horizontal_binning'],
+                        "vertical_binning": camera_yaml_param['vertical_binning'],
+                        "use_default_device_settings": camera_yaml_param['use_default_device_settings'],
+                        "exposure_auto": camera_yaml_param['exposure_auto'],
+                        "exposure_target": camera_yaml_param['exposure_target'],
+                        "gain_auto": camera_yaml_param['gain_auto'],
+                        "gain_target": camera_yaml_param['gain_target'],
+                        "gamma_target": camera_yaml_param['gamma_target'],
+                        "enable_compressing": camera_yaml_param['enable_compressing'],
+                        "enable_rectifying": camera_yaml_param['enable_rectifying'],
+                    }],
+                    remappings=[
+                    ],
+                    extra_arguments=[
+                        {"use_intra_process_comms": LaunchConfiguration("use_intra_process")}
+                    ],
+                ),
+
+                ComposableNode(
+                    namespace='/perception/object_recognition/detection',
+                    package="tensorrt_yolo",
+                    plugin="object_recognition::TensorrtYoloNodelet",
+                    name="tensorrt_yolo",
+                    parameters=[
+                        {
+                            "mode": mode,
+                            "gpu_id": gpu_id,
+                            "onnx_file": FindPackageShare("tensorrt_yolo").perform(context) +  "/data/" + LaunchConfiguration("yolo_type").perform(context) + ".onnx",
+                            "label_file": FindPackageShare("tensorrt_yolo").perform(context) + "/data/" + LaunchConfiguration("label_file").perform(context),
+                            "engine_file": FindPackageShare("tensorrt_yolo").perform(context) + "/data/"+ LaunchConfiguration("yolo_type").perform(context) + ".engine",
+                            "calib_image_directory": calib_image_directory,
+                            "calib_cache_file": FindPackageShare("tensorrt_yolo").perform(context) + "/data/" + LaunchConfiguration("yolo_type").perform(context) + ".cache",
+                            "num_anchors": tensorrt_yaml_param['num_anchors'],
+                            "anchors": tensorrt_yaml_param['anchors'],
+                            "scale_x_y": tensorrt_yaml_param['scale_x_y'],
+                            "score_threshold": tensorrt_yaml_param['score_threshold'],
+                            "iou_thresh": tensorrt_yaml_param['iou_thresh'],
+                            "detections_per_im": tensorrt_yaml_param['detections_per_im'],
+                            "use_darknet_layer": tensorrt_yaml_param['use_darknet_layer'],
+                            "ignore_thresh": tensorrt_yaml_param['ignore_thresh'],
+                        }
+                    ],
+                    remappings=[
+                        ("in/image", camera_namespace + "/image_rect"),
+                        ("out/objects", output_topic),
+                        ("out/image", output_topic + "/debug/image"),
+                    ],
+                    extra_arguments=[
+                        {"use_intra_process_comms": LaunchConfiguration("use_intra_process")}
+                    ],
+                ),
+            ],
+
+        )
+        return [container]
+
+
+    def generate_launch_description():
+    launch_arguments = []
+
+        def add_launch_arg(name: str, default_value=None, description=None):
+            # a default_value of None is equivalent to not passing that kwarg at all
+            launch_arguments.append(
+                DeclareLaunchArgument(name, default_value=default_value, description=description)
+            )
+        add_launch_arg("mode","")
+        add_launch_arg("input_image","", description="input camera topic")
+        add_launch_arg("camera_container_name","")
+        add_launch_arg("yolo_type","", description="yolo model type")
+        add_launch_arg("label_file","" ,description="tensorrt node label file")
+        add_launch_arg("gpu_id","", description="gpu setting")
+        add_launch_arg("use_intra_process", "", "use intra process")
+        add_launch_arg("use_multithread", "", "use multithread")
+
+        set_container_executable = SetLaunchConfiguration(
+            "container_executable",
+            "component_container",
+            condition=UnlessCondition(LaunchConfiguration("use_multithread")),
+        )
+
+        set_container_mt_executable = SetLaunchConfiguration(
+            "container_executable",
+            "component_container_mt",
+            condition=IfCondition(LaunchConfiguration("use_multithread")),
+        )
+
+        return launch.LaunchDescription(
+            launch_arguments
+            + [set_container_executable, set_container_mt_executable]
+            + [OpaqueFunction(function=launch_setup)]
+        )
+
+    ```
+
+The important points for creating `camera_node_container.launch.py`
+if you decided to use container for 2D detection pipeline are:
+
+- Please be careful with design, if you are using multiple cameras, the design must be adaptable for this
+- The tensorrt_yolo node input expects rectified image as input, so if your sensor_driver doesn't support image rectification, you can use [`image_proc`](https://github.com/ros-perception/image_pipeline/tree/humble/image_proc) package.
+  - You can add something like this in your pipeline for getting rectifying image:
+
+```python
+        ...
+        ComposableNode(
+        namespace=camera_ns,
+        package='image_proc',
+        plugin='image_proc::RectifyNode',
+        name='rectify_camera_image_node',
+        # Remap subscribers and publishers
+        remappings=[
+        ('image', camera_ns+"/image"),
+        ('camera_info', input_camera_info),
+        ('image_rect', 'image_rect')
+        ],
+        extra_arguments=[
+        {"use_intra_process_comms": LaunchConfiguration("use_intra_process")}
+        ],
+        ),
+        ...
+```
+
+- Since [lucid_vision_driver](https://github.com/autowarefoundation/lucid_vision_driver) supports image_rectification, there is no need to add image_proc for tutorial_vehicle.
+- Please be careful with namespace,
+  for example, we will use `/perception/object_detection` as tensorrt_yolo node namespace,
+  it will be explained in autoware usage section.
+  For more information,
+  please check [image_projection_based_fusion](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/image_projection_based_fusion) package.
+
+After the preparing `camera_node_container.launch.py` to our forked `common_sensor_launch` package,
+we need to build the package:
+
+```bash
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select common_sensor_launch
+```
+
+Next, we will add camera_node_container.launch.py to `camera.launch.xml`,
+we must define necessary tensorrt_yolo parameters like this:
+
+```diff
++  <!--    common parameters -->
++  <arg name="image_0" default="camera_0" description="image raw topic name"/>
++  <arg name="image_1" default="camera_1" description="image raw topic name"/>
+   ...
+
++  <!--    tensorrt params -->
++  <arg name="mode" default="FP32"/>
++  <arg name="yolo_type" default="yolov3" description="choose image raw number(0-7)"/>
++  <arg name="label_file" default="coco.names" description="choose image raw number(0-7)"/>
++  <arg name="gpu_id" default="0" description="choose your gpu id for inference"/>
++  <arg name="use_intra_process" default="true"/>
++  <arg name="use_multithread" default="true"/>
+```
+
+Then, launch camera nodes with these arguments,
+if you have two or more cameras, you can include it also like this:
+
+```diff
++  <group>
++    <push-ros-namespace namespace="camera"/>
++    <include file="$(find-pkg-share common_sensor_launch)/launch/camera_node_container.launch.py">
++      <arg name="mode" value="$(var mode)"/>
++      <arg name="input_image" value="$(var image_0)"/>
++      <arg name="camera_container_name" value="front_camera_container"/>
++      <arg name="yolo_type" value="$(var yolo_type)"/>
++      <arg name="label_file" value="$(var label_file)"/>
++      <arg name="gpu_id" value="$(var gpu_id)"/>
++      <arg name="use_intra_process" value="$(var use_intra_process)"/>
++      <arg name="use_multithread" value="$(var use_multithread)"/>
++      <arg name="output_topic" value="camera0/rois0"/>
++    </include>
++    <include file="$(find-pkg-share common_sensor_launch)/launch/camera_node_container.launch.py">
++      <arg name="mode" value="$(var mode)"/>
++      <arg name="input_image" value="$(var image_1)"/>
++      <arg name="camera_container_name" value="front_camera_container"/>
++      <arg name="yolo_type" value="$(var yolo_type)"/>
++      <arg name="label_file" value="$(var label_file)"/>
++      <arg name="gpu_id" value="$(var gpu_id)"/>
++      <arg name="use_intra_process" value="$(var use_intra_process)"/>
++      <arg name="use_multithread" value="$(var use_multithread)"/>
++      <arg name="output_topic" value="camera1/rois1"/>
++    </include>
++    ...
++  </group>
+```
+
+Since there is one camera for tutorial_vehicle, the `camera.launch.xml` should be like this:
+
+??? note "[`camera.launch.xml`](https://github.com/leo-drive/tutorial_vehicle_sensor_kit_launch/blob/main/tutorial_vehicle_sensor_kit_launch/launch/camera.launch.xml) for tutorial_vehicle"
+
+    ```xml
+    <launch>
+      <arg name="launch_driver" default="true"/>
+      <!--    common parameters -->
+      <arg name="image_0" default="camera_0" description="image raw topic name"/>
+
+      <!--    tensorrt params -->
+      <arg name="mode" default="FP32"/>
+      <arg name="yolo_type" default="yolov3" description="choose image raw number(0-7)"/>
+      <arg name="label_file" default="coco.names" description="choose image raw number(0-7)"/>
+      <arg name="gpu_id" default="0" description="choose your gpu id for inference"/>
+      <arg name="use_intra_process" default="true"/>
+      <arg name="use_multithread" default="true"/>
+
+      <group>
+        <push-ros-namespace namespace="camera"/>
+        <include if="$(eval &quot;'$(var image_number)'>='1'&quot;)" file="$(find-pkg-share common_sensor_launch)/launch/camera_node_container.launch.py">
+          <arg name="mode" value="$(var mode)"/>
+          <arg name="input_image" value="$(var image_0)"/>
+          <arg name="camera_container_name" value="front_camera_container"/>
+          <arg name="yolo_type" value="$(var yolo_type)"/>
+          <arg name="label_file" value="$(var label_file)"/>
+          <arg name="gpu_id" value="$(var gpu_id)"/>
+          <arg name="use_intra_process" value="$(var use_intra_process)"/>
+          <arg name="use_multithread" value="$(var use_multithread)"/>
+          <arg name="output_topic" value="camera0/rois0"/>
+        </include>
+      </group>
+    </launch>
+    ```
+
+You can check 2D detection pipeline with launching camera.launch.xml:
+
+```bash
+ros2 launch <YOUR-SENSOR-KIT-LAUNCH> camera.launch.xml
+# example for tutorial_vehicle: ros2 launch tutorial_vehicle_sensor_kit_launch camera.launch.xml
+```
+
+Then the rois topics will appear,
+you can check debug image with rviz2 or [rqt](http://wiki.ros.org/rqt).
 
 ### GNSS/INS Launching
 
@@ -543,7 +880,7 @@ The default GNSS sensor options at [`sample_sensor_kit_launch`](https://github.c
 and [septentrio](https://www.septentrio.com/en) is included in `gnss.launch.xml`,
 so If we use other sensors as GNSS/INS receiver, we need to add it here.
 Moreover, [gnss_poser](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/gnss_poser) package launches here,
-we will use this package for initial pose of our vehicle but remember,
+we will use this package for the pose source of our vehicle at localization initialization but remember,
 your sensor_driver must provide [autoware gnss orientation message](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_sensing_msgs/msg/GnssInsOrientationStamped.msg) for this node.
 If you are ready with your GNSS/INS driver,
 you must set `navsatfix_topic_name` and `orientation_topic_name` variables at this launch file for [gnss_poser](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/gnss_poser) arguments.
@@ -578,7 +915,7 @@ For Example, necessary modifications for <YOUR-GNSS-SENSOR> should be like this:
 Also, you can remove dependencies and unused sensor launch files at `gnss.launch.xml`.
 For example,
 we will use [Clap B7 sensor](https://en.unicorecomm.com/assets/upload/file/CLAP-B7_Product_Brief_En.pdf) as a GNSS/INS and IMU sensor,
-and we will use [nrtip_client_ros](https://github.com/Robeff-Technology/ntrip_client_ros/tree/release/humble) for RTK.
+and we will use [nrtip_client_ros](https://github.com/Robeff-Technology/ntrip_client) for RTK.
 Also, we will add these packages to [autoware.repos](https://github.com/leo-drive/autoware.tutorial_vehicle/blob/main/autoware.repos) file.
 
 ```diff
@@ -664,9 +1001,47 @@ Please refer these documentations for more information
 so we will not create and use `imu.launch.xml` for tutorial_vehicle).
 Please don't forget changing `imu_raw_name` argument for describing the raw imu topic.
 
+Here is a sample `imu.launch.xml` launch file for autoware:
+
 ```diff
-  ...
-- <arg name="imu_raw_name" default="tamagawa/imu_raw"/>
-+ <arg name="imu_raw_name" default="<YOUR-RAW-IMU-TOPIC>"/>
-  ...
+<launch>
+  <arg name="launch_driver" default="true"/>
+
+  <group>
+    <push-ros-namespace namespace="imu"/>
+
+-     <group>
+-       <push-ros-namespace namespace="tamagawa"/>
+-       <node pkg="tamagawa_imu_driver" name="tag_serial_driver" exec="tag_serial_driver" if="$(var launch_driver)">
+-         <remap from="imu/data_raw" to="imu_raw"/>
+-         <param name="port" value="/dev/imu"/>
+-         <param name="imu_frame_id" value="tamagawa/imu_link"/>
+-       </node>
+-     </group>
+
++     <group>
++       <push-ros-namespace namespace="<YOUR-IMU_MODEL>"/>
++       <node pkg="<YOUR-IMU-DRIVER-PACKAGE>" name="<YOUR-IMU-DRIVER>" exec="<YOUR-IMU-DRIVER-EXECUTIBLE>" if="$(var launch_driver)">
++       <!-- Add necessary params here -->
++       </node>
++     </group>
+
+-   <arg name="imu_raw_name" default="tamagawa/imu_raw"/>
++   <arg name="imu_raw_name" default="<YOUR-IMU_MODEL/YOUR-RAW-IMU-TOPIC>"/>
+    <arg name="imu_corrector_param_file" default="$(find-pkg-share individual_params)/config/$(var vehicle_id)/sample_sensor_kit/imu_corrector.param.yaml"/>
+    <include file="$(find-pkg-share imu_corrector)/launch/imu_corrector.launch.xml">
+      <arg name="input_topic" value="$(var imu_raw_name)"/>
+      <arg name="output_topic" value="imu_data"/>
+      <arg name="param_file" value="$(var imu_corrector_param_file)"/>
+    </include>
+
+    <include file="$(find-pkg-share imu_corrector)/launch/gyro_bias_estimator.launch.xml">
+      <arg name="input_imu_raw" value="$(var imu_raw_name)"/>
+      <arg name="input_twist" value="/sensing/vehicle_velocity_converter/twist_with_covariance"/>
+      <arg name="imu_corrector_param_file" value="$(var imu_corrector_param_file)"/>
+    </include>
+  </group>
+</launch>
 ```
+
+Please make, necessary modifications on this file according to your IMU driver.
