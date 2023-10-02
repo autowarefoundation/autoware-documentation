@@ -50,13 +50,14 @@ Here are some factors that might be considered:
 | /vehicle/status/hazard_lights_status   | autoware_auto_vehicle_msgs/msg/HazardLightsReport   | This topic describes hazard light status of the vehicle. Please check [HazardLightsReport](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/HazardLightsReport.idl) message type for detailed information.                          |
 | /vehicle/status/turn_indicators_status | autoware_auto_vehicle_msgs/msg/TurnIndicatorsReport | This topic reports the steering status of the vehicle. Please check [SteeringReport](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/SteeringReport.idl) message type for detailed information.                                    |
 | /vehicle/status/steering_status        | autoware_auto_vehicle_msgs/msg/SteeringReport       | This topic reports the steering status of the vehicle. Please check [SteeringReport](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/SteeringReport.idl) message type for detailed information.                                    |
+| /vehicle/status/velocity_Status        | autoware_auto_vehicle_msgs/msg/VelocityReport       | This topic gives us the velocity status of the vehicle. Please check [VelocityReport](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/VelocityReport.idl) message type for detailed information.                                   |
 | etc.                                   | etc.                                                | etc.                                                                                                                                                                                                                                                                          |
 
 This diagram as an example for communication of vehicle interface and autoware
 with describing sample topics and message types.
 
 <figure markdown>
-  ![ackermann_link](images/autoware-vehicle-communication.svg){ align=center }
+  ![vehicle_communication](images/autoware-vehicle-communication.svg){ align=center }
   <figcaption>
     Sample demonstration of vehicle and autoware communication.
     There are some topics and types included in this diagram and
@@ -163,43 +164,32 @@ void <YOUR-OWN-VEHICLE-INTERFACE>::to_autoware()
 
   - You can also use mixed Type A and Type B, for example, you want to use lateral controlling with a steering angle and longitudinal controlling with specific targets. In order to do that, you must subscribe `/control/command/control_cmd` for getting steering information, and you must subscribe `/control/command/actuation_cmd` for gas and brake pedal actuation commands. Then, you must handle these messages on your own vehicle_interface design.
   - You must adopt your vehicle low-level controller to run with autoware.
+  - Your vehicle can be controlled by the target shift mode and also needs to provide Autoware with shift information.
   - If you are using CAN communication on your vehicle, please refer to [ros2_socketcan](https://github.com/autowarefoundation/ros2_socketcan) package by Autoware.
   - If you are using Serial communication on your vehicle, you can look at [serial-port](https://github.com/fedetft/serial-port/tree/master/3_async).
 
 - Modification of control values if needed
+  - In some cases, you may need to modify the control commands. For example, Autoware expects vehicle velocity information in m/s units, but if your vehicle publishes it in a different format (i.e., km/h), you must convert it before sending it to Autoware.
 
 ### 3. Prepare a launch file
 
 After you implement your vehicle interface, or you want to debug it by launching it,
-create a launch file of your vehicle interface, and include it to `vehicle_interface.launch.xml`.
+create a launch file of your vehicle interface,
+and include it to `vehicle_interface.launch.xml` which included in `<VEHICLE_ID>_vehicle_launch` package
+that we forked and created
+at [creating vehicle and sensor description page](../creating-vehicle-and-sensor-description/creating-vehicle-and-sensor-description.md).
 
 Do not get confused. First, you need to create a launch file for your own vehicle interface module (like `my_vehicle_interface.launch.xml`) **and then include that to `vehicle_interface.launch.xml` which exists in another directory.** Here are the details.
 
 1. Add a `launch` directory in the `my_vehicle_interface` directory, and create a launch file of your own vehicle interface in it. Take a look at [Creating a launch file](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html) in the ROS 2 documentation.
 
-2. Next, go to `<your-autoware-dir>/src/vehicle`, copy the directory `/sample_vehicle_launch/`, and paste it to the same place (which means it should be lined up with `external` and `sample_vehicle_launch`).
-
-3. You have to rename each "sample_vehicle" to something else. For example, if you want to rename "sample_vehicle" to "my_vehicle_name", you need to change the following. Note that it is restricted to keep the "\_launch" and "\_description" part.
-
-   - **Rename the directories**
-     - `sample_vehicle_launch` &rarr; `my_vehicle_name_launch`
-     - `my_vehicle_name_launch/sample_vehicle_launch` &rarr; `my_vehicle_name_launch/my_vehicle_name_launch`
-     - `my_vehicle_name_launch/sample_vehicle_description` &rarr; `my_vehicle_name_launch/my_vehicle_name_description`
-   - **After you rename your directories, rename each "sample_vehicle" to "my_vehicle_name" in the source code.**
-     - `my_vehicle_name_description/CMakeLists.txt`
-     - `my_vehicle_name_description/package.xml`
-     - `my_vehicle_name_description/urdf/vehicle.xacro` (there are two parts)
-     - `my_vehicle_name_launch/CMakeLists.txt`
-     - `my_vehicle_name_launch/package.xml`
-     - `README.md`
-
-4. Include your launch file to `my_vehicle_name_launch/my_vehicle_name_launch/launch/vehicle_interface.launch.xml` by opening it and add the included terms like below.
+2. Include your launch file which is created for vehicle_interface to `<YOUR-VEHICLE-NAME>_launch/<YOUR-VEHICLE-NAME>_launch/launch/vehicle_interface.launch.xml` by opening it and add the included terms like below.
 
 ```xml title="vehicle_interface.launch.xml"
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
     <arg name="vehicle_id" default="$(env VEHICLE_ID default)"/>
-
+    <!-- please add your created vehicle interface launch file -->
     <include file="$(find-pkg-share my_vehicle_interface)/launch/my_vehicle_interface.launch.xml">
     </include>
 </launch>
@@ -213,18 +203,17 @@ Most of the files are omitted for clarity, but the files shown here needs modifi
 └─ src/
     └─ vehicle/
         ├─ external/
-+       │   └─ my_vehicle_interface/
++       │   └─ <YOUR-VEHICLE-NAME>_interface/
 +       │       ├─ src/
 +       │       └─ launch/
 +       │            └─ my_vehicle_interface.launch.xml
-        ├─ sample_vehicle_launch/
-+       └─ my_vehicle_name_launch/ (COPIED FROM sample_vehicle_launch)
-+           ├─ my_vehicle_name_launch/
++       └─ <YOUR-VEHICLE-NAME>_launch/ (COPIED FROM sample_vehicle_launch)
++           ├─ <YOUR-VEHICLE-NAME>_launch/
 +           │  ├─ launch/
 +           │  │  └─ vehicle_interface.launch.xml
 +           │  ├─ CMakeLists.txt
 +           │  └─ package.xml
-+           ├─ my_vehicle_name_description/
++           ├─ <YOUR-VEHICLE-NAME>_description/
 +           │  ├─ config/
 +           │  ├─ mesh/
 +           │  ├─ urdf/
@@ -236,10 +225,12 @@ Most of the files are omitted for clarity, but the files shown here needs modifi
 
 ### 4. Build the vehicle interface package and the launch package
 
-Build three packages `my_vehicle_interface`, `my_vehicle_name_launch` and `my_vehicle_name_description` by `colcon build`, or you can just build the entire Autoware if you have done other things.
+Build three packages `my_vehicle_interface`, `<YOUR-VEHICLE-NAME>_launch`
+and `<YOUR-VEHICLE-NAME>_description` by `colcon build`,
+or you can just build the entire Autoware if you have done other things.
 
 ```bash
-colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select my_vehicle_interface my_vehicle_name_launch my_vehicle_name_description
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select my_vehicle_interface <YOUR-VEHICLE-NAME>_launch <YOUR-VEHICLE-NAME>_description
 ```
 
 ### 5. When you launch Autoware
@@ -247,7 +238,7 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --package
 Finally, you are done implementing your vehicle interface module! Be careful that you need to launch Autoware with the proper `vehicle_model` option like the example below. This example is launching planning simulator.
 
 ```bash
-ros2 launch autoware_launch planning.launch.xml map_path:=$HOME/autoware_map/sample-map-planning vehicle_model:=my_vehicle_name sensor_model:=sample_sensor_kit
+ros2 launch autoware_launch planning.launch.xml map_path:=$HOME/autoware_map/sample-map-planning vehicle_model:=<YOUR-VEHICLE-NAME> sensor_model:=<YOUR-VEHICLE-NAME>_sensor_kit
 ```
 
 ### Tips
@@ -276,10 +267,6 @@ There are some tips that may help you.
 
   ```yaml title="autoware.repos"
   # vehicle (this section should be somewhere in autoware.repos and add the below)
-  vehicle/my_vehicle_name_launch:
-    type: git
-    url: https://github.com/<repository-name-A>/my_vehicle_name_launch.git
-    version: main
   vehicle/external/my_vehicle_interface:
     type: git
     url: https://github.com/<repository-name-B>/my_vehicle_interface.git

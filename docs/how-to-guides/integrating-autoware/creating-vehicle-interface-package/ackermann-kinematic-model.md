@@ -1,18 +1,31 @@
 # Ackermann kinematic model
 
 Autoware now supports control inputs for vehicles based on an Ackermann kinematic model.  
-This section introduces you a brief concept of Ackermann kinematic model and explains how Autoware controls it.
+This section introduces you a brief concept of the Ackermann kinematic model
+and explains how Autoware controls it.
+Please remember,
+Autoware control output (/control/command/control_cmd)
+publishes lateral and longitudinal commands according to the Ackermann kinematic model.
 
-- If your vehicle does not suit the Ackermann kinematic model, you have to modified the control commands. [Another document gives you an example how to convert your Ackermann kinematic model control inputs into a differential drive model.](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/customizing-for-differential-drive-model/)
+- If your vehicle does not suit the Ackermann kinematic model, you have to modify the control commands. [Another document gives you an example how to convert your Ackermann kinematic model control inputs into a differential drive model.](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/customizing-for-differential-drive-model/)
 
 ## Geometry
 
-The basic style of Ackermann kinematic model has four wheels with an Ackermann link on the front, and it is powered by the rear wheels.  
-The key point of Ackermann kinematic model is that the axes of all wheels intersect at a same point, which means all wheels will trace a circular trajectory with a different radii but a common center point (See the figure below).  
-Therefore, this model has a great advantage that it minimizes the slippage of the wheels, and prevent tires to get worn soon.
+The basic style of the Ackermann kinematic model has four wheels with an Ackermann link on the front,
+and it is powered by the rear wheels.  
+The key point of Ackermann kinematic model is
+that the axes of all wheels intersect at the same point,
+which means
+all wheels will trace a circular trajectory with a different radii but a common center point
+(See the figure below).  
+Therefore,
+this model has a great advantage that it minimizes the slippage of the wheels
+and prevents tires from getting worn soon.
 
-In general, Ackermann kinematic model accepts the longitudinal speed $v$ and the steering angle $\phi$ as inputs.
-In autoware, $\phi$ is positive if it is steered counter clockwise, so the steering angle in the figure below is actually negative.
+In general,
+the Ackermann kinematic model accepts the longitudinal speed $v$ and the steering angle $\phi$ as inputs.
+In autoware, $\phi$ is positive if it is steered counterclockwise,
+so the steering angle in the figure below is actually negative.
 
 <figure markdown>
   ![ackermann_link](images/Ackermann_WB.png){ align=center }
