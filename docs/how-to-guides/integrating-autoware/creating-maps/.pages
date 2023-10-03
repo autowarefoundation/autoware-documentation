@@ -1,3 +1,4 @@
 nav:
   - index.md
   - Open-source SLAM algorithms: open-source-slam
+  - Converting UTM map to MGRS map: convert-utm-to-mgrs-map

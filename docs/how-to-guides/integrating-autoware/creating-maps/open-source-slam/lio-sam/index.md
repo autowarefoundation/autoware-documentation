@@ -79,7 +79,7 @@ In order to use and build LIO-SAM, we will create workspace for LIO-SAM:
     cd ~/lio-sam-ws/src
     git clone -b ros2 https://github.com/TixiaoShan/LIO-SAM.git
     cd ..
-    colcon build
+    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
 
 ### 2) Settings
