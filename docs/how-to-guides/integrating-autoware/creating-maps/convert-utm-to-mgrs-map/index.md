@@ -67,4 +67,44 @@ longitude and altitude values in the navsatfix message from your GNSS/INS sensor
 
 After that, you need to convert latitude and longitude values to northing and easting values.
 You can use any converter on the internet for converting latitude longitude values to UTM.
-(i.e., [UTM converter](https://www.latlong.net/lat-long-utm.html))
+(i.e., [UTMconverter](https://www.latlong.net/lat-long-utm.html))
+
+Now, we are ready to update `pc_utm_to_mgrs_converter.param.yaml`,
+example for our navsatfix message:
+
+```diff
+/**:
+  ros__parameters:
+      # Northing of local origin
+-     Northing: 4520550.0
++     Northing: 4542871.33
+
+      # Easting of local origin
+-     Easting: 698891.0
++     Easting: 658659.84
+
+      # Elipsoid Height of local origin
+-     ElipsoidHeight: 47.62
++     ElipsoidHeight: 74.28
+```
+
+Lastly, we will update input and pointcloud the map path in `pc_utm_to_mgrs_converter.launch.xml`:
+
+```diff
+...
+- <arg name="input_file_path" default="/home/melike/projects/autoware_data/gebze_pospac_map/pointcloud_map.pcd"/>
++ <arg name="input_file_path" default="<PATH-TO-YOUR-INPUT-PCD-MAP>"/>
+- <arg name="output_file_path" default="/home/melike/projects/autoware_data/gebze_pospac_map/pointcloud_map_mgrs_orto.pcd"/>
++ <arg name="output_file_path" default="<PATH-TO-YOUR-OUTPUT-PCD-MAP>"/>
+...
+```
+
+After the setting of the package, we will launch pc_utm_to_mgrs_converter:
+
+```bash
+ros2 launch pc_utm_to_mgrs_converter pc_utm_to_mgrs_converter.launch.xml
+```
+
+The conversion process will be started,
+you should see `Saved <YOUR-MAP-POINTS-SIZE> data points saved to <YOUR-OUTPUT-MAP-PATH>` message on your terminal.
+So, MGRS format pointcloud map saved on your output map directory.
