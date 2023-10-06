@@ -1,7 +1,8 @@
 nav:
-  - calibrating-sensors.md
-  - manual-calibration.md
-  - lidar-lidar-calibration.md
-  - ground-lidar-calibration.md
-  - intrinsic-camera-calibration.md
-  - lidar-camera-calibration.md
+  - index.md
+  - Starting with TIER IV's CalibrationTools: calibration-tools
+  - Extrinsic manual calibration: extrinsic-manual-calibration
+  - Lidar-lidar calibration: lidar-lidar-calibration
+  - Ground plane-lidar calibration: ground-lidar-calibration
+  - Intrinsic camera calibration: intrinsic-camera-calibration
+  - Lidar-camera calibration: lidar-camera-calibration
