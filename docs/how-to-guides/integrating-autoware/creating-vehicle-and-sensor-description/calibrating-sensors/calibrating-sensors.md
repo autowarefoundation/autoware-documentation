@@ -7,7 +7,8 @@ localization,
 and planning stack.
 These sensors must be calibrated correctly,
 and their positions must be defined at `sensor_kit_description` and `individual_params` packages.
-In order to do that, we will use TIER IV' [CalibrationTools](https://github.com/tier4/CalibrationTools) repository.
+In this tutorial,
+we will use TIER IV's [CalibrationTools](https://github.com/tier4/CalibrationTools) repository for the calibration.
 
 ## Setting of sensor_kit_base_link position according to the base_link
 

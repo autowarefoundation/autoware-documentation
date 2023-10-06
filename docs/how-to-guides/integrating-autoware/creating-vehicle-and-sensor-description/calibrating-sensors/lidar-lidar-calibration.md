@@ -5,8 +5,6 @@
 In this tutorial,
 we will explain lidar-lidar calibration over [mapping-based lidar-lidar calibration tool](https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_extrinsic_mapping_based.md) of TIER IV's
 CalibrationTools.
-Also,
-[map-based lidar-lidar calibration method](https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_extrinsic_map_based.md) included in the TIER IV's tools.
 
 !!! warning
 

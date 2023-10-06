@@ -3,15 +3,15 @@
 ## Overview
 
 In this section, we will use [Extrinsic Manual Calibration](https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_extrinsic_manual.md)
-for extrinsic calibrating our sensors.
-At this point, we can't completely accurate calibrations results for usage,
+for extrinsic calibration of our sensors.
+After this process, we won't get accurate calibration results for final use,
 but we will have an initial calibration for other tools.
 For example, in the lidar-lidar or camera-lidar calibration phase,
 we will need initial calibration for getting accurate and successful calibration results.
 
 We need a sample bag file for the calibration process
 which includes raw lidar topics and camera topics.
-So our tutorial_vehicle's recorded topics should like this:
+The following shows an example of a bag file used for calibration:
 
 ??? note "ROS 2 Bag example of our calibration process"
 
@@ -42,9 +42,7 @@ cd <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve cd tutorial_vehic
 touch manual.launch.xml manual_sensor_kit.launch.xml
 ```
 
-The created `manual.launch.xml` and `manual_sensor_kit.launch.xml` are version of sample sensor kit
-[aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1)
-provided from TIER IV.
+We will be modifying these `manual.launch.xml` and `manual_sensor_kit.launch.xml` by using TIER IV's sample sensor kit [aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1)
 
 So, we can start modifying `manual.launch.xml`,
 please open this file on a text editor which will you prefer (code, gedit etc.).

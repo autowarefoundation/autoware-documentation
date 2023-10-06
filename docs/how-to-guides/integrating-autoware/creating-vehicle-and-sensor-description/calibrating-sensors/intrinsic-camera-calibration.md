@@ -3,7 +3,8 @@
 ## Overview
 
 Intrinsic camera calibration is the process
-of determining the internal parameters of a camera that affect how it captures images.
+of determining the internal parameters of a camera
+which will be used when projecting 3D information into images.
 These parameters include focal length, optical center, and lens distortion coefficients.
 In order to perform camera Intrinsic calibration,
 we will use TIER IV's [Intrinsic Camera Calibrator](https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_intrinsic_camera.md) tool.
