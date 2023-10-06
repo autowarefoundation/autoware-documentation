@@ -152,22 +152,6 @@ void <YOUR-OWN-VEHICLE-INTERFACE>::to_autoware()
 
 ```
 
-- Communication between the vehicle interface and your vehicle's control device
-
-  - If you are planning to drive by autoware with your vehicle, then your vehicle must satisfy some requirements:
-
-    | Type A                                                                                                                                         | Type B                                                                                                                                         |
-    | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-    | Your vehicle can be controlled in longitudinal direction by the target velocity or acceleration.                                               | Your vehicle can be controlled in longitudinal direction by the specific target commands. (i.e., brake and gas pedal)                          |
-    | Your vehicle can be controlled in lateral direction by the target steering angle. (Optionally, you can use steering rate as well)              | Your vehicle can be controlled in lateral direction by the specific target commands. (i.e., steering torque)                                   |
-    | Your vehicle must provide velocity or acceleration information and steering information which is described at the vehicle status topics above. | Your vehicle must provide velocity or acceleration information and steering information which is described at the vehicle status topics above. |
-
-  - You can also use mixed Type A and Type B, for example, you want to use lateral controlling with a steering angle and longitudinal controlling with specific targets. In order to do that, you must subscribe `/control/command/control_cmd` for getting steering information, and you must subscribe `/control/command/actuation_cmd` for gas and brake pedal actuation commands. Then, you must handle these messages on your own vehicle_interface design.
-  - You must adopt your vehicle low-level controller to run with autoware.
-  - Your vehicle can be controlled by the target shift mode and also needs to provide Autoware with shift information.
-  - If you are using CAN communication on your vehicle, please refer to [ros2_socketcan](https://github.com/autowarefoundation/ros2_socketcan) package by Autoware.
-  - If you are using Serial communication on your vehicle, you can look at [serial-port](https://github.com/fedetft/serial-port/tree/master/3_async).
-
 - Modification of control values if needed
   - In some cases, you may need to modify the control commands. For example, Autoware expects vehicle velocity information in m/s units, but if your vehicle publishes it in a different format (i.e., km/h), you must convert it before sending it to Autoware.
 
