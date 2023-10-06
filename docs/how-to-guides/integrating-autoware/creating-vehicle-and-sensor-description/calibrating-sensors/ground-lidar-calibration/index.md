@@ -10,7 +10,7 @@ in a way that aligns the points
 corresponding to the ground within the point cloud with the XY plane of the base_link.
 This means that only the z, roll, and pitch values of the tf undergo calibration,
 while the remaining x, y, and yaw values must be calibrated using other methods,
-such as [manual adjustment](./manual-calibration.md) or [mapping-based lidar-lidar calibration](./lidar-lidar-calibration.md).
+such as [manual adjustment](../extrinsic-manual-calibration) or [mapping-based lidar-lidar calibration](../lidar-camera-calibration).
 
 You need to apply this calibration method to each lidar separately,
 so our bag should contain all lidars to be calibrated.
@@ -32,6 +32,8 @@ so our bag should contain all lidars to be calibrated.
 
 ## Ground-lidar calibration
 
+### Creating launch files
+
 We will start with creating launch file four our own vehicle like the previous sections process:
 
 ```bash
@@ -41,42 +43,26 @@ cd <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve cd tutorial_vehic
 touch ground_plane.launch.xml ground_plane_sensor_kit.launch.xml
 ```
 
-The created `ground_plane.launch.xml` and `ground_plane_sensor_kit.launch.xml` are version of sample sensor kit
-[aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1)
-provided from TIER IV.
+We will be modifying these `ground_plane.launch.xml` and `ground_plane_sensor_kit.launch.xml` by using TIER IV's sample sensor kit aip_x1.
+So,
+you should copy the contents of these two files from [aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1) to your created files.
 
-Then we will continue with adding vehicle_id and sensor model names to the `ground_plane.launch.xml`.
-(Optionally, values are not important. These parameters will be overridden by launch arguments)
+### Modifying launch files according to your sensor kit
+
+(Optionally) Let's start with adding vehicle_id and sensor model names.
+(Values are not important. These parameters will be overridden by launch arguments)
 
 ```diff
+  <arg name="vehicle_id" default="default"/>
+
+  <let name="sensor_model" value="aip_x1"/>
 + <?xml version="1.0" encoding="UTF-8"?>
 + <launch>
+-   <arg name="vehicle_id" default="default"/>
 +   <arg name="vehicle_id" default="<YOUR_VEHICLE_ID>"/>
 +
+-   <arg name="sensor_model" default="aip_x1"/>
 +   <let name="sensor_model" value="<YOUR_SENSOR_KIT_NAME>"/>
-```
-
-??? note "i.e. vehicle_id and sensor_model definition on tutorial_vehicle (ground_plane.launch.xml)"
-
-    ```xml
-    + <?xml version="1.0" encoding="UTF-8"?>
-    + <launch>
-    +   <arg name="vehicle_id" default="tutorial_vehicle"/>
-    +
-    +   <let name="sensor_model" value="tutorial_vehicle_sensor_kit"/>
-    ```
-
-After that, we will launch our sensor_kit for ground - lidar calibration,
-so we must add these lines on ground_plane.launch.xml:
-
-```diff
-+   <group>
-+     <push-ros-namespace namespace="sensor_kit"/>
-+     <include file="$(find-pkg-share extrinsic_calibration_manager)/launch/$(var sensor_model)/ground_plane_sensor_kit.launch.xml">
-+       <arg name="vehicle_id" value="$(var vehicle_id)"/>
-+     </include>
-+   </group>
-+ </launch>
 ```
 
 The final version of the file (ground_plane.launch.xml) for tutorial_vehicle should be like this:
@@ -109,29 +95,27 @@ which included at the end of the page)
 ```diff
 + <?xml version="1.0" encoding="UTF-8"?>
 + <launch>
+-   <arg name="vehicle_id" default="default"/>
 +   <arg name="vehicle_id" default="<YOUR_VEHICLE_ID>"/>
+-   <arg name="sensor_model" default="aip_x1"/>
 +   <let name="sensor_model" value="<YOUR_SENSOR_KIT_NAME>"/>
-+   <let name="base_frame" value="base_link"/>
-+   <let name="parent_frame" value="sensor_kit_base_link"/>
-+
-+   <!-- You can change after the saving of rviz config like this -->
-+   <let name="rviz_profile" value="$(find-pkg-share extrinsic_ground_plane_calibrator)/rviz/velodyne_top.rviz"/>
-+   <arg name="calibration_rviz" default="true"/>
-+
-+   <!-- extrinsic_calibration_client -->
-+   <arg name="src_yaml" default="$(find-pkg-share individual_params)/config/$(var vehicle_id)/$(var sensor_model)/sensor_kit_calibration.yaml"/>
-+   <arg name="dst_yaml" default="$(env HOME)/sensor_kit_calibration.yaml"/>
-+
-+   <node pkg="extrinsic_calibration_client" exec="extrinsic_calibration_client" name="extrinsic_calibration_client" output="screen">
-+     <param name="src_path" value="$(var src_yaml)"/>
-+     <param name="dst_path" value="$(var dst_yaml)"/>
-+   </node>
+    <let name="base_frame" value="base_link"/>
+    <let name="parent_frame" value="sensor_kit_base_link"/>
+
 ```
 
 Then, we will add all our sensor frames on extrinsic_calibration_manager as child frames.
 
 ```diff
-+   <!-- extrinsic_calibration_manager -->
+    <!-- extrinsic_calibration_manager -->
+-   <node pkg="extrinsic_calibration_manager" exec="extrinsic_calibration_manager" name="extrinsic_calibration_manager" output="screen">
+-     <param name="parent_frame" value="$(var parent_frame)"/>
+-     <param name="child_frames" value="
+-     [velodyne_top_base_link,
+-     livox_front_left_base_link,
+-     livox_front_center_base_link,
+-     livox_front_right_base_link]"/>
+-   </node>
 +   <node pkg="extrinsic_calibration_manager" exec="extrinsic_calibration_manager" name="extrinsic_calibration_manager" output="screen">
 +     <param name="parent_frame" value="$(var parent_frame)"/>
 +     <!-- add your sensor frames here -->
@@ -164,6 +148,15 @@ After that we will add our lidar sensor configurations on ground-based calibrato
 to do that we will add these lines our `ground_plane_sensor_kit.launch.xml` file.
 
 ```diff
+-  <group>
+-    <include file="$(find-pkg-share extrinsic_ground_plane_calibrator)/launch/calibrator.launch.xml">
+-      <arg name="ns" value="$(var parent_frame)/velodyne_top_base_link"/>
+-      <arg name="base_frame" value="$(var base_frame)"/>
+-      <arg name="parent_frame" value="$(var parent_frame)"/>
+-      <arg name="child_frame" value="velodyne_top_base_link"/>
+-      <arg name="pointcloud_topic" value="/sensing/lidar/top/pointcloud_raw"/>
+-    </include>
+-  </group>
 +  <group>
 +   <include file="$(find-pkg-share extrinsic_ground_plane_calibrator)/launch/calibrator.launch.xml">
 +     <arg name="ns" value="$(var parent_frame)/YOUR_SENSOR_BASE_LINK"/>
@@ -211,7 +204,7 @@ to do that we will add these lines our `ground_plane_sensor_kit.launch.xml` file
 
     ```
 
-The mapping_based_sensor_kit.launch.xml launch file for tutorial_vehicle should be this:
+The ground_plane_sensor_kit.launch.xml launch file for tutorial_vehicle should be this:
 
 ??? note "Sample ground_plane_sensor_kit.launch.xml for tutorial_vehicle"
 
@@ -268,6 +261,8 @@ The mapping_based_sensor_kit.launch.xml launch file for tutorial_vehicle should 
     </launch>
 
     ```
+
+### Ground plane-lidar calibration process with extrinsic ground-plane calibrator
 
 After completing mapping_based.launch.xml and mapping_based_sensor_kit.launch.xml launch files for own sensor kit;
 now we are ready to calibrate our lidars.

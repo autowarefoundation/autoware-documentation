@@ -8,7 +8,7 @@ CalibrationTools.
 
 !!! warning
 
-    Please get initial calibration results from [Manual Calibration](./manual-calibration.md) section, it is important for getting accurate results from this tool.
+    Please get initial calibration results from [Manual Calibration](../extrinsic-manual-calibration) section, it is important for getting accurate results from this tool.
     We will use initial calibration parameters that we calculated on previous step on this tutorial.
 
 ??? note "ROS 2 Bag example of our calibration process for tutorial_vehicle"
@@ -28,6 +28,8 @@ CalibrationTools.
 
 ## Mapping-based lidar-lidar calibration
 
+### Creating launch files
+
 We start with creating launch file four our vehicle like "Extrinsic Manual Calibration"
 process:
 
@@ -38,43 +40,24 @@ cd <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve cd tutorial_vehic
 touch mapping_based.launch.xml mapping_based_sensor_kit.launch.xml
 ```
 
-The created `mapping_based.launch.xml` and `mapping_based_sensor_kit.launch.xml` are version of sample sensor kit
-[aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1)
-provided from TIER IV.
+We will be modifying these `mapping_based.launch.xml` and `mapping_based_sensor_kit.launch.xml` by using TIER IV's sample sensor kit aip_xx1.
+So,
+you should copy the contents of these two files from [aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_xx1) to your created files.
 
 Then we will continue with adding vehicle_id and sensor model names to the `mapping_based.launch.xml`.
 (Optionally, values are not important. These parameters will be overridden by launch arguments)
 
 ```diff
+  <arg name="vehicle_id" default="default"/>
+
+  <let name="sensor_model" value="aip_x1"/>
 + <?xml version="1.0" encoding="UTF-8"?>
 + <launch>
+-   <arg name="vehicle_id" default="default"/>
 +   <arg name="vehicle_id" default="<YOUR_VEHICLE_ID>"/>
 +
+-   <arg name="sensor_model" default="aip_x1"/>
 +   <let name="sensor_model" value="<YOUR_SENSOR_KIT_NAME>"/>
-```
-
-??? note "i.e. vehicle_id and sensor_model definition on tutorial_vehicle (mapping_based.launch.xml)"
-
-    ```xml
-    + <?xml version="1.0" encoding="UTF-8"?>
-    + <launch>
-    +   <arg name="vehicle_id" default="tutorial_vehicle"/>
-    +
-    +   <let name="sensor_model" value="tutorial_vehicle_sensor_kit"/>
-    ```
-
-After that, we will launch our sensor_kit for mapping-based lidar-lidar calibration,
-so we must add these lines on mapping_based.launch.xml:
-
-```diff
-+   <group>
-+     <push-ros-namespace namespace="sensor_kit"/>
-+     <include file="$(find-pkg-share extrinsic_calibration_manager)/launch/$(var sensor_model)/mapping_based_sensor_kit.launch.xml">
-+       <arg name="vehicle_id" value="$(var vehicle_id)"/>
-+     </include>
-+   </group>
-+
-+ </launch>
 ```
 
 The final version of the file (mapping_based.launch.xml) for tutorial_vehicle should be like this:
@@ -107,33 +90,6 @@ you can modify sensor_kit and vehicle_id as `mapping_based.launch.xml`over this 
 (You can change rviz_profile path after the saving rviz config as video
 which included at the end of the page)
 
-```diff
-+ <?xml version="1.0" encoding="UTF-8"?>
-+ <launch>
-+   <arg name="vehicle_id" default="<YOUR_VEHICLE_ID>"/>
-+   <let name="sensor_model" value="<YOUR_SENSOR_KIT_NAME>"/>
-+
-+   <arg name="rviz"/>
-+   <let name="rviz_profile" value="$(find-pkg-share extrinsic_mapping_based_calibrator)/rviz/x1.rviz"/>
-+
-+   <!-- You can change after the saving of rviz config like this -->
-+   <!-- <let name="rviz_profile" value="$(find-pkg-share extrinsic_mapping_based_calibrator)/rviz/tutorial_vehicle.rviz"/> -->
-+
-+   <arg name="src_yaml" default="$(find-pkg-share individual_params)/config/$(var vehicle_id)/$(var sensor_model)/sensor_kit_calibration.yaml"/>
-+   <arg name="dst_yaml" default="$(env HOME)/sensor_kit_calibration.yaml"/>
-```
-
-We will not fill anything on camera parameters for calibrator
-because we will pair lidar-lidar for the calibration process:
-
-```diff
-+   <let name="camera_calibration_sensor_kit_frames" value="['']"/>
-+   <let name="calibration_camera_frames" value="['']"/>
-+   <let name="calibration_camera_optical_link_frames" value="['']"/>
-+   <let name="calibration_camera_info_topics" value="['']"/>
-+   <let name="calibration_image_topics" value="['']"/>
-```
-
 We will add sensor kit frames for each lidar (except mapping lidar),
 we have one lidar for pairing to the main lidar sensor for tutorial vehicle, so it should be like:
 
@@ -164,6 +120,21 @@ We will add lidar_calibration_service_names,
 calibration_lidar_base_frames and calibration_lidar_frames for calibrator.
 
 ```diff
+-   <let
+-       name="lidar_calibration_service_names"
+-       value="[
+-       /sensor_kit/sensor_kit_base_link/livox_front_left_base_link,
+-       /sensor_kit/sensor_kit_base_link/livox_front_center_base_link,
+-       /sensor_kit/sensor_kit_base_link/livox_front_right_base_link]"
+-     />
+-   <let name="calibration_lidar_base_frames" value="[
+-       livox_front_left_base_link,
+-       livox_front_center_base_link,
+-       livox_front_right_base_link]"/>
+-   <let name="calibration_lidar_frames" value="[
+-       livox_front_left,
+-       livox_front_center,
+-       livox_front_right]"/>
 +   <let
 +           name="lidar_calibration_service_names"
 +           value="[/sensor_kit/sensor_kit_base_link/<YOUR_SENSOR_BASE_LINK>,
@@ -178,24 +149,6 @@ calibration_lidar_base_frames and calibration_lidar_frames for calibrator.
 +                                                YOUR_SENSOR_LINK
 +                                                ...]"/>
 ```
-
-??? note "i.e., If you have three lidars (one main for mapping, two others) for [aip_x1](https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1/mapping_based_sensor_kit.launch.xml)"
-
-    ```xml
-    <let
-    name="lidar_calibration_service_names"
-    value="[
-    /sensor_kit/sensor_kit_base_link/livox_front_left_base_link,
-    /sensor_kit/sensor_kit_base_link/livox_front_right_base_link]"
-    />
-    <let name="calibration_lidar_base_frames" value="[
-    livox_front_left_base_link,
-    livox_front_right_base_link]"/>
-
-    <let name="calibration_lidar_frames" value="[
-    livox_front_left,
-    livox_front_right]"/>
-    ```
 
 ??? note "i.e., At the tutorial_vehicle it should be like this snippet"
 
@@ -213,45 +166,22 @@ After that, we will add the sensor topics and sensor frames in order to do that,
 we will continue filling the `mapping_based_sensor_kit.launch.xml` with:
 
 ```diff
-+   <let name="calibration_lidar_base_frames" value="[<YOUR_SENSOR_BASE_LINK>,
-+                                                     <YOUR_SENSOR_BASE_LINK>
-+                                                     ...]"/>
-+     <let name="calibration_lidar_frames" value="[<YOUR_SENSOR_LINK>,
-+                                                  <YOUR_SENSOR_LINK>
-+                                                  ...]"/>
-+
+
+-     <let name="mapping_lidar_frame" value="velodyne_top"/>
+-     <let name="mapping_pointcloud" value="/sensing/lidar/top/outlier_filtered/pointcloud"/>
 +     <let name="mapping_lidar_frame" value="<MAPPING_LIDAR_SENSOR_LINK>"/>
 +     <let name="mapping_pointcloud" value="<MAPPING_LIDAR_POINTCLOUD_TOPIC_NAME>"/>
-+     <let name="detected_objects" value="/perception/object_recognition/detection/objects"/>
-+
+
+
+-     <let name="calibration_pointcloud_topics" value="[
+-       /sensing/lidar/front_left/livox/lidar,
+-       /sensing/lidar/front_center/livox/lidar,
+-       /sensing/lidar/front_right/livox/lidar]"/>
 +     <let name="calibration_pointcloud_topics" value="[
 +       <YOUR_LIDAR_TOPIC_FOR_CALIBRATION>,
 +       <YOUR_LIDAR_TOPIC_FOR_CALIBRATION>,
 +       ...]"/>
 ```
-
-??? note "i.e., If you have three lidars (one main for mapping, two others) for [aip_x1](https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1/mapping_based_sensor_kit.launch.xml)"
-
-    ```xml
-    <let name="calibration_lidar_base_frames" value="[
-    livox_front_left_base_link,
-    livox_front_center_base_link,
-    livox_front_right_base_link]"/>
-
-    <let name="calibration_lidar_frames" value="[
-    livox_front_left,
-    livox_front_center,
-    livox_front_right]"/>
-
-    <let name="mapping_lidar_frame" value="velodyne_top"/>
-    <let name="mapping_pointcloud" value="/sensing/lidar/top/outlier_filtered/pointcloud"/>
-    <let name="detected_objects" value="/perception/object_recognition/detection/objects"/>
-
-    <let name="calibration_pointcloud_topics" value="[
-    /sensing/lidar/front_left/livox/lidar,
-    /sensing/lidar/front_center/livox/lidar,
-    /sensing/lidar/front_right/livox/lidar]"/>
-    ```
 
 ??? note "At the tutorial_vehicle it should be like this snippet."
 
@@ -265,47 +195,6 @@ we will continue filling the `mapping_based_sensor_kit.launch.xml` with:
 
     <let name="calibration_pointcloud_topics" value="[
     /sensing/lidar/right/pointcloud_raw]"/>
-    ```
-
-Then we will add the extrinsic_mapping_based_calibrator launch file with these arguments to mapping_based_sensor_kit.launch.xml:
-
-??? note "extrinsic_mapping_based_calibrator launch example"
-
-    ```xml
-    <include file="$(find-pkg-share extrinsic_mapping_based_calibrator)/launch/calibrator.launch.xml">
-        <arg name="ns" value=""/>
-
-        <arg name="camera_calibration_service_names" value="$(var camera_calibration_service_names)"/>
-        <arg name="lidar_calibration_service_names" value="$(var lidar_calibration_service_names)"/>
-        <arg name="camera_calibration_sensor_kit_frames" value="$(var camera_calibration_sensor_kit_frames)"/>
-        <arg name="lidar_calibration_sensor_kit_frames" value="$(var lidar_calibration_sensor_kit_frames)"/>
-        <arg name="calibration_camera_frames" value="$(var calibration_camera_frames)"/>
-        <arg name="calibration_camera_optical_link_frames" value="$(var calibration_camera_optical_link_frames)"/>
-        <arg name="calibration_lidar_base_frames" value="$(var calibration_lidar_base_frames)"/>
-        <arg name="calibration_lidar_frames" value="$(var calibration_lidar_frames)"/>
-        <arg name="mapping_lidar_frame" value="$(var mapping_lidar_frame)"/>
-
-        <arg name="mapping_pointcloud" value="$(var mapping_pointcloud)"/>
-        <arg name="detected_objects" value="$(var detected_objects)"/>
-
-        <arg name="calibration_camera_info_topics" value="$(var calibration_camera_info_topics)"/>
-        <arg name="calibration_image_topics" value="$(var calibration_image_topics)"/>
-        <arg name="calibration_pointcloud_topics" value="$(var calibration_pointcloud_topics)"/>
-
-        <arg name="mapping_max_range" value="150.0"/>
-        <arg name="local_map_num_keyframes" value="30"/>
-        <arg name="dense_pointcloud_num_keyframes" value="20"/>
-        <arg name="ndt_resolution" value="0.5"/>
-        <arg name="ndt_max_iterations" value="100"/>
-        <arg name="ndt_epsilon" value="0.005"/>
-        <arg name="lost_frame_max_acceleration" value="15.0"/>
-        <arg name="lidar_calibration_max_frames" value="10"/>
-        <arg name="calibration_eval_max_corr_distance" value="0.2"/>
-        <arg name="solver_iterations" value="100"/>
-        <arg name="calibration_skip_keyframes" value="15"/>
-      </include>
-
-      <node pkg="rviz2" exec="rviz2" name="rviz2" output="screen" args="-d $(var rviz_profile)" if="$(var rviz)"/>
     ```
 
 The mapping_based_sensor_kit.launch.xml launch file for tutorial_vehicle should be this:
@@ -403,6 +292,8 @@ The mapping_based_sensor_kit.launch.xml launch file for tutorial_vehicle should 
 
     ```
 
+### Lidar-Lidar calibration process with interactive mapping-based calibrator
+
 After completing mapping_based.launch.xml and mapping_based_sensor_kit.launch.xml launch files for own sensor kit;
 now we are ready to calibrate our lidars.
 First of all, we need to build extrinsic_calibration_manager package:
@@ -464,7 +355,7 @@ After the calibration is completed, then you should rviz2 screen like the image 
 
 ![mapping-based-calibration-result](images/mapping-based-calibration-result.png)
 
-The red points indicate pointcloud that initial calibration results of [previous section](./manual-calibration.md).
+The red points indicate pointcloud that initial calibration results of [previous section](../extrinsic-manual-calibration).
 The green points indicate aligned point (calibration result).
 The calibration results will be saved automatically on your
 `dst_yaml` ($HOME/sensor_kit_calibration.yaml) at this tutorial.

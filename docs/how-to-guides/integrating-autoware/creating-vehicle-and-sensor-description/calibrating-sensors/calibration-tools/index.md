@@ -75,8 +75,8 @@ we will modify `extrinsic_calibration_package` for our sensor kit.
 For tutorial_vehicle,
 completed launch files when created following tutorial sections can be found [here](https://github.com/leo-drive/calibration_tools_tutorial_vehicle/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/tutorial_vehicle_sensor_kit).
 
-- [Manual Calibration](./manual-calibration.md)
-- [Lidar-Lidar Calibration](./lidar-lidar-calibration.md)
-  - [Ground Plane-Lidar Calibration](./ground-lidar-calibration.md)
-- [Intrinsic Camera Calibration](./intrinsic-camera-calibration.md)
-- [Lidar-Camera Calibration](./lidar-camera-calibration.md)
+- [Manual Calibration](../extrinsic-manual-calibration)
+- [Lidar-Lidar Calibration](../lidar-lidar-calibration)
+  - [Ground Plane-Lidar Calibration](../ground-lidar-calibration)
+- [Intrinsic Camera Calibration](../intrinsic-camera-calibration)
+- [Lidar-Camera Calibration](../lidar-camera-calibration)

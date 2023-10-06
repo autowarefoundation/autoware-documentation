@@ -32,56 +32,42 @@ The following shows an example of a bag file used for calibration:
 
 ## Extrinsic Manual-Based Calibration
 
-First of all, we will start with creating and modifying `extrinsic_calibration_manager` launch files:
+### Creating launch files
+
+First of all, we will start with creating launch file for `extrinsic_calibration_manager` package:
 
 ```bash
 cd <YOUR-OWN-AUTOWARE-DIRECTORY>/src/autoware/calibration_tools/sensor
 cd extrinsic_calibration_manager/launch
 mkdir <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve mkdir tutorial_vehicle_sensor_kit
 cd <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit
-touch manual.launch.xml manual_sensor_kit.launch.xml
+touch manual.launch.xml manual_sensor_kit.launch.xml manual_sensors.launch.xml
 ```
 
-We will be modifying these `manual.launch.xml` and `manual_sensor_kit.launch.xml` by using TIER IV's sample sensor kit [aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1)
+We will be modifying these `manual.launch.xml`, `manual_sensors.launch.xml` and `manual_sensor_kit.launch.xml` by using TIER IV's sample sensor kit aip_x1.
+So,
+you should copy the contents of these three files from [aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1) to your created files.
+
+### Modifying launch files according to your sensor kit
 
 So, we can start modifying `manual.launch.xml`,
 please open this file on a text editor which will you prefer (code, gedit etc.).
 Example for out tutorial vehicle should be like these steps:
 
-Let's start with adding vehicle_id and sensor model names.
-(Optionally, values are not important. These parameters will be overridden by launch arguments)
+(Optionally) Let's start with adding vehicle_id and sensor model names.
+(Values are not important. These parameters will be overridden by launch arguments)
 
 ```diff
+  <arg name="vehicle_id" default="default"/>
+
+  <let name="sensor_model" value="aip_x1"/>
 + <?xml version="1.0" encoding="UTF-8"?>
 + <launch>
+-   <arg name="vehicle_id" default="default"/>
 +   <arg name="vehicle_id" default="<YOUR_VEHICLE_ID>"/>
 +
+-   <arg name="sensor_model" default="aip_x1"/>
 +   <let name="sensor_model" value="<YOUR_SENSOR_KIT_NAME>"/>
-```
-
-??? note "i.e. vehicle_id and sensor_model definition on tutorial_vehicle (manual.launch.xml)"
-
-    ```xml
-     <?xml version="1.0" encoding="UTF-8"?>
-     <launch>
-       <arg name="vehicle_id" default="tutorial_vehicle"/>
-
-       <let name="sensor_model" value="tutorial_vehicle_sensor_kit"/>
-    ```
-
-After that, we will launch our sensor_kit for manual sensor calibration,
-so we must add these lines on manual.launch.xml
-(This is the same for tutorial_vehicle, it uses vehicle_id and sensor_name as parameters):
-
-```diff
-+   <group>
-+     <push-ros-namespace namespace="sensor_kit"/>
-+     <include file="$(find-pkg-share extrinsic_calibration_manager)/launch/$(var sensor_model)/manual_sensor_kit.launch.xml">
-+       <arg name="vehicle_id" value="$(var vehicle_id)"/>
-+     </include>
-+   </group>
-+
-+ </launch>
 ```
 
 The final version of the file (manual.launch.xml) for tutorial_vehicle should be like this:
@@ -102,59 +88,49 @@ The final version of the file (manual.launch.xml) for tutorial_vehicle should be
             </include>
         </group>
 
+        <group>
+            <push-ros-namespace namespace="sensors"/>
+            <include file="$(find-pkg-share extrinsic_calibration_manager)/launch/$(var sensor_model)/manual_sensors.launch.xml">
+              <arg name="vehicle_id" value="$(var vehicle_id)"/>
+            </include>
+        </group>
+
     </launch>
 
     ```
 
 After the completing of manual.launch.xml file,
-we will be ready to implement manual_sensor_kit.launch.xml for the own sensor model:
+we will be ready to implement manual_sensor_kit.launch.xml for the own sensor model's [sensor_kit_calibration.yaml](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_description/config/sensor_kit_calibration.yaml):
 
 Optionally, you can modify sensor_model and vehicle_id over this xml snippet as well:
 
 ```diff
+...
+  <arg name="vehicle_id" default="default"/>
+
+  <let name="sensor_model" value="aip_x1"/>
 + <?xml version="1.0" encoding="UTF-8"?>
 + <launch>
+-   <arg name="vehicle_id" default="default"/>
 +   <arg name="vehicle_id" default="<YOUR_VEHICLE_ID>"/>
 +
+-   <arg name="sensor_model" default="aip_x1"/>
 +   <let name="sensor_model" value="<YOUR_SENSOR_KIT_NAME>"/>
-+   <let name="parent_frame" value="sensor_kit_base_link"/>
-+
-+   <!-- extrinsic_calibration_client -->
-+   <arg name="src_yaml" default="$(find-pkg-share individual_params)/config/$(var vehicle_id)/$(var sensor_model)/sensor_kit_calibration.yaml"/>
-+
-+   <!-- you can shange the destination for saving calibration results -->
-+   <arg name="dst_yaml" default="$(env HOME)/sensor_kit_calibration.yaml"/>
-+
-+   <node pkg="extrinsic_calibration_client" exec="extrinsic_calibration_client" name="extrinsic_calibration_client" output="screen">
-+     <param name="src_path" value="$(var src_yaml)"/>
-+     <param name="dst_path" value="$(var dst_yaml)"/>
-+   </node>
+...
 ```
-
-??? note "i.e. vehicle_id and sensor_model definition on tutorial_vehicle (manual_sensor_kit.launch.xml)"
-
-    ```xml
-    + <?xml version="1.0" encoding="UTF-8"?>
-    + <launch>
-    +   <arg name="vehicle_id" default="tutorial_vehicle"/>
-    +
-    +   <let name="sensor_model" value="tutorial_vehicle_sensor_kit"/>
-    +   <let name="parent_frame" value="sensor_kit_base_link"/>
-    +
-    +   <!-- extrinsic_calibration_client -->
-    +   <arg name="src_yaml" default="$(find-pkg-share individual_params)/config/$(var vehicle_id)/$(var sensor_model)/sensor_kit_calibration.yaml"/>
-    +   <arg name="dst_yaml" default="$(env HOME)/sensor_kit_calibration.yaml"/>
-    +
-    +   <node pkg="extrinsic_calibration_client" exec="extrinsic_calibration_client" name="extrinsic_calibration_client" output="screen">
-    +     <param name="src_path" value="$(var src_yaml)"/>
-    +     <param name="dst_path" value="$(var dst_yaml)"/>
-    +   </node>
-    ```
 
 Then, we will add all our sensor frames on extrinsic_calibration_manager as child frames.
 
 ```diff
-+   <!-- extrinsic_calibration_manager -->
+   <!-- extrinsic_calibration_manager -->
+-  <node pkg="extrinsic_calibration_manager" exec="extrinsic_calibration_manager" name="extrinsic_calibration_manager" output="screen">
+-    <param name="parent_frame" value="$(var parent_frame)"/>
+-    <param name="child_frames" value="
+-    [velodyne_top_base_link,
+-    livox_front_left_base_link,
+-    livox_front_center_base_link,
+-    livox_front_right_base_link]"/>
+-  </node>
 +   <node pkg="extrinsic_calibration_manager" exec="extrinsic_calibration_manager" name="extrinsic_calibration_manager" output="screen">
 +     <param name="parent_frame" value="$(var parent_frame)"/>
 +     <!-- add your sensor frames here -->
@@ -188,6 +164,11 @@ Lastly, we will launch a manual calibrator each frame for our sensors,
 please update namespace (ns) and child_frame argument on calibrator.launch.xml launch file argument:
 
 ```diff
+-  <include file="$(find-pkg-share extrinsic_manual_calibrator)/launch/calibrator.launch.xml">
+-    <arg name="ns" value="$(var parent_frame)/velodyne_top_base_link"/>
+-    <arg name="parent_frame" value="$(var parent_frame)"/>
+-    <arg name="child_frame" value="velodyne_top_base_link"/>
+-  </include>
 +  <!-- extrinsic_manual_calibrator -->
 +  <include file="$(find-pkg-share extrinsic_manual_calibrator)/launch/calibrator.launch.xml">
 +    <arg name="ns" value="$(var parent_frame)/<YOUR_SENSOR_BASE_LINK>"/>
@@ -203,7 +184,7 @@ please update namespace (ns) and child_frame argument on calibrator.launch.xml l
 +
 ```
 
-??? note "i.e., calibrator.launch.xml for each tutorial_vehicle's sensor"
+??? note "i.e., calibrator.launch.xml for each tutorial_vehicle's sensor kit"
 
     ```xml
     +  <!-- extrinsic_manual_calibrator -->
@@ -292,6 +273,12 @@ The final version of the manual_sensor_kit.launch.xml for tutorial_vehicle shoul
         </include>
     </launch>
     ```
+
+You can update `manual_sensors.launch.xml` file according to your modified [sensors_calibration.yaml](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_description/config/sensors_calibration.yaml) file.
+Since we will not be calibrating the sensor directly according to base_link in tutorial_vehicle,
+we will not change this file.
+
+### Calibrating sensors with extrinsic manual calibrator
 
 After the completion of manual.launch.xml and manual_sensor_kit.launch xml file for extrinsic_calibration_manager package,
 we need to build package:
