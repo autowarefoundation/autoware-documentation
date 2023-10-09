@@ -54,9 +54,11 @@ cd <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve cd tutorial_vehic
 touch interactive.launch.xml interactive_sensor_kit.launch.xml
 ```
 
+### Modifying launch files according to your sensor kit
+
 We will be modifying these `interactive.launch.xml` and `interactive_sensor_kit.launch.xml` by using TIER IV's sample sensor kit aip_xx1.
 So,
-you should copy the contents of these two files from [aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_xx1) to your created files.
+you should copy the contents of these two files from [aip_xx1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_xx1) to your created files.
 
 Then we will continue with adding vehicle_id and sensor model names to the `interactive.launch.xml`.
 (Optionally, values are not important. These parameters will be overridden by launch arguments)
@@ -149,7 +151,7 @@ then you should change launch file like this:
 
 The interactive_sensor_kit.launch.xml launch file for tutorial_vehicle should be this:
 
-??? note "i.e. interactive_sensor_kit.launch.xml for tutorial_vehicle"
+??? note "i.e. [`interactive_sensor_kit.launch.xml`](https://github.com/leo-drive/tutorial_vehicle_calibration_tools/blob/tier4/universe/sensor/extrinsic_calibration_manager/launch/tutorial_vehicle_sensor_kit/interactive_sensor_kit.launch.xml) for tutorial_vehicle"
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -269,20 +271,20 @@ You must add your lidar sensor point cloud to Rviz2, then we can publish points 
 
 ![interactive-calibrator](images/interactive-calibrator.png)
 
-After that, Let's start by pressing the 'Publish Point'
-button and selecting points on the point cloud that are also included in the projected image.
-Then,
-you need to click on the image point that corresponds to the projected lidar point on the image.
-You will see matched calibration points.
+- After that, Let's start by pressing the `Publish Point`
+  button and selecting points on the point cloud that are also included in the projected image.
+  Then,
+  you need to click on the image point that corresponds to the projected lidar point on the image.
+  You will see matched calibration points.
 
 ![interactive-calibration-points.png](images/interactive-calibration-points.png)
 
-The red points indicate selected lidar points and green ones indicate selected image points.
-You must match the minimum 6 points to perform calibration.
-If you have a wrong match, you can remove this match by just clicking on them.
-After selecting points on image and lidar, you are ready to calibrate.
-If selected point match size is greater than 6, "Calibrate extrinsic" button will be enabled.
-Click this button and change tf source `Initial /tf` to `Calibrator` to see calibration results.
+- The red points indicate selected lidar points and green ones indicate selected image points.
+  You must match the minimum 6 points to perform calibration.
+  If you have a wrong match, you can remove this match by just clicking on them.
+  After selecting points on image and lidar, you are ready to calibrate.
+  If selected point match size is greater than 6, "Calibrate extrinsic" button will be enabled.
+  Click this button and change tf source `Initial /tf` to `Calibrator` to see calibration results.
 
 ![interactive-calibrator-results.png](images/interactive-calibrator-results.png)
 
@@ -292,7 +294,7 @@ The saved format is json,
 so you need
 to update calibration params at `sensor_kit_calibration.yaml` on `individual_params` and `sensor_kit_description` packages.
 
-??? note "sample calibration output"
+??? note "Sample calibration output"
 
     ```json
     {

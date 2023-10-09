@@ -15,6 +15,9 @@ such as [manual adjustment](../extrinsic-manual-calibration) or [mapping-based l
 You need to apply this calibration method to each lidar separately,
 so our bag should contain all lidars to be calibrated.
 
+We need a sample bag file for the ground-lidar calibration process
+which includes raw lidar topics.
+
 ??? note "ROS 2 Bag example of our ground-based calibration process for tutorial_vehicle"
 
     ```sh
@@ -49,7 +52,7 @@ you should copy the contents of these two files from [aip_x1](https://github.com
 
 ### Modifying launch files according to your sensor kit
 
-(Optionally) Let's start with adding vehicle_id and sensor model names.
+(Optionally) Let's start with adding vehicle_id and sensor model names:
 (Values are not important. These parameters will be overridden by launch arguments)
 
 ```diff
@@ -104,7 +107,14 @@ which included at the end of the page)
 
 ```
 
-Then, we will add all our sensor frames on extrinsic_calibration_manager as child frames.
+If you save rviz config file before for the ground-lidar calibration process:
+
+```diff
+- <let name="rviz_profile" value="$(find-pkg-share extrinsic_ground_plane_calibrator)/rviz/velodyne_top.rviz"/>
++ <let name="rviz_profile" value="$(find-pkg-share extrinsic_ground_plane_calibrator)/rviz/<YOUR-RVIZ-CONFIG>.rviz"/>
+```
+
+Then, we will add all our sensor frames on extrinsic_calibration_manager as child frames:
 
 ```diff
     <!-- extrinsic_calibration_manager -->
@@ -145,7 +155,7 @@ so it will be like this:
     ```
 
 After that we will add our lidar sensor configurations on ground-based calibrator,
-to do that we will add these lines our `ground_plane_sensor_kit.launch.xml` file.
+to do that we will add these lines our `ground_plane_sensor_kit.launch.xml` file:
 
 ```diff
 -  <group>
@@ -206,7 +216,7 @@ to do that we will add these lines our `ground_plane_sensor_kit.launch.xml` file
 
 The ground_plane_sensor_kit.launch.xml launch file for tutorial_vehicle should be this:
 
-??? note "Sample ground_plane_sensor_kit.launch.xml for tutorial_vehicle"
+??? note "Sample [`ground_plane_sensor_kit.launch.xml`](https://github.com/leo-drive/tutorial_vehicle_calibration_tools/blob/tier4/universe/sensor/extrinsic_calibration_manager/launch/tutorial_vehicle_sensor_kit/ground_plane_sensor_kit.launch.xml) for tutorial_vehicle"
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>

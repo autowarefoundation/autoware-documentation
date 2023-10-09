@@ -11,6 +11,10 @@ CalibrationTools.
     Please get initial calibration results from [Manual Calibration](../extrinsic-manual-calibration) section, it is important for getting accurate results from this tool.
     We will use initial calibration parameters that we calculated on previous step on this tutorial.
 
+We need a sample bag file for the lidar-lidar calibration process
+which includes raw lidar topics.
+The following shows an example of a bag file used for this calibration:
+
 ??? note "ROS 2 Bag example of our calibration process for tutorial_vehicle"
 
     ```sh
@@ -30,7 +34,7 @@ CalibrationTools.
 
 ### Creating launch files
 
-We start with creating launch file four our vehicle like "Extrinsic Manual Calibration"
+We start with creating launch file four our vehicle like `Extrinsic Manual Calibration`
 process:
 
 ```bash
@@ -42,9 +46,9 @@ touch mapping_based.launch.xml mapping_based_sensor_kit.launch.xml
 
 We will be modifying these `mapping_based.launch.xml` and `mapping_based_sensor_kit.launch.xml` by using TIER IV's sample sensor kit aip_xx1.
 So,
-you should copy the contents of these two files from [aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_xx1) to your created files.
+you should copy the contents of these two files from [aip_xx1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_xx1) to your created files.
 
-Then we will continue with adding vehicle_id and sensor model names to the `mapping_based.launch.xml`.
+Then we will continue with adding vehicle_id and sensor model names to the `mapping_based.launch.xml`:
 (Optionally, values are not important. These parameters will be overridden by launch arguments)
 
 ```diff
@@ -94,14 +98,21 @@ We will add sensor kit frames for each lidar (except mapping lidar),
 we have one lidar for pairing to the main lidar sensor for tutorial vehicle, so it should be like:
 
 ```diff
-    +  <let name="lidar_calibration_sensor_kit_frames" value="[
-    +  sensor_kit_base_link,
-    +  sensor_kit_base_link,
-    +  sensor_kit_base_link
-    +  ...]"/>
++  <let name="lidar_calibration_sensor_kit_frames" value="[
++  sensor_kit_base_link,
++  sensor_kit_base_link,
++  sensor_kit_base_link
++  ...]"/>
 ```
 
-??? note "i.e., If you have one lidar main for mapping, three lidar for calibration"
+If you save rviz config file before for the lidar-lidar calibration process:
+
+```diff
+- <let name="rviz_profile" value="$(find-pkg-share extrinsic_mapping_based_calibrator)/rviz/x1.rviz"/>
++ <let name="rviz_profile" value="$(find-pkg-share extrinsic_mapping_based_calibrator)/rviz/<YOUR-RVIZ-CONFIG>.rviz"/>
+```
+
+??? note "i.e., If you have one main lidar for mapping, three lidar for calibration"
 
     ```xml
     +  <let name="lidar_calibration_sensor_kit_frames" value="[
@@ -117,7 +128,7 @@ we have one lidar for pairing to the main lidar sensor for tutorial vehicle, so 
     ```
 
 We will add lidar_calibration_service_names,
-calibration_lidar_base_frames and calibration_lidar_frames for calibrator.
+calibration_lidar_base_frames and calibration_lidar_frames for calibrator:
 
 ```diff
 -   <let
@@ -199,7 +210,7 @@ we will continue filling the `mapping_based_sensor_kit.launch.xml` with:
 
 The mapping_based_sensor_kit.launch.xml launch file for tutorial_vehicle should be this:
 
-??? note "i.e. mapping_based_sensor_kit.launch.xml for tutorial_vehicle"
+??? note "i.e. [`mapping_based_sensor_kit.launch.xml`](https://github.com/leo-drive/tutorial_vehicle_calibration_tools/blob/tier4/universe/sensor/extrinsic_calibration_manager/launch/tutorial_vehicle_sensor_kit/mapping_based_sensor_kit.launch.xml) for tutorial_vehicle"
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -302,7 +313,7 @@ First of all, we need to build extrinsic_calibration_manager package:
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select extrinsic_calibration_manager
 ```
 
-So, we are ready to launch and use mapping-based lidar-lidar calibrator.
+So, we are ready to launch and use mapping-based lidar-lidar calibrator:
 
 ```bash
 ros2 launch extrinsic_calibration_manager calibration.launch.xml mode:=mapping_based sensor_model:=<OWN-SENSOR-KIT> vehicle_model:=<OWN-VEHICLE-MODEL> vehicle_id:=<VEHICLE-ID>

@@ -52,9 +52,8 @@ you should copy the contents of these three files from [aip_x1](https://github.c
 
 So, we can start modifying `manual.launch.xml`,
 please open this file on a text editor which will you prefer (code, gedit etc.).
-Example for out tutorial vehicle should be like these steps:
 
-(Optionally) Let's start with adding vehicle_id and sensor model names.
+(Optionally) Let's start with adding vehicle_id and sensor model names:
 (Values are not important. These parameters will be overridden by launch arguments)
 
 ```diff
@@ -119,7 +118,7 @@ Optionally, you can modify sensor_model and vehicle_id over this xml snippet as 
 ...
 ```
 
-Then, we will add all our sensor frames on extrinsic_calibration_manager as child frames.
+Then, we will add all our sensor frames on extrinsic_calibration_manager as child frames:
 
 ```diff
    <!-- extrinsic_calibration_manager -->
@@ -216,7 +215,7 @@ please update namespace (ns) and child_frame argument on calibrator.launch.xml l
 
 The final version of the manual_sensor_kit.launch.xml for tutorial_vehicle should be like this:
 
-??? note "Sample manual_sensor_kit.launch.xml for tutorial_vehicle"
+??? note "Sample [`manual_sensor_kit.launch.xml`](https://github.com/leo-drive/tutorial_vehicle_calibration_tools/blob/tier4/universe/sensor/extrinsic_calibration_manager/launch/tutorial_vehicle_sensor_kit/manual_sensor_kit.launch.xml) for tutorial_vehicle"
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -287,7 +286,7 @@ we need to build package:
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select extrinsic_calibration_manager
 ```
 
-So, we are ready to launch and use manual calibrator.
+So, we are ready to launch and use manual calibrator:
 
 ```bash
 ros2 launch extrinsic_calibration_manager calibration.launch.xml mode:=manual sensor_model:=<OWN-SENSOR-KIT> vehicle_model:=<OWN-VEHICLE-MODEL> vehicle_id:=<VEHICLE-ID>
@@ -312,6 +311,15 @@ we will update calibrations by hand according to the rviz2 results of sensors.
 - Press `Refresh` button then press `Expand All` button. The frames on tutorial_vehicle should like this:
 
 ![forking-autoware_repository.png](images/manual-calibration.png)
+
+- Please write the target frame name in Filter area (i.e., front, helios etc.) and select tunable_static_tf_broadcaster_node, then you can adjust `tf_x, tf_y, tf_z, tf_roll, tf_pitch and tf_yaw` values over RQT panel.
+- If manual adjusting is finished, you can save your calibration results via this command:
+
+```bash
+ros2 topic pub /done std_msgs/Bool "data: true"
+```
+
+- Then you can check the output file in $HOME/\*.yaml.
 
 !!! warning
 

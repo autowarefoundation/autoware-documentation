@@ -75,12 +75,12 @@ We set our image source (it can be "ROS topic", "ROS bag" or "Image files")
 from the source options section.
 We will calibrate our camera with "ROS topic" source.
 After selecting an image source from this panel, we need to configure "Board options" as well.
-The calibration board can be "Chess board", "Dot board" or "Apriltag".
+The calibration board can be `Chess board, Dot board or Apriltag`.
 Also, we need to select board parameters,
-to do that, click the "Board parameters" button and set row, column, and cell size.
+to do that, click the "Board parameters" button and set `row, column, and cell` size.
 
 After the setting of image source and board parameters, we are ready for the calibration process.
-Please click the start button, you will see "Topic configuration" panel.
+Please click the start button, you will see `Topic configuration` panel.
 Please select the appropriate camera raw topic for the calibration process.
 
 <figure markdown>
