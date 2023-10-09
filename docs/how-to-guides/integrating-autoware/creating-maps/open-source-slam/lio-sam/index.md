@@ -31,6 +31,9 @@ please look at the official repository for getting more information.
 We are using [Robosense Helios 5515](https://www.robosense.ai/en/rslidar/RS-Helios) and [CLAP B7](https://en.unicorecomm.com/assets/upload/file/CLAP-B7_Product_Brief_En.pdf) sensor on tutorial_vehicle,
 so we will use these sensors for running LIO-SAM.
 
+Additionally, LIO-SAM tested with [Applanix POS LVX](https://www.applanix.com/downloads/products/specs/POS_LVX-Datasheet.pdf) and [Hesai Pandar XT32](https://www.hesaitech.com/product/xt32/) sensor setup. Some additional information
+according to the sensors will be provided in this page.
+
 ### ROS Compatibility
 
 Since Autoware uses ROS 2 Humble currently, we will continue with ROS 2 version of LIO-SAM.
@@ -171,6 +174,43 @@ we will update extrinsic transformations between Robosense Lidar and CLAP B7 GNS
 +                   0.0,  0.0,  1.0 ]
 
 ```
+
+!!! warning
+
+    The mapping direction is towards to the going direction in the real world.
+    If LiDAR sensor is backwards, according to the direction you are moving,
+    then you need to change the extrinsicRot too.
+    Unless the IMU tries to go in the wrong direction, and it may occur problems.
+
+For example, in our Applanix POS LVX and Hesai Pandar XT32 setup, IMU direction was towards to the going direction and
+LiDAR direction has 180 degree difference in Z-axis according to the IMU direction. In other words, they were facing back
+to each other. The tool may need a transformation for IMU for that.
+
+- In that situation, the calibration parameters changed as this:
+
+```diff
+-   extrinsicRot:    [-1.0,  0.0,  0.0,
+-                      0.0,  1.0,  0.0,
+-                      0.0,  0.0, -1.0 ]
++   extrinsicRot:    [-1.0,  0.0,  0.0,
++                     0.0,  -1.0,  0.0,
++                     0.0,   0.0,  1.0 ]
+-   extrinsicRPY: [ 0.0,  1.0,  0.0,
+-                  -1.0,  0.0,  0.0,
+-                   0.0,  0.0,  1.0 ]
++   extrinsicRPY: [ -1.0,  0.0,  0.0,
++                    0.0, -1.0,  0.0,
++                    0.0,  0.0,  1.0 ]
+```
+
+- In the end, we got this transform visualization in RViz:
+
+<figure markdown>
+  ![lio-sam-imu-direction](images/LIO-SAM-imu-direction.png){ align=center width="512"}
+  <figcaption>
+    Transform Visualization of Applanix POS LVX and Hesai Pandar XT32 in RViz
+  </figcaption>
+</figure>
 
 Now, we are ready to create a map for Autoware.
 
