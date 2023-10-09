@@ -58,4 +58,6 @@ we are using `Space` method for subsampling, but you can use other methods if yo
 </figure>
 
 Now,
-you can save your downsampled pointcloud with `ctrl + s` or you can click save button from `File` bar.
+you can save your downsampled pointcloud with `ctrl + s`
+or you can click save button from `File` bar.
+Then, this pointcloud can be used by autoware.
