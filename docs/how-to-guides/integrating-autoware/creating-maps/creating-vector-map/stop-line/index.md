@@ -1,22 +1,23 @@
-# Crosswalk attribute
+# Stop Line
 
-Behavior velocity planner's [crosswalk module](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_crosswalk_module/) plans velocity
-to stop or decelerate for pedestrians approaching or walking on a crosswalk.
-In order to operate that, we will add crosswalk attribute to our lanelet2 map.
+Behavior velocity planner's [stop line module](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_crosswalk_module/) plans velocity
+to stop right before stop lines and restart driving after stopped.
+In order to operate that, we will add stop line attribute to our lanelet2 map.
 
-## Creating a crosswalk attribute
+## Creating a stop line regulatory element
 
-In order to create a crosswalk on your map, please follow these steps:
+In order to create a stop line on your pointcloud map, please follow these steps:
 
-1. Click `Abstraction` button on top panel.
-2. Select `Crosswalk` from the panel.
-3. Click and draw crosswalk on your pointcloud map.
+1. Please select lanelet to add stop line.
+2. Click `Abstraction` button on top panel.
+3. Select `Stop Line` from the panel.
+4. Click on the desired area for inserting stop line.
 
 Video Demonstration:
 
-![type:video](https://youtube.com/embed/J6WrL8dkFhI)
+![type:video](https://youtube.com/embed/cgTSA50Yfyo)
 
-### Testing created crosswalk with planning simulator
+### Testing created the stop line element with planning simulator
 
 After the completing of creating the map, we need to save it.
 To that please click `File` --> `Export Lanelet2Maps` then download.
@@ -56,10 +57,8 @@ ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/Files/
 
 1. Click `2D Pose Estimate` button on rviz or press `P` and give a pose for initialization.
 2. Click `2D Goal Pose` button on rviz or press `G` and give a pose for goal point.
-3. We need to add pedestrians to crosswalk, so activate interactive pedestrians from `Tool Properties` panel on rviz.
-4. After that, please press `Shift`, then click right click button for inserting pedestrians.
-5. You can control inserted pedestrian via dragging right click.
+3. You can see the stop line marker on the rviz screen.
 
 Video Demonstration:
 
-![type:video](https://youtube.com/embed/hhwBku_1qmA)
+![type:video](https://youtube.com/embed/cAQ_ulo7LHo)
