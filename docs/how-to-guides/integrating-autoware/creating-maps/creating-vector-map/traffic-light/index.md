@@ -2,7 +2,7 @@
 
 Behavior velocity planner's [traffic light module](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_traffic_light_module/) plans velocity
 according to the traffic light status.
-In order to operate that, we will add stop line attribute to our lanelet2 map.
+In order to operate that, we will add traffic light attribute to our lanelet2 map.
 
 ## Creating a traffic light regulatory element
 
@@ -13,7 +13,7 @@ In order to create a traffic light on your pointcloud map, please follow these s
 3. Select `Traffic Light` from the panel.
 4. Click on the desired area for inserting traffic light.
 
-Video Demonstration:
+You can see these steps in the traffic-light creating demonstration video:
 
 ![type:video](https://youtube.com/embed/P3xcayPkTOg)
 
@@ -71,6 +71,6 @@ Traffic Light markers on rviz:
   </figcaption>
 </figure>
 
-Video Demonstration:
+You can check your traffic light elements in the planning simulator as this demonstration video:
 
 ![type:video](https://youtube.com/embed/AaFT24uqbJk)

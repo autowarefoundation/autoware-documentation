@@ -12,7 +12,7 @@ In order to create a crosswalk on your map, please follow these steps:
 2. Select `Crosswalk` from the panel.
 3. Click and draw crosswalk on your pointcloud map.
 
-Video Demonstration:
+You can see these steps in the crosswalk creating demonstration video:
 
 ![type:video](https://youtube.com/embed/J6WrL8dkFhI)
 
@@ -69,6 +69,6 @@ Crosswalk markers on rviz:
   </figcaption>
 </figure>
 
-Video Demonstration:
+You can check your crosswalk elements in the planning simulator as this demonstration video:
 
 ![type:video](https://youtube.com/embed/hhwBku_1qmA)
