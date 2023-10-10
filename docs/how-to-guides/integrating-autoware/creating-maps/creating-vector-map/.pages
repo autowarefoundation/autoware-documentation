@@ -3,3 +3,4 @@ nav:
   - Lanelet 2: lanelet2
   - Crosswalk: crosswalk
   - Stop Line: stop-line
+  - Traffic light: traffic-light

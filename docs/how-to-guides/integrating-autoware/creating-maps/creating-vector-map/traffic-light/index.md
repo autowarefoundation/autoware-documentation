@@ -1,23 +1,23 @@
-# Stop Line
+# Traffic light
 
-Behavior velocity planner's [stop line module](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_crosswalk_module/) plans velocity
-to stop right before stop lines and restart driving after stopped.
+Behavior velocity planner's [traffic light module](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_traffic_light_module/) plans velocity
+according to the traffic light status.
 In order to operate that, we will add stop line attribute to our lanelet2 map.
 
-## Creating a stop line regulatory element
+## Creating a traffic light regulatory element
 
-In order to create a stop line on your pointcloud map, please follow these steps:
+In order to create a traffic light on your pointcloud map, please follow these steps:
 
-1. Please select lanelet which stop line to be added.
+1. Please select lanelet which traffic light to be added.
 2. Click `Abstraction` button on top panel.
-3. Select `Stop Line` from the panel.
-4. Click on the desired area for inserting stop line.
+3. Select `Traffic Light` from the panel.
+4. Click on the desired area for inserting traffic light.
 
 Video Demonstration:
 
-![type:video](https://youtube.com/embed/cgTSA50Yfyo)
+![type:video](https://youtube.com/embed/P3xcayPkTOg)
 
-### Testing created the stop line element with planning simulator
+### Testing created the traffic light element with planning simulator
 
 After the completing of creating the map, we need to save it.
 To that please click `File` --> `Export Lanelet2Maps` then download.
@@ -56,18 +56,21 @@ ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/Files/
 ```
 
 1. Click `2D Pose Estimate` button on rviz or press `P` and give a pose for initialization.
-2. Click `2D Goal Pose` button on rviz or press `G` and give a pose for goal point.
-3. You can see the stop line marker on the rviz screen.
+2. Click `Panels` -> `Add new panel`, select `TrafficLightPublishPanel`, and then press `OK`.
+3. In TrafficLightPublishPanel, set the ID and color of the traffic light.
+4. Then, Click `SET` and `PUBLISH` button.
+5. Click `2D Goal Pose` button on rviz or press `G` and give a pose for goal point.
+6. You can see the traffic light marker on the rviz screen if you set the traffic light color as `RED`.
 
-Stop line markers on rviz:
+Traffic Light markers on rviz:
 
 <figure markdown>
-  ![stop-line-test](images/stop-line-test.png){ align=center }
+  ![traffic-light-test](images/traffic-light-test.png){ align=center }
   <figcaption>
-    Stop line test on the created map.
+    Traffic light test on the created map.
   </figcaption>
 </figure>
 
 Video Demonstration:
 
-![type:video](https://youtube.com/embed/cAQ_ulo7LHo)
+![type:video](https://youtube.com/embed/AaFT24uqbJk)

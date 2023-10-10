@@ -60,6 +60,15 @@ ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/Files/
 4. After that, please press `Shift`, then click right click button for inserting pedestrians.
 5. You can control inserted pedestrian via dragging right click.
 
+Crosswalk markers on rviz:
+
+<figure markdown>
+  ![crosswalk-test](images/crosswalk-test.png){ align=center }
+  <figcaption>
+    Crosswalk test on the created map.
+  </figcaption>
+</figure>
+
 Video Demonstration:
 
 ![type:video](https://youtube.com/embed/hhwBku_1qmA)
