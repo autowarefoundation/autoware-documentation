@@ -16,9 +16,11 @@ So, if you have not before, please [create a TIER IV account](https://account.ti
 in order to use [vector map builder tool](https://tools.tier4.jp/feature/vector_map_builder_ll2/).
 For more information about this tool, please check the [official guide](https://docs.web.auto/en/user-manuals/vector-map-builder/introduction).
 
-You can follow these pages for creating a Lanelet2 map and its regulatory elements.
+You can follow these pages for creating a Lanelet2 map and understanding its regulatory elements.
 
 - [Lanelet 2](./lanelet2)
 - [Crosswalk](./crosswalk)
 - [Stop Line](./stop-line)
 - [Traffic Light](./traffic-light)
+- [Speed Bump](./speed-bump)
+- [Detection Area](./detection-area)
