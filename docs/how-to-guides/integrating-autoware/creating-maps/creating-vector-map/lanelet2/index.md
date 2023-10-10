@@ -85,9 +85,9 @@ we need to put lanelet2 map and pointcloud map on the same location.
 The directory structure should be like this:
 
 ```diff
-+ <YOUR-MAP-DIRECTORY>/
-+  ├─ pointcloud_map.pcd
-+  └─ lanelet2_map.osm
+<YOUR-MAP-DIRECTORY>/
+ ├─ pointcloud_map.pcd
+ └─ lanelet2_map.osm
 ```
 
 If your .osm or .pcd map file's name is different from these names,
