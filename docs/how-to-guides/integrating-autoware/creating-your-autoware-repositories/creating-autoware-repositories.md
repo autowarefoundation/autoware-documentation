@@ -3,14 +3,15 @@
 ## What is Meta-repository?
 
 A meta-repository is a repository that manages multiple repositories, and [Autoware](https://github.com/autowarefoundation/autoware) is one of them.
-It serves as a centralized control point for referencing, configuring, and versioning other repositories.
+It serves as a centralized control point for referencing, configuring,
+and versioning other repositories.
+In order to do that,
+Autoware meta-repository includes [`autoware.repos`](https://github.com/autowarefoundation/autoware/blob/main/autoware.repos) file for managing multiple repositories.
+We will use [VCS](https://github.com/dirk-thomas/vcstool) tool (Version Control System) for handling .repos file.
+VCS provides us with the capability to import, export, and pull from multiple repositories.
 
-By using Ansible and VCS, you can automatically set up your Autoware.
-`autoware.repos` file manages the configuration of multiple repositories.
-
-Note:
-[VCS](https://github.com/dirk-thomas/vcstool) stands for Version Control System,
-such as Git or Subversion.
+We will use VCS for importing all necessary repositories in our workspace.
+Please follow the documentation for VCS and .repos file usage.
 
 ## How to create and customize your autoware meta-repository
 
@@ -35,7 +36,7 @@ One easy way is to fork autoware repository and clone it.
 Then click "Create fork" button to continue. After that, we can clone our fork repository on our local system.
 
 ```bash
-git clone https://github.com/YOUR_NAME/autoware.git
+git clone https://github.com/YOUR_NAME/autoware.<YOUR-VEHICLE>.git
 ```
 
 For example, it should be for our documentation:
@@ -59,13 +60,12 @@ For integrating autoware on your own individual vehicles, you need fork and modi
 
 ### 2. Customize your autoware.repos for your environment
 
-You need to customize `autoware.repos` for your own vehicle's Autoware.
-The all autoware repos (except calibration and simulator repos)
+You need to customize `autoware.repos` for your own vehicle's Autoware
+(It is included under the forked Autoware meta-repository directory).
+The all necessary autoware repos (except calibration and simulator repos)
 information is included in this file.
 
-Now we can add forked individual repositories to `autoware.repos` file.
-So, if we use vcs with importing (vcs import < autoware.repos) or pulling (vcs pull src),
-then these operations occur on forked repos.
+Now we can add forked individual repositories to `autoware.repos` before the importing operation.
 
 #### 2.1 Adding individual repos to autoware.repos
 
@@ -129,8 +129,33 @@ the necessary changes for our forked `tutorial_vehicle` repos should be like thi
   +   version: main
   ```
 
-After that, we are ready to use `vcs import < autoware.repos`.
-This commands imports our prepared repositories right now.
+Please do same similar changes on your own autoware.repos file.
+After the changing these repositories,
+we will be ready to use VCS for importing all necessary repositories to our autoware workspace.
+
+Firstly, we will create src directory under the own autoware meta-repository directory:
+
+```bash
+cd <YOUR-AUTOWARE-DIR>
+mkdir src
+```
+
+Then, we will import all necessary repositories via:
+
+```bash
+cd <YOUR-AUTOWARE-DIR>
+vcs import src < autoware.repos
+```
+
+After the running `vcs import` command,
+all autoware repositories will be cloned in `src` folder under the Autoware directory.
+
+So, we can build our own repository with colcon build:
+
+```bash
+cd <YOUR-AUTOWARE-DIR>
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+```
 
 Please refer to the following documentation link for instructions on how to create and customize each `vehicle_interface`:
 
