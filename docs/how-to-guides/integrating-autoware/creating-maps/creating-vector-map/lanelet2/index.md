@@ -4,18 +4,18 @@ At this page, we will explain how to create a simple lanelet on your pointcloud 
 
 ## Creating a Lanelet2
 
-Firstly, we need to import our pointcloud map to vector map builder tool:
+Firstly, we need to import our pointcloud map to Vector Map Builder tool:
 
 1. Please click `File`.
 2. Then, click `Import PCD`.
 3. Click `Browse` and select your .pcd file.
 
-You will display the point cloud on your vector map builder tool after the upload is complete:
+You will display the point cloud on your Vector Map Builder tool after the upload is complete:
 
 <figure markdown>
   ![pointcloud-map](images/pointcloud-map.png){ align=center }
   <figcaption>
-    Uploaded pointcloud map file on vector map builder
+    Uploaded pointcloud map file on Vector Map Builder
   </figcaption>
 </figure>
 

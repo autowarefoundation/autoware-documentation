@@ -1,6 +1,6 @@
 nav:
   - index.md
-  - Lanelet 2: lanelet2
+  - Lanelet2: lanelet2
   - Crosswalk: crosswalk
   - Stop line: stop-line
   - Traffic light: traffic-light

@@ -107,4 +107,4 @@ ros2 launch pc_utm_to_mgrs_converter pc_utm_to_mgrs_converter.launch.xml
 
 The conversion process will be started,
 you should see `Saved <YOUR-MAP-POINTS-SIZE> data points saved to <YOUR-OUTPUT-MAP-PATH>` message on your terminal.
-So, MGRS format pointcloud map saved on your output map directory.
+MGRS format pointcloud map should be saved on your output map directory.
