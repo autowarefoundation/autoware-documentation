@@ -74,7 +74,7 @@ ROS 2 packages.
 After the completing of changing package names, we need to build these packages:
 
 ```bash
-colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select <YOUR-VEHICLE-NAME>_vehicle_description <YOUR-VEHICLE-NAME>_vehicle_launch
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-up-to <YOUR-VEHICLE-NAME>_vehicle_description <YOUR-VEHICLE-NAME>_vehicle_launch
 ```
 
 ## Vehicle description
@@ -137,6 +137,9 @@ it could be negative value like the mirror dimension figure below.
 ### simulator_model.param.yaml
 
 This file is a configuration file for the [simulator environment](https://autowarefoundation.github.io/autoware.universe/main/simulator/simple_planning_simulator/).
+Please update these parameters according to your vehicle specs.
+If you want to check detailed information about variables,
+please check [simple_planning_simulator](https://github.com/autowarefoundation/autoware.universe/tree/main/simulator/simple_planning_simulator) package.
 The file consists of these parameters:
 
 ```yaml
@@ -159,9 +162,6 @@ The file consists of these parameters:
     x_stddev: 0.0001 # x standard deviation for dummy covariance in map coordinate
     y_stddev: 0.0001 # y standard deviation for dummy covariance in map coordinate
 ```
-
-If you want to check detailed information about variables,
-please check [simple_planning_simulator](https://github.com/autowarefoundation/autoware.universe/tree/main/simulator/simple_planning_simulator) package.
 
 ### vehicle_info.param.yaml
 
@@ -222,6 +222,11 @@ y, z and scale values for the correct position and orientation of the vehicle.
 
 Please build vehicle_description package after the completion of your <YOUR-VEHICLE-NAME>\_vehicle_description package.
 
+```bash
+cd <YOUR-AUTOWARE-DIR>
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-up-to <YOUR-VEHICLE-NAME>_vehicle_description <YOUR-VEHICLE-NAME>_vehicle_launch
+```
+
 ### Launching vehicle interface
 
 If your vehicle interface is ready,
@@ -229,9 +234,7 @@ then you can add your vehicle_interface launch file in `vehicle_interface.launch
 Please check
 [creating vehicle interface](../../creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model.md) page for more info.
 
-```bash
-colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select <YOUR-VEHICLE-NAME>_vehicle_description <YOUR-VEHICLE-NAME>_vehicle_launch
-```
+### Launch planning simulator with own vehicle
 
 After the completing of [sensor_model](../creating-sensor-model/index.md),
 [individual_parameters](../creating-individual-params/index.md)
@@ -239,7 +242,12 @@ and vehicle model of your vehicle,
 you are ready to launch the planning simulator with your own vehicle.
 In order to do that, please be sure you built modified packages at this documentation.
 
-### Launch planning simulator with own vehicle
+If you are not sure everything about Autoware is built, please build all packages:
+
+```bash
+cd <YOUR-AUTOWARE-DIR>
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+```
 
 To launch planning simulator, source the autoware and run this command in your terminal:
 

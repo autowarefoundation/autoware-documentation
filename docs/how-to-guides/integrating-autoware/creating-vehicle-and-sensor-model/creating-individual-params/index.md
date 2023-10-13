@@ -63,7 +63,7 @@ Then, individual params will override these original files.
 After that, we need to build individual_params package:
 
 ```bash
-colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select individual_params
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-up-to individual_params
 ```
 
 Now we are ready to use Autoware with vehicle_id as an arguments.
@@ -92,7 +92,7 @@ individual_params/
 
 Then, you can use autoware with vehicle_id arguments like this:
 
-Add a `<vehicle_id>` directory and switch parameters using options at startup.
+Add a `<vehicle_id>` as an argument and switch parameters using options at startup.
 
 ```bash
 # example1 (do not set vehicle_id)
