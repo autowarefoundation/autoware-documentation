@@ -10,11 +10,11 @@ and their positions must be defined at `sensor_kit_description` and `individual_
 In this tutorial,
 we will use TIER IV's [CalibrationTools](https://github.com/tier4/CalibrationTools) repository for the calibration.
 
-## Setting of sensor_kit_base_link position according to the base_link
+## Setting of sensor_kit_base_link position with respect to the base_link
 
 In previous section (creating the vehicle and sensor model),
 we mentioned about `sensors_calibration.yaml`.
-This file stores `sensor_kit_base_link` (child frame) position and orientation according to the
+This file stores `sensor_kit_base_link` (child frame) position and orientation with respect to the
 `base_link` (parent frame).
 We need to update this relative position
 (all values were initially set equal to zero when file is created)
@@ -40,8 +40,10 @@ base_link:
     yaw: 0.0
 ```
 
-You need to update this transformation value according to the `sensor_kit_base_link` frame.
+You need to update this transformation value with respect to the `sensor_kit_base_link` frame.
 You can also use CAD values for GNSS/INS and IMU position in `sensor_kit_calibration.yaml` file.
+(Please don't forget
+to update the sensor_kit_calibration.yaml file in both the sensor_kit_launch and individual_params packages)
 
 ## Installing TIER IV's CalibrationTools repositories on autoware
 

@@ -274,7 +274,7 @@ The final version of the manual_sensor_kit.launch.xml for tutorial_vehicle shoul
     ```
 
 You can update `manual_sensors.launch.xml` file according to your modified [sensors_calibration.yaml](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_description/config/sensors_calibration.yaml) file.
-Since we will not be calibrating the sensor directly according to base_link in tutorial_vehicle,
+Since we will not be calibrating the sensor directly with respect to the base_link in tutorial_vehicle,
 we will not change this file.
 
 ### Calibrating sensors with extrinsic manual calibrator

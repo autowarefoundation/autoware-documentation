@@ -46,7 +46,7 @@ touch mapping_based.launch.xml mapping_based_sensor_kit.launch.xml
 
 We will be modifying these `mapping_based.launch.xml` and `mapping_based_sensor_kit.launch.xml` by using TIER IV's sample sensor kit aip_xx1.
 So,
-you should copy the contents of these two files from [aip_xx1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_xx1) to your created files.
+you should copy the contents of these two files from [aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1) to your created files.
 
 Then we will continue with adding vehicle_id and sensor model names to the `mapping_based.launch.xml`:
 (Optionally, values are not important. These parameters will be overridden by launch arguments)
@@ -96,6 +96,10 @@ which included at the end of the page)
 
 We will add sensor kit frames for each lidar (except mapping lidar),
 we have one lidar for pairing to the main lidar sensor for tutorial vehicle, so it should be like:
+
+**Note**: The mapping lidar will be used for mapping purposes, but it will not be calibrated.
+We can consider this lidar as the main sensor for our hardware architecture.
+Therefore, other lidars will be calibrated with respect to the mapping lidar (main sensor).
 
 ```diff
 +  <let name="lidar_calibration_sensor_kit_frames" value="[
