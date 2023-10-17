@@ -8,7 +8,7 @@ We will explain how to run and launch autoware with these modules:
 - Map
 - Sensing
 - Localization
-- Perception
+- [Perception](./perception)
 - Planning
 - Control
 
@@ -131,6 +131,20 @@ you will need to update these map file name arguments:
 
 ### Perception
 
+You can define your `autoware_data` path here.
+Autoware gets yabloc_pose_initializer,
+image_projection_based_fusion,
+lidar_apollo_instance_segmentation etc. models file with `autoware_data` path.
+If you use ansible for autoware installation,
+the necessary artifacts will be downloaded at `autoware_data` folder on your `$HOME` directory.
+If you want to download artifacts manually,
+please check ansible [`artifacts`](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts) page for information.
+
+```diff
+- <arg name="data_path" default="$(env HOME)/autoware_data" description="packages data and artifacts directory path"/>
++ <arg name="data_path" default="<YOUR-AUTOWARE-DATA-PATH>" description="packages data and artifacts directory path"/>
+```
+
 Also, you can change your perception method here.
 The Autoware provides `camera-lidar-radar fusion`,
 `camera-lidar fusion`, `lidar-radar fusion`, `lidar only` and `radar only` perception modes.
@@ -153,6 +167,8 @@ If you don't want to use traffic light classifier, then you can disable it:
 - <arg name="traffic_light_recognition/enable_fine_detection" default="true" description="enable traffic light fine detection"/>
 + <arg name="traffic_light_recognition/enable_fine_detection" default="false" description="enable traffic light fine detection"/>
 ```
+
+Please look at [Launch perception](./perception) page for detailed information.
 
 ## Launch Autoware
 
