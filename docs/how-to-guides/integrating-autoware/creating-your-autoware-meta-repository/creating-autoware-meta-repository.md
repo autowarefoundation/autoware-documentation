@@ -1,14 +1,14 @@
-# Creating an Autoware meta-repository
+# Creating an Autoware Meta-Repository
 
-## What is Meta-repository?
+## What is a Meta-Repository?
 
 A meta-repository is a repository that contains references or information about other repositories. It serves as a central point of reference or coordination for multiple repositories.
 
 [Autoware](https://github.com/autowarefoundation/autoware) is a meta-repository. It contains references to several other repositories that provide source code used to realize autonomous driving.
 
-## How to create and customize your autoware meta-repository
+## How to Create and Customize Your Autoware Meta-Repository
 
-### 1. Create your autoware repository
+### 1. Create Your Autoware Repository
 
 Most of the packages within the Autoware meta-repository are designed to be vehicle-agnostic, meaning they are not tied to any specific vehicle type. However, when integrating Autoware with your vehicle, it becomes necessary to create vehicle-specific packages tailored to your specific vehicle's implementation. Once you've developed these vehicle-specific packages, you can incorporate references to them within your Autoware meta-repository. This allows you to combine and utilize Autoware's vehicle-agnostic packages with your custom, vehicle-specific packages.
 
@@ -22,7 +22,7 @@ Note: If you set up multiple types of vehicles, adding a suffix like `autoware.v
 
 Then, you can create forks of different Autoware repositories that you might need to customize. Some of the packages you might need to customize include the "vehicle_description", the "sensor_kit_description", `individual_params` and the "vehicle-interface" packages. Said packages contain information and parameters about your vehicle dimensions and sensor configuration.
 
-Note that [Autoware](https://github.com/autowarefoundation/autoware) contains sample packages that you may use as templates (sample_vehicle_description, sample_sensort_kit, and individual_parameters packages, for example). But you may also need to create a package from scratch to define as autoware-vehicle interface. For more information, please take a look on the following guides:
+Note that [Autoware](https://github.com/autowarefoundation/autoware) contains sample packages that you may use as templates (e.g., sample_vehicle_description, sample_sensor_kit, and individual_parameters packages). However, you may also need to create a package from scratch to define an Autoware vehicle interface. For more information, please take a look at the following guides:
 
 - [creating-vehicle-and-sensor-description packages](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/creating-vehicle-and-sensor-description)
 - [creating-vehicle-interface-package](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model/)
