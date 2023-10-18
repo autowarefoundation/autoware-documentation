@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This page introduces the following topics:
+This page introduces the custom packages that you should include in your autoware project to integrate autoware to your vehicle:
 
 1. YOUR_VEHICLE_description
 2. YOUR_SENSOR_KIT_description
@@ -10,14 +10,13 @@ This page introduces the following topics:
 4. YOUR_VEHICLE_launch
 5. YOUR_SENSOR_KIT_launch
 
-These are all custom packages that you should include in your autoware project to integrate autoware to your vehicle.
+## Repository and package structure based on Autoware's sample packages
 
-## Package structure based on Autoware's sample packages
+This guide assumes you will fork Autoware's sample repositories and packages to use as templates for your custom implementation. You can fork Autoware's sample packages:([sample_sensor_kit_launch](https://github.com/autowarefoundation/sample_sensor_kit_launch.git) , [sample_vehicle_launch](https://github.com/autowarefoundation/sample_vehicle_launch.git), and [autoware_individual_params](https://github.com/autowarefoundation/autoware_individual_params.git)), and rename their folders and files according to your vehicle name/denomination. If do so, you should have folder structures like these:
 
-You can fork Autoware's sample packages:[sample_sensor_kit_launch](https://github.com/autowarefoundation/sample_sensor_kit_launch.git) , [sample_vehicle_launch](https://github.com/autowarefoundation/sample_vehicle_launch.git), and [autoware_individual_params](https://github.com/autowarefoundation/autoware_individual_params.git), and rename their folders and files according to your vehicle name/denomination, you should have structures like this:
-
-YOUR_VEHICLE_launch
-├── YOUR_VEHICLE_description
+```
+YOUR_VEHICLE_launch (Custom Repository name)
+├── YOUR_VEHICLE_description (package)
 │ ├── CMakeLists.txt
 │ ├── config
 │ │ ├── mirror.param.yaml (must be changed)
@@ -28,17 +27,17 @@ YOUR_VEHICLE_launch
 │ ├── package.xml
 │ └── urdf
 │ └── vehicle.xacro
-├── YOUR_VEHICLE_launch
+├── YOUR_VEHICLE_launch (package)
 │ ├── CMakeLists.txt
 │ ├── launch
 │ │ └── vehicle_interface.launch.xml (must be changed)
 │ └── package.xml
 └── ...
 
-YOUR_SENSOR_KIT_launch
+YOUR_SENSOR_KIT_launch (Custom Repository name)
 ├── common_sensor_launch
 │ ├── ...
-├── YOUR_SENSOR_KIT_description
+├── YOUR_SENSOR_KIT_description (package)
 │ ├── CMakeLists.txt
 │ ├── config
 │ │ ├── sensor_kit_calibration.yaml (NOT USED BY AUTOWARE)
@@ -47,7 +46,7 @@ YOUR_SENSOR_KIT_launch
 │ └── urdf
 │ ├── sensor_kit.xacro (must be changed)
 │ └── sensors.xacro (must be changed)
-├── YOUR_SENSOR_KIT_launch
+├── YOUR_SENSOR_KIT_launch (package)
 │ ├── CMakeLists.txt
 │ ├── config
 │ │ ├── ...
@@ -65,8 +64,8 @@ YOUR_SENSOR_KIT_launch
 ├── README.md
 └── ...
 
-YOUR_AUTOWARE_INDIVIDUAL_PARAMS
-├── individual_params
+YOUR_AUTOWARE_INDIVIDUAL_PARAMS (Custom Repository name)
+├── individual_params (package)
 │ ├── config
 │ │ └── default
 │ │ ├── awsim_sensor_kit
@@ -78,10 +77,11 @@ YOUR_AUTOWARE_INDIVIDUAL_PARAMS
 │ │ └── sensors_calibration.yaml (must be changed)
 │ └── ...
 └── ...
+```
 
-You can note that the YOUR_VEHICLE_launch repository contains two ROS packages that need to be modified: YOUR_VEHICLE_description, and YOUR_VEHICLE_launch (same name as he repository itself). Likewise, YOUR_SENSOR_KIT_launch also contains two ROS packages that require customization: YOUR_SENSOR_KIT_description and YOUR_SENSOR_KIT_launch (same name as the repo). Finally, YOUR_AUTOWARE_INDIVIDUAL_PARAMS contains information about your sensor implementation.
+Please note that the YOUR_VEHICLE_launch repository contains two ROS packages that need to be modified: YOUR_VEHICLE_description, and YOUR_VEHICLE_launch (same name as he repository itself). Likewise, YOUR_SENSOR_KIT_launch also contains two ROS packages that require customization: YOUR_SENSOR_KIT_description and YOUR_SENSOR_KIT_launch (same name as the repo). Finally, YOUR_AUTOWARE_INDIVIDUAL_PARAMS contains information about your sensor implementation.
 
-NOTE: the YOUR_AUTOWARE_INDIVIDUAL_PARAMS package contains the information about your sensor ki and calibration (sensor_kit_calibration.yaml and sensors_calibration.yaml) Autoware will NOT use the parameters contained in YOUR_SENSOR_KIT_launch/YOUR_SENSOR_KIT_description/config. Please, do not confuse them.
+Also,the YOUR_AUTOWARE_INDIVIDUAL_PARAMS package contains the information about your sensor kit and calibration (sensor_kit_calibration.yaml and sensors_calibration.yaml) Autoware will NOT use the parameters contained in YOUR_SENSOR_KIT_launch/YOUR_SENSOR_KIT_description/config. Please, do not confuse them.
 
 ## 1. YOUR_VEHICLE_launch/YOUR_VEHICLE_description
 
@@ -222,7 +222,7 @@ individual_params/
 +              └─ sensors_calibration.yaml
 ```
 
-## 5.YOUR_VEHICLE_launch/YOUR_VEHICLE_launch
+## 4.YOUR_VEHICLE_launch/YOUR_VEHICLE_launch
 
 The `YOUR_VEHICLE_launch` package is where the launch file for starting the drive system devices is stored.
 
