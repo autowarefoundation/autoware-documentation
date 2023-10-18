@@ -7,7 +7,7 @@ We will explain how to run and launch autoware with these modules:
 - System
 - Map
 - Sensing
-- Localization
+- [Localization](./localization)
 - [Perception](./perception)
 - Planning
 - Control

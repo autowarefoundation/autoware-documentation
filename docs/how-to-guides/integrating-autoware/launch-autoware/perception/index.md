@@ -15,10 +15,14 @@ This diagram describes some of the Autoware perception launch files flow at `aut
   </figcaption>
 </figure>
 
-The Autoware project is large. Therefore, as we manage the Autoware project, we utilize specific
-arguments in the launch files. ROS 2 offers an argument-overriding feature for these launch files.
-Please refer to [the official ROS 2 launch documentation](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Using-ROS2-Launch-For-Large-Projects.html#parameter-overrides) for further information. For instance,
-if we define an argument at the top-level launch, it will override the value on lower-level launches.
+The Autoware project is a large project.
+Therefore, as we manage the Autoware project, we utilize specific
+arguments in the launch files.
+ROS 2 offers an argument-overriding feature for these launch files.
+Please refer to [the official ROS 2 launch documentation](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Using-ROS2-Launch-For-Large-Projects.html#parameter-overrides) for further information.
+For instance,
+if we define an argument at the top-level launch,
+it will override the value on lower-level launches.
 
 ## tier4_perception_component.launch.xml
 
@@ -31,7 +35,7 @@ that we want
 to change it since `tier4_perception_component.launch.xml` is the top-level launch file of other perception launch files.
 Here are some predefined perception launch arguments:
 
-- **occupancy_grid_map_method:** This parameter determines the occupancy grid map method for perception stack. Please check [probabilistic_occupancy_grid_map](https://autowarefoundation.github.io/autoware.universe/main/perception/probabilistic_occupancy_grid_map/) package for detailed information.
+- **`occupancy_grid_map_method:`** This parameter determines the occupancy grid map method for perception stack. Please check [probabilistic_occupancy_grid_map](https://autowarefoundation.github.io/autoware.universe/main/perception/probabilistic_occupancy_grid_map/) package for detailed information.
   The default probabilistic occupancy grid map method is `pointcloud_based_occupancy_grid_map`.
   If you want to change it to the `laserscan_based_occupancy_grid_map`, you can change it here:
 
@@ -40,7 +44,7 @@ Here are some predefined perception launch arguments:
   + <arg name="occupancy_grid_map_method" default="laserscan_based_occupancy_grid_map" description="options: pointcloud_based_occupancy_grid_map, laserscan_based_occupancy_grid_map"/>
   ```
 
-- **detected_objects_filter_method:** This parameter determines the filter method for detected objects.
+- **`detected_objects_filter_method:`** This parameter determines the filter method for detected objects.
   Please check [detected_object_validation](https://autowarefoundation.github.io/autoware.universe/main/perception/detected_object_validation/) package for detailed information about lanelet and position filter.
   The default detected object filter method is `lanelet_filter`.
   If you want to change it to the `position_filter`, you can change it here:
@@ -50,7 +54,7 @@ Here are some predefined perception launch arguments:
   + <arg name="detected_objects_filter_method" default="position_filter" description="options: lanelet_filter, position_filter"/>
   ```
 
-- **detected_objects_validation_method:** This parameter determines the validation method for detected objects.
+- **`detected_objects_validation_method:`** This parameter determines the validation method for detected objects.
   Please check [detected_object_validation](https://autowarefoundation.github.io/autoware.universe/main/perception/detected_object_validation/) package for detailed information about validation methods.
   The default detected object filter method is `obstacle_pointcloud`.
   If you want to change it to the `occupancy_grid`, you can change it here,
@@ -85,7 +89,7 @@ we will apply these changes `tier4_perception_component.launch.xml` instead of `
 
 Here are some example changes for the perception pipeline:
 
-- **remove_unknown:** This parameter determines the remove unknown objects at camera-lidar fusion.
+- **`remove_unknown:`** This parameter determines the remove unknown objects at camera-lidar fusion.
   Please check [roi_cluster_fusion](https://github.com/autowarefoundation/autoware.universe/blob/main/perception/image_projection_based_fusion/docs/roi-cluster-fusion.md) node for detailed information.
   The default value is `true`.
   If you want to change it to the `false`,
@@ -96,7 +100,7 @@ Here are some example changes for the perception pipeline:
   + <arg name="remove_unknown" default="false"/>
   ```
 
-- **camera topics:** If you are using camera-lidar fusion or camera-lidar-radar fusion as a perception_mode,
+- **`camera topics:`** If you are using camera-lidar fusion or camera-lidar-radar fusion as a perception_mode,
   you can add your camera and info topics on `tier4_perception_component.launch.xml` as well,
   it will override the `perception.launch.xml` launch file arguments:
 
