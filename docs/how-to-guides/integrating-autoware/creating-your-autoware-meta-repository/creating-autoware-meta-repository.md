@@ -59,4 +59,5 @@ cd autoware.your_vehicle_name
 mkdir src
 vcs import src < autoware.repos
 ```
+
 After importing your custom repos into your project's `src/` folder, you can build and test your autoware implementation as explained by the [Autoware source installation guide](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#how-to-set-up-a-workspace).
