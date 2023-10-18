@@ -8,7 +8,7 @@ A meta-repository is a repository that contains references or information about 
 
 ## How to create and customize your autoware meta-repository
 
-### 1. Create autoware repository
+### 1. Create your autoware repository
 
 Most of the packages within the Autoware meta-repository are designed to be vehicle-agnostic, meaning they are not tied to any specific vehicle type. However, when integrating Autoware with your vehicle, it becomes necessary to create vehicle-specific packages tailored to your specific vehicle's implementation. Once you've developed these vehicle-specific packages, you can incorporate references to them within your Autoware meta-repository. This allows you to combine and utilize Autoware's vehicle-agnostic packages with your custom, vehicle-specific packages.
 
@@ -18,20 +18,22 @@ To create your own Autoware meta-repository, you can start by forking the [autow
 ```bash
 git clone https://github.com/YOUR_NAME/autoware.git
 ```
+Note: If you set up multiple types of vehicles, adding a suffix like `autoware.vehicle_A` or `autoware.vehicle_B` is recommended.
 
-If you set up multiple types of vehicles, adding a suffix like `autoware.vehicle_A` or `autoware.vehicle_B` is recommended
+Then, you can create forks of different Autoware repositories that you might need to customize. Some of the packages you might need to customize include the "vehicle_description", the "sensor_kit_description", `individual_params` and the "vehicle-interface" packages. Said packages contain information and parameters about your vehicle dimensions and sensor configuration.
 
-### 2. Customize your autoware.repos for your environment
+Note that [Autoware](https://github.com/autowarefoundation/autoware) contains sample packages that you may use as templates (sample_vehicle_description, sample_sensort_kit, and individual_parameters packages, for example). But you may also need to create a package from scratch to define as autoware-vehicle interface. For more information, please take a look on the following guides:
 
-You need to customize `autoware.repos` for your own vehicle's Autoware.
+- [creating-vehicle-and-sensor-description packages](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/creating-vehicle-and-sensor-description)
+- [creating-vehicle-interface-package](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model/)
+- [customizing-for-differential-drive-model](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/customizing-for-differential-drive-model/)
 
-For example, if you want to customize the parameters in your `individual_params` or `autoware_launch` package to fit your vehicle, you can modify the configuration of each package and use them accordingly.
 
-Please edit the parameters in Autoware's `autoware_individual_params` and `autoware_launch` packages to match your vehicle's specific requirements, as these packages provide sample parameters and may not be tailored to your vehicle by default.
+### 2. Referencing a custom repository on your Autoware meta-repository
 
-If you want to fork `autoware_individual_params` and make modifications, it would be as follows:
+Once you create a custom package that needs to be referenced by your autoware meta-repository, it should be referenced in your `autoware.repos` file.
 
-Example: If you fork `individual_params` and rename `autoware_individual_params.vehicle_A`:
+As an Example: If you fork `individual_params` and rename it to `autoware_individual_params.vehicle_A` you would make the following changes to your `autoware.repos` file on your autoware meta-repository fork:
 
 ```diff
 - param/autoware_individual_params:
@@ -44,15 +46,19 @@ Example: If you fork `individual_params` and rename `autoware_individual_params.
 +   version: main
 ```
 
-Please refer to the following documentation link for instructions on how to create and customize each `vehicle_interface`:
-
-- [creating-vehicle-and-sensor-description](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/creating-vehicle-and-sensor-description)
-- [creating-vehicle-interface-package](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model/)
-- [customizing-for-differential-drive-model](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/customizing-for-differential-drive-model/)
-
-Please remember to add all your custom packages, such as interfaces and descriptions, to your `autoware.repos` to ensure that your packages are properly included and managed within the Autoware repository.
+### 3. Setting up your workspace
 
 By using Ansible and VCS, you can automatically set up your Autoware.
 `autoware.repos` file manages the configuration of multiple repositories.
 
 Note: VCS stands for Version Control System, such as Git or Subversion.
+
+Once you have forked or created your custom Autoware repositories and added their references to `autoware.repos`, you can import them to your autoware project src folder in a similar manner to that of the [Autoware source installation guide](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#how-to-set-up-a-workspace) by:
+
+   ```bash
+   cd autoware.your_vehicle_name
+   mkdir src
+   vcs import src < autoware.repos
+   ```
+then you can build and test your packages.
+
