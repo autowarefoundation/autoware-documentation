@@ -14,10 +14,10 @@ Most of the packages within the Autoware meta-repository are designed to be vehi
 
 To create your own Autoware meta-repository, you can start by forking the [autowarefoundation/autoware](https://github.com/autowarefoundation/autoware) repository. For guidance on forking a repository, you can refer to [GitHub Docs](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
 
-
 ```bash
 git clone https://github.com/YOUR_NAME/autoware.git
 ```
+
 Note: If you set up multiple types of vehicles, adding a suffix like `autoware.vehicle_A` or `autoware.vehicle_B` is recommended.
 
 Then, you can create forks of different Autoware repositories that you might need to customize. Some of the packages you might need to customize include the "vehicle_description", the "sensor_kit_description", `individual_params` and the "vehicle-interface" packages. Said packages contain information and parameters about your vehicle dimensions and sensor configuration.
@@ -27,7 +27,6 @@ Note that [Autoware](https://github.com/autowarefoundation/autoware) contains sa
 - [creating-vehicle-and-sensor-description packages](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/creating-vehicle-and-sensor-description)
 - [creating-vehicle-interface-package](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model/)
 - [customizing-for-differential-drive-model](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/customizing-for-differential-drive-model/)
-
 
 ### 2. Referencing a custom repository on your Autoware meta-repository
 
@@ -55,10 +54,10 @@ Note: VCS stands for Version Control System, such as Git or Subversion.
 
 Once you have forked or created your custom Autoware repositories and added their references to `autoware.repos`, you can import them to your autoware project src folder in a similar manner to that of the [Autoware source installation guide](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#how-to-set-up-a-workspace) by:
 
-   ```bash
-   cd autoware.your_vehicle_name
-   mkdir src
-   vcs import src < autoware.repos
-   ```
-then you can build and test your packages.
+```bash
+cd autoware.your_vehicle_name
+mkdir src
+vcs import src < autoware.repos
+```
 
+then you can build and test your packages.
