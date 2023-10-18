@@ -14,7 +14,7 @@ This page introduces the custom packages that you should include in your autowar
 
 This guide assumes you will fork Autoware's sample repositories and packages to use as templates for your custom implementation. You can fork Autoware's sample packages:([sample_sensor_kit_launch](https://github.com/autowarefoundation/sample_sensor_kit_launch.git) , [sample_vehicle_launch](https://github.com/autowarefoundation/sample_vehicle_launch.git), and [autoware_individual_params](https://github.com/autowarefoundation/autoware_individual_params.git)), and rename their folders and files according to your vehicle name/denomination. If you do so, you should have folder structures like these:
 
-```
+```bash
 YOUR_VEHICLE_launch (Custom Repository)
 ├── YOUR_VEHICLE_description (Package)
 │ ├── CMakeLists.txt
