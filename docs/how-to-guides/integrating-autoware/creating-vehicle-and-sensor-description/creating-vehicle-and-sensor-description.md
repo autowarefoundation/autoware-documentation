@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This page introduce following topics.
+This page introduces the following topics:
 
 1. YOUR_VEHICLE_description
 2. YOUR_SENSOR_KIT_description
@@ -10,9 +10,82 @@ This page introduce following topics.
 4. YOUR_VEHICLE_launch
 5. YOUR_SENSOR_KIT_launch
 
-## 1. YOUR_VEHICLE_description
+These are all custom packages that you should include in your autoware project to integrate autoware to your vehicle.
 
-In `YOUR_VEHICLE_description`, the following configurations are set:
+## Package structure based on Autoware's sample packages
+
+You can fork Autoware's sample packages:[sample_sensor_kit_launch](https://github.com/autowarefoundation/sample_sensor_kit_launch.git) , [sample_vehicle_launch](https://github.com/autowarefoundation/sample_vehicle_launch.git), and [autoware_individual_params](https://github.com/autowarefoundation/autoware_individual_params.git), and rename their folders and files according to your vehicle name/denomination, you should have structures like this:
+
+YOUR_VEHICLE_launch
+├── YOUR_VEHICLE_description
+│ ├── CMakeLists.txt
+│ ├── config
+│ │ ├── mirror.param.yaml (must be changed)
+│ │ ├── simulator_model.param.yaml
+│ │ └── vehicle_info.param.yaml (must be changed)
+│ ├── mesh
+│ │ └── YOUR_VEHICLE_MESH.dae (if you have a .dae mesh, otherwise, use the provided one)
+│ ├── package.xml
+│ └── urdf
+│ └── vehicle.xacro
+├── YOUR_VEHICLE_launch
+│ ├── CMakeLists.txt
+│ ├── launch
+│ │ └── vehicle_interface.launch.xml (must be changed)
+│ └── package.xml
+└── ...
+
+YOUR_SENSOR_KIT_launch
+├── common_sensor_launch
+│ ├── ...
+├── YOUR_SENSOR_KIT_description
+│ ├── CMakeLists.txt
+│ ├── config
+│ │ ├── sensor_kit_calibration.yaml (NOT USED BY AUTOWARE)
+│ │ └── sensors_calibration.yaml (NOT USED BY AUTOWARE)
+│ ├── package.xml
+│ └── urdf
+│ ├── sensor_kit.xacro (must be changed)
+│ └── sensors.xacro (must be changed)
+├── YOUR_SENSOR_KIT_launch
+│ ├── CMakeLists.txt
+│ ├── config
+│ │ ├── ...
+│ │
+│ ├── data
+│ │ └── ...
+│ ├── launch
+│ │ ├── camera.launch.xml
+│ │ ├── gnss.launch.xml
+│ │ ├── imu.launch.xml (must be changed)
+│ │ ├── lidar.launch.xml (must be changed)
+│ │ ├── pointcloud_preprocessor.launch.py (must be changed)
+│ │ └── sensing.launch.xml (must be changed)
+│ └── package.xml
+├── README.md
+└── ...
+
+YOUR_AUTOWARE_INDIVIDUAL_PARAMS
+├── individual_params
+│ ├── config
+│ │ └── default
+│ │ ├── awsim_sensor_kit
+│ │ │ ├── sensor_kit_calibration.yaml
+│ │ │ └── sensors_calibration.yaml
+│ │ └── YOUR_SENSOR_KIT
+│ │ ├── imu_corrector.param.yaml
+│ │ ├── sensor_kit_calibration.yaml (must be changed)
+│ │ └── sensors_calibration.yaml (must be changed)
+│ └── ...
+└── ...
+
+You can note that the YOUR_VEHICLE_launch repository contains two ROS packages that need to be modified: YOUR_VEHICLE_description, and YOUR_VEHICLE_launch (same name as he repository itself). Likewise, YOUR_SENSOR_KIT_launch also contains two ROS packages that require customization: YOUR_SENSOR_KIT_description and YOUR_SENSOR_KIT_launch (same name as the repo). Finally, YOUR_AUTOWARE_INDIVIDUAL_PARAMS contains information about your sensor implementation.
+
+NOTE: the YOUR_AUTOWARE_INDIVIDUAL_PARAMS package contains the information about your sensor ki and calibration (sensor_kit_calibration.yaml and sensors_calibration.yaml) Autoware will NOT use the parameters contained in YOUR_SENSOR_KIT_launch/YOUR_SENSOR_KIT_description/config. Please, do not confuse them.
+
+## 1. YOUR_VEHICLE_launch/YOUR_VEHICLE_description
+
+In the `YOUR_VEHICLE_description` package, the following configurations are set:
 
 1. vehicle_info.param.yaml (must be changed)
 2. mesh file (\*.dae)
@@ -40,16 +113,16 @@ Configuration file for the [simulator environment](https://autowarefoundation.gi
 
 The entry point file that defines the entire URDF of the vehicle. It refers to `sensors.xacro`, which specifies the sensor mounting positions.
 
-## 2. YOUR_SENSOR_KIT_description
+## 2. YOUR_SENSOR_KIT_launch/YOUR_SENSOR_KIT_description
 
-In sensor_kit_description, the following files are configured:
+In the `YOUR_SENSOR_KIT_description` package, the following files are configured:
 
 1. sensors.xacro (must be changed)
 2. sensor_kit.xacro (must be changed)
 
 ### 1. sensors.xacro
 
-Resolves the positions of sensors with `base_link` as the parent frame and defines the positions and orientations based on `sensors_calibration.yaml` in individual_params.
+Resolves the positions of sensors with `base_link` as the parent frame and defines the positions and orientations based on `sensors_calibration.yaml` in `YOUR_AUTOWARE_INDIVIDUAL_PARAMS`.
 
 > In Autoware, `<YOUR_SENSOR_KIT_description>/config/sensors_calibration.yaml` is not used.
 
@@ -60,13 +133,13 @@ The positions and orientations within the kit are defined in `sensor_kit.xacro`.
 
 ### 2. sensor_kit.xacro
 
-Resolves the positions of sensors with `sensor_kit_base_link` as the parent and defines the positions and orientations based on `sensor_kit_calibration.yaml` in individual_params.
+Resolves the positions of sensors with `sensor_kit_base_link` as the parent and defines the positions and orientations based on `sensor_kit_calibration.yaml` in `YOUR_AUTOWARE_INDIVIDUAL_PARAMS`.
 
 > In Autoware, `<YOUR_SENSOR_KIT_description>/config/sensor_kit_calibration.yaml` is not used.
 
-## 3. individual_parameter
+## 3. YOUR_AUTOWARE_INDIVIDUAL_PARAMS/individual_params
 
-The `individual_parameter` is where parameters referenced by `sensors.xacro` and `sensor_kit.xacro` are stored. As the name imply, it is intended to manage parameters for multiple individual instances.
+The `individual_params` package is where parameters referenced by `sensors.xacro` and `sensor_kit.xacro` are stored. As the name implies, it is intended to manage parameters for multiple individual instances.
 
 ### Introduction to Various Parameters
 
@@ -149,9 +222,9 @@ individual_params/
 +              └─ sensors_calibration.yaml
 ```
 
-## 4.YOUR_VEHICLE_launch
+## 5.YOUR_VEHICLE_launch/YOUR_VEHICLE_launch
 
-`YOUR_VEHICLE_launch` is where the launch file for starting the drive system devices is stored.
+The `YOUR_VEHICLE_launch` package is where the launch file for starting the drive system devices is stored.
 
 1. vehicle_interface.launch.xml (must be changed)
 
@@ -161,9 +234,9 @@ individual_params/
 
 If you are operating multiple vehicles, use the `vehicle_id` to switch to the corresponding configuration for each vehicle.
 
-## 5. YOUR_SENSOR_KIT_launch
+## 5. YOUR_SENSOR_KIT_launch/YOUR_SENSOR_KIT_launch
 
-`YOUR_SENSOR_KIT_launch` is where the launch files related to sensor startup are stored.
+The `YOUR_SENSOR_KIT_launch` package is where the launch files related to sensor startup are stored.
 
 1. sensing.launch.xml (must be changed)
 2. lidar.launch.xml (must be changed)
