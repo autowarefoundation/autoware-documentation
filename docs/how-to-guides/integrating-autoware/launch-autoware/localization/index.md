@@ -15,14 +15,16 @@ This diagram describes some of the Autoware localization launch files flow at `a
   </figcaption>
 </figure>
 
-The Autoware project is a large project.
-Therefore, as we manage the Autoware project, we utilize specific
-arguments in the launch files.
-ROS 2 offers an argument-overriding feature for these launch files.
-Please refer to [the official ROS 2 launch documentation](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Using-ROS2-Launch-For-Large-Projects.html#parameter-overrides) for further information.
-For instance,
-if we define an argument at the top-level launch,
-it will override the value on lower-level launches.
+!!! note
+
+    The Autoware project is a large project.
+    Therefore, as we manage the Autoware project, we utilize specific
+    arguments in the launch files.
+    ROS 2 offers an argument-overriding feature for these launch files.
+    Please refer to [the official ROS 2 launch documentation](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Using-ROS2-Launch-For-Large-Projects.html#parameter-overrides) for further information.
+    For instance,
+    if we define an argument at the top-level launch,
+    it will override the value on lower-level launches.
 
 ## tier4_localization_component.launch.xml
 

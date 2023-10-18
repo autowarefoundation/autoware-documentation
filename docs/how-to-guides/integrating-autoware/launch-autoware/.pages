@@ -1,4 +1,5 @@
 nav:
   - index.md
+  - Launch sensing: sensing
   - Launch localization: localization
   - Launch perception: perception
