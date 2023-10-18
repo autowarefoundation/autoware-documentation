@@ -15,7 +15,7 @@ This page introduces the custom packages that you should include in your autowar
 This guide assumes you will fork Autoware's sample repositories and packages to use as templates for your custom implementation. You can fork Autoware's sample packages:([sample_sensor_kit_launch](https://github.com/autowarefoundation/sample_sensor_kit_launch.git) , [sample_vehicle_launch](https://github.com/autowarefoundation/sample_vehicle_launch.git), and [autoware_individual_params](https://github.com/autowarefoundation/autoware_individual_params.git)), and rename their folders and files according to your vehicle name/denomination. If do so, you should have folder structures like these:
 
 ```
-YOUR_VEHICLE_launch (Custom Repository name)
+YOUR_VEHICLE_launch (Custom Repository)
 ├── YOUR_VEHICLE_description (package)
 │ ├── CMakeLists.txt
 │ ├── config
@@ -34,7 +34,7 @@ YOUR_VEHICLE_launch (Custom Repository name)
 │ └── package.xml
 └── ...
 
-YOUR_SENSOR_KIT_launch (Custom Repository name)
+YOUR_SENSOR_KIT_launch (Custom Repository)
 ├── common_sensor_launch
 │ ├── ...
 ├── YOUR_SENSOR_KIT_description (package)
@@ -64,7 +64,7 @@ YOUR_SENSOR_KIT_launch (Custom Repository name)
 ├── README.md
 └── ...
 
-YOUR_AUTOWARE_INDIVIDUAL_PARAMS (Custom Repository name)
+YOUR_AUTOWARE_INDIVIDUAL_PARAMS (Custom Repository)
 ├── individual_params (package)
 │ ├── config
 │ │ └── default
