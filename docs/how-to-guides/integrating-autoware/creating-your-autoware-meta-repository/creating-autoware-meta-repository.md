@@ -52,12 +52,11 @@ By using Ansible and VCS, you can automatically set up your Autoware.
 
 Note: VCS stands for Version Control System, such as Git or Subversion.
 
-Once you have forked or created your custom Autoware repositories and added their references to `autoware.repos`, you can import them to your autoware project src folder in a similar manner to that of the [Autoware source installation guide](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#how-to-set-up-a-workspace) by:
+Once you have forked or created your custom Autoware repositories and added their references to `autoware.repos`, you can import them to your autoware project src folder in a similar manner to that of the [Autoware source installation guide](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#how-to-set-up-a-workspace) by executing the following commands:
 
 ```bash
 cd autoware.your_vehicle_name
 mkdir src
 vcs import src < autoware.repos
 ```
-
-then you can build and test your packages.
+After importing your custom repos into your project's `src/` folder, you can build and test your autoware implementation as explained by the [Autoware source installation guide](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#how-to-set-up-a-workspace).
