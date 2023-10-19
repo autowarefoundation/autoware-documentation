@@ -25,7 +25,7 @@ the Autoware vehicle launch file flow within the `autoware_launch` and `autoware
     if we define an argument at the top-level launch,
     it will override the value on lower-level launches.
 
-We don't have many modification options here, you can disable vehicle_interface launching.
+We don't have many modification options here, but you can disable vehicle_interface launching.
 For example,
 if you want
 to run robot_state_publisher but not `vehicle_interface` you can run autoware with the following command line arguments:
@@ -37,6 +37,6 @@ ros2 launch autoware_launch autoware.launch.xml ... launch_vehicle_interface:=fa
 Or you can change it on your `autoware.launch.xml` launch file:
 
 ```diff
-- <arg name="launch_vehicle_interface" default="true" description="launch sensing driver"/>
-+ <arg name="launch_vehicle_interface" default="false" description="launch sensing driver"/>
+- <arg name="launch_vehicle_interface" default="true" description="launch vehicle interface"/>
++ <arg name="launch_vehicle_interface" default="false" description="launch vehicle interface"/>
 ```

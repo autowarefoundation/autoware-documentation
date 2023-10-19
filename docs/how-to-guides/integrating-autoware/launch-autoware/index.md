@@ -3,8 +3,8 @@
 This section explains how to run your vehicle with Autoware.
 We will explain how to run and launch autoware with these modules:
 
-- Vehicle
-- System
+- [Vehicle](./vehicle)
+- [System](./system)
 - Map
 - [Sensing](./sensing)
 - [Localization](./localization)
