@@ -6,3 +6,4 @@ nav:
   - Launch sensing: sensing
   - Launch localization: localization
   - Launch perception: perception
+  - Launch planning: planning

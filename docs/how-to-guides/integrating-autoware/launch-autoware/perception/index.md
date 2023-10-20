@@ -37,7 +37,7 @@ that we want
 to change it since `tier4_perception_component.launch.xml` is the top-level launch file of other perception launch files.
 Here are some predefined perception launch arguments:
 
-- **`occupancy_grid_map_method:`** This parameter determines the occupancy grid map method for perception stack. Please check [probabilistic_occupancy_grid_map](https://autowarefoundation.github.io/autoware.universe/main/perception/probabilistic_occupancy_grid_map/) package for detailed information.
+- **`occupancy_grid_map_method:`** This argument determines the occupancy grid map method for perception stack. Please check [probabilistic_occupancy_grid_map](https://autowarefoundation.github.io/autoware.universe/main/perception/probabilistic_occupancy_grid_map/) package for detailed information.
   The default probabilistic occupancy grid map method is `pointcloud_based_occupancy_grid_map`.
   If you want to change it to the `laserscan_based_occupancy_grid_map`, you can change it here:
 
@@ -46,7 +46,7 @@ Here are some predefined perception launch arguments:
   + <arg name="occupancy_grid_map_method" default="laserscan_based_occupancy_grid_map" description="options: pointcloud_based_occupancy_grid_map, laserscan_based_occupancy_grid_map"/>
   ```
 
-- **`detected_objects_filter_method:`** This parameter determines the filter method for detected objects.
+- **`detected_objects_filter_method:`** This argument determines the filter method for detected objects.
   Please check [detected_object_validation](https://autowarefoundation.github.io/autoware.universe/main/perception/detected_object_validation/) package for detailed information about lanelet and position filter.
   The default detected object filter method is `lanelet_filter`.
   If you want to change it to the `position_filter`, you can change it here:
@@ -56,7 +56,7 @@ Here are some predefined perception launch arguments:
   + <arg name="detected_objects_filter_method" default="position_filter" description="options: lanelet_filter, position_filter"/>
   ```
 
-- **`detected_objects_validation_method:`** This parameter determines the validation method for detected objects.
+- **`detected_objects_validation_method:`** This argument determines the validation method for detected objects.
   Please check [detected_object_validation](https://autowarefoundation.github.io/autoware.universe/main/perception/detected_object_validation/) package for detailed information about validation methods.
   The default detected object filter method is `obstacle_pointcloud`.
   If you want to change it to the `occupancy_grid`, you can change it here,
@@ -73,9 +73,16 @@ Here are some predefined perception launch arguments:
     />
   ```
 
+!!! note
+
+    You can also use this arguments as command line arguments:
+    ```bash
+    ros2 launch autoware_launch autoware.launch.xml ... detected_objects_filter_method:=lanelet_filter occupancy_grid_map_method:=laserscan_based_occupancy_grid_map ...
+    ```
+
 The predefined `tier4_perception_component.launch.xml` arguments explained above,
 but there is the lot of perception arguments
-included in `perception.launch.xml` at [tier4_perception_launch](https://github.com/autowarefoundation/autoware.universe/tree/main/launch/tier4_perception_launch).
+included in `perception.launch.xml` launch file at [tier4_perception_launch](https://github.com/autowarefoundation/autoware.universe/tree/main/launch/tier4_perception_launch).
 Since we didn't fork `autoware.universe` repository,
 we can add the necessary launch argument to tier4_perception_component.launch.xml file.
 Please follow the guidelines for some examples.

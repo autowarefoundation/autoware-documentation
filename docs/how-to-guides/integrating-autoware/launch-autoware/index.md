@@ -9,7 +9,7 @@ We will explain how to run and launch autoware with these modules:
 - [Sensing](./sensing)
 - [Localization](./localization)
 - [Perception](./perception)
-- Planning
+- [Planning](./planning)
 - Control
 
 ## Pre-requirements of launching Autoware with real vehicle

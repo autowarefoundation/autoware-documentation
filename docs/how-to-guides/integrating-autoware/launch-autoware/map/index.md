@@ -16,6 +16,17 @@ and `autoware.universe` packages.
   </figcaption>
 </figure>
 
+!!! note
+
+    The Autoware project is a large project.
+    Therefore, as we manage the Autoware project, we utilize specific
+    arguments in the launch files.
+    ROS 2 offers an argument-overriding feature for these launch files.
+    Please refer to [the official ROS 2 launch documentation](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Using-ROS2-Launch-For-Large-Projects.html#parameter-overrides) for further information.
+    For instance,
+    if we define an argument at the top-level launch,
+    it will override the value on lower-level launches.
+
 The map.launch.py launch file from the tier4_map_launch package directly includes
 the necessary node definitions for mapping. In the current design of Autoware, the `lanelet2_map_loader`,
 `lanelet2_map_visualization`, `pointcloud_map_loader`, and `vector_map_tf_generator` composable
