@@ -2,6 +2,7 @@ nav:
   - index.md
   - Launch vehicle: vehicle
   - Launch system: system
+  - Launch map: map
   - Launch sensing: sensing
   - Launch localization: localization
   - Launch perception: perception

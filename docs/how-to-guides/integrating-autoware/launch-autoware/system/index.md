@@ -39,11 +39,11 @@ the `system.launch.xml` from the `tier4_system_launch` package directly launches
 - [mrm_emergency_stop_operator](https://autowarefoundation.github.io/autoware.universe/main/system/mrm_emergency_stop_operator/)
 - [dummy_diag_publisher](https://autowarefoundation.github.io/autoware.universe/main/system/dummy_diag_publisher/)
 
-We don't have many modification options here,
-but you can change your system_error_monitor parameter file path.
-For example,
-you can run autoware with the following command line arguments
-if you want to change your system_error_monitor.param.yaml file path:
+We don't have many modification options in the system launching files
+(as the parameters are included in config files),
+but you can modify the file path for the system_error_monitor parameter.
+For instance, if you want to change the path for your system_error_monitor.param.yaml file,
+you can run Autoware with the following command line argument:
 
 ```bash
 ros2 launch autoware_launch autoware.launch.xml ... system_error_monitor_param_path:=<YOUR-SYSTEM-ERROR-PARAM-PATH> ...

@@ -25,10 +25,11 @@ the Autoware vehicle launch file flow within the `autoware_launch` and `autoware
     if we define an argument at the top-level launch,
     it will override the value on lower-level launches.
 
-We don't have many modification options here, but you can disable vehicle_interface launching.
-For example,
-if you want
-to run robot_state_publisher but not `vehicle_interface` you can run autoware with the following command line arguments:
+We don't have many modification options in the vehicle launching files
+(as the parameters are included in the vehicle_launch repository),
+but you can choose to disable the vehicle_interface launch.
+For instance, if you want to run robot_state_publisher but not vehicle_interface,
+you can launch Autoware with the following command line arguments:
 
 ```bash
 ros2 launch autoware_launch autoware.launch.xml ... launch_vehicle_interface:=false ...

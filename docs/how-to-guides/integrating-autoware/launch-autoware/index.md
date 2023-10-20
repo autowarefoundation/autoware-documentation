@@ -5,7 +5,7 @@ We will explain how to run and launch autoware with these modules:
 
 - [Vehicle](./vehicle)
 - [System](./system)
-- Map
+- [Map](./map)
 - [Sensing](./sensing)
 - [Localization](./localization)
 - [Perception](./perception)
