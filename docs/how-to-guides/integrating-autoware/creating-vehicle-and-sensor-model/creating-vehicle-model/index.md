@@ -7,12 +7,13 @@ This page introduces the following packages for the vehicle model:
 1. `<YOUR-VEHICLE-NAME>_vehicle_description`
 2. `<YOUR-VEHICLE-NAME>_vehicle_launch`
 
-So,
-we forked our vehicle model
-at [creating autoware repositories](../../creating-your-autoware-meta-repository/creating-autoware-meta-repository.md) page step,
-(For example,
-we created [tutorial_vehicle_launch](https://github.com/leo-drive/tutorial_vehicle_launch) for our documentation vehicle at this step)
-please be sure `<YOUR-VEHICLE-NAME>_vehicle_launch` repository is included in Autoware like the following directory:
+Previously,
+we forked our vehicle model at the [creating autoware repositories](../../creating-your-autoware-meta-repository/creating-autoware-meta-repository.md) page step.
+For instance,
+we created [tutorial_vehicle_launch](https://github.com/leo-drive/tutorial_vehicle_launch)
+as an implementation example for the said step.
+Please ensure that the <YOUR-VEHICLE-NAME>\_vehicle_launch repository is included in Autoware,
+following the directory structure below:
 
 ```diff
 <YOUR-OWN-AUTOWARE-DIR>/
@@ -23,10 +24,11 @@ please be sure `<YOUR-VEHICLE-NAME>_vehicle_launch` repository is included in Au
                  └─ <YOUR-VEHICLE-NAME>_vehicle_launch/
 ```
 
-If your forked repository doesn't include in the correct structure like above,
-please add your forked sensor_kit repo to autoware.repos file
-and run `vcs import src < autoware.repos` command on your terminal
-to import new included repositories at autoware.repos file.
+If your forked Autoware meta-repository doesn't include `<YOUR-VEHICLE-NAME>_vehicle_launch` with the correct folder structure
+as shown above,
+please add your forked `<YOUR-VEHICLE-NAME>_vehicle_launch` repository to the autoware.repos file
+and run the vcs import src < autoware.repos command in your terminal
+to import the newly included repositories at autoware.repos file.
 
 Now, we are ready to modify the following vehicle model packages for our vehicle.
 Firstly, we need to rename the description and launch packages:
@@ -40,11 +42,12 @@ Firstly, we need to rename the description and launch packages:
 ```
 
 After that,
-we will change our package names at `package.xml` file and `CmakeLists.txt` file at
-`sample_vehicle_description` and `sample_vehicle_launch` packages.
-So, open `package.xml` file and `CmakeLists.txt` file with any text editor or IDE that you prefer.
+we will change our package names in the package.xml file and CMakeLists.txt file of the sample_vehicle_description and sample_vehicle_launch packages.
+So,
+open the package.xml file and CMakeLists.txt file with any text editor or IDE of your preference
+and perform the following changes:
 
-First Step: You need to change `<name>` attribute at `package.xml` file.
+Change the `<name>` attribute at `package.xml` file:
 
 ```diff
 <package format="3">
@@ -56,7 +59,7 @@ First Step: You need to change `<name>` attribute at `package.xml` file.
   ...
 ```
 
-Second Step: You need to change `project()` method at `CmakeList.txt` file.
+Change the `project()` method at `CmakeList.txt` file.
 
 ```diff
   cmake_minimum_required(VERSION 3.5)
@@ -68,10 +71,9 @@ Second Step: You need to change `project()` method at `CmakeList.txt` file.
 ...
 ```
 
-You need
-to apply these two steps for `<YOUR-VEHICLE-NAME>_vehicle_description`and `<YOUR-VEHICLE-NAME>_vehicle_launch`
-ROS 2 packages.
-After the completing of changing package names, we need to build these packages:
+Remember to apply the name changes and project method for **BOTH**
+`<YOUR-VEHICLE-NAME>_vehicle_description`and `<YOUR-VEHICLE-NAME>_vehicle_launch` ROS 2 packages.
+Once finished, we can proceed to build said packages:
 
 ```bash
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-up-to <YOUR-VEHICLE-NAME>_vehicle_description <YOUR-VEHICLE-NAME>_vehicle_launch
@@ -102,8 +104,9 @@ Now, we will modify these files according to our vehicle design.
 
 ### mirror.param.yaml
 
-This file describes your vehicle mirror dimension for [CropBox filter](https://autowarefoundation.github.io/autoware.universe/main/sensing/pointcloud_preprocessor/docs/crop-box-filter/) of [PointCloudPreprocessor](../../../../design/autoware-architecture/sensing/data-types/point-cloud.md),
-so it is important to crop mirrors from your lidars pointcloud.
+This file describes your vehicle mirror dimension for
+[CropBox filter](https://autowarefoundation.github.io/autoware.universe/main/sensing/pointcloud_preprocessor/docs/crop-box-filter/) of [PointCloudPreprocessor](../../../../design/autoware-architecture/sensing/data-types/point-cloud.md).
+This is important for cropping mirrors from your lidar's point cloud.
 
 The `mirror.param.yaml` consist of the following parameters:
 
@@ -137,9 +140,9 @@ it could be negative value like the mirror dimension figure below.
 ### simulator_model.param.yaml
 
 This file is a configuration file for the [simulator environment](https://autowarefoundation.github.io/autoware.universe/main/simulator/simple_planning_simulator/).
-Please update these parameters according to your vehicle specs.
-If you want to check detailed information about variables,
-please check [simple_planning_simulator](https://github.com/autowarefoundation/autoware.universe/tree/main/simulator/simple_planning_simulator) package.
+Please update these parameters according to your vehicle specifications.
+For detailed information about variables,
+please check the [simple_planning_simulator](https://github.com/autowarefoundation/autoware.universe/tree/main/simulator/simple_planning_simulator) package.
 The file consists of these parameters:
 
 ```yaml
@@ -165,9 +168,9 @@ The file consists of these parameters:
 
 ### vehicle_info.param.yaml
 
-This file stores the vehicle dimension for Autoware modules.
-Please update with your vehicle information.
-You can refer the [vehicle dimensions](../../../../design/autoware-interfaces/components/vehicle-dimensions.md) page for detailed dimension demonstration.
+This file stores the vehicle dimensions for Autoware modules.
+Please update it with your vehicle information.
+You can refer to the [vehicle dimensions](../../../../design/autoware-interfaces/components/vehicle-dimensions.md) page for detailed dimension demonstration.
 Here is the `vehicle_info.param.yaml` for [sample_vehicle](https://github.com/autowarefoundation/sample_vehicle_launch/blob/main/sample_vehicle_description/config/vehicle_info.param.yaml):
 
 ```yaml
@@ -190,12 +193,13 @@ Please update `vehicle_info.param.yaml` with your vehicle information.
 ### 3D model of vehicle
 
 You can use .fbx or .dae format as a 3D model with autoware.
-For tutorial_vehicle we exported our 3D model as a .fbx file at the [tutorial_vehicle_launch](https://github.com/leo-drive/tutorial_vehicle_launch/tree/main/tutorial_vehicle_description/mesh) repo.
+For the tutorial_vehicle,
+we exported our 3D model as a .fbx file in the [tutorial_vehicle_launch](https://github.com/leo-drive/tutorial_vehicle_launch/tree/main/tutorial_vehicle_description/mesh) repository.
 We will set the .fbx file path at `vehicle.xacro` file.
 
 ### vehicle.xacro
 
-This .xacro file links base_link of vehicle to 3D mesh, so we need some modifications in this file.
+This .xacro file links the base_link of the vehicle to the 3D mesh. Therefore, we need to make some modifications in this file.
 
 ```diff
 <?xml version="1.0"?>
@@ -231,39 +235,38 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --package
 
 If your vehicle interface is ready,
 then you can add your vehicle_interface launch file in `vehicle_interface.launch.xml`.
-Please check
-[creating vehicle interface](../../creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model.md) page for more info.
+Please check the [creating vehicle interface](../../creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model.md) page for more info.
 
-### Launch planning simulator with own vehicle
+### Launch planning simulator with your own vehicle
 
-After the completing of [sensor_model](../creating-sensor-model/index.md),
+After completing the [sensor_model](../creating-sensor-model/index.md),
 [individual_parameters](../creating-individual-params/index.md)
 and vehicle model of your vehicle,
 you are ready to launch the planning simulator with your own vehicle.
-In order to do that, please be sure you built modified packages at this documentation.
-
-If you are not sure everything about Autoware is built, please build all packages:
+If you are not sure if every custom package in your Autoware project folder is built,
+please build all packages:
 
 ```bash
 cd <YOUR-AUTOWARE-DIR>
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
 
-To launch planning simulator, source the autoware and run this command in your terminal:
+To launch the planning simulator,
+source the install/setup.bash file in your Autoware project folder
+and run this command in your terminal:
 
 ```bash
 ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/Files/autoware_map/sample-map-planning/ vehicle_model:=<YOUR-VEHICLE-MODEL> sensor_model:=<YOUR-SENSOR-KIT> vehicle_id:=<YOUR-VEHICLE-ID>
 ```
 
-For example, if we try planning simulator on the tutorial_vehicle:
+For example, if we try planning simulator with the tutorial_vehicle:
 
 ```bash
 ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/Files/autoware_map/sample-map-planning/ vehicle_model:=tutorial_vehicle sensor_model:=tutorial_vehicle_sensor_kit vehicle_id:=tutorial_vehicle
 ```
 
-The planning simulator will open,
-we can give an initial pose to our vehicle
-just using `2D Pose Estimate` button or pressing `P` button on your keyboard.
+The planning simulator will open, and you can give an initial pose to your vehicle
+using `2D Pose Estimate` button or by pressing the `P` key on your keyboard.
 You can click everywhere for vehicle initialization.
 
 <figure markdown>

@@ -8,12 +8,13 @@ This page introduces the following packages for the sensor model:
 2. `<YOUR-VEHICLE-NAME>_sensor_kit_description`
 3. `<YOUR-VEHICLE-NAME>_sensor_kit_launch`
 
-So,
-we forked our sensor model
-at [creating autoware repositories](../../creating-your-autoware-meta-repository/creating-autoware-meta-repository.md) page step,
-(For example,
-we created [tutorial_vehicle_sensor_kit_launch](https://github.com/leo-drive/tutorial_vehicle_sensor_kit_launch) for our documentation vehicle at this step)
-please be sure `<YOUR-VEHICLE-NAME>_sensor_kit_launch` repository is included in the following directory:
+Previously,
+we forked our vehicle model at the [creating autoware repositories](../../creating-your-autoware-meta-repository/creating-autoware-meta-repository.md) page step.
+For instance,
+we created [tutorial_vehicle_launch](https://github.com/leo-drive/tutorial_vehicle_launch)
+as an implementation example for the said step.
+Please ensure that the <YOUR-VEHICLE-NAME>\_vehicle_launch repository is included in Autoware,
+following the directory structure below:
 
 ```diff
 <YOUR-OWN-AUTOWARE-DIR>/
@@ -25,10 +26,11 @@ please be sure `<YOUR-VEHICLE-NAME>_sensor_kit_launch` repository is included in
                  └─ <YOUR-VEHICLE-NAME>_sensor_kit_launch/
 ```
 
-If your forked repository doesn't include in the correct structure like above,
-please add your forked sensor_kit repo to autoware.repos file
-and run `vcs import src < autoware.repos` command on your terminal
-to import new included repositories at autoware.repos file.
+If your forked Autoware meta-repository doesn't include `<YOUR-VEHICLE-NAME>_vehicle_launch` with the correct folder structure
+as shown above,
+please add your forked `<YOUR-VEHICLE-NAME>_vehicle_launch` repository to the autoware.repos file
+and run the vcs import src < autoware.repos command in your terminal
+to import the newly included repositories at autoware.repos file.
 
 Now, we are ready to modify the following sensor model packages for our vehicle.
 Firstly, we need to rename the description and launch packages:
@@ -43,11 +45,12 @@ Firstly, we need to rename the description and launch packages:
 ```
 
 After that,
-we will change our package names at `package.xml` file and `CmakeLists.txt` file at
-`sample_sensor_kit_description` and `sample_sensor_kit_launch` packages.
-So, open `package.xml` file and `CmakeLists.txt` file with any text editor or IDE that you prefer.
+we will change our package names in the package.xml file and CMakeLists.txt file of the sample_sensor_kit_description and sample_sensor_kit_launch packages.
+So,
+open the package.xml file and CMakeLists.txt file with any text editor or IDE of your preference
+and perform the following changes:
 
-First Step: You need to change `<name>` attribute at `package.xml` file.
+Change the `<name>` attribute at `package.xml` file:
 
 ```diff
 <package format="3">
@@ -59,7 +62,7 @@ First Step: You need to change `<name>` attribute at `package.xml` file.
   ...
 ```
 
-Second Step: You need to change `project()` method at `CmakeList.txt` file.
+Change the `project()` method at `CmakeList.txt` file.
 
 ```diff
   cmake_minimum_required(VERSION 3.5)
@@ -71,9 +74,9 @@ Second Step: You need to change `project()` method at `CmakeList.txt` file.
 ...
 ```
 
-You need to apply these two steps for `<YOUR-VEHICLE-NAME>_sensor_kit_description`and `<YOUR-VEHICLE-NAME>_sensor_kit_launch`
-ROS 2 packages.
-After the completing of changing package names, we need to build these packages:
+Remember to apply the name changes and project method for **BOTH**
+`<YOUR-VEHICLE-NAME>_vehicle_description`and `<YOUR-VEHICLE-NAME>_vehicle_launch` ROS 2 packages.
+Once finished, we can proceed to build said packages:
 
 ```bash
 cd <YOUR-AUTOWARE-DIR>
