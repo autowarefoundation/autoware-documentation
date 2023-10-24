@@ -8,8 +8,12 @@ CalibrationTools.
 
 !!! warning
 
-    Please get initial calibration results from [Manual Calibration](../extrinsic-manual-calibration) section, it is important for getting accurate results from this tool.
-    We will use initial calibration parameters that we calculated on previous step on this tutorial.
+    Please obtain the initial calibration results from the [Manual Calibration](../extrinsic-manual-calibration) section.
+    This is crucial for obtaining accurate results from this tool.
+    We will utilize the initial calibration parameters that were calculated
+    in the previous step of this tutorial.
+    To apply these initial values in the calibration tools,
+    please update your sensor calibration files within the individual parameter package.
 
 We need a sample bag file for the lidar-lidar calibration process
 which includes raw lidar topics.
@@ -44,7 +48,7 @@ cd <YOUR-OWN-SENSOR-KIT-NAME> # i.e. for our guide, it will ve cd tutorial_vehic
 touch mapping_based.launch.xml mapping_based_sensor_kit.launch.xml
 ```
 
-We will be modifying these `mapping_based.launch.xml` and `mapping_based_sensor_kit.launch.xml` by using TIER IV's sample sensor kit aip_xx1.
+We will be modifying these `mapping_based.launch.xml` and `mapping_based_sensor_kit.launch.xml` by using TIER IV's sample sensor kit aip_x1.
 So,
 you should copy the contents of these two files from [aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1) to your created files.
 
@@ -178,7 +182,10 @@ calibration_lidar_base_frames and calibration_lidar_frames for calibrator:
     ```
 
 After that, we will add the sensor topics and sensor frames in order to do that,
-we will continue filling the `mapping_based_sensor_kit.launch.xml` with:
+we will continue filling the `mapping_based_sensor_kit.launch.xml` with
+(we recommend
+using the /sensing/lidar/top/outlier_filtered/pointcloud topic as the mapping pointcloud
+because the vehicle cloud is cropped at this topic by pointcloud preprocessing):
 
 ```diff
 

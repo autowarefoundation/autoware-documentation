@@ -15,15 +15,20 @@ another [Lidar-Camera calibration method](https://github.com/leo-drive/Calibrati
 
 !!! warning
 
-    You need to apply [intrinsic calibration](../intrinsic-camera-calibration) before starting lidar-camera extrinsic calibration process. Also, get initial extrinsic calibration results from [Manual Calibration](../extrinsic-manual-calibration) section, it is important for getting accurate results from this tool.
-    We will use initial calibration parameters that we calculated on previous step on this tutorial for lidar-camera extrinsic calibration.
+    You need to apply [intrinsic calibration](../intrinsic-camera-calibration) before starting lidar-camera extrinsic calibration process. Also,
+    please obtain the initial calibration results from the [Manual Calibration](../extrinsic-manual-calibration) section.
+    This is crucial for obtaining accurate results from this tool.
+    We will utilize the initial calibration parameters that were calculated
+    in the previous step of this tutorial.
+    To apply these initial values in the calibration tools,
+    please update your sensor calibration files within the individual parameter package.
 
 Your bag file must include calibration lidar topic and camera topics.
 Camera topics can be compressed or raw topics,
 but remember
 we will update interactive calibrator launch argument `use_compressed` according to the topic type.
 
-??? note "ROS 2 Bag example of our calibration process for tutorial_vehicle (there is only one camera mounted.) If you have multiple cameras, please add camera_info and image topics as well"
+??? note "ROS 2 Bag example of our calibration process (there is only one camera mounted) If you have multiple cameras, please add camera_info and image topics as well."
 
     ```sh
 
@@ -67,8 +72,8 @@ Then we will continue with adding vehicle_id and sensor model names to the `inte
   <arg name="vehicle_id" default="default"/>
 
   <let name="sensor_model" value="aip_x1"/>
-+ <?xml version="1.0" encoding="UTF-8"?>
-+ <launch>
+  <?xml version="1.0" encoding="UTF-8"?>
+  <launch>
 -   <arg name="vehicle_id" default="default"/>
 +   <arg name="vehicle_id" default="<YOUR_VEHICLE_ID>"/>
 +
@@ -117,21 +122,34 @@ The final version of the file (interactive.launch.xml) for tutorial_vehicle shou
 After the completing of interactive.launch.xml file,
 we will be ready to implement interactive_sensor_kit.launch.xml for the own sensor model.
 
-Optionally, (don't forget, these parameters will be overridden by launch arguments.)
+Optionally, (don't forget, these parameters will be overridden by launch arguments)
 you can modify sensor_kit and vehicle_id as `interactive.launch.xml`over this xml snippet.
 We will set parent_frame for calibration as `sensor_kit_base_link``:
 
-(Optionally) If you want to use compressed image for calibration,
-you need update `image_topic` and `use_compressed` value with compressed topic information.
+The default camera input topic of interactive calibrator is compressed image.
+If you want to use raw image instead of compressed image,
+you need to update image_topic variable for your camera sensor topic.
 
 ```diff
     ...
 -   <let name="image_topic" value="/sensing/camera/$(var camera_name)/image_raw"/>
 +   <let name="image_topic" value="/sensing/camera/$(var camera_name)/image_compressed"/>
     ...
-    <!-- if your image topic is compressed, please enable it -->
--   <let name="use_compressed" value="false"/>
-+   <let name="use_compressed" value="true"/>
+```
+
+After updating your topic name,
+you need to add the use_compressed parameter (default value is `true`)
+to the interactive_calibrator node with a value of `false`.
+
+```diff
+   ...
+   <node pkg="extrinsic_interactive_calibrator" exec="interactive_calibrator" name="interactive_calibrator" output="screen">
+     <remap from="pointcloud" to="$(var pointcloud_topic)"/>
+     <remap from="image" to="$(var image_compressed_topic)"/>
+     <remap from="camera_info" to="$(var camera_info_topic)"/>
+     <remap from="calibration_points_input" to="calibration_points"/>
++    <param name="use_compressed" value="false"/>
+   ...
 ```
 
 Then you can customize pointcloud topic for each camera.
@@ -256,7 +274,7 @@ ros2 launch extrinsic_calibration_manager calibration.launch.xml mode:=interacti
 For tutorial vehicle:
 
 ```bash
-ros2 launch extrinsic_calibration_manager calibration.launch.xml mode:=mapping_based sensor_model:=tutorial_vehicle_sensor_kit vehicle_model:=tutorial_vehicle vehicle_id:=tutorial_vehicle
+ros2 launch extrinsic_calibration_manager calibration.launch.xml mode:=interactive sensor_model:=tutorial_vehicle_sensor_kit vehicle_model:=tutorial_vehicle vehicle_id:=tutorial_vehicle
 ```
 
 Then, we need to play our bag file.
