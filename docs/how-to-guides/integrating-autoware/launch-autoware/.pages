@@ -7,3 +7,4 @@ nav:
   - Launch localization: localization
   - Launch perception: perception
   - Launch planning: planning
+  - Launch control: control

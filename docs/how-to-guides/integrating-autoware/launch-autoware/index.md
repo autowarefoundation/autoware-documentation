@@ -10,7 +10,7 @@ We will explain how to run and launch autoware with these modules:
 - [Localization](./localization)
 - [Perception](./perception)
 - [Planning](./planning)
-- Control
+- [Control](./control)
 
 ## Pre-requirements of launching Autoware with real vehicle
 

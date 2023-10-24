@@ -3,10 +3,10 @@
 ## Overview
 
 The Autoware planning stacks start
-launching at `autoware_launch.xml` as we mentioned at [Launch Autoware](../index.md) page.
+launching at `autoware_launch.xml` as mentioned on the [Launch Autoware](../index.md) page.
 The `autoware_launch` package includes `tier4_planning_component.launch.xml`
-for starting planning launch files invocation from `autoware_launch.xml`.
-This diagram describes some of the Autoware planning launch files flow at `autoware_launch` and `autoware.universe` packages.
+for initiating planning launch files invocation from `autoware_launch.xml`.
+The diagram below illustrates the flow of Autoware planning launch files within the autoware_launch and autoware.universe packages.
 
 <figure markdown>
   ![planning-launch-flow](images/planning_launch_flow.svg){ align=center }
@@ -42,8 +42,7 @@ Here are some predefined planning launch arguments:
   and `use_all_predicted_path` options for Autoware for experimental lane changing
   (for more information, please refer to [lane_change documentation](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/docs/behavior_path_planner_lane_change_design/)).
   The default value is True.
-  If you want to set it to False, you can make the change in the
-  tier4_planning_component.launch.xml file:
+  To set it to False, make the following change in the `tier4_planning_component.launch.xml` file:
 
   ```diff
   - <arg name="use_experimental_lane_change_function" default="true"/>
@@ -53,8 +52,7 @@ Here are some predefined planning launch arguments:
 - **`cruise_planner_type:`** There are two types of cruise planners in Autoware: [obstacle_stop_planner](https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_stop_planner/)
   and [obstacle_cruise_planner](https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_cruise_planner/). For specifications on these cruise planner types,
   please refer to the package documentation. The default cruise planner is `obstacle_stop_planner`.
-  If you wish to change it to `obstacle_cruise_planner`, you can do
-  in the `tier4_planning_component`.launch.xml file:
+  To change it to obstacle_cruise_planner, update the argument value in the `tier4_planning_component.launch.xml` file:
 
   ```diff
   - <arg name="cruise_planner_type" default="obstacle_stop_planner" description="options: obstacle_stop_planner, obstacle_cruise_planner, none"/>
@@ -88,6 +86,5 @@ Here are some predefined planning launch arguments:
     ros2 launch autoware_launch autoware.launch.xml ... use_surround_obstacle_check:=false velocity_smoother_type:=L2 ...
     ```
 
-The predefined arguments in `tier4_planning_component.launch.xml`
-have been explained above, but there are numerous planning arguments
-included in the `autoware_launch` planning config parameters.
+The predefined arguments in tier4_planning_component.launch.xml have been explained above.
+However, numerous planning arguments are included in the autoware_launch planning config parameters.
