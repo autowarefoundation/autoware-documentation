@@ -216,7 +216,7 @@ to do that we will add these lines our `ground_plane_sensor_kit.launch.xml` file
 
 The ground_plane_sensor_kit.launch.xml launch file for tutorial_vehicle should be this:
 
-??? note "Sample [`ground_plane_sensor_kit.launch.xml`](https://github.com/leo-drive/tutorial_vehicle_calibration_tools/blob/tier4/universe/sensor/extrinsic_calibration_manager/launch/tutorial_vehicle_sensor_kit/ground_plane_sensor_kit.launch.xml) for tutorial_vehicle"
+??? note "Sample [`ground_plane_sensor_kit.launch.xml`](https://github.com/leo-drive/tutorial_vehicle_calibration_tools/blob/tutorial_vehicle/sensor/extrinsic_calibration_manager/launch/tutorial_vehicle_sensor_kit/ground_plane_sensor_kit.launch.xml) for tutorial_vehicle"
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>

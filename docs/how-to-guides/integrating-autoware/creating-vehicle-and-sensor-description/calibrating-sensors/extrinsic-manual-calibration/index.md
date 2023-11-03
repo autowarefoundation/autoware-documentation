@@ -215,7 +215,7 @@ please update namespace (ns) and child_frame argument on calibrator.launch.xml l
 
 The final version of the manual_sensor_kit.launch.xml for tutorial_vehicle should be like this:
 
-??? note "Sample [`manual_sensor_kit.launch.xml`](https://github.com/leo-drive/tutorial_vehicle_calibration_tools/blob/tier4/universe/sensor/extrinsic_calibration_manager/launch/tutorial_vehicle_sensor_kit/manual_sensor_kit.launch.xml) for tutorial_vehicle"
+??? note "Sample [`manual_sensor_kit.launch.xml`](https://github.com/leo-drive/tutorial_vehicle_calibration_tools/blob/tutorial_vehicle/sensor/extrinsic_calibration_manager/launch/tutorial_vehicle_sensor_kit/manual_sensor_kit.launch.xml) for tutorial_vehicle"
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>

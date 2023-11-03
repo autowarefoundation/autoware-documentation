@@ -221,7 +221,7 @@ because the vehicle cloud is cropped at this topic by pointcloud preprocessing):
 
 The mapping_based_sensor_kit.launch.xml launch file for tutorial_vehicle should be this:
 
-??? note "i.e. [`mapping_based_sensor_kit.launch.xml`](https://github.com/leo-drive/tutorial_vehicle_calibration_tools/blob/tier4/universe/sensor/extrinsic_calibration_manager/launch/tutorial_vehicle_sensor_kit/mapping_based_sensor_kit.launch.xml) for tutorial_vehicle"
+??? note "i.e. [`mapping_based_sensor_kit.launch.xml`](https://github.com/leo-drive/tutorial_vehicle_calibration_tools/blob/tutorial_vehicle/sensor/extrinsic_calibration_manager/launch/tutorial_vehicle_sensor_kit/mapping_based_sensor_kit.launch.xml) for tutorial_vehicle"
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>

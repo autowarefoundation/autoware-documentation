@@ -9,9 +9,9 @@ to accurately align the data from these different sensors
 in order to create a comprehensive and coherent representation of the environment
 by projecting lidar point onto camera image.
 At this tutorial,
-we will explain [TIER IV's interactive camera calibrator](https://github.com/leo-drive/CalibrationTools/blob/golf_test/sensor/docs/how_to_extrinsic_interactive.md).
+we will explain [TIER IV's interactive camera calibrator](https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_extrinsic_interactive.md).
 Also, If you have aruco marker boards for calibration,
-another [Lidar-Camera calibration method](https://github.com/leo-drive/CalibrationTools/blob/golf_test/sensor/docs/how_to_extrinsic_tag_based.md) is included in TIER IV's CalibrationTools repository.
+another [Lidar-Camera calibration method](https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_extrinsic_tag_based.md) is included in TIER IV's CalibrationTools repository.
 
 !!! warning
 
@@ -169,7 +169,7 @@ then you should change launch file like this:
 
 The interactive_sensor_kit.launch.xml launch file for tutorial_vehicle should be this:
 
-??? note "i.e. [`interactive_sensor_kit.launch.xml`](https://github.com/leo-drive/tutorial_vehicle_calibration_tools/blob/tier4/universe/sensor/extrinsic_calibration_manager/launch/tutorial_vehicle_sensor_kit/interactive_sensor_kit.launch.xml) for tutorial_vehicle"
+??? note "i.e. [`interactive_sensor_kit.launch.xml`](https://github.com/leo-drive/tutorial_vehicle_calibration_tools/blob/tutorial_vehicle/sensor/extrinsic_calibration_manager/launch/tutorial_vehicle_sensor_kit/interactive_sensor_kit.launch.xml) for tutorial_vehicle"
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
