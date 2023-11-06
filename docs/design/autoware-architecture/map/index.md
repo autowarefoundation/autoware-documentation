@@ -72,6 +72,7 @@ The point cloud map must be supplied as a file with the following requirements:
 7. It can be in either local or global coordinates, but must be in global coordinates (georeferenced) to use GNSS data for localization.
 
 #### Additional requirements for divided map
+
 Furthermore, when using divided map, the following requirements must be met so that the dynamic map loading features work properly:
 
 8. It must be divided by straight lines parallel to the x-axis and y-axis. The system does not support division by diagonal lines or curved lines.
@@ -90,12 +91,13 @@ B.pcd: [1220, 2500] # -> 1220 < x < 1240, 2500 < y < 2520
 C.pcd: [1200, 2520] # -> 1200 < x < 1220, 2520 < y < 2540
 D.pcd: [1240, 2520] # -> 1240 < x < 1260, 2520 < y < 2540
 ```
+
 where,
 
 - x_resolution and y_resolution
 - A.pcd, B.pcd, etc, are the names of PCD files.
 - List such as [1200, 2500] are the values indicate that for this PCD file, x coordinates are between 1200 and 1220 (x_resolution + x_coordinate) and y coordinates are between 2500 and 2520 (y_resolution + y_coordinate).
-You may use [pointcloud_divider](https://github.com/MapIV/pointcloud_divider) from MAP IV for dividing pointcloud map as well as generating the compatible metadata.yaml.
+  You may use [pointcloud_divider](https://github.com/MapIV/pointcloud_divider) from MAP IV for dividing pointcloud map as well as generating the compatible metadata.yaml.
 
 For more details on divided map format, please refer to [the readme of `map_loader` in Autoware Universe](https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/README.md).
 
@@ -120,8 +122,9 @@ The projection information must be supplied as a file with the following require
 
 1. It must be in YAML format, provided into `map_projection_loader` in current Autoware Universe implementation.
 2. The file must contain the following information:
-  - The name of the projection method used to convert between local and global coordinates
-  - The parameters of the projection method (depending on the projection method)
+
+- The name of the projection method used to convert between local and global coordinates
+- The parameters of the projection method (depending on the projection method)
 
 For further information, please refer to [the readme of `map_projection_loader` in Autoware Universe](https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_projection_loader/README.md).
 
