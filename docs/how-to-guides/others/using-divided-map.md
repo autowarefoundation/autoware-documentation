@@ -7,7 +7,7 @@ Divided pointcloud map is necessary when handling large pointcloud map, in which
 Download the [sample-map-rosbag_split](TODO) and locate the map under `$HOME/autoware_map/`.
 
 ```bash
-gdown -O ~/autoware_map/ 'https://docs.google.com/uc?export=download&id=1VnwJx9tI3kI_cTLzP61ktuAJ1ChgygpG' # TODO
+gdown -O ~/autoware_map/ 'https://docs.google.com/uc?export=download&id=11tLC9T4MS8fnZ9Wo0D8-Ext7hEDl2YJ4'
 unzip -d ~/autoware_map/ ~/autoware_map/sample-rosbag_split.zip
 ```
 
