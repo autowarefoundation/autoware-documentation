@@ -47,7 +47,7 @@ In the ideal case, the driver is expected to output a point cloud with the `Poin
 | `C` (channel)     | `UINT16`  | `false` | Vertical channel id of the laser that measured the point                 |
 | `A` (azimuth)     | `FLOAT32` | `true`  | `atan2(Y, X)`, Horizontal angle from the front of the lidar to the point |
 | `D` (distance)    | `FLOAT32` | `true`  | `hypot(X, Y, Z)`, Euclidean distance of the point to lidar               |
-| `T` (time)        | `FLOAT64` | `false` | Seconds passed since the time of the header when this point was measured |
+| `T` (time stamp)  | `FLOAT64` | `false` | Seconds passed since the time of the header when this point was measured |
 
 !!! note
 
@@ -180,7 +180,7 @@ For solid state lidars that have lines, assign row number as the channel id.
 
 For petal pattern lidars, you can keep channel 0.
 
-### Time
+### Time stamp
 
 In lidar point clouds, each point measurement can have its individual time stamp.
 This information can be used to eliminate the motion blur that is caused by the movement of the lidar during the scan.
@@ -204,7 +204,7 @@ The header of the point cloud message is expected to have the time of the earlie
 
     **More info at:** https://github.com/ros2/rcl_interfaces/issues/85
 
-#### Individual point time
+#### Individual point time stamp
 
 Each `PointXYZIRCT` point type has the `T` field for representing the seconds passed since the first-shot point of the point cloud.
 
