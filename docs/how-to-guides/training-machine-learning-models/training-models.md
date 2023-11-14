@@ -37,7 +37,7 @@ fork the original repository and made the necessary code modifications to suppor
 To train custom CenterPoint models and convert them into ONNX format for deployment in Autoware, please refer to the instructions provided in the README file included with the
 **"lidar_centerpoint"** package. These instructions will provide a step-by-step guide for training CenterPoint model.
 
-In order to assist you with your training process, we have also included an example dataset in the Tier4 dataset format.
+In order to assist you with your training process, we have also included an example dataset in the TIER IV dataset format.
 This dataset contains 600 lidar frames and covers 5 classes, including 6905 cars, 3951 pedestrians, 75 cyclists, 162 buses, and 326 trucks.
 You can utilize this example dataset to facilitate your training efforts.
 
