@@ -65,7 +65,7 @@ You have the following options if you need to use a word that is not registered 
 
 - If the word is only used in a few files, you can use [inline document settings "cspell:ignore"](https://cspell.org/configuration/document-settings/) to suppress the check.
 - If the word is widely used in the repository, you can create a local cspell json and pass it to the [spell-check action](https://github.com/autowarefoundation/autoware-github-actions/tree/main/spell-check).
-- If the word is common and may be used in many repositories, you can submit pull requests to [tier4/autoware-spell-check-dict](https://github.com/tier4/autoware-spell-check-dict) to update the dictionary.
+- If the word is common and may be used in many repositories, you can submit pull requests to [tier4/autoware-spell-check-dict](https://github.com/tier4/autoware-spell-check-dict) or [tier4/cspell-dicts](https://github.com/tier4/cspell-dicts) to update the dictionary.
 
 ## build-and-test-differential
 
