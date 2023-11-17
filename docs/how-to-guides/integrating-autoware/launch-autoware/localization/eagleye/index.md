@@ -88,7 +88,7 @@ common:
 
 ### Conversion from fix to pose
 
-The parameters for converting `sensor_msgs/msg/NavSatFix` to `geometry_msgs/msg/PoseWithCovarianceStamped` is listed in [`fix2pose.yaml`](https://github.com/MapIV/eagleye/blob/autoware-main/eagleye_util/fix2pose/launch/fix2pose.xml).
+The parameters for converting `sensor_msgs/msg/NavSatFix` to `geometry_msgs/msg/PoseWithCovarianceStamped` is listed in [`geo_pose_converter.launch.xml`](https://github.com/MapIV/eagleye/blob/autoware-main/eagleye_util/geo_pose_converter/launch/geo_pose_converter.launch.xml).
 If you use a different geoid or projection type, change these parameters.
 
 ### Other parameters

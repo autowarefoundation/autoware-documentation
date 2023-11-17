@@ -30,7 +30,7 @@ The sensing launch is more related to your sensor kit,
 so if you want to modify your launch, we recommend applying
 these modifications to the <YOUR-SENSOR-KIT> packages.
 Please look
-at [creating sensor and vehicle model](../../creating-vehicle-and-sensor-description) pages for more information but there
+at [creating sensor and vehicle model](../../creating-vehicle-and-sensor-model/index.md) pages for more information but there
 is are some modifications on which can you done at top-level launch files.
 
 For example, if you do not want to launch the sensor driver with Autoware,
