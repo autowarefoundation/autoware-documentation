@@ -169,7 +169,10 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 Please refer to the following documentation links for instructions
 on how to create and customize each of your vehicle's packages:
 
-- [creating-vehicle-and-sensor-description](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/creating-vehicle-and-sensor-description)
+- [Creating vehicle and sensor models](../creating-vehicle-and-sensor-model/index.md)
+  - [Creating sensor model](../creating-vehicle-and-sensor-model/creating-sensor-model/index.md)
+  - [Creating individual params](../creating-vehicle-and-sensor-model/creating-individual-params/index.md)
+  - [Creating vehicle model](../creating-vehicle-and-sensor-model/creating-vehicle-model/index.md)
 - [creating-vehicle-interface-package](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model/)
 - [customizing-for-differential-drive-model](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/customizing-for-differential-drive-model/)
 
