@@ -45,7 +45,12 @@ Therefore, holding the sensors in your hand while data collection will get bette
 but you can also collect data on the vehicle. If you are collecting data on the vehicle,
 you should draw figures of eights and grids.
 
-![lidar-imu-calib-data-collection](images/lidar-imu-calibration-data-collection.png)
+<figure markdown>
+  ![lidar-imu-calib-data-collection](images/lidar-imu-calibration-data-collection.png){ align=center }
+  <figcaption>
+    Lidar - IMU Calibration Data Collection
+  </figcaption>
+</figure>
 
 Moreover, the calibration accuracy is affected by the data collection environment.
 You should collect your data in a place that contains a lot of flat surfaces,
@@ -234,7 +239,12 @@ rviz
 If `/ndt_odometry/global_map` looks distorted, you should tune ndt parameters
 in the `OA-LICalib/config/simu.yaml` file.
 
-![lidar-imu-calib-rviz](images/lidar-imu-calibration-process.png)
+<figure markdown>
+  ![lidar-imu-calib-rviz](images/lidar-imu-calibration-process.png){ align=center }
+  <figcaption>
+    Lidar - IMU Calibration RViz Screen
+  </figcaption>
+</figure>
 
 To achieve better results, you can tune the parameters in the `config/simu.yaml` file. The parameters are explained below:
 
