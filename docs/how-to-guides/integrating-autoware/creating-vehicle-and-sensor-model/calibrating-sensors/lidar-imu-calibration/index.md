@@ -15,8 +15,8 @@ are calibrated comprehensively without explicit hand-crafted targets.
 
 !!! warning
 
-    This calibration tool is developed with ROS 1, and it is not compatible with ROS 2.
     So, we are providing a docker image which has ROS 1 and all necessary packages.
+    This calibration tool is developed with ROS 1, and it is not compatible with ROS 2.
     In the calibration instructions, we will ask you to install docker on your
     system.
 
@@ -251,13 +251,13 @@ in the `OA-LICalib/config/simu.yaml` file.
 
 To achieve better results, you can tune the parameters in the `config/simu.yaml` file. The parameters are explained below:
 
-| Parameter                | Value                                                                                                 |
-| ------------------------ | ----------------------------------------------------------------------------------------------------- |
+| Parameter                | Value                                                                                                   |
+| ------------------------ | ------------------------------------------------------------------------------------------------------- |
 | ndtResolution            | Resolution of NDT grid structure (VoxelGridCovariance)<br/>0,5 for indoor case and 1.0 for outdoor case |
-| ndt_key_frame_downsample | Resolution parameter for voxel grid downsample function                                               |
-| map_downsample_size      | Resolution parameter for voxel grid downsample function                                             |
-| knot_distance            | time interval                                                                                         |
-| plane_motion             | set true if you collect data from vehicle                                                             |
-| gyro_weight              | gyrometer sensor output’s weight for trajectory estimation                                            |
-| accel_weight             | accelerometer sensor output’s weight for trajectory estimation                                        |
-| lidar_weight             | lidar sensor output’s weight for trajectory estimation                                                |
+| ndt_key_frame_downsample | Resolution parameter for voxel grid downsample function                                                 |
+| map_downsample_size      | Resolution parameter for voxel grid downsample function                                                 |
+| knot_distance            | time interval                                                                                           |
+| plane_motion             | set true if you collect data from vehicle                                                               |
+| gyro_weight              | gyrometer sensor output’s weight for trajectory estimation                                              |
+| accel_weight             | accelerometer sensor output’s weight for trajectory estimation                                          |
+| lidar_weight             | lidar sensor output’s weight for trajectory estimation                                                  |
