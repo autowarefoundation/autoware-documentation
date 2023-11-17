@@ -17,7 +17,7 @@ are calibrated comprehensively without explicit hand-crafted targets.
 
     This calibration tool is developed with ROS1, and it is not compatible with ROS2.
     So, we are providing a docker image which has ROS1 and all necessary packages.
-    In the calibration instructions, we will ask you to install docker on your 
+    In the calibration instructions, we will ask you to install docker on your
     system.
 
 ??? note "ROS 2 Bag example of our calibration process for tutorial_vehicle"
@@ -72,8 +72,8 @@ Create a yaml file with name `out.yaml` which contains your lidar and imu topics
 
 ```yaml
 output_bags:
-- uri: splitted_bag
-  topics: [/your/imu/topic, /your/pointcloud/topic]
+  - uri: splitted_bag
+    topics: [/your/imu/topic, /your/pointcloud/topic]
 ```
 
 Split your ROS2 bag file:
@@ -184,7 +184,6 @@ sensors:
   if you have a rosbag file in the `OA-LICalib/data` directory,
   you need to give the path as `/root/calib_ws/src/OA-LICalib/data/rosbag2_2023_08_18-14_42_12_0.bag`
 
-
 ```yaml
 topic_lidar: /sensing/lidar/top/pointcloud_raw
 topic_imu: /sensing/gnss/sbg/ros/imu/data
@@ -192,7 +191,11 @@ topic_imu: /sensing/gnss/sbg/ros/imu/data
 LidarModel: VLP_16_SIMU
 
 selected_segment:
-  - {start_time: 0, end_time: 40, path_bag: /root/calib_ws/src/OA-LICalib/data/rosbag2_2023_08_18-14_42_12_0.bag}
+  - {
+      start_time: 0,
+      end_time: 40,
+      path_bag: /root/calib_ws/src/OA-LICalib/data/rosbag2_2023_08_18-14_42_12_0.bag,
+    }
 ```
 
 After creating the container and changing parameters,
@@ -248,13 +251,13 @@ in the `OA-LICalib/config/simu.yaml` file.
 
 To achieve better results, you can tune the parameters in the `config/simu.yaml` file. The parameters are explained below:
 
-| Parameter                           | Value                                                     |
-|-------------------------------------|-----------------------------------------------------------|
-| ndtResolution | Resolution of NDT grid structure (VoxelGridCovariance)<br/>0,5 for indoor case and 1.0 for outdoor case | 
-| ndt_key_frame_downsample    | Resolutation parameter for voxel grid downsample function |
-| map_downsample_size       | Resolutation parameter for voxel grid downsample function |
-| knot_distance            | time interval |
-| plane_motion       | set true if you collect data from vehicle |
-| gyro_weight       | gyrometer sensor output’s weight for trajectory estimation |
-| accel_weight       | accelerometer sensor output’s weight for trajectory estimation |
-| lidar_weight       | lidar sensor output’s weight for trajectory estimation |
+| Parameter                | Value                                                                                                   |
+| ------------------------ | ------------------------------------------------------------------------------------------------------- |
+| ndtResolution            | Resolution of NDT grid structure (VoxelGridCovariance)<br/>0,5 for indoor case and 1.0 for outdoor case |
+| ndt_key_frame_downsample | Resolutation parameter for voxel grid downsample function                                               |
+| map_downsample_size      | Resolutation parameter for voxel grid downsample function                                               |
+| knot_distance            | time interval                                                                                           |
+| plane_motion             | set true if you collect data from vehicle                                                               |
+| gyro_weight              | gyrometer sensor output’s weight for trajectory estimation                                              |
+| accel_weight             | accelerometer sensor output’s weight for trajectory estimation                                          |
+| lidar_weight             | lidar sensor output’s weight for trajectory estimation                                                  |
