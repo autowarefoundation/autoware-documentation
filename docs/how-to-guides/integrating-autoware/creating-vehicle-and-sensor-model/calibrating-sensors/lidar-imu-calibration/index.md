@@ -15,8 +15,8 @@ are calibrated comprehensively without explicit hand-crafted targets.
 
 !!! warning
 
-    This calibration tool is developed with ROS1, and it is not compatible with ROS2.
-    So, we are providing a docker image which has ROS1 and all necessary packages.
+    This calibration tool is developed with ROS 1, and it is not compatible with ROS 2.
+    So, we are providing a docker image which has ROS 1 and all necessary packages.
     In the calibration instructions, we will ask you to install docker on your
     system.
 
@@ -37,7 +37,7 @@ are calibrated comprehensively without explicit hand-crafted targets.
 
 ## Data Collection and Preparation
 
-For Lidar-Imu calibration, there is a need for a ROS1 bag file which contains
+For Lidar-Imu calibration, there is a need for a ROS 1 bag file which contains
 `sensor_msgs/PointCloud2` and `sensor_msgs/Imu` messages.
 To obtain good results as a result of the calibration process,
 you need to move the sensors in all 6 axes (x, y, z, roll, pitch, yaw) while collecting data.
@@ -59,14 +59,14 @@ However, you can also achieve good results outdoors.
 When collecting data, make sure to draw figures of eights and grids,
 capturing data from every angle.
 
-### Conveting ROS2 Bag to ROS1 Bag
+### Converting ROS 2 Bag to ROS 1 Bag
 
-If you collected your calibration data in ROS2,
-you can convert it to ROS1 bag file with the following instructions:
+If you collected your calibration data in ROS 2,
+you can convert it to ROS 1 bag file with the following instructions:
 
-- Split your ROS2 bag file if it contains non-standard message topics
+- Split your ROS 2 bag file if it contains non-standard message topics
   (you can only select `sensor_msgs/PointCloud2` and `sensor_msgs/Imu` messages),
-  and convert your splitted ROS2 bag file to ROS1 bag.
+  and convert your split ROS 2 bag file to ROS 1 bag.
 
 Create a yaml file with name `out.yaml` which contains your lidar and imu topics:
 
@@ -76,13 +76,13 @@ output_bags:
     topics: [/your/imu/topic, /your/pointcloud/topic]
 ```
 
-Split your ROS2 bag file:
+Split your ROS 2 bag file:
 
 ```sh
 ros2 bag convert -i <YOUR-ROS2-BAG-FOLDER> -o out.yaml
 ```
 
-Convert your splitted ROS2 bag file to ROS1 bag file:
+Convert your split ROS2 bag file to ROS1 bag file:
 
 ```sh
 # install bag converter tool (https://gitlab.com/ternaris/rosbags)
@@ -225,7 +225,7 @@ docker exec -it <container_name> bash
     in the last column:
     ```
     CONTAINER ID   IMAGE      COMMAND                  CREATED         STATUS         PORTS     NAMES
-    adb8b559c06e   calib:v1   "/ros_entrypoint.sh …"   6 seconds ago   Up 5 seconds             flamboyant_wescoff
+    adb8b559c06e   calib:v1   "/ros_entrypoint.sh …"   6 seconds ago   Up 5 seconds             your_awsome_container_name
     ```
 
 After connecting to the container, you can see the calibration process
@@ -251,13 +251,13 @@ in the `OA-LICalib/config/simu.yaml` file.
 
 To achieve better results, you can tune the parameters in the `config/simu.yaml` file. The parameters are explained below:
 
-| Parameter                | Value                                                                                                   |
-| ------------------------ | ------------------------------------------------------------------------------------------------------- |
+| Parameter                | Value                                                                                                 |
+| ------------------------ | ----------------------------------------------------------------------------------------------------- |
 | ndtResolution            | Resolution of NDT grid structure (VoxelGridCovariance)<br/>0,5 for indoor case and 1.0 for outdoor case |
-| ndt_key_frame_downsample | Resolutation parameter for voxel grid downsample function                                               |
-| map_downsample_size      | Resolutation parameter for voxel grid downsample function                                               |
-| knot_distance            | time interval                                                                                           |
-| plane_motion             | set true if you collect data from vehicle                                                               |
-| gyro_weight              | gyrometer sensor output’s weight for trajectory estimation                                              |
-| accel_weight             | accelerometer sensor output’s weight for trajectory estimation                                          |
-| lidar_weight             | lidar sensor output’s weight for trajectory estimation                                                  |
+| ndt_key_frame_downsample | Resolution parameter for voxel grid downsample function                                               |
+| map_downsample_size      | Resolution parameter for voxel grid downsample function                                             |
+| knot_distance            | time interval                                                                                         |
+| plane_motion             | set true if you collect data from vehicle                                                             |
+| gyro_weight              | gyrometer sensor output’s weight for trajectory estimation                                            |
+| accel_weight             | accelerometer sensor output’s weight for trajectory estimation                                        |
+| lidar_weight             | lidar sensor output’s weight for trajectory estimation                                                |
