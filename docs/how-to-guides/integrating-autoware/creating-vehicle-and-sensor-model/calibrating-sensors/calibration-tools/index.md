@@ -82,3 +82,4 @@ completed launch files when created following tutorial sections can be found [he
   - [Ground Plane-Lidar Calibration](../ground-lidar-calibration)
 - [Intrinsic Camera Calibration](../intrinsic-camera-calibration)
 - [Lidar-Camera Calibration](../lidar-camera-calibration)
+- - [Lidar-Imu Calibration](../lidar-imu-calibration)
