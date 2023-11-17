@@ -82,7 +82,7 @@ Split your ROS 2 bag file:
 ros2 bag convert -i <YOUR-ROS2-BAG-FOLDER> -o out.yaml
 ```
 
-Convert your split ROS2 bag file to ROS1 bag file:
+Convert your split ROS 2 bag file to ROS 1 bag file:
 
 ```sh
 # install bag converter tool (https://gitlab.com/ternaris/rosbags)
@@ -225,7 +225,7 @@ docker exec -it <container_name> bash
     in the last column:
     ```
     CONTAINER ID   IMAGE      COMMAND                  CREATED         STATUS         PORTS     NAMES
-    adb8b559c06e   calib:v1   "/ros_entrypoint.sh …"   6 seconds ago   Up 5 seconds             your_awsome_container_name
+    adb8b559c06e   calib:v1   "/ros_entrypoint.sh …"   6 seconds ago   Up 5 seconds             your_awesome_container_name
     ```
 
 After connecting to the container, you can see the calibration process
