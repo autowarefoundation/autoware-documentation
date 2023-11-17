@@ -17,6 +17,12 @@ CalibrationTools.
 
 We need a sample bag file for the lidar-lidar calibration process
 which includes raw lidar topics.
+Also, we recommend using an outlier-filtered
+point cloud for mapping because this point cloud
+includes a cropped vehicle point cloud. Therefore,
+vehicle points are not included in the map. When you start
+the bag recording,
+you should not move the vehicle for the first 5 seconds for better mapping performace.
 The following shows an example of a bag file used for this calibration:
 
 ??? note "ROS 2 Bag example of our calibration process for tutorial_vehicle"
@@ -31,7 +37,7 @@ The following shows an example of a bag file used for this calibration:
     End:               Sep  5 2023 11:25:43.808 (1693902343.808)
     Messages:          2256
     Topic information: Topic: /sensing/lidar/front/pointcloud_raw | Type: sensor_msgs/msg/PointCloud2 | Count: 1128 | Serialization Format: cdr
-                       Topic: /sensing/lidar/top/pointcloud_raw | Type: sensor_msgs/msg/PointCloud2 | Count: 1128 | Serialization Format: cdr
+                       Topic: /sensing/lidar/top/outlier_filtered/pointcloud | Type: sensor_msgs/msg/PointCloud2 | Count: 1128 | Serialization Format: cdr
     ```
 
 ## Mapping-based lidar-lidar calibration
@@ -352,7 +358,7 @@ extrinsic_ground_plane_calibrator/
 Then play ROS 2 bag file:
 
 ```bash
-ros2 bag play <rosbag_path> --clock -l -r 0.2 \
+ros2 bag play <rosbag_path> --clock -r 0.2 \
 --remap /tf:=/null/tf /tf_static:=/null/tf_static # if tf is recorded
 ```
 
