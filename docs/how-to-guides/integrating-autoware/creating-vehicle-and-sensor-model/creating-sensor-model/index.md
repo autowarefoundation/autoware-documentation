@@ -9,7 +9,7 @@ This page introduces the following packages for the sensor model:
 3. `<YOUR-VEHICLE-NAME>_sensor_kit_launch`
 
 Previously,
-we forked our vehicle model at the [creating autoware repositories](../../creating-your-autoware-meta-repository/creating-autoware-meta-repository.md) page step.
+we forked our vehicle model at the [creating autoware repositories](../../creating-your-autoware-repositories/creating-autoware-repositories.md) page step.
 For instance,
 we created [tutorial_vehicle_launch](https://github.com/leo-drive/tutorial_vehicle_launch)
 as an implementation example for the said step.
