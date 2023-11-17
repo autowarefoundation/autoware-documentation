@@ -1,0 +1,8 @@
+nav:
+  - index.md
+  - Lanelet2: lanelet2
+  - Crosswalk: crosswalk
+  - Stop line: stop-line
+  - Traffic light: traffic-light
+  - Speed bump: speed-bump
+  - Detection area: detection-area

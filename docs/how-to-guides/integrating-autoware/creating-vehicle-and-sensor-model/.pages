@@ -1,0 +1,6 @@
+nav:
+  - index.md
+  - Creating sensor model: creating-sensor-model
+  - Creating individual params: creating-individual-params
+  - Creating vehicle model: creating-vehicle-model
+  - Calibrating sensors: calibrating-sensors
