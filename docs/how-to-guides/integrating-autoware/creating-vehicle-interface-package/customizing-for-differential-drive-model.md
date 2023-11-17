@@ -3,9 +3,23 @@
 ## 1. Introduction
 
 Currently, Autoware assumes that vehicles use an Ackermann kinematic model with Ackermann steering.
-Thus, Autoware adopts the Ackermann command format for the Control module's output (see [the AckermannDrive ROS message definition](http://docs.ros.org/en/api/ackermann_msgs/html/msg/AckermannDrive.html) for an overview of Ackermann commands, and [the AckermannControlCommands struct](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl) used in Autoware for more details).
+Thus, Autoware adopts the Ackermann command format for the Control module's output
+(see [the AckermannDrive ROS message definition](http://docs.ros.org/en/api/ackermann_msgs/html/msg/AckermannDrive.html) for an overview of Ackermann commands,
+and [the AckermannControlCommands struct](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl)
+used in Autoware for more details).
 
-However, it is possible to integrate Autoware with a vehicle that follows a differential drive kinematic model, as commonly used by small mobile robots.
+However,
+it is possible to integrate Autoware with a vehicle
+that follows a differential drive kinematic model,
+as commonly used by small mobile robots.
+The differential vehicles can be either four-wheel or two-wheel, as described in the figure below.
+
+<figure markdown>
+  ![differential_vehicle](images/differential_vehicle.svg){ align=center }
+  <figcaption>
+    Sample differential vehicles with four-wheel and two-wheel models.
+  </figcaption>
+</figure>
 
 ## 2. Procedure
 
@@ -36,7 +50,26 @@ $$
 
 where $l$ denotes wheel tread.
 
-For information about other factors that need to be considered when creating a `vehicle_interface` package, refer to the [`vehicle_interface` component page](../../../design/autoware-interfaces/components/vehicle-interface.md).
+Here is the example `.cpp` snippet
+for converting ackermann model kinematics to a differential model:
+
+```c++
+...
+void convert_ackermann_to_differential(
+  autoware_auto_control_msgs::msg::AckermannControlCommand & ackermann_msg
+  my_vehicle_msgs::msg::DifferentialCommand & differential_command)
+{
+    differential_command.left_wheel.velocity =
+      ackermann_msg.longitudinal.speed - (ackermann_msg.lateral.steering_tire_angle * my_wheel_tread) / 2;
+    differential_command.right_wheel.velocity =
+      ackermann_msg.longitudinal.speed + (ackermann_msg.lateral.steering_tire_angle * my_wheel_tread) / 2;
+}
+...
+```
+
+For information about other factors
+that need to be considered when creating a `vehicle_interface` package,
+refer to the [creating `vehicle_interface` page](./creating-vehicle-interface.md).
 
 ### 2.2 Set an appropriate `wheel_base`
 
