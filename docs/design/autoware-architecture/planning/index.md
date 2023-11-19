@@ -9,9 +9,8 @@
 - ハイレベルに対するユースケースを上げる
 - 車両の振る舞いのユースケース
   - 話ゴールやチェくポイント、NGポイントを与えてplanning内部でルートを計算して進む / 渋滞情報を加味したルートを外部から与えて走行する
-開発者のユースケース
+    開発者のユースケース
   - 中の作りの話（実装や設計レベル）：機能の差し替えができていてほしいので（レーンチェンジAとレーンチェンジBとか）、柔軟に変更できる必要があり、各機能はモジュールとして実装される。
-
 
 ## Purpose of this document
 
@@ -108,7 +107,7 @@ Following the microautonomy architecture, we adopt a modular system framework wh
 
 ここでは microautonomy アーキテクチャに従い、モジュール型のシステムフレームワークを採用しています。planningの機能はモジュールとして実装され、これらのモジュールは与えられたユースケースに応じて動的にロードおよびアンロードされます。例えば、behavior planning のサブコンポーネントには、レーンチェンジ、交差点、横断歩道モジュールなどのモジュールが含まれています。
 
-### Discussions -> わからん。trade-off選定とかにしよう。
+### Discussions -> わからん。trade-off選定とかにしよう
 
 The following provides discussion points on trade-offs in the architecture. From this information, you can see the current design limitation, challenges, and potential improvement.
 

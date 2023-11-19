@@ -1,5 +1,6 @@
 # Planning component design
-<!-- 
+
+<!--
 - discussionsはトレードオフ選定とかにしたい
 - サードパーティによって拡張というよりは、誰でも拡張できるって言い回しのほうが良いはず
 - mission plannerの使われ方を重点的に考えよう。FMSとして機能が外だしされることがあるから、これは別れてるのよ。
@@ -15,44 +16,42 @@
 
 ## Context and scope
 
-自動運転システムにおける Planning コンポーネントの役割は、与えられたミッションを満たすために、安全で交通ルールに基づいた自動運転車両の目標軌道（経路と速度）を生成することである。
+自動運転システムにおける Planning コンポーネントの役割は、与えられたミッションを満たすために、安全で交通ルールに基づいた自動運転車両の目標軌道（経路と速度）を生成することです。
 
-このドキュメントではAutowareにおけるplanningの要求やデザインをまとめる。これによって、開発者はplanning Componentがどのような考えで設計されているのか、およびそれらをどう拡張させていくのかを理解することができます。
+このドキュメントでは、Autowareにおけるplanningの要求やデザインをまとめます。これによって、開発者はPlanning Componentがどのような考えで設計されているのか、およびそれらをどう拡張させていくのかを理解することができます。
 
-ドキュメントの前半ではハイレベルな要求やデザインを、後半は実際の実装や提供機能について述べる。
+ドキュメントの前半ではハイレベルな要求やデザインについて、後半では実際の実装や提供機能について述べます。
 
 ## Goals and non-goals
 
-我々の目標は、純粋な自動運転システムの開発ではなく、自動運転"プラットフォーム"の開発である。このプラットフォームでは、誰もが自動運転の機能を自由に拡張できる。
+我々の目標は、純粋な自動運転システムの開発ではなく、自動運転"プラットフォーム"の開発です。このプラットフォームでは、誰もが自動運転の機能を自由に拡張できます。
 
+Autowareでは、このプラットフォーム観点から [microautonomy architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts) の概念を提唱しています。Microautonomyとは、適切な機能のモジュール化やインターフェースの明確な定義に基づき、高い拡張性に焦点を当てた自動運転システムの設計コンセプトです。
 
-Autowareではこのプラットフォーム観点から [microautonomy architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts) の概念を提唱しています。Microautonomyとは、適切な機能のモジュール化やインターフェースの明確な定義に基づき、高い拡張性を焦点を当てた自動運転システムの設計コンセプトです。
+これを踏まえ、Planning componentの設計方針は、世の中のすべての複雑な自動運転のユースケースを解決することではなく（なぜならそれは非常に難しい問題だからです）、**ユーザーのニーズに合わせてカスタマイズでき、誰でも容易に機能拡張が可能なPlanning開発プラットフォームを提供すること**に設定されています。我々が提供するプラットフォームが様々なニーズに対する拡張性を獲得した結果、最終的に多くの複雑なユースケースが解決できるようになると信じています。
 
-これを踏まえ、Planning component の設計方針は、世の中のすべての複雑な自動運転のユースケースを解決することではなく（なぜならそれは非常に難しい問題なので）、**ユーザーのニーズに合わせてカスタマイズでき、誰でも容易に機能拡張が可能なPlanning開発プラットフォームを提供すること** に設定されています。我々が提供するプラットフォームが様々なニーズに対する拡張性を獲得した結果、最終的に多くの複雑なユースケースが解決できるようになると信じています。
-
-この方針を明確にするため、以下に Goal と Non-Goal をリスト化します。
+この方針を明確にするため、以下にGoalとNon-Goalをリスト化します。
 
 **Goals:**
 
 - **自動運転の走行に必要な最低限の基本機能を持つこと**
-  - Planning Componentは機能拡張以前に、自動運転のために必須な機能を提供する必要があります。これは走る、止まる、曲がるといった基本計画に加え、比較的安全な状況での車線変更や信号停止などの機能が含まれます。
-- **提供機能はモジュール化されており、誰でも機能の再利用や拡張が可能であること** 
-  - これはユーザーが期待するODDに対し、拡張機能によって対応できることを意味します。プラグインのような形で誰でも機能拡張ができれば、それぞれのニーズ（Lv4/Lv2自動運転、公道/私道走行、大型車両、小型ロボットなど）にあったシステムが提供できます。
-  - ユーザーのニーズには、純粋な自動運転としての性能ではなく、限定されたODD（例えば障害物のない管理された私道）において可能な限り消費電力を下げることなども含まれます。この場合はモジュールをdisableさせることによって、この場合はODDを限定させる代わりに、処理負荷を下げられるようにする必要があります。
-- **人間のオペレータによって能力が拡張できること** 
+  - Planning Componentは、機能拡張以前に、自動運転のために必須な機能を提供する必要があります。これには、走る、止まる、曲がるといった基本計画に加え、比較的安全でシンプルな状況での車線変更や信号停止などの機能が含まれます。
+- **提供機能はモジュール化されており、誰でも機能の再利用や拡張が可能であること**
+  - これはユーザーが期待するODDに対し、拡張機能によって対応できることを意味します。プラグインのような形で誰でも機能拡張ができれば、それぞれのニーズ（Lv4/Lv2自動運転、公道/私道走行、大型車両、小型ロボットなど）に合ったシステムが提供できます。
+  - ユーザーのニーズには、純粋な自動運転としての性能ではなく、限定されたODD（例えば障害物のない管理された私道）において可能な限り消費電力を下げることなども含まれます。この場合、モジュールをdisableさせることによって、ODDを限定する代わりに、処理負荷を下げることが可能です。
+- **人間のオペレータによって能力が拡張できること**
   - オペレータによる補助も機能拡張の一つです。これにより、非常に複雑で困難なユースケースにおいても、人間の補助という機能拡張で対応できることを意味します。ここで具体的なオペレータの種類は定義しません。研究フェーズにおいては車に同乗している人かもしれませんし、自動運転サービス提供者にとっては非常時にのみ繋がる遠隔オペレータかもしれません。
-
 
 **Non-goals:**
 
-Planning Componentは third-partyのモジュールによって機能拡張されることを想定しています。したがって、以下はAutowareのPlanning Component単体の目標から除外されます。
+Planning Componentはthird-partyのモジュールによって機能拡張されることを想定しています。したがって、以下はAutowareのPlanning Component単体の目標から除外されます。
 
-- ユーザーが必要とする機能の全てをAutoware単独で提供すること 
+- ユーザーが必要とする機能の全てをAutoware単独で提供すること
 - 自動運転としての完全な機能と性能
 - 人間の性能を常に上回る性能
 - 「絶対に衝突しない」という機能
 
-なお、「絶対に衝突しない」といった性能は現在の目標ではありませんが、外部モジュールとの連携や将来の強化によってそのような状態を達成できるようなアーキテクチャを作成することは我々の目標です。そしてこれらの要求は自動運転プラットフォームの視点から来ているものであり、一般的な自動運転システムにおけるPlanning Componentへの要求としては一般的では無いかもしれません。
+なお、「絶対に衝突しない」といった性能は現在の目標ではありませんが、外部モジュールとの連携や将来の強化によってそのような状態を達成できるようなアーキテクチャを作成することは我々の目標です。そしてこれらの要求は自動運転プラットフォームの視点から来ているものであり、一般的な自動運転システムにおけるPlanning Componentへの要求としては一般的ではないかもしれません。
 
 <!-- ## Requirements
 
@@ -64,21 +63,21 @@ WIP -->
 
 ## High level design
 
-このダイアグラムはPlanning Componentのハイレベルなアーキテクチャを示している。なお、これは理想的なハイレベルデザインであり、現時点での実装がこれに従っていないこともあることに注意する。実際の詳細な実装は後半を参照のこと。
+このダイアグラムはPlanning Componentのハイレベルなアーキテクチャを示しています。なお、これは理想的なハイレベルデザインであり、現時点での実装がこれに完全に従っているわけではないことに注意してください。実際の詳細な実装については後半を参照してください。
 
 <!-- ![overall-planning-architecture](image/high-level-planning-diagram.drawio.svg) -->
+
 ![overall-planning-architecture](image/high-level-planning-diagram-miyake-reviewed.drawio.svg)
 
-Planning コンポーネントはいくつかのサブコンポーネントからなります。
+Planning コンポーネントは以下のようないくつかのサブコンポーネントから構成されます。
 
-- **Mission Planning**: 地図情報をもとに、自動運転ミッションの設定や現在位置からゴールまでのルートを計算を行います。
-- **Planning Modules**: 定められたミッションに対し、目標軌道やウインカーなどの自車の振る舞いの計画を行います。このサブコンポーネントは機能を担当するいくつかのモジュールから成ります。これらのモジュールは便宜上、BehaviorとMotionの2つに分けられています。
+- **Mission Planning**: 地図情報を基に、自動運転ミッションの設定や現在位置からゴールまでのルート計算を行います。
+- **Planning Modules**: 定められたミッションに対して、目標軌道やウインカーなどの自車の振る舞いの計画を行います。このサブコンポーネントは、機能を担当するいくつかのモジュールから成り立っています。これらのモジュールは便宜上、BehaviorとMotionの2つに分類されます。
   - **Behavior Planner**: 交通ルールや安全を考慮して適切な経路を計算します。
   - **Motion Planner**: Behavior Plannerと連携し、車両運動や乗り心地を考慮した目標軌道を計算します。
-- **Validation**: 計算された目標軌道を検証し、安全性の担保や緊急時の振る舞いを担います。
+- **Validation**: 計算された目標軌道を検証し、安全性の確保や緊急時の対応を担います。
 
-
-ここでは microautonomy アーキテクチャに従い、モジュール型のシステムフレームワークを採用しています。planningの機能はモジュールとして実装され、これらのモジュールは与えられたユースケースに応じて動的/静的にload/unloadされます。これらには例えば、レーンチェンジ、交差点、横断歩道モジュールなどのモジュールが含まれています。
+ここではmicroautonomyアーキテクチャに従い、モジュール型のシステムフレームワークを採用しています。Planningの機能はモジュールとして実装され、これらのモジュールは与えられたユースケースに応じて動的/静的にload/unloadされます。これには例えば、レーンチェンジ、交差点、横断歩道モジュールなどが含まれます。
 
 ### Remarkable points
 
@@ -86,56 +85,45 @@ Planning コンポーネントはいくつかのサブコンポーネントか�
 
 #### Modulation of each function
 
-ルート生成や車線変更や交差点、横断歩道などPlanningに必要な機能はモジュールとして管理されます。これらのモジュールに対してはある程度共通化されたインターフェースが提供され、それに従うことによって誰でもモジュールの追加や拡張を行うことができます。詳細なインターフェースは後述。
-
+ルート生成や車線変更、交差点、横断歩道などPlanningに必要な機能はモジュールとして管理されます。これらのモジュールにはある程度共通化されたインターフェースが提供され、それに従うことで誰でもモジュールの追加や拡張を行うことができます。詳細なインターフェースについては後述します。
 
 #### Separation of Mission Planning sub-component
 
-Mission Planningの役割は、FMS（Fleet Management System）などの既存サービスの代替になるものです。ハイレベルで定義されたMission Planningのインターフェースに従うことにより、これらthird-party機能との連携を容易に行うことができます。
+Mission Planningの役割は、FMS（Fleet Management System）などの既存サービスの代替となります。ハイレベルで定義されたMission Planningのインターフェースに従うことで、これらthird-party機能との連携を容易に行うことができます。
 
 #### Separation of Validation sub-component
 
-誰でも容易に拡張できるというPlanning Componentの性質の背反として、全ての機能それぞれにおいて期待されるレベルの安全性を担保することは困難です。PlanningのValidation機能は実際に経路計画などを行うモジュールからは分離して管理され、モジュールに任意の変更があった場合にも一定のレベルの安全を担保できるように設計されています。
+誰でも容易に拡張できるというPlanning Componentの性質上、全ての機能それぞれにおいて期待されるレベルの安全性を担保することは困難です。PlanningのValidation機能は、実際に経路計画などを行うモジュールからは分離して管理され、モジュールに任意の変更があった場合でも一定のレベルの安全を担保できるように設計されています。
 
 #### Interface for HMI (Human Machine Interface)
 
-
-Human Machine Interfaceとの連携は、人間オペレータとの連携を円滑に行うために必要不可欠なものです。このComponent間のインターフェースを介して、同乗オペレータや遠隔監視システムとの連携を可能にします。
-
-
+Human Machine Interfaceとの連携は、人間オペレータとの連携を円滑に行うために必要不可欠です。このComponent間のインターフェースを介して、同乗オペレータや遠隔監視システムとの連携を可能にします。
 
 #### Trade-offs for the separation of planning and other components
 
-Autowareの全体設計の話ではあるが、Planningを孤立したComponentとして設計することにおいても注意するべきトレードオフが存在します。planning、perception、localization、controlなどのコンポーネントを分離して開発することで、サードパーティ製のコンポーネントとの連携が容易になります。しかし、ここではパフォーマンスと拡張性の間にトレードオフがあります。例えば、perception コンポーネントは理想的には planning コンポーネントが必要とするオブジェクトだけを認識すれば十分ですが、コンポーネントを分離することでそのような密接なコミュニケーションが難しくなり、不要なオブジェクトに対しても処理を実行する必要があります。また、計画と制御を分離すると、計画時に車両の運動性能を考慮することが難しくなるという性能面の欠点があります。これを補うためには、インターフェースの情報量を増やすか、計算負荷を増やすなど対応が必要になります。
-
+Autowareの全体設計において、Planningを孤立したComponentとして設計する際のトレードオフに注意が必要です。Planning、Perception、Localization、Controlなどのコンポーネントを分離して開発することで、サードパーティ製のコンポーネントとの連携が容易になります。しかし、パフォーマンスと拡張性の間にはトレードオフが存在します。例えば、Perceptionコンポーネントは理想的にはPlanningコンポーネントが必要とするオブジェクトだけを認識すれば十分ですが、コンポーネントを分離することでそのような密接なコミュニケーションが難しくなり、不要なオブジェクトに対しても処理を実行する必要があります。また、計画と制御を分離すると、計画時に車両の運動性能を考慮することが難しくなるという性能面の欠点があります。これを補うためには、インターフェースの情報量を増やすか、計算負荷を増やすなどの対応が必要になります。
 
 ## How to extend/corporate with new features (WIP)
 
 Planning Componentのデザインの最も重要な機能の一つが、外部モジュールとの連携です。以下の図に示すように外部の機能を組み込む際にはいくつかの方法があります。
 
-
 ![how-to-add-new-modules](image/how-to-add-new-modules.drawio.svg)
-
-
 
 ### Planning Componentに新たなモジュールを追加する
 
 ユーザーはモジュールとして作成されたPlanningの機能を置き換えたり、機能追加をすることができます。これは最も一般的な機能の拡張方法です。これによって、求めるODDにおいて不足している機能を追加したり、逆に既存の機能をよりシンプルなものに変更したりすることができます。
 
-ただし、この機能追加を行うためには、各モジュールのインターフェースが適切に整理されている必要があります。2023.11現在ではこのような理想的なモジュールの仕組みは提供されておらず、いくつかの制限を含んでいます。詳細は Reference Implementationの [How to add new modules in the current implementation](#how-to-add-new-modules-in-the-current-implementation) を確認してください。
-
+ただし、この機能追加を行うためには、各モジュールのインターフェースが適切に整理されている必要があります。2023年11月現在では、このような理想的なモジュールの仕組みは提供されておらず、いくつかの制限があります。詳細はReference Implementationの [How to add new modules in the current implementation](#how-to-add-new-modules-in-the-current-implementation) を確認してください。
 
 ### Planningのサブコンポーネントを置き換える
 
-いくつかのユーザーは、サブコンポーネントレベルでの連携・拡張を行うことに興味があるでしょう。これは例えば、Mission Planningを既存のFMSサービスと置き換えたり、既存のValidation機能は使いつつ経路生成の機能を third-party製のもの置き換えるといった要求に該当します。
+いくつかのユーザーは、サブコンポーネントレベルでの連携・拡張に興味があるかもしれません。これは例えば、Mission Planningを既存のFMSサービスと置き換えたり、既存のValidation機能を使用しつつ経路生成の機能をthird-party製のものに置き換えるといった要求に該当します。
 
-後に説明される [Internal interface in the planning component](#internal-interface-in-the-planning-component) に従えば、サブコンポーネントレベルでの連携・拡張を行うことが可能です。既存のplanningの機能との複雑な連携はできませんが、一部のplanning componentの機能と外部モジュールとの連携が可能に成ります。
-
+後に説明される [Internal interface in the planning component](#internal-interface-in-the-planning-component) に従えば、サブコンポーネントレベルでの連携・拡張を行うことが可能です。既存のPlanningの機能との複雑な連携はできませんが、一部のPlanning Componentの機能と外部モジュールとの連携が可能になります。
 
 ### Planning Component全体を置き換える
 
 自動運転のPlanningシステムを開発している企業や研究室などは、自社のPlanning製品をAutowareのPerceptionやControlモジュールと連携させ、自動運転システム全体の評価を行うことに関心があるでしょう。これはPlanning全体を置き換えることによって可能となります。Component間で定義される、おそらく最も堅牢で安定したインターフェースに従えば簡単に置き換えが可能です。ただし、既存のplanningモジュールとの連携はできません。
-
 
 ## Component interface
 
@@ -185,7 +173,6 @@ This section describes the inputs and outputs of the Planning Component and of i
   - Trajectory: Defines the desired positions, velocities, and accelerations which the Control Component will try to follow. Trajectory points are defined at intervals of approximately 0.1 seconds based on the trajectory velocities.
 - **Validation to Control Component**
   - Trajectory: Same as above but with some additional safety considerations.
-
 
 ## Detailed design
 
@@ -239,9 +226,6 @@ The following diagram describes the reference implementation of the Planning com
 
 _Note that some implementation does not adhere to the high-level architecture design due to the difficulties of the implementation and require updating._
 
-
-
-
 ![reference-implementation](image/planning-diagram-tmp.drawio.svg)
 
 For more details, please refer to the design documents in each package.
@@ -277,15 +261,16 @@ For more details, please refer to the design documents in each package.
 - [_external_velocity_limit_selector_](https://autowarefoundation.github.io/autoware.universe/main/planning/external_velocity_limit_selector/): takes an appropriate velocity limit from multiple candidates.
 - [_motion_velocity_smoother_](https://autowarefoundation.github.io/autoware.universe/main/planning/motion_velocity_smoother/): calculates final velocity considering velocity, acceleration, and jerk constraints.
 
-
 ### Important information in the current implementation
 
 ハイレベルなデザインと比較したときの重要な違いは、「シナリオレイヤーの導入」と「behavior/motionの明確な分離」です。これらは現時点での性能や実装的な課題から導入されています。これらをハイレベルなデザインとして定義するか、それとも実装の一部として改良していくかは議論の必要があります。
 
 #### Introducing the Scenario Planning layer
+
 There are different requirements for interfaces between driving in well-structured lanes and driving in a free-space area like a parking lot. For example, while Lane Driving can handle routes with map IDs, this is not appropriate for planning in free space. The mechanism that switches planning sub-components at the scenario level (Lane Driving, Parking, etc) enables a flexible design of the interface, however, it has a drawbacks of the reuse of modules across different scenarios.
 
 #### Separation of Behavior and Motion
+
 One of the classic approach to Planning involves dividing it into "Behavior", which decides the action, and "Motion", which determines the final movement. However, this separation implies a trade-off with performance, as performance tends to degrade with increasing separation of functions. For example, Behavior needs to make decisions without prior knowledge of the computations that Motion will eventually perform, which generally results in conservative decision-making. On the other hand, if behavior and motion are integrated, motion performance and decision-making become interdependent, creating challenges in terms of expandability, such as when you wish to extend only the decision-making function to follow a regional traffic rules.
 
 To understand this background, this [previously discussed document](https://github.com/tier4/AutowareArchitectureProposal.proj/blob/main/docs/design/software_architecture/Planning/DesignRationale.md) may be useful.
@@ -296,11 +281,9 @@ To understand this background, this [previously discussed document](https://gith
 
 ![reference-implementation-add-new-modules](image/reference-implementation-add-new-modules.drawio.svg)
 
-
 #### Add new modules in behavior_velocity_planner or behavior_path_plnner
 
 [behavior_path_planner](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/) や [behavior_velocity_planner](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/) などの ROS nodeは、pluginによるモジュールインターフェースが用意されています。これらの ROS nodeで定義されるモジュールのインターフェースに沿ってモジュールを追加することにより、動的にモジュールのload/unloadが可能となります。具体的なモジュール追加の方法については、各パッケージのドキュメントをご確認ください。
-
 
 #### Add a new ros node in the planning component
 
@@ -312,9 +295,7 @@ Motion Planningにおいてモジュールを追加する場合は、モジュ�
 
 実際にシナリオをros nodeなどで作成し、scenario_selectorというros nodeをそのシナリオに対応させれば統合は完了します。このメリットは、他のシナリオ（Lane Drivingなど）の実装に影響を与えずに、大きな新規機能を導入することができます。一方で、既存のplanning moduleレベルでの連携を行うことはできず、シナリオの切り替えによるシナリオレベルでの連携しかできません。
 
-
-
-<!-- 
+<!--
 ### Important Parameters
 
 | Package                      | Parameter                                                     | Type   | Description                                                                                                        |
