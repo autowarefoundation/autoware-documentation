@@ -1,5 +1,6 @@
 ---
 title: /api/interface/version
+status: v1.0.0
 method: function call
 type:
   name: autoware_adapi_version_msgs/srv/InterfaceVersion

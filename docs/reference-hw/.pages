@@ -1,0 +1,13 @@
+nav:
+  - index.md
+  - ad-computers.md
+  - lidars.md
+  - radars.md
+  - cameras.md
+  - thermal_cameras.md
+  - imu_ahrs_gnss_ins.md
+  - vehicle_drive_by_wire_suppliers.md
+  - vehicle_platform_suppliers.md
+  - remote_drive.md
+  - full_drivers_list.md
+  - ad_sensor_kit_suppliers.md

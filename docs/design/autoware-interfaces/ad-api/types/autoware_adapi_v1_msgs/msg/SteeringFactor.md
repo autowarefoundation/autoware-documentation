@@ -3,6 +3,8 @@
 title: autoware_adapi_v1_msgs/msg/SteeringFactor
 used:
   - autoware_adapi_v1_msgs/msg/SteeringFactorArray
+uses:
+  - autoware_adapi_v1_msgs/msg/CooperationStatus
 ---
 
 {% extends 'design/autoware-interfaces/templates/autoware-data-type.jinja2' %}
@@ -12,17 +14,6 @@ used:
 # constants for common use
 uint16 UNKNOWN = 0
 
-# constants for type
-uint16 INTERSECTION = 1
-uint16 LANE_CHANGE = 2
-uint16 AVOIDANCE_PATH_CHANGE = 3
-uint16 AVOIDANCE_PATH_RETURN = 4
-uint16 STATION = 5
-uint16 PULL_OUT = 6
-uint16 PULL_OVER = 7  # Deprecated. Use GOAL_PLANNER.
-uint16 GOAL_PLANNER = 7
-uint16 EMERGENCY_OPERATION = 8
-
 # constants for direction
 uint16 LEFT = 1
 uint16 RIGHT = 2
@@ -30,16 +21,37 @@ uint16 STRAIGHT = 3
 
 # constants for status
 uint16 APPROACHING = 1
-uint16 TRYING = 2
 uint16 TURNING = 3
 
 # variables
 geometry_msgs/Pose[2] pose
 float32[2] distance
-uint16 type
 uint16 direction
 uint16 status
+string behavior
+string sequence
 string detail
+autoware_adapi_v1_msgs/CooperationStatus[<=1] cooperation
+
+
+
+# deprecated constants for type
+uint16 INTERSECTION = 1
+uint16 LANE_CHANGE = 2
+uint16 AVOIDANCE_PATH_CHANGE = 3
+uint16 AVOIDANCE_PATH_RETURN = 4
+uint16 STATION = 5
+uint16 PULL_OUT = 6 # Deprecated. Use START_PLANNER.
+uint16 START_PLANNER = 6
+uint16 PULL_OVER = 7  # Deprecated. Use GOAL_PLANNER.
+uint16 GOAL_PLANNER = 7
+uint16 EMERGENCY_OPERATION = 8
+
+# deprecated constants for status
+uint16 TRYING = 2
+
+# deprecated variables
+uint16 type
 ```
 
 {% endblock %}

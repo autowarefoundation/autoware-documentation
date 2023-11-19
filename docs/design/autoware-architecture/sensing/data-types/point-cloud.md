@@ -37,17 +37,17 @@ It is recommended that these modules are used in a single container as component
 
 In the ideal case, the driver is expected to output a point cloud with the `PointXYZIRCADT` point type.
 
-| name              | datatype  | derived | description                                                                  |
-| ----------------- | --------- | ------- | ---------------------------------------------------------------------------- |
-| `X`               | `FLOAT32` | `false` | X position                                                                   |
-| `Y`               | `FLOAT32` | `false` | Y position                                                                   |
-| `Z`               | `FLOAT32` | `false` | Z position                                                                   |
-| `I` (intensity)   | `UINT8`   | `false` | Measured reflectivity, intensity of the point                                |
-| `R` (return type) | `UINT8`   | `false` | Laser return type for dual return lidars                                     |
-| `C` (channel)     | `UINT16`  | `false` | Vertical channel id of the laser that measured the point                     |
-| `A` (azimuth)     | `FLOAT32` | `true`  | `atan2(Y, X)`, Horizontal angle from the front of the lidar to the point     |
-| `D` (distance)    | `FLOAT32` | `true`  | `hypot(X, Y, Z)`, Euclidean distance of the point to lidar                   |
-| `T` (time)        | `UINT32`  | `false` | Nanoseconds passed since the time of the header when this point was measured |
+| name              | datatype  | derived | description                                                              |
+| ----------------- | --------- | ------- | ------------------------------------------------------------------------ |
+| `X`               | `FLOAT32` | `false` | X position                                                               |
+| `Y`               | `FLOAT32` | `false` | Y position                                                               |
+| `Z`               | `FLOAT32` | `false` | Z position                                                               |
+| `I` (intensity)   | `FLOAT32` | `false` | Measured reflectivity, intensity of the point                            |
+| `R` (return type) | `UINT8`   | `false` | Laser return type for dual return lidars                                 |
+| `C` (channel)     | `UINT16`  | `false` | Vertical channel id of the laser that measured the point                 |
+| `A` (azimuth)     | `FLOAT32` | `true`  | `atan2(Y, X)`, Horizontal angle from the front of the lidar to the point |
+| `D` (distance)    | `FLOAT32` | `true`  | `hypot(X, Y, Z)`, Euclidean distance of the point to lidar               |
+| `T` (time stamp)  | `FLOAT64` | `false` | Seconds passed since the time of the header when this point was measured |
 
 !!! note
 
@@ -180,7 +180,7 @@ For solid state lidars that have lines, assign row number as the channel id.
 
 For petal pattern lidars, you can keep channel 0.
 
-### Time
+### Time stamp
 
 In lidar point clouds, each point measurement can have its individual time stamp.
 This information can be used to eliminate the motion blur that is caused by the movement of the lidar during the scan.
@@ -204,13 +204,8 @@ The header of the point cloud message is expected to have the time of the earlie
 
     **More info at:** https://github.com/ros2/rcl_interfaces/issues/85
 
-#### Individual point time
+#### Individual point time stamp
 
-Each `PointXYZIRCT` point type has the `T` field for representing the nanoseconds passed since the first-shot point of the point cloud.
+Each `PointXYZIRCT` point type has the `T` field for representing the seconds passed since the first-shot point of the point cloud.
 
-To calculate exact time each point was shot, the `T` nanoseconds are added to the header time.
-
-!!! note
-
-    The `T` field is `uint32` type. The largest value it can represent is 2^32 nanoseconds, which equates to roughly
-    4.29 seconds. Usual point clouds don't last more than 100ms for full cycle. So this field should be enough.
+To calculate exact time each point was shot, the `T` seconds are added to the header time.

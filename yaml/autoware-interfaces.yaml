@@ -1,4 +1,65 @@
 types:
+  autoware_adapi_v1_msgs/msg/CooperationCommand:
+    msg:
+      cooperator: autoware_adapi_v1_msgs/msg/CooperationDecision
+      uuid: unique_identifier_msgs/msg/UUID
+  autoware_adapi_v1_msgs/msg/CooperationDecision:
+    msg:
+      decision: uint8
+  autoware_adapi_v1_msgs/msg/CooperationPolicy:
+    msg:
+      behavior: string
+      policy: uint8
+      sequence: string
+  autoware_adapi_v1_msgs/msg/CooperationStatus:
+    msg:
+      autonomous: autoware_adapi_v1_msgs/msg/CooperationDecision
+      cancellable: bool
+      cooperator: autoware_adapi_v1_msgs/msg/CooperationDecision
+      uuid: unique_identifier_msgs/msg/UUID
+  autoware_adapi_v1_msgs/msg/DoorCommand:
+    msg:
+      command: uint8
+      index: uint32
+  autoware_adapi_v1_msgs/msg/DoorLayout:
+    msg:
+      description: string
+      roles: uint8[]
+  autoware_adapi_v1_msgs/msg/DoorStatus:
+    msg:
+      status: uint8
+  autoware_adapi_v1_msgs/msg/DoorStatusArray:
+    msg:
+      doors: autoware_adapi_v1_msgs/msg/DoorStatus[]
+      stamp: builtin_interfaces/msg/Time
+  autoware_adapi_v1_msgs/msg/DynamicObject:
+    msg:
+      classification: autoware_adapi_v1_msgs/msg/ObjectClassification[]
+      existence_probability: float64
+      id: unique_identifier_msgs/msg/UUID
+      kinematics: autoware_adapi_v1_msgs/msg/DynamicObjectKinematics
+      shape: shape_msgs/msg/SolidPrimitive
+  autoware_adapi_v1_msgs/msg/DynamicObjectArray:
+    msg:
+      header: std_msgs/msg/Header
+      objects: autoware_adapi_v1_msgs/msg/DynamicObject[]
+  autoware_adapi_v1_msgs/msg/DynamicObjectKinematics:
+    msg:
+      accel: geometry_msgs/msg/Accel
+      pose: geometry_msgs/msg/Pose
+      predicted_paths: autoware_adapi_v1_msgs/msg/DynamicObjectPath[]
+      twist: geometry_msgs/msg/Twist
+  autoware_adapi_v1_msgs/msg/DynamicObjectPath:
+    msg:
+      confidence: float64
+      path: geometry_msgs/msg/Pose[]
+      time_step: builtin_interfaces/msg/Duration
+  autoware_adapi_v1_msgs/msg/Gear:
+    msg:
+      status: uint8
+  autoware_adapi_v1_msgs/msg/HazardLights:
+    msg:
+      status: uint8
   autoware_adapi_v1_msgs/msg/LocalizationInitializationState:
     msg:
       stamp: builtin_interfaces/msg/Time
@@ -12,6 +73,10 @@ types:
       behavior: uint16
       stamp: builtin_interfaces/msg/Time
       state: uint16
+  autoware_adapi_v1_msgs/msg/ObjectClassification:
+    msg:
+      label: uint8
+      probability: float64
   autoware_adapi_v1_msgs/msg/OperationModeState:
     msg:
       is_autonomous_mode_available: bool
@@ -53,21 +118,56 @@ types:
       state: uint16
   autoware_adapi_v1_msgs/msg/SteeringFactor:
     msg:
+      behavior: string
+      cooperation: autoware_adapi_v1_msgs/msg/CooperationStatus[<=1]
       detail: string
       direction: uint16
       distance: float32[2]
       pose: geometry_msgs/msg/Pose[2]
+      sequence: string
       status: uint16
       type: uint16
   autoware_adapi_v1_msgs/msg/SteeringFactorArray:
     msg:
       factors: autoware_adapi_v1_msgs/msg/SteeringFactor[]
       header: std_msgs/msg/Header
+  autoware_adapi_v1_msgs/msg/TurnIndicators:
+    msg:
+      status: uint8
+  autoware_adapi_v1_msgs/msg/VehicleDimensions:
+    msg:
+      footprint: geometry_msgs/msg/Polygon
+      front_overhang: float32
+      height: float32
+      left_overhang: float32
+      rear_overhang: float32
+      right_overhang: float32
+      wheel_base: float32
+      wheel_radius: float32
+      wheel_tread: float32
+      wheel_width: float32
+  autoware_adapi_v1_msgs/msg/VehicleKinematics:
+    msg:
+      accel: geometry_msgs/msg/AccelWithCovarianceStamped
+      geographic_pose: geographic_msgs/msg/GeoPointStamped
+      pose: geometry_msgs/msg/PoseWithCovarianceStamped
+      twist: geometry_msgs/msg/TwistWithCovarianceStamped
+  autoware_adapi_v1_msgs/msg/VehicleStatus:
+    msg:
+      energy_percentage: float32
+      gear: autoware_adapi_v1_msgs/msg/Gear
+      hazard_lights: autoware_adapi_v1_msgs/msg/HazardLights
+      stamp: builtin_interfaces/msg/Time
+      steering_tire_angle: float64
+      turn_indicators: autoware_adapi_v1_msgs/msg/TurnIndicators
   autoware_adapi_v1_msgs/msg/VelocityFactor:
     msg:
+      behavior: string
+      cooperation: autoware_adapi_v1_msgs/msg/CooperationStatus[<=1]
       detail: string
       distance: float32
       pose: geometry_msgs/msg/Pose
+      sequence: string
       status: uint16
       type: uint16
   autoware_adapi_v1_msgs/msg/VelocityFactorArray:
@@ -83,9 +183,36 @@ types:
   autoware_adapi_v1_msgs/srv/ClearRoute:
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/GetCooperationPolicies:
+    res:
+      policies: autoware_adapi_v1_msgs/msg/CooperationPolicy[]
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/GetDoorLayout:
+    res:
+      doors: autoware_adapi_v1_msgs/msg/DoorLayout[]
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/GetVehicleDimensions:
+    res:
+      dimensions: autoware_adapi_v1_msgs/msg/VehicleDimensions
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/InitializeLocalization:
     req:
       pose: geometry_msgs/msg/PoseWithCovarianceStamped[<=1]
+    res:
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/SetCooperationCommands:
+    req:
+      commands: autoware_adapi_v1_msgs/msg/CooperationCommand[]
+    res:
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/SetCooperationPolicies:
+    req:
+      policies: autoware_adapi_v1_msgs/msg/CooperationPolicy[]
+    res:
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/SetDoorCommand:
+    req:
+      doors: autoware_adapi_v1_msgs/msg/DoorCommand[]
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/SetRoute:
