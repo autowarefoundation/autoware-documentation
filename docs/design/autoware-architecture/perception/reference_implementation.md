@@ -24,7 +24,7 @@ The Perception component consists of the following sub-components:
 
 The following diagram describes the reference implementation of the Perception component. By adding new modules or extending the functionalities, various ODDs can be supported.
 
-### Remarkable points
+### Details
 
 #### Obstacle Segmentation
 
