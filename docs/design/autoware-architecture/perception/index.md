@@ -10,10 +10,6 @@ This document outlines the high-level design strategies, goals and related ratio
 
 <!-- この文書は、Perception Componentの開発における目標やハイレベルな設計戦略、およびそれに関連する意思決定とその理由を説明します。このドキュメントを通じて、すべてのOSS開発者は、Perception Componentがどのような設計思想や制約のもとで設計され、どのような目標を達成するために開発が行われているのかを理解することができます。これにより、円滑な開発参加が可能となります。 -->
 
-Furthermore, detailed design of the reference imprementations and provided featres are are included in the latter part of this document, while this information might be managed separately in the future. This allows developers and users to understand what is currently available with the Perception Component, how to utilize, expand, or add to its features.
-
-<!-- さらに、（これらの情報は将来的に分離して管理されるかもしれませんが、）具体的なリファレンス実装や提供される機能の一覧も後半に記載されています。これにより、開発者やユーザーは、Perception Componentを使用することで現在何が可能なのか、機能をどのように活用したり、拡張したり、追加したりすることができるのかを理解することができます。 -->
-
 ## Overview
 
 The Perception Component receives inputs from Sensing, Localization, and Map components, and adds semantic information (e.g., Object Recognition, Obstacle Segmentation, Traffic Light Recognition, Occupancy Grid Map), which is then passed on to Planning Component. This component design follows the overarching philosophy of Autoware, defined as the [microautonomy concept](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts/).
