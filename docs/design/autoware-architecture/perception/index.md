@@ -6,38 +6,40 @@
 
 ## Purpose of this document
 
-TODO: 背景と目的の認識合意、誰にどのように使われるかを明確に記載する。
+This document outlines the high-level design strategies, goals and related rationales in the development of the Perception Component. Through this document, it is expected that all OSS developers will comprehend the design philosophy, goals and constraints under which the Perception Component is designed, and participate seamlessly in the development.
 
-この文書は、Perception Componentの開発における目標やハイレベルな設計戦略、およびそれに関連する意思決定とその理由を説明します。このドキュメントを通じて、すべてのOSS開発者は、Perception Componentがどのような設計思想や制約のもとで設計され、どのような目標を達成するために開発が行われているのかを理解することができます。これにより、円滑な開発参加が可能となります。
+<!-- この文書は、Perception Componentの開発における目標やハイレベルな設計戦略、およびそれに関連する意思決定とその理由を説明します。このドキュメントを通じて、すべてのOSS開発者は、Perception Componentがどのような設計思想や制約のもとで設計され、どのような目標を達成するために開発が行われているのかを理解することができます。これにより、円滑な開発参加が可能となります。 -->
 
-さらに、（これらの情報は将来的に分離して管理されるかもしれませんが、）具体的なリファレンス実装や提供される機能の一覧も後半に記載されています。これにより、開発者やユーザーは、Perception Componentを使用することで現在何が可能なのか、機能をどのように活用したり、拡張したり、追加したりすることができるのかを理解することができます。
+Furthermore, detailed design of the reference imprementations and provided featres are are included in the latter part of this document, while this information might be managed separately in the future. This allows developers and users to understand what is currently available with the Perception Component, how to utilize, expand, or add to its features.
+
+<!-- さらに、（これらの情報は将来的に分離して管理されるかもしれませんが、）具体的なリファレンス実装や提供される機能の一覧も後半に記載されています。これにより、開発者やユーザーは、Perception Componentを使用することで現在何が可能なのか、機能をどのように活用したり、拡張したり、追加したりすることができるのかを理解することができます。 -->
 
 ## Overview
 
 The Perception Component receives inputs from Sensing, Localization, and Map components, and adds semantic information (e.g., Object Recognition, Obstacle Segmentation, Traffic Light Recognition, Occupancy Grid Map), which is then passed on to Planning Component. This component design follows the overarching philosophy of Autoware, defined as the [microautonomy concept](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts/).
 
-<!-- ## Requirements -->
-
 ## Goals and non-goals
 
-<!-- 最強のPerception Systemをdesignしたいわけではない。最強のPerception Systemでさえ実現可能な、platformをdesignしたい。 -->
-<!-- ある一つの尖ったODDに特化しているようなdesignは望ましくない。一方、ある一つの尖ったODDであっても実現可能であるようにはdesignしたい。 -->
+The role of the Perception component is to recognize the surrounding environment based on the data obtained through Sensing and acquire sufficient information (such as the presence of dynamic objects, stationary obstacles, blind spots, and traffic signal information) to enable autonomous driving.
 
-The goal of the Perception Component is to provide functionality and APIs that enable the development of various Autonomous Driving Vehicles, such as trucks driving on freeways, robotaxis navigating urban areas, Autonomous Mobile Robots traversing inside buildings, self-driving vehicles conducting transport within factories, or rovers exploring the lunar surface. This aims to offer flexibility in creating such vehicles.
+<!-- Perception コンポーネントの役割は、Sensingで得られたデータを基に、周囲の環境を認識し、自動走行を実現するために充分な情報（たとえば、周囲の動物体や、静止障害物、死角、信号機の情報）を得ることです。 -->
 
-In other words, it means the following:
+In our overall design, we emphasize the concept of [microautonomy architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts). This term refers to a design approach that focuses on the proper modularization of functions, clear definition of interfaces between these modules, and as a result, high expandability of the system. Given this context, the goal of the Perception component is set not to solve every conceivable complex use case (although we do aim to support basic ones), but rather to provide a platform that can be customized to the user's needs and can facilitate the development of additional features.
 
-- Should not only consider how to achieve the best possible Perception functionality for autonomous driving. Should consider how to design a system that can enable a platform capable of achieving even the best possible Perception functionality for autonomous driving.
-- In order to be able to develop any type of autonomous vehicle, we must design the Perception Component in a way that allows its implementation. For example, while it is possible to add features for a rover to traverse the lunar surface, it is not acceptable to design the Perception Component to work exclusively for the lunar rover, limiting its functionality to that specific purpose.
+<!-- Perceptionの全体設計において、我々は [microautonomy architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts) の概念を重視しています。microautonomy とは、適切な機能のモジュール化やインターフェースの明確な定義に基づき、システムの高い拡張性を焦点を当てた設計コンセプトです。そのため Planning component の目標は、すべての考えられる複雑なユースケースを解決することではなく（基本的なものはサポートすることを目指していますが）、ユーザーのニーズに合わせてカスタマイズでき、第三者によって機能が容易に追加可能なプラットフォームを提供することに設定されています。 -->
+
+To clarify the design concepts, the following points are listed as goals and non-goals.
+
+<!-- この設計コンセプトを明確にするため、以下に Goal と Non-Goal をリスト化します。 -->
 
 **Goals:**
 
+- The basic functions are provided so that a simple ODD can be defined.
 - To achieve a design that can provide Perception functionality to every autonomous vehicle.
 - The capability is extensible with the third-party components.
 - The Perception component is designed to provide a platform that enables autoware users to develop the complete functionality and capability.
 - The Perception component is designed to provide a platform that enables autoware users to develop the autonomous driving system which always outperforms human drivers.
 - The Perception component is designed to provide a platform that enables autoware users to develop the autonomous driving system achieving "zero overlooks" or "error-free recognition".
-- The basic functions are provided so that a simple ODD can be defined.
 
 **Non-goals:**
 
@@ -46,6 +48,11 @@ In other words, it means the following:
 - The Perception component is not aimed at the complete functionality and capability.
 - The Perception component is not designed to always outperform human drivers.
 - The Perception component is not capable of achieving "zero overlooks" or "error-free recognition".
+
+<!-- - Perceptionコンポーネントは自己完結している必要はない。ただし、サードパーティと共に拡張・強化することができることは必要。
+- Perceptionコンポーネントは自動運転としての完全な機能を目指しているわけではない。
+- Perceptionコンポーネントは常に人間のドライバーを上回るように設計されているわけではない。
+- Perceptionコンポーネントは「未検知ゼロ」「誤認識ゼロ」を実現できるわけではない。 -->
 
 ## High-level architecture
 
@@ -56,26 +63,27 @@ This diagram describes the high-level architecture of the Perception Component.
 The Perception component consists of the following sub-components:
 
 - **Object Recognition**: Recognizes dynamic objects surrounding the ego vehicle in the current frame and predicts their future trajectories.
-- **Obstacle Segmentation**: Detects not only dynamic objects but also static obstacles that should be avoided, such as stationary obstacles. For example, construction cones are recognized using this module.
+- **Obstacle Segmentation**: Identifies point clouds originating from obstacles(not only dynamic objects but also static obstacles that should be avoided, such as stationary obstacles) that the ego vehicle should avoid. For example, construction cones are recognized using this module.
 - **Occupancy Grid Map**: Detects blind spots (areas where no information is available and where dynamic objects may jump out).
 - **Traffic Light Recognition**: Recognizes the colors of traffic lights and the directions of arrow signals.
 
 ## Component interface
 
-The following describes the input/output concept between Perception Component and other components. See the [Perception Component Interface (WIP)](../../autoware-interfaces/components/perception.md) page for the current implementation.
+The following describes the input/output concept between Perception Component and other components. See [the Perception Component Interface (WIP)](../../autoware-interfaces/components/perception.md) page for the current implementation.
 
 ### Input to the perception component
 
-- **From Sensing**
-  - Camera: Image data obtained from the camera. The Perception component can utilize it for Traffic Light Recognition and Object Recognition.
-  - Point Cloud: Point Cloud data obtained from LiDAR. The Perception component can utilize it for Object Recognition and blind spot detection.
-  - RadarTrack: RadarTrack data obtained from radar. The Perception component can utilize it for Object Recognition.
-- **From Localization**
+- **From Sensing**: This input should provide real-time information about the environment.
+  - Camera: Image data obtained from the camera.
+  - Point Cloud: Point Cloud data obtained from LiDAR.
+  - RadarTrack: RadarTrack data obtained from radar.
+- **From Localization**: This input should provide real-time information about the ego vehicle.
   - Vehicle motion information: Includes the ego vehicle's position.
-- **From Map**
+- **From Map**: This input should provide real-time information about the static information about the environment.
   - Vector Map: Contains all static information about the environment, including lane aria information.
-  <!-- for filtering unknown objects outside lane and the locations of traffic lights. -->
-- Point Cloud Map: The Perception Component can utilize it for compare map filter.
+  - Point Cloud Map: Contains static point cloud maps, which shoud not include information about the dynamic objects.
+- **From API**:
+  - V2X information: The information from V2X modules. For example, the information from traffic signals.
 
 ### Output from the perception component
 
@@ -91,23 +99,20 @@ As mentioned in the goal session, this perception module is designed to be exten
 
 ## Supported Functions
 
-<!-- linuxが様々な機能を柔軟に追加できるように、autowareも、様々な機能を柔軟に追加できるようにしている。 -->
-<!-- 逆に言えば、これらの機能は、linuxのように、柔軟に様々なPolicyを達成できるように設計されているとより望ましい。 -->
-
-- Perception ComponentのFunctionsは、様々なODDにおける自動運転システム開発を実現できるようにdesignされています。
-- TODO: 残りも記載する
-
-| Feature                      | Description                                                                                                                                                                                   | Requirements                                                    | Packages                                                                                                                                                                                                                           |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| LiDAR DNN based 3D detector  | This module takes point clouds as input and performs detection of objects such as vehicles, trucks, buses, pedestrians, and bicycles.                                                         | - Point Cloud                                                   | - [lidar_centerpoint](https://github.com/autowarefoundation/autoware.universe/blob/main/perception/lidar_centerpoint/README.md)                                                                                                    |
-| Camera DNN based 2D detector | This module takes camera image as input and performs detection of objects such as vehicles, trucks, buses, pedestrians, and bicycles.                                                         | - Camera Image                                                  | - [tensorrt_yolox](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/tensorrt_yolox) <br> - [tensorrt_yolo](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/tensorrt_yolo) |
-| LiDAR Clustering             | LiDAR clustering module performs clustering of point clouds and shape estimation to achieve object detection without labels.                                                                  | - Point Cloud                                                   | - [euclidean_cluster](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/euclidean_cluster)                                                                                                              |
-| Semi-rule based detector     | Semi-rule based detector performs object detection using information from both images and point clouds, and it consists of two components: LiDAR Clustering and Camera DNN based 2D detector. | - Output from Camera DNN based 2D detector and LiDAR Clustering | - [image_projection_based_fusion](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/image_projection_based_fusion)                                                                                      |
-| Object Merger                | Object Merger integrates results from various detectors.                                                                                                                                      | - Detected Object                                               | - [object_merger](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/object_merger)                                                                                                                      |
-| Interpolator                 | Interpolator stabilizes the object detection results by maintaining long-term detection results using Tracking results.                                                                       | - Detected Object <br> - Tracked Object                         | - [detection_by_tracker](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/detection_by_tracker)                                                                                                        |
+| Feature                      | Description                                                                                                                                                                      | Requirements                                                    |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| LiDAR DNN based 3D detector  | This module takes point clouds as input and performs detection of objects such as vehicles, trucks, buses, pedestrians, and bicycles.                                            | - Point Clouds                                                  |
+| Camera DNN based 2D detector | This module takes camera image as input and performs detection of objects such as vehicles, trucks, buses, pedestrians, and bicycles.                                            | - Camera Images                                                 |
+| LiDAR Clustering             | This module performs clustering of point clouds and shape estimation to achieve object detection without labels.                                                                 | - Point Clouds                                                  |
+| Semi-rule based detector     | This module performs object detection using information from both images and point clouds, and it consists of two components: LiDAR Clustering and Camera DNN based 2D detector. | - Output from Camera DNN based 2D detector and LiDAR Clustering |
+| Object Merger                | This module integrates results from various detectors.                                                                                                                           | - Detected Objects                                              |
+| Interpolator                 | This module stabilizes the object detection results by maintaining long-term detection results using Tracking results.                                                           | - Detected Objects <br> - Tracked Objects                       |
+| Tracking                     | This module gives ID and estimate velocity to the detection results.                                                                                                             | - Detected Objects                                              |
+| Prediction                   | This module predicts the future paths (and their probabilities) of dynamic objects according to the shape of the map and the surrounding environment.                            | - Tracked Objects <br> - Vector Map                             |
+| Obstacle Segmentation        | This module identifies point clouds originating from obstacles that the ego vehicle should avoid.                                                                                | - Point Clouds <br> - Point Cloud Map                           |
+| Occupancy Grid Map           | This module detects blind spots (areas where no information is available and where dynamic objects may jump out).                                                                | - Point Clouds <br> - Point Cloud Map                           |
+| Traffic Light Recognition    | This module detects the position and state of traffic signals.                                                                                                                   | - Camera Images <br> - Vector Map                               |
 
 ## Reference Implementation
 
-autowareを起動すると、default parameterが読み込まれ、Reference Implementationが起動される。詳細については、[Reference Implementation](./reference_implementation.md)を参照。
-
-See [Reference Implementation](./reference_implementation.md)
+When Autoware is launched, the default parameters are loaded, and the Reference Implementation is started. For more details, please refer to [the Reference Implementation](./reference_implementation.md).
