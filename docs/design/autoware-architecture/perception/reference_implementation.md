@@ -54,7 +54,7 @@ The following diagram describes the reference implementation of the Perception c
   - With advancements in radar performance and a reduction in false detections expected, it is anticipated that the system will become capable of detecting both close-range and stationary objects.
 - Interpolator
   - The use of an interpolator allows for the detection of unknown objects in clustering and, if successfully tracked, helps prevent False Negatives.
-  - While reducing , there is a trade-off where issues such as inducing vehicle rotation or persistently holding falsely detected objects at a distant range may occur.
+  - While reducing , there is a trade-off where issues such as inducing vehicle rotation or persistently holding False Positives at a distant range may occur.
 
 #### Traffic Light Recognition
 
