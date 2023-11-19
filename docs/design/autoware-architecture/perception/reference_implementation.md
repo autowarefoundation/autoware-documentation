@@ -60,7 +60,7 @@ The following diagram describes the reference implementation of the Perception c
 
 - Rough detection of signal locations is conducted using a map.
   - This reduces the computational load for signal recognition detections.
-  - However, there is a trade-off, as there is a potential for false detections when the map is inaccurate or when pitch estimation is misaligned.
+  - However, there is a trade-off, as there is a potential for False Positives when the map is inaccurate or when pitch estimation is misaligned.
 
 ### Internal interface in the perception component
 
