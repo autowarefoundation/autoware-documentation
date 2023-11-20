@@ -29,6 +29,12 @@ Notes:
 | Point Cloud  | `/sensing/lidar/concatenated/pointcloud`   | [sensor_msgs/PointCloud2](https://github.com/ros2/common_interfaces/blob/humble/sensor_msgs/msg/PointCloud2.msg)                                                                              | Concatenated point cloud from multiple LiDAR sources                   |
 | Radar Object | `/sensing/radar/detected_objects`          | [autoware_auto_perception_msgs/msg/DetectedObject](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_perception_msgs/msg/DetectedObject.idl) | Radar objects                                                          |
 
+### From Localization Component
+
+| Name             | Topic                           | Type                                                                                                     | Description                |
+| ---------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------- |
+| Vehicle Odometry | `/localization/kinematic_state` | [nav_msgs/msg/Odometry](https://github.com/ros2/common_interfaces/blob/humble/nav_msgs/msg/Odometry.msg) | Ego vehicle odometry topic |
+
 ### From API
 
 | Name                     | Topic                       | Type                                                                                                                                                                   | Description                                 |
