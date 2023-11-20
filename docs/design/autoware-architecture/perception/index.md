@@ -53,9 +53,9 @@ The following describes the input/output concept between Perception Component an
 ### Input to the perception component
 
 - **From Sensing**: This input should provide real-time information about the environment.
-  - Camera: Image data obtained from the camera.
+  - Camera Image: Image data obtained from the camera.
   - Point Cloud: Point Cloud data obtained from LiDAR.
-  - RadarTrack: RadarTrack data obtained from radar.
+  - Radar Object: Object data obtained from radar.
 - **From Localization**: This input should provide real-time information about the ego vehicle.
   - Vehicle motion information: Includes the ego vehicle's position.
 - **From Map**: This input should provide real-time information about the static information about the environment.
