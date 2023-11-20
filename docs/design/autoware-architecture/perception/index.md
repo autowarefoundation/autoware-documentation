@@ -1,14 +1,8 @@
 # Perception component design
 
-!!! warning
-
-    Under Construction
-
 ## Purpose of this document
 
 This document outlines the high-level design strategies, goals and related rationales in the development of the Perception Component. Through this document, it is expected that all OSS developers will comprehend the design philosophy, goals and constraints under which the Perception Component is designed, and participate seamlessly in the development.
-
-<!-- この文書は、Perception Componentの開発における目標やハイレベルな設計戦略、およびそれに関連する意思決定とその理由を説明します。このドキュメントを通じて、すべてのOSS開発者は、Perception Componentがどのような設計思想や制約のもとで設計され、どのような目標を達成するために開発が行われているのかを理解することができます。これにより、円滑な開発参加が可能となります。 -->
 
 ## Overview
 
@@ -18,15 +12,9 @@ The Perception Component receives inputs from Sensing, Localization, and Map com
 
 The role of the Perception component is to recognize the surrounding environment based on the data obtained through Sensing and acquire sufficient information (such as the presence of dynamic objects, stationary obstacles, blind spots, and traffic signal information) to enable autonomous driving.
 
-<!-- Perception コンポーネントの役割は、Sensingで得られたデータを基に、周囲の環境を認識し、自動走行を実現するために充分な情報（たとえば、周囲の動物体や、静止障害物、死角、信号機の情報）を得ることです。 -->
-
 In our overall design, we emphasize the concept of [microautonomy architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts). This term refers to a design approach that focuses on the proper modularization of functions, clear definition of interfaces between these modules, and as a result, high expandability of the system. Given this context, the goal of the Perception component is set not to solve every conceivable complex use case (although we do aim to support basic ones), but rather to provide a platform that can be customized to the user's needs and can facilitate the development of additional features.
 
-<!-- Perceptionの全体設計において、我々は [microautonomy architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts) の概念を重視しています。microautonomy とは、適切な機能のモジュール化やインターフェースの明確な定義に基づき、システムの高い拡張性を焦点を当てた設計コンセプトです。そのため Planning component の目標は、すべての考えられる複雑なユースケースを解決することではなく（基本的なものはサポートすることを目指していますが）、ユーザーのニーズに合わせてカスタマイズでき、第三者によって機能が容易に追加可能なプラットフォームを提供することに設定されています。 -->
-
 To clarify the design concepts, the following points are listed as goals and non-goals.
-
-<!-- この設計コンセプトを明確にするため、以下に Goal と Non-Goal をリスト化します。 -->
 
 **Goals:**
 
@@ -44,11 +32,6 @@ To clarify the design concepts, the following points are listed as goals and non
 - The Perception component is not aimed at the complete functionality and capability.
 - The Perception component is not designed to always outperform human drivers.
 - The Perception component is not capable of achieving "zero overlooks" or "error-free recognition".
-
-<!-- - Perceptionコンポーネントは自己完結している必要はない。ただし、サードパーティと共に拡張・強化することができることは必要。
-- Perceptionコンポーネントは自動運転としての完全な機能を目指しているわけではない。
-- Perceptionコンポーネントは常に人間のドライバーを上回るように設計されているわけではない。
-- Perceptionコンポーネントは「未検知ゼロ」「誤認識ゼロ」を実現できるわけではない。 -->
 
 ## High-level architecture
 
