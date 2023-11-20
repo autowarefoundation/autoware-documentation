@@ -43,18 +43,18 @@ The following diagram describes the reference implementation of the Perception c
 - In the DNN-based 3D Detector, an upper limit is imposed on the number of points within a unit region of the input point cloud.
   - Without such an upper limit, there is a potential for increased processing time and memory usage, leading to the destabilization and delays of the entire autonomous driving system.
   - The trade-off involved in setting the upper limit is that, while it reduces computational load, recognition becomes impossible if the number of points within the unit region exceeds the limit. This trade-off can be addressed by incorporating a downsample filter in the preprocessing stage, but it comes at the cost of increased computational load.
-- A map-dependent detection validator is being utilized.
-  - This allows the removal of instances where buildings are falsely detected as dynamic objects.
+- A map-dependent detection validator reduces the risk of False Positives
+  - Map based validator helps to decrease False Positives. For example, this module could help eliminate instances where a building is erroneously detected as a vehicle.
   - Since it relies on the map, if the map is incorrect, objects may disappear. There is a trade-off where reducing False Positives may increase the likelihood of False Negatives.
 - A Projection-based method is used in the Camera-LiDAR pipeline.
   - Even if the sensor configuration changes, fusion is possible with calibration information, reducing the need for retraining.
   - On the flip side, there is a trade-off where objects detected by the camera may be incorrectly assigned to the wrong clusters. While it adapts well to various sensor configuration differences, it comes with the trade-off of potentially having more False Positives.
 - In the Radar Pipeline, only objects at a distant range and with significant speed are detected.
-  - Considering the current standard performance of radar systems, not limiting detection to distant and fast-moving objects could result in numerous False Positives that could interfere with vehicle movement. Instead, this approach may lead to False Negatives for distant stationary objects.
+  - Considering the current standard performance of radar systems, not limiting detection to distant and fast-moving objects could result in numerous False Positives that could interfere with vehicle movement. Instead, this approach leads to False Negatives for distant or stationary objects.
   - With advancements in radar performance and a reduction in false detections expected, it is anticipated that the system will become capable of detecting both close-range and stationary objects.
-- Interpolator
-  - The use of an interpolator allows for the detection of unknown objects in clustering and, if successfully tracked, helps prevent False Negatives.
-  - While reducing , there is a trade-off where issues such as inducing vehicle rotation or persistently holding False Positives at a distant range may occur.
+- Interpolator helps to decrease the likelihood of False Negatives.
+  - If target object is detected by unknown object in LiDAR clustering and tracked by multi object tracker, Interpolator can detect this object.
+  - However, there is a trade-off where issues such as inducing vehicle rotation or persistently holding False Positives at a distant range may occur.
 
 #### Traffic Light Recognition
 
