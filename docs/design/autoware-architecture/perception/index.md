@@ -1,4 +1,4 @@
-# Perception component design
+# Perception Component design
 
 ## Purpose of this document
 
@@ -10,9 +10,9 @@ The Perception Component receives inputs from Sensing, Localization, and Map com
 
 ## Goals and non-goals
 
-The role of the Perception component is to recognize the surrounding environment based on the data obtained through Sensing and acquire sufficient information (such as the presence of dynamic objects, stationary obstacles, blind spots, and traffic signal information) to enable autonomous driving.
+The role of the Perception Component is to recognize the surrounding environment based on the data obtained through Sensing and acquire sufficient information (such as the presence of dynamic objects, stationary obstacles, blind spots, and traffic signal information) to enable autonomous driving.
 
-In our overall design, we emphasize the concept of [microautonomy architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts). This term refers to a design approach that focuses on the proper modularization of functions, clear definition of interfaces between these modules, and as a result, high expandability of the system. Given this context, the goal of the Perception component is set not to solve every conceivable complex use case (although we do aim to support basic ones), but rather to provide a platform that can be customized to the user's needs and can facilitate the development of additional features.
+In our overall design, we emphasize the concept of [microautonomy architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts). This term refers to a design approach that focuses on the proper modularization of functions, clear definition of interfaces between these modules, and as a result, high expandability of the system. Given this context, the goal of the Perception Component is set not to solve every conceivable complex use case (although we do aim to support basic ones), but rather to provide a platform that can be customized to the user's needs and can facilitate the development of additional features.
 
 To clarify the design concepts, the following points are listed as goals and non-goals.
 
@@ -21,17 +21,17 @@ To clarify the design concepts, the following points are listed as goals and non
 - The basic functions are provided so that a simple ODD can be defined.
 - To achieve a design that can provide Perception functionality to every autonomous vehicle.
 - The capability is extensible with the third-party components.
-- The Perception component is designed to provide a platform that enables autoware users to develop the complete functionality and capability.
-- The Perception component is designed to provide a platform that enables autoware users to develop the autonomous driving system which always outperforms human drivers.
-- The Perception component is designed to provide a platform that enables autoware users to develop the autonomous driving system achieving "zero overlooks" or "error-free recognition".
+- The Perception Component is designed to provide a platform that enables Autoware users to develop the complete functionality and capability.
+- The Perception Component is designed to provide a platform that enables Autoware users to develop the autonomous driving system which always outperforms human drivers.
+- The Perception Component is designed to provide a platform that enables Autoware users to develop the autonomous driving system achieving "zero overlooks" or "error-free recognition".
 
 **Non-goals:**
 
 - The Perception Component should not operate perfectly only in specific environments and be completely useless in other environments.
-- The Perception component is not self-contained but can be extended with third parties.
-- The Perception component is not aimed at the complete functionality and capability.
-- The Perception component is not designed to always outperform human drivers.
-- The Perception component is not capable of achieving "zero overlooks" or "error-free recognition".
+- The Perception Component is not self-contained but can be extended with third parties.
+- The Perception Component is not aimed at the complete functionality and capability.
+- The Perception Component is not designed to always outperform human drivers.
+- The Perception Component is not capable of achieving "zero overlooks" or "error-free recognition".
 
 ## High-level architecture
 
@@ -39,10 +39,10 @@ This diagram describes the high-level architecture of the Perception Component.
 
 ![overall-perception-architecture](image/high-level-perception-diagram.drawio.svg)
 
-The Perception component consists of the following sub-components:
+The Perception Component consists of the following sub-components:
 
 - **Object Recognition**: Recognizes dynamic objects surrounding the ego vehicle in the current frame and predicts their future trajectories.
-- **Obstacle Segmentation**: Identifies point clouds originating from obstacles(not only dynamic objects but also static obstacles that should be avoided, such as stationary obstacles) that the ego vehicle should avoid. For example, construction cones are recognized using this module.
+- **Obstacle Segmentation**: Identifies point clouds originating from obstacles(not only dynamic objects but also static obstacles that should be avoided, such as stationary obstacles) that the ego vehicle should avoid.
 - **Occupancy Grid Map**: Detects blind spots (areas where no information is available and where dynamic objects may jump out).
 - **Traffic Light Recognition**: Recognizes the colors of traffic lights and the directions of arrow signals.
 
@@ -50,7 +50,7 @@ The Perception component consists of the following sub-components:
 
 The following describes the input/output concept between Perception Component and other components. See [the Perception Component Interface (WIP)](../../autoware-interfaces/components/perception.md) page for the current implementation.
 
-### Input to the perception component
+### Input to the Perception Component
 
 - **From Sensing**: This input should provide real-time information about the environment.
   - Camera Image: Image data obtained from the camera.
@@ -64,7 +64,7 @@ The following describes the input/output concept between Perception Component an
 - **From API**:
   - V2X information: The information from V2X modules. For example, the information from traffic signals.
 
-### Output from the perception component
+### Output from the Perception Component
 
 - **To Planning**
   - Dynamic Objects: Provides real-time information about objects that cannot be known in advance, such as pedestrians and other vehicles.
