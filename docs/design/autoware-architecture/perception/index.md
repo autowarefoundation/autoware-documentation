@@ -21,17 +21,17 @@ To clarify the design concepts, the following points are listed as goals and non
 - The basic functions are provided so that a simple ODD can be defined.
 - To achieve a design that can provide Perception functionality to every autonomous vehicle.
 - The capability is extensible with the third-party components.
-- The Perception Component is designed to provide a platform that enables Autoware users to develop the complete functionality and capability.
-- The Perception Component is designed to provide a platform that enables Autoware users to develop the autonomous driving system which always outperforms human drivers.
-- The Perception Component is designed to provide a platform that enables Autoware users to develop the autonomous driving system achieving "zero overlooks" or "error-free recognition".
+- To provide a platform that enables Autoware users to develop the complete functionality and capability.
+- To provide a platform that enables Autoware users to develop the autonomous driving system which always outperforms human drivers.
+- To provide a platform that enables Autoware users to develop the autonomous driving system achieving "zero overlooks" or "error-free recognition".
 
 **Non-goals:**
 
 - To develop a perception component architecture specialized for specific / limited ODDs.
-- The Perception Component is not self-contained but can be extended with third parties.
-- The Perception Component is not aimed at the complete functionality and capability.
-- The Perception Component is not designed to always outperform human drivers.
-- The Perception Component is not capable of achieving "zero overlooks" or "error-free recognition".
+- To achieve be self-contained.
+- To achieve the complete functionality and capability.
+- To achieve outperforming human drivers.
+- To achieve "zero overlooks" or "error-free recognition".
 
 ## High-level architecture
 
