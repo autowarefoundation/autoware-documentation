@@ -1,4 +1,4 @@
-# Perception component Reference Implementation Design
+# Perception Component Reference Implementation Design
 
 ## Purpose of this document
 
