@@ -1,9 +1,5 @@
 # Perception
 
-!!! warning
-
-    Under Construction
-
 This page provides specific specifications about the Interface of the Perception Component. Please refer to [the perception architecture reference implementation design document](../../autoware-architecture/perception/reference_implementation.md) for concepts and data flow.
 
 ## Input

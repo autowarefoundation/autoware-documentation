@@ -48,7 +48,7 @@ The Perception Component consists of the following sub-components:
 
 ## Component interface
 
-The following describes the input/output concept between Perception Component and other components. See [the Perception Component Interface (WIP)](../../autoware-interfaces/components/perception.md) page for the current implementation.
+The following describes the input/output concept between Perception Component and other components. See [the Perception Component Interface](../../autoware-interfaces/components/perception.md) page for the current implementation.
 
 ### Input to the Perception Component
 
