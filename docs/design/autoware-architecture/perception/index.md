@@ -29,7 +29,7 @@ To clarify the design concepts, the following points are listed as goals and non
 
 - To develop the perception component architecture specialized for specific / limited ODDs.
 - To achieve the complete functionality and capability.
-- To outperform the recogniton capability of human drivers.
+- To outperform the recognition capability of human drivers.
 - To achieve "100% accuracy" or "error-free recognition".
 
 ## High-level architecture
