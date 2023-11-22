@@ -27,7 +27,7 @@ To clarify the design concepts, the following points are listed as goals and non
 
 **Non-goals:**
 
-- The Perception Component should not operate perfectly only in specific environments and be completely useless in other environments.
+- To develop a perception component architecture specialized for specific / limited ODDs.
 - The Perception Component is not self-contained but can be extended with third parties.
 - The Perception Component is not aimed at the complete functionality and capability.
 - The Perception Component is not designed to always outperform human drivers.
