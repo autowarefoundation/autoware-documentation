@@ -1,4 +1,4 @@
-# Perception Component design
+# Perception Component Design
 
 ## Purpose of this document
 
