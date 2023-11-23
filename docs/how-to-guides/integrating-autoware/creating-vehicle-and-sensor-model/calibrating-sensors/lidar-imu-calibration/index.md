@@ -15,8 +15,8 @@ are calibrated comprehensively without explicit hand-crafted targets.
 
 !!! warning
 
-    So, we are providing a docker image which has ROS 1 and all necessary packages.
     This calibration tool is developed with ROS 1, and it is not compatible with ROS 2.
+    So, we are providing a docker image which has ROS 1 and all necessary packages.
     In the calibration instructions, we will ask you to install docker on your
     system.
 
@@ -164,7 +164,7 @@ After building the docker image, you need to create a container from the image:
 
 ```sh
 export REPO_PATH="/path/to/OA-LICalib"
-docker run -it --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --volume="$REPO_PATH:/root/calib_ws/src/OA-LICalib" calib:v1 bash
+docker run -it --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --volume="$REPO_PATH:/root/catkin_oa_calib/src/OA-LICalib" oalicalib bash
 ```
 
 Before running the calibration tool, you should change some parameters from the
@@ -214,6 +214,7 @@ with connecting to the container on other terminal. To connect to the container,
 you can run the following command:
 
 ```sh
+xhost +local:docker
 docker exec -it <container_name> bash
 ```
 
