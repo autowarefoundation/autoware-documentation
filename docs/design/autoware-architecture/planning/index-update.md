@@ -39,8 +39,8 @@ Autowareでは、このプラットフォーム観点から [microautonomy archi
 - **提供機能はモジュール化されており、誰でも機能の再利用や拡張が可能であること**
   - これはユーザーが期待するODDに対し、拡張機能によって対応できることを意味します。プラグインのような形で誰でも機能拡張ができれば、それぞれのニーズ（Lv4/Lv2自動運転、公道/私道走行、大型車両、小型ロボットなど）に合ったシステムが提供できます。
   - ユーザーのニーズには、純粋な自動運転としての性能ではなく、限定されたODD（例えば障害物のない管理された私道）において可能な限り消費電力を下げることなども含まれます。この場合、モジュールをdisableさせることによって、ODDを限定する代わりに、処理負荷を下げることが可能です。
-- **人間のオペレータによって能力が拡張できること**
-  - オペレータによる補助も機能拡張の一つです。これにより、非常に複雑で困難なユースケースにおいても、人間の補助という機能拡張で対応できることを意味します。ここで具体的なオペレータの種類は定義しません。研究フェーズにおいては車に同乗している人かもしれませんし、自動運転サービス提供者にとっては非常時にのみ繋がる遠隔オペレータかもしれません。
+- **オペレータとの連携によって能力が拡張できること**
+  - オペレータによる補助も機能拡張の一つです。これにより、非常に複雑で困難なユースケースにおいても、人間の補助という機能拡張で対応できることを意味します。ここでは具体的なオペレータの種類は定義されません。研究フェーズにおいては車に同乗している人かもしれませんし、自動運転サービスにおいては非常時に繋がる遠隔オペレータかもしれません。
 
 **Non-goals:**
 
@@ -49,9 +49,9 @@ Planning Componentはthird-partyのモジュールによって機能拡張され
 - ユーザーが必要とする機能の全てをAutoware単独で提供すること
 - 自動運転としての完全な機能と性能
 - 人間の性能を常に上回る性能
-- 「絶対に衝突しない」という機能
+- 完全な安全性
 
-なお、「絶対に衝突しない」といった性能は現在の目標ではありませんが、外部モジュールとの連携や将来の強化によってそのような状態を達成できるようなアーキテクチャを作成することは我々の目標です。そしてこれらの要求は自動運転プラットフォームの視点から来ているものであり、一般的な自動運転システムにおけるPlanning Componentへの要求としては一般的ではないかもしれません。
+注意として、これらの要求は自動運転プラットフォームの視点から来ているものであり、一般的な自動運転システムにおけるPlanning Componentへの要求として一般的なものではないありません。
 
 <!-- ## Requirements
 
@@ -69,15 +69,15 @@ WIP -->
 
 ![overall-planning-architecture](image/high-level-planning-diagram-miyake-reviewed.drawio.svg)
 
+ここではmicroautonomyアーキテクチャに従い、モジュール型のシステムフレームワークを採用しています。Planningの機能はモジュールとして実装され、これらのモジュールは与えられたユースケースに応じて動的/静的にload/unloadされます。これには例えば、レーンチェンジ、交差点、横断歩道モジュールなどが含まれます。
+
 Planning コンポーネントは以下のようないくつかのサブコンポーネントから構成されます。
 
-- **Mission Planning**: 地図情報を基に、自動運転ミッションの設定や現在位置からゴールまでのルート計算を行います。
+- **Mission Planning**: 地図情報を基に、自動運転ミッションの設定や現在位置からゴールまでのルート計算を行います。既存のサービスと比較すると、FMS（Fleet Management System）のミッション管理やカーナビのルート探索機能などを担当するモジュールです。
 - **Planning Modules**: 定められたミッションに対して、目標軌道やウインカーなどの自車の振る舞いの計画を行います。このサブコンポーネントは、機能を担当するいくつかのモジュールから成り立っています。これらのモジュールは便宜上、BehaviorとMotionの2つに分類されます。
-  - **Behavior Planner**: 交通ルールや安全を考慮して適切な経路を計算します。
-  - **Motion Planner**: Behavior Plannerと連携し、車両運動や乗り心地を考慮した目標軌道を計算します。
-- **Validation**: 計算された目標軌道を検証し、安全性の確保や緊急時の対応を担います。
-
-ここではmicroautonomyアーキテクチャに従い、モジュール型のシステムフレームワークを採用しています。Planningの機能はモジュールとして実装され、これらのモジュールは与えられたユースケースに応じて動的/静的にload/unloadされます。これには例えば、レーンチェンジ、交差点、横断歩道モジュールなどが含まれます。
+  - **Behavior**: 交通ルールや安全を考慮して適切な経路を計算します。レーンチェンジや交差点進入、信号停止などの安全確認および実行判断を行います。
+  - **Motion**: Behaviorと連携し、車両運動や乗り心地を考慮した目標軌道を計算します。具体的には、経路形状を計算する横方向計画と、速度を計算する縦方向計画の機能からなります。
+- **Validation**: 計算された目標軌道を検証し、安全性の確保や緊急時の対応を担います。Planningの計算した軌道が不適切な場合は、SystemにEmergencyを通知したり、暫定的な軌道生成を行います。
 
 ### Remarkable points
 
@@ -103,7 +103,7 @@ Human Machine Interfaceとの連携は、人間オペレータとの連携を円
 
 Autowareの全体設計において、Planningを孤立したComponentとして設計する際のトレードオフに注意が必要です。Planning、Perception、Localization、Controlなどのコンポーネントを分離して開発することで、サードパーティ製のコンポーネントとの連携が容易になります。しかし、パフォーマンスと拡張性の間にはトレードオフが存在します。例えば、Perceptionコンポーネントは理想的にはPlanningコンポーネントが必要とするオブジェクトだけを認識すれば十分ですが、コンポーネントを分離することでそのような密接なコミュニケーションが難しくなり、不要なオブジェクトに対しても処理を実行する必要があります。また、計画と制御を分離すると、計画時に車両の運動性能を考慮することが難しくなるという性能面の欠点があります。これを補うためには、インターフェースの情報量を増やすか、計算負荷を増やすなどの対応が必要になります。
 
-## How to extend/corporate with new features (WIP)
+## Customize features
 
 Planning Componentのデザインの最も重要な機能の一つが、外部モジュールとの連携です。以下の図に示すように外部の機能を組み込む際にはいくつかの方法があります。
 
@@ -113,7 +113,7 @@ Planning Componentのデザインの最も重要な機能の一つが、外部�
 
 ユーザーはモジュールとして作成されたPlanningの機能を置き換えたり、機能追加をすることができます。これは最も一般的な機能の拡張方法です。これによって、求めるODDにおいて不足している機能を追加したり、逆に既存の機能をよりシンプルなものに変更したりすることができます。
 
-ただし、この機能追加を行うためには、各モジュールのインターフェースが適切に整理されている必要があります。2023年11月現在では、このような理想的なモジュールの仕組みは提供されておらず、いくつかの制限があります。詳細はReference Implementationの [How to add new modules in the current implementation](#how-to-add-new-modules-in-the-current-implementation) を確認してください。
+ただし、この機能追加を行うためには、各モジュールのインターフェースが適切に整理されている必要があります。2023年11月現在では、このような理想的なモジュールの仕組みは提供されておらず、いくつかの制限があります。詳細はReference Implementationの [Customize features in the current implementation](#customize-features-in-the-current-implementation) を確認してください。
 
 ### Planningのサブコンポーネントを置き換える
 
@@ -145,7 +145,7 @@ This section describes the inputs and outputs of the Planning Component and of i
 - **From Human Machine Interface (HMI)**
   - Feature execution: Allows for executing/authorizing autonomous driving operations, such as lane changes or entering intersections, by human operators.
 - **From API Layer**
-  - Goal: Represents the final position that the Planning Component aims to reach.
+  - Destination (Goal): Represents the final position that the Planning Component aims to reach.
   - Checkpoint: Represents a midpoint along the route to the destination. This is used during route calculation.
   - Velocity limit: Sets the maximum speed limit for the vehicle.
 
@@ -275,7 +275,7 @@ One of the classic approach to Planning involves dividing it into "Behavior", wh
 
 To understand this background, this [previously discussed document](https://github.com/tier4/AutowareArchitectureProposal.proj/blob/main/docs/design/software_architecture/Planning/DesignRationale.md) may be useful.
 
-### How to add new modules in the current implementation
+### Customize features in the current implementation
 
 現時点の実装でもモジュールレベルの機能の追加は可能ですが、全ての機能に対して統一的なインターフェースは提供されていません。モジュールレベルでの拡張を行うための、現時点での実装方法について簡単に説明します。
 
