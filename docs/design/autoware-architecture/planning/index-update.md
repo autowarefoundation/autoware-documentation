@@ -24,11 +24,11 @@
 
 ## Goals and non-goals
 
-我々の目標は、純粋な自動運転システムの開発ではなく、自動運転"プラットフォーム"の開発です。このプラットフォームでは、誰もが自動運転の機能を自由に拡張できます。
+我々の目標は、純粋な自動運転システムの開発ではなく、自動運転「プラットフォーム」の開発です。このプラットフォームでは、誰もが自動運転の機能を自由に拡張できます。
 
 Autowareでは、このプラットフォーム観点から [microautonomy architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts) の概念を提唱しています。Microautonomyとは、適切な機能のモジュール化やインターフェースの明確な定義に基づき、高い拡張性に焦点を当てた自動運転システムの設計コンセプトです。
 
-これを踏まえ、Planning componentの設計方針は、世の中のすべての複雑な自動運転のユースケースを解決することではなく（なぜならそれは非常に難しい問題だからです）、**ユーザーのニーズに合わせてカスタマイズでき、誰でも容易に機能拡張が可能なPlanning開発プラットフォームを提供すること**に設定されています。我々が提供するプラットフォームが様々なニーズに対する拡張性を獲得した結果、最終的に多くの複雑なユースケースが解決できるようになると信じています。
+これを踏まえ、Planning componentの設計方針は、世の中のすべての複雑な自動運転のユースケースを解決することではなく（なぜならそれは非常に難しい問題だからです）、**ユーザーのニーズに合わせてカスタマイズでき、誰でも容易に機能拡張が可能なPlanning開発プラットフォームを提供すること** に設定されています。我々が提供するプラットフォームが様々なニーズに対する拡張性を獲得した結果、最終的に多くの複雑なユースケースが解決できるようになると信じています。
 
 この方針を明確にするため、以下にGoalとNon-Goalをリスト化します。
 
@@ -36,9 +36,9 @@ Autowareでは、このプラットフォーム観点から [microautonomy archi
 
 - **自動運転の走行に必要な最低限の基本機能を持つこと**
   - Planning Componentは、機能拡張以前に、自動運転のために必須な機能を提供する必要があります。これには、走る、止まる、曲がるといった基本計画に加え、比較的安全でシンプルな状況での車線変更や信号停止などの機能が含まれます。
-- **提供機能はモジュール化されており、誰でも機能の再利用や拡張が可能であること**
+- **提供機能はモジュール化されており、誰でも機能の拡張が可能であること**
   - これはユーザーが期待するODDに対し、拡張機能によって対応できることを意味します。プラグインのような形で誰でも機能拡張ができれば、それぞれのニーズ（Lv4/Lv2自動運転、公道/私道走行、大型車両、小型ロボットなど）に合ったシステムが提供できます。
-  - ユーザーのニーズには、純粋な自動運転としての性能ではなく、限定されたODD（例えば障害物のない管理された私道）において可能な限り消費電力を下げることなども含まれます。この場合、モジュールをdisableさせることによって、ODDを限定する代わりに、処理負荷を下げることが可能です。
+  - また、限定されたODD（例えば障害物のない管理された私道）において、機能を縮小できることも重要です。モジュール化された機能をDisableすることによって、機能を限定する代わりに処理負荷や消費電力を削減できます。
 - **オペレータとの連携によって能力が拡張できること**
   - オペレータによる補助も機能拡張の一つです。これにより、非常に複雑で困難なユースケースにおいても、人間の補助という機能拡張で対応できることを意味します。ここでは具体的なオペレータの種類は定義されません。研究フェーズにおいては車に同乗している人かもしれませんし、自動運転サービスにおいては非常時に繋がる遠隔オペレータかもしれません。
 
@@ -46,7 +46,7 @@ Autowareでは、このプラットフォーム観点から [microautonomy archi
 
 Planning Componentはthird-partyのモジュールによって機能拡張されることを想定しています。したがって、以下はAutowareのPlanning Component単体の目標から除外されます。
 
-- ユーザーが必要とする機能の全てをAutoware単独で提供すること
+- ユーザーが必要とする機能の全てをAutoware単体で提供すること
 - 自動運転としての完全な機能と性能
 - 人間の性能を常に上回る性能
 - 完全な安全性
@@ -79,9 +79,9 @@ Planning コンポーネントは以下のようないくつかのサブコン�
   - **Motion**: Behaviorと連携し、車両運動や乗り心地を考慮した目標軌道を計算します。具体的には、経路形状を計算する横方向計画と、速度を計算する縦方向計画の機能からなります。
 - **Validation**: 計算された目標軌道を検証し、安全性の確保や緊急時の対応を担います。Planningの計算した軌道が不適切な場合は、SystemにEmergencyを通知したり、暫定的な軌道生成を行います。
 
-### Remarkable points
+### Highlights
 
-このハイレベルデザインにおいて、Goalsに対する重要な設計として、以下を挙げます。
+このハイレベルデザインにおける重要なポイントを以下に列挙します。
 
 #### Modulation of each function
 
@@ -162,8 +162,8 @@ This section describes the inputs and outputs of the Planning Component and of i
 - **To API Layer**
   - Planning factors: Provides information about the reasoning behind the current planning behavior. This may include the position of target objects to avoid, obstacles that led to the decision to stop, and other relevant information.
 
-### Internal interface in the planning component
 
+### Internal interface in the planning component
 - **Mission Planning to Scenario Planning**
   - Route: Offers guidance for the path that needs to be followed from the starting point to the destination. This path is determined based on information such as lane IDs defined on the map. At the route level, it doesn't explicitly indicate which specific lanes to take, and the route can contain multiple lanes.
 - **Behavior Planning to Motion Planning**
