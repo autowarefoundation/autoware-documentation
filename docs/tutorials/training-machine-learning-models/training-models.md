@@ -40,3 +40,14 @@ In order to assist you with your training process, we have also included an exam
 This dataset contains 600 lidar frames and covers 5 classes, including 6905 cars, 3951 pedestrians, 75 cyclists, 162 buses, and 326 trucks.
 
 You can utilize this example dataset to facilitate your training efforts.
+
+## Training yolox detection model for Traffic_light_fine_detector package
+
+To train custom yolox traffic light detection models and convert them into ONNX format for deployment in Autoware, please refer to the instructions provided in the README file included with the
+**"traffic_light_fine_detector"** package. These instructions will provide a step-by-step guide for training yolox model.
+
+In order to assist you with your training process, we have also included a sample dataset in the Pascal VOC format.
+This dataset contains 1062 cropped images of traffic lights and annotations.
+You can utilize **[this example dataset](https://autoware-files.s3.us-west-2.amazonaws.com/dataset/traffic_light_detection_sample_dataset.tar.gz)** to facilitate your training efforts.
+
+Detailed instructions for training the traffic light detector model can be found **[here](https://github.com/autowarefoundation/autoware.universe/blob/main/perception/traffic_light_fine_detector/README.md)**.
