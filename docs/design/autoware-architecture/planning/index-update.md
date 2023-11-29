@@ -24,7 +24,7 @@
 
 ## Goals and non-goals
 
-我々の目標は、純粋な自動運転システムの開発ではなく、自動運転「プラットフォーム」の開発です。このプラットフォームでは、誰もが自動運転の機能を自由に拡張できます。
+我々の目標は、純粋な自動運転システムの開発ではなく、自動運転「プラットフォーム」の提供です。このプラットフォームでは、誰もが自動運転の機能を自由に拡張できます。
 
 Autowareでは、このプラットフォーム観点から [microautonomy architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts) の概念を提唱しています。Microautonomyとは、適切な機能のモジュール化やインターフェースの明確な定義に基づき、高い拡張性に焦点を当てた自動運転システムの設計コンセプトです。
 
