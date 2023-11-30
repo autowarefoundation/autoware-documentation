@@ -34,6 +34,8 @@ graph TD
     <font size=1>radar_msgs/RadarScan</font size>"):::cls_sen
     msg_pc_combined_ldr("<font size=2><b>Combined Lidar Point Cloud</b></font size>
     <font size=1>sensor_msgs/PointCloud2</font size>"):::cls_sen
+    msg_pc_ldr("<font size=2><b>Lidar Point Cloud</b></font size>
+    <font size=1>sensor_msgs/PointCloud2</font size>"):::cls_sen
     msg_pose_gnss("<font size=2><b>GNSS-INS Pose</b></font size>
     <font size=1>geometry_msgs/PoseWithCovarianceStamped</font size>"):::cls_sen
     msg_gnssori_sen("<font size=2><b>GNSS-INS Orientation</b></font size>
@@ -60,6 +62,7 @@ graph TD
     cmp_sen --> msg_pc_combined_rdr
     cmp_sen --> msg_pc_rdr
     cmp_sen --> msg_pc_combined_ldr
+    cmp_sen --> msg_pc_ldr
     cmp_sen --> msg_pose_gnss
     cmp_sen --> msg_gnssacc_sen
     msg_ult_sen --> cmp_per
@@ -68,6 +71,7 @@ graph TD
     msg_pc_rdr --> cmp_per
     msg_pc_combined_ldr --> cmp_per
     msg_pc_combined_ldr --> cmp_loc
+    msg_pc_ldr --> cmp_loc
     msg_pose_gnss --> cmp_loc
     msg_gnssori_sen --> cmp_loc
     msg_gnssvel_sen --> cmp_loc
@@ -163,6 +167,12 @@ Pointcloud from radar. Used by the Perception.
 ### Combined Lidar Point Cloud
 
 Lidar pointcloud after preprocessing. Used by the Perception and Localization.
+
+- [sensor_msgs/PointCloud2](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg)
+
+### Lidar Point Cloud
+
+Lidar pointcloud after preprocessing. Used by the Localization.
 
 - [sensor_msgs/PointCloud2](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg)
 
