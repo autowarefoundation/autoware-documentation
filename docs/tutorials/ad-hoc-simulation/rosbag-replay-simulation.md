@@ -47,6 +47,10 @@
 
 ## How to run a rosbag replay simulation
 
+!!! info [Using Autoware Launch GUI](#using-autoware-launch-gui)
+
+    If you prefer a graphical user interface (GUI) over the command line for launching and managing your simulations, refer to the `Using Autoware Launch GUI` section at the end of this document for a step-by-step guide.
+
 1. Launch Autoware.
 
    ```sh
@@ -76,3 +80,53 @@
    ![third-person-follower](images/rosbag-replay/third-person-follower.png)
 
 [Reference video tutorials](https://drive.google.com/file/d/12D6aSC1Y3Kf7STtEPWG5RYynxKdVcPrc/view?usp=sharing)
+
+## Using Autoware Launch GUI
+
+This section provides a step-by-step guide for using the Autoware Launch GUI to launch and manage your rosbag replay simulation. offering an alternative to the command-line instructions provided in the previous section.
+
+### Getting Started with Autoware Launch GUI
+
+1. **Installation:** Ensure you have installed the Autoware Launch GUI. [Installation instructions](https://github.com/autowarefoundation/autoware-launch-gui#installation).
+
+2. **Launching the GUI:** Open the Autoware Launch GUI from your applications menu.
+   ![GUI_screenshot_for_launching](images/rosbag-replay/launch-gui/launch_gui_main.png)
+
+### Launching a Logging Simulation
+
+1. **Set Autoware Path:** In the GUI, set the path to your Autoware installation.
+   ![GUI_screenshot_for_setting_Autoware_path](images/rosbag-replay/launch-gui/launch_gui_setup.png)
+2. **Select Launch File:** Choose `logging_simulator.launch.xml` for the lane driving scenario.
+   ![GUI screenshot for selecting launch file](images/rosbag-replay/launch-gui/selecting_launch_file.png)
+3. **Customize Parameters:** Adjust parameters such as `map_path`, `vehicle_model`, and `sensor_model` as needed.
+
+   ![GUI screenshot for customizing parameters](images/rosbag-replay/launch-gui/customizing-parameters1.png)
+   ![GUI screenshot for customizing parameters](images/rosbag-replay/launch-gui/customizing-parameters2.png)
+
+4. **Start Simulation:** Click the launch button to start the simulation and have access to all the logs.
+
+   ![GUI screenshot for starting simulation](images/rosbag-replay/launch-gui/starting_simulation.png)
+
+5. **Play Rosbag:** Move to the `Rosbag` tab and select the rosbag file you wish to play.
+
+   ![GUI screenshot for selecting rosbag file](images/rosbag-replay/launch-gui/selecting_rosbag_file.png)
+
+6. **Adjust Playback Speed:** Adjust the playback speed as needed and any other parameters you wish to customize.
+
+   ![GUI screenshot for adjusting playback speed](images/rosbag-replay/launch-gui/adjusting_flags.png)
+
+7. **Start Playback:** Click the play button to start the rosbag playback and have access to settings such as `pause/play`, `stop`, and `speed slider`5.
+
+   ![GUI screenshot for starting playback](images/rosbag-replay/launch-gui/starting_playback.png)
+
+8. **View Simulation:** Move to the `RViz` window to view the simulation.
+
+   ![after-rosbag-play](images/rosbag-replay/after-rosbag-play.png)
+
+9. To focus the view on the ego vehicle, change the `Target Frame` in the RViz Views panel from `viewer` to `base_link`.
+
+   ![change-target-frame](images/rosbag-replay/change-target-frame.png)
+
+10. To switch the view to `Third Person Follower` etc, change the `Type` in the RViz Views panel.
+
+    ![third-person-follower](images/rosbag-replay/third-person-follower.png)

@@ -65,6 +65,10 @@ sudo apt-get -y install git
 
 ## How to set up a workspace
 
+!!! info [Using Autoware Build GUI](#using-autoware-build-gui)
+
+    If you prefer a graphical user interface (GUI) over the command line for launching and managing your simulations, refer to the `Using Autoware Build GUI` section at the end of this document for a step-by-step guide.
+
 1. Create the `src` directory and clone repositories into it.
 
    Autoware uses [vcstool](https://github.com/dirk-thomas/vcstool) to construct workspaces.
@@ -136,3 +140,37 @@ sudo apt-get -y install git
    ```bash
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
+
+## Using Autoware Build GUI
+
+In addition to the traditional command-line methods of building Autoware packages, developers and users can leverage the Autoware Build GUI for a more streamlined and user-friendly experience. This GUI application simplifies the process of building and managing Autoware packages.
+
+### Integration with Autoware Source Installation
+
+When using the Autoware Build GUI in conjunction with the traditional source installation process:
+
+- **Initial Setup**: Follow the standard Autoware source installation guide to set up your environment and workspace.
+- **Using the GUI**: Once the initial setup is complete, you can use the Autoware Build GUI to manage subsequent builds and package updates.
+
+This integration offers a more accessible approach to building and managing Autoware packages, catering to both new users and experienced developers.
+
+### Getting Started with Autoware Build GUI
+
+1. **Installation:** Ensure you have installed the Autoware Build GUI. [Installation instructions](https://github.com/autowarefoundation/autoware-build-gui#installation).
+2. **Launching the App**: Once installed, launch the Autoware Build GUI.
+   ![Build_GUI_Main](images/build-gui/build_gui_main.png)
+3. **Setting Up**: Set the path to your Autoware folder within the GUI.
+   ![Build_GUI_Setup](images/build-gui/build_gui_setup.png)
+4. **Building Packages**: Select the Autoware packages you wish to build and manage the build process through the GUI.
+   ![Build_GUI_Build](images/build-gui/build_gui_build.png)
+
+   4.1. **Build Configuration**: Choose from a list of default build configurations, or select the packages you wish to build manually.
+   ![Build_GUI_Build_Configuration](images/build-gui/build_gui_build_configuration.png)
+
+   4.2. **Build Options**: Choose which build type you wish to use, with ability to specify additional build options.
+   ![Build_GUI_Build_Options](images/build-gui/build_gui_build_options.png)
+
+5. **Save and Load**: Save your build configurations for future use, or load a previously saved configuration if you don't wish to build all packages or use one of the default configurations provided.
+   ![Build_GUI_Save](images/build-gui/build_gui_save.png)
+6. **Updating Workspace**: Update your Autoware workspace's packages to the latest version using the GUI or adding Calibration tools to the workspace.
+   ![Build_GUI_Update](images/build-gui/build_gui_update.png)
