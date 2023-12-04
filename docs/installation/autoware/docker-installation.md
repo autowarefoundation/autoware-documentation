@@ -39,39 +39,6 @@ This usually indicates that a new NVIDIA graphics driver has been installed (usu
 
 To fix this, restart your system after installing the new NVIDIA driver.
 
-### Docker with NVIDIA gpu fails to start Autoware on arm64 devices
-
-When starting Docker with GPU support enabled for NVIDIA graphics on arm64 devices, e.g. NVIDIA jetson AGX xavier, you may receive the following error:
-
-```bash
-nvidia@xavier:~$ rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:humble-latest-cuda-arm64
-...
-
-Collecting staticx==0.12.3
-Downloading https://files.pythonhosted.org/packages/92/ff/d9960ea1f9db48d6044a24ee0f3d78d07bcaddf96eb0c0e8806f941fb7d3/staticx-0.12.3.tar.gz (68kB)
-Complete output from command python setup.py egg_info:
-Traceback (most recent call last):
-File "", line 1, in
-File "/tmp/pip-install-m_nm8mya/staticx/setup.py", line 4, in
-from wheel.bdist_wheel import bdist_wheel
-ModuleNotFoundError: No module named 'wheel'
-
-Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-install-m_nm8mya/staticx/
-...
-```
-
-This error exists in current version of rocker tool, which relates to the os_detection function of rocker.
-
-To fix this error, temporary modification of rocker source code is required, which is not recommended.
-
-At current stage, it is recommended to run docker without NVIDIA gpu enabled for arm64 devices:
-
-```bash
-rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
-```
-
-This tutorial will be updated after official fix from rocker.
-
 ## Tips
 
 ### Non-native arm64 System
