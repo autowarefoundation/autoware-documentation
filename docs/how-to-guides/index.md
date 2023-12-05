@@ -1,8 +1,8 @@
 # How-to guides
 
-## Integrating Autoware
+## Open source slam algorithms for pointcloud mapping
 
-- [Overview](integrating-autoware/overview.md)
+- [Open Source Slam Algorithms](open-source-slam/index.md)
 
 ## Training Machine Learning Models
 

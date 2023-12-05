@@ -1,5 +1,5 @@
 nav:
-  - Vehicle interface overview: vehicle-interface.md
+  - index.md
   - creating-vehicle-interface.md
   - ackermann-kinematic-model.md
   - customizing-for-differential-drive-model.md

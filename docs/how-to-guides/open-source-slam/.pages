@@ -7,7 +7,6 @@ nav:
   - IA_LIO_SAM: ia-lio-slam
   - iscloam: iscloam
   - LeGO-LOAM-BOR: lego-loam-bor
-  - LIO-SAM: lio-sam
   - Optimized-SC-F-LOAM: optimized-sc-f-loam
   - SC-A-LOAM: sc-a-loam
   - SC-LeGO-LOAM: sc-lego-loam

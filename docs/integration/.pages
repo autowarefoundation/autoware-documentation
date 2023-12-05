@@ -1,5 +1,5 @@
 nav:
-  - overview.md
+  - index.md
   - 1. Creating your Autoware repositories: creating-your-autoware-repositories
   - 2. Creating vehicle and sensor model: creating-vehicle-and-sensor-model
   - 3. Creating vehicle interface: creating-vehicle-interface-package

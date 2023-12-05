@@ -1,6 +1,6 @@
 nav:
   - index.md
-  - Open-source SLAM algorithms: open-source-slam
+  - Creating pointcloud map with LIO-SAM: lio-sam
   - Converting UTM map to MGRS map: converting-utm-to-mgrs-map
   - Pointcloud map downsampling: pointcloud-map-downsampling
   - Creating a vector map: creating-vector-map
