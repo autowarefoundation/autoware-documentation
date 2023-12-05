@@ -32,8 +32,6 @@ graph TD
     <font size=1>radar_msgs/RadarTracks</font size>"):::cls_sen
     msg_pc_rdr("<font size=2><b>Radar Pointcloud</b></font size>
     <font size=1>radar_msgs/RadarScan</font size>"):::cls_sen
-    msg_pc_combined_ldr("<font size=2><b>Combined Lidar Point Cloud</b></font size>
-    <font size=1>sensor_msgs/PointCloud2</font size>"):::cls_sen
     msg_pc_ldr("<font size=2><b>Lidar Point Cloud</b></font size>
     <font size=1>sensor_msgs/PointCloud2</font size>"):::cls_sen
     msg_pose_gnss("<font size=2><b>GNSS-INS Pose</b></font size>
@@ -61,7 +59,6 @@ graph TD
     cmp_sen --> msg_gnssvel_sen
     cmp_sen --> msg_pc_combined_rdr
     cmp_sen --> msg_pc_rdr
-    cmp_sen --> msg_pc_combined_ldr
     cmp_sen --> msg_pc_ldr
     cmp_sen --> msg_pose_gnss
     cmp_sen --> msg_gnssacc_sen
@@ -69,8 +66,7 @@ graph TD
     msg_img_sen --> cmp_per
     msg_pc_combined_rdr --> cmp_per
     msg_pc_rdr --> cmp_per
-    msg_pc_combined_ldr --> cmp_per
-    msg_pc_combined_ldr --> cmp_loc
+    msg_pc_ldr --> cmp_per
     msg_pc_ldr --> cmp_loc
     msg_pose_gnss --> cmp_loc
     msg_gnssori_sen --> cmp_loc
@@ -104,8 +100,7 @@ classDef cls_sen fill:#FFE6CC,stroke:#999,stroke-width:1px;
 | Camera Image               |       | [sensor_msgs/Image](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Image.msg)                                               | Image data from camera. Used by the Perception.                                |
 | Combined Radar Tracks      |       | [radar_msgs/RadarTracks.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTracks.msg)                                            | Radar tracks from radar. Used by the Perception.                               |
 | Radar Point Cloud          |       | [radar_msgs/RadarScan.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarScan.msg)                                                | Pointcloud from radar. Used by the Perception.                                 |
-| Combined Lidar Point Cloud |       | [sensor_msgs/PointCloud2](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg)                                   | Lidar pointcloud after preprocessing. Used by the Perception and Localization. |
-| Lidar Point Cloud          |       | [sensor_msgs/PointCloud2](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg)                                   | Lidar pointcloud after preprocessing. Used by the Localization.                |
+| Lidar Point Cloud          |       | [sensor_msgs/PointCloud2](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg)                                   | Lidar pointcloud after preprocessing. Used by the Perception and Localization.  |
 | GNSS-INS pose              |       | [geometry_msgs/PoseWithCovarianceStamped](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/PoseWithCovarianceStamped.msg)   | Initial pose of the ego vehicle from GNSS. Used by the Localization.           |
 | GNSS-INS Orientation       |       | [sensor_msgs/Imu](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Imu.msg)                                                   | Orientation info from GNSS. Used by the Localization.                          |
 | GNSS Velocity              |       | [geometry_msgs/TwistWithCovarianceStamped](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/TwistWithCovarianceStamped.msg) | Velocity of the ego vehicle from GNSS. Used by the Localization.               |
