@@ -84,118 +84,29 @@ classDef cls_sen fill:#FFE6CC,stroke:#999,stroke-width:1px;
 
 ## Inputs
 
-### Ultrasonics
-
-Distance data from ultrasonic radar driver.
-
-- [sensor_msgs/Range](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Range.msg)
-
-### Camera Image
-
-Image data from camera driver.
-
-- [sensor_msgs/Image](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Image.msg)
-
-### Radar Tracks
-
-Tracks from radar driver.
-
-- [radar_msgs/RadarTracks](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTracks.msg)
-
-### Radar Scan
-
-Scan from radar driver.
-
-- [radar_msgs/RadarScan](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarScan.msg)
-
-### Lidar Point Cloud
-
-Pointcloud from lidar driver.
-
-- [sensor_msgs/PointCloud2](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg)
-
-### GNSS-INS Position
-
-Initial pose from GNSS driver.
-
-- [geometry_msgs/NavSatFix](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/NavSatFix.msg)
-
-### GNSS-INS Orientation
-
-Initial orientation from GNSS driver.
-
-- [autoware_sensing_msgs/GnssInsOrientationStamped](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_sensing_msgs/msg/GnssInsOrientationStamped.msg)
-
-### GNSS Velocity
-
-Initial velocity from GNSS driver.
-
-- [geometry_msgs/TwistWithCovarianceStamped](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/TwistWithCovarianceStamped.msg)
-
-### GNSS Acceleration
-
-Initial acceleration from GNSS driver.
-
-- [geometry_msgs/AccelWithCovarianceStamped](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/AccelWithCovarianceStamped.msg)
+| Name       | Topic             | Type                                                                                                                                                 | Description                                            |
+| ---------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| Ultrasonics |  | [sensor_msgs/Range](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Range.msg) | Distance data from ultrasonic radar driver. |
+| Camera Image |  | [sensor_msgs/Image](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Image.msg) | Image data from camera driver. |
+| Radar Tracks |  | [radar_msgs/RadarTracks](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTracks.msg) | Tracks from radar driver. |
+| Radar Scan |  | [radar_msgs/RadarScan](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarScan.msg) | Scan from radar driver. |
+| Lidar Point Cloud |  | [sensor_msgs/PointCloud2](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg) | Pointcloud from lidar driver. |
+| GNSS-INS Position |  | [geometry_msgs/NavSatFix](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/NavSatFix.msg) | Initial pose from GNSS driver. |
+| GNSS-INS Orientation |  | [autoware_sensing_msgs/GnssInsOrientationStamped](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_sensing_msgs/msg/GnssInsOrientationStamped.msg) | Initial orientation from GNSS driver. |
+| GNSS Velocity |  | [geometry_msgs/TwistWithCovarianceStamped](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/TwistWithCovarianceStamped.msg) | Initial velocity from GNSS driver. |
+| GNSS Acceleration |  | [geometry_msgs/AccelWithCovarianceStamped](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/AccelWithCovarianceStamped.msg) | Initial acceleration from GNSS driver. |
 
 ## Output
 
-### Ultrasonics
-
-Distance data from ultrasonic radar. Used by the Perception.
-
-- [sensor_msgs/Range](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Range.msg)
-
-### Camera Image
-
-Image data from camera. Used by the Perception.
-
-- [sensor_msgs/Image](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Image.msg)
-
-### Combined Radar Tracks
-
-Radar tracks from radar. Used by the Perception.
-
-- [radar_msgs/RadarTracks.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTracks.msg)
-
-### Radar Point Cloud
-
-Pointcloud from radar. Used by the Perception.
-
-- [radar_msgs/RadarScan.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarScan.msg)
-
-### Combined Lidar Point Cloud
-
-Lidar pointcloud after preprocessing. Used by the Perception and Localization.
-
-- [sensor_msgs/PointCloud2](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg)
-
-### Lidar Point Cloud
-
-Lidar pointcloud after preprocessing. Used by the Localization.
-
-- [sensor_msgs/PointCloud2](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg)
-
-### GNSS-INS pose
-
-Initial pose of the ego vehicle from GNSS. Used by the Localization.
-
-- [geometry_msgs/PoseWithCovarianceStamped](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/PoseWithCovarianceStamped.msg)
-
-### GNSS-INS Orientation
-
-Orientation info from GNSS. Used by the Localization.
-
-- [sensor_msgs/Imu](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Imu.msg)
-
-### GNSS velocity
-
-Velocity of the ego vehicle from GNSS. Used by the Localization.
-
-- [geometry_msgs/TwistWithCovarianceStamped](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/TwistWithCovarianceStamped.msg)
-
-### GNSS Acceleration
-
-Acceleration of the ego vehicle from GNSS. Used by the Localization.
-
-- [geometry_msgs/AccelWithCovarianceStamped](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/AccelWithCovarianceStamped.msg)
+| Name       | Topic             | Type                                                                                                                                                 | Description                                            |
+| ---------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| Ultrasonics |  | [sensor_msgs/Range](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Range.msg) | Distance data from ultrasonic radar. Used by the Perception. |
+| Camera Image |  | [sensor_msgs/Image](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Image.msg) | Image data from camera. Used by the Perception. |
+| Combined Radar Tracks |  | [radar_msgs/RadarTracks.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTracks.msg) | Radar tracks from radar. Used by the Perception. |
+| Radar Point Cloud |  | [radar_msgs/RadarScan.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarScan.msg) | Pointcloud from radar. Used by the Perception. |
+| Combined Lidar Point Cloud |  | [sensor_msgs/PointCloud2](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg) | Lidar pointcloud after preprocessing. Used by the Perception and Localization. |
+| Lidar Point Cloud |  | [sensor_msgs/PointCloud2](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg) | Lidar pointcloud after preprocessing. Used by the Localization. |
+| GNSS-INS pose |  | [geometry_msgs/PoseWithCovarianceStamped](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/PoseWithCovarianceStamped.msg) | Initial pose of the ego vehicle from GNSS. Used by the Localization. |
+| GNSS-INS Orientation |  | [sensor_msgs/Imu](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Imu.msg) | Orientation info from GNSS. Used by the Localization. |
+| GNSS Velocity |  | [geometry_msgs/TwistWithCovarianceStamped](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/TwistWithCovarianceStamped.msg) | Velocity of the ego vehicle from GNSS. Used by the Localization. |
+| GNSS Acceleration |  | [geometry_msgs/AccelWithCovarianceStamped](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/AccelWithCovarianceStamped.msg) | Acceleration of the ego vehicle from GNSS. Used by the Localization. |
