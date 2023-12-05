@@ -16,7 +16,7 @@ while using the same launch files with the same sensor model.
 
 ## Placing your `individual_parameters` repository inside Autoware
 
-[Previously on this guide](../../creating-your-autoware-repositories/creating-autoware-repositories.md),
+[Previously on this guide](../../creating-your-autoware-repositories/index.md),
 we forked the `autoware_individual_params` repository
 to create a [tutorial_vehicle_individual_params](https://github.com/leo-drive/tutorial_vehicle_individual_params) repository
 which will be used as an example for this section of the guide.

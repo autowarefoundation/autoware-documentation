@@ -3,7 +3,7 @@
 At this page, we will explain how to create a simple lanelet on your point cloud map.
 If you didn't have a point cloud map before,
 please check
-and follow the steps on the [LIO-SAM mapping page](../../open-source-slam/lio-sam)
+and follow the steps on the [LIO-SAM mapping page](../../lio-sam)
 for how to create a point cloud map for Autoware.
 
 ## Creating a Lanelet2

@@ -16,10 +16,10 @@ We will explain how to run and launch autoware with these modules:
 
 Please complete these steps for integration Autoware on your vehicle:
 
-- [Create your Autoware meta-repository](../creating-your-autoware-repositories/creating-autoware-repositories.md).
+- [Create your Autoware meta-repository](../creating-your-autoware-repositories/index.md).
 - [Create your vehicle and sensor model](../creating-vehicle-and-sensor-model/index.md).
 - [Calibrate your sensors](../creating-vehicle-and-sensor-model/calibrating-sensors/index.md).
-- [Create your Autoware compatible vehicle interface](../creating-vehicle-interface-package/vehicle-interface.md).
+- [Create your Autoware compatible vehicle interface](../creating-vehicle-interface-package/index.md).
 - [Create your environment map](../creating-maps).
 
 After the completion of these steps according to your individual vehicle,

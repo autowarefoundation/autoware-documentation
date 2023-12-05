@@ -173,7 +173,7 @@ on how to create and customize each of your vehicle's packages:
   - [Creating sensor model](../creating-vehicle-and-sensor-model/creating-sensor-model/index.md)
   - [Creating individual params](../creating-vehicle-and-sensor-model/creating-individual-params/index.md)
   - [Creating vehicle model](../creating-vehicle-and-sensor-model/creating-vehicle-model/index.md)
-- [creating-vehicle-interface-package](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model/)
+- [creating-vehicle-interface-package](../creating-vehicle-interface-package)
 - [customizing-for-differential-drive-model](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/customizing-for-differential-drive-model/)
 
 Please remember to add all your custom packages, such as interfaces and descriptions, to your `autoware.repos` to ensure that your packages are properly included and managed within the Autoware repository.

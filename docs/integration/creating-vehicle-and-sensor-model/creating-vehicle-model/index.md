@@ -8,7 +8,7 @@ This page introduces the following packages for the vehicle model:
 2. `<YOUR-VEHICLE-NAME>_vehicle_launch`
 
 Previously,
-we forked our vehicle model at the [creating autoware repositories](../../creating-your-autoware-repositories/creating-autoware-repositories.md) page step.
+we forked our vehicle model at the [creating autoware repositories](../../creating-your-autoware-repositories/index.md) page step.
 For instance,
 we created [tutorial_vehicle_launch](https://github.com/leo-drive/tutorial_vehicle_launch)
 as an implementation example for the said step.
@@ -105,7 +105,7 @@ Now, we will modify these files according to our vehicle design.
 ### mirror.param.yaml
 
 This file describes your vehicle mirror dimension for
-[CropBox filter](https://autowarefoundation.github.io/autoware.universe/main/sensing/pointcloud_preprocessor/docs/crop-box-filter/) of [PointCloudPreprocessor](../../../../design/autoware-architecture/sensing/data-types/point-cloud.md).
+[CropBox filter](https://autowarefoundation.github.io/autoware.universe/main/sensing/pointcloud_preprocessor/docs/crop-box-filter/) of [PointCloudPreprocessor](../../../design/autoware-architecture/sensing/data-types/point-cloud.md).
 This is important for cropping mirrors from your lidar's point cloud.
 
 The `mirror.param.yaml` consist of the following parameters:
@@ -170,7 +170,7 @@ The file consists of these parameters:
 
 This file stores the vehicle dimensions for Autoware modules.
 Please update it with your vehicle information.
-You can refer to the [vehicle dimensions](../../../../design/autoware-interfaces/components/vehicle-dimensions.md) page for detailed dimension demonstration.
+You can refer to the [vehicle dimensions](../../../design/autoware-interfaces/components/vehicle-dimensions.md) page for detailed dimension demonstration.
 Here is the `vehicle_info.param.yaml` for [sample_vehicle](https://github.com/autowarefoundation/sample_vehicle_launch/blob/main/sample_vehicle_description/config/vehicle_info.param.yaml):
 
 ```yaml
@@ -235,7 +235,7 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --package
 
 If your vehicle interface is ready,
 then you can add your vehicle_interface launch file in `vehicle_interface.launch.xml`.
-Please check the [creating vehicle interface](../../creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model.md) page for more info.
+Please check the [creating vehicle interface](../../creating-vehicle-interface-package/creating-vehicle-interface.md) page for more info.
 
 ### Launch planning simulator with your own vehicle
 

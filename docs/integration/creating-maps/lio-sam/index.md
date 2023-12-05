@@ -241,7 +241,7 @@ Here is the video for demonstration of LIO-SAM mapping in our campus environment
 The output map format is local UTM,
 we will change local UTM map to MGRS format for tutorial_vehicle.
 Also, if you want change UTM to MGRS for autoware,
-please follow [convert-utm-to-mgrs-map](../../converting-utm-to-mgrs-map) page.
+please follow [convert-utm-to-mgrs-map](../converting-utm-to-mgrs-map) page.
 
 ## Example Result
 
