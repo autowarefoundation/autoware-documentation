@@ -97,12 +97,13 @@ you can add this argument on `tier4_localization_component.launch.xml` launch fi
 **Note:** Gyro odometer input topic provided from velocity converter package. This package will be launched at sensor_kit. For more information,
 please check [velocity converter package](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/vehicle_velocity_converter).
 
-## Note when using non NDT pose estiamtor
+## Note when using non NDT pose estimator
 
 !!! note
-Since NDT is currently the most often used pose_estiamtor, the NDT diagnostics are registered for monitoring by default.
-When using a pose_estimator othen than NDT, NDT diagnostics will always be marked as stale, causing the system to enter a safe_fault state.
-Depending on the parameters of emergencies, this could escalate to a full emergency, preventing autonomous driving.
+
+    Since NDT is currently the most often used pose_estimator , the NDT diagnostics are registered for monitoring by default.
+    When using a pose_estimator other than NDT, NDT diagnostics will always be marked as stale, causing the system to enter a safe_fault state.
+    Depending on the parameters of emergencies, this could escalate to a full emergency, preventing autonomous driving.
 
 To work around this, please modify the configuration file of the system_error_monitor.
 In the [system_error_monitor.param.yaml](https://github.com/autowarefoundation/autoware.universe/blob/main/system/system_error_monitor/config/system_error_monitor.param.yaml) file, `/autoware/localization/performance_monitoring/matching_score` represents the aggregated diagnostics for NDT.
