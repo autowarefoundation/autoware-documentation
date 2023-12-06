@@ -60,7 +60,7 @@ Key aspects of this high-level design include:
 
 #### Modulation of each function
 
-Essential Planning functions, such as route generation, lane changes, and intersection management, are modularized. These modules come with standardized interfaces, enabling easy addition or modification. More details on these interfaces will be discussed in subsequent sections.
+Essential Planning functions, such as route generation, lane changes, and intersection management, are modularized. These modules come with standardized interfaces, enabling easy addition or modification. More details on these interfaces will be discussed in subsequent sections. You can see the details about how to enable/disable each module in [the implementation documentation of Planning](https://autowarefoundation.github.io/autoware.universe/main/planning/#how-to-enable-or-disable-planning-module).
 
 #### Separation of Mission Planning sub-component
 
@@ -88,7 +88,7 @@ A significant feature of the Planning Component design is its ability to integra
 
 Users can augment or replace existing Planning functionalities with new modules. This approach is commonly used for extending features, allowing for the addition of capabilities absent in the desired ODD or simplification of existing features.
 
-However, adding these functionalities requires well-organized module interfaces. As of November 2023, an ideal modular system is not fully established, presenting some limitations. For more information, please refer to the Reference Implementation section [Customize features in the current implementation](#customize-features-in-the-current-implementation).
+However, adding these functionalities requires well-organized module interfaces. As of November 2023, an ideal modular system is not fully established, presenting some limitations. For more information, please refer to the Reference Implementation section [Customize features in the current implementation](#customize-features-in-the-current-implementation) and [the implementation documentation of Planning](https://autowarefoundation.github.io/autoware.universe/main/planning/#how-to-enable-or-disable-planning-module).
 
 ### 2. Replacing Sub-components of Planning
 
