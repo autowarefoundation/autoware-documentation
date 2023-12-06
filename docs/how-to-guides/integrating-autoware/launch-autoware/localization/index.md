@@ -100,9 +100,9 @@ please check [velocity converter package](https://github.com/autowarefoundation/
 ## Note when using non NDT pose estiamtor
 
 !!! note
-    Since NDT is currently the most often used pose_estiamtor, the NDT diagnostics are registered for monitoring by default.
-    When using a pose_estimator othen than NDT, NDT diagnostics will always be marked as stale, causing the system to enter a safe_fault state.
-    Depending on the parameters of emergencies, this could escalate to a full emergency, preventing autonomous driving.
+Since NDT is currently the most often used pose_estiamtor, the NDT diagnostics are registered for monitoring by default.
+When using a pose_estimator othen than NDT, NDT diagnostics will always be marked as stale, causing the system to enter a safe_fault state.
+Depending on the parameters of emergencies, this could escalate to a full emergency, preventing autonomous driving.
 
 To work around this, please modify the configuration file of the system_error_monitor.
 In the [system_error_monitor.param.yaml](https://github.com/autowarefoundation/autoware.universe/blob/main/system/system_error_monitor/config/system_error_monitor.param.yaml) file, `/autoware/localization/performance_monitoring/matching_score` represents the aggregated diagnostics for NDT.
