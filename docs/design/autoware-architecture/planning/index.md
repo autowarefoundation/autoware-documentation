@@ -20,12 +20,12 @@ To clarify this policy, the Goals and Non-Goals are defined as follows:
 
 **Goals:**
 
-- **Ensuring essential functions for autonomous driving**
+- **The basic functions are provided so that a simple ODD can be defined**
   - Before extending its functionalities, the Planning Component must provide the essential features necessary for autonomous driving. This encompasses basic operations like moving, stopping, and turning, as well as handling lane changes and obstacle avoidance in relatively safe and simple contexts.
-- **Modularized functionalities for user-driven extension**
+- **The functionality is modularized for user-driven extension**
   - The system is designed to adapt to various Operational Design Domains (ODDs) with extended functionalities. Modularization, akin to plug-ins, allows for creating systems tailored to diverse needs, such as different levels of autonomous driving and varied vehicular or environmental applications (e.g., Lv4/Lv2 autonomous driving, public/private road driving, large vehicles, small robots).
   - Reducing functionalities for specific ODDs, like obstacle-free private roads, is also a key aspect. This modular approach allows for reductions in power consumption or sensor requirements, aligning with specific user needs.
-- **Enhancement through operator collaboration**
+- **The capability is extensible with the decision of human operators**
   - Incorporating operator assistance is a critical aspect of functional expansion. It means that the system can adapt to complex and challenging scenarios with human support. The specific type of operator is not defined here. It might be a person accompanying in the vehicle during the prototype development phase or a remote operator connected in emergencies during autonomous driving services.
 
 **Non-goals:**
@@ -33,8 +33,8 @@ To clarify this policy, the Goals and Non-Goals are defined as follows:
 The Planning Component is designed to be extended with third-party modules. Consequently, the following are not the goals of Autoware's Planning Component:
 
 - To provide all user-required functionalities by default.
-- Complete functionality and performance characteristic of an autonomous driving system.
-- Performance that consistently surpasses human capabilities or ensures absolute safety.
+- To provide complete functionality and performance characteristic of an autonomous driving system.
+- To provide performance that consistently surpasses human capabilities or ensures absolute safety.
 
 These aspects are specific to our vision of an autonomous driving "platform" and may not apply to a typical autonomous driving Planning Component.
 
