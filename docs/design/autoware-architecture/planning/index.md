@@ -72,7 +72,7 @@ Given the extendable nature of the Planning Component, ensuring consistent safet
 
 #### Interface for HMI (Human Machine Interface)
 
-The HMI is designed in high-level for smooth cooperation with human operators. These interfaces enable coordination between the Planning Component and operators, whether in-vehicle or remote.
+The HMI is designed for smooth cooperation with human operators. These interfaces enable coordination between the Planning Component and operators, whether in-vehicle or remote.
 
 #### Trade-offs for the separation of planning and other components
 
