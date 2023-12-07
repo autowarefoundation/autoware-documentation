@@ -2,6 +2,7 @@ nav:
   - Introduction: index.md
   - installation
   - tutorials
+  - integration
   - how-to-guides
   - design
   - Reference HW: reference-hw
