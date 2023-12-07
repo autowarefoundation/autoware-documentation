@@ -49,7 +49,7 @@ The Perception Component consists of the following sub-components:
   - Animals
   - Traffic Cones
   - Fallen Objects, Flying Objects, etc: Items such as cardboard, drums, wood, etc., either falling or airborne.
-- **Obstacle Segmentation**: Identifies point clouds originating from obstacles, including both dynamic objects and static obstacles that equires the ego vehicle either steer clear of them or come to a stop in front of the obstacles.
+- **Obstacle Segmentation**: Identifies point clouds originating from obstacles, including both dynamic objects and static obstacles that requires the ego vehicle either steer clear of them or come to a stop in front of the obstacles.
   - This includes:
     - all dynamic objects (as listed above)
     - curbs/bollards
