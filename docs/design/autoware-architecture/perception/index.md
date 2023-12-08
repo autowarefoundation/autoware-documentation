@@ -40,8 +40,28 @@ This diagram describes the high-level architecture of the Perception Component.
 
 The Perception Component consists of the following sub-components:
 
-- **Object Recognition**: Recognizes dynamic objects surrounding the ego vehicle in the current frame and predicts their future trajectories.
-- **Obstacle Segmentation**: Identifies point clouds originating from obstacles(not only dynamic objects but also static obstacles that should be avoided, such as stationary obstacles) that the ego vehicle should avoid.
+- **Object Recognition**: Recognizes dynamic objects surrounding the ego vehicle in the current frame, objects that were not present during map creation, and predicts their future trajectories. This includes:
+  - Pedestrians
+  - Cars
+  - Trucks/Buses
+  - Bicycles
+  - Motorcycles
+  - Animals
+  - Traffic cones
+  - Road debris: Items such as cardboard, oil drums, trash cans, wood, etc., either dropped on the road or floating in the air
+- **Obstacle Segmentation**: Identifies point clouds originating from obstacles, including both dynamic objects and static obstacles that requires the ego vehicle either steer clear of them or come to a stop in front of the obstacles.
+  - This includes:
+    - All dynamic objects (as listed above)
+    - Curbs/Bollards
+    - Barriers
+    - Trees
+    - Walls/Buildings
+  - This does not include:
+    - Grass
+    - Water splashes
+    - Smoke/Vapor
+    - Newspapers
+    - Plastic bags
 - **Occupancy Grid Map**: Detects blind spots (areas where no information is available and where dynamic objects may jump out).
 - **Traffic Light Recognition**: Recognizes the colors of traffic lights and the directions of arrow signals.
 
