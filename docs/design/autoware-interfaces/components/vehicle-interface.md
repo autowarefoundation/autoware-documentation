@@ -1,70 +1,61 @@
 # Vehicle Interface
 
-![Node diagram](images/Vehicle-Interface-Bus-ODD-Architecture.drawio.svg)
+This page provides specific specifications about the interface of the Vehicle Interface Component. Please refer to the [Vehicle Interface design document](../../autoware-architecture/vehicle/) for high-level concepts and data flow.
+
+**TODO: The detailed definitions (meanings of elements included in each topic) are not described yet, need to be updated.**
 
 The `Vehicle Interface` receives the `Vehicle Signal Commands` and `Vehicle Control Commands` and publishes the vehicle status. It also communicates with vehicle by the vehicle-specific protocol.
 
-The `Gate` switches multiple `Vehicle Control Commands`. These signals include autonomous diving command, joystick, remote control, and emergency operation, etc.
 The `Adapter` converts generalized control command (target steering, steering rate, velocity, acceleration, jerk) into vehicle-specific control values (steering-torque, wheel-torque, voltage, pressure, accel pedal position, etc).
 
 ## Inputs
 
-### Error status
+### From Planning Component
+### From Control Component
 
-(See Inputs of Planning.)
+| Name                    | Topic                           | Type                                                                                                                                      | Description                                        |
+| ----------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| Control command | `/control/command/control_cmd` | autoware_auto_control_msgs/msg/AckermannControlCommand | Target control of the vehicle (steering, velocity, ...) |
+| Emergency command | `/control/command/emergency_cmd` | tier4_vehicle_msgs/msg/VehicleEmergencyStamped | TODO |
+| Gear command | `/control/command/gear_cmd` | autoware_auto_vehicle_msgs/msg/GearCommand | Target gear of the vehicle |
+| Hazard lights command | `/control/command/hazard_lights_cmd` | autoware_auto_vehicle_msgs/msg/HazardLightsCommand | Control of hazard lights |
+| Turn indicator command | `/control/command/turn_indicators_cmd` | autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand | Control of turn signals |
 
-### Vehicle Control Command
 
-(See Output of Control.)
-
-### Vehicle Signals Commands
-
-Commands for various elements of the vehicle unrelated to motion. Published by the Planning module.
+### From API
 
 ## Outputs
 
-### Vehicle Signal Reports
+### To Autoware
 
-Reports for various elements of the vehicle unrelated to motion. Published by the Vehicle Interface.
+| Name                    | Topic                           | Type                                                                                                                                      | Description                                        |
+| ----------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| | `/vehicle/status/actuation_status` | tier4_vehicle_msgs/msg/ActuationStatusStamped | TODO |
+| | `/vehicle/status/control_mode` | autoware_auto_vehicle_msgs/msg/ControlModeReport | TODO |
+| | `/vehicle/status/door_status` | tier4_api_msgs/msg/DoorStatus | TODO |
+| | `/vehicle/status/gear_status` | autoware_auto_vehicle_msgs/msg/GearReport | TODO |
+| | `/vehicle/status/hazard_lights_status` | autoware_auto_vehicle_msgs/msg/HazardLightsReport | TODO |
+| | `/vehicle/status/steering_status` | autoware_auto_vehicle_msgs/msg/SteeringReport | TODO |
+| | `/vehicle/status/steering_wheel_status` | tier4_vehicle_msgs/msg/SteeringWheelStatusStamped | TODO |
+| | `/vehicle/status/turn_indicators_status` | autoware_auto_vehicle_msgs/msg/TurnIndicatorsReport | TODO |
+| | `/vehicle/status/velocity_status` | autoware_auto_vehicle_msgs/msg/VelocityReport | TODO |
 
-### Vehicle Odometry
+### To the vehicle
+
+Vehicle specific messages protocol like CAN (Controller Area Network).
+
+
+### To Control Component
+
+### To Localization Component
 
 Odometry of the vehicle. Used by the Localization module to update the pose of the vehicle in the map.
 
 - [geometry_msgs/TwistWithCovarianceStamped](https://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/TwistWithCovarianceStamped.html) odometry
 
-### Steering Status
 
-Steering of the ego vehicle. Published by the Vehicle Interface.
+## Vehicle Communication
 
-- Steering message ([github discussion](https://github.com/autowarefoundation/autoware/discussions/2462)).
-  - builtin_interfaces::msg::Time stamp
-  - float32 steering_angle
+## Internal interface
 
-### Actuation Status
-
-Actuation status of the ego vehicle for acceleration, steering, and brake. This represents the reported physical efforts exerted by the vehicle actuators. Published by the Vehicle Interface.
-
-- ActuationStatus ([github discussion](https://github.com/autowarefoundation/autoware/discussions/2462)).
-  - builtin_interfaces::msg::Time stamp
-  - float32 acceleration
-  - float32 steering
-  - float32 brake
-
-**The message definition is under discussion.**
-
-### Actuation Command
-
-Actuation command sent to the ego vehicle. This represents the requested physical efforts to be exerted by the vehicle actuators. Published by the Vehicle Interface as generated by the adapter.
-
-- ActuationCommand ([github discussion](https://github.com/autowarefoundation/autoware/discussions/2462).)
-  - builtin_interfaces::msg::Time stamp
-  - float32 acceleration
-  - float32 steering
-  - float32 brake
-
-**The message definition is under discussion.**
-
-### Vehicle Communication
-
-Vehicle specific messages protocol like CAN (Controller Area Network).
+| Actuation command | /control/command/actuation_cmd | tier4_vehicle_msgs/msg/ActuationCommandStamped | Target TODO |
