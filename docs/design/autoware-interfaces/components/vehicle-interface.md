@@ -35,7 +35,7 @@ The `Adapter` converts generalized control command (target steering, steering ra
 ## Communication with the vehicle
 
 The interface to communicate with the vehicle varies between brands and models.
-For example a vehicle specific message protocol like CAN (Controller Area Network) with a ROS2 interface (e.g., [pacmod](https://github.com/astuff/pacmod3)).
+For example a vehicle specific message protocol like CAN (Controller Area Network) with a ROS 2 interface (e.g., [pacmod](https://github.com/astuff/pacmod3)).
 In addition, an Autoware specific interface is often necessary (e.g., [pacmod_interface](https://github.com/tier4/pacmod_interface/tree/main/pacmod_interface)).
 
 ### Custom control commands
