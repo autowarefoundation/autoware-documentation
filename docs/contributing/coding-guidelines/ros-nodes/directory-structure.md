@@ -52,7 +52,7 @@ Place document files and link from README.
 Place header files exposed to other packages. Do not place files directly under the `include` directory, but place files under the directory with the package name.
 This directory is used for mostly library headers. Note that many headers do not need to be placed here. It is enough to place the headers under the `src` directory.
 
-Reference: <https://docs.ros.org/en/rolling/How-To-Guides/Ament-CMake-Documentation.html#adding-files-and-headers>
+Reference: <https://docs.ros.org/en/humble/How-To-Guides/Ament-CMake-Documentation.html#adding-targets>
 
 #### `launch`
 
