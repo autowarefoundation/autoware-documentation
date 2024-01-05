@@ -20,7 +20,7 @@ If you need more detailed information about package, refer to the [control_perfo
 #### 3. Launch the control_performance_analysis package
 
 ```bash
-ros2 launch control_performance_analysis controller_performance_analysis.launch.xml
+ros2 launch control_performance_analysis control_performance_analysis.launch.xml
 ```
 
 - After this command, you should be able to see the driving monitor and error variables in topics.
