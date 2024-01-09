@@ -9,11 +9,11 @@ This page introduces the following packages for the sensor model:
 3. `<YOUR-VEHICLE-NAME>_sensor_kit_launch`
 
 Previously,
-we forked our vehicle model at the [creating autoware repositories](../../creating-your-autoware-repositories/creating-autoware-repositories.md) page step.
+we forked our sensor model at the [creating autoware repositories](../../creating-your-autoware-repositories/creating-autoware-repositories.md) page step.
 For instance,
-we created [tutorial_vehicle_launch](https://github.com/leo-drive/tutorial_vehicle_launch)
+we created [tutorial_vehicle_sensor_kit_launch](https://github.com/leo-drive/tutorial_vehicle_sensor_kit_launch)
 as an implementation example for the said step.
-Please ensure that the <YOUR-VEHICLE-NAME>\_vehicle_launch repository is included in Autoware,
+Please ensure that the <YOUR-VEHICLE-NAME>\_sensor_kit_launch repository is included in Autoware,
 following the directory structure below:
 
 ```diff
@@ -26,9 +26,9 @@ following the directory structure below:
                  └─ <YOUR-VEHICLE-NAME>_sensor_kit_launch/
 ```
 
-If your forked Autoware meta-repository doesn't include `<YOUR-VEHICLE-NAME>_vehicle_launch` with the correct folder structure
+If your forked Autoware meta-repository doesn't include `<YOUR-VEHICLE-NAME>_sensor_kit_launch` with the correct folder structure
 as shown above,
-please add your forked `<YOUR-VEHICLE-NAME>_vehicle_launch` repository to the autoware.repos file
+please add your forked `<YOUR-VEHICLE-NAME>_sensor_kit_launch` repository to the autoware.repos file
 and run the vcs import src < autoware.repos command in your terminal
 to import the newly included repositories at autoware.repos file.
 
@@ -75,7 +75,7 @@ Change the `project()` method at `CmakeList.txt` file.
 ```
 
 Remember to apply the name changes and project method for **BOTH**
-`<YOUR-VEHICLE-NAME>_vehicle_description`and `<YOUR-VEHICLE-NAME>_vehicle_launch` ROS 2 packages.
+`<YOUR-VEHICLE-NAME>_sensor_kit_description`and `<YOUR-VEHICLE-NAME>_sensor_kit_launch` ROS 2 packages.
 Once finished, we can proceed to build said packages:
 
 ```bash
@@ -346,7 +346,7 @@ Here is the sensors.xacro file for sample_sensor_kit_description package:
 </robot>
 ```
 
-At out tutorial vehicle,
+At our tutorial vehicle,
 there is no directly sensor transformation for base_link,
 thus our sensors.xacro file includes only `base_link` and `sensor_kit_base_link` link.
 
