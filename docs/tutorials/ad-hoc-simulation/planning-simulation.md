@@ -104,7 +104,14 @@ After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button i
    ![parking-maneuver](images/planning/parking/parking-maneuver.png)
 
 
-### Test
+### Pull over and pull out scenario
+
+1. Start by parking the vehicle on the side of the road.
+
+   ![pullover-pullout](images/planning/pullover-pullout/pullover-pullout.jpg)
+
+2. Set your goal, then engage the vehicle
+
 
 ### Lane change scenario
 
