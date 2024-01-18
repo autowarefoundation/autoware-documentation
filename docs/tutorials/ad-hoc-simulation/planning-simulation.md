@@ -103,6 +103,16 @@ After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button i
 
    ![parking-maneuver](images/planning/parking/parking-maneuver.png)
 
+### Pull-over and pull-out scenario
+
+1. Begin by positioning the ego-vehicle at the roadside.
+
+   ![pullover-pullout](images/planning/pullover-pullout/pullover-pullout.jpg)
+
+2. set a destination and then activate the vehicle.
+
+3. In a pull-over scenario, similarly position the ego-vehicle in a lane and set a destination to the roadside.
+
 ### Lane change scenario
 
 1. Download and unpack Nishishinjuku map.
@@ -140,16 +150,6 @@ After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button i
    ![set-dummy-bus](images/planning/avoidance/set-dummy-bus.png)
 
 3. Engage the ego vehicle. It will avoid the obstacle along the newly planned path.
-
-### Pull-over and pull-out scenario
-
-1. Begin by positioning the ego-vehicle at the roadside.
-
-   ![pullover-pullout](images/planning/pullover-pullout/pullover-pullout.jpg)
-
-2. set a destination and then activate the vehicle.
-
-3. In a pull-over scenario, similarly position the ego-vehicle in a lane and set a destination to the roadside.
 
 ## Advanced Simulations
 
