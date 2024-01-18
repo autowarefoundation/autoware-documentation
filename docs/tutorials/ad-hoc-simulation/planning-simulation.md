@@ -105,7 +105,7 @@ After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button i
 
 ### Pull-over and pull-out scenario
 
-1. Begin by positioning the ego-vehicle at the roadside.
+1. Begin by positioning the ego vehicle at the road shoulder.
 
    ![pullover-pullout](images/planning/pullover-pullout/pullover-pullout.jpg)
 
