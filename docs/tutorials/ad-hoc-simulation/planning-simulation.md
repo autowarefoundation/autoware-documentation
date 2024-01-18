@@ -103,7 +103,7 @@ After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button i
 
    ![parking-maneuver](images/planning/parking/parking-maneuver.png)
 
-### Pull over and pull out scenario
+### Pull out and pull over scenario
 
 1. In a pull out scenario, set the ego vehicle at the road shoulder.
 
