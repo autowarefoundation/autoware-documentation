@@ -109,7 +109,7 @@ After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button i
 
    ![pullover-pullout](images/planning/pullover-pullout/pullover-pullout.jpg)
 
-2. Set a destination and then engage the ego vehicle.
+2. Set a goal and then engage the ego vehicle.
 
 3. In a pull over scenario, similarly set the ego vehicle in a lane and set a goal on the road shoulder.
 
