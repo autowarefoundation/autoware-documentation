@@ -111,7 +111,7 @@ After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button i
 
 2. Set a destination and then engage the ego vehicle.
 
-3. In a pull-over scenario, similarly set the ego vehicle in a lane and set a destination on the road shoulder.
+3. In a pull over scenario, similarly set the ego vehicle in a lane and set a goal on the road shoulder.
 
 ### Lane change scenario
 
