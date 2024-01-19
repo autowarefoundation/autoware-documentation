@@ -103,6 +103,16 @@ After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button i
 
    ![parking-maneuver](images/planning/parking/parking-maneuver.png)
 
+### Pull out and pull over scenario
+
+1. In a pull out scenario, set the ego vehicle at the road shoulder.
+
+   ![pullover-pullout](images/planning/pullover-pullout/pullover-pullout.jpg)
+
+2. Set a goal and then engage the ego vehicle.
+
+3. In a pull over scenario, similarly set the ego vehicle in a lane and set a goal on the road shoulder.
+
 ### Lane change scenario
 
 1. Download and unpack Nishishinjuku map.
