@@ -35,9 +35,11 @@ If not, please, follow [Manual downloading of artifacts](https://github.com/auto
 
 ## Basic simulations
 
-!!! info [Using Autoware Launch GUI](#using-autoware-launch-gui)
+!!! info
 
-    If you prefer a graphical user interface (GUI) over the command line for launching and managing your simulations, refer to the `Using Autoware Launch GUI` section at the end of this document for a step-by-step guide.
+      [Using Autoware Launch GUI](#using-autoware-launch-gui)
+
+      If you prefer a graphical user interface (GUI) over the command line for launching and managing your simulations, refer to the `Using Autoware Launch GUI` section at the end of this document for a step-by-step guide.
 
 ### Lane driving scenario
 

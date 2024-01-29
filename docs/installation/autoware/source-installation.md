@@ -65,9 +65,10 @@ sudo apt-get -y install git
 
 ## How to set up a workspace
 
-!!! info [Using Autoware Build GUI](#using-autoware-build-gui)
+!!! info
 
-    If you prefer a graphical user interface (GUI) over the command line for launching and managing your simulations, refer to the `Using Autoware Build GUI` section at the end of this document for a step-by-step guide.
+      [Using Autoware Build GUI](#using-autoware-build-gui)
+      If you prefer a graphical user interface (GUI) over the command line for launching and managing your simulations, refer to the `Using Autoware Build GUI` section at the end of this document for a step-by-step guide.
 
 1. Create the `src` directory and clone repositories into it.
 
