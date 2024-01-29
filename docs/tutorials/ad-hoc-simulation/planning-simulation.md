@@ -218,6 +218,18 @@ To remove a traffic light from `TrafficLightPublishPanel`, click the `RESET` but
 
 [Reference video tutorials](https://drive.google.com/file/d/1bs_dX1JJ76qHk-SGvS6YF9gmekkN8fz7/view?usp=sharing)
 
+### Crosswalk stop simulation
+
+#### Update/Reset traffic light
+
+
+
+
+
+
+
+
+
 ## Using Autoware Launch GUI
 
 This section provides a step-by-step guide on using the Autoware Launch GUI for planning simulations, offering an alternative to the command-line instructions provided in the Basic simulations section.
