@@ -219,6 +219,7 @@ To remove a traffic light from `TrafficLightPublishPanel`, click the `RESET` but
 [Reference video tutorials](https://drive.google.com/file/d/1bs_dX1JJ76qHk-SGvS6YF9gmekkN8fz7/view?usp=sharing)
 
 <<<<<<< HEAD
+
 ### Driving across a crosswalk
 
 When driving across a crosswalk, ego vehicle will respond to objects on the crosswalk and the traffic light.
@@ -259,20 +260,13 @@ To pass through an unsignalized crosswalk, the ego vehicle will first slow down 
 
 4. Set the traffic light to `GREEN` and engage the vehicle, the ego vehicle will stop for safety check and start move again.
 
-   ![signalized-passing](images/planning/passing-crosswalk/signalized-passing.png)
-=======
+   # ![signalized-passing](images/planning/passing-crosswalk/signalized-passing.png)
+
 ### Crosswalk stop simulation
 
 #### Update/Reset traffic light
 
-
-
-
-
-
-
-
->>>>>>> cef822f8d2aecbd19b7d45b8cb5541c6b317ef89
+> > > > > > > cef822f8d2aecbd19b7d45b8cb5541c6b317ef89
 
 ## Using Autoware Launch GUI
 
