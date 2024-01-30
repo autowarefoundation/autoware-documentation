@@ -252,7 +252,7 @@ To pass through an unsignalized crosswalk, the ego vehicle will first slow down 
 
 ![signalized-traffic-light-stop](images/planning/passing-crosswalk/signalized-traffic-light-stop.png)
 
-3. Set a dummy pedestrian on the crosswalk agian. It can be seen that both the **traffic_light** and **crosswalk** (the two markings may overlap) affact the stopping behavior.
+3. Set a dummy pedestrian on the crosswalk agian. It can be seen that both the **traffic_light** and **crosswalk** affact the stopping behavior. The two markings may overlap.
 
 ![signalized-traffic-light-crosswalk-stop.png](images/planning/passing-crosswalk/signalized-traffic-light-crosswalk-stop.png)
 
