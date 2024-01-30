@@ -47,7 +47,7 @@
 
 ## How to run a rosbag replay simulation
 
-!!! info [Using Autoware Launch GUI](#using-autoware-launch-gui)
+!!! info "[Using Autoware Launch GUI](#using-autoware-launch-gui)"
 
     If you prefer a graphical user interface (GUI) over the command line for launching and managing your simulations, refer to the `Using Autoware Launch GUI` section at the end of this document for a step-by-step guide.
 
