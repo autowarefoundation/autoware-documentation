@@ -221,7 +221,7 @@ To remove a traffic light from `TrafficLightPublishPanel`, click the `RESET` but
 <<<<<<< HEAD
 ### Driving across a crosswalk
 
-When driving across a crosswalk, ego vehicle will respond to objects on the crosswalk and the traffic light. 
+When driving across a crosswalk, ego vehicle will respond to objects on the crosswalk and the traffic light.
 
 #### Unsignalized crosswalk
 
@@ -231,7 +231,7 @@ To pass through an unsignalized crosswalk, the ego vehicle will first slow down 
 
    ![unsignalized-placing-ego-vehicle](images/planning/passing-crosswalk/unsignalized-placing-ego-vehicle.png)
 
-2. Place a dummy pedestrian on the crosswalk and set its pose as if it is crossing the street. 
+2. Place a dummy pedestrian on the crosswalk and set its pose as if it is crossing the street.
 
    ![unsignalized-crosswalk-start](images/planning/passing-crosswalk/unsignalized-crosswalk-start.png)
 
