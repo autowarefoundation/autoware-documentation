@@ -218,6 +218,36 @@ To remove a traffic light from `TrafficLightPublishPanel`, click the `RESET` but
 
 [Reference video tutorials](https://drive.google.com/file/d/1bs_dX1JJ76qHk-SGvS6YF9gmekkN8fz7/view?usp=sharing)
 
+### Passing through a crosswalk
+
+#### Unsignalized crosswalk
+
+1. Set an initial pose and a goal pose driving through an unsignalized crosswalk. A path will be planned.
+
+![unsignalized-placing-ego-vehicle](images/planning/passing-crosswalk/unsignalized-placing-ego-vehicle.png)
+
+2. Place a dummy pedestrian on the crosswalk and set its pose as if it is crossing the street. 
+
+![unsignalized-crosswalk-start](images/planning/passing-crosswalk/unsignalized-crosswalk-start.png)
+
+3. Engage the ego vehicle. The ego vehicle will decelerate and stop before the crosswalk.
+
+![unsignalized-crosswalk-stop](images/planning/passing-crosswalk/unsignalized-crosswalk-stop.png)
+
+4. Wait for about three seconds. Then the ego vehicle will start moving again and cross the crosswalk.
+
+![unsignalized-crosswalk-move-again](images/planning/passing-crosswalk/unsignalized-crosswalk-move-again.png)
+
+#### Signalized crosswalk
+
+
+
+
+
+
+
+
+
 ## Using Autoware Launch GUI
 
 This section provides a step-by-step guide on using the Autoware Launch GUI for planning simulations, offering an alternative to the command-line instructions provided in the Basic simulations section.
