@@ -47,10 +47,10 @@ You might need to log out and log back to make the current user able to use dock
     Before proceeding, confirm and agree with the [NVIDIA Deep Learning Container license](https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license).
     By pulling and using the Autoware Universe images, you accept the terms and conditions of the license.
 
-1. Create the `autoware_map` directory for map data later.
+1. Create the `autoware_map` directory and `autoware_data` directory to store downloaded data later.
 
    ```bash
-   mkdir ~/autoware_map
+   mkdir ~/autoware_map ~/autoware_data
    ```
 
 2. Pull the Docker image
@@ -64,13 +64,13 @@ You might need to log out and log back to make the current user able to use dock
    - For amd64 architecture computers with NVIDIA GPU:
 
      ```bash
-     rocker --nvidia --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
+     rocker --nvidia --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map --volume $HOME/autoware_data -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
      ```
 
    - If you want to run container without using NVIDIA GPU, or for arm64 architecture computers:
 
      ```bash
-     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
+     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map --volume $HOME/autoware_data-- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
      ```
 
      For detailed reason could be found [here](./docker-installation.md#docker-with-nvidia-gpu-fails-to-start-autoware-on-arm64-devices)
@@ -122,13 +122,13 @@ You might need to log out and log back to make the current user able to use dock
    - For amd64 architecture computers:
 
      ```bash
-     rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
+     rocker --nvidia --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map --volume $HOME/autoware_data-- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
      ```
 
    - If you want to run container without using NVIDIA GPU, or for arm64 architecture computers:
 
      ```bash
-     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
+     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map --volume $HOME/autoware_data -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
      ```
 
 3. Update the `.repos` file.
