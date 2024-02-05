@@ -26,6 +26,7 @@ To install without **NVIDIA GPU** support:
 ```bash
 ./setup-dev-env.sh -y --no-nvidia docker
 ```
+
 !!! info
 
     GPU acceleration is required for some features such as object detection and traffic light detection/classification. For details of how to enable these features without a GPU, refer to the [Running Autoware without CUDA](../how-to-guides/others/running-autoware-without-cuda.md).
@@ -52,11 +53,11 @@ For more launch options you can edit the launch command with `--launch-cmd` opti
 
 #### Run Autoware simulator
 
-   Inside the container, you can run the Autoware simulation by following these tutorials:
+Inside the container, you can run the Autoware simulation by following these tutorials:
 
-   [Planning Simulation](../../tutorials/ad-hoc-simulation/planning-simulation.md)
+[Planning Simulation](../../tutorials/ad-hoc-simulation/planning-simulation.md)
 
-   [Rosbag Replay Simulation](../../tutorials/ad-hoc-simulation/rosbag-replay-simulation.md).
+[Rosbag Replay Simulation](../../tutorials/ad-hoc-simulation/rosbag-replay-simulation.md).
 
 ### Development Setup
 
@@ -97,8 +98,8 @@ For more launch options you can edit the launch command with `--launch-cmd` opti
    If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting/index.md#build-issues).
 
 > **To Update the Workspace**
-> 
-> ```bash 
+>
+> ```bash
 > cd autoware
 > git pull
 > vcs import src < autoware.repos

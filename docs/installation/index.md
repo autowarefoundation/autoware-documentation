@@ -37,6 +37,7 @@ There are two ways to set up Autoware. Choose one according to your preference.
 If any issues occur during installation, refer to the [Support page](../support).
 
 ### 1. Docker installation
+
 Autoware's Open AD Kit containers enables you to
 run Autoware easily on your host machine ensuring same environment for all deployments without installing any dependencies. Full Guide on [Docker Installation Setup](autoware/docker-installation.md).
 
