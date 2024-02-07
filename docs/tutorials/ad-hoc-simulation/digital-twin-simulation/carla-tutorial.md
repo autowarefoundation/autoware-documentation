@@ -2,7 +2,7 @@
 
 [CARLA](https://carla.org) is a famous open-source simulator for the autonomous driving research.
 Now there is no official support to Autoware.universe, but some projects from communities support it.
-The docoment is to list these projects for anyone who wants to run Autoware with Carla.
+The document is to list these projects for anyone who wants to run Autoware with Carla.
 You can report issues to each project if there is any problem.
 
 ## Project lists
