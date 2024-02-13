@@ -28,6 +28,7 @@ Autoware uses radar objects data type as [radar_msgs/msg/RadarTracks.msg](https:
 In detail, please see [Data message for radars](supported-functions/data-message.md).
 
 ## Supported functions
+
 ### Device driver for radars
 
 Autoware support `ros-perception/radar_msgs/msg/RadarScan.msg` and `autoware_auto_perception_msgs/msg/TrackedObjects.msg` for Radar drivers.
@@ -78,6 +79,7 @@ Example is as below.
 ```
 
 ## Appendix
+
 ### Discussion
 
 Radar architecture design is discussed as below.

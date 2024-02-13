@@ -1,4 +1,5 @@
 # Data message for radars
+
 ## Summary
 
 To sum up, Autoware uses radar data type as below.
@@ -7,6 +8,7 @@ To sum up, Autoware uses radar data type as below.
 - [radar_msgs/msg/RadarTracks.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTracks.msg) for radar objects.
 
 ## Radar data message for pointcloud
+
 ### Message definition
 
 - <https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarScan.msg>
@@ -32,6 +34,7 @@ float32 amplitude                        # The amplitude of the of the return (d
 ```
 
 ## Radar data message for tracked objects
+
 ### Message definition
 
 - [radar_msgs/msg/RadarTrack.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTrack.msg)
@@ -77,6 +80,7 @@ uint16 PEDESTRIAN = 32007;
 For detail implementation, please see [radar_tracks_msgs_converter](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/radar_tracks_msgs_converter).
 
 ## Note
+
 ### Survey for radar message
 
-Depending on the sensor manufacturer and its purpose, each sensor might exchange raw, post-processed data. This section introduces a survey about the previously developed messaging systems in the open-source community.  Although there are many kinds of outputs, radar mainly adopt two types as outputs, pointcloud and objects. Related discussion for message definition in ros-perception are [PR #1](https://github.com/ros-perception/radar_msgs/pull/1), [PR #2](https://github.com/ros-perception/radar_msgs/pull/2), and [PR #3](https://github.com/ros-perception/radar_msgs/pull/3). Existing open source softwares for radar are summarized in these PR.
+Depending on the sensor manufacturer and its purpose, each sensor might exchange raw, post-processed data. This section introduces a survey about the previously developed messaging systems in the open-source community. Although there are many kinds of outputs, radar mainly adopt two types as outputs, pointcloud and objects. Related discussion for message definition in ros-perception are [PR #1](https://github.com/ros-perception/radar_msgs/pull/1), [PR #2](https://github.com/ros-perception/radar_msgs/pull/2), and [PR #3](https://github.com/ros-perception/radar_msgs/pull/3). Existing open source softwares for radar are summarized in these PR.

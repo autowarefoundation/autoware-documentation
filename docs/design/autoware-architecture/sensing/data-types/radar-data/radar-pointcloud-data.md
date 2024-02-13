@@ -23,6 +23,7 @@ This diagram describes the pre-process pipeline for radar pointcloud.
 - For use of radar pointcloud data by LiDAR packages, we would like to propose a converter for creating `sensor_msgs/msg/Pointcloud2.msg` from `ros-perception/radar_msgs/msg/RadarScan.msg`.
 
 ## Supported functions
+
 ### Data message for radars
 
 Autoware uses radar objects data type as [radar_msgs/msg/RadarScan.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarScan.msg).
@@ -65,6 +66,7 @@ For considered use cases,
 - Apply obstacle segmentation like [ground segmentation](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/ground_segmentation) to radar points for LiDAR-less (camera + radar) systems.
 
 ## Appendix
+
 ### Discussion
 
 Radar architecture design is discussed as below.
