@@ -118,9 +118,20 @@ It is recommended to use it to save your time unless you have a specific reason 
    sudo apt update && sudo apt install ccache
    ```
 
-2. Write the following in your `.bashrc`:
+2. Create the `Ccache` config folder and file:
+
+   ```bash
+   mkdir -p ~/.cache/ccache
+   touch ~/.cache/ccache/ccache.conf
+   
+   # Set the maximum cache size to 60GB (default is 5GB, you can adjust it)
+   echo "max_size = 60G" >> ~/.cache/ccache/ccache.conf
+   ```
+   
+3. Write the following in your `.bashrc`:
 
    ```bash
    export CC="/usr/lib/ccache/gcc"
    export CXX="/usr/lib/ccache/g++"
+   export CCACHE_DIR="$HOME/.cache/ccache/"
    ```
