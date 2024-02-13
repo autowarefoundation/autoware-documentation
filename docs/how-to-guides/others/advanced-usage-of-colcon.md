@@ -128,7 +128,7 @@ It is recommended to use it to save your time unless you have a specific reason 
    echo "max_size = 60G" >> ~/.cache/ccache/ccache.conf
    ```
 
-3. Write the following in your `.bashrc`:
+3. Add the following in your `.bashrc`:
 
    ```bash
    export CC="/usr/lib/ccache/gcc"
