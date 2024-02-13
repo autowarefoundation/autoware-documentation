@@ -13,14 +13,14 @@ To sum up, Autoware uses radar data type as below.
 
 - <https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarScan.msg>
 
-```
+```sh
 std_msgs/Header header
 radar_msgs/RadarReturn[] returns
 ```
 
 - <https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarReturn.msg>
 
-```
+```sh
 # All variables below are relative to the radar's frame of reference.
 # This message is not meant to be used alone but as part of a stamped or array message.
 
@@ -39,7 +39,7 @@ float32 amplitude                        # The amplitude of the of the return (d
 
 - [radar_msgs/msg/RadarTrack.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTrack.msg)
 
-```
+```sh
 # Object classifications (Additional vendor-specific classifications are permitted starting from 32000 eg. Car)
 uint16 NO_CLASSIFICATION=0
 uint16 STATIC=1
@@ -66,7 +66,7 @@ float32[6] size_covariance                  # Upper-triangle covariance about th
 For object classifications [radar_msgs/msg/RadarTrack.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTrack.msg), additional vendor-specific classifications are permitted starting from 32000.
 In addition to this, considering [existing label definition](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_perception_msgs/msg/ObjectClassification.idl), Autoware define object classifications as below.
 
-```
+```sh
 uint16 UNKNOWN = 32000;
 uint16 CAR = 32001;
 uint16 TRUCK = 32002;
