@@ -107,31 +107,54 @@ VERBOSE=1 colcon build --packages-up-to <package_name> --event-handlers console_
 
 For other options, see [here](https://colcon.readthedocs.io/en/released/reference/event-handler-arguments.html).
 
-## Using Ccache
+## Using Ccache to speed up recompilation
 
-[Ccache](https://ccache.dev/) can speed up recompilation.
-It is recommended to use it to save your time unless you have a specific reason not to do so.
+[Ccache](https://ccache.dev/) is a compiler cache that can significantly speed up recompilation by caching previous
+compilations and reusing them when the same compilation is being done again.
+It's highly recommended for developers looking to optimize their build times, unless there's a specific reason to avoid
+it.
 
-1. Install `Ccache`:
+### Step 1: Install Ccache
 
-   ```bash
-   sudo apt update && sudo apt install ccache
-   ```
+```bash
+sudo apt update && sudo apt install ccache
+```
 
-2. Create the `Ccache` config folder and file:
+### Step 2: Configure Ccache
+
+1. **Create the Ccache configuration folder and file:**
 
    ```bash
    mkdir -p ~/.cache/ccache
    touch ~/.cache/ccache/ccache.conf
+   ```
 
-   # Set the maximum cache size to 60GB (default is 5GB, you can adjust it)
+2. **Set the maximum cache size.** The default size is `5GB`, but you can increase it depending on your needs. Here,
+   we're setting it to `60GB`:
+   ```bash
    echo "max_size = 60G" >> ~/.cache/ccache/ccache.conf
    ```
 
-3. Add the following in your `.bashrc`:
+### Step 3: Integrate Ccache with Your Environment
 
-   ```bash
-   export CC="/usr/lib/ccache/gcc"
-   export CXX="/usr/lib/ccache/g++"
-   export CCACHE_DIR="$HOME/.cache/ccache/"
-   ```
+To ensure Ccache is used for compilation, add the following lines to your `.bashrc` file.
+This will redirect GCC and G++ calls through Ccache.
+
+```bash
+export CC="/usr/lib/ccache/gcc"
+export CXX="/usr/lib/ccache/g++"
+export CCACHE_DIR="$HOME/.cache/ccache/"
+```
+
+After adding these lines, reload your `.bashrc` or restart your terminal session to apply the changes.
+
+### Step 4: Verify Ccache is Working
+
+To confirm Ccache is correctly set up and being used, you can check the statistics of cache usage:
+
+```bash
+ccache -s
+```
+
+This command displays the cache hit rate and other relevant statistics, helping you gauge the effectiveness of Ccache in
+your development workflow.
