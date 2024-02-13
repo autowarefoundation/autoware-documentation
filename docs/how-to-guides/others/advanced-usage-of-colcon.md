@@ -131,6 +131,7 @@ sudo apt update && sudo apt install ccache
 
 2. **Set the maximum cache size.** The default size is `5GB`, but you can increase it depending on your needs. Here,
    we're setting it to `60GB`:
+
    ```bash
    echo "max_size = 60G" >> ~/.cache/ccache/ccache.conf
    ```
