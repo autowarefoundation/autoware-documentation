@@ -123,11 +123,11 @@ It is recommended to use it to save your time unless you have a specific reason 
    ```bash
    mkdir -p ~/.cache/ccache
    touch ~/.cache/ccache/ccache.conf
-   
+
    # Set the maximum cache size to 60GB (default is 5GB, you can adjust it)
    echo "max_size = 60G" >> ~/.cache/ccache/ccache.conf
    ```
-   
+
 3. Write the following in your `.bashrc`:
 
    ```bash
