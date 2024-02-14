@@ -32,13 +32,13 @@ Radar based 3D detector with radar objects consists of
 ### Interface
 
 - Input
-    - Message type for pointcloud is `ros-perception/radar_msgs/msg/RadarScan.msg`
-    - Message type for radar objects is `autoware_auto_perception_msgs/msg/DetectedObject`.
-        - Input objects need to be concatenated.
-        - Input objects need to be compensated with ego motion.
-        - Input objects need to be transformed to `base_link`.
+  - Message type for pointcloud is `ros-perception/radar_msgs/msg/RadarScan.msg`
+  - Message type for radar objects is `autoware_auto_perception_msgs/msg/DetectedObject`.
+    - Input objects need to be concatenated.
+    - Input objects need to be compensated with ego motion.
+    - Input objects need to be transformed to `base_link`.
 - Output
-    - Tracked objects
+  - Tracked objects
 
 ## Module
 
@@ -78,6 +78,7 @@ This package contains a sensor fusion module for radar-detected objects and 3D d
     Under Construction
 
 ## Appendix
+
 ### Customize own radar interface
 
 The perception interface of Autoware is defined to `DetectedObjects`, `TrackedObjects`, and `PredictedObjects`, however, other message is defined by own cases. For example, [DetectedObjectWithFeature](https://github.com/tier4/tier4_autoware_msgs/tree/tier4/universe/tier4_perception_msgs/msg/object_recognition) is used by customized message in perception module.

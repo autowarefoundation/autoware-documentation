@@ -1,4 +1,3 @@
-
 # Radar faraway dynamic objects detection with radar objects
 
 ## Overview
@@ -8,6 +7,7 @@ This diagram describes the pipeline for radar faraway dynamic object detection.
 ![faraway object detection](image/faraway-object-detection.drawio.svg)
 
 ## Supported function
+
 ### Crossing filter
 
 - [radar_crossing_objects_noise_filter](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/radar_crossing_objects_noise_filter)
@@ -49,6 +49,7 @@ It can suppress splitting objects in tracking module.
 ![radar_object_clustering](https://raw.githubusercontent.com/autowarefoundation/autoware.universe/main/perception/radar_object_clustering/docs/radar_clustering.drawio.svg)
 
 ## Note
+
 ### Parameter tuning
 
 Detection performed only by Radar applies various strong noise processing.
