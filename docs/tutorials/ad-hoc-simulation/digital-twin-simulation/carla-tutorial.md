@@ -14,7 +14,6 @@ An addition package to `carla_ros_bridge` to connect CARLA simulator to Autoware
 - Project Link: [carla_autoware_bridge](https://github.com/Robotics010/carla_autoware_bridge)
 - Tutorial: [https://github.com/Robotics010/carla_autoware_bridge/blob/master/getting-started.md](https://github.com/Robotics010/carla_autoware_bridge/blob/master/getting-started.md)
 
-
 ### open_planner
 
 Integrated open source planner and related tools for autonomous navigation of autonomous vehicle and mobile robots
@@ -28,7 +27,7 @@ The project is mainly for controlling multiple vehicles in Carla.
 It uses [Zenoh](https://zenoh.io/) to bridge the Autoware and Carla and is able to distinguish different messages for different vehicles.
 Feel free to ask questions and report issues to [autoware_carla_launch](https://github.com/evshary/autoware_carla_launch).
 
-- Project Link: 
+- Project Link:
   - [autoware_carla_launch](https://github.com/evshary/autoware_carla_launch): Integrated environment to run the bridge and Autoware easily.
   - [zenoh_carla_bridge](https://github.com/evshary/zenoh_carla_bridge): The bridge implementation.
 - Tutorial: [Running Multiple Autoware-Powered Vehicles in Carla using Zenoh](https://autoware.org/running-multiple-autoware-powered-vehicles-in-carla-using-zenoh)
