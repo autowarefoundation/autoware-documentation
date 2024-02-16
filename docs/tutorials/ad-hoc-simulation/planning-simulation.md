@@ -264,3 +264,9 @@ This section provides a step-by-step guide on using the Autoware Launch GUI for 
 - **Real-Time Monitoring:** Use the GUI to monitor CPU/Memory usage and Autoware logs in real-time.
 - **Profile Management:** Save your simulation profiles for quick access in future simulations.
 - **Adjusting Parameters:** Easily modify simulation parameters on-the-fly through the GUI.
+
+## Want to Try Autoware with Your Custom Map?
+
+The above content describes the process for conducting some operations in the planning simulator using a sample map. If you're interested in running Autoware with maps of your own environment, please visit the [How to Create Vector Map](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-maps/#creating-maps) section for guidance.
+
+![psim-custom-map](images/planning/others/psim-custom-map.png)
