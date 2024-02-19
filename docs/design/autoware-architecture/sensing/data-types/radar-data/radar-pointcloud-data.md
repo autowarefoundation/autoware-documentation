@@ -27,13 +27,13 @@ This diagram describes the pre-process pipeline for radar pointcloud.
 ### Data message for radars
 
 Autoware uses radar objects data type as [radar_msgs/msg/RadarScan.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarScan.msg).
-In detail, please see [Data message for radars](supported-functions/data-message.md).
+In detail, please see [Data message for radars](reference-implementations/data-message.md).
 
 ### Device driver for radars
 
 Autoware support `ros-perception/radar_msgs/msg/RadarScan.msg` and `autoware_auto_perception_msgs/msg/TrackedObjects.msg` for Radar drivers.
 
-In detail, please see [Device driver for radars](supported-functions/device-driver.md).
+In detail, please see [Device driver for radars](reference-implementations/device-driver.md).
 
 ### Basic noise filter
 
