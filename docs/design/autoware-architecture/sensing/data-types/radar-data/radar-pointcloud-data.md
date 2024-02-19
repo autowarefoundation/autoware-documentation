@@ -22,7 +22,7 @@ This diagram describes the pre-process pipeline for radar pointcloud.
 - In the sensing layer, the radar pre-process packages filter noise through the `ros-perception/radar_msgs/msg/RadarScan.msg` message type with sensor coordinate.
 - For use of radar pointcloud data by LiDAR packages, we would like to propose a converter for creating `sensor_msgs/msg/Pointcloud2.msg` from `ros-perception/radar_msgs/msg/RadarScan.msg`.
 
-## Supported functions
+## Reference implementations
 
 ### Data message for radars
 
