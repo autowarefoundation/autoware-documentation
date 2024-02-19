@@ -46,7 +46,7 @@ This package removes pointcloud noise with low amplitude, edge angle, too near p
 - [radar_static_pointcloud_filter](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/radar_static_pointcloud_filter)
 
 This package extract static/dynamic radar pointcloud by using doppler velocity and ego motion.
-The static radar pointcloud use for localization like NDT scan matching, and the dynamic radar pointclou use for dynamic object detection.
+The static radar pointcloud use for localization like NDT scan matching, and the dynamic radar pointcloud use for dynamic object detection.
 
 ### Message converter from RadarScan to Pointcloud2
 
