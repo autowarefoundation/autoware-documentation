@@ -18,7 +18,7 @@ This diagram describes the pre-process pipeline for radar objects.
 
 ### Note
 
-- The radar pre-process package filter noise through the `ros-perception/radar_msgs/msg/RadarTrack.msg` message type with sensor coordinate.
+- The radar pre-process package filters noise through the `ros-perception/radar_msgs/msg/RadarTrack.msg` message type with sensor coordinate.
 - It is recommended to change the coordinate system from each sensor to base_link with message converter.
 - If there are multiple radar objects, the object merger package concatenates these objects.
 
