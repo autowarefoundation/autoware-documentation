@@ -12,7 +12,7 @@ This diagram describes the pipeline for radar faraway dynamic object detection.
 
 - [radar_crossing_objects_noise_filter](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/radar_crossing_objects_noise_filter)
 
-This package can filter the noise objects crossing to the ego vehicle, which is most likely ghost objects.
+This package can filter the noise objects crossing to the ego vehicle, which are most likely ghost objects.
 
 ### Velocity filter
 
