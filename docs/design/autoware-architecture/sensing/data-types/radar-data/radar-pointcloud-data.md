@@ -40,6 +40,7 @@ In detail, please see [Device driver for radars](reference-implementations/devic
 - [radar_threshold_filter](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/radar_threshold_filter)
 
 This package removes pointcloud noise with low amplitude, edge angle, too near pointcloud by threshold.
+The noise depends on the radar devices and installation location.
 
 ### Filter to static/dynamic pointcloud
 

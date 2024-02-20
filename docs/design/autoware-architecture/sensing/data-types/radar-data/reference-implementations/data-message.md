@@ -63,8 +63,9 @@ float32[6] size_covariance                  # Upper-triangle covariance about th
 
 - Object classifications
 
-For object classifications [radar_msgs/msg/RadarTrack.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTrack.msg), additional vendor-specific classifications are permitted starting from 32000.
-In addition to this, considering [existing label definition](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_perception_msgs/msg/ObjectClassification.idl), Autoware define object classifications as below.
+In object classifications of [radar_msgs/msg/RadarTrack.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTrack.msg), additional classifications label can be used by the number starting from 32000.
+
+To express for [Autoware label definition](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_perception_msgs/msg/ObjectClassification.idl), Autoware defines object classifications for `RadarTracks.msg` as below.
 
 ```sh
 uint16 UNKNOWN = 32000;
