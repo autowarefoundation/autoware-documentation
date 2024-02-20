@@ -25,7 +25,7 @@ This diagram describes the pre-process pipeline for radar objects.
 ## Input
 
 Autoware uses radar objects data type as [radar_msgs/msg/RadarTracks.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTracks.msg).
-In detail, please see [Data message for radars](supported-functions/data-message.md).
+In detail, please see [Data message for radars](reference-implementations/data-message.md).
 
 ## Reference implementations
 
