@@ -11,7 +11,7 @@ Radar based 3D detector aims for the following.
 Since radar can acquire data from a longer distance than LiDAR (> 100m), when the distance of LiDAR-based 3D detection is insufficient, the radar base 3D detector can be applied.
 The detection distance of radar based 3D detection depends on the radar device specification.
 
-- Improve velocity estimation for dynamic objects
+- Improving velocity estimation for dynamic objects
 
 Radar can get velocity information and estimate more precise twist information by fused between the objects from LiDAR-based 3D detection radar information.
 This can lead to improve for the performance of object tracking/prediction and planning like adaptive cruise control.
