@@ -6,7 +6,7 @@
 
 Radar based 3D detector aims for the following.
 
-- Detect objects farther than the range of LiDAR-based 3D detection.
+- Detecting objects farther than the range of LiDAR-based 3D detection.
 
 Since radar can acquire data from a longer distance than LiDAR (> 100m), when the distance of LiDAR-based 3D detection is insufficient, the radar base 3D detector can be applied.
 The detection distance of radar based 3D detection depends on the radar device specification.
