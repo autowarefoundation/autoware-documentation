@@ -6,7 +6,7 @@ This diagram describes the pipeline for radar faraway dynamic object detection.
 
 ![faraway object detection](image/faraway-object-detection.drawio.svg)
 
-## Supported function
+## Reference implementation
 
 ### Crossing filter
 
