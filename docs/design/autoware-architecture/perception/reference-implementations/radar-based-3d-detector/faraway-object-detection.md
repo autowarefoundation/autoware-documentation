@@ -20,7 +20,7 @@ This package can filter the noise objects crossing to the ego vehicle, which are
 
 Static objects include many noise like the objects reflected from ground.
 In many cases for radars, dynamic objects can be detected stably.
-To filter static objects, `object_velocity_splitter` can be used.
+To filter out static objects, `object_velocity_splitter` can be used.
 
 ### Range filter
 
