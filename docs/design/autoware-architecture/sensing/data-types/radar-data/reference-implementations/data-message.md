@@ -11,7 +11,7 @@ To sum up, Autoware uses radar data type as below.
 
 ### Message definition
 
-- <https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarScan.msg>
+- [ros2/msg/RadarScan.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarScan.msg)
 
 ```sh
 std_msgs/Header header
