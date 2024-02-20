@@ -18,7 +18,7 @@ std_msgs/Header header
 radar_msgs/RadarReturn[] returns
 ```
 
-- <https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarReturn.msg>
+- [ros2/msg/RadarReturn.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarReturn.msg)
 
 ```sh
 # All variables below are relative to the radar's frame of reference.
