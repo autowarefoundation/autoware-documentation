@@ -31,7 +31,7 @@ In detail, please see [Data message for radars](reference-implementations/data-m
 
 ### Device driver for radars
 
-Autoware support `ros-perception/radar_msgs/msg/RadarScan.msg` and `autoware_auto_perception_msgs/msg/TrackedObjects.msg` for Radar drivers.
+Autoware supports `ros-perception/radar_msgs/msg/RadarScan.msg` and `autoware_auto_perception_msgs/msg/TrackedObjects.msg` for Radar drivers.
 
 In detail, please see [Device driver for radars](reference-implementations/device-driver.md).
 
