@@ -33,7 +33,7 @@ In detail, please see [Data message for radars](reference-implementations/data-m
 
 Autoware support `ros-perception/radar_msgs/msg/RadarScan.msg` and `autoware_auto_perception_msgs/msg/TrackedObjects.msg` for Radar drivers.
 
-In detail, please see [Device driver for radars](supported-functions/device-driver.md).
+In detail, please see [Device driver for radars](reference-implementations/device-driver.md).
 
 ### Noise filter
 
