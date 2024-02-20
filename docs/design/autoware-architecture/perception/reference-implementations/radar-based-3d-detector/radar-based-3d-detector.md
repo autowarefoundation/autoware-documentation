@@ -4,7 +4,7 @@
 
 ### Features
 
-Radar based 3D detector aims for the following.
+Radar based 3D detector aims for the following:
 
 - Detecting objects farther than the range of LiDAR-based 3D detection.
 
