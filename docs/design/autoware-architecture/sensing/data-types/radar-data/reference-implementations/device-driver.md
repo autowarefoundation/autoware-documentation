@@ -2,7 +2,7 @@
 
 ## Interface for radar devices
 
-The radar driver converts the communication data from radars to ROS2 topics.
+The radar driver converts the communication data from radars to ROS 2 topics.
 The following communication types are considered:
 
 - CAN
