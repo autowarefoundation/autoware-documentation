@@ -11,13 +11,19 @@ The sensor input formats are defined in this component.
 - Abstraction of data formats to enable usage of sensors from various vendors
 - Perform common/primitive sensor data processing required by each component
 
+## High-level architecture
+
+This diagram describes the high-level architecture of the Sensing Component.
+
+![overall-sensing-architecture](image/overall-sensing-architecture.drawio.svg)
+
 ## Inputs
 
 ### Input types
 
 | Sensor Data                                  | Message Type                                                                                                                                                                 |
 | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Point cloud (Lidars, depth cameras, etc.)    | [sensor_msgs/msg/PointCloud2.msg](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg)                                                    |
+| Point cloud (LiDARs, depth cameras, etc.)    | [sensor_msgs/msg/PointCloud2.msg](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg)                                                    |
 | Image (RGB, monochrome, depth, etc. cameras) | [sensor_msgs/msg/Image.msg](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Image.msg)                                                                |
 | Radar scan                                   | [radar_msgs/msg/RadarScan.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarScan.msg)                                                                     |
 | Radar tracks                                 | [radar_msgs/msg/RadarTracks.msg](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTracks.msg)                                                                 |
@@ -32,5 +38,6 @@ The sensor input formats are defined in this component.
 - [GNSS/INS data pre-processing design](data-types/gnss-ins-data.md)
 - [Image pre-processing design](data-types/image.md)
 - [Point cloud pre-processing design](data-types/point-cloud.md)
-- [Radar data pre-processing design](data-types/radar-data.md)
+- [Radar pointcloud data pre-processing design](data-types/radar-data/radar-pointcloud-data.md)
+- [Radar objects data pre-processing design](data-types/radar-data/radar-objects-data.md)
 - [Ultrasonics data pre-processing design](data-types/ultrasonics-data.md)
