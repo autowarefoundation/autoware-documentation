@@ -2,7 +2,7 @@
 
 | API                                                                                              | Release      |
 | ------------------------------------------------------------------------------------------------ | ------------ |
-| [/api/fail_safe/mrm_state](./api/fail_safe/mrm_state.md)                                         | not released |
+| [/api/fail_safe/mrm_state](./api/fail_safe/mrm_state.md)                                         | v1.1.0       |
 | [/api/interface/version](./api/interface/version.md)                                             | v1.0.0       |
 | [/api/localization/initialization_state](./api/localization/initialization_state.md)             | v1.0.0       |
 | [/api/localization/initialize](./api/localization/initialize.md)                                 | v1.0.0       |
@@ -26,9 +26,9 @@
 | [/api/routing/set_route](./api/routing/set_route.md)                                             | v1.0.0       |
 | [/api/routing/set_route_points](./api/routing/set_route_points.md)                               | v1.0.0       |
 | [/api/routing/state](./api/routing/state.md)                                                     | v1.0.0       |
-| [/api/vehicle/dimensions](./api/vehicle/dimensions.md)                                           | not released |
+| [/api/vehicle/dimensions](./api/vehicle/dimensions.md)                                           | v1.1.0       |
 | [/api/vehicle/doors/command](./api/vehicle/doors/command.md)                                     | not released |
 | [/api/vehicle/doors/layout](./api/vehicle/doors/layout.md)                                       | not released |
 | [/api/vehicle/doors/status](./api/vehicle/doors/status.md)                                       | not released |
-| [/api/vehicle/kinematics](./api/vehicle/kinematics.md)                                           | not released |
+| [/api/vehicle/kinematics](./api/vehicle/kinematics.md)                                           | v1.1.0       |
 | [/api/vehicle/status](./api/vehicle/status.md)                                                   | not released |

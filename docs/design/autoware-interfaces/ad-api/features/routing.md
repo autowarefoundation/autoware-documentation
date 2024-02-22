@@ -25,10 +25,11 @@ There are two ways to set the route. The one is a generic method that uses pose,
 | ARRIVED  | The vehicle has arrived at the destination.        |
 | CHANGING | Trying to change the route. Not implemented yet.   |
 
-## Goal modification
+## Options
 
-Autoware tries to look for an alternate goal when goal is unreachable (e.g., when there is an obstacle on the given goal). When setting a route from the API, applications can choose whether they allow Autoware to adjust goal pose in such situation. When set false, Autoware may get stuck until the given goal becomes reachable.
+The `set_route_points` and `set_route` APIs have route options that allow applications to choose several behaviors regarding route planning.
+See the sections below for supported options and details.
 
-| Option                  | Description                       |
-| ----------------------- | --------------------------------- |
-| allow_goal_modification | If true, allow goal modification. |
+### allow_goal_modification
+
+**[v1.1.0]** Autoware tries to look for an alternate goal when goal is unreachable (e.g., when there is an obstacle on the given goal). When setting a route from the API, applications can choose whether they allow Autoware to adjust goal pose in such situation. When set false, Autoware may get stuck until the given goal becomes reachable.

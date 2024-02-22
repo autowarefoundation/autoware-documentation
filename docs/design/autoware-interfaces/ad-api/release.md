@@ -1,8 +1,13 @@
 # Release notes
 
-## v1.0.0
+## v1.1.0
 
-The first release of AD API. Added basic features to start autonomous driving.
+- [New] Add {{ link_ad_api('/api/fail_safe/mrm_state') }}
+- [New] Add {{ link_ad_api('/api/vehicle/dimensions') }}
+- [New] Add {{ link_ad_api('/api/vehicle/kinematics') }}
+- [Change] Add options to [the routing API](./features/routing.md)
+
+## v1.0.0
 
 - [New] Add [interface API](./features/interface.md)
 - [New] Add [localization API](./features/localization.md)
