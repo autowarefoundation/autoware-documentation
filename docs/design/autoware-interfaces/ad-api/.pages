@@ -1,5 +1,6 @@
 nav:
   - index.md
-  - features
+  - release.md
   - list
   - types
+  - features
