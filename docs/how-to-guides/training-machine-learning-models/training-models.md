@@ -30,9 +30,10 @@ Detailed instructions for training the traffic light classifier model can be fou
 
 ## Training CenterPoint 3D object detection model
 
-The CenterPoint 3D object detection model within the Autoware has been trained using the **[open-mmlab/mmdetection3d](https://github.com/open-mmlab/mmdetection3d)** repository. CenterPoint
-implementation of mmdetection3d uses 10 input features for the PointPillars voxel encoder. However, Autoware employs 9 pillar features for CenterPoint, in accordance with the original research paper. Therefore, we have
-forked the original repository and made the necessary code modifications to support the use of 9 PointPillar input features. The forked repository can be found **[here](https://github.com/autowarefoundation/mmdetection3d)**.
+The CenterPoint 3D object detection model within the Autoware has been trained using the **[open-mmlab/mmdetection3d](https://github.com/open-mmlab/mmdetection3d)** repository. 
+The mmdetection3d repository includes an additional voxel encoder feature, known as voxel center z, not originally used in the **[main implementation](https://github.com/tianweiy/CenterPoint)**, 
+Autoware maintains consistency with the input size of the original implementation. Consequently, to ensure seamless integration with Autoware's lidar centerpoint package,
+Therefore, we have forked the original repository and made the requisite code modifications. The forked repository is accessible **[here](https://github.com/autowarefoundation/mmdetection3d)**.
 
 To train custom CenterPoint models and convert them into ONNX format for deployment in Autoware, please refer to the instructions provided in the README file included with the
 **"lidar_centerpoint"** package. These instructions will provide a step-by-step guide for training the CenterPoint model.
