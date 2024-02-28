@@ -30,16 +30,11 @@ Detailed instructions for training the traffic light classifier model can be fou
 
 ## Training CenterPoint 3D object detection model
 
-The CenterPoint 3D object detection model within the Autoware has been trained using the **[open-mmlab/mmdetection3d](https://github.com/open-mmlab/mmdetection3d)** repository.
-The mmdetection3d repository includes an additional voxel encoder feature, known as voxel center z, not originally used in the **[main implementation](https://github.com/tianweiy/CenterPoint)**,
-Autoware maintains consistency with the input size of the original implementation. Consequently, to ensure seamless integration with Autoware's lidar centerpoint package,
-Therefore, we have forked the original repository and made the requisite code modifications. The forked repository is accessible **[here](https://github.com/autowarefoundation/mmdetection3d)**.
+The CenterPoint 3D object detection model within the Autoware has been trained using the **[autowarefoundation/mmdetection3d](https://github.com/autowarefoundation/mmdetection3d/blob/main/projects/AutowareCenterPoint/README.md)** repository.
 
-To train custom CenterPoint models and convert them into ONNX format for deployment in Autoware, please refer to the instructions provided in the README file included with the
-**"lidar_centerpoint"** package. These instructions will provide a step-by-step guide for training the CenterPoint model.
+To train custom CenterPoint models and convert them into ONNX format for deployment in Autoware, please refer to the instructions provided in the README file included with Autoware's
+**[lidar_centerpoint](https://autowarefoundation.github.io/autoware.universe/main/perception/lidar_centerpoint/)** package. These instructions will provide a step-by-step guide for training the CenterPoint model.
 
 In order to assist you with your training process, we have also included an example dataset in the TIER IV dataset format.
 This dataset contains 600 lidar frames and covers 5 classes, including 6905 cars, 3951 pedestrians, 75 cyclists, 162 buses, and 326 trucks.
 You can utilize this example dataset to facilitate your training efforts.
-
-Detailed instructions for training the CenterPoint model can be found **[here](https://github.com/autowarefoundation/autoware.universe/blob/main/perception/lidar_centerpoint/README.md)**.
