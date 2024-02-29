@@ -10,16 +10,35 @@ Autoware is the world’s leading open-source project dedicated to autonomous dr
 
 ## Getting started
 
-Begin your exploration of Autoware with these essential resources, thoughtfully compiled to offer you a thorough understanding and practical experience:
+### Step into the World of Autoware
 
-- [Installation](installation) pages explain the installation steps of Autoware and related tools.
-- [Tutorials](tutorials) pages explain several tutorials that you should try after installation.
-- [How-to guides](how-to-guides) pages explain advanced topics that you should read after you get used to Autoware.
-- [Design](design) pages explain the design concept of Autoware.
-- [Contributing](contributing) pages explain how to contribute to Autoware.
-- [Datasets](datasets) pages contain information about datasets that can be used with Autoware.
-- [Support](support) pages explain several support resources.
-- [Competitions](autoware-competitions) pages explain on-going challenges related to AWF
+**Discover the Concept**: Start your Autoware journey by exploring the [Concept](design/autoware-concepts) pages. Here, you'll delve into the core ideas behind Autoware, understand its unique features and how it stands out in the field of autonomous driving technology. Learn about the principles guiding its development and the innovative solutions it offers.
+
+### Set Up Your Environment
+
+**Install Autoware**: Once you have a grasp of the Autoware philosophy, it's time to bring it into your world. Visit our [Installation](installation) section for detailed, step-by-step instructions to seamlessly install Autoware and related tools in your environment. Whether you're a beginner or an expert, these pages are designed to guide you through a smooth setup process.
+
+### Dive Deeper
+
+**Hands-on Experience**: After installation, head over to the [Tutorials](tutorials) pages. These tutorials are designed to provide you with hands-on experience with some simulations, allowing you to apply what you've learned and gain practical skills. From basic operations to advanced applications, these tutorials cover a wide range of topics to enhance your understanding of Autoware.
+
+**Advanced Topics**: As you become more familiar with Autoware, the [How-to Guides](how-to-guides) will be your next destination. These pages delve into more advanced topics, offering deeper insights and more complex scenarios. They're perfect for those looking to expand their knowledge and expertise in specific areas of Autoware.
+
+### Understand the Design
+
+**Design Concepts**: For those interested in the architecture and design philosophy of Autoware, the [Design](design) pages are a treasure trove. Learn about the architectural decisions, design patterns, and the rationale behind the development of Autoware's various components.
+
+### More Information
+
+**Datasets**: The [Datasets](datasets) pages are a crucial resource for anyone working with Autoware. Here, you'll find a collection of datasets that are compatible with Autoware, providing real-world scenarios and data to test and refine your autonomous driving solutions.
+
+**Support**: As you dive deeper into Autoware, you might encounter challenges or have questions. The [Support](support) section is designed to assist you in these moments. This area includes FAQs, community forums, and contact information for getting help with Autoware. It's also a great place to connect with other Autoware users and contributors, sharing experiences and solutions.
+
+**Competitions**: The [Competitions](autoware-competitions) pages are where excitement meets innovation. Autoware regularly hosts or participates in various competitions and challenges, providing a platform for users to test their skills, showcase their work, and contribute to the community. These competitions range from local to global scale, offering opportunities for both beginners and experts to engage and excel. Stay updated with upcoming events and take part in the advancement of autonomous driving technologies.
+
+### Contribute and Collaborate
+
+**Become a Part of the Autoware Story**: Your journey with Autoware isn't just about learning and using; it's also about contributing and shaping the future of autonomous driving. The [Contributing](contributing) section is more than just a guide; it's an invitation to be part of something bigger. Whether you're a coder, a writer, or an enthusiast, your contributions can propel Autoware forward. Join us, and let's build the future together.
 
 ## Related Documentations
 
