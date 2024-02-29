@@ -2,11 +2,11 @@
 
 Welcome to the Autoware Documentation! Here, you'll find comprehensive information about Autoware, the forefront of open-source autonomous driving software.
 
+![autoware_front_image](assets/images/autoware_front_image.png)
+
 ## About Autoware
 
-Autoware is the world’s leading open-source project dedicated to autonomous driving technology. Built on the Robot Operating System (ROS), Autoware facilitates the commercial deployment of autonomous vehicles across various platforms and applications. Discover more about our innovative project at the[Autoware Foundation website](https://autoware.org/autoware-overview).
-
-![autoware_front_image](assets/images/autoware_front_image.png)
+Autoware is the world’s leading open-source project dedicated to autonomous driving technology. Built on the Robot Operating System (ROS), Autoware facilitates the commercial deployment of autonomous vehicles across various platforms and applications. Discover more about our innovative project at the [Autoware Foundation website](https://autoware.org/autoware-overview).
 
 ## Getting started
 
