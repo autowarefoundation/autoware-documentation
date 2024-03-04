@@ -21,7 +21,7 @@
 2. Launch a Docker container.
 
    ```bash
-   rocker --nvidia --x11 --user --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:humble-latest-prebuilt
+   rocker --nvidia --x11 --user --volume $HOME/autoware_map --volume $HOME/autoware_data -- ghcr.io/autowarefoundation/autoware-universe:humble-latest-prebuilt
    ```
 
    For more advanced usage, see [here](https://github.com/autowarefoundation/autoware/tree/main/docker/README.md).
