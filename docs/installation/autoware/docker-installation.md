@@ -1,13 +1,13 @@
-# Open AD Kit: Containerized Workloads for the Autoware
+# Open AD Kit: Containerized Workloads for Autoware
 
-Open AD Kit offers two types of Docker image to let you get started with the Autoware quickly: `devel` and `runtime`.
+Open AD Kit offers two types of Docker image to let you get started with Autoware quickly: `devel` and `runtime`.
 
 1. The `devel` image enables you to develop Autoware without setting up the local development environment.
 2. The `runtime` image contains only runtime executables and enables you to try out Autoware quickly.
 
 !!! info
 
-    Before proceeding, confirm and agree with the [NVIDIA Deep Learning Container license](https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license). By pulling and using the Autoware Open AD Kit images, you accept the terms and conditions of the license.
+    Before proceeding, confirm and agree with the [NVIDIA Deep Learning Container license](https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license). By pulling and using Autoware Open AD Kit images, you accept the terms and conditions of the license.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ For more launch options you can edit the launch command with `--launch-cmd` opti
 
 #### Run Autoware simulator
 
-Inside the container, you can run the Autoware simulation by following these tutorials:
+Inside the container, you can run Autoware simulation by following these tutorials:
 
 [Planning Simulation](../../tutorials/ad-hoc-simulation/planning-simulation.md)
 
