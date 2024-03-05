@@ -6,7 +6,7 @@ Welcome to the Autoware Documentation! Here, you'll find comprehensive informati
 
 ## About Autoware
 
-Autoware is the world’s leading open-source project dedicated to autonomous driving technology. Built on the Robot Operating System (ROS), Autoware facilitates the commercial deployment of autonomous vehicles across various platforms and applications. Discover more about our innovative project at the [Autoware Foundation website](https://autoware.org/autoware-overview).
+Autoware is the world’s leading open-source project dedicated to autonomous driving technology. Built on the Robot Operating System ([ROS 2](https://docs.ros.org/en/foxy/index.html)), Autoware facilitates the commercial deployment of autonomous vehicles across various platforms and applications. Discover more about our innovative project at the [Autoware Foundation website](https://autoware.org/autoware-overview).
 
 ## Getting started
 
@@ -22,7 +22,7 @@ Autoware is the world’s leading open-source project dedicated to autonomous dr
 
 **Hands-on Experience**: After installation, head over to the [Tutorials](tutorials) pages. These tutorials are designed to provide you with hands-on experience with some simulations, allowing you to apply what you've learned and gain practical skills. From basic operations to advanced applications, these tutorials cover a wide range of topics to enhance your understanding of Autoware.
 
-**Advanced Topics**: As you become more familiar with Autoware, the [How-to Guides](how-to-guides) will be your next destination. These pages delve into more advanced topics, offering deeper insights and more complex scenarios. They're perfect for those looking to expand their knowledge and expertise in specific areas of Autoware.
+**Advanced Topics**: As you become more familiar with Autoware, the [How-to Guides](how-to-guides) will be your next destination. These pages delve into more advanced topics, offering deeper insights and more complex scenarios. They're perfect for those looking to expand their knowledge and expertise in specific areas of Autoware. Additionally, this section also covers methods for integrating Autoware with real vehicles, providing practical guidance for those seeking to apply Autoware in real-world settings.
 
 ### Understand the Design
 
@@ -44,6 +44,5 @@ Autoware is the world’s leading open-source project dedicated to autonomous dr
 
 In addition to this page, there are several related documentations to further your knowledge and understanding of Autoware:
 
-- [Autoware Documentation](https://autowarefoundation.github.io/autoware-documentation/) (this document) summarizes Autoware's general information such as how-to-install, tutorials, design, tips, etc.
 - [Autoware Universe Documentation](https://autowarefoundation.github.io/autoware.universe/) contains technical documentations of each component/function such as localization, planning, etc.
 - [Autoware Tools Documentation](https://autowarefoundation.github.io/autoware_tools/main/) contains technical documentations of each tools for autonomous driving such as performance analysis, calibration, etc.
