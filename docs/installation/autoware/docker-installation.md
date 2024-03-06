@@ -53,7 +53,7 @@ For more launch options you can edit the launch command with `--launch-cmd` opti
 
 #### Run Autoware simulator
 
-Inside the container, you can run Autoware simulation by following these tutorials:
+Inside the container, you can run the Autoware simulation by following these tutorials:
 
 [Planning Simulation](../../tutorials/ad-hoc-simulation/planning-simulation.md)
 
