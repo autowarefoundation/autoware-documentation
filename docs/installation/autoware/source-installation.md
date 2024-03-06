@@ -20,7 +20,7 @@ sudo apt-get -y update
 sudo apt-get -y install git
 ```
 
-> Note: If you wish to use ROS 2 Galactic on Ubuntu 20.04, refer to installation instruction from [galactic](https://autowarefoundation.github.io/autoware-documentation/galactic/installation/autoware/source-installation/) branch, but be aware that Galactic version of Autoware might not have latest features.
+> Note: If you wish to use ROS 2 Galactic on Ubuntu 20.04, refer to installation instruction from [galactic](https://autowarefoundation.github.io/autoware-documentation/galactic/installation/autoware/source-installation/) branch, but be aware that Galactic version of Autoware might not have the latest features.
 
 ## How to set up a development environment
 
@@ -144,7 +144,7 @@ sudo apt-get -y install git
 
 In addition to the traditional command-line methods of building Autoware packages, developers and users can leverage the Autoware Build GUI for a more streamlined and user-friendly experience. This GUI application simplifies the process of building and managing Autoware packages.
 
-### Integration with Autoware Source Installation
+### Integration with Autoware source installation
 
 When using the Autoware Build GUI in conjunction with the traditional source installation process:
 
@@ -153,7 +153,7 @@ When using the Autoware Build GUI in conjunction with the traditional source ins
 
 This integration offers a more accessible approach to building and managing Autoware packages, catering to both new users and experienced developers.
 
-### Getting Started with Autoware Build GUI
+### Getting started with Autoware Build GUI
 
 1. **Installation:** Ensure you have installed the Autoware Build GUI. [Installation instructions](https://github.com/autowarefoundation/autoware-build-gui#installation).
 2. **Launching the App**: Once installed, launch the Autoware Build GUI.

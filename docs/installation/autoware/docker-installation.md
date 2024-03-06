@@ -1,4 +1,4 @@
-# Open AD Kit: Containerized Workloads for Autoware
+# Open AD Kit: containerized workloads for Autoware
 
 Open AD Kit offers two types of Docker image to let you get started with Autoware quickly: `devel` and `runtime`.
 
@@ -33,7 +33,7 @@ To install without **NVIDIA GPU** support:
 
 ## Usage
 
-### Runtime Setup
+### Runtime setup
 
 You can use `run.sh` to run the Autoware runtime container with the map data:
 
@@ -51,15 +51,15 @@ For more launch options you can edit the launch command with `--launch-cmd` opti
 ./docker/run.sh --map-path path_to_map_data --launch-cmd "ros2 launch autoware_launch autoware.launch.xml map_path:=/autoware_map vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit"
 ```
 
-#### Run Autoware simulator
+#### Run the Autoware tutorials
 
-Inside the container, you can run the Autoware simulation by following these tutorials:
+Inside the container, you can run the Autoware tutorials by following these links:
 
 [Planning Simulation](../../tutorials/ad-hoc-simulation/planning-simulation.md)
 
 [Rosbag Replay Simulation](../../tutorials/ad-hoc-simulation/rosbag-replay-simulation.md).
 
-### Development Setup
+### Development setup
 
 ```bash
 ./docker/run.sh --devel
@@ -69,7 +69,7 @@ Inside the container, you can run the Autoware simulation by following these tut
 
     By default workspace mounted on the container will be current directory, you can change the workspace path by `--workspace path_to_workspace`. For development environments without NVIDIA GPU support use `--no-nvidia`.
 
-#### How to Setup a Workspace
+#### How to set up a workspace
 
 1. Create the `src` directory and clone repositories into it.
 
@@ -106,14 +106,14 @@ Inside the container, you can run the Autoware simulation by following these tut
 > vcs pull src
 > ```
 
-#### Using VS Code Remote Containers for Development
+#### Using VS Code remote containers for development
 
 Using the [Visual Studio Code](https://code.visualstudio.com/) with the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension, you can develop Autoware in the containerized environment with ease.
 
 Get the Visual Studio Code's [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
 And reopen the workspace in the container by selecting `Remote-Containers: Reopen in Container` from the Command Palette (`F1`).
 
-By default devcontainer assumes NVIDIA GPU support, you can change this by deleting these lines within `.devcontainer/devcontainer.json`:
+By default, devcontainer assumes NVIDIA GPU support, you can change this by deleting these lines within `.devcontainer/devcontainer.json`:
 
 ```json
     "hostRequirements": {
