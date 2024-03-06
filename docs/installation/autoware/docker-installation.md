@@ -115,15 +115,9 @@ And reopen the workspace in the container by selecting `Remote-Containers: Reope
 
 By default, devcontainer assumes NVIDIA GPU support, you can change this by deleting these lines within `.devcontainer/devcontainer.json`:
 
-```json
-    "hostRequirements": {
-      "gpu": true
-    },
-```
+!!! warning
 
-```json
-      "--gpus", "all"
-```
+    Under Construction
 
 ## Building Docker images from scratch
 
