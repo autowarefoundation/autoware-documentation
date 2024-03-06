@@ -7,7 +7,7 @@ Open AD Kit offers two types of Docker image to let you get started with Autowar
 
 !!! info
 
-    Before proceeding, confirm and agree with the [NVIDIA Deep Learning Container license](https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license). By pulling and using Autoware Open AD Kit images, you accept the terms and conditions of the license.
+    Before proceeding, confirm and agree with the [NVIDIA Deep Learning Container license](https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license). By pulling and using the Autoware Open AD Kit images, you accept the terms and conditions of the license.
 
 ## Prerequisites
 
