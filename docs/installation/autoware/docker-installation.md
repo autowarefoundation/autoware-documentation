@@ -29,7 +29,7 @@ To install without **NVIDIA GPU** support:
 
 !!! info
 
-    GPU acceleration is required for some features such as object detection and traffic light detection/classification. For details of how to enable these features without a GPU, refer to the [Running Autoware without CUDA](../how-to-guides/others/running-autoware-without-cuda.md).
+    GPU acceleration is required for some features such as object detection and traffic light detection/classification. For details of how to enable these features without a GPU, refer to the [Running Autoware without CUDA](../../how-to-guides/others/running-autoware-without-cuda.md).
 
 ## Usage
 
