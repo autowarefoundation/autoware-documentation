@@ -33,6 +33,8 @@ yabloc_pose_initializer
 
 If not, please, follow [Manual downloading of artifacts](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts).
 
+Change the [maximum velocity](https://github.com/autowarefoundation/autoware_launch/blob/c03bd4bdb70117efffc328e5fe6e57426f169b3b/autoware_launch/config/planning/scenario_planning/common/common.param.yaml#L3), that is 15km/h by default.
+
 ## Basic simulations
 
 !!! info "[Using Autoware Launch GUI](#using-autoware-launch-gui)"
