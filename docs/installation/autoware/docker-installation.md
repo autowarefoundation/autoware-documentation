@@ -41,15 +41,15 @@ You can use `run.sh` to run the Autoware runtime container with the map data:
 ./docker/run.sh --map-path path_to_map_data
 ```
 
+For more launch options, you can append a custom launch command instead of using the default launch command `ros2 launch autoware_launch autoware.launch.xml`:
+
+```bash
+./docker/run.sh --map-path path_to_map_data ros2 launch autoware_launch autoware.launch.xml map_path:=/autoware_map vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+```
+
 !!! info
 
     You can use `--no-nvidia` to run without NVIDIA GPU support, and `--headless` to run without display that means no RViz visualization.
-
-For more launch options you can edit the launch command with `--launch-cmd` option:
-
-```bash
-./docker/run.sh --map-path path_to_map_data --launch-cmd "ros2 launch autoware_launch autoware.launch.xml map_path:=/autoware_map vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit"
-```
 
 #### Run the Autoware tutorials
 
@@ -113,11 +113,7 @@ Using the [Visual Studio Code](https://code.visualstudio.com/) with the [Remote 
 Get the Visual Studio Code's [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
 And reopen the workspace in the container by selecting `Remote-Containers: Reopen in Container` from the Command Palette (`F1`).
 
-By default, devcontainer assumes NVIDIA GPU support, you can change this by deleting these lines within `.devcontainer/devcontainer.json`:
-
-!!! warning
-
-    Under Construction
+You can choose Autoware or Autoware-cuda image to develop with or without CUDA support.
 
 ## Building Docker images from scratch
 
