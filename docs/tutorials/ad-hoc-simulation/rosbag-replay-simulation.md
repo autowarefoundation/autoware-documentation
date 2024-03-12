@@ -62,9 +62,9 @@
 
    ![after-autoware-launch](images/rosbag-replay/after-autoware-launch.png)
 
-!!! warning
+   !!! warning
 
-You might encounter error and warning messages in the terminal before playing the `rosbag`. This is normal behavior. These should cease once the `rosbag` is played and proper initialization takes place
+    You might encounter error and warning messages in the terminal before playing the `rosbag`. This is normal behavior. These should cease once the `rosbag` is played and proper initialization takes place
 
 2. Play the sample rosbag file.
 
@@ -73,11 +73,12 @@ You might encounter error and warning messages in the terminal before playing th
    ros2 bag play ~/autoware_map/sample-rosbag/sample.db3 -r 0.2 -s sqlite3
    ```
 
-!!! warning
+   !!! warning
 
-Due to the discrepancy between the timestamp in the `rosbag` and the current system timestamp, Autoware may generate warning messages in the terminal alerting to this mismatch. This is normal behavior.
-
-![after-rosbag-play](images/rosbag-replay/after-rosbag-play.png)
+    Due to the discrepancy between the timestamp in the `rosbag` and the current system timestamp, Autoware may generate warning messages in the terminal alerting to this mismatch. This is normal behavior.
+    
+   
+   ![after-rosbag-play](images/rosbag-replay/after-rosbag-play.png)
 
 3. To focus the view on the ego vehicle, change the `Target Frame` in the RViz Views panel from `viewer` to `base_link`.
 
