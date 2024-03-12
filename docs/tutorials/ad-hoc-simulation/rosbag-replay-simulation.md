@@ -62,12 +62,16 @@
 
    ![after-autoware-launch](images/rosbag-replay/after-autoware-launch.png)
 
+   > ⚠️ It might happen that you see in the terminal some error and warning messages before playing the rosbag (next step) unit you play the rosbag and proper initialization occurs
+
 2. Play the sample rosbag file.
 
    ```sh
    source ~/autoware/install/setup.bash
    ros2 bag play ~/autoware_map/sample-rosbag/sample.db3 -r 0.2 -s sqlite3
    ```
+
+   > ⚠️ As the timestamp in the rosbag is different than the current timestamp in your system , Autoware will output in to the terminal some warning messages due to this timestamp mismatch 
 
    ![after-rosbag-play](images/rosbag-replay/after-rosbag-play.png)
 
