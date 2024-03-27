@@ -1,5 +1,10 @@
 # Release notes
 
+## v1.2.0
+
+- [New] Add [vehicle doors API](./features/vehicle-doors.md)
+- [Change] Add pull-over constants to {{ link_ad_api('/api/fail_safe/mrm_state') }}
+
 ## v1.1.0
 
 - [New] Add {{ link_ad_api('/api/fail_safe/mrm_state') }}

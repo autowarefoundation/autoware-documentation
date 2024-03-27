@@ -1,6 +1,6 @@
 ---
 title: /api/vehicle/doors/status
-status: not released
+status: v1.2.0
 method: notification
 type:
   name: autoware_adapi_v1_msgs/msg/DoorStatusArray
