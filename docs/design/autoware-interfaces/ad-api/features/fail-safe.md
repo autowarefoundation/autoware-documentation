@@ -41,3 +41,4 @@ This is service dependent. Autoware supports the following transitions by defaul
 | NONE             | MRM is not operating or is operating but no special behavior is required. |
 | COMFORTABLE_STOP | The vehicle will stop quickly with a comfortable deceleration.            |
 | EMERGENCY_STOP   | The vehicle will stop immediately with as much deceleration as possible.  |
+| PULL_OVER        | The vehicle will stop after moving to the side of the road.               |
