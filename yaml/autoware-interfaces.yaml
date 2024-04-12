@@ -60,6 +60,10 @@ types:
   autoware_adapi_v1_msgs/msg/HazardLights:
     msg:
       status: uint8
+  autoware_adapi_v1_msgs/msg/Heartbeat:
+    msg:
+      seq: uint16
+      stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/LocalizationInitializationState:
     msg:
       stamp: builtin_interfaces/msg/Time
