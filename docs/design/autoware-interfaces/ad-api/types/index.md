@@ -14,6 +14,7 @@
 - [autoware_adapi_v1_msgs/msg/DynamicObjectPath](./autoware_adapi_v1_msgs/msg/DynamicObjectPath.md)
 - [autoware_adapi_v1_msgs/msg/Gear](./autoware_adapi_v1_msgs/msg/Gear.md)
 - [autoware_adapi_v1_msgs/msg/HazardLights](./autoware_adapi_v1_msgs/msg/HazardLights.md)
+- [autoware_adapi_v1_msgs/msg/Heartbeat](./autoware_adapi_v1_msgs/msg/Heartbeat.md)
 - [autoware_adapi_v1_msgs/msg/LocalizationInitializationState](./autoware_adapi_v1_msgs/msg/LocalizationInitializationState.md)
 - [autoware_adapi_v1_msgs/msg/MotionState](./autoware_adapi_v1_msgs/msg/MotionState.md)
 - [autoware_adapi_v1_msgs/msg/MrmState](./autoware_adapi_v1_msgs/msg/MrmState.md)
