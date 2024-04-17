@@ -1,0 +1,1 @@
+# [supplement] Obtain a received message through intra-process communication

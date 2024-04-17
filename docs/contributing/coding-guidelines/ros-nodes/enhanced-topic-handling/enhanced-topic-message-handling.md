@@ -1,14 +1,14 @@
-# Enhanced topic message handling guidelines
+# Enhanced topic message handling guideline
 
 ## Introduction
 
 Here is coding guideline for an enhanced topic message handling method which is roughly explained in [Discussions page](https://github.com/orgs/autowarefoundation/discussions/4612). Refer to the page to understand the basic concept of the method.
-There is sample source code in [ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples) referred from this document.
+You can find sample source code in [ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples) referred from this document, which is concisely explained in [[supplement] Sample code overview](./supp-3-sample-code.md).
 
 ## What is Subscription->take()
 
 ### subscription callback function
-As you know, ROS 2 is used as a basis of Autoware to communicate between nodes by publishing and subscription. A topic message which is received by Subscription is referred to and processed by a dedicated callback function in typical implementation using ROS 2.
+As you know, ROS 2 is used as a basis of Autoware for communication between nodes by publishing and subscription. In a typical ROS 2 application, a topic message which is received by Subscription is referred to and processed by a dedicated callback function.
 
 ```c++
   steer_sub_ = create_subscription<SteeringReport>(
@@ -16,13 +16,13 @@ As you know, ROS 2 is used as a basis of Autoware to communicate between nodes b
     [this](SteeringReport::SharedPtr msg) { current_steer_ = msg->steering_tire_angle; });
 ```
 
-In code above, when a topic message whose name is `input/steering` is received, an anonymous function whose description is `{current_steer_ = msg->steering_tier_angle;}` is executed as a callback in a thread. The callback function is always executed when the message is received, which leads to waste computing resource if the message data is not always necessary.
+In code above, when a topic message whose name is `input/steering` is received, an anonymous function whose description is `{current_steer_ = msg->steering_tier_angle;}` is executed as a callback in a thread. The callback function is always executed when the message is received, which leads to waste computing resource if the message is not always necessary.
 
 ### to avoid the waste
-There is an effective way to take a message using `Subscription->take()` method when it is needed.
-A callback function is used to receive topic message in many of ROS 2 applications as if it is a rule or a habit. You can use `Subscription->take()` method to get a topic message without executing a callback function.
-As described in [Template Class Subscription — rclcpp 16.0.8 documentation](https://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1Subscription.html#_CPPv4N6rclcpp12Subscription4takeER14ROSMessageTypeRN6rclcpp11MessageInfoE), you can use `take()` method to obtain a received message through DDS as an inter-process communication. It is no need to call a callback function when using `take() method`.
-Many of ROS 2 users may feel anxious to use `take()` method because it is not used so often, but it is widely used in Executor implementation as in [rclcpp/executor.cpp](https://github.com/ros2/rclcpp/blob/47c977d1bc82fc76dd21f870bcd3ea473eca2f59/rclcpp/src/rclcpp/executor.cpp#L643-L648). Therefore you use `take()` method indirectly whether you know it or not.
+There is an effective way to take a message using `Subscription->take()` method only when it is needed.
+A callback function is used to receive a topic message in many of ROS 2 applications as if it is a rule or a habit. You can use `Subscription->take()` method to get a topic message without calling a callback function.
+As described in [Template Class Subscription — rclcpp 16.0.8 documentation](https://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1Subscription.html#_CPPv4N6rclcpp12Subscription4takeER14ROSMessageTypeRN6rclcpp11MessageInfoE), you can use `take()` method to obtain a received message through DDS as an inter-process communication. It is no need to call a callback function when `take() method` is used.
+Many of ROS 2 users may feel anxious to use `take()` method because they are not so familiar with it, but it is widely used in Executor implementation as in [rclcpp/executor.cpp](https://github.com/ros2/rclcpp/blob/47c977d1bc82fc76dd21f870bcd3ea473eca2f59/rclcpp/src/rclcpp/executor.cpp#L643-L648) shown below. Therefore it turns out that you use `take()` method indirectly whether you know it or not.
 
 ```c++
     std::shared_ptr<void> message = subscription->create_message();
@@ -33,14 +33,14 @@ Many of ROS 2 users may feel anxious to use `take()` method because it is not us
       [&]() {subscription->handle_message(message, message_info);});
 ```
 
-Note: Strictly speaking, `take_type_erased()` method is called in Executor implementation instead of `take()`. `take_type_erased()` is called inside of `take()`.
+Note: Strictly speaking, `take_type_erased()` method is called in Executor implementation instead of `take()`.
 The body of obtaining a message from Subscription in Executor is `take_type_erased()` strictly, but we use `take()` instead for easy exaplanation.
 
-When Executor calls `take()` method and then a callback function, Executor itself determines when to do it. Because Executor calls a callback function with best-effort basis basically, it can occur that a message is not referred to or processed when it is needed in a node. Therefore it is desirable to call `take()` method directly **to ensue that a message is referred to or processed at the intended time.**
+If Executor is programmed to call `take()` method and then a callback function, Executor itself determines when to do it. Because Executor calls a callback function with best-effort basis basically, it can occur that a message is not referred to or processed when it is needed in a node. Therefore it is desirable to call `take()` method directly **to ensue that a message is referred to or processed at the intended time.**
 
-Note: you can use `take()` method to obtain a message through DDS as an inter-process communication. As for an intra-process communication, you can not use it. Refer to xxx in case of intra-process communication.
+Note: you can use `take()` method to obtain a message through DDS as an inter-process communication. You can not use it for an intra-process communication. Refer to [[supplement] Obtain a received message through intra-process communication](./supp-1-intra-process-comm.md) in case of intra-process communication.
 
-## typical scenario to use `Subscription->take()` method
+## Typical scenario to use `Subscription->take()` method
 
 1. obtain data by calling `Subscription->take()`
 2. obtain multiple data stored in Subscription Queue by multiple calls of `Subscription->take()`
@@ -106,7 +106,7 @@ In code above, `take(msg, msg_info)` is called  in a timer driven callback funct
 When `take(msg, msg_info)` is called, if size of Subscription Queue is larger than one and there are two or more message in the queue, then the oldest message is copied to `msg`. If size of Queue is one, the latest message is always obtained.
 
 Note: `take()` method is irreversible in terms that a obtained message by `take()` method can not be returned to Subscription Queue. **You can determine whether a message is in Subscription Queue or not by the return alue of `take()` method, but it changes Subscription queue state.** If you want to know whether there is a message in Subscription Queue or not, you can use `rclcpp::WaitSet`.
-As for `WaitSet`, refer to xxx for more detail.
+As for `WaitSet`, refer to [[supplement] Use rclcpp::WaitSet](./supp-2-waitset.md) for more detail.
 
 ### obtain multiple data stored in Subscription Queue
 
