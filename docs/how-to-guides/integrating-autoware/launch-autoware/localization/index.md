@@ -40,7 +40,7 @@ The current localization launcher implemented by TIER IV supports multiple local
   You can use YabLoc as a camera-based localization method.
   For more details on YabLoc,
   please refer to the [README of YabLoc](https://github.com/autowarefoundation/autoware.universe/blob/main/localization/yabloc/README.md) in autoware.universe.
-  Also, you can use Eagleye as a GNSS & IMU & wheel odometry-based localization method. For more details on Eagleye, please refer to the [Eagleye](./eagleye).
+  Also, you can use Eagleye as a GNSS & IMU & wheel odometry-based localization method. For more details on Eagleye, please refer to the [Eagleye](./eagleye/index.md).
 
   You can set `pose_source` argument on `tier4_localization_component.launch.xml`,
   for example, if you want to use eagleye as pose_source,
@@ -60,7 +60,7 @@ The current localization launcher implemented by TIER IV supports multiple local
 - **`twist_source:`** This argument specifies the twist_estimator, currently supporting `gyro_odom` (default), and `eagleye`.
   By default,
   Autoware launches [gyro_odometer](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/gyro_odometer) for twist estimator.
-  Also, you can use eagleye for the twist source, please refer to the [Eagleye](./eagleye).
+  Also, you can use eagleye for the twist source, please refer to the [Eagleye](./eagleye/index.md).
   If you want to change your twist source to eagleye, you can update `tier4_localization_component.launch.xml` like:
 
   ```diff

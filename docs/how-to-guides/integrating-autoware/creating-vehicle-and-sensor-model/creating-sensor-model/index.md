@@ -107,7 +107,7 @@ Now, we will modify these files according to our sensor design.
 This file defines the mounting positions and orientations of sensors with `sensor_kit_base_link` as the parent frame.
 We can assume `sensor_kit_base_link` frame is bottom of your main Lidar sensor.
 We must create this file with euler format as [x, y, z, roll, pitch, yaw].
-Also, we will set these values with "0" until the [calibration steps](../calibrating-sensors).
+Also, we will set these values with "0" until the [calibration steps](../calibrating-sensors/index.md).
 
 We will define new frames for this file, and we will connect them `.xacro` files.
 We recommend naming as if your lidar sensor frame as "velodyne_top",

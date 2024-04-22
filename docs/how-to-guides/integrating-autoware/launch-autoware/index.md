@@ -3,14 +3,14 @@
 This section explains how to run your vehicle with Autoware.
 We will explain how to run and launch autoware with these modules:
 
-- [Vehicle](./vehicle)
-- [System](./system)
-- [Map](./map)
-- [Sensing](./sensing)
-- [Localization](./localization)
-- [Perception](./perception)
-- [Planning](./planning)
-- [Control](./control)
+- [Vehicle](./vehicle/index.md)
+- [System](./system/index.md)
+- [Map](./map/index.md)
+- [Sensing](./sensing/index.md)
+- [Localization](./localization/index.md)
+- [Perception](./perception/index.md)
+- [Planning](./planning/index.md)
+- [Control](./control/index.md)
 
 ## Pre-requirements of launching Autoware with real vehicle
 
@@ -20,7 +20,7 @@ Please complete these steps for integration Autoware on your vehicle:
 - [Create your vehicle and sensor model](../creating-vehicle-and-sensor-model/index.md).
 - [Calibrate your sensors](../creating-vehicle-and-sensor-model/calibrating-sensors/index.md).
 - [Create your Autoware compatible vehicle interface](../creating-vehicle-interface-package/vehicle-interface.md).
-- [Create your environment map](../creating-maps).
+- [Create your environment map](../creating-maps/index.md).
 
 After the completion of these steps according to your individual vehicle,
 you are ready to use Autoware.
@@ -170,7 +170,7 @@ If you don't want to use traffic light classifier, then you can disable it:
 + <arg name="traffic_light_recognition/enable_fine_detection" default="false" description="enable traffic light fine detection"/>
 ```
 
-Please look at [Launch perception](./perception) page for detailed information.
+Please look at [Launch perception](./perception/index.md) page for detailed information.
 
 ## Launch Autoware
 
