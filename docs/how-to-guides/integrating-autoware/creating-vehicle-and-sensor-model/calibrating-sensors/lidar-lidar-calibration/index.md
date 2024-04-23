@@ -8,7 +8,7 @@ CalibrationTools.
 
 !!! warning
 
-    Please obtain the initial calibration results from the [Manual Calibration](../extrinsic-manual-calibration) section.
+    Please obtain the initial calibration results from the [Manual Calibration](../extrinsic-manual-calibration/index.md) section.
     This is crucial for obtaining accurate results from this tool.
     We will utilize the initial calibration parameters that were calculated
     in the previous step of this tutorial.
@@ -383,7 +383,7 @@ After the calibration is completed, then you should rviz2 screen like the image 
 
 ![mapping-based-calibration-result](images/mapping-based-calibration-result.png)
 
-The red points indicate pointcloud that initial calibration results of [previous section](../extrinsic-manual-calibration).
+The red points indicate pointcloud that initial calibration results of [previous section](../extrinsic-manual-calibration/index.md).
 The green points indicate aligned point (calibration result).
 The calibration results will be saved automatically on your
 `dst_yaml` ($HOME/sensor_kit_calibration.yaml) at this tutorial.

@@ -9,7 +9,7 @@
 
 {%- if uses %}
 {%- for name in uses %}
-- {{ create_relative_link(name, 'design/autoware-interfaces/ad-api/types/' + name) }}
+- {{ create_relative_link(name, 'design/autoware-interfaces/ad-api/types/' + name + '.md') }}
 {%- endfor %}
 {%- else %}
 - None
@@ -19,7 +19,7 @@
 
 {%- if used %}
 {%- for name in used %}
-- {{ create_relative_link(name, 'design/autoware-interfaces/ad-api/types/' + name) }}
+- {{ create_relative_link(name, 'design/autoware-interfaces/ad-api/types/' + name + '.md') }}
 {%- endfor %}
 {%- else %}
 - None
