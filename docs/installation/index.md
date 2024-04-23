@@ -34,7 +34,7 @@ For details of how to enable object detection and traffic light detection/classi
 
 There are two ways to set up Autoware. Choose one according to your preference.
 
-If any issues occur during installation, refer to the [Support page](../support).
+If any issues occur during installation, refer to the [Support page](../support/index.md).
 
 ### 1. Docker installation
 
@@ -58,10 +58,10 @@ For more information, refer to the [source installation guide](autoware/source-i
 Some other tools are required depending on the evaluation you want to do.
 For example, to run an end-to-end simulation you need to install an appropriate simulator.
 
-For more information, see [here](related-tools).
+For more information, see [here](related-tools/index.md).
 
 ## Additional settings for developers
 
 There are also tools and settings for developers, such as Shells or IDEs.
 
-For more information, see [here](additional-settings-for-developers).
+For more information, see [here](additional-settings-for-developers/index.md).

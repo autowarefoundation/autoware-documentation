@@ -10,12 +10,12 @@ def define_env(env):
 
     @env.macro
     def create_relative_link(text, root_path):
-        path = os.path.relpath(root_path, env.page.url)
+        path = os.path.relpath(root_path, os.path.dirname(env.page.file.src_uri))
         return f"[{text}]({path})"
 
     @env.macro
     def link_ad_api(name):
-        return create_relative_link(name, f"design/autoware-interfaces/ad-api/list/{name}")
+        return create_relative_link(name, f"design/autoware-interfaces/ad-api/list/{name}.md")
 
     @env.macro
     def resolve_msg_field(type, name, ext):

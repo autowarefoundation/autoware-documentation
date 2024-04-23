@@ -15,8 +15,8 @@ another [Lidar-Camera calibration method](https://github.com/tier4/CalibrationTo
 
 !!! warning
 
-    You need to apply [intrinsic calibration](../intrinsic-camera-calibration) before starting lidar-camera extrinsic calibration process. Also,
-    please obtain the initial calibration results from the [Manual Calibration](../extrinsic-manual-calibration) section.
+    You need to apply [intrinsic calibration](../intrinsic-camera-calibration/index.md) before starting lidar-camera extrinsic calibration process. Also,
+    please obtain the initial calibration results from the [Manual Calibration](../extrinsic-manual-calibration/index.md) section.
     This is crucial for obtaining accurate results from this tool.
     We will utilize the initial calibration parameters that were calculated
     in the previous step of this tutorial.

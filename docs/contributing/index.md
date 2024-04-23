@@ -29,14 +29,14 @@ If you believe that someone in the community has violated the Code of Conduct, p
 
 To gain a high-level understanding of Autoware's architecture and design, the following pages provide a brief overview:
 
-- [Autoware architecture](../design/)
-- [Autoware concepts](../design/autoware-concepts/)
+- [Autoware architecture](../design/index.md)
+- [Autoware concepts](../design/autoware-concepts/index.md)
 
-For experienced developers, the [Autoware interfaces](../design/autoware-interfaces/) and [individual component pages](../design/autoware-interfaces/components/) should also be reviewed to understand the inputs and outputs for each component or module at a more detailed level.
+For experienced developers, the [Autoware interfaces](../design/autoware-interfaces/index.md) and [individual component pages](../design/autoware-interfaces/components/index.md) should also be reviewed to understand the inputs and outputs for each component or module at a more detailed level.
 
 ### Contributing to open source projects
 
-If you are new to open source projects, we recommend reading GitHub's [How to Contribute to Open Source guide](https://opensource.guide/how-to-contribute/) for an overview of why people contribute to open source projects, what it means to contribute and much more besides.
+If you are new to open source projects, we recommend reading GitHub's [How to Contribute to Open Source guide](https://opensource.guide/how-to-contribute) for an overview of why people contribute to open source projects, what it means to contribute and much more besides.
 
 ## How can I get help?
 

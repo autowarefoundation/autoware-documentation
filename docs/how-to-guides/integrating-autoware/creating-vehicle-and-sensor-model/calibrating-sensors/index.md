@@ -11,7 +11,7 @@ or as tf launch files.
 In this documentation,
 we will explain TIER IV's [CalibrationTools](https://github.com/tier4/CalibrationTools) repository for the calibration process.
 Please look
-at [Starting with TIER IV's CalibrationTools page](./calibration-tools) for installation and usage of this tool.
+at [Starting with TIER IV's CalibrationTools page](./calibration-tools/index.md) for installation and usage of this tool.
 
 If you want to look at other calibration packages and methods, you can check out the following packages.
 
