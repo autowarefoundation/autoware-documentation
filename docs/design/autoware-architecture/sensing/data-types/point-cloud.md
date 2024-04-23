@@ -161,6 +161,10 @@ In the `PointXYZIRCT` and `PointXYZIRC` types, `R` field represents return mode 
 | `1`             | Strongest            |
 | `2`             | Last                 |
 
+!!! note
+
+    The `PointXYZIRC` includes a padding field named `padding`, which is of size `UINT8` and serves for memory alignment purposes for `return_type`.
+
 ### Channel
 
 The channel field is used to identify the vertical channel of the laser that measured the point.
