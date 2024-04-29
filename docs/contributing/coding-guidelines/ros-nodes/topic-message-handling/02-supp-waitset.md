@@ -2,8 +2,8 @@
 
 ## What is `rclcpp::WaitSet`
 
-As explained in [call take() method of Subscription object](./00-topic-message-handling/#call-take-method-of-subscription-object), `take()` method is irreversible. Once `take()` method is executed, Subscription object state changes and undo can not be applied, therefore Subscription object can not be restored to previous state. You can use `rclcpp::WaitSet` to call `take()` after verifying there is a received message in Subscription Queue.
-Here is a sample code. `wait_set_.wait()` tells you that a message has already been received and can be obtained by `take()`.
+As explained in [call take() method of Subscription object](../00-topic-message-handling/#call-take-method-of-subscription-object), `take()` method is irreversible. Once `take()` method is executed, Subscription object state changes and undo can not be applied, therefore Subscription object can not be restored to previous state. You can use `rclcpp::WaitSet` in advance to call `take()` so that a message is received after verifying it is in Subscription Queue.
+Here is a sample code in which `wait_set_.wait()` tells you that a message has already been received and can be obtained by `take()`.
 
 ```c++
       auto wait_result = wait_set_.wait(std::chrono::milliseconds(0));
@@ -31,11 +31,11 @@ If your code needs to proceed after several types of messages got together, usin
       }
 ```
 
-In code above, unless `rclcpp::WaitSet` is used, it is difficult to verify that all needed messages got together.
+In code above, unless `rclcpp::WaitSet` is used, it is difficult to verify that all needed messages get together.
 
 ## Coding method
 
-We will explain coding method of `rclcpp::WaitSet` using a sample code in [ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp).
+We will explain coding method of `rclcpp::WaitSet` using a sample code below.
 
 * [ros2_subscription_examples/waitset_examples/src/talker_triple.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/talker_triple.cpp)
   - it publishes `/chatter` per one second, `/slower_chatter` per two seconds, and `/slowest_chatter` per three seconds periodically
@@ -59,7 +59,7 @@ Note that there are three types of `WaitSet` as below.
 * [Typedef rclcpp::WaitSet](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1ad6fb19c154de27e92430309d2da25ac3.html)
   - Subscription, Timer, and so on can be registered to WaitSet at any time
 * [Typedef rclcpp::ThreadSafeWaitSet](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1acaec573e71549fd3078644e18e7f7127.html)
-  - Subscription, Timer, ans so on can be registered to WaitSet only in thread-safe state
+  - Subscription, Timer, and so on can be registered to WaitSet only in thread-safe state
   - sample code is here: [examples/rclcpp/wait_set/src/thread_safe_wait_set.cpp at rolling · ros2/examples](https://github.com/ros2/examples/blob/rolling/rclcpp/wait_set/src/thread_safe_wait_set.cpp)
 * [Typedef rclcpp::StaticWaitSet](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1adb06acf4a5723b1445fa6ed4e8f73374.html)
   - Subscription, Timer, and so on can be registered to WaitSet only at initialization
@@ -76,6 +76,7 @@ Below is excerption from [ros2_subscription_examples/waitset_examples/src/timer_
     subscriptions_array_[0] = create_subscription<std_msgs::msg::String>("chatter", qos, not_executed_callback, subscription_options);
     subscriptions_array_[1] = create_subscription<std_msgs::msg::String>("slower_chatter", qos, not_executed_callback, subscription_options);
     subscriptions_array_[2] = create_subscription<std_msgs::msg::String>("slowest_chatter", qos, not_executed_callback, subscription_options);
+
     // Add subscription to waitset
     for (auto & subscription : subscriptions_array_) {
       wait_set_.add_subscription(subscription);
@@ -111,7 +112,7 @@ As for 1, here is a sample code excerpted from [ros2_subscription_examples/waits
       }
 ```
 
-In code above, it is verified whether any trigger has been invoked which is registered to `wait_set_` by `auto wait_result = wait_set_.wait(std::chrono::milliseconds(0));`.
+In code above, it is verified whether any trigger has been invoked which is registered to `wait_set_` by `auto wait_result = wait_set_.wait(std::chrono::milliseconds(0))`.
 if `wait_result.kind() == rclcpp::WaitResultKind::Ready` is `true`, it indicates any trigger has been invoked.
 
 As for 2, here is a sample code excerpted from [ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp).
@@ -126,5 +127,5 @@ As for 2, here is a sample code excerpted from [ros2_subscription_examples/waits
             RCLCPP_INFO(this->get_logger(), "I heard: [%s]", msg.data.c_str());
 ```
 
-In code above, `wait_result.get_wait_set().get_rcl_wait_set().subscriptions[i]` indicates whether each individual trigger has been invoked or not. The result was stored to `subscriptions` array. The order in `subscriptions` array is the same as the order in which triggers are registered.
+In code above, `wait_result.get_wait_set().get_rcl_wait_set().subscriptions[i]` indicates whether each individual trigger has been invoked or not. The result is stored to `subscriptions` array. The order in `subscriptions` array is the same as the order in which triggers are registered.
 
