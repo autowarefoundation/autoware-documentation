@@ -7,7 +7,7 @@ Here is a sample code in which `wait_set_.wait()` tells you that a message has a
 
 ```c++
       auto wait_result = wait_set_.wait(std::chrono::milliseconds(0));
-      if (wait_result.kind() == rclcpp::WaitResultKind::Ready && 
+      if (wait_result.kind() == rclcpp::WaitResultKind::Ready &&
           wait_result.get_wait_set().get_rcl_wait_set().subscriptions[0]) {
             sub_->take(msg, msg_info);
             RCLCPP_INFO(this->get_logger(), "Catch message");
@@ -37,9 +37,9 @@ In code above, unless `rclcpp::WaitSet` is used, it is difficult to verify that 
 
 We will explain coding method of `rclcpp::WaitSet` using a sample code below.
 
-* [ros2_subscription_examples/waitset_examples/src/talker_triple.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/talker_triple.cpp)
+- [ros2_subscription_examples/waitset_examples/src/talker_triple.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/talker_triple.cpp)
   - it publishes `/chatter` per one second, `/slower_chatter` per two seconds, and `/slowest_chatter` per three seconds periodically
-* [ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp)
+- [ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp)
   - it queries `WaitSet` per one second and if there is a message available, it obtains the message by `take()`
   - it has each subscription for `/chatter` `/slower_chatter`, and `/slower_chatter`
 
@@ -56,12 +56,12 @@ rclcpp::WaitSet wait_set_;
 
 Note that there are three types of `WaitSet` as below.
 
-* [Typedef rclcpp::WaitSet](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1ad6fb19c154de27e92430309d2da25ac3.html)
+- [Typedef rclcpp::WaitSet](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1ad6fb19c154de27e92430309d2da25ac3.html)
   - Subscription, Timer, and so on can be registered to WaitSet at any time
-* [Typedef rclcpp::ThreadSafeWaitSet](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1acaec573e71549fd3078644e18e7f7127.html)
+- [Typedef rclcpp::ThreadSafeWaitSet](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1acaec573e71549fd3078644e18e7f7127.html)
   - Subscription, Timer, and so on can be registered to WaitSet only in thread-safe state
   - sample code is here: [examples/rclcpp/wait_set/src/thread_safe_wait_set.cpp at rolling · ros2/examples](https://github.com/ros2/examples/blob/rolling/rclcpp/wait_set/src/thread_safe_wait_set.cpp)
-* [Typedef rclcpp::StaticWaitSet](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1adb06acf4a5723b1445fa6ed4e8f73374.html)
+- [Typedef rclcpp::StaticWaitSet](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1adb06acf4a5723b1445fa6ed4e8f73374.html)
   - Subscription, Timer, and so on can be registered to WaitSet only at initialization
   - here are sample codes:
     - [ros2_subscription_examples/waitset_examples/src/timer_listener_twin_static.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_twin_static.cpp)
@@ -128,4 +128,3 @@ As for 2, here is a sample code excerpted from [ros2_subscription_examples/waits
 ```
 
 In code above, `wait_result.get_wait_set().get_rcl_wait_set().subscriptions[i]` indicates whether each individual trigger has been invoked or not. The result is stored to `subscriptions` array. The order in `subscriptions` array is the same as the order in which triggers are registered.
-

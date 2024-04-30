@@ -33,9 +33,9 @@ In this case, a topic message is not obtained by a subscription callback. To be 
 
 By using this manner, following advantages are achieved.
 
-* it can reduce invocations of subscription callback functions which is relatively expensive
-* there is no need to take a topic message which is not read
-* there is no need of exclusive lock between a subscription callback thread and a timer callback thread
+- it can reduce invocations of subscription callback functions which is relatively expensive
+- there is no need to take a topic message which is not read
+- there is no need of exclusive lock between a subscription callback thread and a timer callback thread
 
 ## Methods to handle topic message data
 
@@ -55,7 +55,7 @@ You can see an example of the typical usage of `take()` method in [ros2_subscrip
 
 It is needed to create a Subscription object with a callback group which makes registered callback functions not called automtically.
 Note that it is needed to register a callback function to Subscription object even if the function will not be called. If you register `nullptr` instead of a callback function, it can not be built.
-Here is a sample code excerpted from  [ros2_subscription_examples/simple_examples/src/timer_listener.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener.cpp).
+Here is a sample code excerpted from [ros2_subscription_examples/simple_examples/src/timer_listener.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener.cpp).
 
 ```c++
     rclcpp::CallbackGroup::SharedPtr cb_group_noexec = this->create_callback_group(
@@ -64,7 +64,7 @@ Here is a sample code excerpted from  [ros2_subscription_examples/simple_example
     subscription_options.callback_group = cb_group_noexec;
 
     rclcpp::QoS qos(rclcpp::KeepLast(10));
-    if (use_transient_local) { 
+    if (use_transient_local) {
       qos = qos.transient_local();
     }
 
@@ -84,7 +84,7 @@ If `automatically_add_to_executor_with_node` is set to `true`, callback function
 
 #### call `take()` method of Subscription object
 
-Here is a sample code  excerpted from [ros2_subscription_examples/simple_examples/src/timer_listener.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener.cpp) in which `take()` method is used.
+Here is a sample code excerpted from [ros2_subscription_examples/simple_examples/src/timer_listener.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener.cpp) in which `take()` method is used.
 
 ```c++
   std_msgs::msg::String msg;
@@ -94,7 +94,7 @@ Here is a sample code  excerpted from [ros2_subscription_examples/simple_example
     RCLCPP_INFO(this->get_logger(), "I heard: [%s]", msg.data.c_str());
 ```
 
-In code above, `take(msg, msg_info)` is called  in a timer driven callback function by `sub_` instance which is created from Subscription class. `msg` and `msg_info` indicate a message body and meta data of it respectively. When `take(msg, msg_info)` is called, if there is a message in Subscription Queue, then the message is copied to `msg`.
+In code above, `take(msg, msg_info)` is called in a timer driven callback function by `sub_` instance which is created from Subscription class. `msg` and `msg_info` indicate a message body and meta data of it respectively. When `take(msg, msg_info)` is called, if there is a message in Subscription Queue, then the message is copied to `msg`.
 `take(msg, msg_info)` returns `true` if a message is received from Subscription successfully. In this case in code above, a content of the message is outputted by `RCLCPP_INFO`.
 `take(msg, msg_info)` returns `false` if a mesage is not received from Subscription.
 When `take(msg, msg_info)` is called, if the size of Subscription Queue is larger than one and there are two or more messages in the queue, then the oldest message is copied to `msg`. If the size of Queue is one, the latest message is always obtained.
@@ -127,7 +127,7 @@ In code above, `msg` is created by `create_serialized_message()` to store a rece
 
 Subscription can hold multiple messages in its queue. Such messages can be obtained by consecutive calls of `take()` method from a callback function at a time. Note that in a normal manner in which a subscription callback function is used to take a topic message, if there are one or more messages in Subscription Queue, the oldest one is taken and a thread is assigned to execute a callback function, which continues until the queue becomes empty. If you use `take()` method, you can obtain multiple messages at a time.
 
-Here is a sample code  excerpted from [ros2_subscription_examples/simple_examples/src/timer_batch_listener.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_batch_listener.cpp) in which `take()` method is called consecutively.
+Here is a sample code excerpted from [ros2_subscription_examples/simple_examples/src/timer_batch_listener.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_batch_listener.cpp) in which `take()` method is called consecutively.
 
 ```c++
       std_msgs::msg::String msg;
