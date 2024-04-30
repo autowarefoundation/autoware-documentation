@@ -20,7 +20,7 @@ waitable.execute(data);
 Here is a sample program in [ros2_subscription_examples/intra_process_talker_listener/src/timer_listener_intra_process.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/intra_process_talker_listener/src/timer_listener_intra_process.cpp).
 You can run the program as below. If you set `true` to `use_intra_process_comms`, intra-process communication is performed, while if you set `false`, inter-process communication is performed.
 
-```
+```console
 ros2 intra_process_talker_listener talker_listener_intra_process.launch.py use_intra_process_comms:=true
 ```
 
