@@ -32,26 +32,6 @@ string behavior
 string sequence
 string detail
 autoware_adapi_v1_msgs/CooperationStatus[<=1] cooperation
-
-
-
-# deprecated constants for type
-uint16 INTERSECTION = 1
-uint16 LANE_CHANGE = 2
-uint16 AVOIDANCE_PATH_CHANGE = 3
-uint16 AVOIDANCE_PATH_RETURN = 4
-uint16 STATION = 5
-uint16 PULL_OUT = 6 # Deprecated. Use START_PLANNER.
-uint16 START_PLANNER = 6
-uint16 PULL_OVER = 7  # Deprecated. Use GOAL_PLANNER.
-uint16 GOAL_PLANNER = 7
-uint16 EMERGENCY_OPERATION = 8
-
-# deprecated constants for status
-uint16 TRYING = 2
-
-# deprecated variables
-uint16 type
 ```
 
 {% endblock %}

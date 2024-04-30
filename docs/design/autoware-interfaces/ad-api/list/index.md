@@ -26,6 +26,7 @@
 | [/api/routing/set_route](./api/routing/set_route.md)                                             | v1.0.0       |
 | [/api/routing/set_route_points](./api/routing/set_route_points.md)                               | v1.0.0       |
 | [/api/routing/state](./api/routing/state.md)                                                     | v1.0.0       |
+| [/api/system/heartbeat](./api/system/heartbeat.md)                                               | not released |
 | [/api/vehicle/dimensions](./api/vehicle/dimensions.md)                                           | v1.1.0       |
 | [/api/vehicle/doors/command](./api/vehicle/doors/command.md)                                     | v1.2.0       |
 | [/api/vehicle/doors/layout](./api/vehicle/doors/layout.md)                                       | v1.2.0       |
