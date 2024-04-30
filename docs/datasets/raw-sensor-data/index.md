@@ -1,4 +1,4 @@
-# Annotaed Dataset
+# Annotated Dataset
 
 ## TIER IV Dataset
 
