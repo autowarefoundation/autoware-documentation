@@ -15,7 +15,7 @@ Here is a sample code in which `wait_set_.wait()` tells you that a message has a
 ```
 
 Also you can verify that there are messages in multiple Subscription Queues in advance.
-If your code needs to proceed after several types of messages got together, using `rclcpp::WaitSet` is prefarable.
+If your code needs to proceed after several types of messages got together, using `rclcpp::WaitSet` is preferable.
 
 ```c++
       auto wait_result = wait_set_.wait(std::chrono::milliseconds(0));

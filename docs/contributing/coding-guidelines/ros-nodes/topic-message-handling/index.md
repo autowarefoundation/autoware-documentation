@@ -16,7 +16,7 @@ In a typical ROS 2 application, a topic message which is received by Subscriptio
     [this](SteeringReport::SharedPtr msg) { current_steer_ = msg->steering_tire_angle; });
 ```
 
-In code above, when a topic message whose name is `input/steering` is received, an anonymous function whose description is `{current_steer_ = msg->steering_tier_angle;}` is executed as a callback in a thread. The callback function is always executed when the message is received, which leads to waste computing resource if the message is not always necessary. Besides, it costs thread-wakeup overhread just to take a message.
+In code above, when a topic message whose name is `input/steering` is received, an anonymous function whose description is `{current_steer_ = msg->steering_tier_angle;}` is executed as a callback in a thread. The callback function is always executed when the message is received, which leads to waste computing resource if the message is not always necessary. Besides, it costs thread-wakeup overhead just to take a message.
 
 ## Enhanced method
 
@@ -53,7 +53,7 @@ You can see an example of the typical usage of `take()` method in [ros2_subscrip
 
 #### prevent calling a callback function
 
-It is needed to create a Subscription object with a callback group which makes registered callback functions not called automtically.
+It is needed to create a Subscription object with a callback group which makes registered callback functions not called automatically.
 Note that it is needed to register a callback function to Subscription object even if the function will not be called. If you register `nullptr` instead of a callback function, it can not be built.
 Here is a sample code excerpted from [ros2_subscription_examples/simple_examples/src/timer_listener.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener.cpp).
 
@@ -96,7 +96,7 @@ Here is a sample code excerpted from [ros2_subscription_examples/simple_examples
 
 In code above, `take(msg, msg_info)` is called in a timer driven callback function by `sub_` instance which is created from Subscription class. `msg` and `msg_info` indicate a message body and meta data of it respectively. When `take(msg, msg_info)` is called, if there is a message in Subscription Queue, then the message is copied to `msg`.
 `take(msg, msg_info)` returns `true` if a message is received from Subscription successfully. In this case in code above, a content of the message is outputted by `RCLCPP_INFO`.
-`take(msg, msg_info)` returns `false` if a mesage is not received from Subscription.
+`take(msg, msg_info)` returns `false` if a message is not received from Subscription.
 When `take(msg, msg_info)` is called, if the size of Subscription Queue is larger than one and there are two or more messages in the queue, then the oldest message is copied to `msg`. If the size of Queue is one, the latest message is always obtained.
 
 Note 1. `take()` method is irreversible in terms that a obtained message by `take()` method can not be returned to Subscription Queue. **You can determine whether a message is in Subscription Queue or not by the return value of `take()` method, but it changes Subscription queue state.** If you want to know whether there is a message in Subscription Queue or not, you can use `rclcpp::WaitSet`.
@@ -106,7 +106,7 @@ Note 2. You can use `take()` method to obtain a message which is passed through 
 
 #### 1.1 obtain Serialized Message from Subscription
 
-ROS 2 provides Serialized Message functon which supports communication with arbitrary message types as explained in [Class SerializedMessage](http://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1SerializedMessage.html). It is used by `topic_state_monitor` in Autoware.
+ROS 2 provides Serialized Message function which supports communication with arbitrary message types as explained in [Class SerializedMessage](http://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1SerializedMessage.html). It is used by `topic_state_monitor` in Autoware.
 You need to use `take_serialized()` method instead of `take()` method to obtain a message of Serialized Message type from Subscription object.
 
 Here is a sample code excerpted from [ros2_subscription_examples/simple_examples/src/timer_listener_serialized_message.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener_serialized_message.cpp).
@@ -146,7 +146,7 @@ It is effective to use the method if a reception of message occurs very frequent
 
 ### 3. obtain data by calling `Subscription->take` and then call a callback function
 
-If you want to use the enhanced method introduced in this guideline, you may feel it is needed to implement a new funcation in which a message is taken by `take()` method and then processed. But there is a way to make a callback function be called indirectly which is registered to Subscription object.
+If you want to use the enhanced method introduced in this guideline, you may feel it is needed to implement a new function in which a message is taken by `take()` method and then processed. But there is a way to make a callback function be called indirectly which is registered to Subscription object.
 Here is a sample code excerpted from [ros2_subscription_examples/simple_examples/src/timer_listener_using_callback.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener_using_callback.cpp).
 
 ```c++
@@ -164,7 +164,7 @@ You can also refer to [API document](http://docs.ros.org/en/humble/p/rclcpp/gene
 ### 4. obtain data by a callback function
 
 A typical method usually used is also usable, by which a message is obtained in subscription callback function . If you don't use a callback group with `automatically_add_to_executor_with_node = false`, a registered callback function is called automatically by Executor when a topic message is received.
-One of advantages of this method is you don't need to take care whether a topic message is passed through inter-process or itra-process. Remind that in the enhanced method, `take()` can only be used in case of inter-process communication while `take_type_erased()` needs to be used in case of intra-process communication.
+One of advantages of this method is you don't need to take care whether a topic message is passed through inter-process or intra-process. Remind that in the enhanced method, `take()` can only be used in case of inter-process communication while `take_type_erased()` needs to be used in case of intra-process communication.
 
 ## Appendix
 
