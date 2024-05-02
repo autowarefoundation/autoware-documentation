@@ -153,7 +153,7 @@ It is effective to use the method if a reception of message occurs very frequent
 
 ### 3. obtain data by calling `Subscription->take` and then call a callback function
 
-If you want to use the enhanced method introduced in this guideline, you may feel it is needed to implement a new function in which a message is taken by `take()` method and then processed. But there is a way to make a callback function be called indirectly which is registered to Subscription object.
+You can combine the `take()` (strictly `take_type_erased()`) method and the callback function to process received messages in a consistent way.  Using this combination does not require waking up a thread.
 Here is a sample code excerpted from [ros2_subscription_examples/simple_examples/src/timer_listener_using_callback.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener_using_callback.cpp).
 
 ```c++
