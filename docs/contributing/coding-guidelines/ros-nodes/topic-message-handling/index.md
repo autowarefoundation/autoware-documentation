@@ -40,7 +40,7 @@ By using this manner, following advantages are achieved.
 
 ## Methods to handle topic message data
 
-We will explain four methods including the enhanced method.
+This section introduces four manners including the recommended ones.
 
 ### 1. obtain data by calling `Subscription->take()`
 
