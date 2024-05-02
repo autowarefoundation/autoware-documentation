@@ -8,7 +8,8 @@ You can find sample source codes in [ros2_subscription_examples](https://github.
 ## Typical message handling method usually used
 
 At first, let us see a typical message handling method usually used.
-In a typical ROS 2 application, a topic message which is received by Subscription is referred to and processed by a dedicated callback function.
+[ROS 2 Tutorials](https://docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html#write-the-subscriber-node) is one of the most cited references for ROS 2 applications, including Autoware.
+It implicitly recommends that messages received by subscriptions should be referred and processed by a dedicated callback function. Autoware follows that manner thoroughly.
 
 ```c++
   steer_sub_ = create_subscription<SteeringReport>(
