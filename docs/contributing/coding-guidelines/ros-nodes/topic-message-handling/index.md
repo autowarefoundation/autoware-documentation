@@ -150,7 +150,7 @@ In the code above, `while(sub->take(msg, msg_info))` continues to take messages 
 Note that you need to determine size of a subscription queue considering both frequency of a callback function and that of a message reception. For example, if a callback function is invoked at 10Hz and topic messages are received at 50Hz, the size of the subscription queue must be at least 5 not to lose received messages.
 
 Assigning a thread to execute a callback function per message will cause performance overhead. You can use the manner introduced in this section to avoid the unexpected overhead.
-It is effective to use the method if a reception of message occurs very frequently but it doesn't need to be processed with so high frequency. For example, if a message is received with more than 100 Hz such as CAN message, it is desirable to obtain multiple messages in a callback function at a time with one thread invocation.
+The manner will be effective if there is a large difference between reception frequency and consumption frequency. For example, even if a message, like a CAN message, is received at higher than 100 Hz, a user logic consumes messages at slower frequency like 10 Hz. In such case, the user logic should retrieve the required number of messages with `take()` method to avoid the unexpected overhead.
 
 ### 3. obtain data by calling `Subscription->take` and then call a callback function
 
