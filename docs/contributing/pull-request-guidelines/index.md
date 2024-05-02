@@ -28,6 +28,8 @@ Use this workflow as a reference when you contribute to Autoware.
    - The reviewers will review your code following the [review guidelines](review-guidelines.md).
      - Not only the reviewers, but also the author is encouraged to understand the review guidelines.
    - If [CI checks](ci-checks.md) have failed, fix the errors.
+   - Learn about code ownership from the [code owners](code-owners.md) guidelines.
+      - Check the [code owners FAQ section](code-owners.md#faq) if your pull request is not being reviewed.
 7. Address the review comments pointed out by the reviewers.
    - If you don't understand the meaning of a review comment, ask the reviewers until you understand it.
      - Fixing without understanding the reason is not recommended because the author should be responsible for the final content of their own pull request.
