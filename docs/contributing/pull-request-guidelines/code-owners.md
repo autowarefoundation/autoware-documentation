@@ -53,7 +53,7 @@ If you, as the only code owner, authored a PR:
 - Request a review by tagging `@autoware-maintainers`.
 - The maintainers will consider appointing additional maintainers to avoid such conflicts.
 
-### Non-Code Owners Reviewing PRs
+### Non-code owners reviewing PRs
 
 Anyone can review a PR:
 
