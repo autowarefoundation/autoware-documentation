@@ -9,7 +9,7 @@ Refer to [Template Class SubscriptionIntraProcess — rclcpp 16.0.8 documentatio
 
 ## Coding manner
 
-Call `take_data()` method and then `execute()` method as below.
+To handle messages via intra-process communication, call `take_data()` method and then `execute()` method as below.
 
 ```c++
 // Execute any entities of the Waitable that may be ready
