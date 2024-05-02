@@ -22,7 +22,7 @@ In code above, when a topic message whose name is `input/steering` is received, 
 ## Enhanced method
 
 There is an enhanced method to take a message using `Subscription->take()` method only when it is needed.
-Here is a sample code to use `Subscription->take()` method executed as a timer or subscription callback to perform a main logic.
+The sample code given below shows that `Subscription->take()` method is called during execution of any callback function. In most cases, `Subscription->take()` method is called before a received message is consumed by a main logic.
 In this case, a topic message is not obtained by a subscription callback. To be exact, you need to program your code so that a callback function is not called automatically.
 
 ```c++
