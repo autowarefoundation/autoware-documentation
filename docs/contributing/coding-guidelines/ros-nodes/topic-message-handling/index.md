@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Here is coding guideline for a topic message handling method which includes more enhanced method than usually used one, which is roughly explained in [Discussions page](https://github.com/orgs/autowarefoundation/discussions/4612). Refer to the page to understand the basic concept of the enhanced method.
+Here is coding guideline for a topic message handling in Autoware. It includes the recommended manner than conventional one, which is roughly explained in [Discussions page](https://github.com/orgs/autowarefoundation/discussions/4612). Refer to the page to understand the basic concept of the enhanced method.
 You can find sample source codes in [ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples) referred from this document.
 
 ## Typical message handling method usually used
