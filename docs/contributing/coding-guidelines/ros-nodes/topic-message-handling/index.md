@@ -132,7 +132,8 @@ ROS 2's `rclcpp` supports `rclcpp::LoanedMessage` as well as `rclcpp::Serialized
 
 ### 2. obtain multiple data stored in Subscription Queue
 
-Subscription can hold multiple messages in its queue. Such messages can be obtained by consecutive calls of `take()` method from a callback function at a time. Note that in a normal manner in which a subscription callback function is used to take a topic message, if there are one or more messages in Subscription Queue, the oldest one is taken and a thread is assigned to execute a callback function, which continues until the queue becomes empty. If you use `take()` method, you can obtain multiple messages at a time.
+The subscription object can hold multiple messages in its queue if multiple queue size is configured with QoS setting. The conventional manner with callback function usage force a callback function to run per message. In other words, there is a constraints; a single cycle of callback function processes a single message . Note that in the conventional manner if there are one or more messages in Subscription Queue, the oldest one is taken and a thread is assigned to execute a callback function, which continues until the queue becomes empty. 
+`take()` method would mitigate the constraint. `take()` method can be called in multiple iterations, so that single cycle of callback function processes multiple messages taken by `take()`  methods.
 
 Here is a sample code excerpted from [ros2_subscription_examples/simple_examples/src/timer_batch_listener.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_batch_listener.cpp) in which `take()` method is called consecutively.
 
