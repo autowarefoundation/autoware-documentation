@@ -34,7 +34,7 @@ In this case, a topic message is not obtained by a subscription callback. To be 
 
 By using this manner, following advantages are achieved.
 
-- it can reduce invocations of subscription callback functions which is relatively expensive
+- It can reduce invocations of subscription callback functions
 - There is no need to take a topic message, which a main logic does not consume, from a subscription
 - there is no need of exclusive lock between a subscription callback thread and a timer callback thread
 
