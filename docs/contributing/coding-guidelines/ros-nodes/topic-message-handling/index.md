@@ -132,8 +132,8 @@ ROS 2's `rclcpp` supports `rclcpp::LoanedMessage` as well as `rclcpp::Serialized
 
 ### 2. obtain multiple data stored in Subscription Queue
 
-The subscription object can hold multiple messages in its queue if multiple queue size is configured with QoS setting. The conventional manner with callback function usage force a callback function to run per message. In other words, there is a constraints; a single cycle of callback function processes a single message . Note that in the conventional manner if there are one or more messages in Subscription Queue, the oldest one is taken and a thread is assigned to execute a callback function, which continues until the queue becomes empty. 
-`take()` method would mitigate the constraint. `take()` method can be called in multiple iterations, so that single cycle of callback function processes multiple messages taken by `take()`  methods.
+The subscription object can hold multiple messages in its queue if multiple queue size is configured with QoS setting. The conventional manner with callback function usage force a callback function to run per message. In other words, there is a constraints; a single cycle of callback function processes a single message . Note that in the conventional manner if there are one or more messages in Subscription Queue, the oldest one is taken and a thread is assigned to execute a callback function, which continues until the queue becomes empty.
+`take()` method would mitigate the constraint. `take()` method can be called in multiple iterations, so that single cycle of callback function processes multiple messages taken by `take()` methods.
 
 Here is a sample code excerpted from [ros2_subscription_examples/simple_examples/src/timer_batch_listener.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_batch_listener.cpp) in which `take()` method is called consecutively.
 
@@ -154,7 +154,7 @@ It is effective to use the method if a reception of message occurs very frequent
 
 ### 3. obtain data by calling `Subscription->take` and then call a callback function
 
-You can combine the `take()` (strictly `take_type_erased()`) method and the callback function to process received messages in a consistent way.  Using this combination does not require waking up a thread.
+You can combine the `take()` (strictly `take_type_erased()`) method and the callback function to process received messages in a consistent way. Using this combination does not require waking up a thread.
 Here is a sample code excerpted from [ros2_subscription_examples/simple_examples/src/timer_listener_using_callback.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener_using_callback.cpp).
 
 ```c++
