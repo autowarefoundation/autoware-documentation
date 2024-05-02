@@ -6,11 +6,13 @@ Please go through the [GitHub documentation on code owners](https://docs.github.
 
 ## Purpose and function of the `CODEOWNERS` file
 
-They are used to automatically request reviews from the code owners when a pull request is created.
+The `CODEOWNERS` file serves a crucial role in the review process of pull requests within a repository. Its primary functions include:
 
-Without an approval without either a code owner or a maintainer, the pull request cannot be merged.
+- **Automated Review Requests**: It automatically assigns review requests to designated code owners when a pull request is initiated. These owners are typically individuals or teams responsible for specific sections of the codebase.
 
-Aim is to ensure that the code is reviewed by the appropriate people before it is merged.
+- **Merge Approval Requirement**: A pull request typically cannot be merged without approval from either a designated code owner or a repository maintainer. This ensures that changes undergo thorough scrutiny by individuals familiar with the affected code.
+
+- **Quality Control**: By requiring review from appropriate individuals or teams, the `CODEOWNERS` file helps maintain code quality and consistency across the project. This ensures that proposed changes align with project standards and best practices.
 
 ## Where to find the `CODEOWNERS` files
 
