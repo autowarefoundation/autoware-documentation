@@ -166,7 +166,7 @@ Here is a sample code excerpted from [ros2_subscription_examples/simple_examples
 ```
 
 In the code above, a message is taken by `take_type_erased()` method before calling a registered callback function via `handle_message()` method. Note that you need to use `take_type_erased()` instead of `take()`. `take_type_erased()` needs `void` type data as its first argument. You need to use `get()` method to convert `msg` whose type is `shared_ptr<void>` to `void` type. Then `handle_message()` method is called with the obtained message. A registered callback function is called inside of `handle_message()`.
-You don't need to take special care of message type which is passed to `take_type_erased()`, the same as `take_type_erased()` and `handle_message()` are not based on any specific types. You can define message variable as `auto msg = sub_->create_message();`.
+You don't need to take care of message type which is passed to `take_type_erased()` and `handle_message()`. You can define the message variable as `auto msg = sub_->create_message();`.
 You can also refer to [API document](http://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1SubscriptionBase.html#_CPPv4N6rclcpp16SubscriptionBase16take_type_erasedEPvRN6rclcpp11MessageInfoE) as for `create_message()`, `take_type_erased()` and `handle_message()`.
 
 ### 4. obtain data by a callback function
