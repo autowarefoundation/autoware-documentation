@@ -63,7 +63,7 @@ Below is explanation of the above code one line by one.
 
 - `std::shared_ptr<void> data = intra_process_sub->take_data();`
 
-  - obtain a topic message
+  - this statement means to obtain a topic message from subscriptions for intra-process communication.
   - `intra_process_sub->take_data()` does not return Boolean value which indicates a message is received successfully or not, therefore it is needed to verify it by calling `is_ready()` in advance
 
 - `intra_process_sub->execute(data);`
