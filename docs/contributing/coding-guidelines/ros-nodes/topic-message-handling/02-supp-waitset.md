@@ -81,7 +81,7 @@ Below is excerption from [ros2_subscription_examples/waitset_examples/src/timer_
     }
 ```
 
-In code above, created subscriptions are registered to `WaitSet` by `add_subscription()`.
+In the code above, created subscriptions are registered to the `wait_set_` object by `add_subscription()` method.
 You can also register another type of trigger to WaitSet by which a callback function registered to Subscription is invoked, such as Timer, Service, or Action.
 A sample code to register Timer trigger is here.
 
