@@ -82,7 +82,7 @@ Below is excerption from [ros2_subscription_examples/waitset_examples/src/timer_
 ```
 
 In the code above, created subscriptions are registered to the `wait_set_` object by `add_subscription()` method.
-You can also register another type of trigger to WaitSet by which a callback function registered to Subscription is invoked, such as Timer, Service, or Action.
+`rclcpp::WaitSet`-based object basically handles objects each of which have a corresponding callback function. Not only `Subscription` based objects, but `Timer`, `Service` or `Action` based objects can be observed by `rclcpp::WaitSet`-based object. A single `WaitSet` object accepts mixture of different types of objects.
 A sample code to register Timer trigger is here.
 
 ```c++
