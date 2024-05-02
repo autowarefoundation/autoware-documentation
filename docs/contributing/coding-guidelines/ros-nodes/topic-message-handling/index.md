@@ -46,7 +46,7 @@ We will explain four methods including the enhanced method.
 
 To use the enhanced method using `Subscription->take()`, you need to do two things below basically.
 
-1. prevent calling a callback function when a topic message is received
+1. Prevent calling a callback function when a topic message is received
 2. call `take()` method of Subscription object when a topic message is needed
 
 You can see an example of the typical usage of `take()` method in [ros2_subscription_examples/simple_examples/src
