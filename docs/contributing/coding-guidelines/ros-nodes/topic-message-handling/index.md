@@ -103,7 +103,7 @@ When `take(msg, msg_info)` is called, if the size of Subscription Queue is large
 
 !!! Note 
      You can check the presence of incoming message with the returned value of `take()`  method. However, you have to take care of destructive nature of take() method. `take()` method changes the subscription queue. Besides, `take()` method is irreversible while there is no undo operation against `take()` method. Checking the incoming message with only `take()`  method always changes the subscription queue. If you want to check without changing the subscription queue, rclcpp::WaitSet  is recommended.
-Refer to [[supplement] Use rclcpp::WaitSet](./02-supp-waitset.md) for more detail.
+     Refer to [[supplement] Use rclcpp::WaitSet](./02-supp-waitset.md) for more detail.
 
 Note 2. You can use `take()` method to obtain a message which is passed through DDS as an inter-process communication. You can not use it for an intra-process communication. Refer to [[supplement] Obtain a received message through intra-process communication](./01-supp-intra-process-comm.md) in case of intra-process communication.
 
