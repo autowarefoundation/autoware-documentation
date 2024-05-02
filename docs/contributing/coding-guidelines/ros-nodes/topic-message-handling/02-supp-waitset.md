@@ -31,7 +31,7 @@ If your code needs to proceed after several types of messages got together, usin
       }
 ```
 
-In code above, unless `rclcpp::WaitSet` is used, it is difficult to verify that all needed messages get together.
+In the code above, unless `rclcpp::WaitSet` is used, it is impossible to verify arrival of all needed messages without changing state of the subscription objects.
 
 ## Coding method
 
