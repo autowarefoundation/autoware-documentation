@@ -3,7 +3,7 @@
 ## Topic message handling in intra-process communication
 
 rclcpp supports intra-process communication. As explained in [Topic message handling guideline](index.md), `take()` method can not be used in case of intra-process communication. `take()` can not return a topic message which is received through inter-process communication.  
-But a method are provided for intra-process communication similar to a method for inter-process communication described in [obtain data by calling Subscription->take and then call a callback function](./index.md#3-obtain-data-by-calling-subscription-take-and-then-call-a-callback-function).
+But methods are provided for intra-process communication similar to methods for inter-process communication described in [obtain data by calling Subscription->take and then call a callback function](./index.md#3-obtain-data-by-calling-subscription-take-and-then-call-a-callback-function).
 `take_data()` method is provided to obtain a received data in case of intra-process communication and the received data must be processed through `execute()` method. The return value of `take_data()` is based on the complicated data structure, `execute()` method should be used along with `take_data()` method.
 Refer to [Template Class SubscriptionIntraProcess — rclcpp 16.0.8 documentation](http://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1experimental_1_1SubscriptionIntraProcess.html#_CPPv4N6rclcpp12experimental24SubscriptionIntraProcess9take_dataEv) for `take_data()` and `execute()` for more detail.
 
@@ -59,7 +59,7 @@ Below is explanation of the above code one line by one.
 
   - the statement checks if a message has already been received through intra-process communication
   - the argument of `is_ready()` is of `rcl_wait_set_t` type, but because the argument is not used inside `is_ready()`, `nullptr` is used tentatively
-    - using `nullptr` is a workaround at the present because it is does not have any intention.
+    - using `nullptr` is a workaround at the present because it does not have any intention.
 
 - `std::shared_ptr<void> data = intra_process_sub->take_data();`
 

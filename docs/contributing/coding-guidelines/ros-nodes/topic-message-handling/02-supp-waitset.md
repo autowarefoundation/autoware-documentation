@@ -32,7 +32,7 @@ A single `rclcpp::WaitSet` object is able to observe multiple subscription objec
 
 In the code above, unless `rclcpp::WaitSet` is used, it is impossible to verify arrival of all needed messages without changing state of the subscription objects.
 
-## Coding method
+## Coding manner
 
 This section explains the coding manner using `rclcpp::WaitSet` with a sample code below.
 
@@ -44,7 +44,7 @@ This section explains the coding manner using `rclcpp::WaitSet` with a sample co
 
 Following three steps are needed to use `WaitSet`.
 
-### 1. declare and initialize `WaitSet`
+### 1. Declare and initialize `WaitSet`
 
 You need to declare WaitSet variable first to use.
 Below is excerption from [ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp).
@@ -65,7 +65,7 @@ Thread-safe `WaitSet` are prepared by the `rclcpp` package as listed below.
     - [ros2_subscription_examples/waitset_examples/src/timer_listener_twin_static.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_twin_static.cpp)
     - [examples/rclcpp/wait_set/src/static_wait_set.cpp at rolling · ros2/examples](https://github.com/ros2/examples/blob/rolling/rclcpp/wait_set/src/static_wait_set.cpp)
 
-### 2. register trigger (Subscription, Timer, and so on) to `WaitSet`
+### 2. Register trigger (Subscription, Timer, and so on) to `WaitSet`
 
 You need to register a trigger to `WaitSet`.
 Below is excerption from [ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp)
@@ -91,7 +91,7 @@ wait_set_.add_timer(much_slower_timer_);
 
 A trigger can be registered at declaration and initialization as [https://github.com/ros2/examples/blob/rolling/rclcpp/wait_set/src/wait_set_topics_and_timer.cpp#L66](https://github.com/ros2/examples/blob/rolling/rclcpp/wait_set/src/wait_set_topics_and_timer.cpp#L66).
 
-### 3. verify WaitSet result
+### 3. Verify WaitSet result
 
 The data structure of testing result returned from `WaitSet` is nested.
 You can find `WaitSet` result by the following 2 steps;

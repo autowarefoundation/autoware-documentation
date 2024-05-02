@@ -2,12 +2,12 @@
 
 ## Introduction
 
-Here is coding guideline for a topic message handling in Autoware. It includes the recommended manner than conventional one, which is roughly explained in [Discussions page](https://github.com/orgs/autowarefoundation/discussions/4612). Refer to the page to understand the basic concept of the enhanced method.
+Here is coding guideline for a topic message handling in Autoware. It includes the recommended manner than conventional one, which is roughly explained in [Discussions page](https://github.com/orgs/autowarefoundation/discussions/4612). Refer to the page to understand the basic concept of the recommended manner.
 You can find sample source codes in [ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples) referred from this document.
 
-## Typical message handling method usually used
+## Typical message handling manner usually used
 
-At first, let us see a typical message handling method usually used.
+At first, let us see a typical message handling manner usually used.
 [ROS 2 Tutorials](https://docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html#write-the-subscriber-node) is one of the most cited references for ROS 2 applications, including Autoware.
 It implicitly recommends that messages received by subscriptions should be referred and processed by a dedicated callback function. Autoware follows that manner thoroughly.
 
@@ -19,9 +19,9 @@ It implicitly recommends that messages received by subscriptions should be refer
 
 In the code above, when a topic message whose name is `input/steering` is received, an anonymous function whose description is `{current_steer_ = msg->steering_tier_angle;}` is executed as a callback in a thread. The callback function is always executed when the message is received, which leads to waste computing resource if the message is not always necessary. Besides, it costs thread-wakeup overhead just to take a message.
 
-## Enhanced method
+## Recommended manner
 
-There is an enhanced method to take a message using `Subscription->take()` method only when it is needed.
+There is a recommended manner to take a message using `Subscription->take()` method only when it is needed.
 The sample code given below shows that `Subscription->take()` method is called during execution of any callback function. In most cases, `Subscription->take()` method is called before a received message is consumed by a main logic.
 In this case, a topic message is retrieved from the subscription queue, the queue embedded in the subscription object, instead of using a callback function. To be exact, you need to program your code so that a callback function is not called automatically.
 
@@ -38,13 +38,13 @@ Using this manner will give you following advantages.
 - There is no need to take a topic message, which a main logic does not consume, from a subscription
 - There is no mandatory thread waking for the callback function, which leads to multi-threaded programming, data races and exclusive locking
 
-## Methods to handle topic message data
+## Manners to handle topic message data
 
 This section introduces four manners including the recommended ones.
 
 ### 1. Obtain data by calling `Subscription->take()`
 
-To use the enhanced method using `Subscription->take()`, you need to do two things below basically.
+To use the recommended manner using `Subscription->take()`, you need to do two things below basically.
 
 1. Prevent calling a callback function when a topic message is received
 2. Call `take()` method of Subscription object when a topic message is needed
@@ -130,9 +130,9 @@ In the code above, `msg` is created by `create_serialized_message()` to store a 
 !!! Note
 ROS 2's `rclcpp` supports `rclcpp::LoanedMessage` as well as `rclcpp::SerializedMessage`. If [zero copy communication via loaned messages](https://design.ros2.org/articles/zero_copy.html) is introduced to Autoware, `take_loaned()` method should be used for communication via loaned messages instead. In this document, the explanation of `take_loaned()` method is omitted because it is not used for Autoware in the present (May. 2024).
 
-### 2. obtain multiple data stored in Subscription Queue
+### 2. Obtain multiple data stored in Subscription Queue
 
-The subscription object can hold multiple messages in its queue if multiple queue size is configured with QoS setting. The conventional manner with callback function usage force a callback function to run per message. In other words, there is a constraints; a single cycle of callback function processes a single message . Note that in the conventional manner if there are one or more messages in Subscription Queue, the oldest one is taken and a thread is assigned to execute a callback function, which continues until the queue becomes empty.
+The subscription object can hold multiple messages in its queue if multiple queue size is configured with QoS setting. The conventional manner with callback function usage force a callback function to run per message. In other words, there is a constraints; a single cycle of callback function processes a single message . Note that in the conventional manner if there are one or more messages in the subscription queue, the oldest one is taken and a thread is assigned to execute a callback function, which continues until the queue becomes empty.
 `take()` method would mitigate the constraint. `take()` method can be called in multiple iterations, so that single cycle of callback function processes multiple messages taken by `take()` methods.
 
 Here is a sample code excerpted from [ros2_subscription_examples/simple_examples/src/timer_batch_listener.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_batch_listener.cpp) in which `take()` method is called consecutively.
@@ -152,7 +152,7 @@ Note that you need to determine size of a subscription queue considering both fr
 Assigning a thread to execute a callback function per message will cause performance overhead. You can use the manner introduced in this section to avoid the unexpected overhead.
 The manner will be effective if there is a large difference between reception frequency and consumption frequency. For example, even if a message, like a CAN message, is received at higher than 100 Hz, a user logic consumes messages at slower frequency like 10 Hz. In such case, the user logic should retrieve the required number of messages with `take()` method to avoid the unexpected overhead.
 
-### 3. obtain data by calling `Subscription->take` and then call a callback function
+### 3. Obtain data by calling `Subscription->take` and then call a callback function
 
 You can combine the `take()` (strictly `take_type_erased()`) method and the callback function to process received messages in a consistent way. Using this combination does not require waking up a thread.
 Here is a sample code excerpted from [ros2_subscription_examples/simple_examples/src/timer_listener_using_callback.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener_using_callback.cpp).
@@ -169,15 +169,15 @@ In the code above, a message is taken by `take_type_erased()` method before call
 You don't need to take care of message type which is passed to `take_type_erased()` and `handle_message()`. You can define the message variable as `auto msg = sub_->create_message();`.
 You can also refer to [API document](http://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1SubscriptionBase.html#_CPPv4N6rclcpp16SubscriptionBase16take_type_erasedEPvRN6rclcpp11MessageInfoE) as for `create_message()`, `take_type_erased()` and `handle_message()`.
 
-### 4. obtain data by a callback function
+### 4. Obtain data by a callback function
 
 A conventional manner used typically in ROS 2 application, a message reference using a callback function, is available. If you don't use a callback group with `automatically_add_to_executor_with_node = false`, a registered callback function is called automatically by Executor when a topic message is received.
-One of advantages of this method is you don't need to take care whether a topic message is passed through inter-process or intra-process. Remind that `take()` can only be used in case of inter-process communication via DDS, while another manner provided by `rlclcpp` can be used for intra-process communication via `rlclcpp`.
+One of advantages of this manner is you don't need to take care whether a topic message is passed through inter-process or intra-process. Remind that `take()` can only be used in case of inter-process communication via DDS, while another manner provided by `rlclcpp` can be used for intra-process communication via `rlclcpp`.
 
 ## Appendix
 
 A callback function is used to obtain a topic message in many of ROS 2 applications as if it is a rule or a custom. As this document page explained, you can use `Subscription->take()` method to obtain a topic message without calling a subscription callback function.
-This method is also documented in [Template Class Subscription — rclcpp 16.0.8 documentation](https://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1Subscription.html#_CPPv4N6rclcpp12Subscription4takeER14ROSMessageTypeRN6rclcpp11MessageInfoE).
+This manner is also documented in [Template Class Subscription — rclcpp 16.0.8 documentation](https://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1Subscription.html#_CPPv4N6rclcpp12Subscription4takeER14ROSMessageTypeRN6rclcpp11MessageInfoE).
 Many of ROS 2 users may feel anxious to use `take()` method because they may not be so familiar with it and there is a lack of documentation about `take()`, but it is widely used in Executor implementation as in [rclcpp/executor.cpp](https://github.com/ros2/rclcpp/blob/47c977d1bc82fc76dd21f870bcd3ea473eca2f59/rclcpp/src/rclcpp/executor.cpp#L643-L648) shown below. Therefore it turns out that you use `take()` method indirectly whether you know it or not.
 
 ```c++
