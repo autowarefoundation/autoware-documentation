@@ -56,8 +56,6 @@ rclcpp::WaitSet wait_set_;
 `rlcpp::WaitSet` object can be configured during runtime. It is not thread-safe as explained [the API specification](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1ad6fb19c154de27e92430309d2da25ac3.html)
 Thread-safe `WaitSet` are prepared by the `rclcpp` package as listed below.
 
-- [Typedef rclcpp::WaitSet](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1ad6fb19c154de27e92430309d2da25ac3.html)
-  - Subscription, Timer, and so on can be registered to WaitSet at any time
 - [Typedef rclcpp::ThreadSafeWaitSet](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1acaec573e71549fd3078644e18e7f7127.html)
   - Subscription, Timer, and so on can be registered to WaitSet only in thread-safe state
   - sample code is here: [examples/rclcpp/wait_set/src/thread_safe_wait_set.cpp at rolling · ros2/examples](https://github.com/ros2/examples/blob/rolling/rclcpp/wait_set/src/thread_safe_wait_set.cpp)
