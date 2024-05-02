@@ -99,7 +99,7 @@ Here is a sample code excerpted from [ros2_subscription_examples/simple_examples
 In the code above, `take(msg, msg_info)` is called by `sub_` instance which is created from `Subscription` class. It is called in a timer driven callback function. `msg` and `msg_info` indicate a message body and its metadata respectively. If there is a message in the subscription queue when `take(msg, msg_info)` is called, then the message is copied to `msg`.
 `take(msg, msg_info)` returns `true` if a message is taken from the subscription successfully. In this case in code above, a string data of the message is outputted by `RCLCPP_INFO`.
 `take(msg, msg_info)` returns `false` if a message is not taken from Subscription.
-When `take(msg, msg_info)` is called, if the size of Subscription Queue is larger than one and there are two or more messages in the queue, then the oldest message is copied to `msg`. If the size of Queue is one, the latest message is always obtained.
+When `take(msg, msg_info)` is called, if the size of the subscription queue is larger than one and there are two or more messages in the queue, then the oldest message is copied to `msg`. If the size of the queue is one, the latest message is always obtained.
 
 !!! Note
 You can check the presence of incoming message with the returned value of `take()` method. However, you have to take care of destructive nature of take() method. `take()` method changes the subscription queue. Besides, `take()` method is irreversible while there is no undo operation against `take()` method. Checking the incoming message with only `take()` method always changes the subscription queue. If you want to check without changing the subscription queue, rclcpp::WaitSet is recommended.
