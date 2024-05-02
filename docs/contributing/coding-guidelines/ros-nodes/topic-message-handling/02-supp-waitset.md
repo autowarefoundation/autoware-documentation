@@ -99,7 +99,7 @@ You can find `WaitSet` result by the following 2 steps;
 1. Verify if any trigger has been invoked
 2. Verify if a specified trigger has been invoked
 
-As for 1, here is a sample code excerpted from [ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp).
+For step 1., here is a sample code excerpted from [ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp).
 
 ```c++
       auto wait_result = wait_set_.wait(std::chrono::milliseconds(0));
