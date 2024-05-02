@@ -191,6 +191,6 @@ Many of ROS 2 users may feel anxious to use `take()` method because they may not
 
 !!!Note
     Strictly speaking, `take_type_erased()` method is called in the Executor, but not `take()` method.
-But `take_type_erased()` is called inside of `take()`.
+But `take_type_erased()` is the embodiment of `take()`, while  `take()` internally calls `take_type_erased()`.
 
 If Executor is programmed to call a callback function, Executor itself determines when to do it. Because Executor calls a callback function with best-effort basis basically, it can occur that a message is not referred to or processed when it is needed in a node. Therefore it is desirable to call `take()` method directly **to ensue that a message is referred to or processed at the intended time.**
