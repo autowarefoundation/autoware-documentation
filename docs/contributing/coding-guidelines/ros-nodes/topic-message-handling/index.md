@@ -42,7 +42,7 @@ By using this manner, following advantages are achieved.
 
 This section introduces four manners including the recommended ones.
 
-### 1. obtain data by calling `Subscription->take()`
+### 1. Obtain data by calling `Subscription->take()`
 
 To use the enhanced method using `Subscription->take()`, you need to do two things below basically.
 
