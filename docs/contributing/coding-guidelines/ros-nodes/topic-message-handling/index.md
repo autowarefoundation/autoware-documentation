@@ -101,12 +101,12 @@ In the code above, `take(msg, msg_info)` is called by `sub_` instance which is c
 `take(msg, msg_info)` returns `false` if a message is not taken from Subscription.
 When `take(msg, msg_info)` is called, if the size of Subscription Queue is larger than one and there are two or more messages in the queue, then the oldest message is copied to `msg`. If the size of Queue is one, the latest message is always obtained.
 
-!!! Note 
-     You can check the presence of incoming message with the returned value of `take()`  method. However, you have to take care of destructive nature of take() method. `take()` method changes the subscription queue. Besides, `take()` method is irreversible while there is no undo operation against `take()` method. Checking the incoming message with only `take()`  method always changes the subscription queue. If you want to check without changing the subscription queue, rclcpp::WaitSet  is recommended.
-     Refer to [[supplement] Use rclcpp::WaitSet](./02-supp-waitset.md) for more detail.
+!!! Note
+You can check the presence of incoming message with the returned value of `take()` method. However, you have to take care of destructive nature of take() method. `take()` method changes the subscription queue. Besides, `take()` method is irreversible while there is no undo operation against `take()` method. Checking the incoming message with only `take()` method always changes the subscription queue. If you want to check without changing the subscription queue, rclcpp::WaitSet is recommended.
+Refer to [[supplement] Use rclcpp::WaitSet](./02-supp-waitset.md) for more detail.
 
 !!! Note
-     `take()` method is supported to only obtain a message which is passed through DDS as an inter-process communication. You must not use it for an intra-process communication because intra-process communication is based on another software stack of `rclcpp`. Refer to [[supplement] Obtain a received message through intra-process communication](./01-supp-intra-process-comm.md) in case of intra-process communication.
+`take()` method is supported to only obtain a message which is passed through DDS as an inter-process communication. You must not use it for an intra-process communication because intra-process communication is based on another software stack of `rclcpp`. Refer to [[supplement] Obtain a received message through intra-process communication](./01-supp-intra-process-comm.md) in case of intra-process communication.
 
 #### 1.1 obtain Serialized Message from Subscription
 
@@ -128,8 +128,7 @@ Here is a sample code excerpted from [ros2_subscription_examples/simple_examples
 In code above, `msg` is created by `create_serialized_message()` to store a received message, whose type is `std::shared_ptr<rclcpp::SerializedMessage>`. You can obtain a message of Serialized Message type by `take_serialized()` method. Note that `take_serialized()` method needs reference type data as its first argument therefore you need to convert `msg` type using `*`.
 
 !!! Note
-    ROS 2's `rclcpp` supports `rclcpp::LoanedMessage` as well as `rclcpp::SerializedMessage`. If [zero copy communication via loaned messages](https://design.ros2.org/articles/zero_copy.html) is introduced to Autoware, `take_loaned()` method should be used for communication via loaned messages instead. In this document, the explanation of `take_loaned()` method is omitted because it is not used for Autoware in the present (May. 2024).
-
+ROS 2's `rclcpp` supports `rclcpp::LoanedMessage` as well as `rclcpp::SerializedMessage`. If [zero copy communication via loaned messages](https://design.ros2.org/articles/zero_copy.html) is introduced to Autoware, `take_loaned()` method should be used for communication via loaned messages instead. In this document, the explanation of `take_loaned()` method is omitted because it is not used for Autoware in the present (May. 2024).
 
 ### 2. obtain multiple data stored in Subscription Queue
 
@@ -190,7 +189,7 @@ Many of ROS 2 users may feel anxious to use `take()` method because they may not
 ```
 
 !!!Note
-    Strictly speaking, `take_type_erased()` method is called in the Executor, but not `take()` method.
-But `take_type_erased()` is the embodiment of `take()`, while  `take()` internally calls `take_type_erased()`.
+Strictly speaking, `take_type_erased()` method is called in the Executor, but not `take()` method.
+But `take_type_erased()` is the embodiment of `take()`, while `take()` internally calls `take_type_erased()`.
 
 If Executor is programmed to call a callback function, Executor itself determines when to do it. Because Executor calls a callback function with best-effort basis basically, it can occur that a message is not referred to or processed when it is needed in a node. Therefore it is desirable to call `take()` method directly **to ensue that a message is referred to or processed at the intended time.**
