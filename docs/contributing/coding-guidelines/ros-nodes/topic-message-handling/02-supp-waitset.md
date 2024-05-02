@@ -53,7 +53,8 @@ Below is excerption from [ros2_subscription_examples/waitset_examples/src/timer_
 rclcpp::WaitSet wait_set_;
 ```
 
-Note that there are three types of `WaitSet` as below.
+`rlcpp::WaitSet` object can be configured during runtime. It is not thread-safe as explained [the API specification](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1ad6fb19c154de27e92430309d2da25ac3.html)
+Thread-safe `WaitSet` are prepared by the `rclcpp` package as listed below.
 
 - [Typedef rclcpp::WaitSet](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1ad6fb19c154de27e92430309d2da25ac3.html)
   - Subscription, Timer, and so on can be registered to WaitSet at any time
