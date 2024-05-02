@@ -83,7 +83,7 @@ rclcpp::CallbackGroup::SharedPtr create_callback_group(rclcpp::CallbackGroupType
 
 If `automatically_add_to_executor_with_node` is set to `true`, callback functions included in a node which is added to Executor will be called automatically by Executor.
 
-#### call `take()` method of Subscription object
+#### Call `take()` method of Subscription object
 
 To take a topic message from the `Subscription` based object, the `take()` method is called at the expected time.
 Here is a sample code excerpted from [ros2_subscription_examples/simple_examples/src/timer_listener.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener.cpp) in which `take()` method is used.
