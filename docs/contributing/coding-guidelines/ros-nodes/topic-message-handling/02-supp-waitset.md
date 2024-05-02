@@ -93,7 +93,8 @@ A trigger can be registered at declaration and initialization as [https://github
 
 ### 3. verify WaitSet result
 
-You can see WaitSet result by doing 1 below first and then 2 below.
+The data structure of testing result returned from `WaitSet` is nested.
+You can find `WaitSet` result by the following 2 steps;
 
 1. verifying if any trigger has been invoked
 2. verifying if specified trigger has been invoked
