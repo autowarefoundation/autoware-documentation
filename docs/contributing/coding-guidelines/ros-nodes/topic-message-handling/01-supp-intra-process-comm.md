@@ -7,7 +7,7 @@ But a method are provided for intra-process communication similar to a method fo
 `take_data()` method is provided to obtain a received data in case of intra-process communication and the received data must be processed through `execute()` method. The return value of `take_data()` is based on the complicated data structure, `execute()` method should be used along with `take_data()` method.
 Refer to [Template Class SubscriptionIntraProcess — rclcpp 16.0.8 documentation](http://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1experimental_1_1SubscriptionIntraProcess.html#_CPPv4N6rclcpp12experimental24SubscriptionIntraProcess9take_dataEv) for `take_data()` and `execute()` for more detail.
 
-## coding method
+## Coding manner
 
 Call `take_data()` method and then `execute()` method as below.
 
