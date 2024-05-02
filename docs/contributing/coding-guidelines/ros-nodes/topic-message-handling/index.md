@@ -171,7 +171,7 @@ You can also refer to [API document](http://docs.ros.org/en/humble/p/rclcpp/gene
 ### 4. obtain data by a callback function
 
 A typical method usually used is also usable, by which a message is obtained in subscription callback function . If you don't use a callback group with `automatically_add_to_executor_with_node = false`, a registered callback function is called automatically by Executor when a topic message is received.
-One of advantages of this method is you don't need to take care whether a topic message is passed through inter-process or intra-process. Remind that in the enhanced method, `take()` can only be used in case of inter-process communication while `take_type_erased()` needs to be used in case of intra-process communication.
+One of advantages of this method is you don't need to take care whether a topic message is passed through inter-process or intra-process. Remind that `take()` can only be used in case of inter-process communication via DDS, while another manner provided by `rlclcpp` can be used for intra-process communication via `rlclcpp`.
 
 ## Appendix
 
