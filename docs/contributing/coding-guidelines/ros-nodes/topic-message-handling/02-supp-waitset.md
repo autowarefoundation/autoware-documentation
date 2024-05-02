@@ -114,7 +114,7 @@ For step 1., here is a sample code excerpted from [ros2_subscription_examples/wa
 In the code above, `auto wait_result = wait_set_.wait(std::chrono::milliseconds(0))` tests whether any trigger in `wait_set_` has been invoked. The argument to the `wait()` method is duration for timeout. If it is greater than 0 milliseconds or seconds, this method will wait for message reception until timeout.
 If `wait_result.kind() == rclcpp::WaitResultKind::Ready` is `true`, any trigger has been invoked.
 
-As for 2, here is a sample code excerpted from [ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp).
+For step 2., here is a sample code excerpted from [ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp).
 
 ```c++
       for (size_t i = 0; i < subscriptions_num; i++) {
