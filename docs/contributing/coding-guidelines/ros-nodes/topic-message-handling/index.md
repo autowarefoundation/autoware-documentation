@@ -149,7 +149,7 @@ Here is a sample code excerpted from [ros2_subscription_examples/simple_examples
 In the code above, `while(sub->take(msg, msg_info))` continues to take messages from the subscription queue until the queue becomes empty. While a message is taken, the message is processed each by each.
 Note that you need to determine Subscription Queue size considering frequency of an invocation of a callback function and that of a reception of message. For example, if frequency of an invocation of a callback function is 10Hz and that of a reception of message is 50Hz, Subscription Queue size needs to be at least 5 for messages not to be lost.
 
-To assign a thread and let it execute a callback function each time a message is received leads to increase overhead in terms of performance. You can use the method introduced in this section to avoid the overhead.
+Assigning a thread to execute a callback function per message will cause performance overhead. You can use the manner introduced in this section to avoid the unexpected overhead.
 It is effective to use the method if a reception of message occurs very frequently but it doesn't need to be processed with so high frequency. For example, if a message is received with more than 100 Hz such as CAN message, it is desirable to obtain multiple messages in a callback function at a time with one thread invocation.
 
 ### 3. obtain data by calling `Subscription->take` and then call a callback function
