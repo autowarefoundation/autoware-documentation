@@ -14,7 +14,7 @@ Here is a sample code in which `wait_set_.wait()` tells you that a message has a
             RCLCPP_INFO(this->get_logger(), "I heard: [%s]", msg.data.c_str());
 ```
 
-Also you can verify that there are messages in multiple Subscription Queues in advance.
+A single `rclcpp::WaitSet` object is able to observe multiple subscription objects. If there are multiple subscriptions for different topics, you can check arrival of incoming messages per subscription. Algorithms used in the field of autonomous robot requires multiple incoming messages, like sensor data or actuation state. Using `rclcpp::WaitSet` for the multiple subscriptions, they are able to check whether of not required messages have arrived without taking any message.
 If your code needs to proceed after several types of messages got together, using `rclcpp::WaitSet` is preferable.
 
 ```c++
