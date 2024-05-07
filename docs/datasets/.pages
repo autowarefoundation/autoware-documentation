@@ -1,4 +1,4 @@
 nav:
   - index.md
-  - Vehicle Sensor Data: vehicle-sensor-data
+  - Raw Sensor Data: raw-sensor-data
   - Annotated Data: annotated-data
