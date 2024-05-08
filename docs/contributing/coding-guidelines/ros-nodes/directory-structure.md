@@ -6,6 +6,49 @@ We'll use the package `autoware_gnss_poser` as an example.
 
 ## C++ package
 
+### Entire structure
+
+- This is a reference on how the entire package might be structured.
+- A package may not have all the directories shown here.
+
+```txt
+autoware_gnss_poser
+├─ package.xml
+├─ CMakeLists.txt
+├─ README.md
+│
+├─ config
+│   ├─ gnss_poser.param.yaml
+│   └─ another_non_ros_config.yaml
+│
+├─ schema
+│   └─ gnss_poser.schema.json
+│
+├─ doc
+│   ├─ foo_document.md
+│   └─ foo_diagram.svg
+│
+├─ include  # for exporting headers
+│   └─ autoware
+│       └─ gnss_poser
+│           └─ exported_header.hpp
+│
+├─ src
+│   ├─ include
+│   │   ├─ gnss_poser_node.hpp
+│   │   └─ foo.hpp
+│   ├─ gnss_poser_node.cpp
+│   └─ bar.cpp
+│
+├─ launch
+│   ├─ gnss_poser.launch.xml
+│   └─ gnss_poser.launch.py
+│
+└─ test
+    ├─ test_foo.hpp  # or place under an `include` folder here
+    └─ test_foo.cpp
+```
+
 ### Package name
 
 - All the packages in Autoware should be prefixed with `autoware_`.
@@ -71,7 +114,7 @@ autoware_gnss_poser
 - ROS parameters uses the extension `.param.yaml`.
 - Non-ROS parameters use the extension `.yaml`.
 
-Rationale: Different linting rules are used for ROS parameters and non-ROS parameters.
+**Rationale:** Different linting rules are used for ROS parameters and non-ROS parameters.
 
 #### `schema`
 
@@ -125,7 +168,7 @@ autoware_gnss_poser
 ```
 
 - `autoware_gnss_poser/include` folder should contain **ONLY** the `autoware` folder.
-  - **Rationale:** When installing ROS debian packages, the headers are copied to the `/opt/ros/humble/include/` directory. This structure is used to avoid conflicts with non-Autoware packages.
+  - **Rationale:** When installing ROS debian packages, the headers are copied to the `/opt/ros/$ROS_DISTRO/include/` directory. This structure is used to avoid conflicts with non-Autoware packages.
 - `autoware_gnss_poser/include/autoware` folder should contain **ONLY** the `gnss_poser` folder.
   - **Rationale:** Similarly, this structure is used to avoid conflicts with other packages.
 - `autoware_gnss_poser/include/autoware/gnss_poser` folder should contain the header files to be exported.
@@ -155,7 +198,7 @@ autoware_gnss_poser
 ```txt
 autoware_gnss_poser
 └─ test
-    ├─ test_foo.hpp # or place under an `include` folder here
+    ├─ test_foo.hpp  # or place under an `include` folder here
     └─ test_foo.cpp
 ```
 
