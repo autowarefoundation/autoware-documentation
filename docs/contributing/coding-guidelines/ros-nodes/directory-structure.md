@@ -12,8 +12,8 @@ We'll use the package `autoware_gnss_poser` as an example.
 - Even if the package is exports a node, the package name **should NOT** have the `_node` suffix.
 - The package name should be in `snake_case`.
 
-| Package Name                      | OK | Alternative                  |
-|-----------------------------------|----|------------------------------|
+| Package Name                      | OK  | Alternative                  |
+| --------------------------------- | --- | ---------------------------- |
 | path_smoother                     | ❌  | autoware_path_smoother       |
 | autoware_trajectory_follower_node | ❌  | autoware_trajectory_follower |
 | autoware_geography_utils          | ✅  | -                            |
@@ -32,12 +32,12 @@ The package folder name should be the same as the package name.
 #### `package.xml`
 
 - The package name should be entered within the `<name>` tag.
-   - `<name>autoware_gnss_poser</name>`
+  - `<name>autoware_gnss_poser</name>`
 
 #### `CMakeLists.txt`
 
 - The [`project()`](https://cmake.org/cmake/help/latest/command/project.html) command should call the package name.
-   - **Example:** `project(autoware_gnss_poser)`
+  - **Example:** `project(autoware_gnss_poser)`
 
 ##### Exporting a component
 
@@ -108,10 +108,10 @@ autoware_gnss_poser
 
 - Put the header files in the `include` directory under the `src` directory.
 - The source file exporting the node should:
-   - have `_node` suffix.
-      - **Rationale:** To distinguish from other source files.
-   - **NOT** have `_autoware` prefix.
-      - **Rationale:** To avoid verbosity.
+  - have `_node` suffix.
+    - **Rationale:** To distinguish from other source files.
+  - **NOT** have `_autoware` prefix.
+    - **Rationale:** To avoid verbosity.
 - See [Classes](../../class-design.md) for more details on how to construct `gnss_poser_node.hpp` and `gnss_poser_node.cpp` files.
 
 #### Exporting headers
@@ -125,9 +125,9 @@ autoware_gnss_poser
 ```
 
 - `autoware_gnss_poser/include` folder should contain **ONLY** the `autoware` folder.
-   - **Rationale:** When installing ROS debian packages, the headers are copied to the `/opt/ros/humble/include/` directory. This structure is used to avoid conflicts with non-Autoware packages.
+  - **Rationale:** When installing ROS debian packages, the headers are copied to the `/opt/ros/humble/include/` directory. This structure is used to avoid conflicts with non-Autoware packages.
 - `autoware_gnss_poser/include/autoware` folder should contain **ONLY** the `gnss_poser` folder.
-   - **Rationale:** Similarly, this structure is used to avoid conflicts with other packages.
+  - **Rationale:** Similarly, this structure is used to avoid conflicts with other packages.
 - `autoware_gnss_poser/include/autoware/gnss_poser` folder should contain the header files to be exported.
 
 **Note:** If `ament_auto_package()` command is used in the `CMakeLists.txt` file and `autoware_gnss_poser/include` folder exists,
@@ -146,9 +146,9 @@ autoware_gnss_poser
 
 - You may have multiple launch files here.
 - Unless you have a specific reason, use the `.launch.xml` extension.
-   - **Rationale:** While the `.launch.py` extension is more flexible, it comes with a readability cost.
+  - **Rationale:** While the `.launch.py` extension is more flexible, it comes with a readability cost.
 - Avoid `autoware_` prefix in the launch file names.
-   - **Rationale:** To avoid verbosity.
+  - **Rationale:** To avoid verbosity.
 
 ### `test`
 
