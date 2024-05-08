@@ -43,7 +43,10 @@ GNSSPoserNode::GNSSPoserNode(const rclcpp::NodeOptions & node_options)
 - Node classes should inherit from `rclcpp::Node`.
 - The constructor should be explicit.
 - The constructor should take `rclcpp::NodeOptions` as an argument.
-- Default node name should be `gnss_poser_node`.
+- Default node name:
+  - should not have `autoware_` prefix.
+  - should have `_node` suffix.
+  - **Example:** `gnss_poser_node`.
 
 ##### Component registration
 
