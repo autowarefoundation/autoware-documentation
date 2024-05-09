@@ -102,6 +102,7 @@ rclcpp_components_register_node(${PROJECT_NAME}
 ##### Exporting a standalone node executable
 
 Assuming:
+
 - `src/gnss_poser.cpp` has the `GNSSPoserNode` class.
 - `src/gnss_poser_node.cpp` has the `main` function.
 - There is no composable node component registration.
