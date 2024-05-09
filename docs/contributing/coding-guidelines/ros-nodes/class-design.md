@@ -12,7 +12,7 @@ namespace autoware::gnss_poser
 ```
 
 - Everything should be under `autoware::gnss_poser` namespace.
-- Closing braces should contain a comment with the namespace name.
+- Closing braces must contain a comment with the namespace name. (Automated with `cpplint`)
 
 ## Classes
 
@@ -41,8 +41,8 @@ GNSSPoserNode::GNSSPoserNode(const rclcpp::NodeOptions & node_options)
 
 - The class name should be in `CamelCase`.
 - Node classes should inherit from `rclcpp::Node`.
-- The constructor should be explicit.
-- The constructor should take `rclcpp::NodeOptions` as an argument.
+- The constructor must be marked be explicit.
+- The constructor must take `rclcpp::NodeOptions` as an argument.
 - Default node name:
   - should not have `autoware_` prefix.
   - should **NOT** have `_node` suffix.
