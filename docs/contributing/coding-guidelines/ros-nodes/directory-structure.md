@@ -147,15 +147,25 @@ autoware_gnss_poser
     │   └─ foo.hpp
     │─ gnss_poser_node.cpp
     └─ bar.cpp
+
+OR
+
+autoware_gnss_poser
+└─ src
+    ├─ gnss_poser_node.hpp
+    ├─ gnss_poser_node.cpp
+    ├─ foo.hpp
+    └─ bar.cpp
 ```
 
-- Put the header files in the `include` directory under the `src` directory.
 - The source file exporting the node should:
   - have `_node` suffix.
     - **Rationale:** To distinguish from other source files.
   - **NOT** have `autoware_` prefix.
     - **Rationale:** To avoid verbosity.
 - See [Classes](../../class-design.md) for more details on how to construct `gnss_poser_node.hpp` and `gnss_poser_node.cpp` files.
+- It is up to developer how to organize the source files under `src`.
+  - **Note:** The `include` folder under `src` is optional.
 
 #### Exporting headers
 
