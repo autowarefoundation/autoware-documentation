@@ -153,7 +153,7 @@ autoware_gnss_poser
 - The source file exporting the node should:
   - have `_node` suffix.
     - **Rationale:** To distinguish from other source files.
-  - **NOT** have `_autoware` prefix.
+  - **NOT** have `autoware_` prefix.
     - **Rationale:** To avoid verbosity.
 - See [Classes](../../class-design.md) for more details on how to construct `gnss_poser_node.hpp` and `gnss_poser_node.cpp` files.
 
