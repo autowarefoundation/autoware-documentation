@@ -82,7 +82,7 @@ The package folder name should be the same as the package name.
 - The [`project()`](https://cmake.org/cmake/help/latest/command/project.html) command should call the package name.
   - **Example:** `project(autoware_gnss_poser)`
 
-##### Exporting a component
+##### Exporting a composable node component executable
 
 ```cmake
 ament_auto_add_library(${PROJECT_NAME} SHARED
@@ -95,8 +95,28 @@ rclcpp_components_register_node(${PROJECT_NAME}
 )
 ```
 
-- The component executable should have `_node` suffix.
-- The component executable name should start with `${PROJECT_NAME}`
+- The composable node component executable:
+  - should have `_node` suffix.
+  - should start with `${PROJECT_NAME}`
+
+##### Exporting a standalone node executable
+
+Assuming:
+- `src/gnss_poser.cpp` has the `GNSSPoserNode` class.
+- `src/gnss_poser_node.cpp` has the `main` function.
+- There is no composable node component registration.
+
+```cmake
+ament_auto_add_library(${PROJECT_NAME} SHARED
+  src/gnss_poser.cpp
+)
+
+ament_auto_add_executable(${PROJECT_NAME}_node src/gnss_poser_node.cpp)
+```
+
+- The node executable:
+  - should have `_node` suffix.
+  - should start with `${PROJECT_NAME}`
 
 ### `config` and `schema`
 
