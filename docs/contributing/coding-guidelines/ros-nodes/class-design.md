@@ -33,7 +33,7 @@ class GNSSPoserNode : public rclcpp::Node
 
 ```cpp
 GNSSPoserNode::GNSSPoserNode(const rclcpp::NodeOptions & node_options)
-: Node("gnss_poser_node", node_options)
+: Node("gnss_poser", node_options)
 {
   ...
 }
@@ -45,8 +45,9 @@ GNSSPoserNode::GNSSPoserNode(const rclcpp::NodeOptions & node_options)
 - The constructor should take `rclcpp::NodeOptions` as an argument.
 - Default node name:
   - should not have `autoware_` prefix.
-  - should have `_node` suffix.
-  - **Example:** `gnss_poser_node`.
+  - should **NOT** have `_node` suffix.
+    - **Rationale:** Node names are useful in the runtime. And output of `ros2 node list` will show only nodes anyway. Having `_node` is redundant.
+  - **Example:** `gnss_poser`.
 
 ##### Component registration
 
