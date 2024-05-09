@@ -82,7 +82,11 @@ The package folder name should be the same as the package name.
 - The [`project()`](https://cmake.org/cmake/help/latest/command/project.html) command should call the package name.
   - **Example:** `project(autoware_gnss_poser)`
 
-##### Exporting a composable node as a standalone node executable
+##### Exporting a composable node component executables
+
+For best practices and system efficiency, it is recommended to primarily use composable node components.
+
+This method facilitates easier deployment and maintenance within ROS environments.
 
 ```cmake
 ament_auto_add_library(${PROJECT_NAME} SHARED
@@ -95,8 +99,34 @@ rclcpp_components_register_node(${PROJECT_NAME}
 )
 ```
 
-- The composable node executable should have `_node` suffix.
-- The composable node executable should start with `${PROJECT_NAME}`
+- If you are building:
+  - **only a single composable node component,** the executable name should start with `${PROJECT_NAME}`
+  - **multiple composable node components,** the executable name is up to the developer.
+- All composable node component executables should have the `_node` suffix.
+
+##### Exporting a standalone node executable without composition _(discouraged for most cases)_
+
+Use of standalone executables **should be limited** to cases where specific needs such as debugging or tooling are required.
+
+[Exporting a composable node component executables](#exporting-a-composable-node-component-executables) is generally preferred for standard operational use due its flexibility and scalability within the ROS ecosystem.
+
+Assuming:
+
+- `src/gnss_poser.cpp` has the `GNSSPoserNode` class.
+- `src/gnss_poser_node.cpp` has the `main` function.
+- There is no composable node component registration.
+
+```cmake
+ament_auto_add_library(${PROJECT_NAME} SHARED
+  src/gnss_poser.cpp
+)
+
+ament_auto_add_executable(${PROJECT_NAME}_node src/gnss_poser_node.cpp)
+```
+
+- The node executable:
+  - should have `_node` suffix.
+  - should start with `${PROJECT_NAME}
 
 ### `config` and `schema`
 
