@@ -68,4 +68,4 @@ Below is a line-by-line explanation of the above code.
 
 - `intra_process_sub->execute(data);`
   - A callback function corresponding to the received message is called within `execute()`
-  - the callback function is executed by the thread which executes `execute()` without context switch
+  - The callback function is executed by the thread that calls `execute()` without a context switch
