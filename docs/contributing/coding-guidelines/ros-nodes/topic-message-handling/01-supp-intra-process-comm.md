@@ -59,7 +59,7 @@ Below is a line-by-line explanation of the above code.
 
   - The statement checks if a message has already been received through intra-process communication
   - The argument of `is_ready()` is of type `rcl_wait_set_t` type, but because the argument is not used within `is_ready()`, `nullptr` is used for the moment.
-    - using `nullptr` is a workaround at the present because it does not have any intention.
+    - Using `nullptr` is currently a workaround, as it has no intent.
 
 - `std::shared_ptr<void> data = intra_process_sub->take_data();`
 
