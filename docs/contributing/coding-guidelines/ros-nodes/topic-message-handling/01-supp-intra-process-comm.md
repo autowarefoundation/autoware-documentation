@@ -57,7 +57,7 @@ Below is a line-by-line explanation of the above code.
 
 - `if (intra_process_sub->is_ready(nullptr) == true) {`
 
-  - the statement checks if a message has already been received through intra-process communication
+  - The statement checks if a message has already been received through intra-process communication
   - the argument of `is_ready()` is of `rcl_wait_set_t` type, but because the argument is not used inside `is_ready()`, `nullptr` is used tentatively
     - using `nullptr` is a workaround at the present because it does not have any intention.
 
