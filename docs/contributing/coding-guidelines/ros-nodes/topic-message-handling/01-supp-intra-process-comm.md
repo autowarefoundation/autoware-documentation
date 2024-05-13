@@ -53,7 +53,7 @@ Below is a line-by-line explanation of the above code.
 
 - `auto intra_process_sub = sub_->get_intra_process_waitable();`
 
-  - the statement means to get an embodied object which performs intra-process communication
+  - The statement means to get an embodied object which performs intra-process communication
 
 - `if (intra_process_sub->is_ready(nullptr) == true) {`
 
