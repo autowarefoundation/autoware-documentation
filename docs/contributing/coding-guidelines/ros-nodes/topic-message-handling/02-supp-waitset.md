@@ -2,7 +2,7 @@
 
 ## What is `rclcpp::WaitSet`
 
-As explained in [call take() method of Subscription object](./index.md#call-take-method-of-subscription-object), `take()` method is irreversible. Once `take()` method is executed, state of the subscription object changes. Because of no undo operation against `take()` method, the subscription object can not be restored to previous state. You can use `rclcpp::WaitSet` before calling `take()` to check arrival of any incoming message in the subscription queue.
+As explained in [_call take() method of Subscription object_](./index.md#call-take-method-of-subscription-object), `take()` method is irreversible. Once `take()` method is executed, a state of a subscription object changes. Because there is no undo operation against `take()` method, the subscription object can not be restored to its previous state. You can use `rclcpp::WaitSet` before calling `take()` to check the arrival of an incoming message in the subscription queue.
 Here is a sample code in which `wait_set_.wait()` tells you that a message has already been received and can be obtained by `take()`.
 
 ```c++
