@@ -1,4 +1,4 @@
 nav:
   - index.md
   - 01-supp-intra-process-comm.md
-  - 02-supp-waitset.md
+  - 02-supp-wait_set.md
