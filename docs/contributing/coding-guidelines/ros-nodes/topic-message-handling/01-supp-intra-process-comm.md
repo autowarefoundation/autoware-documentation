@@ -49,7 +49,7 @@ Below is a line-by-line explanation of the above code.
 
 - `if (this->get_node_options().use_intra_process_comms()){`
 
-  - the statement verifies intra-process communication is enabled or not by using `NodeOptions`
+  - The statement checks whether or not intra-process communication is enabled or not by using `NodeOptions`
 
 - `auto intra_process_sub = sub_->get_intra_process_waitable();`
 
