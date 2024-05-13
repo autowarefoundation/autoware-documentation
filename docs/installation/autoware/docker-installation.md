@@ -17,22 +17,22 @@ Open AD Kit offers two types of Docker image to let you get started with Autowar
 
 1. Clone `autowarefoundation/autoware` and move to the directory.
 
-    ```bash
-    git clone https://github.com/autowarefoundation/autoware.git
-    cd autoware
-    ```
+   ```bash
+   git clone https://github.com/autowarefoundation/autoware.git
+   cd autoware
+   ```
 
 2. The [setup script](https://github.com/autowarefoundation/autoware/blob/main/setup-dev-env.sh) will install all required dependencies with the setup script:
 
-    ```bash
-    ./setup-dev-env.sh -y docker
-    ```
+   ```bash
+   ./setup-dev-env.sh -y docker
+   ```
 
-    To install without **NVIDIA GPU** support:
+   To install without **NVIDIA GPU** support:
 
-    ```bash
-    ./setup-dev-env.sh -y --no-nvidia docker
-    ```
+   ```bash
+   ./setup-dev-env.sh -y --no-nvidia docker
+   ```
 
 !!! info
 
