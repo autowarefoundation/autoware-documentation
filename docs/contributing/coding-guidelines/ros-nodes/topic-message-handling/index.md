@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Here is coding guideline for a topic message handling in Autoware. It includes the recommended manner than conventional one, which is roughly explained in [Discussions page](https://github.com/orgs/autowarefoundation/discussions/4612). Refer to the page to understand the basic concept of the recommended manner.
+Here is coding guideline for topic message handling in Autoware. It includes the recommended manner than conventional one, which is roughly explained in [_Discussions page_](https://github.com/orgs/autowarefoundation/discussions/4612). Refer to the page to understand the basic concept of the recommended manner.
 You can find sample source codes in [ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples) referred from this document.
 
 ## Typical message handling manner usually used
