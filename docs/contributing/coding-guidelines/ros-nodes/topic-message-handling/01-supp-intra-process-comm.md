@@ -45,7 +45,7 @@ Here is a snippet of [_ros2_subscription_examples/intra_process_talker_listener/
           intra_process_sub->execute(data);
 ```
 
-Below is explanation of the above code one line by one.
+Below is a line-by-line explanation of the above code.
 
 - `if (this->get_node_options().use_intra_process_comms()){`
 
