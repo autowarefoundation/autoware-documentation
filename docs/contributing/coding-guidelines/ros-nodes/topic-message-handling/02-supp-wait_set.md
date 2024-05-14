@@ -47,7 +47,7 @@ The following three steps are required to use `rclcpp::WaitSet`.
 ### 1. Declare and initialize `WaitSet`
 
 You must first instantiate a `rclcpp::WaitSet` based object.
-Below is excerption from [ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp).
+Below is a snippet from [_ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples_](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp).
 
 ```c++
 rclcpp::WaitSet wait_set_;
