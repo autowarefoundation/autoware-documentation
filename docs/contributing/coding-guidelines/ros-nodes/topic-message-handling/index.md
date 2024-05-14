@@ -105,7 +105,9 @@ You can check the presence of incoming message with the returned value of `take(
 Refer to [[supplement] Use rclcpp::WaitSet](./02-supp-wait_set.md) for more detail.
 
 !!! note
-`take()` method is supported to only obtain a message which is passed through DDS as an inter-process communication. You must not use it for an intra-process communication because intra-process communication is based on another software stack of `rclcpp`. Refer to [[supplement] Obtain a received message through intra-process communication](./01-supp-intra-process-comm.md) in case of intra-process communication.
+
+    The `take()` method is supported to only obtain a message which is passed through DDS as an inter-process communication. You must not use it for an intra-process communication because intra-process communication is based on another software stack of `rclcpp`. Refer to [_[supplement] Obtain a received message through intra-process communication_](./01-supp-intra-process-comm.md) in case of intra-process communication.
+
 
 #### 1.1 obtain Serialized Message from Subscription
 
