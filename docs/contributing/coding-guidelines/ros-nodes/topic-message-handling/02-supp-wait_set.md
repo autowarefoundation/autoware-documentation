@@ -14,7 +14,7 @@ The following sample code shows how the `wait_set_.wait()` tells you that a mess
             RCLCPP_INFO(this->get_logger(), "I heard: [%s]", msg.data.c_str());
 ```
 
-A single `rclcpp::WaitSet` object is able to observe multiple subscription objects. If there are multiple subscriptions for different topics, you can check arrival of incoming messages per subscription. Algorithms used in the field of autonomous robot requires multiple incoming messages, like sensor data or actuation state. Using `rclcpp::WaitSet` for the multiple subscriptions, they are able to check whether of not required messages have arrived without taking any message.
+A single `rclcpp::WaitSet` object is able to observe multiple subscription objects. If there are multiple subscriptions for different topics, you can check the arrival of incoming messages per subscription. Algorithms used in the field of autonomous robots requires multiple incoming messages, such as sensor data or actuation state. Using `rclcpp::WaitSet` for the multiple subscriptions, they are able to check whether or not required messages have arrived without taking any message.
 
 ```c++
       auto wait_result = wait_set_.wait(std::chrono::milliseconds(0));
