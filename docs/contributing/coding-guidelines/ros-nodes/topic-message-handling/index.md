@@ -32,7 +32,7 @@ In this case, a topic message is retrieved from the subscription queue, the queu
     // processing and publishing after this
 ```
 
-Using this manner will give you following advantages.
+Using this manner has the following benefits.
 
 - It can reduce invocations of subscription callback functions
 - There is no need to take a topic message, which a main logic does not consume, from a subscription
