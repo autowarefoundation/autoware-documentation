@@ -54,8 +54,8 @@ You can see an example of the typical use of `take()` method in [_ros2_subscript
 #### Prevent calling a callback function
 
 To prevent a callback function from being called automatically, the callback function has to belong a callback group whose callback functions are not added to any executor.
-According to the [API specification of `create_subscription`](http://docs.ros.org/en/iron/p/rclcpp/generated/classrclcpp_1_1Node.html), registering a callback function to a `rclcpp::Subscription` based object is mandatory even if the callback function has no operation.
-Here is a sample code snippet from [ros2_subscription_examples/simple_examples/src/timer_listener.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener.cpp).
+According to the [_API specification of `create_subscription`_](http://docs.ros.org/en/iron/p/rclcpp/generated/classrclcpp_1_1Node.html), registering a callback function to a `rclcpp::Subscription` based object is mandatory even if the callback function has no operation.
+Here is a sample code snippet from [_ros2_subscription_examples/simple_examples/src/timer_listener.cpp_](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener.cpp).
 
 ```c++
     rclcpp::CallbackGroup::SharedPtr cb_group_not_executed = this->create_callback_group(
@@ -85,7 +85,7 @@ When `automatically_add_to_executor_with_node` is set to `true`, callback functi
 #### Call `take()` method of Subscription object
 
 To take a topic message from the `Subscription` based object, the `take()` method is called at the expected time.
-Here is a sample code snippet from [_ros2_subscription_examples/simple_examples/src/timer_listener.cpp_](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener.cpp) using `take()` method is used.
+Here is a sample code snippet from [_ros2_subscription_examples/simple_examples/src/timer_listener.cpp_](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener.cpp) using `take()` method.
 
 ```c++
   std_msgs::msg::String msg;
@@ -102,11 +102,11 @@ When `take(msg, msg_info)` is called, if the size of the subscription queue is g
 
 !!! note
 
-    You can check the presence of incoming message with the returned value of `take()` method. However, you have to take care of the destructive nature of the take() method. The `take()` method modifies the subscription queue. Also, the `take()` method is irreversible and there is no undo operation against the `take()` method. Checking the incoming message with only the `take()` method always changes the subscription queue. If you want to check without changing the subscription queue, rclcpp::WaitSet is recommended. Refer to [_[supplement] Use rclcpp::WaitSet_](./02-supp-wait_set.md) for more detail.
+    You can check the presence of incoming message with the returned value of `take()` method. However, you have to take care of the destructive nature of the take() method. The `take()` method modifies the subscription queue. Also, the `take()` method is irreversible and there is no undo operation against the `take()` method. Checking the incoming message with only the `take()` method always changes the subscription queue. If you want to check without changing the subscription queue, rclcpp::WaitSet is recommended. Refer to [_[supplement] Use rclcpp::WaitSet_](./supp-wait_set.md) for more detail.
 
 !!! note
 
-    The `take()` method is supported to only obtain a message which is passed through DDS as an inter-process communication. You must not use it for an intra-process communication because intra-process communication is based on another software stack of `rclcpp`. Refer to [_[supplement] Obtain a received message through intra-process communication_](./01-supp-intra-process-comm.md) in case of intra-process communication.
+    The `take()` method is supported to only obtain a message which is passed through DDS as an inter-process communication. You must not use it for an intra-process communication because intra-process communication is based on another software stack of `rclcpp`. Refer to [_[supplement] Obtain a received message through intra-process communication_](./supp-intra-process-comm.md) in case of intra-process communication.
 
 #### 1.1 Obtain Serialized Message from Subscription
 
@@ -136,7 +136,7 @@ In the code above, `msg` is created by `create_serialized_message()` to store a 
 A subscription object can hold multiple messages in its queue if multiple queue size is configured with the QoS setting. The conventional manner using callback function forces a callback function to be executed per message. In other words, there is a constraint; a single cycle of callback function processes a single message . Note that with the conventional manner, if there are one or more messages in the subscription queue, the oldest one is taken and a thread is assigned to execute a callback function, which continues until the queue is empty.
 The `take()` method would alleviate this limitation. The `take()` method can be called in multiple iterations, so that a single cycle of the callback function processes multiple messages taken by `take()` methods.
 
-Here is a sample code, taken from [ros2_subscription_examples/simple_examples/src/timer_batch_listener.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_batch_listener.cpp) which calls the `take()` method in a single cycle of a callback function.
+Here is a sample code, taken from [_ros2_subscription_examples/simple_examples/src/timer_batch_listener.cpp_](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_batch_listener.cpp) which calls the `take()` method in a single cycle of a callback function.
 
 ```c++
       std_msgs::msg::String msg;
@@ -168,7 +168,7 @@ Here is a sample code snippet from [_ros2_subscription_examples/simple_examples/
 
 In the code above, a message is taken by the `take_type_erased()` method before a registered callback function is called via the `handle_message()` method. Note that you must use `take_type_erased()` instead of `take()`. `take_type_erased()` needs `void` type data as its first argument. You must use the `get()` method to convert `msg` whose type is `shared_ptr<void>` to `void` type. Then the `handle_message()` method is called with the obtained message. A registered callback function is called within `handle_message()`.
 You don't need to take care of message type which is passed to `take_type_erased()` and `handle_message()`. You can define the message variable as `auto msg = sub_->create_message();`.
-You can also refer to [the API document](http://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1SubscriptionBase.html#_CPPv4N6rclcpp16SubscriptionBase16take_type_erasedEPvRN6rclcpp11MessageInfoE) as for `create_message()`, `take_type_erased()` and `handle_message()`.
+You can also refer to [_the API document_](http://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1SubscriptionBase.html#_CPPv4N6rclcpp16SubscriptionBase16take_type_erasedEPvRN6rclcpp11MessageInfoE) as for `create_message()`, `take_type_erased()` and `handle_message()`.
 
 ### 4. Obtain data by a callback function
 

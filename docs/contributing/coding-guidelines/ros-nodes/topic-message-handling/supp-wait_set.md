@@ -53,17 +53,19 @@ Below is a snippet from [_ros2_subscription_examples/waitset_examples/src/timer_
 rclcpp::WaitSet wait_set_;
 ```
 
-There are several types of classes similar to the `rclcpp::WaitSet`. The `rclcpp::WaitSet` object can be configured during runtime. It is not thread-safe as explained in the [_API specification of `rclcpp::WaitSet`_](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1ad6fb19c154de27e92430309d2da25ac3.html)
-The thread-safe classes that are replacements for `rclcpp::WaitSet' are provided by the`rclcpp' package as listed below.
+??? note
 
-- [_Typedef rclcpp::ThreadSafeWaitSet_](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1acaec573e71549fd3078644e18e7f7127.html)
-  - Subscription, timer, etc. can only be registered to `ThreadSafeWaitSet` only in thread-safe state
-  - Sample code is here: [examples/rclcpp/wait_set/src/thread_safe_wait_set.cpp at rolling · ros2/examples](https://github.com/ros2/examples/blob/rolling/rclcpp/wait_set/src/thread_safe_wait_set.cpp)
-- [_Typedef rclcpp::StaticWaitSet_](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1adb06acf4a5723b1445fa6ed4e8f73374.html)
-  - Subscription, timer, etc. can be registered to `rclcpp::StaticWaitSet` only at initialization
-  - Here are sample code:
-    - [_ros2_subscription_examples/waitset_examples/src/timer_listener_twin_static.cpp at main · takam5f2/ros2_subscription_examples_](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_twin_static.cpp)
-    - [_examples/rclcpp/wait_set/src/static_wait_set.cpp at rolling · ros2/examples_](https://github.com/ros2/examples/blob/rolling/rclcpp/wait_set/src/static_wait_set.cpp)
+    There are several types of classes similar to the `rclcpp::WaitSet`. The `rclcpp::WaitSet` object can be configured during runtime. It is not thread-safe as explained in the [_API specification of `rclcpp::WaitSet`_](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1ad6fb19c154de27e92430309d2da25ac3.html)
+    The thread-safe classes that are replacements for `rclcpp::WaitSet' are provided by the`rclcpp' package as listed below.
+
+    - [_Typedef rclcpp::ThreadSafeWaitSet_](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1acaec573e71549fd3078644e18e7f7127.html)
+      - Subscription, timer, etc. can only be registered to `ThreadSafeWaitSet` only in thread-safe state
+      - Sample code is here: [examples/rclcpp/wait_set/src/thread_safe_wait_set.cpp at rolling · ros2/examples](https://github.com/ros2/examples/blob/rolling/rclcpp/wait_set/src/thread_safe_wait_set.cpp)
+    - [_Typedef rclcpp::StaticWaitSet_](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1adb06acf4a5723b1445fa6ed4e8f73374.html)
+      - Subscription, timer, etc. can be registered to `rclcpp::StaticWaitSet` only at initialization
+      - Here are sample code:
+        - [_ros2_subscription_examples/waitset_examples/src/timer_listener_twin_static.cpp at main · takam5f2/ros2_subscription_examples_](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_twin_static.cpp)
+        - [_examples/rclcpp/wait_set/src/static_wait_set.cpp at rolling · ros2/examples_](https://github.com/ros2/examples/blob/rolling/rclcpp/wait_set/src/static_wait_set.cpp)
 
 ### 2. Register trigger (Subscription, Timer, and so on) to `WaitSet`
 
@@ -81,8 +83,8 @@ The following is a snippet from [_ros2_subscription_examples/waitset_examples/sr
     }
 ```
 
-In the code above, the `add_subscription()` method registers the created subscriptions with the `wait_set_' object.
-`rclcpp::WaitSet`-based object basically handles objects each of which have a corresponding callback function. Not only`Subscription`based objects, but`Timer`,`Service`or`Action`based objects can be observed by`rclcpp::WaitSet`-based object. A single`WaitSet` object accepts mixture of different types of objects.
+In the code above, the `add_subscription()` method registers the created subscriptions with the `wait_set_` object.
+A `rclcpp::WaitSet`-based object basically handles objects each of which has a corresponding callback function. Not only`Subscription`based objects, but also `Timer`,`Service`or`Action`based objects can be observed by a `rclcpp::WaitSet` based object. A single`rclcpp::WaitSet` object accepts mixture of different types of objects.
 A sample code for registering timer triggers can be found here.
 
 ```c++
@@ -111,7 +113,7 @@ For step 1, here is a sample code taken from [_ros2_subscription_examples/waitse
       }
 ```
 
-In the code above, `auto wait_result = wait_set_.wait(std::chrono::milliseconds(0))` tests if a trigger in `wait_set_' has been called. The argument to the`wait()`method is the timeout duration. If it is greater than 0 milliseconds or seconds, this method will wait for a message to be received until the timeout expires.
+In the code above, `auto wait_result = wait_set_.wait(std::chrono::milliseconds(0))` tests if a trigger in `wait_set_` has been called. The argument to the`wait()`method is the timeout duration. If it is greater than 0 milliseconds or seconds, this method will wait for a message to be received until the timeout expires.
 If`wait_result.kind() == rclcpp::WaitResultKind::Ready`is`true`, then any trigger has been invoked.
 
 For step 2, here is a sample code taken from [_ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples_](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp).
