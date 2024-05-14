@@ -55,7 +55,7 @@ You can see an example of the typical use of `take()` method in [_ros2_subscript
 
 To prevent a callback function from being called automatically, the callback function has to belong a callback group whose callback functions are not added to any executor.
 According to the [API specification of `create_subscription`](http://docs.ros.org/en/iron/p/rclcpp/generated/classrclcpp_1_1Node.html), registering a callback function to a `rclcpp::Subscription` based object is mandatory even if the callback function has no operation.
-Here is a sample code excerpted from [ros2_subscription_examples/simple_examples/src/timer_listener.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener.cpp).
+Here is a sample code snippet from [ros2_subscription_examples/simple_examples/src/timer_listener.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener.cpp).
 
 ```c++
     rclcpp::CallbackGroup::SharedPtr cb_group_noexec = this->create_callback_group(
