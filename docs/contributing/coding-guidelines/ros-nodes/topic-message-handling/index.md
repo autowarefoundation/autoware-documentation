@@ -138,7 +138,7 @@ In the code above, `msg` is created by `create_serialized_message()` to store a 
 A subscription object can hold multiple messages in its queue if multiple queue size is configured with the QoS setting. The conventional manner using callback function forces a callback function to be executed per message. In other words, there is a constraint; a single cycle of callback function processes a single message . Note that with the conventional manner, if there are one or more messages in the subscription queue, the oldest one is taken and a thread is assigned to execute a callback function, which continues until the queue is empty.
 The `take()` method would alleviate this limitation. The `take()` method can be called in multiple iterations, so that a single cycle of the callback function processes multiple messages taken by `take()` methods.
 
-Here is a sample code excerpted from [ros2_subscription_examples/simple_examples/src/timer_batch_listener.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_batch_listener.cpp) in which `take()` method is called consecutively.
+Here is a sample code, taken from [ros2_subscription_examples/simple_examples/src/timer_batch_listener.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_batch_listener.cpp) which calls the `take()` method in a single cycle of a callback function.
 
 ```c++
       std_msgs::msg::String msg;
