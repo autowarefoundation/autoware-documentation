@@ -94,7 +94,7 @@ A trigger can be registered at declaration and initialization as described in [_
 ### 3. Verify WaitSet result
 
 The data structure of the test result returned from the `rclcpp::WaitSet` is nested.
-You can find `WaitSet` result by the following 2 steps;
+You can find the `WaitSet` result by the following 2 steps;
 
 1. Verify if any trigger has been invoked
 2. Verify if a specified trigger has been invoked
