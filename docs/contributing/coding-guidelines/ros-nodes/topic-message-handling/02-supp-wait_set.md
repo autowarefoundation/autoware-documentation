@@ -112,7 +112,7 @@ For step 1, here is a sample code taken from [_ros2_subscription_examples/waitse
 ```
 
 In the code above, `auto wait_result = wait_set_.wait(std::chrono::milliseconds(0))` tests if a trigger in `wait_set_' has been called. The argument to the`wait()`method is the timeout duration. If it is greater than 0 milliseconds or seconds, this method will wait for a message to be received until the timeout expires.
-If `wait_result.kind() == rclcpp::WaitResultKind::Ready`is`true`, then any trigger has been invoked.
+If`wait_result.kind() == rclcpp::WaitResultKind::Ready`is`true`, then any trigger has been invoked.
 
 For step 2, here is a sample code taken from [_ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples_](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp).
 
