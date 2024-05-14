@@ -36,7 +36,7 @@ In the code above, unless `rclcpp::WaitSet` is used, it is impossible to verify 
 
 This section explains how to code using `rclcpp::WaitSet` with a sample code below.
 
-- [ros2_subscription_examples/waitset_examples/src/talker_triple.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/talker_triple.cpp)
+- [_ros2_subscription_examples/waitset_examples/src/talker_triple.cpp at main · takam5f2/ros2_subscription_examples_](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/talker_triple.cpp)
   - it publishes `/chatter` per one second, `/slower_chatter` per two seconds, and `/slowest_chatter` per three seconds periodically
 - [ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp)
   - it queries `WaitSet` per one second and if there is a message available, it obtains the message by `take()`
