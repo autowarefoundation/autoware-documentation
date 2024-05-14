@@ -30,7 +30,7 @@ A single `rclcpp::WaitSet` object is able to observe multiple subscription objec
       }
 ```
 
-In the code above, unless `rclcpp::WaitSet` is used, it is impossible to verify arrival of all needed messages without changing state of the subscription objects.
+In the code above, unless `rclcpp::WaitSet` is used, it is impossible to verify the arrival of all needed messages without changing state of the subscription objects.
 
 ## Coding manner
 
