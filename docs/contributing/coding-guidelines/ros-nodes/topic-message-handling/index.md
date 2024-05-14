@@ -158,7 +158,7 @@ The manner will be effective when there is a large difference between reception 
 ### 3. Obtain data by calling `Subscription->take` and then call a callback function
 
 You can combine the `take()` (strictly `take_type_erased()`) method and the callback function to process received messages in a consistent way. Using this combination does not require waking up a thread.
-Here is a sample code excerpted from [ros2_subscription_examples/simple_examples/src/timer_listener_using_callback.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener_using_callback.cpp).
+Here is a sample code snippet from [_ros2_subscription_examples/simple_examples/src/timer_listener_using_callback.cpp_](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener_using_callback.cpp).
 
 ```c++
       auto msg = sub_->create_message();
