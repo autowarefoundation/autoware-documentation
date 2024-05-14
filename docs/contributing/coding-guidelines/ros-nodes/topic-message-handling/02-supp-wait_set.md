@@ -97,7 +97,7 @@ The data structure of the test result returned from the `rclcpp::WaitSet` is nes
 You can find the `WaitSet` result by the following 2 steps;
 
 1. Verify if any trigger has been invoked
-2. Verify if a specified trigger has been invoked
+2. Verify if a specified trigger has been triggered
 
 For step 1., here is a sample code excerpted from [ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp).
 
