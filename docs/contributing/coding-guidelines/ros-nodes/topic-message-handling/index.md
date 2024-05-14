@@ -97,7 +97,7 @@ Here is a sample code snippet from [_ros2_subscription_examples/simple_examples/
 
 In the code above, `take(msg, msg_info)` is called by `sub_` object instantiated from the `rclcpp::Subscription` class. It is called in a timer driven callback function. `msg` and `msg_info` indicate a message body and its metadata respectively. If there is a message in the subscription queue when `take(msg, msg_info)` is called, then the message is copied to `msg`.
 `take(msg, msg_info)` returns `true` if a message is successfully taken from the subscription. In this case, the above code prints out a string data of the message from `RCLCPP_INFO`.
-`take(msg, msg_info)` returns `false` if a message is not taken from Subscription.
+`take(msg, msg_info)` returns `false` if a message is not taken from the subscription.
 When `take(msg, msg_info)` is called, if the size of the subscription queue is larger than one and there are two or more messages in the queue, then the oldest message is copied to `msg`. If the size of the queue is one, the latest message is always obtained.
 
 !!! note
