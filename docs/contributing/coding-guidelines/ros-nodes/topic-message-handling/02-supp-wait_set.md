@@ -42,7 +42,7 @@ This section explains how to code using `rclcpp::WaitSet` with a sample code bel
   - It queries `WaitSet` per one second and if there is a message available, it obtains the message with `take()`
   - It has three subscriptions for `/chatter` `/slower_chatter`, and `/slower_chatter`
 
-Following three steps are needed to use `WaitSet`.
+The following three steps are required to use `rclcpp::WaitSet`.
 
 ### 1. Declare and initialize `WaitSet`
 
