@@ -127,7 +127,6 @@ Here is a sample code snippet from [_ros2_subscription_examples/simple_examples/
       }
 ```
 
-
 In the code above, `msg` is created by `create_serialized_message()` to store a received message, whose type is `std::shared_ptr<rclcpp::SerializedMessage>`. You can obtain a message of type `rclcpp::SerializedMessage` using the `take_serialized()` method. Note that the `take_serialized()` method needs reference type data as its first argument. Since `msg` is a pointer, `*msg` should be passed as the first argument to the `take_serialized().
 
 !!! Note
