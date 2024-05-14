@@ -130,7 +130,9 @@ Here is a sample code snippet from [_ros2_subscription_examples/simple_examples/
 In the code above, `msg` is created by `create_serialized_message()` to store a received message, whose type is `std::shared_ptr<rclcpp::SerializedMessage>`. You can obtain a message of type `rclcpp::SerializedMessage` using the `take_serialized()` method. Note that the `take_serialized()` method needs reference type data as its first argument. Since `msg` is a pointer, `*msg` should be passed as the first argument to the `take_serialized().
 
 !!! note
-ROS 2's `rclcpp` supports `rclcpp::LoanedMessage` as well as `rclcpp::SerializedMessage`. If [zero copy communication via loaned messages](https://design.ros2.org/articles/zero_copy.html) is introduced to Autoware, `take_loaned()` method should be used for communication via loaned messages instead. In this document, the explanation of `take_loaned()` method is omitted because it is not used for Autoware in the present (May. 2024).
+
+    ROS 2's `rclcpp` supports both `rclcpp::LoanedMessage` and `rclcpp::SerializedMessage`. If [_zero copy communication via loaned messages_](https://design.ros2.org/articles/zero_copy.html) is introduced to Autoware, `take_loaned()` method should be used for communication via loaned messages instead. In this document, the explanation of the `take_loaned()` method is omitted because it is not used for Autoware in this time (May. 2024).
+
 
 ### 2. Obtain multiple data stored in Subscription Queue
 
