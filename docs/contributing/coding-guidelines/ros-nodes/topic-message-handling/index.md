@@ -8,7 +8,7 @@ You can find sample source code in [_ros2_subscription_examples_](https://github
 ## Conventional message handling manner typically used
 
 At first, let us see a conventional message handling manner that is commonly used.
-[ROS 2 Tutorials](https://docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html#write-the-subscriber-node) is one of the most cited references for ROS 2 applications, including Autoware.
+[_ROS 2 Tutorials_](https://docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html#write-the-subscriber-node) is one of the most cited references for ROS 2 applications, including Autoware.
 It implicitly recommends that messages received by subscriptions should be referred and processed by a dedicated callback function. Autoware follows that manner thoroughly.
 
 ```c++
