@@ -80,7 +80,7 @@ rclcpp::CallbackGroup::SharedPtr create_callback_group(rclcpp::CallbackGroupType
                                   bool automatically_add_to_executor_with_node = true)
 ```
 
-If `automatically_add_to_executor_with_node` is set to `true`, callback functions included in a node which is added to Executor will be called automatically by Executor.
+When `automatically_add_to_executor_with_node` is set to `true`, callback functions included in a node that is added to an executor will be automatically called by the executor.
 
 #### Call `take()` method of Subscription object
 
