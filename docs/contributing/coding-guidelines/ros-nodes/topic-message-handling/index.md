@@ -9,7 +9,7 @@ You can find sample source code in [_ros2_subscription_examples_](https://github
 
 At first, let us see a conventional manner of handling messages that is commonly used.
 [_ROS 2 Tutorials_](https://docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html#write-the-subscriber-node) is one of the most cited references for ROS 2 applications, including Autoware.
-It implicitly recommends that messages received by subscriptions should be referred and processed by a dedicated callback function. Autoware follows that manner thoroughly.
+It implicitly recommends that each of messages received by subscriptions should be referred to and processed by a dedicated callback function. Autoware follows that manner thoroughly.
 
 ```c++
   steer_sub_ = create_subscription<SteeringReport>(
