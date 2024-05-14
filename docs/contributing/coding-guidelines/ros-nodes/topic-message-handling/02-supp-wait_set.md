@@ -60,7 +60,7 @@ The thread-safe classes that are replacements for `rclcpp::WaitSet' are provided
   - Subscription, timer, etc. can only be registered to `ThreadSafeWaitSet` only in thread-safe state
   - Sample code is here: [examples/rclcpp/wait_set/src/thread_safe_wait_set.cpp at rolling · ros2/examples](https://github.com/ros2/examples/blob/rolling/rclcpp/wait_set/src/thread_safe_wait_set.cpp)
 - [_Typedef rclcpp::StaticWaitSet_](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1adb06acf4a5723b1445fa6ed4e8f73374.html)
-  - Subscription, Timer, and so on can be registered to WaitSet only at initialization
+  - Subscription, timer, etc. can be registered to `rclcpp::StaticWaitSet` only at initialization
   - Here are sample code:
     - [ros2_subscription_examples/waitset_examples/src/timer_listener_twin_static.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_twin_static.cpp)
     - [examples/rclcpp/wait_set/src/static_wait_set.cpp at rolling · ros2/examples](https://github.com/ros2/examples/blob/rolling/rclcpp/wait_set/src/static_wait_set.cpp)
