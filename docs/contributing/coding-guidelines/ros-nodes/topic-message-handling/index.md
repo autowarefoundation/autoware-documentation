@@ -133,7 +133,6 @@ In the code above, `msg` is created by `create_serialized_message()` to store a 
 
     ROS 2's `rclcpp` supports both `rclcpp::LoanedMessage` and `rclcpp::SerializedMessage`. If [_zero copy communication via loaned messages_](https://design.ros2.org/articles/zero_copy.html) is introduced to Autoware, `take_loaned()` method should be used for communication via loaned messages instead. In this document, the explanation of the `take_loaned()` method is omitted because it is not used for Autoware in this time (May. 2024).
 
-
 ### 2. Obtain multiple data stored in Subscription Queue
 
 The subscription object can hold multiple messages in its queue if multiple queue size is configured with QoS setting. The conventional manner with callback function usage force a callback function to run per message. In other words, there is a constraints; a single cycle of callback function processes a single message . Note that in the conventional manner if there are one or more messages in the subscription queue, the oldest one is taken and a thread is assigned to execute a callback function, which continues until the queue becomes empty.
