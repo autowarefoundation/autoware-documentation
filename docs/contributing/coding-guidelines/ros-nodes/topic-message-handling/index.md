@@ -35,7 +35,7 @@ In this case, a topic message is retrieved from the subscription queue, the queu
 Using this manner has the following benefits.
 
 - It can reduce the number of calls to subscription callback functions
-- There is no need to take a topic message, which a main logic does not consume, from a subscription
+- There is no need to take a topic message from a subscription that a main logic does not consume
 - There is no mandatory thread waking for the callback function, which leads to multi-threaded programming, data races and exclusive locking
 
 ## Manners to handle topic message data
