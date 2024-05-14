@@ -61,7 +61,7 @@ Here is a sample code snippet from [ros2_subscription_examples/simple_examples/s
     rclcpp::CallbackGroup::SharedPtr cb_group_not_executed = this->create_callback_group(
         rclcpp::CallbackGroupType::MutuallyExclusive, false);
     auto subscription_options = rclcpp::SubscriptionOptions();
-    subscription_options.callback_group = cb_group_noexec;
+    subscription_options.callback_group = cb_group_not_executed;
 
     rclcpp::QoS qos(rclcpp::KeepLast(10));
     if (use_transient_local) {
