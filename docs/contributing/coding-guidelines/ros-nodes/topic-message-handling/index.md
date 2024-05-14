@@ -149,7 +149,7 @@ Here is a sample code, taken from [ros2_subscription_examples/simple_examples/sr
         RCLCPP_INFO(this->get_logger(), "I heard: [%s]", msg.data.c_str());
 ```
 
-In the code above, `while(sub->take(msg, msg_info))` continues to take messages from the subscription queue until the queue becomes empty. While a message is taken, the message is processed each by each.
+In the code above, `while(sub->take(msg, msg_info))` continues to take messages from the subscription queue until the queue is empty. Each message taken is processed per iteration.
 Note that you need to determine size of a subscription queue considering both frequency of a callback function and that of a message reception. For example, if a callback function is invoked at 10Hz and topic messages are received at 50Hz, the size of the subscription queue must be at least 5 not to lose received messages.
 
 Assigning a thread to execute a callback function per message will cause performance overhead. You can use the manner introduced in this section to avoid the unexpected overhead.
