@@ -112,7 +112,7 @@ Refer to [_[supplement] Use rclcpp::WaitSet_](./02-supp-wait_set.md) for more de
 
 #### 1.1 Obtain Serialized Message from Subscription
 
-ROS 2 provides Serialized Message function which supports communication with arbitrary message types as explained in [Class SerializedMessage](http://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1SerializedMessage.html). It is used by `topic_state_monitor` in Autoware.
+ROS 2 provides Serialized Message function which supports communication with arbitrary message types as described in [_Class SerializedMessage_](http://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1SerializedMessage.html). It is used by `topic_state_monitor` in Autoware.
 You need to use `take_serialized()` method instead of `take()` method to obtain a message of Serialized Message type from Subscription object.
 
 Here is a sample code excerpted from [ros2_subscription_examples/simple_examples/src/timer_listener_serialized_message.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener_serialized_message.cpp).
