@@ -44,7 +44,7 @@ This section introduces four manners, including the recommended ones.
 
 ### 1. Obtain data by calling `Subscription->take()`
 
-To use the recommended manner using `Subscription->take()`, you need to do two things below basically.
+To use the recommended manner using `Subscription->take()`, you basically need to do two things below.
 
 1. Prevent calling a callback function when a topic message is received
 2. Call `take()` method of Subscription object when a topic message is needed
