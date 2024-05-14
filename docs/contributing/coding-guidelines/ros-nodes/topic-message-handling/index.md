@@ -193,7 +193,7 @@ Many of ROS 2 users may be afraid to use the `take()` method because they may no
       [&]() {subscription->handle_message(message, message_info);});
 ```
 
-!!!Note
+!!!note
 Strictly speaking, `take_type_erased()` method is called in the Executor, but not `take()` method.
 But `take_type_erased()` is the embodiment of `take()`, while `take()` internally calls `take_type_erased()`.
 
