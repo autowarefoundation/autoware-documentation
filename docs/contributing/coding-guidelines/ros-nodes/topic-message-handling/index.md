@@ -109,7 +109,7 @@ Refer to [_[supplement] Use rclcpp::WaitSet_](./02-supp-wait_set.md) for more de
 
     The `take()` method is supported to only obtain a message which is passed through DDS as an inter-process communication. You must not use it for an intra-process communication because intra-process communication is based on another software stack of `rclcpp`. Refer to [_[supplement] Obtain a received message through intra-process communication_](./01-supp-intra-process-comm.md) in case of intra-process communication.
 
-#### 1.1 obtain Serialized Message from Subscription
+#### 1.1 Obtain Serialized Message from Subscription
 
 ROS 2 provides Serialized Message function which supports communication with arbitrary message types as explained in [Class SerializedMessage](http://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1SerializedMessage.html). It is used by `topic_state_monitor` in Autoware.
 You need to use `take_serialized()` method instead of `take()` method to obtain a message of Serialized Message type from Subscription object.
