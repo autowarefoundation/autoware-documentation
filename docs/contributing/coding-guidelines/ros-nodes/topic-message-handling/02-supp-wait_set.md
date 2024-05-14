@@ -34,7 +34,7 @@ In the code above, unless `rclcpp::WaitSet` is used, it is impossible to verify 
 
 ## Coding manner
 
-This section explains the coding manner using `rclcpp::WaitSet` with a sample code below.
+This section explains how to code using `rclcpp::WaitSet` with a sample code below.
 
 - [ros2_subscription_examples/waitset_examples/src/talker_triple.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/talker_triple.cpp)
   - it publishes `/chatter` per one second, `/slower_chatter` per two seconds, and `/slowest_chatter` per three seconds periodically
