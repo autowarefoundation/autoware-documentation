@@ -178,7 +178,8 @@ One of advantages of this manner is you don't need to take care whether a topic 
 
 A callback function is used to obtain a topic message in many of ROS 2 applications as if it is a rule or a custom. As this document page explained, you can use `Subscription->take()` method to obtain a topic message without calling a subscription callback function.
 This manner is also documented in [Template Class Subscription — rclcpp 16.0.8 documentation](https://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1Subscription.html#_CPPv4N6rclcpp12Subscription4takeER14ROSMessageTypeRN6rclcpp11MessageInfoE).
-Many of ROS 2 users may feel anxious to use `take()` method because they may not be so familiar with it and there is a lack of documentation about `take()`, but it is widely used in Executor implementation as in [rclcpp/executor.cpp](https://github.com/ros2/rclcpp/blob/47c977d1bc82fc76dd21f870bcd3ea473eca2f59/rclcpp/src/rclcpp/executor.cpp#L643-L648) shown below. Therefore it turns out that you use `take()` method indirectly whether you know it or not.
+
+Many of ROS 2 users may be afraid to use the `take()` method because they may not be so familiar with it and there is a lack of documentation about `take()`, but it is widely used in the `rclcpp::Executor` implementation as shown in [_rclcpp/executor.cpp_](https://github.com/ros2/rclcpp/blob/47c977d1bc82fc76dd21f870bcd3ea473eca2f59/rclcpp/src/rclcpp/executor.cpp#L643-L648) shown below. So it turns out that you are indirectly using the `take()` method, whether you know it or not.
 
 ```c++
     std::shared_ptr<void> message = subscription->create_message();
