@@ -175,7 +175,7 @@ You can also refer to [the API document](http://docs.ros.org/en/humble/p/rclcpp/
 ### 4. Obtain data by a callback function
 
 A conventional manner, typically used in ROS 2 application, is a message reference using a callback function, is available. If you don't use a callback group with `automatically_add_to_executor_with_node = false`, a registered callback function will be called automatically by an executor when a topic message is received.
-One of advantages of this manner is you don't need to take care whether a topic message is passed through inter-process or intra-process. Remind that `take()` can only be used in case of inter-process communication via DDS, while another manner provided by `rclcpp` can be used for intra-process communication via `rclcpp`.
+One of the advantages of this manner is that you don't have to take care whether a topic message is passed through inter-process or intra-process. Remember that `take()` can only be used for inter-process communication via DDS, while another manner provided by `rclcpp` can be used for intra-process communication via `rclcpp`.
 
 ## Appendix
 
