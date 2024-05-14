@@ -67,7 +67,7 @@ The thread-safe classes that are replacements for `rclcpp::WaitSet' are provided
 
 ### 2. Register trigger (Subscription, Timer, and so on) to `WaitSet`
 
-You need to register a trigger to `WaitSet`.
+You need to register a trigger to the `rclcpp::WaitSet` based object.
 Below is excerption from [ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp)
 
 ```c++
