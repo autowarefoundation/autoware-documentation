@@ -89,7 +89,7 @@ A sample code for registering timer triggers can be found here.
 wait_set_.add_timer(much_slower_timer_);
 ```
 
-A trigger can be registered at declaration and initialization as [https://github.com/ros2/examples/blob/rolling/rclcpp/wait_set/src/wait_set_topics_and_timer.cpp#L66](https://github.com/ros2/examples/blob/rolling/rclcpp/wait_set/src/wait_set_topics_and_timer.cpp#L66).
+A trigger can be registered at declaration and initialization as described in [_wait_set_topics_and_timer.cpp from the examples_](https://github.com/ros2/examples/blob/rolling/rclcpp/wait_set/src/wait_set_topics_and_timer.cpp#L66).
 
 ### 3. Verify WaitSet result
 
