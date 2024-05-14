@@ -47,7 +47,7 @@ This section introduces four manners, including the recommended ones.
 To use the recommended manner using `Subscription->take()`, you basically need to do two things below.
 
 1. Prevent a callback function from being called when a topic message is received
-2. Call `take()` method of Subscription object when a topic message is needed
+2. Call `take()` method of a subscription object when a topic message is needed
 
 You can see an example of the typical usage of `take()` method in [ros2_subscription_examples/simple_examples/src
 /timer_listener.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener.cpp).
