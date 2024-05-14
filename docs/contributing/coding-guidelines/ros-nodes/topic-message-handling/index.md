@@ -40,7 +40,7 @@ Using this manner has the following benefits.
 
 ## Manners to handle topic message data
 
-This section introduces four manners including the recommended ones.
+This section introduces four manners, including the recommended ones.
 
 ### 1. Obtain data by calling `Subscription->take()`
 
