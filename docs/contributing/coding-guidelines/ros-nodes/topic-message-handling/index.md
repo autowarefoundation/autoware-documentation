@@ -102,9 +102,7 @@ When `take(msg, msg_info)` is called, if the size of the subscription queue is g
 
 !!! note
 
-    You can check the presence of incoming message with the returned value of `take()` method. However, you have to take care of the destructive nature of the take() method. The `take()` method modifies the subscription queue. Also, the `take()` method is irreversible and there is no undo operation against the `take()` method. Checking the incoming message with only the `take()` method always changes the subscription queue. If you want to check without changing the subscription queue, rclcpp::WaitSet is recommended.
-
-Refer to [_[supplement] Use rclcpp::WaitSet_](./02-supp-wait_set.md) for more detail.
+    You can check the presence of incoming message with the returned value of `take()` method. However, you have to take care of the destructive nature of the take() method. The `take()` method modifies the subscription queue. Also, the `take()` method is irreversible and there is no undo operation against the `take()` method. Checking the incoming message with only the `take()` method always changes the subscription queue. If you want to check without changing the subscription queue, rclcpp::WaitSet is recommended. Refer to [_[supplement] Use rclcpp::WaitSet_](./02-supp-wait_set.md) for more detail.
 
 !!! note
 
