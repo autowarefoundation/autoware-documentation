@@ -54,7 +54,7 @@ rclcpp::WaitSet wait_set_;
 ```
 
 There are several types of classes similar to the `rclcpp::WaitSet`. The `rclcpp::WaitSet` object can be configured during runtime. It is not thread-safe as explained in the [_API specification of `rclcpp::WaitSet`_](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1ad6fb19c154de27e92430309d2da25ac3.html)
-Thread-safe `WaitSet` are prepared by the `rclcpp` package as listed below.
+The thread-safe classes that are replacements for `rclcpp::WaitSet' are provided by the `rclcpp' package as listed below.
 
 - [Typedef rclcpp::ThreadSafeWaitSet](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1acaec573e71549fd3078644e18e7f7127.html)
   - Subscription, Timer, and so on can be registered to WaitSet only in thread-safe state
