@@ -2,7 +2,7 @@
 
 ## Topic message handling in intra-process communication
 
-`rclcpp` supports intra-process communication. As explained in [Topic message handling guideline](index.md), `take()` method can not be used in the case of intra-process communication. `take()` can not return a topic message which is received through inter-process communication.  
+`rclcpp` supports intra-process communication. As explained in [_Topic message handling guideline_](index.md), `take()` method can not be used in the case of intra-process communication. `take()` can not return a topic message which is received through inter-process communication.  
 However, methods for intra-process communication are provided, similar to the methods for inter-process communication described in [_obtain data by calling Subscription->take and then call a callback function_](./index.md#3-obtain-data-by-calling-subscription-take-and-then-call-a-callback-function).
 `take_data()` method is provided to obtain a received data in the case of intra-process communication and the received data must be processed through `execute()` method. The return value of `take_data()` is based on the complicated data structure, `execute()` method should be used along with `take_data()` method.
 Refer to [_Template Class SubscriptionIntraProcess — rclcpp 16.0.8 documentation_](http://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1experimental_1_1SubscriptionIntraProcess.html#_CPPv4N6rclcpp12experimental24SubscriptionIntraProcess9take_dataEv) for `take_data()` and `execute()` for more detail.
