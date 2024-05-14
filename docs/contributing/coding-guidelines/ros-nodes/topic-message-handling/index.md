@@ -21,7 +21,7 @@ In the code above, when a topic message whose name is `input/steering` is receiv
 
 ## Recommended manner
 
-There is a recommended manner to take a message using `Subscription->take()` method only when it is needed.
+This section introduces a recommended manner to take a message using `Subscription->take()` method only when the message is needed.
 The sample code given below shows that `Subscription->take()` method is called during execution of any callback function. In most cases, `Subscription->take()` method is called before a received message is consumed by a main logic.
 In this case, a topic message is retrieved from the subscription queue, the queue embedded in the subscription object, instead of using a callback function. To be exact, you need to program your code so that a callback function is not called automatically.
 
