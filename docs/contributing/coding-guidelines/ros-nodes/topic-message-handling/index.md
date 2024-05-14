@@ -58,7 +58,7 @@ According to the [API specification of `create_subscription`](http://docs.ros.or
 Here is a sample code snippet from [ros2_subscription_examples/simple_examples/src/timer_listener.cpp](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener.cpp).
 
 ```c++
-    rclcpp::CallbackGroup::SharedPtr cb_group_noexec = this->create_callback_group(
+    rclcpp::CallbackGroup::SharedPtr cb_group_not_executed = this->create_callback_group(
         rclcpp::CallbackGroupType::MutuallyExclusive, false);
     auto subscription_options = rclcpp::SubscriptionOptions();
     subscription_options.callback_group = cb_group_noexec;
