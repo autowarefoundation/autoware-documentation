@@ -101,7 +101,8 @@ In the code above, `take(msg, msg_info)` is called by `sub_` object instantiated
 When `take(msg, msg_info)` is called, if the size of the subscription queue is greater than one and there are two or more messages in the queue, then the oldest message is copied to `msg`. If the size of the queue is one, the latest message is always obtained.
 
 !!! note
-You can check the presence of incoming message with the returned value of `take()` method. However, you have to take care of destructive nature of take() method. `take()` method changes the subscription queue. Besides, `take()` method is irreversible while there is no undo operation against `take()` method. Checking the incoming message with only `take()` method always changes the subscription queue. If you want to check without changing the subscription queue, rclcpp::WaitSet is recommended.
+
+    You can check the presence of incoming message with the returned value of `take()` method. However, you have to take care of the destructive nature of the take() method. The `take()` method modifies the subscription queue. Also, the `take()` method is irreversible and there is no undo operation against the `take()` method. Checking the incoming message with only the `take()` method always changes the subscription queue. If you want to check without changing the subscription queue, rclcpp::WaitSet is recommended.
 Refer to [_[supplement] Use rclcpp::WaitSet_](./02-supp-wait_set.md) for more detail.
 
 !!! note
