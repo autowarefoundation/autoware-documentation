@@ -17,7 +17,7 @@ It implicitly recommends that each of messages received by subscriptions should 
     [this](SteeringReport::SharedPtr msg) { current_steer_ = msg->steering_tire_angle; });
 ```
 
-In the code above, when a topic message whose name is `input/steering` is received, an anonymous function whose description is `{current_steer_ = msg->steering_tier_angle;}` is executed as a callback in a thread. The callback function is always executed when the message is received, which leads to waste computing resource if the message is not always necessary. Besides, it costs thread-wakeup overhead just to take a message.
+In the code above, when a topic message whose name is `input/steering` is received, an anonymous function whose description is `{current_steer_ = msg->steering_tier_angle;}` is executed as a callback in a thread. The callback function is always executed when the message is received, which leads to waste computing resource if the message is not always necessary. Besides, waking up a thread costs computational overhead.
 
 ## Recommended manner
 
