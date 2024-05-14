@@ -40,7 +40,7 @@ This section explains how to code using `rclcpp::WaitSet` with a sample code bel
   - It periodically publishes `/chatter` every second, `/slower_chatter` every two seconds, and `/slowest_chatter` every three seconds.
 - [_ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples_](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp)
   - It queries `WaitSet` per one second and if there is a message available, it obtains the message with `take()`
-  - it has each subscription for `/chatter` `/slower_chatter`, and `/slower_chatter`
+  - It has three subscriptions for `/chatter` `/slower_chatter`, and `/slower_chatter`
 
 Following three steps are needed to use `WaitSet`.
 
