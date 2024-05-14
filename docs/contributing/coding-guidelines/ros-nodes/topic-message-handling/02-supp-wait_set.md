@@ -126,4 +126,4 @@ For step 2, here is a sample code taken from [_ros2_subscription_examples/waitse
             RCLCPP_INFO(this->get_logger(), "I heard: [%s]", msg.data.c_str());
 ```
 
-In the code above, `wait_result.get_wait_set().get_rcl_wait_set().subscriptions[i]` indicates whether each individual trigger has been invoked or not. The result is stored to `subscriptions` array. The order in `subscriptions` array is the same as the order in which triggers are registered.
+In the code above, `wait_result.get_wait_set().get_rcl_wait_set().subscriptions[i]` indicates whether each individual trigger has been invoked or not. The result is stored in the `subscriptions` array. The order in the `subscriptions` array is the same as the order in which the triggers are registered.
