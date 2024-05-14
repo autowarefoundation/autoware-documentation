@@ -72,7 +72,7 @@ Here is a sample code snippet from [ros2_subscription_examples/simple_examples/s
 ```
 
 In the code above, `cb_group_not_executed` is created by calling `create_callback_group` with the second argument `false`. Any callback function which belongs to the callback group will not be called by an executor.
-If `callback_group` member of `subscription_options` is set to `cb_group_noexec`, `not_executed_callback` will not be called when a corresponded topic message `chatter` is received.
+If the `callback_group` member of `subscription_options` is set to `cb_group_not_executed`, then `not_executed_callback` will not be called when a corresponding topic message `chatter` is received.
 The second argument of `create_callback_group` is defined as below.
 
 ```c++
