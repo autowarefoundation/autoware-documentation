@@ -198,3 +198,6 @@ Many of ROS 2 users may be afraid to use the `take()` method because they may no
     But `take_type_erased()` is the embodiment of `take()`, while `take()` internally calls `take_type_erased()`.
 
 If `rclcpp::Executor` based object, an executor, is programmed to call a callback function, the executor itself determines when to do it. Because the executor is essentially calling a best-effort callback function, the message is not guaranteed to be necessarily referenced or processed even though it is received. Therefore it is desirable to call the `take()` method directly to ensure that a message is referenced or processed at the intended time.
+
+See the following PR for an example of application to autoware.universe, if necessary.
+[https://github.com/autowarefoundation/autoware.universe/pull/6702/files](https://github.com/autowarefoundation/autoware.universe/pull/6702/files)
