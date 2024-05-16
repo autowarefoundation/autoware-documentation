@@ -5,7 +5,7 @@
 Here is coding guideline for topic message handling in Autoware. It includes the recommended manner than conventional one, which is roughly explained in [_Discussions page_](https://github.com/orgs/autowarefoundation/discussions/4612). Refer to the page to understand the basic concept of the recommended manner.
 You can find sample source code in [_ros2_subscription_examples_](https://github.com/takam5f2/ros2_subscription_examples) referred from this document.
 
-## Conventional message handling manner typically used
+## Conventional message handling manner
 
 At first, let us see a conventional manner of handling messages that is commonly used.
 [_ROS 2 Tutorials_](https://docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html#write-the-subscriber-node) is one of the most cited references for ROS 2 applications, including Autoware.
