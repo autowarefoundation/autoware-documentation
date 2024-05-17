@@ -15,17 +15,24 @@ Open AD Kit offers two types of Docker image to let you get started with Autowar
 - NVIDIA Container Toolkit (preferred)
 - NVIDIA CUDA 12 compatible GPU Driver (preferred)
 
-The [setup script](https://github.com/autowarefoundation/autoware/blob/main/setup-dev-env.sh) will install all required dependencies with the setup script:
+1. Clone `autowarefoundation/autoware` and move to the directory.
 
-```bash
-./setup-dev-env.sh -y docker
-```
+   ```bash
+   git clone https://github.com/autowarefoundation/autoware.git
+   cd autoware
+   ```
 
-To install without **NVIDIA GPU** support:
+2. The [setup script](https://github.com/autowarefoundation/autoware/blob/main/setup-dev-env.sh) will install all required dependencies with:
 
-```bash
-./setup-dev-env.sh -y --no-nvidia docker
-```
+   ```bash
+   ./setup-dev-env.sh -y docker
+   ```
+
+   To install without **NVIDIA GPU** support:
+
+   ```bash
+   ./setup-dev-env.sh -y --no-nvidia docker
+   ```
 
 !!! info
 
