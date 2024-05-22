@@ -87,7 +87,7 @@ Link to ROS 2 driver:
 Link to company website:  
 [https://www.polyexplore.com/](https://www.polyexplore.com/)
 
-## **Fix Position GNSS/INS Sensors**
+## **Fixposition GNSS/INS Sensors**
 
 ![images/gnss-fixposition.png](images/gnss-fixposition.png)
 
