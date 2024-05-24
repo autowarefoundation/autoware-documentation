@@ -57,19 +57,11 @@ as dictionaries under the prompts key. Each dictionary should have two keys:
   "prompts": [
     {
       "prompt": "license plate",
-      "should_inside": [
-        "car",
-        "bus",
-        "..."
-      ]
+      "should_inside": ["car", "bus", "..."]
     },
     {
       "prompt": "human face",
-      "should_inside": [
-        "person",
-        "human body",
-        "..."
-      ]
+      "should_inside": ["person", "human body", "..."]
     }
   ]
 }
@@ -136,7 +128,7 @@ dataset:
 
 yolo:
   epochs: 100 # Number of epochs for the YOLOv8 model (int)
-  model: 'yolov8x.pt' # Select the base model for YOLOv8 ('yolov8x.pt' 'yolov8l.pt', 'yolov8m.pt', 'yolov8n.pt')
+  model: "yolov8x.pt" # Select the base model for YOLOv8 ('yolov8x.pt' 'yolov8l.pt', 'yolov8m.pt', 'yolov8n.pt')
 ```
 
 - `config/yolo_anonymize.yaml`
