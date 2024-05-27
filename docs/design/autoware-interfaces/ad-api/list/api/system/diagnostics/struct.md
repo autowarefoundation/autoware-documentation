@@ -1,6 +1,6 @@
 ---
 title: /api/system/diagnostics/struct
-status: not released
+status: v1.3.0
 method: notification
 type:
   name: autoware_adapi_v1_msgs/msg/DiagGraphStruct
