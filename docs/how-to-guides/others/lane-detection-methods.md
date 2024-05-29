@@ -25,11 +25,11 @@ a novel detector leveraging LaneIoU.
 - **Paper**: [CLRerNet: Improving Confidence of Lane Detection with LaneIoU](https://arxiv.org/abs/2305.08366)
 - **Code**: [GitHub](https://github.com/hirotomusiker/CLRerNet)
 
-| Method   | Backbone | Dataset | Confidence | Campus Video                                | Road Video                                  |
-|----------|----------|---------|------------|---------------------------------------------|---------------------------------------------|
-| CLRerNet | dla34    | culane  | 0.4        | ![type:video](https://youtu.be/bfuHuoembGg) | ![type:video](https://youtu.be/9r_IEg_IkJ8) |
-| CLRerNet | dla34    | culane  | 0.1        | ![type:video](https://youtu.be/XVonhGmvt8Q) | ![type:video](https://youtu.be/5P6-yqCPAns) |
-| CLRerNet | dla34    | culane  | 0.01       | ![type:video](https://youtu.be/Sp599_HyegU) | ![type:video](https://youtu.be/2tz9gXNIjqs) |
+| Method   | Backbone | Dataset | Confidence | Campus Video                                             | Road Video                                               |
+|----------|----------|---------|------------|----------------------------------------------------------|----------------------------------------------------------|
+| CLRerNet | dla34    | culane  | 0.4        | ![type:video](https://www.youtube.com/embed/bfuHuoembGg) | ![type:video](https://www.youtube.com/embed/9r_IEg_IkJ8) |
+| CLRerNet | dla34    | culane  | 0.1        | ![type:video](https://www.youtube.com/embed/XVonhGmvt8Q) | ![type:video](https://www.youtube.com/embed/5P6-yqCPAns) |
+| CLRerNet | dla34    | culane  | 0.01       | ![type:video](https://www.youtube.com/embed/Sp599_HyegU) | ![type:video](https://www.youtube.com/embed/2tz9gXNIjqs) |
 
 #### CLRNet
 
@@ -42,23 +42,23 @@ outperforming state-of-the-art methods.
 - **Paper**: [CLRNet: Cross Layer Refinement Network for Lane Detection](https://arxiv.org/abs/2203.10350)
 - **Code**: [GitHub](https://github.com/Turoad/CLRNet)
 
-| Method | Backbone  | Dataset  | Confidence | Campus Video                                | Road Video                                  |
-|--------|-----------|----------|------------|---------------------------------------------|---------------------------------------------|
-| CLRNet | dla34     | culane   | 0.2        | ![type:video](https://youtu.be/n2HpKlOKGvc) | ![type:video](https://youtu.be/K6-AHSraopc) |
-| CLRNet | dla34     | culane   | 0.1        | ![type:video](https://youtu.be/BWdCEFy6k3w) | ![type:video](https://youtu.be/dHrzsIotVWA) |
-| CLRNet | dla34     | culane   | 0.01       | ![type:video](https://youtu.be/5iNo2VMD9os) | ![type:video](https://youtu.be/nl4Lthr1mT8) |
-| CLRNet | dla34     | llamas   | 0.4        | ![type:video](https://youtu.be/IxzJ7TfaSrk) | ![type:video](https://youtu.be/IxDdOI5efl0) |
-| CLRNet | dla34     | llamas   | 0.2        | ![type:video](https://youtu.be/vaR8tAgB1Ew) | ![type:video](https://youtu.be/vc8-kslVi34) |
-| CLRNet | dla34     | llamas   | 0.1        | ![type:video](https://youtu.be/LkDeZQOItqw) | ![type:video](https://youtu.be/r-O92vxSXuw) |
-| CLRNet | resnet18  | llamas   | 0.4        | ![type:video](https://youtu.be/nqSupblM89o) | ![type:video](https://youtu.be/py1S5fDIC5E) |
-| CLRNet | resnet18  | llamas   | 0.2        | ![type:video](https://youtu.be/rrNoXck6YLc) | ![type:video](https://youtu.be/KHaS9GXueJg) |
-| CLRNet | resnet18  | llamas   | 0.1        | ![type:video](https://youtu.be/J-gU1xbba28) | ![type:video](https://youtu.be/5U3O0iaUWF4) |
-| CLRNet | resnet18  | tusimple | 0.2        | ![type:video](https://youtu.be/HfZYdADQsPM) | ![type:video](https://youtu.be/syse16SpafY) |
-| CLRNet | resnet18  | tusimple | 0.1        | ![type:video](https://youtu.be/o3w3wL_f-GY) | ![type:video](https://youtu.be/O2HwNfTJvSQ) |
-| CLRNet | resnet34  | culane   | 0.1        | ![type:video](https://youtu.be/6IgkfJsCjWA) | ![type:video](https://youtu.be/LgU3mQniP8c) |
-| CLRNet | resnet34  | culane   | 0.05       | ![type:video](https://youtu.be/eLLcPrEpy84) | ![type:video](https://youtu.be/fPoP3uFpzRw) |
-| CLRNet | resnet101 | culane   | 0.2        | ![type:video](https://youtu.be/FODj_M-RRC4) | ![type:video](https://youtu.be/5fG8ApvTFD4) |
-| CLRNet | resnet101 | culane   | 0.1        | ![type:video](https://youtu.be/i0Bu2-Ef8T8) | ![type:video](https://youtu.be/DWy4HeHyZYQ) |
+| Method | Backbone  | Dataset  | Confidence | Campus Video                                             | Road Video                                               |
+|--------|-----------|----------|------------|----------------------------------------------------------|----------------------------------------------------------|
+| CLRNet | dla34     | culane   | 0.2        | ![type:video](https://www.youtube.com/embed/n2HpKlOKGvc) | ![type:video](https://www.youtube.com/embed/K6-AHSraopc) |
+| CLRNet | dla34     | culane   | 0.1        | ![type:video](https://www.youtube.com/embed/BWdCEFy6k3w) | ![type:video](https://www.youtube.com/embed/dHrzsIotVWA) |
+| CLRNet | dla34     | culane   | 0.01       | ![type:video](https://www.youtube.com/embed/5iNo2VMD9os) | ![type:video](https://www.youtube.com/embed/nl4Lthr1mT8) |
+| CLRNet | dla34     | llamas   | 0.4        | ![type:video](https://www.youtube.com/embed/IxzJ7TfaSrk) | ![type:video](https://www.youtube.com/embed/IxDdOI5efl0) |
+| CLRNet | dla34     | llamas   | 0.2        | ![type:video](https://www.youtube.com/embed/vaR8tAgB1Ew) | ![type:video](https://www.youtube.com/embed/vc8-kslVi34) |
+| CLRNet | dla34     | llamas   | 0.1        | ![type:video](https://www.youtube.com/embed/LkDeZQOItqw) | ![type:video](https://www.youtube.com/embed/r-O92vxSXuw) |
+| CLRNet | resnet18  | llamas   | 0.4        | ![type:video](https://www.youtube.com/embed/nqSupblM89o) | ![type:video](https://www.youtube.com/embed/py1S5fDIC5E) |
+| CLRNet | resnet18  | llamas   | 0.2        | ![type:video](https://www.youtube.com/embed/rrNoXck6YLc) | ![type:video](https://www.youtube.com/embed/KHaS9GXueJg) |
+| CLRNet | resnet18  | llamas   | 0.1        | ![type:video](https://www.youtube.com/embed/J-gU1xbba28) | ![type:video](https://www.youtube.com/embed/5U3O0iaUWF4) |
+| CLRNet | resnet18  | tusimple | 0.2        | ![type:video](https://www.youtube.com/embed/HfZYdADQsPM) | ![type:video](https://www.youtube.com/embed/syse16SpafY) |
+| CLRNet | resnet18  | tusimple | 0.1        | ![type:video](https://www.youtube.com/embed/o3w3wL_f-GY) | ![type:video](https://www.youtube.com/embed/O2HwNfTJvSQ) |
+| CLRNet | resnet34  | culane   | 0.1        | ![type:video](https://www.youtube.com/embed/6IgkfJsCjWA) | ![type:video](https://www.youtube.com/embed/LgU3mQniP8c) |
+| CLRNet | resnet34  | culane   | 0.05       | ![type:video](https://www.youtube.com/embed/eLLcPrEpy84) | ![type:video](https://www.youtube.com/embed/fPoP3uFpzRw) |
+| CLRNet | resnet101 | culane   | 0.2        | ![type:video](https://www.youtube.com/embed/FODj_M-RRC4) | ![type:video](https://www.youtube.com/embed/5fG8ApvTFD4) |
+| CLRNet | resnet101 | culane   | 0.1        | ![type:video](https://www.youtube.com/embed/i0Bu2-Ef8T8) | ![type:video](https://www.youtube.com/embed/DWy4HeHyZYQ) |
 
 ### FENet
 
@@ -70,18 +70,18 @@ significantly improves both benchmark and practical curved/distant lane recognit
 - **Paper**: [FENet: Focusing Enhanced Network for Lane Detection](https://arxiv.org/abs/2312.17163)
 - **Code**: [GitHub](https://github.com/HanyangZhong/FENet)
 
-| Method   | Backbone | Dataset | Confidence | Campus Video                                | Road Video                                  |
-|----------|----------|---------|------------|---------------------------------------------|---------------------------------------------|
-| FENet v1 | dla34    | culane  | 0.2        | ![type:video](https://youtu.be/eGHgxf-8mcg) | ![type:video](https://youtu.be/YMKCWLWq2Ww) |
-| FENet v1 | dla34    | culane  | 0.1        | ![type:video](https://youtu.be/em3eaZ6RKZM) | ![type:video](https://youtu.be/bCjEUtoIYac) |
-| FENet v1 | dla34    | culane  | 0.05       | ![type:video](https://youtu.be/_3gwLW54aHw) | ![type:video](https://youtu.be/24hjuNlZBIQ) |
-| FENet v2 | dla34    | culane  | 0.2        | ![type:video](https://youtu.be/Z4WPJ9Cop2w) | ![type:video](https://youtu.be/d3bovsjF2tE) |
-| FENet v2 | dla34    | culane  | 0.1        | ![type:video](https://youtu.be/vbE1wNIc1Js) | ![type:video](https://youtu.be/ezWGPTSbBAw) |
-| FENet v2 | dla34    | culane  | 0.05       | ![type:video](https://youtu.be/sJvyR6jrlpY) | ![type:video](https://youtu.be/XKuJ-YoVusY) |
-| FENet v2 | dla34    | llamas  | 0.4        | ![type:video](https://youtu.be/_GrUe6phC7U) | ![type:video](https://youtu.be/_YLDS-gTg2w) |
-| FENet v2 | dla34    | llamas  | 0.2        | ![type:video](https://youtu.be/G59KpXE-2OI) | ![type:video](https://youtu.be/3MaNauiPAxQ) |
-| FENet v2 | dla34    | llamas  | 0.1        | ![type:video](https://youtu.be/cre7XhUF7IM) | ![type:video](https://youtu.be/vGKDraGFamM) |
-| FENet v2 | dla34    | llamas  | 0.05       | ![type:video](https://youtu.be/TNpBmidhChQ) | ![type:video](https://youtu.be/Z67DTfoppVo) |
+| Method   | Backbone | Dataset | Confidence | Campus Video                                             | Road Video                                               |
+|----------|----------|---------|------------|----------------------------------------------------------|----------------------------------------------------------|
+| FENet v1 | dla34    | culane  | 0.2        | ![type:video](https://www.youtube.com/embed/eGHgxf-8mcg) | ![type:video](https://www.youtube.com/embed/YMKCWLWq2Ww) |
+| FENet v1 | dla34    | culane  | 0.1        | ![type:video](https://www.youtube.com/embed/em3eaZ6RKZM) | ![type:video](https://www.youtube.com/embed/bCjEUtoIYac) |
+| FENet v1 | dla34    | culane  | 0.05       | ![type:video](https://www.youtube.com/embed/_3gwLW54aHw) | ![type:video](https://www.youtube.com/embed/24hjuNlZBIQ) |
+| FENet v2 | dla34    | culane  | 0.2        | ![type:video](https://www.youtube.com/embed/Z4WPJ9Cop2w) | ![type:video](https://www.youtube.com/embed/d3bovsjF2tE) |
+| FENet v2 | dla34    | culane  | 0.1        | ![type:video](https://www.youtube.com/embed/vbE1wNIc1Js) | ![type:video](https://www.youtube.com/embed/ezWGPTSbBAw) |
+| FENet v2 | dla34    | culane  | 0.05       | ![type:video](https://www.youtube.com/embed/sJvyR6jrlpY) | ![type:video](https://www.youtube.com/embed/XKuJ-YoVusY) |
+| FENet v2 | dla34    | llamas  | 0.4        | ![type:video](https://www.youtube.com/embed/_GrUe6phC7U) | ![type:video](https://www.youtube.com/embed/_YLDS-gTg2w) |
+| FENet v2 | dla34    | llamas  | 0.2        | ![type:video](https://www.youtube.com/embed/G59KpXE-2OI) | ![type:video](https://www.youtube.com/embed/3MaNauiPAxQ) |
+| FENet v2 | dla34    | llamas  | 0.1        | ![type:video](https://www.youtube.com/embed/cre7XhUF7IM) | ![type:video](https://www.youtube.com/embed/vGKDraGFamM) |
+| FENet v2 | dla34    | llamas  | 0.05       | ![type:video](https://www.youtube.com/embed/TNpBmidhChQ) | ![type:video](https://www.youtube.com/embed/Z67DTfoppVo) |
 
 ## Multitask Detection Methods
 
@@ -95,9 +95,9 @@ halving the inference time compared to previous benchmarks.
 - **Paper**: [YOLOPv2: Better, Faster, Stronger for Panoptic Driving Perception](https://arxiv.org/abs/2208.11434)
 - **Code**: [GitHub](https://github.com/CAIC-AD/YOLOPv2)
 
-| Method  | Campus Video                                | Road Video                                  |
-|---------|---------------------------------------------|---------------------------------------------|
-| YOLOPv2 | ![type:video](https://youtu.be/iovwTg3cisA) | ![type:video](https://youtu.be/UzkCnI0Sx7c) |
+| Method  | Campus Video                                             | Road Video                                               |
+|---------|----------------------------------------------------------|----------------------------------------------------------|
+| YOLOPv2 | ![type:video](https://www.youtube.com/embed/iovwTg3cisA) | ![type:video](https://www.youtube.com/embed/UzkCnI0Sx7c) |
 
 ### HybridNets
 
@@ -108,9 +108,9 @@ HybridNets achieves good performance on BDD100K and Berkeley DeepDrive datasets,
 - **Paper**: [HybridNets: End-to-End Perception Network](https://arxiv.org/abs/2203.09035)
 - **Code**: [GitHub](https://github.com/datvuthanh/HybridNets)
 
-| Method     | Campus Video                                | Road Video                                  |
-|------------|---------------------------------------------|---------------------------------------------|
-| HybridNets | ![type:video](https://youtu.be/ph9TKSiWvd4) | ![type:video](https://youtu.be/aNsm4Uj1gcA) |
+| Method     | Campus Video                                             | Road Video                                               |
+|------------|----------------------------------------------------------|----------------------------------------------------------|
+| HybridNets | ![type:video](https://www.youtube.com/embed/ph9TKSiWvd4) | ![type:video](https://www.youtube.com/embed/aNsm4Uj1gcA) |
 
 ### TwinLiteNet
 
@@ -121,9 +121,9 @@ autonomous driving.
   **: [TwinLiteNet: An Efficient and Lightweight Model for Driveable Area and Lane Segmentation in Self-Driving Cars](https://arxiv.org/abs/2307.10705)
 - **Code**: [GitHub](https://github.com/chequanghuy/TwinLiteNet)
 
-| Method      | Campus Video                                | Road Video                                  |
-|-------------|---------------------------------------------|---------------------------------------------|
-| Twinlitenet | ![type:video](https://youtu.be/hDIcbBup7ww) | ![type:video](https://youtu.be/4J9zSoVxw-Q) |
+| Method      | Campus Video                                             | Road Video                                               |
+|-------------|----------------------------------------------------------|----------------------------------------------------------|
+| Twinlitenet | ![type:video](https://www.youtube.com/embed/hDIcbBup7ww) | ![type:video](https://www.youtube.com/embed/4J9zSoVxw-Q) |
 
 ## Citation
 
