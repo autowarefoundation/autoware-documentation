@@ -2,7 +2,7 @@
 
 ## Overview
 
-Autoware provides a tool to anonymize ROS2 bag files.
+Autoware provides a tool to anonymize ROS 2 bag files.
 This tool is useful when you want to share your data with Autoware community but want to keep the privacy of the data.
 
 With this tool you can blur any object (faces, license plates, etc.) in your bag files, and you can get a new bag file
@@ -31,7 +31,7 @@ wget https://github.com/autowarefoundation/autoware_rosbag2_anonymizer/releases/
 
 !!! warning
 
-    Be sure you have installed the ROS2 on your system.
+    Be sure you have installed the ROS 2 on your system.
 
 ```bash
 sudo apt install ros-humble-rosbag2-storage-mcap
@@ -160,7 +160,7 @@ blur:
 
 ## Usage
 
-The tool provides two options to anonymize images in ROS2 bag files.
+The tool provides two options to anonymize images in ROS 2 bag files.
 
 ### Option 1: Anonymize with Unified Model
 
@@ -178,7 +178,7 @@ python3 main.py config/anonymize_with_unified_model.yaml --anonymize_with_unifie
 
 #### Step 1: Create a Dataset
 
-Create an initial dataset with the unified model. You can provide multiple ROS2 bag files to create a dataset. After
+Create an initial dataset with the unified model. You can provide multiple ROS 2 bag files to create a dataset. After
 running the following command, the tool will create a dataset in YOLO format.
 
 You should set your configuration in config/yolo_create_dataset.yaml file.
@@ -210,7 +210,7 @@ You should set your configuration in config/yolo_train.yaml file.
 python3 main.py config/yolo_train.yaml --yolo_train
 ```
 
-#### Step 5: Anonymize Images in ROS2 Bag Files
+#### Step 5: Anonymize Images in ROS 2 Bag Files
 
 Anonymize images in ROS2 bag files with the trained YOLOv8 model. If you want to anonymize your ROS2 bag file with only
 YOLOv8 model, you should use following command. But we recommend to use the unified model for better results. You can
