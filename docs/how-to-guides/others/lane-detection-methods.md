@@ -124,3 +124,60 @@ autonomous driving.
 | Method      | Campus Video                                | Road Video                                  |
 |-------------|---------------------------------------------|---------------------------------------------|
 | Twinlitenet | ![type:video](https://youtu.be/hDIcbBup7ww) | ![type:video](https://youtu.be/4J9zSoVxw-Q) |
+
+## Citation
+
+```bibtex
+@article{honda2023clrernet,
+title={CLRerNet: Improving Confidence of Lane Detection with LaneIoU},
+author={Hiroto Honda and Yusuke Uchida},
+journal={arXiv preprint arXiv:2305.08366},
+year={2023},
+}
+```
+
+```bibtex
+@InProceedings{Zheng_2022_CVPR,
+    author    = {Zheng, Tu and Huang, Yifei and Liu, Yang and Tang, Wenjian and Yang, Zheng and Cai, Deng and He, Xiaofei},
+    title     = {CLRNet: Cross Layer Refinement Network for Lane Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2022},
+    pages     = {898-907}
+}
+```
+
+```bibtex
+@article{wang&zhong_2024fenet,
+      title={FENet: Focusing Enhanced Network for Lane Detection}, 
+      author={Liman Wang and Hanyang Zhong},
+      year={2024},
+      eprint={2312.17163},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
+
+```bibtex
+@misc{vu2022hybridnets,
+      title={HybridNets: End-to-End Perception Network}, 
+      author={Dat Vu and Bao Ngo and Hung Phan},
+      year={2022},
+      eprint={2203.09035},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
+
+```bibtex
+@INPROCEEDINGS{10288646,
+  author={Che, Quang-Huy and Nguyen, Dinh-Phuc and Pham, Minh-Quan and Lam, Duc-Khai},
+  booktitle={2023 International Conference on Multimedia Analysis and Pattern Recognition (MAPR)}, 
+  title={TwinLiteNet: An Efficient and Lightweight Model for Driveable Area and Lane Segmentation in Self-Driving Cars}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-6},
+  doi={10.1109/MAPR59823.2023.10288646}
+}
+```
