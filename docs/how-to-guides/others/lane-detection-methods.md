@@ -12,7 +12,7 @@ This document covers the methods under two categories: lane detection methods an
 
 !!! note
 
-    The results have been obtained using pre-trained models. Training the model with your own data will yield more 
+    The results have been obtained using pre-trained models. Training the model with your own data will yield more
     successful results.
 
 ### Lane Detection Methods
@@ -149,7 +149,7 @@ year={2023},
 
 ```bibtex
 @article{wang&zhong_2024fenet,
-      title={FENet: Focusing Enhanced Network for Lane Detection}, 
+      title={FENet: Focusing Enhanced Network for Lane Detection},
       author={Liman Wang and Hanyang Zhong},
       year={2024},
       eprint={2312.17163},
@@ -160,7 +160,7 @@ year={2023},
 
 ```bibtex
 @misc{vu2022hybridnets,
-      title={HybridNets: End-to-End Perception Network}, 
+      title={HybridNets: End-to-End Perception Network},
       author={Dat Vu and Bao Ngo and Hung Phan},
       year={2022},
       eprint={2203.09035},
@@ -172,8 +172,8 @@ year={2023},
 ```bibtex
 @INPROCEEDINGS{10288646,
   author={Che, Quang-Huy and Nguyen, Dinh-Phuc and Pham, Minh-Quan and Lam, Duc-Khai},
-  booktitle={2023 International Conference on Multimedia Analysis and Pattern Recognition (MAPR)}, 
-  title={TwinLiteNet: An Efficient and Lightweight Model for Driveable Area and Lane Segmentation in Self-Driving Cars}, 
+  booktitle={2023 International Conference on Multimedia Analysis and Pattern Recognition (MAPR)},
+  title={TwinLiteNet: An Efficient and Lightweight Model for Driveable Area and Lane Segmentation in Self-Driving Cars},
   year={2023},
   volume={},
   number={},
