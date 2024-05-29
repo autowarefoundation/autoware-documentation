@@ -60,7 +60,7 @@ outperforming state-of-the-art methods.
 | CLRNet | resnet101 | culane   | 0.2        | ![type:video](https://www.youtube.com/embed/FODj_M-RRC4) | ![type:video](https://www.youtube.com/embed/5fG8ApvTFD4) |
 | CLRNet | resnet101 | culane   | 0.1        | ![type:video](https://www.youtube.com/embed/i0Bu2-Ef8T8) | ![type:video](https://www.youtube.com/embed/DWy4HeHyZYQ) |
 
-### FENet
+#### FENet
 
 This research introduces Focusing Sampling, Partial Field of View Evaluation, Enhanced FPN architecture,
 and Directional IoU Loss, addressing challenges in precise lane detection for autonomous driving.
@@ -83,9 +83,9 @@ significantly improves both benchmark and practical curved/distant lane recognit
 | FENet v2 | dla34    | llamas  | 0.1        | ![type:video](https://www.youtube.com/embed/cre7XhUF7IM) | ![type:video](https://www.youtube.com/embed/vGKDraGFamM) |
 | FENet v2 | dla34    | llamas  | 0.05       | ![type:video](https://www.youtube.com/embed/TNpBmidhChQ) | ![type:video](https://www.youtube.com/embed/Z67DTfoppVo) |
 
-## Multitask Detection Methods
+### Multitask Detection Methods
 
-### YOLOPv2
+#### YOLOPv2
 
 This work proposes an efficient multi-task learning network for autonomous driving,
 combining traffic object detection, drivable road area segmentation, and lane detection.
@@ -99,7 +99,7 @@ halving the inference time compared to previous benchmarks.
 |---------|----------------------------------------------------------|----------------------------------------------------------|
 | YOLOPv2 | ![type:video](https://www.youtube.com/embed/iovwTg3cisA) | ![type:video](https://www.youtube.com/embed/UzkCnI0Sx7c) |
 
-### HybridNets
+#### HybridNets
 
 This work introduces HybridNets, an end-to-end perception network for autonomous driving.
 It optimizes segmentation heads and box/class prediction networks using a weighted bidirectional feature network.
@@ -112,7 +112,7 @@ HybridNets achieves good performance on BDD100K and Berkeley DeepDrive datasets,
 |------------|----------------------------------------------------------|----------------------------------------------------------|
 | HybridNets | ![type:video](https://www.youtube.com/embed/ph9TKSiWvd4) | ![type:video](https://www.youtube.com/embed/aNsm4Uj1gcA) |
 
-### TwinLiteNet
+#### TwinLiteNet
 
 This work introduces TwinLiteNet, a lightweight model designed for driveable area and lane line segmentation in
 autonomous driving.
