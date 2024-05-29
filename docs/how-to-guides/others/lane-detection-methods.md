@@ -12,7 +12,7 @@ This document covers the methods under two categories: lane detection methods an
 
 !!! note
 
-    The results have been obtained using pre-trained models. Training the model with your own data will yield more 
+    The results have been obtained using pre-trained models. Training the model with your own data will yield more
     successful results.
 
 ### Lane Detection Methods
@@ -26,7 +26,7 @@ a novel detector leveraging LaneIoU.
 - **Code**: [GitHub](https://github.com/hirotomusiker/CLRerNet)
 
 | Method   | Backbone | Dataset | Confidence | Campus Video                                | Road Video                                  |
-|----------|----------|---------|------------|---------------------------------------------|---------------------------------------------|
+| -------- | -------- | ------- | ---------- | ------------------------------------------- | ------------------------------------------- |
 | CLRerNet | dla34    | culane  | 0.4        | ![type:video](https://youtu.be/bfuHuoembGg) | ![type:video](https://youtu.be/9r_IEg_IkJ8) |
 | CLRerNet | dla34    | culane  | 0.1        | ![type:video](https://youtu.be/XVonhGmvt8Q) | ![type:video](https://youtu.be/5P6-yqCPAns) |
 | CLRerNet | dla34    | culane  | 0.01       | ![type:video](https://youtu.be/Sp599_HyegU) | ![type:video](https://youtu.be/2tz9gXNIjqs) |
@@ -43,7 +43,7 @@ outperforming state-of-the-art methods.
 - **Code**: [GitHub](https://github.com/Turoad/CLRNet)
 
 | Method | Backbone  | Dataset  | Confidence | Campus Video                                | Road Video                                  |
-|--------|-----------|----------|------------|---------------------------------------------|---------------------------------------------|
+| ------ | --------- | -------- | ---------- | ------------------------------------------- | ------------------------------------------- |
 | CLRNet | dla34     | culane   | 0.2        | ![type:video](https://youtu.be/n2HpKlOKGvc) | ![type:video](https://youtu.be/K6-AHSraopc) |
 | CLRNet | dla34     | culane   | 0.1        | ![type:video](https://youtu.be/BWdCEFy6k3w) | ![type:video](https://youtu.be/dHrzsIotVWA) |
 | CLRNet | dla34     | culane   | 0.01       | ![type:video](https://youtu.be/5iNo2VMD9os) | ![type:video](https://youtu.be/nl4Lthr1mT8) |
@@ -71,7 +71,7 @@ significantly improves both benchmark and practical curved/distant lane recognit
 - **Code**: [GitHub](https://github.com/HanyangZhong/FENet)
 
 | Method   | Backbone | Dataset | Confidence | Campus Video                                | Road Video                                  |
-|----------|----------|---------|------------|---------------------------------------------|---------------------------------------------|
+| -------- | -------- | ------- | ---------- | ------------------------------------------- | ------------------------------------------- |
 | FENet v1 | dla34    | culane  | 0.2        | ![type:video](https://youtu.be/eGHgxf-8mcg) | ![type:video](https://youtu.be/YMKCWLWq2Ww) |
 | FENet v1 | dla34    | culane  | 0.1        | ![type:video](https://youtu.be/em3eaZ6RKZM) | ![type:video](https://youtu.be/bCjEUtoIYac) |
 | FENet v1 | dla34    | culane  | 0.05       | ![type:video](https://youtu.be/_3gwLW54aHw) | ![type:video](https://youtu.be/24hjuNlZBIQ) |
@@ -96,7 +96,7 @@ halving the inference time compared to previous benchmarks.
 - **Code**: [GitHub](https://github.com/CAIC-AD/YOLOPv2)
 
 | Method  | Campus Video                                | Road Video                                  |
-|---------|---------------------------------------------|---------------------------------------------|
+| ------- | ------------------------------------------- | ------------------------------------------- |
 | YOLOPv2 | ![type:video](https://youtu.be/iovwTg3cisA) | ![type:video](https://youtu.be/UzkCnI0Sx7c) |
 
 ### HybridNets
@@ -109,7 +109,7 @@ HybridNets achieves good performance on BDD100K and Berkeley DeepDrive datasets,
 - **Code**: [GitHub](https://github.com/datvuthanh/HybridNets)
 
 | Method     | Campus Video                                | Road Video                                  |
-|------------|---------------------------------------------|---------------------------------------------|
+| ---------- | ------------------------------------------- | ------------------------------------------- |
 | HybridNets | ![type:video](https://youtu.be/ph9TKSiWvd4) | ![type:video](https://youtu.be/aNsm4Uj1gcA) |
 
 ### TwinLiteNet
@@ -122,7 +122,7 @@ autonomous driving.
 - **Code**: [GitHub](https://github.com/chequanghuy/TwinLiteNet)
 
 | Method      | Campus Video                                | Road Video                                  |
-|-------------|---------------------------------------------|---------------------------------------------|
+| ----------- | ------------------------------------------- | ------------------------------------------- |
 | Twinlitenet | ![type:video](https://youtu.be/hDIcbBup7ww) | ![type:video](https://youtu.be/4J9zSoVxw-Q) |
 
 ## Citation
@@ -149,7 +149,7 @@ year={2023},
 
 ```bibtex
 @article{wang&zhong_2024fenet,
-      title={FENet: Focusing Enhanced Network for Lane Detection}, 
+      title={FENet: Focusing Enhanced Network for Lane Detection},
       author={Liman Wang and Hanyang Zhong},
       year={2024},
       eprint={2312.17163},
@@ -160,7 +160,7 @@ year={2023},
 
 ```bibtex
 @misc{vu2022hybridnets,
-      title={HybridNets: End-to-End Perception Network}, 
+      title={HybridNets: End-to-End Perception Network},
       author={Dat Vu and Bao Ngo and Hung Phan},
       year={2022},
       eprint={2203.09035},
@@ -172,8 +172,8 @@ year={2023},
 ```bibtex
 @INPROCEEDINGS{10288646,
   author={Che, Quang-Huy and Nguyen, Dinh-Phuc and Pham, Minh-Quan and Lam, Duc-Khai},
-  booktitle={2023 International Conference on Multimedia Analysis and Pattern Recognition (MAPR)}, 
-  title={TwinLiteNet: An Efficient and Lightweight Model for Driveable Area and Lane Segmentation in Self-Driving Cars}, 
+  booktitle={2023 International Conference on Multimedia Analysis and Pattern Recognition (MAPR)},
+  title={TwinLiteNet: An Efficient and Lightweight Model for Driveable Area and Lane Segmentation in Self-Driving Cars},
   year={2023},
   volume={},
   number={},
