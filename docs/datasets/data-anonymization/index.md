@@ -27,7 +27,7 @@ wget https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/groundingdino_
 wget https://github.com/autowarefoundation/autoware_rosbag2_anonymizer/releases/download/v0.0.0/yolov8x_anonymizer.pt
 ```
 
-### Install ros2 mcap dependencies if you will use mcap files
+### Install ROS 2 mcap dependencies if you will use mcap files
 
 !!! warning
 
@@ -74,8 +74,8 @@ instructions will guide you to set each configuration file.
 
 ```yaml
 rosbag:
-  input_bag_path: "path/to/input.bag" # Path to the input ROS2 bag file with 'mcap' or 'sqlite3' extension
-  output_bag_path: "path/to/output/folder" # Path to the output ROS2 bag folder
+  input_bag_path: "path/to/input.bag" # Path to the input ROS 2 bag file with 'mcap' or 'sqlite3' extension
+  output_bag_path: "path/to/output/folder" # Path to the output ROS 2 bag folder
   output_save_compressed_image: True # Save images as compressed images (True or False)
   output_storage_id: "sqlite3" # Storage id for the output bag file (`sqlite3` or `mcap`)
 
@@ -102,7 +102,7 @@ blur:
 
 ```yaml
 rosbag:
-  input_bags_folder: "path/to/input/folder" # Path to the input ROS2 bag files folder
+  input_bags_folder: "path/to/input/folder" # Path to the input ROS 2 bag files folder
 
 dataset:
   output_dataset_folder: "path/to/output/folder" # Path to the output dataset folder
@@ -135,8 +135,8 @@ yolo:
 
 ```yaml
 rosbag:
-  input_bag_path: "path/to/input.bag" # Path to the input ROS2 bag file with 'mcap' or 'sqlite3' extension
-  output_bag_path: "path/to/output/folder" # Path to the output ROS2 bag folder
+  input_bag_path: "path/to/input.bag" # Path to the input ROS 2 bag file with 'mcap' or 'sqlite3' extension
+  output_bag_path: "path/to/output/folder" # Path to the output ROS 2 bag folder
   output_save_compressed_image: True # Save images as compressed images (True or False)
   output_storage_id: "sqlite3" # Storage id for the output bag file (`sqlite3` or `mcap`)
 
@@ -204,7 +204,7 @@ python3 main.py config/yolo_train.yaml --yolo_train
 
 #### Step 5: Anonymize Images in ROS 2 Bag Files
 
-Anonymize images in ROS2 bag files with the trained YOLOv8 model. If you want to anonymize your ROS2 bag file with only
+Anonymize images in ROS 2 bag files with the trained YOLOv8 model. If you want to anonymize your ROS 2 bag file with only
 YOLOv8 model, you should use following command. But we recommend to use the unified model for better results. You can
 follow the Option 1 for the unified model with the YOLOv8 model trained by you.
 
