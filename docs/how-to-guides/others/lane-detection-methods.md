@@ -26,7 +26,7 @@ a novel detector leveraging LaneIoU.
 - **Code**: [GitHub](https://github.com/hirotomusiker/CLRerNet)
 
 | Method   | Backbone | Dataset | Confidence | Campus Video                                             | Road Video                                               |
-|----------|----------|---------|------------|----------------------------------------------------------|----------------------------------------------------------|
+| -------- | -------- | ------- | ---------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | CLRerNet | dla34    | culane  | 0.4        | ![type:video](https://www.youtube.com/embed/bfuHuoembGg) | ![type:video](https://www.youtube.com/embed/9r_IEg_IkJ8) |
 | CLRerNet | dla34    | culane  | 0.1        | ![type:video](https://www.youtube.com/embed/XVonhGmvt8Q) | ![type:video](https://www.youtube.com/embed/5P6-yqCPAns) |
 | CLRerNet | dla34    | culane  | 0.01       | ![type:video](https://www.youtube.com/embed/Sp599_HyegU) | ![type:video](https://www.youtube.com/embed/2tz9gXNIjqs) |
@@ -43,7 +43,7 @@ outperforming state-of-the-art methods.
 - **Code**: [GitHub](https://github.com/Turoad/CLRNet)
 
 | Method | Backbone  | Dataset  | Confidence | Campus Video                                             | Road Video                                               |
-|--------|-----------|----------|------------|----------------------------------------------------------|----------------------------------------------------------|
+| ------ | --------- | -------- | ---------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | CLRNet | dla34     | culane   | 0.2        | ![type:video](https://www.youtube.com/embed/n2HpKlOKGvc) | ![type:video](https://www.youtube.com/embed/K6-AHSraopc) |
 | CLRNet | dla34     | culane   | 0.1        | ![type:video](https://www.youtube.com/embed/BWdCEFy6k3w) | ![type:video](https://www.youtube.com/embed/dHrzsIotVWA) |
 | CLRNet | dla34     | culane   | 0.01       | ![type:video](https://www.youtube.com/embed/5iNo2VMD9os) | ![type:video](https://www.youtube.com/embed/nl4Lthr1mT8) |
@@ -71,7 +71,7 @@ significantly improves both benchmark and practical curved/distant lane recognit
 - **Code**: [GitHub](https://github.com/HanyangZhong/FENet)
 
 | Method   | Backbone | Dataset | Confidence | Campus Video                                             | Road Video                                               |
-|----------|----------|---------|------------|----------------------------------------------------------|----------------------------------------------------------|
+| -------- | -------- | ------- | ---------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | FENet v1 | dla34    | culane  | 0.2        | ![type:video](https://www.youtube.com/embed/eGHgxf-8mcg) | ![type:video](https://www.youtube.com/embed/YMKCWLWq2Ww) |
 | FENet v1 | dla34    | culane  | 0.1        | ![type:video](https://www.youtube.com/embed/em3eaZ6RKZM) | ![type:video](https://www.youtube.com/embed/bCjEUtoIYac) |
 | FENet v1 | dla34    | culane  | 0.05       | ![type:video](https://www.youtube.com/embed/_3gwLW54aHw) | ![type:video](https://www.youtube.com/embed/24hjuNlZBIQ) |
@@ -96,7 +96,7 @@ halving the inference time compared to previous benchmarks.
 - **Code**: [GitHub](https://github.com/CAIC-AD/YOLOPv2)
 
 | Method  | Campus Video                                             | Road Video                                               |
-|---------|----------------------------------------------------------|----------------------------------------------------------|
+| ------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | YOLOPv2 | ![type:video](https://www.youtube.com/embed/iovwTg3cisA) | ![type:video](https://www.youtube.com/embed/UzkCnI0Sx7c) |
 
 #### HybridNets
@@ -109,7 +109,7 @@ HybridNets achieves good performance on BDD100K and Berkeley DeepDrive datasets,
 - **Code**: [GitHub](https://github.com/datvuthanh/HybridNets)
 
 | Method     | Campus Video                                             | Road Video                                               |
-|------------|----------------------------------------------------------|----------------------------------------------------------|
+| ---------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | HybridNets | ![type:video](https://www.youtube.com/embed/ph9TKSiWvd4) | ![type:video](https://www.youtube.com/embed/aNsm4Uj1gcA) |
 
 #### TwinLiteNet
@@ -122,7 +122,7 @@ autonomous driving.
 - **Code**: [GitHub](https://github.com/chequanghuy/TwinLiteNet)
 
 | Method      | Campus Video                                             | Road Video                                               |
-|-------------|----------------------------------------------------------|----------------------------------------------------------|
+| ----------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | Twinlitenet | ![type:video](https://www.youtube.com/embed/hDIcbBup7ww) | ![type:video](https://www.youtube.com/embed/4J9zSoVxw-Q) |
 
 ## Citation
