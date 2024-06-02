@@ -69,7 +69,7 @@ Define URDF and parameters in the vehicle description package (refer to the [sam
 Create a launch file (refer to the [sample vehicle launch package](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_launch) for example).
 If you have multiple vehicles with the same hardware setup, you can specify `vehicle_id` to distinguish them.
 
-### Adapt YOUR_SENSOR_KIT_description for autoware launching system
+### Adapt YOUR_SENSOR_KIT_launch for autoware launching system
 
 #### At YOUR_SENSOR_KIT_description
 
