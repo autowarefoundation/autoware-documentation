@@ -235,7 +235,7 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --package
 
 If your vehicle interface is ready,
 then you can add your vehicle_interface launch file in `vehicle_interface.launch.xml`.
-Please check the [creating vehicle interface](../../creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model.md) page for more info.
+Please check the [creating vehicle interface](../../creating-vehicle-interface-package/creating-vehicle-interface.md) page for more info.
 
 ### Launch planning simulator with your own vehicle
 

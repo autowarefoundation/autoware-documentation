@@ -20,7 +20,7 @@ sudo apt-get -y update
 sudo apt-get -y install git
 ```
 
-> Note: If you wish to use ROS 2 Galactic on Ubuntu 20.04, refer to installation instruction from [galactic](https://autowarefoundation.github.io/autoware-documentation/galactic/installation/autoware/source-installation/) branch, but be aware that Galactic version of Autoware might not have latest features.
+> Note: If you wish to use ROS 2 Galactic on Ubuntu 20.04, refer to installation instruction from [galactic](https://autowarefoundation.github.io/autoware-documentation/galactic/installation/autoware/source-installation/) branch, but be aware that Galactic version of Autoware might not have the latest features.
 
 ## How to set up a development environment
 
@@ -51,21 +51,22 @@ sudo apt-get -y install git
 
     The following items will be automatically installed. If the ansible script doesn't work or if you already have different versions of dependent libraries installed, please install the following items manually.
 
+    - [Install Ansible](https://github.com/autowarefoundation/autoware/tree/main/ansible#ansible-installation)
+    - [Install Build Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/build_tools#manual-installation)
+    - [Install Dev Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/dev_tools#manual-installation)
+    - [Install gdown](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/gdown#manual-installation)
+    - [Install geographiclib](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/geographiclib#manual-installation)
+    - [Install pacmod](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/pacmod#manual-installation)
+    - [Install the RMW Implementation](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rmw_implementation#manual-installation)
     - [Install ROS 2](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2#manual-installation)
     - [Install ROS 2 Dev Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2_dev_tools#manual-installation)
-    - [Install the RMW Implementation](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rmw_implementation#manual-installation)
-    - [Install pacmod](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/pacmod#manual-installation)
-    - [Install Autoware Core dependencies](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/autoware_core#manual-installation)
-    - [Install Autoware Universe dependencies](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/autoware_universe#manual-installation)
-    - [Install pre-commit dependencies](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/pre_commit#manual-installation)
     - [Install Nvidia CUDA](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/cuda#manual-installation)
     - [Install Nvidia cuDNN and TensorRT](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/tensorrt#manual-installation)
-
-    If you didn't use ansible script you will need to download some package artifacts as explained in [Manual loading of artifacts](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts). Otherwise some packages (mostly from perception) will not be able to run as they need these artifacts for the inference.
+    - [Download the Artifacts](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts) (for perception inference)
 
 ## How to set up a workspace
 
-!!! info [Using Autoware Build GUI](#using-autoware-build-gui)
+!!! info "[Using Autoware Build GUI](#using-autoware-build-gui)"
 
     If you prefer a graphical user interface (GUI) over the command line for launching and managing your simulations, refer to the `Using Autoware Build GUI` section at the end of this document for a step-by-step guide.
 
@@ -145,7 +146,7 @@ sudo apt-get -y install git
 
 In addition to the traditional command-line methods of building Autoware packages, developers and users can leverage the Autoware Build GUI for a more streamlined and user-friendly experience. This GUI application simplifies the process of building and managing Autoware packages.
 
-### Integration with Autoware Source Installation
+### Integration with Autoware source installation
 
 When using the Autoware Build GUI in conjunction with the traditional source installation process:
 
@@ -154,7 +155,7 @@ When using the Autoware Build GUI in conjunction with the traditional source ins
 
 This integration offers a more accessible approach to building and managing Autoware packages, catering to both new users and experienced developers.
 
-### Getting Started with Autoware Build GUI
+### Getting started with Autoware Build GUI
 
 1. **Installation:** Ensure you have installed the Autoware Build GUI. [Installation instructions](https://github.com/autowarefoundation/autoware-build-gui#installation).
 2. **Launching the App**: Once installed, launch the Autoware Build GUI.

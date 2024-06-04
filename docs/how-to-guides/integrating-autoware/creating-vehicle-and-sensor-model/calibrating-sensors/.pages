@@ -6,3 +6,4 @@ nav:
   - Ground plane-lidar calibration: ground-lidar-calibration
   - Intrinsic camera calibration: intrinsic-camera-calibration
   - Lidar-camera calibration: lidar-camera-calibration
+  - Lidar-IMU calibration: lidar-imu-calibration

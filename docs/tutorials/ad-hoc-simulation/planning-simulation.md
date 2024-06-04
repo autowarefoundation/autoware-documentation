@@ -33,9 +33,11 @@ yabloc_pose_initializer
 
 If not, please, follow [Manual downloading of artifacts](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts).
 
+Change the [maximum velocity](https://github.com/autowarefoundation/autoware_launch/blob/c03bd4bdb70117efffc328e5fe6e57426f169b3b/autoware_launch/config/planning/scenario_planning/common/common.param.yaml#L3), that is 15km/h by default.
+
 ## Basic simulations
 
-!!! info [Using Autoware Launch GUI](#using-autoware-launch-gui)
+!!! info "[Using Autoware Launch GUI](#using-autoware-launch-gui)"
 
     If you prefer a graphical user interface (GUI) over the command line for launching and managing your simulations, refer to the `Using Autoware Launch GUI` section at the end of this document for a step-by-step guide.
 
@@ -102,6 +104,16 @@ After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button i
 3. After that, the vehicle will reverse into the destination parking spot.
 
    ![parking-maneuver](images/planning/parking/parking-maneuver.png)
+
+### Pull out and pull over scenario
+
+1. In a pull out scenario, set the ego vehicle at the road shoulder.
+
+   ![pullover-pullout](images/planning/pullover-pullout/pullover-pullout.jpg)
+
+2. Set a goal and then engage the ego vehicle.
+
+3. In a pull over scenario, similarly set the ego vehicle in a lane and set a goal on the road shoulder.
 
 ### Lane change scenario
 
@@ -254,3 +266,9 @@ This section provides a step-by-step guide on using the Autoware Launch GUI for 
 - **Real-Time Monitoring:** Use the GUI to monitor CPU/Memory usage and Autoware logs in real-time.
 - **Profile Management:** Save your simulation profiles for quick access in future simulations.
 - **Adjusting Parameters:** Easily modify simulation parameters on-the-fly through the GUI.
+
+## Want to Try Autoware with Your Custom Map?
+
+The above content describes the process for conducting some operations in the planning simulator using a sample map. If you are interested in running Autoware with maps of your own environment, please visit the [How to Create Vector Map](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-maps/#creating-maps) section for guidance.
+
+![psim-custom-map](images/planning/others/psim-custom-map.png)

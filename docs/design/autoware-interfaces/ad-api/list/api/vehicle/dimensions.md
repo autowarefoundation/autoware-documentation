@@ -1,6 +1,6 @@
 ---
 title: /api/vehicle/dimensions
-status: not released
+status: v1.1.0
 method: function call
 type:
   name: autoware_adapi_v1_msgs/srv/GetVehicleDimensions

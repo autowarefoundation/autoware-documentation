@@ -22,7 +22,7 @@
   - `<YOUR_VEHICLE_NAME>_sensor_kit_description`
   - `<YOUR_VEHICLE_NAME>_sensor_kit_launch`
 
-Please refer to the [creating sensor model](./creating-sensor-model) page
+Please refer to the [creating sensor model](./creating-sensor-model/index.md) page
 for creating your individual sensor model.
 
 For reference,
@@ -49,7 +49,7 @@ sample_sensor_kit_launch/
   - `<YOUR_VEHICLE_NAME>_vehicle_description`
   - `<YOUR_VEHICLE_NAME>_vehicle_launch`
 
-Please consult the [creating vehicle model](./creating-vehicle-model) page
+Please consult the [creating vehicle model](./creating-vehicle-model/index.md) page
 for creating your individual vehicle model.
 
 As a reference,

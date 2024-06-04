@@ -8,7 +8,7 @@ CalibrationTools.
 
 !!! warning
 
-    Please obtain the initial calibration results from the [Manual Calibration](../extrinsic-manual-calibration) section.
+    Please obtain the initial calibration results from the [Manual Calibration](../extrinsic-manual-calibration/index.md) section.
     This is crucial for obtaining accurate results from this tool.
     We will utilize the initial calibration parameters that were calculated
     in the previous step of this tutorial.
@@ -37,7 +37,7 @@ The following shows an example of a bag file used for this calibration:
     End:               Sep  5 2023 11:25:43.808 (1693902343.808)
     Messages:          2256
     Topic information: Topic: /sensing/lidar/front/pointcloud_raw | Type: sensor_msgs/msg/PointCloud2 | Count: 1128 | Serialization Format: cdr
-                       Topic: /sensing/lidar/top/outlier_filtered/pointcloud | Type: sensor_msgs/msg/PointCloud2 | Count: 1128 | Serialization Format: cdr
+                       Topic: /sensing/lidar/top/pointcloud | Type: sensor_msgs/msg/PointCloud2 | Count: 1128 | Serialization Format: cdr
     ```
 
 ## Mapping-based lidar-lidar calibration
@@ -190,13 +190,13 @@ calibration_lidar_base_frames and calibration_lidar_frames for calibrator:
 After that, we will add the sensor topics and sensor frames in order to do that,
 we will continue filling the `mapping_based_sensor_kit.launch.xml` with
 (we recommend
-using the /sensing/lidar/top/outlier_filtered/pointcloud topic as the mapping pointcloud
+using the /sensing/lidar/top/pointcloud topic as the mapping pointcloud
 because the vehicle cloud is cropped at this topic by pointcloud preprocessing):
 
 ```diff
 
 -     <let name="mapping_lidar_frame" value="velodyne_top"/>
--     <let name="mapping_pointcloud" value="/sensing/lidar/top/outlier_filtered/pointcloud"/>
+-     <let name="mapping_pointcloud" value="/sensing/lidar/top/pointcloud"/>
 +     <let name="mapping_lidar_frame" value="<MAPPING_LIDAR_SENSOR_LINK>"/>
 +     <let name="mapping_pointcloud" value="<MAPPING_LIDAR_POINTCLOUD_TOPIC_NAME>"/>
 
@@ -383,7 +383,7 @@ After the calibration is completed, then you should rviz2 screen like the image 
 
 ![mapping-based-calibration-result](images/mapping-based-calibration-result.png)
 
-The red points indicate pointcloud that initial calibration results of [previous section](../extrinsic-manual-calibration).
+The red points indicate pointcloud that initial calibration results of [previous section](../extrinsic-manual-calibration/index.md).
 The green points indicate aligned point (calibration result).
 The calibration results will be saved automatically on your
 `dst_yaml` ($HOME/sensor_kit_calibration.yaml) at this tutorial.

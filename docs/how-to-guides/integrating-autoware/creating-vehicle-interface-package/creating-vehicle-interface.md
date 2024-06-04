@@ -161,7 +161,7 @@ After you implement your vehicle interface, or you want to debug it by launching
 create a launch file of your vehicle interface,
 and include it to `vehicle_interface.launch.xml` which included in `<VEHICLE_ID>_vehicle_launch` package
 that we forked and created
-at [creating vehicle and sensor description page](../creating-vehicle-and-sensor-description/creating-vehicle-and-sensor-description.md).
+at [creating vehicle and sensor model page](../creating-vehicle-and-sensor-model/index.md).
 
 Do not get confused. First, you need to create a launch file for your own vehicle interface module (like `my_vehicle_interface.launch.xml`) **and then include that to `vehicle_interface.launch.xml` which exists in another directory.** Here are the details.
 

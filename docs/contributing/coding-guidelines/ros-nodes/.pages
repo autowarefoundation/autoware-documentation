@@ -8,3 +8,4 @@ nav:
   - parameters.md
   - task-scheduling.md
   - topic-namespaces.md
+  - topic-message-handling

@@ -10,7 +10,7 @@ in a way that aligns the points
 corresponding to the ground within the point cloud with the XY plane of the base_link.
 This means that only the z, roll, and pitch values of the tf undergo calibration,
 while the remaining x, y, and yaw values must be calibrated using other methods,
-such as [manual adjustment](../extrinsic-manual-calibration) or [mapping-based lidar-lidar calibration](../lidar-camera-calibration).
+such as [manual adjustment](../extrinsic-manual-calibration/index.md) or [mapping-based lidar-lidar calibration](../lidar-camera-calibration/index.md).
 
 You need to apply this calibration method to each lidar separately,
 so our bag should contain all lidars to be calibrated.

@@ -28,12 +28,15 @@ Use this workflow as a reference when you contribute to Autoware.
    - The reviewers will review your code following the [review guidelines](review-guidelines.md).
      - Not only the reviewers, but also the author is encouraged to understand the review guidelines.
    - If [CI checks](ci-checks.md) have failed, fix the errors.
+   - Learn about code ownership from the [code owners](code-owners.md) guidelines.
+     - Check the [code owners FAQ section](code-owners.md#faq) if your pull request is not being reviewed.
 7. Address the review comments pointed out by the reviewers.
    - If you don't understand the meaning of a review comment, ask the reviewers until you understand it.
      - Fixing without understanding the reason is not recommended because the author should be responsible for the final content of their own pull request.
    - If you don't agree with a review comment, ask the reviewers for a rational reason.
      - The reviewers are obligated to make the author understand the meanings of each comment.
    - After you have done with the review comments, re-request a review to the reviewers and back to 6.
+     - Avoid using force push as much as possible so reviewers only see the differences. More precisely, at least keep a commit history up to the point of review because GitHub Web UI such as the suggested change may require rebase to pass DCO CI.
    - If there are no more new review comments, the reviewers will approve the pull request and proceed to 8.
 8. Merge the pull request.
    - Anyone with write access can merge the pull request if there is no special request from maintainers.

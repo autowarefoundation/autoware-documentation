@@ -47,37 +47,41 @@
 
 ## How to run a rosbag replay simulation
 
-!!! info [Using Autoware Launch GUI](#using-autoware-launch-gui)
+!!! info "[Using Autoware Launch GUI](#using-autoware-launch-gui)"
 
     If you prefer a graphical user interface (GUI) over the command line for launching and managing your simulations, refer to the `Using Autoware Launch GUI` section at the end of this document for a step-by-step guide.
 
-1. Launch Autoware.
+1.  Launch Autoware.
 
-   ```sh
-   source ~/autoware/install/setup.bash
-   ros2 launch autoware_launch logging_simulator.launch.xml map_path:=$HOME/autoware_map/sample-map-rosbag vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
-   ```
+    ```sh
+    source ~/autoware/install/setup.bash
+    ros2 launch autoware_launch logging_simulator.launch.xml map_path:=$HOME/autoware_map/sample-map-rosbag vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+    ```
 
-   Note that you cannot use `~` instead of `$HOME` here.
+    Note that you cannot use `~` instead of `$HOME` here.
 
-   ![after-autoware-launch](images/rosbag-replay/after-autoware-launch.png)
+    ![after-autoware-launch](images/rosbag-replay/after-autoware-launch.png)
 
-2. Play the sample rosbag file.
+    > ⚠️ You might encounter error and warning messages in the terminal before playing the `rosbag`. This is normal behavior. These should cease once the `rosbag` is played and proper initialization takes place
 
-   ```sh
-   source ~/autoware/install/setup.bash
-   ros2 bag play ~/autoware_map/sample-rosbag/sample.db3 -r 0.2 -s sqlite3
-   ```
+2.  Play the sample rosbag file.
 
-   ![after-rosbag-play](images/rosbag-replay/after-rosbag-play.png)
+    ```sh
+    source ~/autoware/install/setup.bash
+    ros2 bag play ~/autoware_map/sample-rosbag/sample.db3 -r 0.2 -s sqlite3
+    ```
 
-3. To focus the view on the ego vehicle, change the `Target Frame` in the RViz Views panel from `viewer` to `base_link`.
+    > ⚠️ Due to the discrepancy between the timestamp in the `rosbag` and the current system timestamp, Autoware may generate warning messages in the terminal alerting to this mismatch. This is normal behavior.
 
-   ![change-target-frame](images/rosbag-replay/change-target-frame.png)
+    ![after-rosbag-play](images/rosbag-replay/after-rosbag-play.png)
 
-4. To switch the view to `Third Person Follower` etc, change the `Type` in the RViz Views panel.
+3.  To focus the view on the ego vehicle, change the `Target Frame` in the RViz Views panel from `viewer` to `base_link`.
 
-   ![third-person-follower](images/rosbag-replay/third-person-follower.png)
+    ![change-target-frame](images/rosbag-replay/change-target-frame.png)
+
+4.  To switch the view to `Third Person Follower` etc, change the `Type` in the RViz Views panel.
+
+    ![third-person-follower](images/rosbag-replay/third-person-follower.png)
 
 [Reference video tutorials](https://drive.google.com/file/d/12D6aSC1Y3Kf7STtEPWG5RYynxKdVcPrc/view?usp=sharing)
 

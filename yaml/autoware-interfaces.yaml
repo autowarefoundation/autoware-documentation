@@ -17,6 +17,27 @@ types:
       cancellable: bool
       cooperator: autoware_adapi_v1_msgs/msg/CooperationDecision
       uuid: unique_identifier_msgs/msg/UUID
+  autoware_adapi_v1_msgs/msg/DiagGraphStatus:
+    msg:
+      id: string
+      nodes: autoware_adapi_v1_msgs/msg/DiagNodeStatus[]
+      stamp: builtin_interfaces/msg/Time
+  autoware_adapi_v1_msgs/msg/DiagGraphStruct:
+    msg:
+      id: string
+      links: autoware_adapi_v1_msgs/msg/DiagLinkStruct[]
+      nodes: autoware_adapi_v1_msgs/msg/DiagNodeStruct[]
+      stamp: builtin_interfaces/msg/Time
+  autoware_adapi_v1_msgs/msg/DiagLinkStruct:
+    msg:
+      child: uint32
+      parent: uint32
+  autoware_adapi_v1_msgs/msg/DiagNodeStatus:
+    msg:
+      level: byte
+  autoware_adapi_v1_msgs/msg/DiagNodeStruct:
+    msg:
+      path: string
   autoware_adapi_v1_msgs/msg/DoorCommand:
     msg:
       command: uint8
@@ -60,6 +81,10 @@ types:
   autoware_adapi_v1_msgs/msg/HazardLights:
     msg:
       status: uint8
+  autoware_adapi_v1_msgs/msg/Heartbeat:
+    msg:
+      seq: uint16
+      stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/LocalizationInitializationState:
     msg:
       stamp: builtin_interfaces/msg/Time
@@ -126,7 +151,6 @@ types:
       pose: geometry_msgs/msg/Pose[2]
       sequence: string
       status: uint16
-      type: uint16
   autoware_adapi_v1_msgs/msg/SteeringFactorArray:
     msg:
       factors: autoware_adapi_v1_msgs/msg/SteeringFactor[]
@@ -169,7 +193,6 @@ types:
       pose: geometry_msgs/msg/Pose
       sequence: string
       status: uint16
-      type: uint16
   autoware_adapi_v1_msgs/msg/VelocityFactorArray:
     msg:
       factors: autoware_adapi_v1_msgs/msg/VelocityFactor[]

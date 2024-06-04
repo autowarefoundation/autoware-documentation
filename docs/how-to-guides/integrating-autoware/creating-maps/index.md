@@ -12,8 +12,20 @@ If you prefer proprietary software that is easy to use, you can try a fully auto
 
 ## Creating a vector map
 
-The easiest way to create an Autoware-compatible vector map is to use [Vector Map Builder](https://tools.tier4.jp/feature/vector_map_builder_ll2/), a free web-based tool provided by [TIER IV, Inc.](https://www.tier4.jp/).
+### Quick way to create simple maps
+
+[bag2lanelet](https://autowarefoundation.github.io/autoware_tools/main/bag2lanelet/) is a tool to create virtual lanes from self-location data. Whether in a real environment or a simulation, you can use this tool to generate simple lanelets from a rosbag with self-location information, allowing you to quickly test Autoware's performance. A key use case for this tool is to emulate autonomous driving on routes that were initially driven manually.
+
+![bag2lanelet](images/bag2lanelet.png)
+
+However, it is important to note that this tool has very limited functionalities and can only generate single-lane maps. To enable more comprehensive mapping and navigation capabilities, we recommend using the 'Vector Map Builder' described in the next section.
+
+### Tools for a vector map creation
+
+The recommended way to create an Autoware-compatible vector map is to use [Vector Map Builder](https://tools.tier4.jp/feature/vector_map_builder_ll2/), a free web-based tool provided by [TIER IV, Inc.](https://www.tier4.jp/).
 Vector Map Builder allows you to create lanes and add additional regulatory elements such as stop signs or traffic lights using a point cloud map as a reference.
+
+![vector_map_builder](images/vector_map_builder.png)
 
 For open-source software options, [MapToolbox](https://github.com/autocore-ai/MapToolbox) is a plugin for [Unity](https://unity.com/) specifically designed to create Lanelet2 maps for Autoware.
 Although [JOSM](https://josm.openstreetmap.de/) is another open-source tool that can be used to create Lanelet2 maps, be aware that a number of modifications must be done manually to make the map compatible with Autoware. This process can be tedious and time-consuming, so the use of JOSM is not recommended.

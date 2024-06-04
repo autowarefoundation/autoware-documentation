@@ -40,7 +40,7 @@ The current localization launcher implemented by TIER IV supports multiple local
   You can use YabLoc as a camera-based localization method.
   For more details on YabLoc,
   please refer to the [README of YabLoc](https://github.com/autowarefoundation/autoware.universe/blob/main/localization/yabloc/README.md) in autoware.universe.
-  Also, you can use Eagleye as a GNSS & IMU & wheel odometry-based localization method. For more details on Eagleye, please refer to the [Eagleye](./eagleye).
+  Also, you can use Eagleye as a GNSS & IMU & wheel odometry-based localization method. For more details on Eagleye, please refer to the [Eagleye](./eagleye/index.md).
 
   You can set `pose_source` argument on `tier4_localization_component.launch.xml`,
   for example, if you want to use eagleye as pose_source,
@@ -60,7 +60,7 @@ The current localization launcher implemented by TIER IV supports multiple local
 - **`twist_source:`** This argument specifies the twist_estimator, currently supporting `gyro_odom` (default), and `eagleye`.
   By default,
   Autoware launches [gyro_odometer](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/gyro_odometer) for twist estimator.
-  Also, you can use eagleye for the twist source, please refer to the [Eagleye](./eagleye).
+  Also, you can use eagleye for the twist source, please refer to the [Eagleye](./eagleye/index.md).
   If you want to change your twist source to eagleye, you can update `tier4_localization_component.launch.xml` like:
 
   ```diff
@@ -96,3 +96,16 @@ you can add this argument on `tier4_localization_component.launch.xml` launch fi
 
 **Note:** Gyro odometer input topic provided from velocity converter package. This package will be launched at sensor_kit. For more information,
 please check [velocity converter package](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/vehicle_velocity_converter).
+
+## Note when using non NDT pose estimator
+
+!!! note
+
+    Since NDT is currently the most often used pose_estimator , the NDT diagnostics are registered for monitoring by default.
+    When using a pose_estimator other than NDT, NDT diagnostics will always be marked as stale, causing the system to enter a safe_fault state.
+    Depending on the parameters of emergencies, this could escalate to a full emergency, preventing autonomous driving.
+
+To work around this, please modify the configuration file of the system_error_monitor.
+In the [system_error_monitor.param.yaml](https://github.com/autowarefoundation/autoware.universe/blob/main/system/system_error_monitor/config/system_error_monitor.param.yaml) file, `/autoware/localization/performance_monitoring/matching_score` represents the aggregated diagnostics for NDT.
+To prevent emergencies even when NDT is not launched, remove this entry from the configuration.
+Note that the module name `/performance_monitoring/matching_score` is specified in [diagnostics_aggregator/localization.param.yaml](https://github.com/autowarefoundation/autoware.universe/blob/main/system/system_error_monitor/config/diagnostic_aggregator/localization.param.yaml).

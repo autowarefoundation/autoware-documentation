@@ -69,7 +69,7 @@ Define URDF and parameters in the vehicle description package (refer to the [sam
 Create a launch file (refer to the [sample vehicle launch package](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_launch) for example).
 If you have multiple vehicles with the same hardware setup, you can specify `vehicle_id` to distinguish them.
 
-### Adapt YOUR_SENSOR_KIT_description for autoware launching system
+### Adapt YOUR_SENSOR_KIT_launch for autoware launching system
 
 #### At YOUR_SENSOR_KIT_description
 
@@ -83,7 +83,7 @@ Create `launch/sensing.launch.xml` that launches the interfaces of all the senso
 !!! note
 
     At this point, you are now able to run Autoware's Planning Simulator to do a basic test of your vehicle and sensing packages.
-    To do so, you need to build and install Autoware using your cloned repository. Follow the [steps for either Docker or source installation](../installation/) (starting from the dependency installation step) and then run the following command:
+    To do so, you need to build and install Autoware using your cloned repository. Follow the [steps for either Docker or source installation](../../installation/index.md) (starting from the dependency installation step) and then run the following command:
 
     ```bash
     ros2 launch autoware_launch planning_simulator.launch.xml vehicle_model:=YOUR_VEHICLE sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP
@@ -120,7 +120,7 @@ This section briefly explains how to run your vehicle with Autoware.
 
 ### Install Autoware
 
-Follow the [installation steps of Autoware](../../installation/).
+Follow the [installation steps of Autoware](../../installation/index.md).
 
 ### Launch Autoware
 
@@ -166,3 +166,5 @@ Now the vehicle should drive along the calculated path!
 ## 6. Tune parameters for your vehicle & environment
 
 You may need to tune your parameters depending on the domain in which you will operate your vehicle.
+
+The maximum velocity is defined [here](https://github.com/autowarefoundation/autoware_launch/blob/c03bd4bdb70117efffc328e5fe6e57426f169b3b/autoware_launch/config/planning/scenario_planning/common/common.param.yaml#L3), that is 15km/h by default.

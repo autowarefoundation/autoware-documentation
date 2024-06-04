@@ -9,11 +9,11 @@ This page introduces the following packages for the sensor model:
 3. `<YOUR-VEHICLE-NAME>_sensor_kit_launch`
 
 Previously,
-we forked our vehicle model at the [creating autoware repositories](../../creating-your-autoware-repositories/creating-autoware-repositories.md) page step.
+we forked our sensor model at the [creating autoware repositories](../../creating-your-autoware-repositories/creating-autoware-repositories.md) page step.
 For instance,
-we created [tutorial_vehicle_launch](https://github.com/leo-drive/tutorial_vehicle_launch)
+we created [tutorial_vehicle_sensor_kit_launch](https://github.com/leo-drive/tutorial_vehicle_sensor_kit_launch)
 as an implementation example for the said step.
-Please ensure that the <YOUR-VEHICLE-NAME>\_vehicle_launch repository is included in Autoware,
+Please ensure that the <YOUR-VEHICLE-NAME>\_sensor_kit_launch repository is included in Autoware,
 following the directory structure below:
 
 ```diff
@@ -26,9 +26,9 @@ following the directory structure below:
                  └─ <YOUR-VEHICLE-NAME>_sensor_kit_launch/
 ```
 
-If your forked Autoware meta-repository doesn't include `<YOUR-VEHICLE-NAME>_vehicle_launch` with the correct folder structure
+If your forked Autoware meta-repository doesn't include `<YOUR-VEHICLE-NAME>_sensor_kit_launch` with the correct folder structure
 as shown above,
-please add your forked `<YOUR-VEHICLE-NAME>_vehicle_launch` repository to the autoware.repos file
+please add your forked `<YOUR-VEHICLE-NAME>_sensor_kit_launch` repository to the autoware.repos file
 and run the vcs import src < autoware.repos command in your terminal
 to import the newly included repositories at autoware.repos file.
 
@@ -75,7 +75,7 @@ Change the `project()` method at `CmakeList.txt` file.
 ```
 
 Remember to apply the name changes and project method for **BOTH**
-`<YOUR-VEHICLE-NAME>_vehicle_description`and `<YOUR-VEHICLE-NAME>_vehicle_launch` ROS 2 packages.
+`<YOUR-VEHICLE-NAME>_sensor_kit_description`and `<YOUR-VEHICLE-NAME>_sensor_kit_launch` ROS 2 packages.
 Once finished, we can proceed to build said packages:
 
 ```bash
@@ -107,7 +107,7 @@ Now, we will modify these files according to our sensor design.
 This file defines the mounting positions and orientations of sensors with `sensor_kit_base_link` as the parent frame.
 We can assume `sensor_kit_base_link` frame is bottom of your main Lidar sensor.
 We must create this file with euler format as [x, y, z, roll, pitch, yaw].
-Also, we will set these values with "0" until the [calibration steps](../calibrating-sensors).
+Also, we will set these values with "0" until the [calibration steps](../calibrating-sensors/index.md).
 
 We will define new frames for this file, and we will connect them `.xacro` files.
 We recommend naming as if your lidar sensor frame as "velodyne_top",
@@ -346,7 +346,7 @@ Here is the sensors.xacro file for sample_sensor_kit_description package:
 </robot>
 ```
 
-At out tutorial vehicle,
+At our tutorial vehicle,
 there is no directly sensor transformation for base_link,
 thus our sensors.xacro file includes only `base_link` and `sensor_kit_base_link` link.
 
@@ -524,7 +524,7 @@ you can modify the pipeline components like this way:
 +           name="dual_return_outlier_filter",
             remappings=[
                 ("input", "rectified/pointcloud_ex"),
-                ("output", "outlier_filtered/pointcloud"),
+                ("output", "pointcloud"),
             ],
             extra_arguments=[{"use_intra_process_comms": LaunchConfiguration("use_intra_process")}],
         )

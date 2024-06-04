@@ -40,8 +40,28 @@ This diagram describes the high-level architecture of the Perception Component.
 
 The Perception Component consists of the following sub-components:
 
-- **Object Recognition**: Recognizes dynamic objects surrounding the ego vehicle in the current frame and predicts their future trajectories.
-- **Obstacle Segmentation**: Identifies point clouds originating from obstacles(not only dynamic objects but also static obstacles that should be avoided, such as stationary obstacles) that the ego vehicle should avoid.
+- **Object Recognition**: Recognizes dynamic objects surrounding the ego vehicle in the current frame, objects that were not present during map creation, and predicts their future trajectories. This includes:
+  - Pedestrians
+  - Cars
+  - Trucks/Buses
+  - Bicycles
+  - Motorcycles
+  - Animals
+  - Traffic cones
+  - Road debris: Items such as cardboard, oil drums, trash cans, wood, etc., either dropped on the road or floating in the air
+- **Obstacle Segmentation**: Identifies point clouds originating from obstacles, including both dynamic objects and static obstacles that requires the ego vehicle either steer clear of them or come to a stop in front of the obstacles.
+  - This includes:
+    - All dynamic objects (as listed above)
+    - Curbs/Bollards
+    - Barriers
+    - Trees
+    - Walls/Buildings
+  - This does not include:
+    - Grass
+    - Water splashes
+    - Smoke/Vapor
+    - Newspapers
+    - Plastic bags
 - **Occupancy Grid Map**: Detects blind spots (areas where no information is available and where dynamic objects may jump out).
 - **Traffic Light Recognition**: Recognizes the colors of traffic lights and the directions of arrow signals.
 
@@ -83,6 +103,7 @@ As mentioned in the goal session, this perception module is designed to be exten
 | Camera DNN based 2D detector | This module takes camera images as input and detects objects such as vehicles, trucks, buses, pedestrians, and bicycles in the two-dimensional image space. It detects objects within image coordinates and providing 3D coordinate information is not mandatory. | - Camera Images                                                 |
 | LiDAR Clustering             | This module performs clustering of point clouds and shape estimation to achieve object detection without labels.                                                                                                                                                  | - Point Clouds                                                  |
 | Semi-rule based detector     | This module detects objects using information from both images and point clouds, and it consists of two components: LiDAR Clustering and Camera DNN based 2D detector.                                                                                            | - Output from Camera DNN based 2D detector and LiDAR Clustering |
+| Radar based 3D detector      | This module takes radar data as input and detects dynamic 3D objects. In detail, please see [this document](reference-implementations/radar-based-3d-detector/radar-based-3d-detector.md).                                                                        | - Radar data                                                    |
 | Object Merger                | This module integrates results from various detectors.                                                                                                                                                                                                            | - Detected Objects                                              |
 | Interpolator                 | This module stabilizes the object detection results by maintaining long-term detection results using Tracking results.                                                                                                                                            | - Detected Objects <br> - Tracked Objects                       |
 | Tracking                     | This module gives ID and estimate velocity to the detection results.                                                                                                                                                                                              | - Detected Objects                                              |
