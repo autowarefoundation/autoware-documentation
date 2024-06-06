@@ -9,15 +9,19 @@ AWSIM Labs is a fork of AWSIM, developed under the Autoware Foundation, providin
 | Features                                     | AWSIM 1.2.1      | AWSIM Labs 1.0.0 |
 |----------------------------------------------|------------------|-----------------------|
 | Rendering Pipeline                           | HDRP             | URP                   |
-| Unity Version                                | Unity 2021.1.7f1 | Unity LTS 2022.3.21f1 |
 | Resource usage                               | Heavy            | Light                 |
 | Can reset vehicle position on runtime        | ❌                | ✅                     |
 | Multiple scene and vehicle setup             | ❌                | ✅                     |
 | Multi-lidars are enabled by default          | ❌                | ✅                     |
-| CI for build                                 | ❌                | ✅                     |
-| CI for documentation generation within PR    | ❌                | ✅                     |
 | Radar sensor support                         | ✅                | ❌                     |
 | Can toggle vehicle keyboard control from GUI | ✅                | ❌                     |
+
+| Development Features                         | AWSIM            | AWSIM Labs            |
+|----------------------------------------------|------------------|-----------------------|
+| Unity Version                                | Unity 2021.1.7f1 | Unity LTS 2022.3.21f1 |
+| CI for build                                 | ❌                | ✅                     |
+| CI for documentation generation within PR    | ❌                | ✅                     |
+| Main branch is protected with linear history | ❌                | ✅                     |
 
 ## AWSIM Labs
 
