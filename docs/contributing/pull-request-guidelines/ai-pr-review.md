@@ -22,7 +22,7 @@ Wait until both PR-Agent jobs are completed successfully:
 !!! warning
 
     If you add multiple labels at the same time, `prevent-no-label-execution` can get confused.
-    
+
     For example, first add `tag:pr-agent`, wait until it is ready, then add `tag:run-build-and-test-differential` if you need it.
 
 Then you can pick one of the following commands:
