@@ -6,7 +6,7 @@ AWSIM Labs is a fork of AWSIM, developed under the Autoware Foundation, providin
 
 ## Feature differences from the AWSIM and AWSIM Labs
 
-| Features                                     | AWSIM 1.2.1      | AWSIM Labs 1.0.0 |
+| Simulator Features                           | AWSIM 1.2.1      | AWSIM Labs 1.0.0 |
 |----------------------------------------------|------------------|-----------------------|
 | Rendering Pipeline                           | HDRP             | URP                   |
 | Resource usage                               | Heavy            | Light                 |
