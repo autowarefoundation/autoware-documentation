@@ -26,7 +26,7 @@ Wait until both PR-Agent jobs are completed successfully:
 
 Then you can pick one of the following commands:
 
-```
+```text
 /review: Request a review of your Pull Request.
 /describe: Update the PR description based on the contents of the PR.
 /improve: Suggest code improvements.
