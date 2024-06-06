@@ -15,6 +15,7 @@ Workflow: [pr-agent.yaml](https://github.com/autowarefoundation/autoware.univers
 When you create the PR, or within the PR add the label `tag:pr-agent`.
 
 Wait until both PR-Agent jobs are completed successfully:
+
 - `prevent-no-label-execution-pr-agent / prevent-no-label-execution`
 - `Run pr agent on every pull request, respond to user comments`
 
