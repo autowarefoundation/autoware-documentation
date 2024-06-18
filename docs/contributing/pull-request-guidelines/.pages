@@ -1,5 +1,6 @@
 nav:
   - index.md
+  - ai-pr-review.md
   - ci-checks.md
   - code-owners.md
   - commit-guidelines.md

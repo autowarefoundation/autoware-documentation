@@ -28,8 +28,15 @@ an example dataset containing three distinct classes (green, yellow, red), which
 
 Detailed instructions for training the traffic light classifier model can be found **[here](https://github.com/autowarefoundation/autoware.universe/blob/main/perception/traffic_light_classifier/README.md)**.
 
-<!--
+## Training CenterPoint 3D object detection model
 
-Training traffic light detection model and lidar CenterPoint model will be added there.
+The CenterPoint 3D object detection model within the Autoware has been trained using the **[autowarefoundation/mmdetection3d](https://github.com/autowarefoundation/mmdetection3d/blob/main/projects/AutowareCenterPoint/README.md)** repository.
 
--->
+To train custom CenterPoint models and convert them into ONNX format for deployment in Autoware, please refer to the instructions provided in the README file included with Autoware's
+**[lidar_centerpoint](https://autowarefoundation.github.io/autoware.universe/main/perception/lidar_centerpoint/)** package. These instructions will provide a step-by-step guide for training the CenterPoint model.
+
+In order to assist you with your training process, we have also included an example dataset in the TIER IV dataset format.
+
+This dataset contains 600 lidar frames and covers 5 classes, including 6905 cars, 3951 pedestrians, 75 cyclists, 162 buses, and 326 trucks.
+
+You can utilize this example dataset to facilitate your training efforts.
