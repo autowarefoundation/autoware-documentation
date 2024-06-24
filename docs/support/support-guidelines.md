@@ -85,7 +85,7 @@ If you find out that some information is wrong, unclear, or missing in Autoware 
 
 !!! warning
 
-    Github Discussions is not the right place to track tasks or bugs. Use GitHub Issues for that purpose.
+    GitHub Discussions is not the right place to track tasks or bugs. Use GitHub Issues for that purpose.
 
 ## GitHub Issues
 
