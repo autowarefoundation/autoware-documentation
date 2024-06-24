@@ -120,6 +120,8 @@ When creating a new issue, use the following guidelines:
 When you start working on an issue, link the related pull request to the issue by mentioning the issue number.
 This helps maintain a clear and traceable development history.
 
+For more details, see the [Pull Request Guidelines page](../contributing/pull-request-guidelines/index.md).
+
 !!! warning
 
     GitHub Issues is not for questions or unconfirmed bugs. If an issue is created for such purposes,
