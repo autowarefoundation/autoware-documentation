@@ -33,7 +33,7 @@ Before creating a new issue or question, check if someone else has already repor
 
 - **[Issues](https://github.com/autowarefoundation/autoware/issues)**
 
-  Note that Autoware has multiple repositories listed in [autoware.repos](https://github.com/autowarefoundation/autoware/blob/main/autoware.repos). 
+  Note that Autoware has multiple repositories listed in [autoware.repos](https://github.com/autowarefoundation/autoware/blob/main/autoware.repos).
   It is recommended to search across all repositories.
 
 - **[Questions](https://github.com/autowarefoundation/autoware/discussions/categories/q-a)**
@@ -70,7 +70,7 @@ If you find out that some information is wrong, unclear, or missing in Autoware 
 [GitHub discussions page](https://github.com/orgs/autowarefoundation/discussions) is the primary place for asking questions and discussing topics related to Autoware.
 
 | Category                                                                                                               | Description                                                             |
-|:-----------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------|
+| :--------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------- |
 | [Announcements](https://github.com/orgs/autowarefoundation/discussions/categories/announcements)                       | Official updates and news from the Autoware maintainers                 |
 | [Design](https://github.com/orgs/autowarefoundation/discussions/categories/design)                                     | Discussions on Autoware system and software design                      |
 | [Feature requests](https://github.com/orgs/autowarefoundation/discussions/categories/feature-requests)                 | Suggestions for new features and improvements                           |
