@@ -4,7 +4,7 @@
 
 PanoSim is an integrated testing simulation platform for anoautonomous driving, and its technologies and product development.
 
-[PanoSim and Autoware co-simulation tutorial](https://gitee.com/wobuzhuchele/panosim-autoware/blob/master/README.en.md). Based on PanoSim V32 and Autoware.universe, it includes bridge, map ,scenarios, installation tutorial.
+[PanoSim and Autoware co-simulation tutorial](https://gitee.com/wobuzhuchele/panosim-autoware/blob/master/README.en.md). Based on PanoSim V32 and Autoware.universem,it includes bridge,map ,scenarios, installation tutorial.
 
 ## Instructions
 
