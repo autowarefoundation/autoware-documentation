@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128.476mm"
+   height="70.967003mm"
+   viewBox="0 0 128.476 70.967003"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
+   sodipodi:docname="vm-06-02_2.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.7131103"
+     inkscape:cx="241.95757"
+     inkscape:cy="123.75152"
+     inkscape:window-width="1850"
+     inkscape:window-height="1016"
+     inkscape:window-x="369"
+     inkscape:window-y="2187"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <clipPath
+       id="c0_62">
+      <path
+         d="M 0,825 V 0 h 1100 v 825 z"
+         id="path2" />
+    </clipPath>
+    <clipPath
+       id="clipPath1">
+      <path
+         d="M 0,825 V 0 h 1100 v 825 z"
+         id="path1" />
+    </clipPath>
+    <clipPath
+       id="clipPath3">
+      <path
+         d="M 0,825 V 0 h 1100 v 825 z"
+         id="path3" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-40.983958,-115.8154)">
+    <path
+       fill-rule="evenodd"
+       d="m 30.1625,111.91875 h 149.70125 v 72.94562 H 30.1625 Z"
+       class="g1_62"
+       id="path39"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 133.35574,119.03834 h 32.57021 v 64.61125 h -32.57021 z"
+       class="g5_62"
+       id="path45"
+       style="display:block;fill:#666666;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 135.57824,118.98542 h 0.68792 v 64.63771 h -0.68792 z"
+       class="g0_62"
+       id="path46"
+       style="display:block;fill:#ffffff;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 163.35949,118.98542 h 0.68792 v 64.63771 h -0.68792 z"
+       class="g0_62"
+       id="path47"
+       style="display:block;fill:#ffffff;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 135.9222,136.81834 h 27.75479 v 25.66458 H 135.9222 Z"
+       class="g6_62"
+       id="path48"
+       style="display:block;fill:#ea9999;fill-opacity:0.37;stroke-width:0.264583" />
+    <path
+       d="m 135.9222,136.81834 h 27.75479 v 25.66458 H 135.9222 Z"
+       class="g7_62"
+       id="path49"
+       style="display:block;fill:none;stroke:#ff0000;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 135.76345,118.95896 h 27.91354 v 64.66417 h -27.91354 z"
+       class="g8_62"
+       id="path50"
+       style="display:block;opacity:0.686727;fill:#a0bff4;fill-opacity:0.240508;stroke-width:0.264583" />
+    <path
+       d="m 135.76345,118.95896 h 27.91354 v 64.66417 h -27.91354 z"
+       class="g9_62"
+       id="path51"
+       style="display:block;fill:none;stroke:#0000ff;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="M 67.500952,166.92792 H 100.97074 V 180.6598 H 67.500952 Z"
+       class="g1_62"
+       id="path52"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <g
+       clip-path="url(#c0_62)"
+       id="g53"
+       style="display:block"
+       transform="matrix(0.26458333,0,0,0.26458333,-98.789671,58.713343)">
+      <text
+         x="638.79999"
+         y="431.10001"
+         class="s7_62"
+         id="text52"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#000000">Lanelet </text>
+      <text
+         x="645.59998"
+         y="445.70001"
+         class="s7_62"
+         id="text53"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#000000">subtype: road </text>
+    </g>
+    <path
+       fill-rule="evenodd"
+       d="M 141.18741,172.43126 88.773452,172.21959 Z"
+       class="g1_62"
+       id="path53"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="M 141.18741,172.43126 88.773452,172.21959"
+       class="g9_62"
+       id="path54"
+       style="display:block;fill:none;stroke:#0000ff;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 43.450327,145.0998 h 47.78375 v 13.73187 h -47.78375 z"
+       class="ga_62"
+       id="path55"
+       style="display:block;fill:#0000ff;stroke-width:0.264583" />
+    <g
+       clip-path="url(#c0_62)"
+       id="g56"
+       style="display:block"
+       transform="matrix(0.26458333,0,0,0.26458333,-98.789671,58.713343)">
+      <text
+         x="547.90002"
+         y="348.5"
+         class="s8_62"
+         id="text55"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#ffffff">regulatory_element </text>
+      <text
+         x="554.70001"
+         y="363.20001"
+         class="s8_62"
+         id="text56"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#ffffff">subtype: no_parking_area </text>
+    </g>
+    <path
+       fill-rule="evenodd"
+       d="M 74.433035,169.15042 71.866577,158.88459 Z"
+       class="g1_62"
+       id="path56"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="M 74.433035,169.15042 72.28991,160.6573"
+       class="g9_62"
+       id="path57"
+       style="display:block;fill:none;stroke:#0000ff;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 72.792619,160.52501 -0.820209,-1.21709 -0.15875,1.45521 z"
+       class="gb_62"
+       id="path58"
+       style="display:block;fill:#0000ff;stroke:#0000ff;stroke-width:0.302948;stroke-miterlimit:10" />
+    <path
+       fill-rule="evenodd"
+       d="m 84.51366,128.14001 h 46.93708 v 13.70541 H 84.51366 Z"
+       class="g1_62"
+       id="path59"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <g
+       clip-path="url(#c0_62)"
+       id="g60"
+       style="display:block"
+       transform="matrix(0.26458333,0,0,0.26458333,-98.789671,58.713343)">
+      <text
+         x="703.09998"
+         y="284.39999"
+         class="s7_62"
+         id="text59"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#000000">Polygon </text>
+      <text
+         x="709.90002"
+         y="299.10001"
+         class="s7_62"
+         id="text60"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#000000">type:no_parking_area </text>
+    </g>
+    <path
+       fill-rule="evenodd"
+       d="m 138.11824,145.28501 -22.14562,-6.35 z"
+       class="g1_62"
+       id="path60"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 138.11824,145.28501 -22.14562,-6.35"
+       class="g7_62"
+       id="path61"
+       style="display:block;fill:none;stroke:#ff0000;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 72.792619,144.96751 13.996458,-8.28146 z"
+       class="g1_62"
+       id="path62"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 72.792619,144.96751 12.435416,-7.35542"
+       class="g7_62"
+       id="path63"
+       style="display:block;fill:none;stroke:#ff0000;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 85.46616,138.06188 0.926042,-1.13771 -1.42875,0.26459 z"
+       class="gc_62"
+       id="path64"
+       style="display:block;fill:#ff0000;stroke:#ff0000;stroke-width:0.302948;stroke-miterlimit:10" />
+  </g>
+</svg>
