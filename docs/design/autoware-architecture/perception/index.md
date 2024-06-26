@@ -78,7 +78,7 @@ The following describes the input/output concept between Perception Component an
 - **From Localization**: This input should provide real-time information about the ego vehicle.
   - Vehicle motion information: Includes the ego vehicle's position.
 - **From Map**: This input should provide real-time information about the static information about the environment.
-  - Vector Map: Contains all static information about the environment, including lane aria information.
+  - Vector Map: Contains all static information about the environment, including lane area information.
   - Point Cloud Map: Contains static point cloud maps, which should not include information about the dynamic objects.
 - **From API**:
   - V2X information: The information from V2X modules. For example, the information from traffic signals.
