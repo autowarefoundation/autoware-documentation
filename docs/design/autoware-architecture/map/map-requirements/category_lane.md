@@ -224,7 +224,7 @@ Autoware is designed to move through the midpoint calculated from a Lanelet's le
 Create a centerline for the Lanelet when there is a need to shift the driving position to the left or right due to certain circumstances, ensuring the centerline has a smooth shape for drivability.
 
 !!!Caution
-    'Centerline' is a distinct concept from the central lane division line (centerline).
+'Centerline' is a distinct concept from the central lane division line (centerline).
 
 ![svg](./assets/vm-01-10_1.svg)
 
@@ -306,7 +306,7 @@ Requirement for Vector Map creation:
 
 - Stack two Lanelets together.
 
-##### Supplementary information:
+##### Supplementary information
 
 - The application of this case depends on local operational policies and vehicle specifications, and should be determined in discussion with the map requestor.
 - The current Autoware does not possess the capability to pass oncoming vehicles in shared lanes.

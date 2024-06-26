@@ -77,7 +77,7 @@ Follow the same position guidelines for Linestrings of fences (_type:fence_).
 
 #### Related Autoware module
 
-- [Drivable Area design -  Autoware Universe Documentation](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/autoware_behavior_path_planner_common/docs/behavior_path_planner_drivable_area_design/)
+- [Drivable Area design - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/autoware_behavior_path_planner_common/docs/behavior_path_planner_drivable_area_design/)
 
 ---
 
