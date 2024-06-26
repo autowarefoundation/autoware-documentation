@@ -20,7 +20,10 @@ Which requirements apply entirely depends on the configuration of the Autoware s
 
 Next, you must comply with the laws of the country where the autonomous driving vehicle will be operating. It is your responsibility to choose which of the following requirements to apply according to the laws.
 
-!!!Caution - The examples of the road signs and road surface markings are used in Japan. Please replace them with those used in your respective countries. - The values for range and distance indicated are minimum values. Please determine values that comply with the laws of your country. Furthermore, these minimum values may change depending on the maximum velocity of the autonomous driving vehicle.
+### Caution
+
+- The examples of the road signs and road surface markings are used in Japan. Please replace them with those used in your respective countries.
+- The values for range and distance indicated are minimum values. Please determine values that comply with the laws of your country. Furthermore, these minimum values may change depending on the maximum velocity of the autonomous driving vehicle.
 
 ## List of Requirement Specifications
 
