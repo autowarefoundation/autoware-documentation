@@ -15,7 +15,9 @@ Create a Polygon (_type:hatched_road_markings_) when a Buffer Zone (also known a
 
 In order to avoid obstacles, Autoware regards the Buffer Zone as a drivable area and proceeds through it.
 
-!!! Caution - Vehicles are not allowed to pass through safety areas. It's important to differentiate between Buffer Zones and safety areas. - Do not create a Polygon for the Buffer Zone in areas where static objects like poles are present and vehicles cannot pass, even if a Buffer Zone is painted on the surface. Buffer Zones should be established only in areas where vehicle passage is feasible.
+##### Caution
+
+- Vehicles are not allowed to pass through safety areas. It's important to differentiate between Buffer Zones and safety areas. - Do not create a Polygon for the Buffer Zone in areas where static objects like poles are present and vehicles cannot pass, even if a Buffer Zone is painted on the surface. Buffer Zones should be established only in areas where vehicle passage is feasible.
 
 ![svg](./assets/vm-06-01_1.svg)
 

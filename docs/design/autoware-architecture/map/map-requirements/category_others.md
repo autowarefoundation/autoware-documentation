@@ -19,9 +19,9 @@ Refer to [vm-03-04](./category_intersection.md#vm-03-04-lanelet-creation-in-the-
 
 Autoware detects approaching vehicles and plans a route to avoid collisions.
 
-!!! Caution
+##### Caution
 
-    Check the range of sensors on your vehicle.
+Check the range of sensors on your vehicle.
 
 #### Preferred vector map <!-- omit in toc -->
 

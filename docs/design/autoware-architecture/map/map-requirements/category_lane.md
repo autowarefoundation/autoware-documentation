@@ -173,11 +173,11 @@ None in particular.
 
 If there are no lines on the outer side within the road, position the Linestring 0.5 m from the road's edge.
 
-!!! Caution
-
-    The width depends on the laws of your country.
-
 ![svg](./assets/vm-01-08_1.svg)
+
+##### Caution
+
+The width depends on the laws of your country.
 
 #### Preferred vector map <!-- omit in toc -->
 
@@ -223,10 +223,11 @@ Autoware is designed to move through the midpoint calculated from a Lanelet's le
 
 Create a centerline for the Lanelet when there is a need to shift the driving position to the left or right due to certain circumstances, ensuring the centerline has a smooth shape for drivability.
 
-!!!Caution
-'Centerline' is a distinct concept from the central lane division line (centerline).
-
 ![svg](./assets/vm-01-10_1.svg)
+
+##### Caution
+
+'Centerline' is a distinct concept from the central lane division line (centerline).
 
 #### Preferred vector map <!-- omit in toc -->
 
