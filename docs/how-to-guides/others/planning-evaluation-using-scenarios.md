@@ -178,12 +178,20 @@ vehicle_model:=sample_vehicle
 
 ## Understanding the Autoware Evaluator
 
-**Note: The Autoware Evaluator is a private tool. Currently, you need to have access to the tool to see the pages.
-However, the AWF project will be public, it is under development.**
-
 Autoware Evaluator is a web-based CI/CD platform that facilitates the uploading, categorization, and execution of
 scenarios along with their corresponding map files. It allows for parallel scenario executions and provides detailed
 results.
+
+**Note: The Autoware Evaluator is a private tool. Currently, you should be invited to the AWF project to access it.
+However, the AWF project will be public, it is under development.**
+
+- Firstly, you should create a free TIER IV account to access the Autoware Evaluator. You can create an account by using
+the [TIER IV account creation page](https://account.tier4.jp/registration).
+
+- After you created an account, please reach out to Hiroshi IGATA (hiroshi.igata@tier4.jp), the AWF ODD WG leader, for
+  an invitation to AWF project of the Autoware Evaluator. It is advised to join the ODD WG meeting once to briefly
+  introduce yourself and your interest. The ODD WG information
+  is [here](https://github.com/autowarefoundation/autoware-projects/wiki/operational-design-domain-working-group#how-to-participate-in-the-working-group).
 
 Let's explore the Autoware Evaluator interface page by page.
 
