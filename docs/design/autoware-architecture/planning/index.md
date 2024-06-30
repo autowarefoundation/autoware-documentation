@@ -256,7 +256,7 @@ While it is possible to add module-level functionalities in the current implemen
 
 ![reference-implementation-add-new-modules](image/reference-implementation-add-new-modules.drawio.svg)
 
-#### Add new modules in behavior_velocity_planner or behavior_path_plnner
+#### Add new modules in behavior_velocity_planner or behavior_path_planner
 
 ROS nodes such as [behavior_path_planner](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/autoware_behavior_path_planner/) and [behavior_velocity_planner](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/) have a module interface available through plugins. By adding modules in accordance with the module interfaces defined in these ROS nodes, dynamic loading/unloading of modules becomes possible. For specific methods of adding modules, please refer to the documentation of each package.
 
