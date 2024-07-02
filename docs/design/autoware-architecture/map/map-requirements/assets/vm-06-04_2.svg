@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="149.70125mm"
+   height="72.945618mm"
+   viewBox="0 0 149.70125 72.945618"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
+   sodipodi:docname="vm-06-04_2.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.7131103"
+     inkscape:cx="282.81892"
+     inkscape:cy="138.34486"
+     inkscape:window-width="1850"
+     inkscape:window-height="1016"
+     inkscape:window-x="369"
+     inkscape:window-y="2187"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <clipPath
+       id="c0_64">
+      <path
+         d="M 0,825 V 0 h 1100 v 825 z"
+         id="path2" />
+    </clipPath>
+    <clipPath
+       id="clipPath1">
+      <path
+         d="M 0,825 V 0 h 1100 v 825 z"
+         id="path1" />
+    </clipPath>
+    <clipPath
+       id="clipPath3">
+      <path
+         d="M 0,825 V 0 h 1100 v 825 z"
+         id="path3" />
+    </clipPath>
+    <clipPath
+       id="clipPath4">
+      <path
+         d="M 0,825 V 0 h 1100 v 825 z"
+         id="path4" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-30.1625,-111.91875)">
+    <path
+       fill-rule="evenodd"
+       d="m 30.1625,111.91875 h 149.70125 v 72.94562 H 30.1625 Z"
+       class="g1_64"
+       id="path39"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 130.88937,116.04625 h 32.57021 v 64.61125 h -32.57021 z"
+       class="g5_64"
+       id="path45"
+       style="display:block;fill:#666666;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 133.11187,115.99333 h 0.68792 v 64.63771 h -0.68792 z"
+       class="g0_64"
+       id="path46"
+       style="display:block;fill:#ffffff;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 160.89312,115.99333 h 0.68792 v 64.63771 h -0.68792 z"
+       class="g0_64"
+       id="path47"
+       style="display:block;fill:#ffffff;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 161.13125,133.45583 v 0.68792 h -27.59604 v -0.68792 z"
+       class="g0_64"
+       id="path48"
+       style="display:block;fill:#ffffff;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 161.21062,159.0675 v 0.68792 h -27.67541 v -0.68792 z"
+       class="g0_64"
+       id="path49"
+       style="display:block;fill:#ffffff;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 145.86479,133.50875 0.34396,0.60854 -12.75292,7.35542 -0.34396,-0.58209 z"
+       class="g0_64"
+       id="path50"
+       style="display:block;fill:#ffffff;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 161.23708,151.57979 0.34396,0.58208 -12.77937,7.38188 -0.34396,-0.60854 z"
+       class="g0_64"
+       id="path51"
+       style="display:block;fill:#ffffff;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 140.59958,141.76375 0.34396,0.58208 -7.48771,4.31271 -0.34396,-0.58208 z"
+       class="g0_64"
+       id="path52"
+       style="display:block;fill:#ffffff;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 140.59958,146.94958 0.34396,0.58209 -7.48771,4.33916 -0.34396,-0.58208 z"
+       class="g0_64"
+       id="path53"
+       style="display:block;fill:#ffffff;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 140.59958,152.13542 0.34396,0.60854 -7.48771,4.31271 -0.34396,-0.58209 z"
+       class="g0_64"
+       id="path54"
+       style="display:block;fill:#ffffff;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 160.99896,136.8425 0.34396,0.58208 -7.48771,4.33917 -0.34396,-0.58208 z"
+       class="g0_64"
+       id="path55"
+       style="display:block;fill:#ffffff;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 160.99896,141.76375 0.34396,0.58208 -7.48771,4.33917 -0.34396,-0.60854 z"
+       class="g0_64"
+       id="path56"
+       style="display:block;fill:#ffffff;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 160.99896,146.65854 0.34396,0.60854 -7.48771,4.31271 -0.34396,-0.58208 z"
+       class="g0_64"
+       id="path57"
+       style="display:block;fill:#ffffff;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 133.45583,133.82625 h 27.75479 v 25.66458 h -27.75479 z"
+       class="g6_64"
+       id="path58"
+       style="display:block;fill:#ea9999;fill-opacity:0.37;stroke-width:0.264583" />
+    <path
+       d="m 133.45583,133.82625 h 27.75479 v 25.66458 h -27.75479 z"
+       class="g7_64"
+       id="path59"
+       style="display:block;fill:none;stroke:#ff0000;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 133.29708,115.96687 h 27.91354 v 64.66417 h -27.91354 z"
+       class="g8_64"
+       id="path60"
+       style="display:block;fill:#a4c2f4;fill-opacity:0.36;stroke-width:0.264583" />
+    <path
+       d="m 133.29708,115.96687 h 27.91354 v 64.66417 h -27.91354 z"
+       class="g9_64"
+       id="path61"
+       style="display:block;fill:none;stroke:#0000ff;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 133.35,160.78729 h 27.67542 z"
+       class="g1_64"
+       id="path62"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 133.35,160.78729 h 27.67542"
+       class="ga_64"
+       id="path63"
+       style="display:block;fill:none;stroke:#188038;stroke-width:0.60616;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 65.034583,163.93583 h 33.469791 v 13.73188 H 65.034583 Z"
+       class="g1_64"
+       id="path64"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <g
+       clip-path="url(#c0_64)"
+       id="g65"
+       transform="matrix(0.26458333,0,0,0.26458333,-103.84395,55.628415)"
+       style="display:block">
+      <text
+         x="638.79999"
+         y="431.10001"
+         class="s7_64"
+         id="text64"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#000000">Lanelet </text>
+      <text
+         x="645.59998"
+         y="445.70001"
+         class="s7_64"
+         id="text65"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#000000">subtype: road </text>
+    </g>
+    <path
+       fill-rule="evenodd"
+       d="m 138.72104,169.43917 -48.259999,3.6777 z"
+       class="g1_64"
+       id="path65"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 138.72104,169.43917 -48.259999,3.6777"
+       class="g9_64"
+       id="path66"
+       style="display:block;fill:none;stroke:#0000ff;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 40.983958,142.10771 h 47.78375 v 13.73187 h -47.78375 z"
+       class="gb_64"
+       id="path67"
+       style="display:block;fill:#0000ff;stroke-width:0.264583" />
+    <g
+       clip-path="url(#c0_64)"
+       id="g68"
+       style="display:block"
+       transform="matrix(0.26458333,0,0,0.26458333,-101.25604,55.72125)">
+      <text
+         x="547.90002"
+         y="348.5"
+         class="s8_64"
+         id="text67"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#ffffff">type: regulatory_element </text>
+      <text
+         x="547.90002"
+         y="363.20001"
+         class="s8_64"
+         id="text68"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#ffffff">subtype: no_stopping_area </text>
+    </g>
+    <path
+       fill-rule="evenodd"
+       d="M 71.966666,166.15833 69.400208,155.8925 Z"
+       class="g1_64"
+       id="path68"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 71.966666,166.15833 -2.143125,-8.49312"
+       class="g9_64"
+       id="path69"
+       style="display:block;fill:none;stroke:#0000ff;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 70.32625,157.53292 -0.820209,-1.21709 -0.15875,1.45521 z"
+       class="gc_64"
+       id="path70"
+       style="display:block;fill:#0000ff;stroke:#0000ff;stroke-width:0.302948;stroke-miterlimit:10" />
+    <path
+       fill-rule="evenodd"
+       d="m 82.047291,125.14792 h 46.937079 v 13.70541 H 82.047291 Z"
+       class="g1_64"
+       id="path71"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <g
+       clip-path="url(#c0_64)"
+       id="g72"
+       style="display:block"
+       transform="matrix(0.26458333,0,0,0.26458333,-101.25604,55.72125)">
+      <text
+         x="703.09998"
+         y="284.39999"
+         class="s7_64"
+         id="text71"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#000000">Polygon </text>
+      <text
+         x="709.90002"
+         y="299.10001"
+         class="s7_64"
+         id="text72"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#000000">stype:no_stopping_area </text>
+    </g>
+    <path
+       fill-rule="evenodd"
+       d="m 93.080416,146.18229 h 35.903954 v 21.53708 H 93.080416 Z"
+       class="g1_64"
+       id="path72"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <g
+       clip-path="url(#c0_64)"
+       id="g77"
+       style="display:block"
+       transform="matrix(0.26458333,0,0,0.26458333,-101.25604,55.72125)">
+      <text
+         x="744.79999"
+         y="363.89999"
+         class="s7_64"
+         id="text73"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#000000">Linestring </text>
+      <text
+         x="751.59998"
+         y="378.60001"
+         class="s7_64"
+         id="text74"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#000000">type:stop_line </text>
+      <text
+         x="746.49243"
+         y="390.84583"
+         class="s7_64"
+         id="text75"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#000000">(optional)</text>
+      <text
+         x="789"
+         y="393.20001"
+         class="s9_64"
+         id="text76"
+         style="font-size:12.22px;font-family:MS-PGothic_bn;white-space:pre;fill:#000000" />
+      <text
+         x="744.79999"
+         y="407.89999"
+         class="s9_64"
+         id="text77"
+         style="font-size:12.22px;font-family:MS-PGothic_bn;white-space:pre;fill:#000000" />
+    </g>
+    <path
+       fill-rule="evenodd"
+       d="m 133.95854,160.78729 -10.29229,-2.14312 z"
+       class="g1_64"
+       id="path77"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 133.95854,160.78729 -10.29229,-2.14312"
+       class="gd_64"
+       id="path78"
+       style="display:block;fill:none;stroke:#188038;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 135.65187,142.29292 -22.14562,-6.35 z"
+       class="g1_64"
+       id="path79"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 135.65187,142.29292 -22.14562,-6.35"
+       class="g7_64"
+       id="path80"
+       style="display:block;fill:none;stroke:#ff0000;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 70.32625,141.97542 13.996458,-8.28146 z"
+       class="g1_64"
+       id="path81"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="M 70.32625,141.97542 82.761666,134.62"
+       class="g7_64"
+       id="path82"
+       style="display:block;fill:none;stroke:#ff0000;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 82.999791,135.06979 0.926042,-1.13771 -1.42875,0.26459 z"
+       class="ge_64"
+       id="path83"
+       style="display:block;fill:#ff0000;stroke:#ff0000;stroke-width:0.302948;stroke-miterlimit:10" />
+    <path
+       fill-rule="evenodd"
+       d="m 88.714791,151.52687 6.535208,0.4498 z"
+       class="g1_64"
+       id="path84"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 88.714791,151.52687 4.709583,0.3175"
+       class="gd_64"
+       id="path85"
+       style="display:block;fill:none;stroke:#188038;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 93.397916,152.34708 1.402292,-0.39687 -1.322917,-0.60854 z"
+       class="gf_64"
+       id="path86"
+       style="display:block;fill:#188038;stroke:#188038;stroke-width:0.302948;stroke-miterlimit:10" />
+  </g>
+</svg>

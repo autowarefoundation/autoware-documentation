@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="137.97701mm"
+   height="60.821999mm"
+   viewBox="0 0 137.97701 60.821999"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
+   sodipodi:docname="vm-01-14_3.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.7131103"
+     inkscape:cx="462.60887"
+     inkscape:cy="202.26369"
+     inkscape:window-width="3840"
+     inkscape:window-height="2123"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <clipPath
+       id="c0_22">
+      <path
+         d="M 0,825 V 0 h 1100 v 825 z"
+         id="path2" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(17.462502,-94.98542)">
+    <path
+       fill-rule="evenodd"
+       d="M -13.131523,98.281816 H 33.17056 v 54.451244 h -46.302083 z"
+       class="g3_22"
+       id="path43"
+       style="display:block;fill:#666666;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="M -8.7658985,98.175982 V 152.99765 Z"
+       class="g1_22"
+       id="path44"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="M -8.7658985,98.175982 V 152.99765"
+       class="g4_22"
+       id="path45"
+       style="display:block;fill:none;stroke:#ffffff;stroke-width:1.21259;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="M 29.175352,98.175982 V 152.99765 Z"
+       class="g1_22"
+       id="path46"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="M 29.175352,98.175982 V 152.99765"
+       class="g4_22"
+       id="path47"
+       style="display:block;fill:none;stroke:#ffffff;stroke-width:1.21259;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="M -8.6336065,98.467024 H 10.257643 V 152.91827 H -8.6336065 Z"
+       class="g6_22"
+       id="path58"
+       style="display:block;fill:#f4cccc;fill-opacity:0.43;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="M 11.130768,98.467024 H 29.20181 V 152.91827 H 11.130768 Z"
+       class="g6_22"
+       id="path59"
+       style="display:block;fill:#f4cccc;fill-opacity:0.43;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 0.81201801,128.41785 v -9.44562 z"
+       class="g1_22"
+       id="path85"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 0.81201801,128.41785 v -7.62"
+       class="g7_22"
+       id="path86"
+       style="display:block;fill:none;stroke:#ffffff;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 1.3147264,120.79785 -0.50270839,-1.37583 -0.5027083,1.37583 z"
+       class="g8_22"
+       id="path87"
+       style="display:block;fill:#ffffff;stroke:#ffffff;stroke-width:0.302948;stroke-miterlimit:10" />
+    <path
+       fill-rule="evenodd"
+       d="m 20.15306,118.97223 v 9.44562 z"
+       class="g1_22"
+       id="path88"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 20.15306,118.97223 v 7.62"
+       class="g7_22"
+       id="path89"
+       style="display:block;fill:none;stroke:#ffffff;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 19.650352,126.59223 0.502708,1.37583 0.502708,-1.37583 z"
+       class="g8_22"
+       id="path90"
+       style="display:block;fill:#ffffff;stroke:#ffffff;stroke-width:0.302948;stroke-miterlimit:10" />
+    <path
+       fill-rule="evenodd"
+       d="M 38.462226,98.572857 H 120.84549 V 126.88489 H 38.462226 Z"
+       class="g1_22"
+       id="path91"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.335508" />
+    <g
+       clip-path="url(#c0_22)"
+       id="g96"
+       style="display:block"
+       transform="matrix(0.26458333,0,0,0.26458333,-169.18277,-43.984641)">
+      <text
+         x="795.09998"
+         y="565.20001"
+         class="s7_22"
+         id="text91"
+         style="font-size:16.81px;font-family:MS-PGothic_bp;white-space:pre;fill:#000000"><tspan
+           sodipodi:role="line"
+           id="tspan164"
+           x="795.09998"
+           y="565.20001">Example of incorrect:</tspan><tspan
+           sodipodi:role="line"
+           id="tspan165"
+           x="795.09998"
+           y="586.21252">The area is divided into two parts,</tspan><tspan
+           sodipodi:role="line"
+           x="795.09998"
+           y="607.22504"
+           id="tspan166">left and right, and Lanelets are</tspan><tspan
+           sodipodi:role="line"
+           x="795.09998"
+           y="628.23749"
+           id="tspan167">placed side by side.</tspan></text>
+      <text
+         x="873.13635"
+         y="550.73492"
+         class="s7_22"
+         id="text92"
+         transform="scale(0.9124782,1.0959166)"
+         style="font-size:16.81px;font-family:MS-PGothic_bp;white-space:pre;fill:#000000;stroke-width:1.26806"> </text>
+      <text
+         x="878.59998"
+         y="585.40002"
+         class="s6_22"
+         id="text93"
+         style="font-size:16.81px;font-family:ArialMT_bl;white-space:pre;fill:#000000" />
+      <text
+         x="887.90002"
+         y="585.40002"
+         class="s7_22"
+         id="text94"
+         style="font-size:16.81px;font-family:MS-PGothic_bp;white-space:pre;fill:#000000" />
+      <text
+         x="1112.0392"
+         y="550.73492"
+         class="s6_22"
+         id="text95"
+         transform="scale(0.9124782,1.0959166)"
+         style="font-size:16.81px;font-family:ArialMT_bl;white-space:pre;fill:#000000;stroke-width:1.26806"> </text>
+      <text
+         x="873.13635"
+         y="576.34973"
+         class="s7_22"
+         id="text96"
+         transform="scale(0.9124782,1.0959166)"
+         style="font-size:16.81px;font-family:MS-PGothic_bp;white-space:pre;fill:#000000;stroke-width:1.26806"> </text>
+    </g>
+  </g>
+</svg>

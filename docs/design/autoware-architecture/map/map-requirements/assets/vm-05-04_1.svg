@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="106.145mm"
+   height="58.123001mm"
+   viewBox="0 0 106.145 58.123002"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
+   sodipodi:docname="vm-05-04_1.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.7131103"
+     inkscape:cx="-13.717739"
+     inkscape:cy="7.2966697"
+     inkscape:window-width="3840"
+     inkscape:window-height="2123"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <clipPath
+       id="c0_58">
+      <path
+         d="M 0,825 V 0 h 1100 v 825 z"
+         id="path2" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-108.47917,-146.57917)">
+    <path
+       fill-rule="evenodd"
+       d="m 179.36047,150.77497 h 30.87688 v 50.61479 h -30.87688 z"
+       class="g3_58"
+       id="path51"
+       style="display:block;fill:#666666;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 182.27089,150.66913 v 50.95875 z"
+       class="g1_58"
+       id="path52"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 182.27089,150.66913 v 50.95875"
+       class="g4_58"
+       id="path53"
+       style="display:block;fill:none;stroke:#ffffff;stroke-width:1.21259;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 207.59151,150.66913 v 50.95875 z"
+       class="g1_58"
+       id="path54"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 207.59151,150.66913 v 50.95875"
+       class="g4_58"
+       id="path55"
+       style="display:block;fill:none;stroke:#ffffff;stroke-width:1.21259;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 152.10839,150.43101 h 26.72291 v 50.95875 h -26.72291 z"
+       class="g5_58"
+       id="path56"
+       style="display:block;fill:#eeeeee;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 179.17526,150.43101 v 50.4825 z"
+       class="g1_58"
+       id="path57"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 179.17526,150.43101 v 50.4825"
+       class="g6_58"
+       id="path58"
+       style="display:block;fill:none;stroke:#ff0000;stroke-width:0.60616;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 138.48235,159.00351 39.81979,3.4925 z"
+       class="g1_58"
+       id="path59"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 138.48235,159.00351 37.99416,3.33375"
+       class="g7_58"
+       id="path60"
+       style="display:block;fill:none;stroke:#595959;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 176.45005,162.83997 1.4023,-0.39688 -1.32292,-0.60854 z"
+       class="g8_58"
+       id="path61"
+       style="display:block;fill:#595959;stroke:#595959;stroke-width:0.302948;stroke-miterlimit:10" />
+    <path
+       fill-rule="evenodd"
+       d="m 110.09256,149.50497 h 33.78729 v 17.62125 h -33.78729 z"
+       class="g1_58"
+       id="path62"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <g
+       clip-path="url(#c0_58)"
+       id="g63"
+       style="display:block"
+       transform="matrix(0.26458333,0,0,0.26458333,-36.274944,80.210597)">
+      <text
+         x="563.5"
+         y="289.79999"
+         class="s6_58"
+         id="text62"
+         style="font-size:18.33px;font-family:ArialMT_bl;white-space:pre;fill:#000000">linestring </text>
+      <text
+         x="568.59998"
+         y="311.79999"
+         class="s6_58"
+         id="text63"
+         style="font-size:18.33px;font-family:ArialMT_bl;white-space:pre;fill:#000000">type:fence </text>
+    </g>
+    <path
+       fill-rule="evenodd"
+       d="m 204.41651,184.00663 h -3.38666 v -15.71625 h 3.38666 z"
+       class="g0_58"
+       id="path63"
+       style="display:block;fill:#ffffff;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 199.12485,184.00663 h -3.36021 v -15.71625 h 3.36021 z"
+       class="g0_58"
+       id="path64"
+       style="display:block;fill:#ffffff;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 188.56797,184.00663 h -3.38667 v -15.71625 h 3.38667 z"
+       class="g0_58"
+       id="path65"
+       style="display:block;fill:#ffffff;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 193.83318,184.00663 h -3.36021 v -15.71625 h 3.36021 z"
+       class="g0_58"
+       id="path66"
+       style="display:block;fill:#ffffff;stroke-width:0.264583" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';white-space:pre;display:block;fill:#000000;stroke:#ff0000;stroke-width:0.79375;stroke-opacity:0"
+       x="144.35307"
+       y="182.84938"
+       id="text68"><tspan
+         sodipodi:role="line"
+         id="tspan68"
+         x="144.35307"
+         y="182.84938"
+         style="stroke-width:0.79375">Kindergartens or</tspan><tspan
+         sodipodi:role="line"
+         x="144.35307"
+         y="187.25909"
+         id="tspan70"
+         style="stroke-width:0.79375">playgrounds</tspan><tspan
+         sodipodi:role="line"
+         x="144.35307"
+         y="192.09297"
+         id="tspan69"
+         style="stroke-width:0.79375"> </tspan></text>
+  </g>
+</svg>
