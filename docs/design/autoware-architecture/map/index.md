@@ -87,7 +87,7 @@ The vector cloud map must be supplied as a file with the following requirements:
 - Each lanelet in the map must contain traffic rule information including its speed limit, right of way, traffic direction, associated traffic lights, stop lines, and traffic signs.
 - It must cover the entire operational area of the vehicle.
 
-For detailed specifications on Vector Map creation, please refer to [Vector Map Creation Requirement Specification document](./map-requirements/overview.md).
+For detailed specifications on Vector Map creation, please refer to [Vector Map Creation Requirement Specification document](./map-requirements/vector-map-requirements-overview/index.md).
 
 ### Projection Information
 

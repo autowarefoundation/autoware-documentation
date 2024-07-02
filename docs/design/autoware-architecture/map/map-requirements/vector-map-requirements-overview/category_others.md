@@ -25,11 +25,11 @@ Check the range of sensors on your vehicle.
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-07-01_1.svg)
+![svg](../assets/vm-07-01_1.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
-![svg](./assets/vm-07-01_2.svg)
+![svg](../assets/vm-07-01_2.svg)
 
 ---
 
@@ -47,7 +47,7 @@ Setting up a linestring of the following type instructs Autoware to disregard th
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-05-04_1.svg)
+![svg](../assets/vm-05-04_1.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
@@ -69,11 +69,11 @@ Follow the same position guidelines for Linestrings of fences (_type:fence_).
 
 #### Preferred vector map <!-- omit in toc -->
 
-![png](./assets/vm-07-03_1.png)
+![png](../assets/vm-07-03_1.png)
 
 #### Incorrect vector map <!-- omit in toc -->
 
-![png](./assets/vm-07-03_2.png)
+![png](../assets/vm-07-03_2.png)
 
 #### Related Autoware module
 
@@ -87,7 +87,7 @@ Follow the same position guidelines for Linestrings of fences (_type:fence_).
 
 The height of a Point should be based on the ellipsoidal height (WGS84), in meters.
 
-![svg](./assets/vm-07-04_height_en.svg)
+![svg](../assets/vm-07-04_height_en.svg)
 
 #### Preferred vector map <!-- omit in toc -->
 

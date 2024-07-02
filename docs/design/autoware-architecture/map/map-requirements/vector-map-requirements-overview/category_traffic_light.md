@@ -21,11 +21,11 @@ Refer to vm-04-02 and vm-04-03 for the specifications of traffic light and traff
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-04-01_1.svg)
+![svg](../assets/vm-04-01_1.svg)
 
 If there is a crosswalk at the intersection, arrange for the road's Lanelet and the crosswalk's Lanelet to intersect and overlap.
 
-![svg](./assets/vm-04-01_2.svg)
+![svg](../assets/vm-04-01_2.svg)
 
 #### Related Autoware module
 
@@ -52,7 +52,7 @@ Autoware currently ignores subtype _red_yellow_green_.
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-04-02_1.svg)
+![svg](../assets/vm-04-02_1.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
@@ -79,7 +79,7 @@ Use the Points of the lights when creating a Linestring.
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-04-03_1.svg)
+![svg](../assets/vm-04-03_1.svg)
 
 The order of the lights' Points can be 1→2→3→4 or 4→3→2→1, either is acceptable.
 
