@@ -1,2 +1,4 @@
 nav:
   - index.md
+  - Raw Sensor Data: raw-sensor-data
+  - Annotated Data: annotated-data
