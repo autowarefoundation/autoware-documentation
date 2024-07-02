@@ -70,7 +70,7 @@ Link to ROS 2 driver:
 Link to company website:  
 [https://www.applanix.com/products/poslv.htm](https://www.applanix.com/products/poslv.htm)
 
-## **PolyExplore GNSS/INS Sensors**
+## **PolyExplore GNSS/INS Sensors** <!-- cspell: ignore  PolyExplore -->
 
 ![images/gnss-polyexplore.png](images/gnss-polyexplore.png)
 
@@ -87,7 +87,7 @@ Link to ROS 2 driver:
 Link to company website:  
 [https://www.polyexplore.com/](https://www.polyexplore.com/)
 
-## **Fix Position GNSS/INS Sensors**
+## **Fixposition Visual GNSS/INS Sensors** <!-- cspell: ignore  Fixposition -->
 
 ![images/gnss-fixposition.png](images/gnss-fixposition.png)
 
@@ -100,3 +100,8 @@ Link to ROS 2 driver:
 
 Link to company website:  
 [https://www.fixposition.com/](https://www.fixposition.com/)
+
+Additional utilities:
+
+- Fixposition GNSS transformation lib: [https://github.com/fixposition/fixposition_gnss_tf](https://github.com/fixposition/fixposition_gnss_tf)
+- Miscellaneous utilities (logging, software update, ...): [https://github.com/fixposition/fixposition_utility](https://github.com/fixposition/fixposition_utility)
