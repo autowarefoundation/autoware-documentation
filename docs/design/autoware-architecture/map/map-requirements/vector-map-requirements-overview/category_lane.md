@@ -19,7 +19,7 @@ The road's Lanelets must comply with the following requirements.
 
 #### Preferred vector map <!-- omit in toc -->
 
-![lanelet](./assets/vm-01-01.svg)
+![lanelet](../assets/vm-01-01.svg)
 
 ---
 
@@ -43,7 +43,7 @@ Set the Linestring _subtype_ according to the type of line.
 - White solid lines : indicate that changing lanes and overtaking are allowed.
 - Yellow solid lines : mean no lane changes are allowed.
 
-![lines](./assets/vm-01-02.svg)
+![lines](../assets/vm-01-02.svg)
 
 #### Related Autoware module
 
@@ -68,15 +68,15 @@ If the Lanelet adjacent to the one the vehicle is driving on shares a Linestring
 - The vehicle turns a curve while slightly extending out of the lane.
 - Lane changes
 
-![lines](./assets/vm-01-03_1.svg)
+![lines](../assets/vm-01-03_1.svg)
 
 #### Preferred vector map <!-- omit in toc -->
 
-![lines](./assets/vm-01-03_2.svg)
+![lines](../assets/vm-01-03_2.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
-![lines](./assets/vm-01-03_3.svg)
+![lines](../assets/vm-01-03_3.svg)
 
 #### Related Autoware module
 
@@ -97,15 +97,15 @@ When the vehicle's lanelet and the opposing lanelet physically touch, the road c
 
 Obstacle avoidance across the opposing lane is possible.
 
-![svg](./assets/vm-01-04_1.svg)
+![svg](../assets/vm-01-04_1.svg)
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-04_2.svg)
+![svg](../assets/vm-01-04_2.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-04_3.svg)
+![svg](../assets/vm-01-04_3.svg)
 
 ---
 
@@ -119,15 +119,15 @@ The geometry of the road lanelet needs to comply with the following:
 - The lines of a Lanelet, which join with lanelets ahead and behind it, must form straight lines.
 - Ensure the outline is smooth and not jagged or bumpy, except for L-shaped cranks.
 
-![svg](./assets/vm-01-05_1.svg)
+![svg](../assets/vm-01-05_1.svg)
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-05_2.svg)
+![svg](../assets/vm-01-05_2.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-05_3.svg)
+![svg](../assets/vm-01-05_3.svg)
 
 ---
 
@@ -137,15 +137,15 @@ The geometry of the road lanelet needs to comply with the following:
 
 Ensure the road's center line Linestring is located in the exact middle of the road markings.
 
-![svg](./assets/vm-01-06_1.svg)
+![svg](../assets/vm-01-06_1.svg)
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-06_2.svg)
+![svg](../assets/vm-01-06_2.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-06_3.svg)
+![svg](../assets/vm-01-06_3.svg)
 
 ---
 
@@ -155,11 +155,11 @@ Ensure the road's center line Linestring is located in the exact middle of the r
 
 Place the Linestring at the center of the markings when lines exist outside the road.
 
-![svg](./assets/vm-01-07_1.svg)
+![svg](../assets/vm-01-07_1.svg)
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-07_2.svg)
+![svg](../assets/vm-01-07_2.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
@@ -173,7 +173,7 @@ None in particular.
 
 If there are no lines on the outer side within the road, position the Linestring 0.5 m from the road's edge.
 
-![svg](./assets/vm-01-08_1.svg)
+![svg](../assets/vm-01-08_1.svg)
 
 ##### Caution
 
@@ -181,7 +181,7 @@ The width depends on the laws of your country.
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-08_2.svg)
+![svg](../assets/vm-01-08_2.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
@@ -203,11 +203,11 @@ Note that the following is achieved through Autoware's settings and behavior.
 - Vehicle's maximum velocity
 - Speed adjustment at places requiring deceleration, like curves and downhill areas.
 
-![svg](./assets/vm-01-09_1.svg)
+![svg](../assets/vm-01-09_1.svg)
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-09_2.svg)
+![svg](../assets/vm-01-09_2.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
@@ -223,7 +223,7 @@ Autoware is designed to move through the midpoint calculated from a Lanelet's le
 
 Create a centerline for the Lanelet when there is a need to shift the driving position to the left or right due to certain circumstances, ensuring the centerline has a smooth shape for drivability.
 
-![svg](./assets/vm-01-10_1.svg)
+![svg](../assets/vm-01-10_1.svg)
 
 ##### Caution
 
@@ -231,11 +231,11 @@ Create a centerline for the Lanelet when there is a need to shift the driving po
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-10_2.svg)
+![svg](../assets/vm-01-10_2.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-10_3.svg)
+![svg](../assets/vm-01-10_3.svg)
 
 ---
 
@@ -245,15 +245,15 @@ Create a centerline for the Lanelet when there is a need to shift the driving po
 
 When center lines have been added to several Lanelets, they should be connected.
 
-![svg](./assets/vm-01-11_1.svg)
+![svg](../assets/vm-01-11_1.svg)
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-11_2.svg)
+![svg](../assets/vm-01-11_2.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-11_3.svg)
+![svg](../assets/vm-01-11_3.svg)
 
 ---
 
@@ -263,15 +263,15 @@ When center lines have been added to several Lanelets, they should be connected.
 
 If a Lanelet with an added centerline is connected to Lanelets without one, ensure the start and end points of the added centerline are positioned at the Lanelet's center. Ensure the centerline has a smooth shape for drivability.
 
-![svg](./assets/vm-01-12_1.svg)
+![svg](../assets/vm-01-12_1.svg)
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-12_2.svg)
+![svg](../assets/vm-01-12_2.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-12_3.svg)
+![svg](../assets/vm-01-12_3.svg)
 
 ---
 
@@ -281,11 +281,11 @@ If a Lanelet with an added centerline is connected to Lanelets without one, ensu
 
 When a road lacks a central line but is wide enough for one's vehicle and oncoming vehicles to pass each other, Lanelets should be positioned next to each other at the center of the road.
 
-![svg](./assets/vm-01-13_1.svg)
+![svg](../assets/vm-01-13_1.svg)
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-13_2.svg)
+![svg](../assets/vm-01-13_2.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
@@ -312,15 +312,15 @@ Requirement for Vector Map creation:
 - The application of this case depends on local operational policies and vehicle specifications, and should be determined in discussion with the map requestor.
 - The current Autoware does not possess the capability to pass oncoming vehicles in shared lanes.
 
-![svg](./assets/vm-01-14_1.svg)
+![svg](../assets/vm-01-14_1.svg)
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-14_2.svg)
+![svg](../assets/vm-01-14_2.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-14_3.svg)
+![svg](../assets/vm-01-14_3.svg)
 
 ---
 
@@ -348,17 +348,17 @@ A road Lanelet must be next to the shoulder Lanelet.
 
 _tag:lane_change=yes_ is not required on the Linestring marking the boundary of the shoulder.
 
-![svg](./assets/vm-01-15_1.svg)
+![svg](../assets/vm-01-15_1.svg)
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-15_2.svg)
+![svg](../assets/vm-01-15_2.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
 Do not create a road shoulder Lanelet for roads without a shoulder.
 
-![svg](./assets/vm-01-15_3.svg)
+![svg](../assets/vm-01-15_3.svg)
 
 #### Related Autoware module
 
@@ -374,11 +374,11 @@ Do not create a road shoulder Lanelet for roads without a shoulder.
 
 The Lanelets for the road shoulder and the adjacent road should have a common Linestring.
 
-![svg](./assets/vm-01-15_1.svg)
+![svg](../assets/vm-01-15_1.svg)
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-16_2.svg)
+![svg](../assets/vm-01-16_2.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
@@ -400,11 +400,11 @@ Place a Lanelet (_subtype:pedestrian_lane_) on the side strip. However, it is no
 
 The side strip's Lanelet must have the Linestring (_subtype:road_border_) outside.
 
-![svg](./assets/vm-01-17_1.svg)
+![svg](../assets/vm-01-17_1.svg)
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-17_2.svg)
+![svg](../assets/vm-01-17_2.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
@@ -418,11 +418,11 @@ None in particular.
 
 The Lanelet for the side strip and the adjacent road Lanelet should have a common Linestring.
 
-![svg](./assets/vm-01-17_1.svg)
+![svg](../assets/vm-01-17_1.svg)
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-18_2.svg)
+![svg](../assets/vm-01-18_2.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
@@ -438,11 +438,11 @@ Place a sidewalk Lanelet (_subtype:walkway_) where necessary. However, install o
 
 The length of the lanelet (_subtype:walkway_) should be the area intersecting with your lane and additional 3 meters before and after.
 
-![svg](./assets/vm-01-19_1.svg)
+![svg](../assets/vm-01-19_1.svg)
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](./assets/vm-01-19_2.svg)
+![svg](../assets/vm-01-19_2.svg)
 
 #### Incorrect vector map <!-- omit in toc -->
 
