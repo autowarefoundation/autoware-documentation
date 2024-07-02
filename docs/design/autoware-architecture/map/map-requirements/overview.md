@@ -6,7 +6,7 @@ Autoware relies on high-definition point cloud maps and vector maps of the drivi
 
 A vector map contains highly accurate information about a road network, lane geometry, and traffic lights. It is required for route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians.
 
-Vector Map uses [lanelet2_extension](https://github.com/autowarefoundation/autoware_common/blob/main/tmp/lanelet2_extension/docs/lanelet2_format_extension.md), which is based on the [lanelet2](https://github.com/fzi-forschungszentrum-informatik/Lanelet2) format and extended for Autoware.
+Vector Map uses [lanelet2_extension](https://github.com/autowarefoundation/autoware_lanelet2_extension/blob/main/autoware_lanelet2_extension/docs/lanelet2_format_extension.md), which is based on the [lanelet2](https://github.com/fzi-forschungszentrum-informatik/Lanelet2) format and extended for Autoware.
 
 The primitives (basic components) used in Vector Map are explained in [Web.Auto Docs - What is Lanelet2](https://docs.web.auto/en/user-manuals/vector-map-builder/introduction#what-is-lanelet2). The following **Vector Map creation requirement specifications** are written on the premise of these knowledge.
 
