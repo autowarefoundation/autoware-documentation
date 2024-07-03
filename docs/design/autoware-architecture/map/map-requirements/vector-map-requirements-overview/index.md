@@ -10,9 +10,7 @@ Vector Map uses [lanelet2_extension](https://github.com/autowarefoundation/autow
 
 The primitives (basic components) used in Vector Map are explained in [Web.Auto Docs - What is Lanelet2](https://docs.web.auto/en/user-manuals/vector-map-builder/introduction#what-is-lanelet2). The following **Vector Map creation requirement specifications** are written on the premise of these knowledge.
 
-This specification is a set of requirements for the creation of Vector Map(s) to ensure that Autoware drives safely and autonomously as intended by the user. It does not cover how to operate specific map creation tools.
-
-- [Vector Map Builder - how to use](https://docs.web.auto/user-manuals/vector-map-builder/how-to-use/edit-maps)
+This specification is a set of requirements for the creation of Vector Map(s) to ensure that Autoware drives safely and autonomously as intended by the user. To Create a Lanelet2 format .osm file, please refer to [Creating a vector map](https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/integrating-autoware/creating-maps/#creating-a-vector-map).
 
 ## Handling of the Requirement Specification
 
