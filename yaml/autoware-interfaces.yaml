@@ -178,7 +178,6 @@ types:
       twist: geometry_msgs/msg/TwistWithCovarianceStamped
   autoware_adapi_v1_msgs/msg/VehicleStatus:
     msg:
-      energy_percentage: float32
       gear: autoware_adapi_v1_msgs/msg/Gear
       hazard_lights: autoware_adapi_v1_msgs/msg/HazardLights
       stamp: builtin_interfaces/msg/Time
