@@ -1,5 +1,9 @@
 # Release notes
 
+## v1.4.0
+
+- [New] Add {{ link_ad_api('/api/vehicle/status') }}
+
 ## v1.3.0
 
 - [New] Add [heartbeat API](./features/heartbeat.md)
