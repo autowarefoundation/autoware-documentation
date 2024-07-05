@@ -16,7 +16,7 @@
    - You can also download [the rosbag files](https://drive.google.com/file/d/1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP/view?usp=sharing) manually.
 
    ```bash
-   gdown -O ~/autoware_map/ 'https://drive.google.com/file/d/1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP'
+   gdown -O ~/autoware_map/ 'https://docs.google.com/uc?export=download&id=1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP'
    unzip -d ~/autoware_map/ ~/autoware_map/sample-rosbag.zip
    ```
 
