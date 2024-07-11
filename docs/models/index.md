@@ -23,7 +23,9 @@ $ wget -P ~/autoware_data/yabloc_pose_initializer/ \
 $ mkdir -p ~/autoware_data/image_projection_based_fusion/
 $ wget -P ~/autoware_data/image_projection_based_fusion/ \
        https://awf.ml.dev.web.auto/perception/models/pointpainting/v4/pts_voxel_encoder_pointpainting.onnx \
-       https://awf.ml.dev.web.auto/perception/models/pointpainting/v4/pts_backbone_neck_head_pointpainting.onnx
+       https://awf.ml.dev.web.auto/perception/models/pointpainting/v4/pts_backbone_neck_head_pointpainting.onnx \
+       https://awf.ml.dev.web.auto/perception/models/pointpainting/v4/detection_class_remapper.param.yaml \
+       https://awf.ml.dev.web.auto/perception/models/pointpainting/v4/pointpainting_ml_package.param.yaml
 
 
 # lidar_apollo_instance_segmentation
@@ -42,7 +44,12 @@ $ wget -P ~/autoware_data/lidar_centerpoint/ \
        https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_voxel_encoder_centerpoint.onnx \
        https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_backbone_neck_head_centerpoint.onnx \
        https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_voxel_encoder_centerpoint_tiny.onnx \
-       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_backbone_neck_head_centerpoint_tiny.onnx
+       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_backbone_neck_head_centerpoint_tiny.onnx \
+       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/centerpoint_ml_package.param.yaml \
+       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/centerpoint_tiny_ml_package.param.yaml \
+       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/centerpoint_sigma_ml_package.param.yaml \
+       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/detection_class_remapper.param.yaml \
+       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/deploy_metadata.yaml
 
 
 # tensorrt_yolo
@@ -68,7 +75,11 @@ $ wget -P ~/autoware_data/tensorrt_yolox/ \
        https://awf.ml.dev.web.auto/perception/models/yolox-sPlus-opt.EntropyV2-calibration.table \
        https://awf.ml.dev.web.auto/perception/models/object_detection_yolox_s/v1/yolox-sPlus-T4-960x960-pseudo-finetune.onnx \
        https://awf.ml.dev.web.auto/perception/models/object_detection_yolox_s/v1/yolox-sPlus-T4-960x960-pseudo-finetune.EntropyV2-calibration.table \
+       https://awf.ml.dev.web.auto/perception/models/object_detection_semseg_yolox_s/v1/yolox-sPlus-opt-pseudoV2-T4-960x960-T4-seg16cls.onnx \
+       https://awf.ml.dev.web.auto/perception/models/object_detection_semseg_yolox_s/v1/yolox-sPlus-opt-pseudoV2-T4-960x960-T4-seg16cls.EntropyV2-calibration.table \
+       https://awf.ml.dev.web.auto/perception/models/object_detection_semseg_yolox_s/v1/semseg_color_map.csv \
        https://awf.ml.dev.web.auto/perception/models/label.txt
+
 
 
 # traffic_light_classifier
@@ -81,6 +92,10 @@ $ wget -P ~/autoware_data/traffic_light_classifier/ \
        https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v2/traffic_light_classifier_efficientNet_b1_batch_1.onnx \
        https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v2/traffic_light_classifier_efficientNet_b1_batch_4.onnx \
        https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v2/traffic_light_classifier_efficientNet_b1_batch_6.onnx \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v3/ped_traffic_light_classifier_mobilenetv2_batch_1.onnx \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v3/ped_traffic_light_classifier_mobilenetv2_batch_4.onnx \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v3/ped_traffic_light_classifier_mobilenetv2_batch_6.onnx \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v3/lamp_labels_ped.txt \
        https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v2/lamp_labels.txt
 
 
@@ -93,11 +108,11 @@ $ wget -P ~/autoware_data/traffic_light_fine_detector/ \
        https://awf.ml.dev.web.auto/perception/models/tlr_yolox_s/v2/tlr_yolox_s_batch_6.onnx \
        https://awf.ml.dev.web.auto/perception/models/tlr_yolox_s/v2/tlr_labels.txt
 
+# tvm_utility
 
-# traffic_light_ssd_fine_detector
+$ mkdir -p ~/autoware_data/tvm_utility/models/
+$ wget -p ~/autoware_data/tvm_utility/ \
+       https://autoware-modelzoo.s3.us-east-2.amazonaws.com/models/3.0.0-20221221/yolo_v2_tiny-x86_64-llvm-3.0.0-20221221.tar.gz
+$ tar -xvzf ~/autoware_data/tvm_utility/yolo_v2_tiny-x86_64-llvm-3.0.0-20221221.tar.gz -C ~/autoware_data/tvm_utility/models/  
 
-$ mkdir -p ~/autoware_data/traffic_light_ssd_fine_detector/
-$ wget -P ~/autoware_data/traffic_light_ssd_fine_detector/ \
-       https://awf.ml.dev.web.auto/perception/models/mb2-ssd-lite-tlr.onnx \
-       https://awf.ml.dev.web.auto/perception/models/voc_labels_tl.txt
 ```
