@@ -41,32 +41,32 @@ To demonstrate the scenario creation process, we will create a simple scenario.
 3. In the `Edit` tab, add both the ego vehicle and the bicycle from the `Add Entity` section. After adding them, select
    the ego vehicle and set its destination from the `Edit` tab.
 
-   ![scenario-create-tutorial-01.png](images%2Fplanning-evaluation-using-scenarios%2Fscenario-create-tutorial-01.png)
+   ![scenario-create-tutorial-01.png](images/planning-evaluation-using-scenarios/scenario-create-tutorial-01.png)
 
 4. After setting the positions of the bicycle, ego vehicle, and ego vehicle's destination, set the initial velocity of
-   the bicycle to 0 m/s as shown above. Then, click the `Scenario` tab and click on the `Add new act` button. Using
+   the bicycle to 0 m/s as shown below. Then, click the `Scenario` tab and click on the `Add new act` button. Using
    this, define an action that starts the bicycle moving when the distance condition is satisfied.
 
-   ![scenario-create-tutorial-02.png](images%2Fplanning-evaluation-using-scenarios%2Fscenario-create-tutorial-02.png)
+   ![scenario-create-tutorial-02.png](images/planning-evaluation-using-scenarios/scenario-create-tutorial-02.png)
 
-5. As shown above, define a start condition for an action named `act_start_bicycle`. This condition checks the distance
+5. As shown below, define a start condition for an action named `act_start_bicycle`. This condition checks the distance
    between the ego vehicle and the bicycle. If the distance is less than or equal to 10 meters, the action is triggered.
 
-   ![scenario-create-tutorial-03.png](images%2Fplanning-evaluation-using-scenarios%2Fscenario-create-tutorial-03.png)
+   ![scenario-create-tutorial-03.png](images/planning-evaluation-using-scenarios/scenario-create-tutorial-03.png)
 
 6. After the start condition, define an **event** for this action. Since there are no other conditions for this event,
-   set a dummy condition where SimulationTime is greater than 0, as shown above.
+   set a dummy condition where SimulationTime is greater than 0, as shown below.
 
-   ![scenario-create-tutorial-04.png](images%2Fplanning-evaluation-using-scenarios%2Fscenario-create-tutorial-04.png)
+   ![scenario-create-tutorial-04.png](images/planning-evaluation-using-scenarios/scenario-create-tutorial-04.png)
 
 7. Define an **action** for this event. This action will set the velocity of the actor, Bicycle0, to 2 m/s.
 
-   ![scenario-create-tutorial-05.png](images%2Fplanning-evaluation-using-scenarios%2Fscenario-create-tutorial-05.png)
+   ![scenario-create-tutorial-05.png](images/planning-evaluation-using-scenarios/scenario-create-tutorial-05.png)
 
 8. The scenario is now ready to be tested. You can export the scenario from the `Scenario` tab by clicking the `Export`
    button.
 
-   ![scenario-create-tutorial-06.png](images%2Fplanning-evaluation-using-scenarios%2Fscenario-create-tutorial-06.png)
+   ![scenario-create-tutorial-06.png](images/planning-evaluation-using-scenarios/scenario-create-tutorial-06.png)
 
 ### Important Notes for Scenario Creation
 
@@ -106,7 +106,9 @@ vcs import src < simulator.repos
 ```
 
 - If you are installing Autoware for the first time, you can automatically install the dependencies by using the
-  provided Ansible script.
+  provided Ansible script. Please refer to
+  the [Autoware source installation page](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/)
+  for more information.
 
 ```bash
 ./setup-dev-env.sh
@@ -169,12 +171,12 @@ vehicle_model:=sample_vehicle
 - To see the condition details in the scenario while playing it in RViz, you should enable the `Condition Group` marker,
   it is not enabled by default.
 
-![enable-condition-group.png](images%2Fplanning-evaluation-using-scenarios%2Fenable-condition-group.png)
+![enable-condition-group.png](images/planning-evaluation-using-scenarios/enable-condition-group.png)
 
 - By using the `Condition Group` marker, you can see the conditions that are satisfied and not satisfied in the
   scenario. So it would be helpful to investigate the scenario.
 
-![condition-group-show.png](images%2Fplanning-evaluation-using-scenarios%2Fcondition-group-show.png)
+![condition-group-show.png](images/planning-evaluation-using-scenarios/condition-group-show.png)
 
 ## Understanding the Autoware Evaluator
 
@@ -207,7 +209,7 @@ a review.
 The `Catalogs` tab displays scenario catalogs which means a group of suites that were created for a specific use case.
 In Evaluator, user can execute a test for all scenarios in a catalog.
 
-![catalog-page.png](images%2Fplanning-evaluation-using-scenarios%2Fcatalog-page.png)
+![catalog-page.png](images/planning-evaluation-using-scenarios/catalog-page.png)
 
 ### Suites
 
@@ -223,24 +225,24 @@ execute the scenario.
 
 The `Reports` tab displays a list of results from scenario tests. Here, users can view the most recent test executions.
 
-![reports.png](images%2Fplanning-evaluation-using-scenarios%2Freports.png)
+![reports.png](images/planning-evaluation-using-scenarios/reports.png)
 
 The screenshot above illustrates the latest test execution for the public road bus catalog. In the source column, the
 default Autoware repository with the latest commit is displayed. For a deeper analysis, users can click on the title to
 view comprehensive results.
 
-![test-executed-report.png](images%2Fplanning-evaluation-using-scenarios%2Ftest-executed-report.png)
+![test-executed-report.png](images/planning-evaluation-using-scenarios/test-executed-report.png)
 
 Clicking on the title of a test execution leads to a page displaying build logs and individual test results for each
 suite. By selecting links in the `ID` column, users can access detailed results for each suits.
 
-![suite-test-result.png](images%2Fplanning-evaluation-using-scenarios%2Fsuite-test-result.png)
+![suite-test-result.png](images/planning-evaluation-using-scenarios/suite-test-result.png)
 
 After clicking the `ID` link, users can view detailed test results for the scenarios within the suite. For instance, in
 our case, 183 out of 198 scenarios succeeded. This page is a useful resource for developers to further investigate
 scenarios that failed.
 
-![single-scenario-report.png](images%2Fplanning-evaluation-using-scenarios%2Fsingle-scenario-report.png)
+![single-scenario-report.png](images/planning-evaluation-using-scenarios/single-scenario-report.png)
 
 - `ID` links to a page which shows detailed test results for the scenario.
 - `Scenario Name` links to a page displaying the scenario's definition.
@@ -249,12 +251,12 @@ scenarios that failed.
 
 To investigate deeper for this specific scenario, we should click into `ID` link.
 
-![report-with-cases.png](images%2Fplanning-evaluation-using-scenarios%2Freport-with-cases.png)
+![report-with-cases.png](images/planning-evaluation-using-scenarios/report-with-cases.png)
 
 For this scenario, three of the four cases failed. Each case represents changing the `ego_speed` parameter. To deep dive
 into the failed cases, click on the `ID` link.
 
-![single-case-report.png](images%2Fplanning-evaluation-using-scenarios%2Fsingle-case-report.png)
+![single-case-report.png](images/planning-evaluation-using-scenarios/single-case-report.png)
 
 This page show us the detailed information of the failed case. We can understand why the case failing by looking into
 the `Message`. For our case, the message
@@ -263,17 +265,17 @@ is `Simulation failure: CustomCommandAction typed "exitFailure" was triggered by
 From this message, we can understand that an action which is used for checking the vehicle is not stopped is in complete
 state. And, the scenario author set this condition as a failure condition. Therefore, the scenario failed.
 
-- To test the scenario in local, you can download the scenario and its map by using links above. Running scenario on
-  local machine was explained in the previous section.
+- To test the scenario in local, you can download the scenario and its map by using links which are marked image above.
+  Running scenario on local machine was explained in the previous section.
 
 - To compare the test executions to analyze when the scenarios were successfully running, you can use `Compare Reports`
   button in the page which shows result of previous test executions.
 
-![compare-results.png](images%2Fplanning-evaluation-using-scenarios%2Fcompare-results.png)
+![compare-results.png](images/planning-evaluation-using-scenarios/compare-results.png)
 
 - To see how the scenario failed, you can replay the scenario by clicking the `Play` button. It shows the executed test.
 
-![scenario-replay.png](images%2Fplanning-evaluation-using-scenarios%2Fscenario-replay.png)
+![scenario-replay.png](images/planning-evaluation-using-scenarios/scenario-replay.png)
 
 - a) The bar that assists us in rewinding or fast-forwarding
 - b) Shows the success and failing conditions are satisfied or not
