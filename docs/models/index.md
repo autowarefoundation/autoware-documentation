@@ -113,6 +113,6 @@ $ wget -P ~/autoware_data/traffic_light_fine_detector/ \
 $ mkdir -p ~/autoware_data/tvm_utility/models/
 $ wget -p ~/autoware_data/tvm_utility/ \
        https://autoware-modelzoo.s3.us-east-2.amazonaws.com/models/3.0.0-20221221/yolo_v2_tiny-x86_64-llvm-3.0.0-20221221.tar.gz
-$ tar -xvzf ~/autoware_data/tvm_utility/yolo_v2_tiny-x86_64-llvm-3.0.0-20221221.tar.gz -C ~/autoware_data/tvm_utility/models/  
+$ tar -xvzf ~/autoware_data/tvm_utility/yolo_v2_tiny-x86_64-llvm-3.0.0-20221221.tar.gz -C ~/autoware_data/tvm_utility/models/
 
 ```
