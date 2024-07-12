@@ -1,9 +1,21 @@
 # Network settings for ROS 2
 
-## Enable localhost-only communication
+ROS 2 employs DDS, and the configuration of ROS 2 and DDS is described separately.
 
-1. [Enable `multicast` for `lo`](./enable-multicast-for-lo.md)
-2. Make sure `export ROS_LOCALHOST_ONLY=1` **is NOT** set in `.bashrc`.
+For ROS 2 networking concepts, refer to the [official documentation](http://design.ros2.org/articles/ros_on_dds.html).
+
+ROS 2 multicasts data on the local network by default.
+
+Therefore, when you develop in an office, the data flows over the local network of your office.
+
+It may cause collisions of packets or increases in network traffic.
+
+To avoid these, you should limit the DDS communication to the loopback interface within the host computer.
+
+Unless you plan to use multiple host computers on the local network, localhost-only communication is recommended.
+For details, refer to the sections below.
+
+## Enabling localhost-only communication
 
 ### Bad methods ❌
 
@@ -16,7 +28,7 @@ But because of [an ongoing issue](https://github.com/ros2/rmw_cyclonedds/issues/
 
 We can also set `export ROS_DOMAIN_ID=3(or any number 1 to 255)` (`0` by default) to avoid interference with other ROS 2 nodes on the same network.
 
-But since `255` is a very small number, there is no guarantee that it will not interfere with other computers on the same network unless you check everyone's domain ID.
+But since `255` is a very small number, there is no guarantee that it will not interfere with other computers on the same network unless you check everyones' domain ID.
 
 Another problem is that if someone runs a test that uses ROS 2 [launch_testing](https://github.com/ros2/launch/blob/a317c54bbbf2dfeec35fbb6d2b5913939d02750d/launch_testing/README.md) framework,
 by default it will use a random domain ID to isolate between tests even on the same machine.
@@ -31,6 +43,76 @@ See [this PR](https://github.com/ros2/launch/pull/251) for more details.
 
 If you export `ROS_LOCALHOST_ONLY=1`, `MULTICAST` must be enabled at the loopback address.
 To verify that `MULTICAST` is enabled, use the following command.
+
+```console
+$ ip link show lo
+1: lo: <LOOPBACK,MULTICAST,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+```
+
+If the word `MULTICAST` is not printed, use the following command to enable it.
+
+```bash
+sudo ip link set lo multicast on
+```
+
+## Enable `multicast` on `lo` on startup with a service
+
+```bash
+sudo nano /etc/systemd/system/multicast-lo.service
+```
+
+Paste the following into the file:
+
+```service
+[Unit]
+Description=Enable Multicast on Loopback
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/ip link set lo multicast on
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Press following in order to save with nano:
+
+1. `Ctrl+X`
+2. `Y`
+3. `Enter`
+
+```bash
+# Make it recognized
+sudo systemctl daemon-reload
+
+# Make it run on startup
+sudo systemctl enable multicast-lo.service
+
+# Start it now
+sudo systemctl start multicast-lo.service
+```
+
+### Validate
+
+```console
+mfc@mfc-leo:~$ sudo systemctl status multicast-lo.service
+○ multicast-lo.service - Enable Multicast on Loopback
+     Loaded: loaded (/etc/systemd/system/multicast-lo.service; enabled; vendor preset: enabled)
+     Active: inactive (dead) since Mon 2024-07-08 12:54:17 +03; 4s ago
+    Process: 22588 ExecStart=/usr/bin/ip link set lo multicast on (code=exited, status=0/SUCCESS)
+   Main PID: 22588 (code=exited, status=0/SUCCESS)
+        CPU: 1ms
+
+Tem 08 12:54:17 mfc-leo systemd[1]: Starting Enable Multicast on Loopback...
+Tem 08 12:54:17 mfc-leo systemd[1]: multicast-lo.service: Deactivated successfully.
+Tem 08 12:54:17 mfc-leo systemd[1]: Finished Enable Multicast on Loopback.
+```
+
+```console
+mfc@mfc-leo:~$ ip link show lo
+1: lo: <LOOPBACK,MULTICAST,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+```
 
 ## DDS settings
 
