@@ -110,10 +110,10 @@ $ wget -P ~/autoware_data/traffic_light_classifier/ \
 
 $ mkdir -p ~/autoware_data/traffic_light_fine_detector/
 $ wget -P ~/autoware_data/traffic_light_fine_detector/ \
-       https://awf.ml.dev.web.auto/perception/models/tlr_yolox_s/v2/tlr_yolox_s_batch_1.onnx \
-       https://awf.ml.dev.web.auto/perception/models/tlr_yolox_s/v2/tlr_yolox_s_batch_4.onnx \
-       https://awf.ml.dev.web.auto/perception/models/tlr_yolox_s/v2/tlr_yolox_s_batch_6.onnx \
-       https://awf.ml.dev.web.auto/perception/models/tlr_yolox_s/v2/tlr_labels.txt
+       https://awf.ml.dev.web.auto/perception/models/tlr_yolox_s/v3/tlr_car_ped_yolox_s_batch_1.onnx \
+       https://awf.ml.dev.web.auto/perception/models/tlr_yolox_s/v3/tlr_car_ped_yolox_s_batch_4.onnx \
+       https://awf.ml.dev.web.auto/perception/models/tlr_yolox_s/v3/tlr_car_ped_yolox_s_batch_6.onnx \
+       https://awf.ml.dev.web.auto/perception/models/tlr_yolox_s/v3/tlr_labels.txt
 
 # tvm_utility
 
