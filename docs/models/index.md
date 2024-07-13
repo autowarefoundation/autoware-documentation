@@ -51,6 +51,13 @@ $ wget -P ~/autoware_data/lidar_centerpoint/ \
        https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/detection_class_remapper.param.yaml \
        https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/deploy_metadata.yaml
 
+# lidar_transfusion
+
+$ mkdir -p ~/autoware_data/lidar_transfusion/
+$ wget -P ~/autoware_data/lidar_transfusion/ \
+       https://awf.ml.dev.web.auto/perception/models/transfusion/t4xx1_90m/v2/transfusion.onnx \
+       https://awf.ml.dev.web.auto/perception/models/transfusion/t4xx1_90m/v2/transfusion.param.yaml \
+       https://awf.ml.dev.web.auto/perception/models/transfusion/t4xx1_90m/v2/detection_class_remapper.param.yaml
 
 # tensorrt_yolo
 
