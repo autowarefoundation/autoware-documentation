@@ -148,20 +148,20 @@ Follow [CycloneDDS Configuration](../../installation/additional-settings-for-dev
 
 #### Diagnosis
 
-Run following to check it:
-
-```bash
-echo $ROS_LOCALHOST_ONLY
-```
-
-The return line should be empty.
+Run:
 
 ```bash
 cat ${CYCLONEDDS_URI#file://}
 ```
 
-Should return [DDS settings for ROS 2 and Autoware: CycloneDDS Configuration](../../installation/additional-settings-for-developers/network-configuration/dds-settings.md#cyclonedds-configuration) this file.
+And it should return [DDS settings for ROS 2 and Autoware: CycloneDDS Configuration](../../installation/additional-settings-for-developers/network-configuration/dds-settings.md#cyclonedds-configuration) this file.
 
 #### Solution
 
 Follow [DDS settings for ROS 2 and Autoware: Enable localhost-only communication](../../installation/additional-settings-for-developers/network-configuration/dds-settings.md#enable-localhost-only-communication).
+
+Also make sure the following returns an empty line:
+
+```bash
+echo $ROS_LOCALHOST_ONLY
+```
