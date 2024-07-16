@@ -136,13 +136,17 @@ sudo apt-get -y install git
    rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 
-4. Build the workspace.
+4. [Install and set up ccache to speed up consecutive builds](../../how-to-guides/others/advanced-usage-of-colcon.md#using-ccache-to-speed-up-recompilation). (optional but highly recommended)
+
+5. Build the workspace.
 
    ```bash
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
 
-5. Before running Autoware, make sure all network settings are configured correctly. Follow the steps in [Network Configuration](../../installation/additional-settings-for-developers/network-configuration/index.md) section for more information.
+6. Follow the steps in [Network Configuration](../../installation/additional-settings-for-developers/network-configuration/index.md) before running Autoware.
+
+7. Apply the settings recommended in [Console settings for ROS 2](../../installation/additional-settings-for-developers/console-settings.md) for a better development experience.
 
 ## Using Autoware Build GUI
 
