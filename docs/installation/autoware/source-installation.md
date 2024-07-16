@@ -141,7 +141,7 @@ sudo apt-get -y install git
    ```bash
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
-   
+
 5. Before running Autoware, make sure all network settings are configured correctly. Follow the steps in [Network Configuration](../../installation/additional-settings-for-developers/network-configuration/index.md) section for more information.
 
 ## Using Autoware Build GUI
