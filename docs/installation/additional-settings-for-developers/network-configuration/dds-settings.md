@@ -84,7 +84,7 @@ Save the following file as `~/cyclonedds.xml`.
 </CycloneDDS>
 ```
 
-Then add the following line to your `~/.bashrc` file.
+Then add the following lines to your `~/.bashrc` file.
 
 ```bash
 export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
@@ -94,8 +94,12 @@ export CYCLONEDDS_URI=file:///absolute/path/to/cyclonedds.xml
 # Example: export CYCLONEDDS_URI=file:///home/user/cyclonedds.xml
 ```
 
-This configuration is mostly taken from [Eclipse Cyclone DDS:Run-time configuration documentation](https://github.com/eclipse-cyclonedds/cyclonedds/tree/a10ced3c81cc009e7176912190f710331a4d6caf#run-time-configuration).
-You can see why each value is set as such under the documentation link.
+You can refer to [Eclipse Cyclone DDS: Run-time configuration documentation](https://github.com/eclipse-cyclonedds/cyclonedds/tree/a10ced3c81cc009e7176912190f710331a4d6caf#run-time-configuration) for more details.
+
+!!! warning
+
+    `RMW_IMPLEMENTATION` variable might be already set with [Ansible/RMW Implementation](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rmw_implementation#manual-installation).
+    Check and remove the duplicate line if necessary.
 
 ## Additional information
 
