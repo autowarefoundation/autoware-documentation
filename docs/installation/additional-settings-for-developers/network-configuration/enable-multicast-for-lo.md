@@ -15,9 +15,9 @@ sudo ip link set lo multicast on
 !!! note
 
     Here, `lo` is the loopback interface.
-    
+
     You can check the interfaces with `ip link show`.
-    
+
     You may change `lo` with the interface you want to enable multicast on.
 
 ## On startup with a service (permanent solution)
