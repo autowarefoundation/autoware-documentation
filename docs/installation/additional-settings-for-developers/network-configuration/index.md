@@ -1,4 +1,9 @@
 # Network settings for ROS 2 and Autoware
 
-1. [Tune the DDS settings for ROS 2 and Autoware](./dds-settings.md)
-2. [Settings to enable DDS communication across multiple computers within a network](./multiple-computers.md) (Optional)
+## Single computer setup
+
+- [Tune the DDS settings for ROS 2 and Autoware](./dds-settings.md)
+
+## Multi computer setup
+
+- [Settings to enable DDS communication across multiple computers within a network](./multiple-computers.md)
