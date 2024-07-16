@@ -146,7 +146,7 @@ sudo apt-get -y install git
 
 6. Follow the steps in [Network Configuration](../../installation/additional-settings-for-developers/network-configuration/index.md) before running Autoware.
 
-7. Apply the settings recommended in [Console settings for ROS 2](../../installation/additional-settings-for-developers/console-settings.md) for a better development experience.
+7. Apply the settings recommended in [Console settings for ROS 2](../../installation/additional-settings-for-developers/console-settings.md) for a better development experience. (optional)
 
 ## Using Autoware Build GUI
 
