@@ -99,6 +99,7 @@ You can refer to [Eclipse Cyclone DDS: Run-time configuration documentation](htt
 !!! warning
 
     `RMW_IMPLEMENTATION` variable might be already set with [Ansible/RMW Implementation](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rmw_implementation#manual-installation).
+
     Check and remove the duplicate line if necessary.
 
 ## Additional information
@@ -111,7 +112,9 @@ But because of [an ongoing issue](https://github.com/ros2/rmw_cyclonedds/issues/
 !!! warning
 
     Do not set `export ROS_LOCALHOST_ONLY=1` in `~/.bashrc`.
+
     If you do so, it will cause an error with RMW.
+
     Remove it from `~/.bashrc` if you have set it.
 
 ### About `ROS_DOMAIN_ID` environment variable
