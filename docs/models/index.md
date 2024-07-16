@@ -16,12 +16,12 @@ The example of downloading `lidar_centerpoint` model:
 
 $ mkdir -p ~/autoware_data/lidar_centerpoint/
 $ wget -P ~/autoware_data/lidar_centerpoint/ \
-       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_voxel_encoder_centerpoint.onnx \
-       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_backbone_neck_head_centerpoint.onnx \
-       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_voxel_encoder_centerpoint_tiny.onnx \
-       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_backbone_neck_head_centerpoint_tiny.onnx \
-       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/centerpoint_ml_package.param.yaml \
-       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/centerpoint_tiny_ml_package.param.yaml \
-       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/centerpoint_sigma_ml_package.param.yaml \
-       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/detection_class_remapper.param.yaml \
-       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/deploy_metadata.yaml
+ <https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_voxel_encoder_centerpoint.onnx> \
+ <https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_backbone_neck_head_centerpoint.onnx> \
+ <https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_voxel_encoder_centerpoint_tiny.onnx> \
+ <https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_backbone_neck_head_centerpoint_tiny.onnx> \
+ <https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/centerpoint_ml_package.param.yaml> \
+ <https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/centerpoint_tiny_ml_package.param.yaml> \
+ <https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/centerpoint_sigma_ml_package.param.yaml> \
+ <https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/detection_class_remapper.param.yaml> \
+ <https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/deploy_metadata.yaml>
