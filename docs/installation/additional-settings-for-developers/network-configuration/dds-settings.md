@@ -88,6 +88,8 @@ Save the following file as `~/cyclonedds.xml`.
 Then add the following line to your `~/.bashrc` file.
 
 ```bash
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+
 export CYCLONEDDS_URI=file:///absolute/path/to/cyclonedds.xml
 # Replace `/absolute/path/to/cyclonedds.xml` with the actual path to the file.
 # Example: export CYCLONEDDS_URI=file:///home/user/cyclonedds.xml

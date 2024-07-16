@@ -1,6 +1,6 @@
 # Enable `multicast` on `lo`
 
-## Manually
+## Manually (temporary solution)
 
 You may just call the following command to enable multicast on the loopback interface.
 
@@ -12,7 +12,7 @@ sudo ip link set lo multicast on
 
     This will be reverted once the computer restarts. To make it permanent, follow the steps below.
 
-## On startup with a service
+## On startup with a service (permanent solution)
 
 ```bash
 sudo nano /etc/systemd/system/multicast-lo.service
