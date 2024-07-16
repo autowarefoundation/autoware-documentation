@@ -1,4 +1,4 @@
-# Communicating across multiple computers within a network with CycloneDDS
+# Communicating across multiple computers with CycloneDDS
 
 ## Configuring CycloneDDS
 
