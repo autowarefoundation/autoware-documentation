@@ -1,6 +1,6 @@
 ---
 title: /api/routing/change_route
-status: not released
+status: v1.5.0
 method: function call
 type:
   name: autoware_adapi_v1_msgs/srv/SetRoute

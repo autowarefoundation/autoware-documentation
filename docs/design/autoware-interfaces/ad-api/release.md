@@ -1,5 +1,10 @@
 # Release notes
 
+## v1.5.0
+
+- [New] Add {{ link_ad_api('/api/routing/change_route_points') }}
+- [New] Add {{ link_ad_api('/api/routing/change_route') }}
+
 ## v1.4.0
 
 - [New] Add {{ link_ad_api('/api/vehicle/status') }}

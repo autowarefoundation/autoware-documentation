@@ -21,8 +21,8 @@
 | [/api/planning/cooperation/set_policies](./api/planning/cooperation/set_policies.md)             | not released |
 | [/api/planning/steering_factors](./api/planning/steering_factors.md)                             | not released |
 | [/api/planning/velocity_factors](./api/planning/velocity_factors.md)                             | not released |
-| [/api/routing/change_route](./api/routing/change_route.md)                                       | not released |
-| [/api/routing/change_route_points](./api/routing/change_route_points.md)                         | not released |
+| [/api/routing/change_route](./api/routing/change_route.md)                                       | v1.5.0       |
+| [/api/routing/change_route_points](./api/routing/change_route_points.md)                         | v1.5.0       |
 | [/api/routing/clear_route](./api/routing/clear_route.md)                                         | v1.0.0       |
 | [/api/routing/route](./api/routing/route.md)                                                     | v1.0.0       |
 | [/api/routing/set_route](./api/routing/set_route.md)                                             | v1.0.0       |
