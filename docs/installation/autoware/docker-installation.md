@@ -69,7 +69,7 @@ Inside the container, you can run the Autoware tutorials by following these link
 
 [Rosbag Replay Simulation](../../tutorials/ad-hoc-simulation/rosbag-replay-simulation.md).
 
-### Development Environment
+### Development environment
 
 ```bash
 ./docker/run.sh --devel
