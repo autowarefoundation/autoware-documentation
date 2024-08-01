@@ -19,4 +19,5 @@ type:
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
 Set the route with the waypoint segments in lanelet format. If start pose is not specified, the current pose will be used.
+This API only accepts the route when the route state is UNSET. In any other state, clear the route first.
 {% endblock %}

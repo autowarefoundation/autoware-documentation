@@ -4,9 +4,11 @@
 
 - {{ link_ad_api('/api/routing/state') }}
 - {{ link_ad_api('/api/routing/route') }}
+- {{ link_ad_api('/api/routing/clear_route') }}
 - {{ link_ad_api('/api/routing/set_route_points') }}
 - {{ link_ad_api('/api/routing/set_route') }}
-- {{ link_ad_api('/api/routing/clear_route') }}
+- {{ link_ad_api('/api/routing/change_route_points') }}
+- {{ link_ad_api('/api/routing/change_route') }}
 
 ## Description
 
@@ -23,11 +25,11 @@ There are two ways to set the route. The one is a generic method that uses pose,
 | UNSET    | The route is not set. Waiting for a route request. |
 | SET      | The route is set.                                  |
 | ARRIVED  | The vehicle has arrived at the destination.        |
-| CHANGING | Trying to change the route. Not implemented yet.   |
+| CHANGING | Trying to change the route.                        |
 
 ## Options
 
-The `set_route_points` and `set_route` APIs have route options that allow applications to choose several behaviors regarding route planning.
+The route set and change APIs have route options that allow applications to choose several behaviors regarding route planning.
 See the sections below for supported options and details.
 
 ### allow_goal_modification

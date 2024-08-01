@@ -1,2 +1,4 @@
 nav:
   - index.md
+  - console-settings.md
+  - network-configuration

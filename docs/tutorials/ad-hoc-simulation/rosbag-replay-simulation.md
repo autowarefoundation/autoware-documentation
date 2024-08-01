@@ -13,10 +13,10 @@
 
 2. Download the sample rosbag files.
 
-   - You can also download [the rosbag files](https://drive.google.com/file/d/1VnwJx9tI3kI_cTLzP61ktuAJ1ChgygpG/view?usp=sharing) manually.
+   - You can also download [the rosbag files](https://drive.google.com/file/d/1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP/view?usp=sharing) manually.
 
    ```bash
-   gdown -O ~/autoware_map/ 'https://docs.google.com/uc?export=download&id=1VnwJx9tI3kI_cTLzP61ktuAJ1ChgygpG'
+   gdown -O ~/autoware_map/ 'https://docs.google.com/uc?export=download&id=1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP'
    unzip -d ~/autoware_map/ ~/autoware_map/sample-rosbag.zip
    ```
 
@@ -68,7 +68,7 @@
 
     ```sh
     source ~/autoware/install/setup.bash
-    ros2 bag play ~/autoware_map/sample-rosbag/sample.db3 -r 0.2 -s sqlite3
+    ros2 bag play ~/autoware_map/sample-rosbag/ -r 0.2 -s sqlite3
     ```
 
     > ⚠️ Due to the discrepancy between the timestamp in the `rosbag` and the current system timestamp, Autoware may generate warning messages in the terminal alerting to this mismatch. This is normal behavior.

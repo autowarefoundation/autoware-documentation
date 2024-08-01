@@ -26,7 +26,7 @@ The sample code given below shows that `Subscription->take()` method is called d
 In this case, a topic message is retrieved from the subscription queue, the queue embedded in the subscription object, instead of using a callback function. To be precise, you have to program your code so that a callback function is not automatically called.
 
 ```c++
-  SteeringReport::SharedPtr msg;
+  SteeringReport msg;
   rclcpp::MessageInfo msg_info;
   if (sub_->take(msg, msg_info)) {
     // processing and publishing after this
