@@ -7,6 +7,13 @@ You can report issues to each project if there is any problem.
 
 ## Project lists (In alphabetical order)
 
+## autoware_carla_interface
+
+Autoware ROS package to enables communication between Autoware and CARLA simulator for autonomous driving simulation.
+It is integrated in autoware.universe and actively maintained to stay compatible with the latest Autoware updates.
+
+- Package Link and Tutorial: [autoware_carla_interface](https://github.com/autowarefoundation/autoware.universe/tree/main/simulator/autoware_carla_interface).
+
 ### carla_autoware_bridge
 
 An addition package to `carla_ros_bridge` to connect CARLA simulator to Autoware Universe software.
