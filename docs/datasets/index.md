@@ -16,6 +16,7 @@ At the right bottom part of the route, extra roads are traversed.
 This dataset contains data from the portable mapping kit used for general mapping purposes.
 
 The data contains data from the following sensors:
+
 - 1 x Applanix POS LVX GNSS/INS System
 - 1 x Hesai Pandar XT32 LiDAR
 
@@ -25,10 +26,12 @@ The data contains data from the following sensors:
 
 - You can find the produced full point cloud map, corner feature point cloud map and
   surface feature point cloud map here:
+
   - [https://drive.google.com/file/d/1wQJVjrVt47ScWDgYlOiClIUKCbNvarub/view?usp=drive_link](https://drive.google.com/file/d/1wQJVjrVt47ScWDgYlOiClIUKCbNvarub/view?usp=drive_link)
   - Exported point clouds are exported via downsampling with 0.2 voxel grids.
 
 - You can find the ROS2 bag which is collected simultaneously with the mapping data:
+
   - [https://drive.google.com/drive/folders/1gI1HDEZzTL2HZngrumjb5sLJ3SzuLJGD?usp=drive_link](https://drive.google.com/drive/folders/1gI1HDEZzTL2HZngrumjb5sLJ3SzuLJGD?usp=drive_link)
   - Due to the simultaneous data collection, we can assume that the point cloud maps and GNSS/INS
     data are the ground truth data for this rosbag.
@@ -36,7 +39,6 @@ The data contains data from the following sensors:
 - Additionally, you can find the raw data used for mapping at the below link:
   - [https://drive.google.com/drive/folders/1Mf5FwUN5TxZIeKQKB1EBQyn_c2cxdE02?usp=drive_link](https://drive.google.com/drive/folders/1Mf5FwUN5TxZIeKQKB1EBQyn_c2cxdE02?usp=drive_link)
   - Point clouds are collected as PCAP and feature-matched GNSS/INS data exported to a txt file.
-
 
 ### Topic list
 
@@ -47,21 +49,21 @@ For collecting the LiDAR data,
 repository is used.
 
 | Topic Name                                      | Message Type                                          |
-|-------------------------------------------------|-------------------------------------------------------|
-| `/applanix/lvx_client/autoware_orientation    ` | `autoware_sensing_msgs/msg/GnssInsOrientationStamped` |
-| `/applanix/lvx_client/imu_raw                 ` | `sensor_msgs/msg/Imu`                                 |
-| `/applanix/lvx_client/twist_with_covariance   ` | `geometry_msgs/msg/TwistWithCovarianceStamped`        |
-| `/applanix/lvx_client/odom                    ` | `nav_msgs/msg/Odometry`                               |
-| `/applanix/lvx_client/gnss/fix                ` | `sensor_msgs/msg/NavSatFix`                           |
-| `/applanix/lvx_client/gsof/ins_solution_49    ` | `applanix_msgs/msg/NavigationSolutionGsof49`          |
+| ----------------------------------------------- | ----------------------------------------------------- |
+| `/applanix/lvx_client/autoware_orientation`     | `autoware_sensing_msgs/msg/GnssInsOrientationStamped` |
+| `/applanix/lvx_client/imu_raw`                  | `sensor_msgs/msg/Imu`                                 |
+| `/applanix/lvx_client/twist_with_covariance`    | `geometry_msgs/msg/TwistWithCovarianceStamped`        |
+| `/applanix/lvx_client/odom`                     | `nav_msgs/msg/Odometry`                               |
+| `/applanix/lvx_client/gnss/fix`                 | `sensor_msgs/msg/NavSatFix`                           |
+| `/applanix/lvx_client/gsof/ins_solution_49`     | `applanix_msgs/msg/NavigationSolutionGsof49`          |
 | `/applanix/lvx_client/gsof/ins_solution_rms_50` | `applanix_msgs/msg/NavigationPerformanceGsof50`       |
-| `/lidar_packets                               ` | `hesai_ros_driver/msg/UdpFrame`                       |
-| `/lidar_packets_loss                          ` | `hesai_ros_driver/msg/LossPacket`                     |
-| `/lidar_points                                ` | `sensor_msgs/msg/PointCloud2`                         |
-| `/tf_static                                   ` | `tf2_msgs/msg/TFMessage`                              |
-| `/rosout                                      ` | `rcl_interfaces/msg/Log`                              |
-| `/events/write_split                          ` | `rosbag2_interfaces/msg/WriteSplitEvent`              |
-| `/parameter_events                            ` | `rcl_interfaces/msg/ParameterEvent`                   |
+| `/lidar_packets`                                | `hesai_ros_driver/msg/UdpFrame`                       |
+| `/lidar_packets_loss`                           | `hesai_ros_driver/msg/LossPacket`                     |
+| `/lidar_points`                                 | `sensor_msgs/msg/PointCloud2`                         |
+| `/tf_static`                                    | `tf2_msgs/msg/TFMessage`                              |
+| `/rosout`                                       | `rcl_interfaces/msg/Log`                              |
+| `/events/write_split`                           | `rosbag2_interfaces/msg/WriteSplitEvent`              |
+| `/parameter_events`                             | `rcl_interfaces/msg/ParameterEvent`                   |
 
 #### Message Explanations
 
@@ -69,24 +71,29 @@ Used drivers for sensors give output in default ROS2 message types and their own
 types for additional informations. Following topics are the default ROS2 message types:
 
 - `/applanix/lvx_client/imu_raw`
+
   - Gives the output of INS system in ENU. Due to the 9-axis IMU, `yaw` value demonstrates the
     heading value of the sensor.
 
 - `/applanix/lvx_client/twist_with_covariance`
+
   - Gives the twist output of the sensor.
 
 - `/applanix/lvx_client/odom`
+
   - Gives the position and orientation of the sensor from the starting point of the ROS2 driver.
     Implemented with `GeographicLib::LocalCartesian`.
 
     **This topic is not related to the wheel odometry.**
 
 - `/applanix/lvx_client/gnss/fix`
+
   - Gives the latitude, longitude and height values of the sensors.
 
     **Ellipsoidal height of WGS84 ellipsoid is given as height value.**
 
 - `/lidar_points`
+
   - Gives the point cloud from the LiDAR sensor.
 
 - `/lidar_packets`
@@ -112,10 +119,6 @@ source ~/applanix_ws/install/setup.bash
 ```
 
 Also make sure to source Autoware Universe workspace too.
-
-
-
-
 
 ## Bus-ODD (Operational Design Domain) datasets
 
