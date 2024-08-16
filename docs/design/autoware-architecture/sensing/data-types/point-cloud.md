@@ -10,11 +10,11 @@ This pipeline covers the flow of data from drivers to the perception stack.
 
 ```mermaid
 graph TD
-    Driver["Lidar Driver"] -->|"Cloud XYZIRCADT"| FilterPR["Polygon Remover Filter / CropBox Filter"]
+    Driver["Lidar Driver"] -->|"Cloud XYZIRCAEDT"| FilterPR["Polygon Remover Filter / CropBox Filter"]
 
     subgraph "sensing"
-    FilterPR -->|"Cloud XYZIRCADT"| FilterDC["Motion Distortion Corrector Filter"]
-    FilterDC -->|"Cloud XYZIRCAD"| FilterOF["Outlier Remover Filter"]
+    FilterPR -->|"Cloud XYZIRCAEDT"| FilterDC["Motion Distortion Corrector Filter"]
+    FilterDC -->|"Cloud XYZIRCAEDT"| FilterOF["Outlier Remover Filter"]
     FilterOF -->|"Cloud XYZIRC"| FilterDS["Downsampler Filter"]
     FilterDS -->|"Cloud XYZIRC"| FilterTrans["Cloud Transformer"]
     FilterTrans -->|"Cloud XYZIRC"| FilterC
@@ -35,33 +35,30 @@ It is recommended that these modules are used in a single container as component
 
 ## Point cloud fields
 
-In the ideal case, the driver is expected to output a point cloud with the `PointXYZIRCADT` point type.
+The lidar driver is expected to output a point cloud with the `PointXYZIRCAEDT` point type.
 
-| name              | datatype  | derived | description                                                              |
-| ----------------- | --------- | ------- | ------------------------------------------------------------------------ |
-| `X`               | `FLOAT32` | `false` | X position                                                               |
-| `Y`               | `FLOAT32` | `false` | Y position                                                               |
-| `Z`               | `FLOAT32` | `false` | Z position                                                               |
-| `I` (intensity)   | `FLOAT32` | `false` | Measured reflectivity, intensity of the point                            |
-| `R` (return type) | `UINT8`   | `false` | Laser return type for dual return lidars                                 |
-| `C` (channel)     | `UINT16`  | `false` | Vertical channel id of the laser that measured the point                 |
-| `A` (azimuth)     | `FLOAT32` | `true`  | `atan2(Y, X)`, Horizontal angle from the front of the lidar to the point |
-| `D` (distance)    | `FLOAT32` | `true`  | `hypot(X, Y, Z)`, Euclidean distance of the point to lidar               |
-| `T` (time stamp)  | `FLOAT64` | `false` | Seconds passed since the time of the header when this point was measured |
+| name              | datatype  | derived | description                                                                  |
+| ----------------- | --------- | ------- | ---------------------------------------------------------------------------- |
+| `X`               | `FLOAT32` | `false` | X position                                                                   |
+| `Y`               | `FLOAT32` | `false` | Y position                                                                   |
+| `Z`               | `FLOAT32` | `false` | Z position                                                                   |
+| `I` (intensity)   | `UINT8`   | `false` | Measured reflectivity, intensity of the point                                |
+| `R` (return type) | `UINT8`   | `false` | Laser return type for dual return lidars                                     |
+| `C` (channel)     | `UINT16`  | `false` | Channel ID of the laser that measured the point                              |
+| `A` (azimuth)     | `FLOAT32` | `true`  | `atan2(Y, X)`, Horizontal angle from the lidar origin to the point           |
+| `E` (elevation)   | `FLOAT32` | `true`  | `atan2(Z, D)`, Vertical angle from the lidar origin to the point             |
+| `D` (distance)    | `FLOAT32` | `true`  | `hypot(X, Y, Z)`, Euclidean distance from the lidar origin to the point      |
+| `T` (time)        | `UINT32`  | `false` | Nanoseconds passed since the time of the header when this point was measured |
 
 !!! note
 
-    `A (azimuth)` and `D (distance)` fields are derived fields.
+    `A (azimuth)`, `E (elevation)`, and `D (distance)` fields are derived fields.
     They are provided by the driver to reduce the computational load on some parts of the perception stack.
-
-!!! note
-
-    If the `Motion Distortion Corrector Filter` won't be used, the `T (time)` field can be omitted, `PointXYZIRCAD` point type can be used.
 
 !!! warning
 
-    Autoware will support conversion from `PointXYZI` to `PointXYZIRC` or `PointXYZIRCAD` (with channel and return is set to 0) for prototyping purposes.
-    However, this conversion is not recommended for production use since it's not efficient.
+    Autoware supports conversion from `PointXYZI` to `PointXYZIRC` (with channel and return type set to 0) for prototyping purposes.
+    However, this conversion is not recommended for production use since it is not efficient.
 
 ### Intensity
 
@@ -153,7 +150,8 @@ So it is advised to map the [0, 255] to [0, 100] range.
 
 Various lidars support multiple return modes. Velodyne lidars support **Strongest** and **Last** return modes.
 
-In the `PointXYZIRCT` and `PointXYZIRC` types, `R` field represents return mode with an `UINT8`.
+In the `PointXYZIRC` and `PointXYZIRCAEDT` types, the `R` field represents the return type with a `UINT8`.
+The return type is vendor-specific. The following table provides an example of return type definitions.
 
 | R (return type) | Description          |
 | --------------- | -------------------- |
@@ -168,7 +166,19 @@ In various lidar manuals or literature, it can also be called _laser id_, _ring_
 
 For Velodyne VLP-16, there are 16 channels. Default order of channels in drivers are generally in firing order.
 
-In the `PointXYZIRCT` and `PointXYZIRC` types, `C` field represents the vertical channel id with an `UINT16`.
+In the `PointXYZIRC` and `PointXYZIRCAEDT` types, the `C` field represents the vertical channel ID with a `UINT16`.
+
+### Azimuth
+
+The azimuth field gives the horizontal angle between the optical origin of the lidar and the point.
+Many lidar measure this with the angle of the rotary encoder when the laser was fired, and the driver typically corrects the value based on calibration data.
+
+In the `PointXYZIRCAEDT` type, the `A` field represents the azimuth angle in radians (clockwise) with a `FLOAT32`.
+
+### Elevation
+
+The elevation field gives the vertical angle between the optical origin of the lidar and the point.
+In the `PointXYZIRCAEDT` type, the `E` field represents the elevation angle in radians (clockwise) with a `FLOAT32`.
 
 #### Solid state and petal pattern lidars
 
@@ -206,6 +216,11 @@ The header of the point cloud message is expected to have the time of the earlie
 
 #### Individual point time stamp
 
-Each `PointXYZIRCT` point type has the `T` field for representing the seconds passed since the first-shot point of the point cloud.
+Each `PointXYZIRCAEDT` point type has the `T` field for representing the nanoseconds passed since the first-shot point of the point cloud.
 
-To calculate exact time each point was shot, the `T` seconds are added to the header time.
+To calculate exact time each point was shot, the `T` nanoseconds are added to the header time.
+
+!!! note
+
+    The `T` field is `uint32` type. The largest value it can represent is 2^32 nanoseconds, which equates to roughly
+    4.29 seconds. Usual point clouds don't last more than 100ms for full cycle. So this field should be enough.

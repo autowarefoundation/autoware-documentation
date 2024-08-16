@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="105.465mm"
+   height="56.243999mm"
+   viewBox="0 0 117.18332 62.493332"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
+   sodipodi:docname="vm-02-02_2.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="3.4262206"
+     inkscape:cx="136.59366"
+     inkscape:cy="97.045707"
+     inkscape:window-width="3840"
+     inkscape:window-height="2123"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <clipPath
+       id="c0_30">
+      <path
+         d="M 0,825 V 0 h 1100 v 825 z"
+         id="path2" />
+    </clipPath>
+    <clipPath
+       id="clipPath1">
+      <path
+         d="M 0,825 V 0 h 1100 v 825 z"
+         id="path1" />
+    </clipPath>
+    <clipPath
+       id="clipPath3">
+      <path
+         d="M 0,825 V 0 h 1100 v 825 z"
+         id="path3" />
+    </clipPath>
+    <clipPath
+       id="clipPath4">
+      <path
+         d="M 0,825 V 0 h 1100 v 825 z"
+         id="path4" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-49.741669,-120.65)">
+    <path
+       fill-rule="evenodd"
+       d="m 125.44807,143.4645 h 38.15292 v 36.38021 h -38.15292 z"
+       class="g3_30"
+       id="path36"
+       style="display:block;fill:#666666;stroke-width:0.264583" />
+    <path
+       fill-rule="evenodd"
+       d="m 129.0464,134.892 v 45.16437 z"
+       class="g1_30"
+       id="path37"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 129.0464,134.892 v 45.16437"
+       class="g4_30"
+       id="path38"
+       style="display:block;fill:none;stroke:#ffffff;stroke-width:1.21259;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 160.32015,134.892 v 45.16437 z"
+       class="g1_30"
+       id="path39"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 160.32015,134.892 v 45.16437"
+       class="g4_30"
+       id="path40"
+       style="display:block;fill:none;stroke:#ffffff;stroke-width:1.21259;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 128.54369,147.592 h 32.17334 z"
+       class="g1_30"
+       id="path41"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 128.54369,147.592 h 32.17334"
+       class="g5_30"
+       id="path42"
+       style="display:block;fill:none;stroke:#ff9900;stroke-width:0.60616;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 104.33432,124.22929 h 40.53417 v 15.71625 h -40.53417 z"
+       class="g1_30"
+       id="path43"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <g
+       clip-path="url(#c0_30)"
+       id="g44"
+       style="display:block"
+       transform="matrix(0.26458333,0,0,0.26458333,-84.816307,53.426787)">
+      <text
+         x="725.20001"
+         y="289.60001"
+         class="s6_30"
+         id="text43"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#000000">Linestring </text>
+      <text
+         x="733.59998"
+         y="304.29999"
+         class="s6_30"
+         id="text44"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#000000">type:stop_line </text>
+    </g>
+    <path
+       fill-rule="evenodd"
+       d="m 123.11974,135.71221 13.89062,10.6627 z"
+       class="g1_30"
+       id="path44"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 123.11974,135.71221 12.46187,9.55145"
+       class="g2_30"
+       id="path45"
+       style="display:block;fill:none;stroke:#000000;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 135.26411,145.66054 1.40229,0.42333 -0.79375,-1.21708 z"
+       class="g6_30"
+       id="path46"
+       style="display:block;fill:#000000;stroke:#000000;stroke-width:0.302948;stroke-miterlimit:10" />
+    <path
+       fill-rule="evenodd"
+       d="m 123.43724,147.48616 h -3.9423 z"
+       class="g1_30"
+       id="path49"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 123.43724,147.48616 h -3.9423"
+       class="g8_30"
+       id="path50"
+       style="display:block;fill:none;stroke:#ff9900;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 72.531399,142.30033 h 40.534171 v 15.71625 H 72.531399 Z"
+       class="g1_30"
+       id="path51"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <g
+       clip-path="url(#c0_30)"
+       id="g52"
+       style="display:block"
+       transform="matrix(0.26458333,0,0,0.26458333,-84.816307,53.426787)">
+      <text
+         x="605.09998"
+         y="357.89999"
+         class="s6_30"
+         id="text51"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#000000">Linestring </text>
+      <text
+         x="613.40002"
+         y="372.60001"
+         dx="0 0 0 0 0 0 0 0 0 -0.2 0 0 0 0 0 0 0"
+         class="s6_30"
+         id="text52"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#000000"><tspan
+           sodipodi:role="line"
+           id="tspan2"
+           x="613.40002"
+           y="372.60001">type:traffic_sign</tspan><tspan
+           sodipodi:role="line"
+           x="613.40002"
+           y="387.875"
+           id="tspan3">subtype: stop_sign</tspan></text>
+    </g>
+    <path
+       fill-rule="evenodd"
+       d="m 106.26578,148.88846 10.66271,-0.97896 z"
+       class="g1_30"
+       id="path52"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 106.26578,148.88846 8.86354,-0.82021"
+       class="g2_30"
+       id="path53"
+       style="display:block;fill:none;stroke:#000000;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 115.15578,148.57096 1.32291,-0.60855 -1.40229,-0.37041 z"
+       class="g6_30"
+       id="path54"
+       style="display:block;fill:#000000;stroke:#000000;stroke-width:0.302948;stroke-miterlimit:10" />
+    <path
+       fill-rule="evenodd"
+       d="m 53.084525,124.22929 h 47.161505 v 13.70542 H 53.084525 Z"
+       class="g9_30"
+       id="path55"
+       style="display:block;fill:#0000ff;stroke-width:0.281562" />
+    <g
+       clip-path="url(#c0_30)"
+       id="g56"
+       style="display:block"
+       transform="matrix(0.26458333,0,0,0.26458333,-84.816307,53.426787)">
+      <text
+         x="531.5"
+         y="289.60001"
+         class="s7_30"
+         id="text55"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#ffffff">type: regulatory_element </text>
+      <text
+         x="531.5"
+         y="304.29999"
+         dx="0 0 0 0 0 0 0 0 0 0 0 0 0 -0.2 0 0 0 0 0 0 0"
+         class="s7_30"
+         id="text56"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#ffffff">subtype: traffic_sign </text>
+    </g>
+    <path
+       fill-rule="evenodd"
+       d="m 133.12099,162.27637 h 25.18833 v 13.73188 h -25.18833 z"
+       class="ga_30"
+       id="path56"
+       style="display:block;fill:#fce5cd;stroke-width:0.264583" />
+    <path
+       d="m 133.12099,162.27637 h 25.18833 v 13.73188 h -25.18833 z"
+       class="g2_30"
+       id="path57"
+       style="display:block;fill:none;stroke:#000000;stroke-width:0.302948;stroke-linejoin:round" />
+    <g
+       clip-path="url(#c0_30)"
+       id="g58"
+       style="display:block"
+       transform="matrix(0.26458333,0,0,0.26458333,-84.816307,53.426787)">
+      <text
+         x="834"
+         y="433.5"
+         dx="0 0 0 0 0 0 0 8.3999996"
+         class="s6_30"
+         id="text57"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#000000">Lanelet </text>
+      <text
+         x="834"
+         y="448.20001"
+         class="s6_30"
+         id="text58"
+         style="font-size:12.22px;font-family:ArialMT_bj;white-space:pre;fill:#000000">subtype:road </text>
+    </g>
+    <path
+       fill-rule="evenodd"
+       d="m 94.729941,131.082 12.805839,0.26458 z"
+       class="g1_30"
+       id="path58"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 100.40016,131.07884 5.30676,0.24444"
+       class="g2_30"
+       id="path59"
+       style="display:block;fill:none;stroke:#000000;stroke-width:0.213388;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 105.71015,131.79637 1.37584,-0.44979 -1.37584,-0.52917 z"
+       class="g6_30"
+       id="path60"
+       style="display:block;fill:#000000;stroke:#000000;stroke-width:0.302948;stroke-miterlimit:10" />
+    <path
+       fill-rule="evenodd"
+       d="m 73.907233,137.93471 2.592916,6.74687 z"
+       class="g1_30"
+       id="path61"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 73.907233,137.93471 1.931458,5.05354"
+       class="g2_30"
+       id="path62"
+       style="display:block;fill:none;stroke:#000000;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 75.362441,143.17346 0.978958,1.11125 -0.02646,-1.48167 z"
+       class="g6_30"
+       id="path63"
+       style="display:block;fill:#000000;stroke:#000000;stroke-width:0.302948;stroke-miterlimit:10" />
+    <path
+       fill-rule="evenodd"
+       d="m 132.93578,169.52596 c -7.88459,-0.4498 -36.195006,-0.26459 -47.307506,-2.80459 -11.1125,-2.51354 -15.292916,-7.56708 -19.3675,-12.35604 -4.101041,-4.7625 -4.339166,-13.57312 -5.212291,-16.27187 z"
+       class="g1_30"
+       id="path64"
+       style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583" />
+    <path
+       d="m 132.93578,169.52596 c -7.88459,-0.4498 -36.195006,-0.26459 -47.307506,-2.80459 -11.1125,-2.51354 -15.292916,-7.56708 -19.3675,-12.35604 -2.06375,-2.38125 -3.148541,-5.76792 -3.81,-8.91646 -0.343958,-1.56104 -0.582083,-3.06916 -0.79375,-4.33916 -0.05292,-0.3175 -0.105833,-0.635 -0.15875,-0.92605 l -0.05292,-0.3175"
+       class="g2_30"
+       id="path65"
+       style="display:block;fill:none;stroke:#000000;stroke-width:0.302948;stroke-linejoin:round" />
+    <path
+       fill-rule="evenodd"
+       d="m 61.948066,139.76033 -0.79375,-1.24354 -0.185208,1.45521 z"
+       class="g6_30"
+       id="path66"
+       style="display:block;fill:#000000;stroke:#000000;stroke-width:0.302948;stroke-miterlimit:10" />
+  </g>
+</svg>

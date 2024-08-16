@@ -1,5 +1,19 @@
 # Release notes
 
+## v1.5.0
+
+- [New] Add {{ link_ad_api('/api/routing/change_route_points') }}
+- [New] Add {{ link_ad_api('/api/routing/change_route') }}
+
+## v1.4.0
+
+- [New] Add {{ link_ad_api('/api/vehicle/status') }}
+
+## v1.3.0
+
+- [New] Add [heartbeat API](./features/heartbeat.md)
+- [New] Add [diagnostics API](./features/diagnostics.md)
+
 ## v1.2.0
 
 - [New] Add [vehicle doors API](./features/vehicle-doors.md)

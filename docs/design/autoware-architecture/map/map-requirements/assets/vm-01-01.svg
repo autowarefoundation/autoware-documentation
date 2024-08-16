@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg x="0" y="0" width="500" height="340" viewBox="0 0 500 340" version="1.1" style="display: block;margin-left: auto;margin-right: auto;" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <clipPath id="c_9">
+      <path d="M0,0H1100V825H0Z"/>
+    </clipPath>
+    <clipPath id="c0_9">
+      <path d="M0,825V0H1100V825Z"/>
+    </clipPath>
+    <style type="text/css">
+text { white-space: pre; }
+path, image { pointer-events: none; }
+
+.s0_9{
+font-size: 25.44px;
+font-family: MS-PGothic_c6;
+fill: #000;
+}
+.s1_9{
+font-size: 21.20px;
+font-family: MS-PGothic_c6;
+fill: #000;
+}
+.s2_9{
+font-size: 21.20px;
+font-family: ArialMT_c2;
+fill: #000;
+}
+.s3_9{
+font-size: 21.20px;
+font-family: ArialMT_c2;
+fill: #0097A7;
+}
+.s4_9{
+font-size: 10.69px;
+font-family: ArialMT_c2;
+fill: #000;
+}
+.s5_9{
+font-size: 27.50px;
+font-family: MS-PGothic_c6;
+fill: #000;
+}
+.s6_9{
+font-size: 27.50px;
+font-family: ArialMT_c2;
+fill: #000;
+}
+.s7_9{
+font-size: 15.28px;
+font-family: ArialMT_c2;
+fill: #000;
+}
+.s8_9{
+font-size: 13.75px;
+font-family: ArialMT_c2;
+fill: #000;
+}
+.s9_9{
+font-size: 15.28px;
+font-family: MS-PGothic_c6;
+fill: #000;
+}
+
+.g0_9{
+fill: #FFF;
+}
+.g1_9{
+fill: #000;
+fill-opacity: 0;
+}
+.g2_9{
+fill: none;
+stroke: #000;
+stroke-width: 1.145;
+stroke-linejoin: round;
+}
+.g3_9{
+fill: #010000;
+fill-opacity: 0;
+}
+.g4_9{
+fill: #0097A7;
+}
+.g5_9{
+fill: #666;
+}
+.g6_9{
+fill: none;
+stroke: #F00;
+stroke-width: 2.291;
+stroke-linejoin: round;
+}
+.g7_9{
+fill: #F4CCCC;
+fill-opacity: 0.43;
+}
+.g8_9{
+fill: #000;
+stroke: #000;
+stroke-width: 1.145;
+stroke-miterlimit: 10;
+}
+.g9_9{
+fill: none;
+stroke: #595959;
+stroke-width: 1.145;
+stroke-linejoin: round;
+}
+.ga_9{
+fill: #595959;
+stroke: #595959;
+stroke-width: 1.145;
+stroke-miterlimit: 10;
+}
+
+</style>
+  </defs>
+  <g clip-path="url(#c_9)" transform="matrix(1, 0, 0, 1, -522, -361.799988)">
+    <path fill-rule="evenodd" d="M634.8,361.8H815.1V651H634.8Z" class="g5_9"/>
+    <path fill-rule="evenodd" d="M634.8,362V650.8Z" class="g1_9"/>
+    <path d="M634.8,362V650.8" class="g6_9"/>
+    <path fill-rule="evenodd" d="M815.1,362V650.8Z" class="g1_9"/>
+    <path d="M815.1,362V650.8" class="g6_9"/>
+    <path fill-rule="evenodd" d="M634.8,361.8H815.1V651H634.8Z" class="g7_9"/>
+    <path fill-rule="evenodd" d="M719.3,418.3V376.9Z" class="g1_9"/>
+    <path d="M719.3,418.3V383.8" class="g2_9"/>
+    <path fill-rule="evenodd" d="M721.2,383.8l-1.9,-5.2l-1.9,5.2Z" class="g8_9"/>
+    <path fill-rule="evenodd" d="M719.3,473.3V431.9Z" class="g1_9"/>
+    <path d="M719.3,473.3V438.8" class="g2_9"/>
+    <path fill-rule="evenodd" d="M721.2,438.8l-1.9,-5.2l-1.9,5.2Z" class="g8_9"/>
+    <path fill-rule="evenodd" d="M719.3,528.3V486.9Z" class="g1_9"/>
+    <path d="M719.3,528.3V493.8" class="g2_9"/>
+    <path fill-rule="evenodd" d="M721.2,493.8l-1.9,-5.2l-1.9,5.2Z" class="g8_9"/>
+    <path fill-rule="evenodd" d="M719.3,583.3V541.9Z" class="g1_9"/>
+    <path d="M719.3,583.3V548.8" class="g2_9"/>
+    <path fill-rule="evenodd" d="M721.2,548.8l-1.9,-5.2l-1.9,5.2Z" class="g8_9"/>
+    <path fill-rule="evenodd" d="M719.3,638.3V596.9Z" class="g1_9"/>
+    <path d="M719.3,638.3V603.8" class="g2_9"/>
+    <path fill-rule="evenodd" d="M721.2,603.8l-1.9,-5.2l-1.9,5.2Z" class="g8_9"/>
+    <path fill-rule="evenodd" d="M912.1,645.7h137v40.8h-137Z" class="g1_9"/>
+    <text clip-path="url(#c0_9)" x="922.4" y="670.7" class="s7_9" style="white-space: pre;">left_bound </text>
+    <path fill-rule="evenodd" d="M823.9,515.4h137v40.7h-137Z" class="g1_9"/>
+    <text clip-path="url(#c0_9)" x="834.3" y="540.4" class="s7_9" style="white-space: pre;">right_bound </text>
+    <path fill-rule="evenodd" d="M859.1,364H1014v88.9H859.1Z" class="g1_9"/>
+    <path d="M859.1,364H1014v88.9H859.1Z" class="g2_9"/>
+    <g clip-path="url(#c0_9)">
+      <text x="869.4" y="387.5" class="s8_9" style="white-space: pre;">Lanelet </text>
+      <text x="878.5" y="404" class="s8_9" style="white-space: pre;">subtype:road </text>
+      <text x="878.5" y="420.5" class="s8_9" style="white-space: pre;">location:urban </text>
+      <text x="878.5" y="437" class="s8_9" style="white-space: pre;">one_way=yes </text>
+    </g>
+    <path fill-rule="evenodd" d="M797.7,421.6l67.9,-26.3Z" class="g1_9"/>
+    <path d="M797.7,421.6l67.9,-26.3" class="g2_9"/>
+    <path fill-rule="evenodd" d="M522,524.6h92.7v40.7H522Z" class="g1_9"/>
+    <text clip-path="url(#c0_9)" x="532.3" y="549.5" class="s9_9" style="white-space: pre;">direction</text>
+    <path fill-rule="evenodd" d="M593.2,546.8l118.9,15Z" class="g1_9"/>
+    <path d="M593.2,546.8l118.9,15" class="g2_9"/>
+    <path fill-rule="evenodd" d="M912.6,447.3L817.1,549.4Z" class="g1_9"/>
+    <path d="M912.6,447.3l-90.8,97.1" class="g9_9"/>
+    <path fill-rule="evenodd" d="M820.4,543.1l-2.1,5.1l4.9,-2.5Z" class="ga_9"/>
+    <path fill-rule="evenodd" d="M944.2,451.3c-.5,30.9,17.9,145.8,-3.3,185.7c-21.2,39.8,-84.2,48.9,-123.8,53.3c-39.6,4.4,-83.7,-13.7,-113.9,-27C673,650,647.2,619.4,636,610.6Z" class="g1_9"/>
+    <path d="M944.2,451.3c-.5,30.9,17.9,145.8,-3.3,185.7c-21.2,39.8,-84.2,48.9,-123.8,53.3c-39.6,4.4,-83.7,-13.7,-113.9,-27c-15.1,-6.6,-29.1,-17.6,-40.7,-28C656.7,630.1,651.5,625,647,620.7c-1.1,-1.1,-2.2,-2.1,-3.2,-3.1c-.5,-.5,-1,-.9,-1.5,-1.4l-1.1,-1" class="g9_9"/>
+    <path fill-rule="evenodd" d="M642.4,613.7l-5.1,-2l2.7,4.9Z" class="ga_9"/>
+  </g>
+  <style bx:fonts="ArialMT_c2">@font-face { font-family: ArialMT_c2; src: url("fonts/ArialMT_c2.woff") format("woff"); }</style>
+  <style bx:fonts="MS-PGothic_c6">@font-face { font-family: MS-PGothic_c6; src: url("fonts/MS-PGothic_c6.woff") format("woff"); }</style>
+</svg>
