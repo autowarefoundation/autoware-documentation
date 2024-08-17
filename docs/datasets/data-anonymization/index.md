@@ -55,7 +55,7 @@ python3 -m pip install .
 
 ## Configuration
 
-Define prompts in the validation.jsonfile. The tool will use these prompts to detect objects. You can add your prompts
+Define prompts in the `validation.json` file. The tool will use these prompts to detect objects. You can add your prompts
 as dictionaries under the prompts key. Each dictionary should have two keys:
 
 - `prompt`: The prompt that will be used to detect the object. This prompt will be blurred in the anonymization process.
