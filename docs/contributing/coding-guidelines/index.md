@@ -49,9 +49,9 @@ As a basic rule, follow [the ROS 2 developer guide](https://docs.ros.org/en/humb
 
 - Use `RCLCPP_*` (e.g. `RCLCPP_INFO`) macros instead of `printf` or `std::cout` for logging.
   - Reasons include the following:
-    - It allows for consistent log level management. For instance, with `RCLCPP`, you can simply set `--log_level` to adjust the log level uniformly across the application.
+    - It allows for consistent log level management. For instance, with `RCLCPP_*` macros, you can simply set `--log_level` to adjust the log level uniformly across the application.
     - You can standardize the format using `RCUTILS_CONSOLE_OUTPUT_FORMAT`.
-    - With `RCLCPP`, logs are automatically recorded to `/rosout`. These logs can be saved to a rosbag, which can then be replayed to review the log data.
+    - With `RCLCPP_*` macros, logs are automatically recorded to `/rosout`. These logs can be saved to a rosbag, which can then be replayed to review the log data.
 - Follow [the directory structure guideline](./ros-nodes/directory-structure.md).
 - If `RCLCPP_INFO` generates a large amount of logs, use `RCLCPP_INFO_THROTTLE`.
   - cf. [Coding guidelines, ros-nodes, Use throttled logging when the log is unnecessarily shown repeatedly](./ros-nodes/console-logging.md#use-throttled-logging-when-the-log-is-unnecessarily-shown-repeatedly-required-non-automated)
