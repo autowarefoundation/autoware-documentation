@@ -43,7 +43,7 @@ As a basic rule, follow [the ROS 2 developer guide](https://docs.ros.org/en/humb
 
 - Use `RCLCPP` instead of `printf` or `std::cout`.
   - Reasons include the following:
-    - It allows for consistent log level management. For instance, with `RCLCPP_hoge`, you can simply set `--log_level` to adjust the log level uniformly across the application.
+    - It allows for consistent log level management. For instance, with `RCLCPP`, you can simply set `--log_level` to adjust the log level uniformly across the application.
     - You can standardize the format using `RCUTILS_CONSOLE_OUTPUT_FORMAT`.
     - With `RCLCPP`, logs are automatically recorded to `/rosout`. These logs can be saved to a rosbag, which can then be replayed to review the log data.
 - Follow [the directory structure guideline](./ros-nodes/directory-structure.md).
