@@ -65,5 +65,7 @@ For Autoware-specific styles, refer to the following:
   - cf. [Prefix packages with autoware\_](https://github.com/orgs/autowarefoundation/discussions/4097)
 - Add implementations within the `autoware` namespace.
   - cf. [Prefix packages with autoware\_, Option 3:](https://github.com/orgs/autowarefoundation/discussions/4097#discussioncomment-8384169)
+- The header files to be exported must be placed in the `PACKAGE_NAME/include/autoware/` directory.
+  - cf. [Directory structure guideline, Exporting headers](./ros-nodes/directory-structure.md#exporting-headers)
 - In `CMakeLists.txt`, use `autoware_package()`.
   - cf. [autoware_cmake README](https://github.com/autowarefoundation/autoware_cmake/tree/main/autoware_cmake)
