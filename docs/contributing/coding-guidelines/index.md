@@ -37,7 +37,7 @@ As a basic rule, follow [the Google C++ Style Guide](https://google.github.io/st
 - Use assert to validate that function arguments and return values meet specific conditions or expectations.
 - Be cautious when using `throw`. C++ exceptions should only be used when it's acceptable for the process to terminate if uncaught. This applies to scenarios where Autoware has no other choice but to shut down.
 
-## ROS 2
+## ROS 2 Style Guide
 
 As a basic rule, follow [the ROS 2 developer guide](https://docs.ros.org/en/humble/The-ROS2-Project/Contributing/Developer-Guide.html) and [the ROS nodes guidelines](./ros-nodes/class-design.md). The following are commonly pointed out areas that require attention:
 
