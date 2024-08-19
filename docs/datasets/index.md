@@ -5,10 +5,15 @@ Autoware partners provide datasets for testing and development. These datasets a
 ## Istanbul Open Dataset
 
 The dataset is collected in the following route. Tunnels and bridges are annotated on the image.
-At the right bottom part of the route, extra roads are traversed.
+The included specific areas into the dataset are:
+  - Galata Bridge (Small Bridge)
+  - Eurasia Tunnel (Long Tunnel with High Elevation Changes)
+  - 2nd Bosphorus Bridge (Long Bridge)
+  - Kagithane-Bomonti Tunnel (Small Tunnel)
+  - Viaducts, road junctions, highways, dense urban areas...
 
 <p align='center'>
-    <img src="images/ist_dataset_route_2_resized.png" alt="ist_dataset_route2" width="80%"/>
+    <img src="images/ist_dataset_route_3_resized.png" alt="ist_dataset_route2" width="80%"/>
 </p>
 
 ### Leo Drive - Mapping Kit Sensor Data
@@ -27,17 +32,16 @@ The data contains data from the following sensors:
 - You can find the produced full point cloud map, corner feature point cloud map and
   surface feature point cloud map here:
 
-  - [https://drive.google.com/file/d/1wQJVjrVt47ScWDgYlOiClIUKCbNvarub/view?usp=drive_link](https://drive.google.com/file/d/1wQJVjrVt47ScWDgYlOiClIUKCbNvarub/view?usp=drive_link)
-  - Exported point clouds are exported via downsampling with 0.2 voxel grids.
+  - [https://drive.google.com/drive/folders/1_jiQod4lO6-V2NDEr3d-M3XF_Nqmc0Xf?usp=drive_link](https://drive.google.com/drive/folders/1_jiQod4lO6-V2NDEr3d-M3XF_Nqmc0Xf?usp=drive_link)
+  - Exported point clouds are exported via downsampling with 0.2 meters and 0.5 meters voxel grids.
 
 - You can find the ROS 2 bag which is collected simultaneously with the mapping data:
-
-  - [https://drive.google.com/drive/folders/1gI1HDEZzTL2HZngrumjb5sLJ3SzuLJGD?usp=drive_link](https://drive.google.com/drive/folders/1gI1HDEZzTL2HZngrumjb5sLJ3SzuLJGD?usp=drive_link)
+  - [https://drive.google.com/drive/folders/1HH_ghCqQwuP1v8mt4tjvb2Ks_138o52d?usp=drive_link](https://drive.google.com/drive/folders/1HH_ghCqQwuP1v8mt4tjvb2Ks_138o52d?usp=drive_link)
   - Due to the simultaneous data collection, we can assume that the point cloud maps and GNSS/INS
     data are the ground truth data for this rosbag.
 
 - Additionally, you can find the raw data used for mapping at the below link:
-  - [https://drive.google.com/drive/folders/1Mf5FwUN5TxZIeKQKB1EBQyn_c2cxdE02?usp=drive_link](https://drive.google.com/drive/folders/1Mf5FwUN5TxZIeKQKB1EBQyn_c2cxdE02?usp=drive_link)
+  - [https://drive.google.com/drive/folders/1HmWYkxF5XvVCR27R8W7ZqO7An4HlJ6lD?usp=drive_link](https://drive.google.com/drive/folders/1HmWYkxF5XvVCR27R8W7ZqO7An4HlJ6lD?usp=drive_link)
   - Point clouds are collected as PCAP and feature-matched GNSS/INS data exported to a txt file.
 
 ### Topic list
@@ -45,25 +49,19 @@ The data contains data from the following sensors:
 For collecting the GNSS/INS data, [this](https://github.com/autowarefoundation/applanix) repository is used.
 
 For collecting the LiDAR data,
-[this](https://github.com/HesaiTechnology/HesaiLidar_ROS_2.0/tree/6a834ecb2830f466b63452c072fb44433046edb4)
+[nebula](https://github.com/tier4/nebula/tree/6d55141ef3cf39d5612e34f2646834d6cd4a7ae3)
 repository is used.
 
-| Topic Name                                      | Message Type                                          |
-| ----------------------------------------------- | ----------------------------------------------------- |
-| `/applanix/lvx_client/autoware_orientation`     | `autoware_sensing_msgs/msg/GnssInsOrientationStamped` |
-| `/applanix/lvx_client/imu_raw`                  | `sensor_msgs/msg/Imu`                                 |
-| `/applanix/lvx_client/twist_with_covariance`    | `geometry_msgs/msg/TwistWithCovarianceStamped`        |
-| `/applanix/lvx_client/odom`                     | `nav_msgs/msg/Odometry`                               |
-| `/applanix/lvx_client/gnss/fix`                 | `sensor_msgs/msg/NavSatFix`                           |
-| `/applanix/lvx_client/gsof/ins_solution_49`     | `applanix_msgs/msg/NavigationSolutionGsof49`          |
-| `/applanix/lvx_client/gsof/ins_solution_rms_50` | `applanix_msgs/msg/NavigationPerformanceGsof50`       |
-| `/lidar_packets`                                | `hesai_ros_driver/msg/UdpFrame`                       |
-| `/lidar_packets_loss`                           | `hesai_ros_driver/msg/LossPacket`                     |
-| `/lidar_points`                                 | `sensor_msgs/msg/PointCloud2`                         |
-| `/tf_static`                                    | `tf2_msgs/msg/TFMessage`                              |
-| `/rosout`                                       | `rcl_interfaces/msg/Log`                              |
-| `/events/write_split`                           | `rosbag2_interfaces/msg/WriteSplitEvent`              |
-| `/parameter_events`                             | `rcl_interfaces/msg/ParameterEvent`                   |
+| Topic Name                                   | Message Type                                          |
+|----------------------------------------------| ----------------------------------------------------- |
+| `/applanix/lvx_client/autoware_orientation`  | `autoware_sensing_msgs/msg/GnssInsOrientationStamped` |
+| `/applanix/lvx_client/imu_raw`               | `sensor_msgs/msg/Imu`                                 |
+| `/applanix/lvx_client/twist_with_covariance` | `geometry_msgs/msg/TwistWithCovarianceStamped`        |
+| `/applanix/lvx_client/odom`                  | `nav_msgs/msg/Odometry`                               |
+| `/applanix/lvx_client/gnss/fix`              | `sensor_msgs/msg/NavSatFix`                           |
+| `/pandar_packets`                            | `pandar_msgs/msg/PandarScan`                       |
+| `/pandar_points`                             | `sensor_msgs/msg/PointCloud2`                         |
+| `/tf_static`                                 | `tf2_msgs/msg/TFMessage`                              |
 
 #### Message Explanations
 
@@ -92,11 +90,11 @@ types for additional information. Following topics are the default ROS 2 message
 
     **Ellipsoidal height of WGS84 ellipsoid is given as height value.**
 
-- `/lidar_points`
+- `/pandar_points`
 
   - Gives the point cloud from the LiDAR sensor.
 
-- `/lidar_packets`
+- `/pandar_packets`
   - Gives the LiDAR packets.
 
 Also the Applanix raw messages are also included in the rosbag.
