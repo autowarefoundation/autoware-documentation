@@ -47,7 +47,7 @@ As a basic rule, follow [the Google C++ Style Guide](https://google.github.io/st
 
 As a basic rule, follow [the ROS 2 developer guide](https://docs.ros.org/en/humble/The-ROS2-Project/Contributing/Developer-Guide.html) and [the ROS nodes guidelines](./ros-nodes/class-design.md). The following are commonly pointed out areas that require attention:
 
-- Use `RCLCPP_XXX` (eg. `RCLCPP_INFO`) macros instead of `printf` or `std::cout` for logging.
+- Use `RCLCPP_*` (e.g. `RCLCPP_INFO`) macros instead of `printf` or `std::cout` for logging.
   - Reasons include the following:
     - It allows for consistent log level management. For instance, with `RCLCPP`, you can simply set `--log_level` to adjust the log level uniformly across the application.
     - You can standardize the format using `RCUTILS_CONSOLE_OUTPUT_FORMAT`.
