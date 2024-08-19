@@ -29,7 +29,7 @@ As a basic rule, follow [the Google C++ Style Guide](https://google.github.io/st
 - Use fixed-width integer types like `uint32_t` instead of `int`.
   - cf. [How to C in 2016](https://matt.sh/howto-c)
 - Use `const` for variables whose values will not change after initialization, and for functions or arguments that guarantee they will not modify the object's state. This improves code safety and clarity by preventing unintended side effects.
-- When not using an index, prefer `for (const auto & e : v)`.
+- When not using an index, prefer `for (const auto & element : values)`.
   - cf. [C++ Core Guidelines, ES.71: Prefer a range-for-statement to a for-statement when there is a choice](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#es71-prefer-a-range-for-statement-to-a-for-statement-when-there-is-a-choice)
 - For index access, prefer `.at(idx)` over `[idx]` whenever possible for safety.
   - cf. [C++ Core Guidelines, Avoid bounds errors](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#slcon3-avoid-bounds-errors)
