@@ -24,7 +24,7 @@ Also, keep in mind the following concepts.
 
 ## C++ Style Guide
 
-As a basic rule, follow [the Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) and [the C++ Core Guidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md). The following are common areas requiring special attention:
+As a basic rule, follow [the Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html), [the C++ Core Guidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md) and [Autoware C++ Coding Guidelines](./languages/cpp.md). The following are common areas requiring special attention:
 
 - Use fixed-width integer types like `uint32_t` instead of `int`.
   - cf. [How to C in 2016](https://matt.sh/howto-c)
