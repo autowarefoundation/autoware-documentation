@@ -40,7 +40,7 @@ As a basic rule, follow [the Google C++ Style Guide](https://google.github.io/st
 - When using `mutex`, use `std::lock_guard` instead of `std::lock` and `std::unlock`.
   - cf. [C++ Core Guidelines, RAII](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rr-raii)
 - Use assert to validate that function arguments and return values meet specific conditions or expectations.
-- Be cautious when using `throw`. C++ exceptions should only be used when it's acceptable for the process to terminate if uncaught. This applies to scenarios where Autoware has no other choice but to shut down.
+- Be cautious when using `throw`. C++ exceptions should only be used when it is acceptable for the process to terminate if uncaught. This applies to scenarios where Autoware has no other choice but to shut down.
   - cf. [Google C++ Style Guide, Exceptions](https://google.github.io/styleguide/cppguide.html#Exceptions)
 
 ## ROS 2 Style Guide
