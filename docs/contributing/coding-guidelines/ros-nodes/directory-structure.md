@@ -4,6 +4,8 @@ This document describes the directory structure of ROS nodes within Autoware.
 
 We'll use the package `autoware_gnss_poser` as an example.
 
+**Note that this example does not reflect the actual `autoware_gnss_poser`, and has extra files and directories to demonstrate all posssible package structure.**
+
 ## C++ package
 
 ### Entire structure
