@@ -224,6 +224,21 @@ You should set your configuration in config/yolo_anonymize.yaml file.
 python3 main.py config/yolo_anonymize.yaml --yolo_anonymize
 ```
 
+## Troubleshooting
+
+- **Error 1**: `torch.OutOfMemoryError: CUDA out of memory`
+
+```bash
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 10.87 GiB of which 1010.88 MiB is free. Including non-PyTorch memory, this process has 8.66 GiB memory in use. Of the allocated memory 8.21 GiB is allocated by PyTorch, and 266.44 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+```
+
+This error occurs when the GPU memory is not enough to run the model. You can add the following environment variable to
+avoid this error.
+
+```bash
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+```
+
 ## Share Your Anonymized Data
 
 After anonymizing your data, you can share your anonymized data with the Autoware community. If you want to share your
