@@ -17,4 +17,5 @@ type:
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
 Set the door command. This API is only available if the vehicle supports software door control.
+This API fails if the door cannot be opened or closed safely.
 {% endblock %}
