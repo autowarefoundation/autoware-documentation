@@ -96,7 +96,7 @@ ament_auto_add_library(${PROJECT_NAME} SHARED
 )
 
 rclcpp_components_register_node(${PROJECT_NAME}
-  PLUGIN "autoware::gnss_poser::GNSSPoserNode"
+  PLUGIN "autoware::gnss_poser::GNSSPoser"
   EXECUTABLE ${PROJECT_NAME}_node
 )
 ```
@@ -114,7 +114,7 @@ Use of standalone executables **should be limited** to cases where specific need
 
 Assuming:
 
-- `src/gnss_poser.cpp` has the `GNSSPoserNode` class.
+- `src/gnss_poser.cpp` has the `GNSSPoser` class.
 - `src/gnss_poser_node.cpp` has the `main` function.
 - There is no composable node component registration.
 

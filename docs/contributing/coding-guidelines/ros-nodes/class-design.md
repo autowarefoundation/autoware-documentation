@@ -21,10 +21,10 @@ namespace autoware::gnss_poser
 #### `gnss_poser_node.hpp`
 
 ```cpp
-class GNSSPoserNode : public rclcpp::Node
+class GNSSPoser : public rclcpp::Node
 {
   public:
-    explicit GNSSPoserNode(const rclcpp::NodeOptions & node_options);
+    explicit GNSSPoser(const rclcpp::NodeOptions & node_options);
   ...
 }
 ```
@@ -32,7 +32,7 @@ class GNSSPoserNode : public rclcpp::Node
 #### `gnss_poser_node.cpp`
 
 ```cpp
-GNSSPoserNode::GNSSPoserNode(const rclcpp::NodeOptions & node_options)
+GNSSPoser::GNSSPoser(const rclcpp::NodeOptions & node_options)
 : Node("gnss_poser", node_options)
 {
   ...
@@ -56,7 +56,7 @@ GNSSPoserNode::GNSSPoserNode(const rclcpp::NodeOptions & node_options)
 } // namespace autoware::gnss_poser
 
 #include <rclcpp_components/register_node_macro.hpp>
-RCLCPP_COMPONENTS_REGISTER_NODE(autoware::gnss_poser::GNSSPoserNode)
+RCLCPP_COMPONENTS_REGISTER_NODE(autoware::gnss_poser::GNSSPoser)
 ```
 
 - The component should be registered at the end of the `gnss_poser_node.cpp` file, outside the namespaces.
