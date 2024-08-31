@@ -31,8 +31,10 @@ Also, keep in mind the following concepts.
 For Autoware-specific styles, refer to the following:
 
 - Use the `autoware_` prefix for package names.
+  - cf. [Directory structure guideline, Package name](./ros-nodes/directory-structure.md#package-name)
   - cf. [Prefix packages with autoware\_](https://github.com/orgs/autowarefoundation/discussions/4097)
 - Add implementations within the `autoware` namespace.
+  - cf. [Class design guideline, Namespaces](./ros-nodes/class-design.md#namespaces)
   - cf. [Prefix packages with autoware\_, Option 3:](https://github.com/orgs/autowarefoundation/discussions/4097#discussioncomment-8384169)
 - The header files to be exported must be placed in the `PACKAGE_NAME/include/autoware/` directory.
   - cf. [Directory structure guideline, Exporting headers](./ros-nodes/directory-structure.md#exporting-headers)
