@@ -2,7 +2,7 @@
 
 ## Related API
 
-- Pose
+- [Localization](../features/localization.md)
 
 ## Sequence
 
