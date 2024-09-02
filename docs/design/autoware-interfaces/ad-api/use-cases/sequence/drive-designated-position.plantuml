@@ -3,7 +3,7 @@
 skinparam ParticipantPadding 25
 participant "User" as user
 participant "Application" as system
-participant "AD API (drive)" as api_drive
+participant "AD API (op mode)" as api_drive
 participant "AD API (route)" as api_route
 
 api_drive --> system: notify that the vehicle is not driving
