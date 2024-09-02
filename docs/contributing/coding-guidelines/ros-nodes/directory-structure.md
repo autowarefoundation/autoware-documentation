@@ -4,7 +4,7 @@ This document describes the directory structure of ROS nodes within Autoware.
 
 We'll use the package `autoware_gnss_poser` as an example.
 
-**Note that this example does not reflect the actual `autoware_gnss_poser`, and has extra files and directories to demonstrate all possible package structure.**
+**Note that this example does not reflect the actual `autoware_gnss_poser` and includes extra files and directories to demonstrate all possible package structures.**
 
 ## C++ package
 
@@ -96,7 +96,7 @@ ament_auto_add_library(${PROJECT_NAME} SHARED
 )
 
 rclcpp_components_register_node(${PROJECT_NAME}
-  PLUGIN "autoware::gnss_poser::GNSSPoserNode"
+  PLUGIN "autoware::gnss_poser::GNSSPoser"
   EXECUTABLE ${PROJECT_NAME}_node
 )
 ```
@@ -114,7 +114,7 @@ Use of standalone executables **should be limited** to cases where specific need
 
 Assuming:
 
-- `src/gnss_poser.cpp` has the `GNSSPoserNode` class.
+- `src/gnss_poser.cpp` has the `GNSSPoser` class.
 - `src/gnss_poser_node.cpp` has the `main` function.
 - There is no composable node component registration.
 
