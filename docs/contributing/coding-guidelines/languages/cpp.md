@@ -202,3 +202,26 @@ constexpr double gravity = 9.80665;
 class RosApi;
 RosApi ros_api;
 ```
+
+### Do not use the auto keywords with Eigen's expressions (required)
+
+#### Rationale
+
+- Avoid using auto with `Eigen::Matrix` or `Eigen::Vector` variables, as it can lead to bugs.
+
+#### Reference
+
+- [Eigen, C++11 and the auto keyword](https://eigen.tuxfamily.org/dox/TopicPitfalls.html)
+
+### Use RCLCPP\_\* (e.g. RCLCPP_INFO) macros instead of printf or std::cout for logging (required)
+
+#### Rationale
+
+- Reasons include the following:
+  - It allows for consistent log level management. For instance, with RCLCPP\_\* macros, you can simply set --log_level to adjust the log level uniformly across the application.
+  - You can standardize the format using RCUTILS_CONSOLE_OUTPUT_FORMAT.
+  - With RCLCPP\_\* macros, logs are automatically recorded to /rosout. These logs can be saved to a rosbag, which can then be replayed to review the log data.
+
+#### Reference
+
+- [Autoware Documentation for Console logging in ROS Node](../ros-nodes/console-logging.md)
