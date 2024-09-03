@@ -166,7 +166,7 @@ The tool provides two options to anonymize images in ROS 2 bag files.
 
 !!! warning
 
-    If your ROS 2 bag file includes custom message types from Autoware or any other packages, you should source the 
+    If your ROS 2 bag file includes custom message types from Autoware or any other packages, you should source the
     their workspaces before running the tool.
 
     You can source Autoware workspace with the following command.
