@@ -481,11 +481,11 @@ so the lidar group for Robosense Lidar (i.e., for Bpearl) should be like this st
       <push-ros-namespace namespace="<YOUR-SENSOR-NAMESPACE>"/>
       <include file="$(find-pkg-share common_sensor_launch)/launch/robosense_Bpearl.launch.xml">
         <arg name="max_range" value="30.0"/>
-        <arg name="sensor_frame" value="<YOUR-HESAI-SENSOR-FRAME>"/>
-        <arg name="sensor_ip" value="<YOUR-HESAI-SENSOR-IP>"/>
+        <arg name="sensor_frame" value="<YOUR-ROBOSENSE-SENSOR-FRAME>"/>
+        <arg name="sensor_ip" value="<YOUR-ROBOSENSE-SENSOR-IP>"/>
         <arg name="host_ip" value="$(var host_ip)"/>
-        <arg name="data_port" value="<YOUR-HESAI-SENSOR-DATA-PORT>"/>
-        <arg name="gnss_port" value="<YOUR-HESAI-SENSOR-GNSS-PORT>"/>
+        <arg name="data_port" value="<YOUR-ROBOSENSE-SENSOR-DATA-PORT>"/>
+        <arg name="gnss_port" value="<YOUR-ROBOSENSE-SENSOR-GNSS-PORT>"/>
         <arg name="scan_phase" value="0.0"/>
         <arg name="launch_driver" value="$(var launch_driver)"/>
         <arg name="vehicle_mirror_param_file" value="$(var vehicle_mirror_param_file)"/>
