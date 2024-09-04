@@ -44,6 +44,13 @@ The data contains data from the following sensors:
   - [https://drive.google.com/drive/folders/1HmWYkxF5XvVCR27R8W7ZqO7An4HlJ6lD?usp=drive_link](https://drive.google.com/drive/folders/1HmWYkxF5XvVCR27R8W7ZqO7An4HlJ6lD?usp=drive_link)
   - Point clouds are collected as PCAP and feature-matched GNSS/INS data exported to a txt file.
 
+### Localization Performance Evaluation with Autoware
+
+The report of the performance evaluation of the current Autoware with the collected data can be found in the link below.
+> The report documented at **2024-08-28**.
+
+- [https://github.com/orgs/autowarefoundation/discussions/5135](https://github.com/orgs/autowarefoundation/discussions/5135)
+
 ### Topic list
 
 For collecting the GNSS/INS data, [this](https://github.com/autowarefoundation/applanix) repository is used.
