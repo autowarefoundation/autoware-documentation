@@ -102,12 +102,7 @@ def tabulate(data, header):
     return "\n".join(format.format(*line) for line in [header, border, *data])
 
 
-def main():
-    # Create a list of data types used in adapi.
-    adapi = Path("docs/design/autoware-interfaces/ad-api/list/api")
-    pages = (load_markdown_metadata(path) for path in adapi.glob("**/*.md"))
-    pages = [page for page in pages if page]
-
+def update_type_page(pages):
     # Create a field list for each data type.
     names = (page["type"]["name"] for page in pages)
     specs = {}
@@ -158,18 +153,32 @@ def main():
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text)
 
-    ## Generate api list page.
-    data = []
-    for page in sorted(pages, key=lambda page: page["title"]):
-        title = page["title"]
-        data.append([f"[{title}](.{title}.md)", page['status']])
-    text = "# List of Autoware AD API\n\n" + tabulate(data, ["API", "Release"]) + "\n"
-    Path("docs/design/autoware-interfaces/ad-api/list/index.md").write_text(text)
-
     ## Generate api type page.
     text = "# Types of Autoware AD API\n\n"
     for spec in sorted(specs):
         text += f"- [{spec}](./{spec}.md)\n"
     Path("docs/design/autoware-interfaces/ad-api/types/index.md").write_text(text)
+
+
+def update_list_page(pages):
+    ## Generate api list page.
+    data = []
+    for page in sorted(pages, key=lambda page: page["title"]):
+        title = page["title"]
+        data.append([f"[{title}](.{title}.md)", page["status"], page["method"]])
+    text = "# List of Autoware AD API\n\n" + tabulate(data, ["API", "Release", "Method"]) + "\n"
+    Path("docs/design/autoware-interfaces/ad-api/list/index.md").write_text(text)
+
+
+def main():
+    # Create a list of data types used in adapi.
+    adapi = Path("docs/design/autoware-interfaces/ad-api/list/api")
+    pages = (load_markdown_metadata(path) for path in adapi.glob("**/*.md"))
+    pages = [page for page in pages if page]
+
+    update_list_page(pages)
+    update_type_page(pages)
+
+
 
 main()
