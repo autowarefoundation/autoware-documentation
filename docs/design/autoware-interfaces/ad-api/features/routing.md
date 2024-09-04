@@ -38,4 +38,4 @@ See the sections below for supported options and details.
 
 ### allow_while_using_route
 
-**[v1.6.0]** This option only affects the route change APIs. Autoware accepts new route even while the vehicle is using the current route. The route is only changed if it is safe to transition to the new route. When set false, the APIs always fail when the using the route.
+**[v1.6.0]** This option only affects the route change APIs. Autoware accepts new route even while the vehicle is using the current route. The APIs fail if it cannot safely transition to new route. When set false, the APIs always fail when the vehicle is using the route.
