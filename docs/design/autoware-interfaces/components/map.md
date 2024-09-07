@@ -26,17 +26,18 @@ It loads point cloud files and publishes the maps to the other Autoware nodes in
 
 ### Lanelet2 map
 
-It loads a Lanelet2 file and publishes the map data as `autoware_auto_mapping_msgs/msg/HADMapBin` message. The lan/lon coordinates are projected onto the MGRS coordinates.
+It loads Lanelet2 files and publishes the map data in various configurations. Currently, it supports the following types:
 
-- autoware_auto_mapping_msgs/msg/HADMapBin
+- Single Lanelet2 map (autoware_map_msgs/LaneletMapBin)
   - std_msgs/Header header
   - string version_map_format
   - string version_map
   - string name_map
   - uint8[] data
+- Multiple Lanelet2 maps loading via ROS service (autoware_map_msgs/srv/GetSelectedLanelet2Map)
 
 ### Lanelet2 map visualization
 
-Visualize `autoware_auto_mapping_msgs/HADMapBin` messages in `Rviz`.
+Visualize `autoware_map_msgs/LaneletMapBin` messages in `Rviz`.
 
 - visualization_msgs/msg/MarkerArray
