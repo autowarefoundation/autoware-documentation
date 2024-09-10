@@ -36,7 +36,7 @@ The data contains data from the following sensors:
   - Exported point clouds are exported via downsampling with 0.2 meters and 0.5 meters voxel grids.
 
 - You can find the ROS 2 bag which is collected simultaneously with the mapping data:
-  - [https://drive.google.com/drive/folders/1HH_ghCqQwuP1v8mt4tjvb2Ks_138o52d?usp=drive_link](https://drive.google.com/drive/folders/1HH_ghCqQwuP1v8mt4tjvb2Ks_138o52d?usp=drive_link)
+  - [https://drive.google.com/drive/folders/1NikD8Cu6qEsQmz5qwlJNl5GXomEus-Q0?usp=drive_link](https://drive.google.com/drive/folders/1NikD8Cu6qEsQmz5qwlJNl5GXomEus-Q0?usp=drive_link)
   - Due to the simultaneous data collection, we can assume that the point cloud maps and GNSS/INS
     data are the ground truth data for this rosbag.
 
