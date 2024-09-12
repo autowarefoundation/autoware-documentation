@@ -36,7 +36,7 @@ The data contains data from the following sensors:
   - Exported point clouds are exported via downsampling with 0.2 meters and 0.5 meters voxel grids.
 
 - You can find the ROS 2 bag which is collected simultaneously with the mapping data:
-  - [https://drive.google.com/drive/folders/1NikD8Cu6qEsQmz5qwlJNl5GXomEus-Q0?usp=drive_link](https://drive.google.com/drive/folders/1NikD8Cu6qEsQmz5qwlJNl5GXomEus-Q0?usp=drive_link)
+  - [https://drive.google.com/drive/folders/1GOrMwiNJDleGTntfd_Cwr_mHb4tnuUW0?usp=drive_link](https://drive.google.com/drive/folders/1GOrMwiNJDleGTntfd_Cwr_mHb4tnuUW0?usp=drive_link)
   - Due to the simultaneous data collection, we can assume that the point cloud maps and GNSS/INS
     data are the ground truth data for this rosbag.
 
@@ -59,16 +59,16 @@ For collecting the LiDAR data,
 [nebula](https://github.com/tier4/nebula/tree/6d55141ef3cf39d5612e34f2646834d6cd4a7ae3)
 repository is used.
 
-| Topic Name                                   | Message Type                                          |
-|----------------------------------------------| ----------------------------------------------------- |
-| `/applanix/lvx_client/autoware_orientation`  | `autoware_sensing_msgs/msg/GnssInsOrientationStamped` |
-| `/applanix/lvx_client/imu_raw`               | `sensor_msgs/msg/Imu`                                 |
-| `/applanix/lvx_client/twist_with_covariance` | `geometry_msgs/msg/TwistWithCovarianceStamped`        |
-| `/applanix/lvx_client/odom`                  | `nav_msgs/msg/Odometry`                               |
-| `/applanix/lvx_client/gnss/fix`              | `sensor_msgs/msg/NavSatFix`                           |
-| `/pandar_packets`                            | `pandar_msgs/msg/PandarScan`                       |
-| `/pandar_points`                             | `sensor_msgs/msg/PointCloud2`                         |
-| `/tf_static`                                 | `tf2_msgs/msg/TFMessage`                              |
+| Topic Name                                             | Message Type                                          |
+|--------------------------------------------------------| ----------------------------------------------------- |
+| `/applanix/lvx_client/autoware_orientation`            | `autoware_sensing_msgs/msg/GnssInsOrientationStamped` |
+| `/applanix/lvx_client/imu_raw`                         | `sensor_msgs/msg/Imu`                                 |
+| `/localization/twist_estimator/twist_with_covariance ` | `geometry_msgs/msg/TwistWithCovarianceStamped`        |
+| `/applanix/lvx_client/odom`                            | `nav_msgs/msg/Odometry`                               |
+| `/applanix/lvx_client/gnss/fix`                        | `sensor_msgs/msg/NavSatFix`                           |
+| `/clock`                                               | `rosgraph_msgs/msg/Clock`                       |
+| `/pandar_points`                                       | `sensor_msgs/msg/PointCloud2`                         |
+| `/tf_static`                                           | `tf2_msgs/msg/TFMessage`                              |
 
 #### Message Explanations
 
