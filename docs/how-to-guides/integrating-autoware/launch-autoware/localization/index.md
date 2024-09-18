@@ -36,7 +36,7 @@ The current localization launcher implemented by TIER IV supports multiple local
 `tier4_localization_component.launch.xml` has two arguments to select which estimators to launch:
 
 - **`pose_source:`** This argument specifies the pose_estimator, currently supporting `ndt` (default), `yabloc`, `artag` and `eagleye` for localization.
-  By default, Autoware launches [ndt_scan_matcher](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/ndt_scan_matcher) for pose estimator.
+  By default, Autoware launches [ndt_scan_matcher](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/autoware_ndt_scan_matcher) for pose estimator.
   You can use YabLoc as a camera-based localization method.
   For more details on YabLoc,
   please refer to the [README of YabLoc](https://github.com/autowarefoundation/autoware.universe/blob/main/localization/yabloc/README.md) in autoware.universe.
