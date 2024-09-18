@@ -2,7 +2,7 @@
 
 ## Related API
 
-- Door
+- [Vehicle doors](../features/vehicle-doors.md)
 
 ## Sequence
 

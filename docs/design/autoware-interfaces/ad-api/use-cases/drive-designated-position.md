@@ -2,8 +2,8 @@
 
 ## Related API
 
-- Driving
-- Route
+- [Operation mode](../features/operation_mode.md)
+- [Routing](../features/routing.md)
 
 ## Sequence
 

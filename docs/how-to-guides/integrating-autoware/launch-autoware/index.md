@@ -191,7 +191,7 @@ ros2 launch autoware_launch autoware_launch.launch.xml map_path:=<YOUR-MAP-PATH>
 ```
 
 After launching Autoware, we need to initialize our vehicle on our map.
-If you set [gnss_poser](https://autowarefoundation.github.io/autoware.universe/main/sensing/gnss_poser/) for your GNSS/INS sensor at `gnss.launch.xml`,
+If you set [gnss_poser](https://autowarefoundation.github.io/autoware.universe/main/sensing/autoware_gnss_poser/) for your GNSS/INS sensor at `gnss.launch.xml`,
 then gnss_poser will send pose for initialization.
 If you don't have a GNSS sensor, then you need to set initial pose manually.
 

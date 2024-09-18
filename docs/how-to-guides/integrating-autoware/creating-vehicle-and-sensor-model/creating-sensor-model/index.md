@@ -474,11 +474,25 @@ but you need to update `sensor_id`, `data_port`, `sensor_frame` and other necess
 
 Please add similar launch groups according to your sensor architecture.
 For example, we use Robosense Lidars for our `tutorial_vehicle`,
-so the lidar group for Robosense Lidar should be like this structure:
+so the lidar group for Robosense Lidar (i.e., for Bpearl) should be like this structure:
 
-!!! warning
-
-    under construction
+```xml
+    <group>
+      <push-ros-namespace namespace="<YOUR-SENSOR-NAMESPACE>"/>
+      <include file="$(find-pkg-share common_sensor_launch)/launch/robosense_Bpearl.launch.xml">
+        <arg name="max_range" value="30.0"/>
+        <arg name="sensor_frame" value="<YOUR-ROBOSENSE-SENSOR-FRAME>"/>
+        <arg name="sensor_ip" value="<YOUR-ROBOSENSE-SENSOR-IP>"/>
+        <arg name="host_ip" value="$(var host_ip)"/>
+        <arg name="data_port" value="<YOUR-ROBOSENSE-SENSOR-DATA-PORT>"/>
+        <arg name="gnss_port" value="<YOUR-ROBOSENSE-SENSOR-GNSS-PORT>"/>
+        <arg name="scan_phase" value="0.0"/>
+        <arg name="launch_driver" value="$(var launch_driver)"/>
+        <arg name="vehicle_mirror_param_file" value="$(var vehicle_mirror_param_file)"/>
+        <arg name="container_name" value="pointcloud_container"/>
+      </include>
+    </group>
+```
 
 If you are using a Hesai lidar (i.e. PandarQT64,
 please check [nebula](https://github.com/tier4/nebula) driver page for supported sensors),
@@ -517,10 +531,10 @@ you can modify the pipeline components like this way:
 
     nodes.append(
         ComposableNode(
-            package="pointcloud_preprocessor",
--           plugin="pointcloud_preprocessor::RingOutlierFilterComponent",
+            package="autoware_pointcloud_preprocessor",
+-           plugin="autoware::pointcloud_preprocessor::RingOutlierFilterComponent",
 -           name="ring_outlier_filter",
-+           plugin="pointcloud_preprocessor::DualReturnOutlierFilterComponent",
++           plugin="autoware::pointcloud_preprocessor::DualReturnOutlierFilterComponent",
 +           name="dual_return_outlier_filter",
             remappings=[
                 ("input", "rectified/pointcloud_ex"),
@@ -901,11 +915,11 @@ We will set up the GNSS/INS sensor launches at `gnss.launch.xml`.
 The default GNSS sensor options at [`sample_sensor_kit_launch`](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_launch/launch/gnss.launch.xml) for [u-blox](https://www.u-blox.com/en/)
 and [septentrio](https://www.septentrio.com/en) is included in `gnss.launch.xml`,
 so If we use other sensors as GNSS/INS receiver, we need to add it here.
-Moreover, [gnss_poser](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/gnss_poser) package launches here,
+Moreover, [gnss_poser](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/autoware_gnss_poser) package launches here,
 we will use this package for the pose source of our vehicle at localization initialization but remember,
 your sensor_driver must provide [autoware gnss orientation message](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_sensing_msgs/msg/GnssInsOrientationStamped.msg) for this node.
 If you are ready with your GNSS/INS driver,
-you must set `navsatfix_topic_name` and `orientation_topic_name` variables at this launch file for [gnss_poser](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/gnss_poser) arguments.
+you must set `navsatfix_topic_name` and `orientation_topic_name` variables at this launch file for [gnss_poser](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/autoware_gnss_poser) arguments.
 For Example, necessary modifications for <YOUR-GNSS-SENSOR> should be like this:
 
 ```diff
@@ -978,7 +992,7 @@ our `gnss.launch.xml` for tutorial vehicle should be like this file
         </group>
 
         <!-- NavSatFix to MGRS Pose -->
-        <include file="$(find-pkg-share gnss_poser)/launch/gnss_poser.launch.xml">
+        <include file="$(find-pkg-share autoware_gnss_poser)/launch/gnss_poser.launch.xml">
           <arg name="input_topic_fix" value="$(var navsatfix_topic_name)"/>
           <arg name="input_topic_orientation" value="$(var orientation_topic_name)"/>
 

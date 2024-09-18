@@ -31,6 +31,7 @@ This diagram describes the high-level architecture of the Sensing Component.
 | GNSS-INS orientation                         | [autoware_sensing_msgs/GnssInsOrientationStamped.msg](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_sensing_msgs/msg/GnssInsOrientationStamped.msg) |
 | GNSS-INS velocity                            | [geometry_msgs/msg/TwistWithCovarianceStamped.msg](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/TwistWithCovarianceStamped.msg)                  |
 | GNSS-INS acceleration                        | [geometry_msgs/msg/AccelWithCovarianceStamped.msg](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/AccelWithCovarianceStamped.msg)                  |
+| IMU                                          | [sensor_msgs/msg/Imu.msg](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Imu.msg)                                                                    |
 | Ultrasonics                                  | [sensor_msgs/msg/Range.msg](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Range.msg)                                                                |
 
 ## Design by data-types
