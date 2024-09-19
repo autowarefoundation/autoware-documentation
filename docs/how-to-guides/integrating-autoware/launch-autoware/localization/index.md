@@ -59,7 +59,7 @@ The current localization launcher implemented by TIER IV supports multiple local
 
 - **`twist_source:`** This argument specifies the twist_estimator, currently supporting `gyro_odom` (default), and `eagleye`.
   By default,
-  Autoware launches [gyro_odometer](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/gyro_odometer) for twist estimator.
+  Autoware launches [gyro_odometer](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/autoware_gyro_odometer) for twist estimator.
   Also, you can use eagleye for the twist source, please refer to the [Eagleye](./eagleye/index.md).
   If you want to change your twist source to eagleye, you can update `tier4_localization_component.launch.xml` like:
 
@@ -76,7 +76,7 @@ The current localization launcher implemented by TIER IV supports multiple local
 
 - **`input_pointcloud:`** This argument specifies the input pointcloud of the localization pointcloud pipeline. The default value is
   `/sensing/lidar/top/outlier_filtered/pointcloud` which
-  is output of the [pointcloud pre-processing](https://autowarefoundation.github.io/autoware.universe/main/sensing/pointcloud_preprocessor/) pipeline from sensing.
+  is output of the [pointcloud pre-processing](https://autowarefoundation.github.io/autoware.universe/main/sensing/autoware_pointcloud_preprocessor/) pipeline from sensing.
   You can change this value according to your LiDAR topic name,
   or you can choose to use concatenated point cloud:
 
