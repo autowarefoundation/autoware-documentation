@@ -141,6 +141,7 @@ sudo apt-get -y install git
    It might be the case that dependencies imported via `vcs import` have been moved/removed.
    VCStool does not currently handle those cases, so if builds fail after `vcs import`, cleaning
    and re-importing all dependencies may be necessary:
+
    ```bash
    rm -rf src
    vcs import src < autoware.repos
