@@ -88,6 +88,9 @@ sudo apt-get -y install git
 
    ```bash
    source /opt/ros/humble/setup.bash
+   # Make sure all previously installed ros-$ROS_DISTRO-* packages are upgraded to their latest version
+   sudo apt update && sudo apt upgrade
+   rosdep update
    rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 
@@ -135,10 +138,21 @@ sudo apt-get -y install git
 
    For more information, refer to the [official documentation](https://github.com/dirk-thomas/vcstool).
 
+   It might be the case that dependencies imported via `vcs import` have been moved/removed.
+   VCStool does not currently handle those cases, so if builds fail after `vcs import`, cleaning
+   and re-importing all dependencies may be necessary:
+   ```bash
+   rm -rf src
+   vcs import src < autoware.repos
+   ```
+
 3. Install dependent ROS packages.
 
    ```bash
    source /opt/ros/humble/setup.bash
+   # Make sure all previously installed ros-$ROS_DISTRO-* packages are upgraded to their latest version
+   sudo apt update && sudo apt upgrade
+   rosdep update
    rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 
