@@ -62,7 +62,8 @@ sudo apt-get -y install git
     - [Install ROS 2 Dev Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2_dev_tools#manual-installation)
     - [Install Nvidia CUDA](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/cuda#manual-installation)
     - [Install Nvidia cuDNN and TensorRT](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/tensorrt#manual-installation)
-    - [Download the Artifacts](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts) (for perception inference)
+    - [Install the Autoware RViz Theme](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/qt5ct_setup#readme) (only affects Autoware RViz)
+    - [Download the Artifacts](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts#readme) (for perception inference)
 
 ## How to set up a workspace
 
