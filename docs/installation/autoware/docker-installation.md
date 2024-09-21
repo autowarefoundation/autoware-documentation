@@ -126,7 +126,7 @@ Inside the container, you can run the Autoware tutorials by following these link
 > and re-importing all dependencies may be necessary:
 >
 > ```bash
-> rm -rf src
+> rm -rf src/*
 > vcs import src < autoware.repos
 > ```
 

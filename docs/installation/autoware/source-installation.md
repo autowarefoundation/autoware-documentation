@@ -143,7 +143,7 @@ sudo apt-get -y install git
    and re-importing all dependencies may be necessary:
 
    ```bash
-   rm -rf src
+   rm -rf src/*
    vcs import src < autoware.repos
    ```
 
