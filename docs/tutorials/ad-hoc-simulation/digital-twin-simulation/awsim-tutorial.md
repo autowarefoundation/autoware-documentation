@@ -9,37 +9,37 @@ AWSIM Labs is a fork of AWSIM, developed under the Autoware Foundation, providin
 ### Simulator Features
 
 | Simulator Features                                             | AWSIM 1.2.3 | AWSIM Labs 1.4.2 |
-|----------------------------------------------------------------|-------------|------------------|
+| -------------------------------------------------------------- | ----------- | ---------------- |
 | Rendering Pipeline                                             | HDRP        | URP              |
 | Resource usage                                                 | Heavy 🐢    | Light 🐇         |
-| Can toggle vehicle keyboard control from GUI                   | ✅           | ✅                |
-| Radar sensor support                                           | ✅           | ✅                |
-| Lidar sensor multiple returns support                          | ✅           | ❌                |
-| Raw radar output                                               | ✅           | ❌                |
-| Lidar snow energy loss feature                                 | ✅           | ❌                |
-| Physically based vehicle dynamics simulation (VPP integration) | ❌           | ✅                |
-| Can reset vehicle position on runtime                          | ❌           | ✅                |
-| Select maps and vehicles at startup                            | ❌           | ✅                |
-| Scenario simulator integrated into the same binary             | ❌           | ✅                |
-| Multi-lidars are enabled by default                            | ❌           | ✅                |
-| Set vehicle pose and spawn objects from RViz2                  | ❌           | ✅                |
-| Visualize multiple cameras and move them dynamically           | ❌           | ✅                |
-| Turn sensors on/off during runtime                             | ❌           | ✅                |
-| Graphics quality settings (Low/Medium/Ultra)                   | ❌           | ✅                |
-| Bird’s eye view camera option                                  | ❌           | ✅                |
-| Works with the latest Autoware main branch                     | ❌           | ✅                |
+| Can toggle vehicle keyboard control from GUI                   | ✅          | ✅               |
+| Radar sensor support                                           | ✅          | ✅               |
+| Lidar sensor multiple returns support                          | ✅          | ❌               |
+| Raw radar output                                               | ✅          | ❌               |
+| Lidar snow energy loss feature                                 | ✅          | ❌               |
+| Physically based vehicle dynamics simulation (VPP integration) | ❌          | ✅               |
+| Can reset vehicle position on runtime                          | ❌          | ✅               |
+| Select maps and vehicles at startup                            | ❌          | ✅               |
+| Scenario simulator integrated into the same binary             | ❌          | ✅               |
+| Multi-lidars are enabled by default                            | ❌          | ✅               |
+| Set vehicle pose and spawn objects from RViz2                  | ❌          | ✅               |
+| Visualize multiple cameras and move them dynamically           | ❌          | ✅               |
+| Turn sensors on/off during runtime                             | ❌          | ✅               |
+| Graphics quality settings (Low/Medium/Ultra)                   | ❌          | ✅               |
+| Bird’s eye view camera option                                  | ❌          | ✅               |
+| Works with the latest Autoware main branch                     | ❌          | ✅               |
 
 ### Development Features
 
-| Development Features                              | AWSIM            | AWSIM Labs               |
-|---------------------------------------------------|------------------|--------------------------|
-| Unity Version                                     | Unity 2021.1.7f1 | Unity LTS 2022.3.36f1    |
-| CI for build                                      | ✅                | ❌ (disabled temporarily) |
-| Various regression unit tests                     | ✅                | ❌                        |
-| CI for documentation generation within PR         | ❌                | ✅                        |
-| Main branch is protected with linear history      | ❌                | ✅                        |
-| Pre-commit for code formatting                    | ❌                | ✅                        |
-| Documentation page shows PR branches before merge | ❌                | ✅                        |
+| Development Features                              | AWSIM            | AWSIM Labs                |
+| ------------------------------------------------- | ---------------- | ------------------------- |
+| Unity Version                                     | Unity 2021.1.7f1 | Unity LTS 2022.3.36f1     |
+| CI for build                                      | ✅               | ❌ (disabled temporarily) |
+| Various regression unit tests                     | ✅               | ❌                        |
+| CI for documentation generation within PR         | ❌               | ✅                        |
+| Main branch is protected with linear history      | ❌               | ✅                        |
+| Pre-commit for code formatting                    | ❌               | ✅                        |
+| Documentation page shows PR branches before merge | ❌               | ✅                        |
 
 ## AWSIM Labs
 
