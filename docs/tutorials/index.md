@@ -46,7 +46,9 @@ Digital twin simulation is a simulation type that is able to produce realistic d
 Components evaluation tutorials provide a way to evaluate the performance of Autoware's components in a controlled environment.
 
 ### Localization Evaluation
+
 The Localization Evaluation tutorial provides a way to evaluate the performance of the Localization component.
 
 #### Urban Environment Evaluation
+
 The Urban Environment Evaluation tutorial provides a way to evaluate the performance of the Localization component in urban environment. It uses the [Istanbul Open Dataset](https://autowarefoundation.github.io/autoware-documentation/main/datasets/#istanbul-open-dataset) for testing. Test data, map, test steps are included. Test results are also shared
