@@ -6,11 +6,12 @@ Autoware partners provide datasets for testing and development. These datasets a
 
 The dataset is collected in the following route. Tunnels and bridges are annotated on the image.
 The included specific areas into the dataset are:
-  - Galata Bridge (Small Bridge)
-  - Eurasia Tunnel (Long Tunnel with High Elevation Changes)
-  - 2nd Bosphorus Bridge (Long Bridge)
-  - Kagithane-Bomonti Tunnel (Small Tunnel)
-  - Viaducts, road junctions, highways, dense urban areas...
+
+- Galata Bridge (Small Bridge)
+- Eurasia Tunnel (Long Tunnel with High Elevation Changes)
+- 2nd Bosphorus Bridge (Long Bridge)
+- Kagithane-Bomonti Tunnel (Small Tunnel)
+- Viaducts, road junctions, highways, dense urban areas...
 
 <p align='center'>
     <img src="images/ist_dataset_route_3_resized.png" alt="ist_dataset_route2" width="80%"/>
@@ -36,6 +37,7 @@ The data contains data from the following sensors:
   - Exported point clouds are exported via downsampling with 0.2 meters and 0.5 meters voxel grids.
 
 - You can find the ROS 2 bag which is collected simultaneously with the mapping data:
+
   - [https://drive.google.com/drive/folders/17zXiBeYlM90gQ5hV6EAWaoBTnNFoVPML?usp=drive_link](https://drive.google.com/drive/folders/17zXiBeYlM90gQ5hV6EAWaoBTnNFoVPML?usp=drive_link)
   - Due to the simultaneous data collection, we can assume that the point cloud maps and GNSS/INS
     data are the ground truth data for this rosbag.
@@ -47,6 +49,7 @@ The data contains data from the following sensors:
 ### Localization Performance Evaluation with Autoware
 
 The report of the performance evaluation of the current Autoware with the collected data can be found in the link below.
+
 > The report documented at **2024-08-28**.
 
 - [https://github.com/orgs/autowarefoundation/discussions/5135](https://github.com/orgs/autowarefoundation/discussions/5135)
@@ -59,16 +62,16 @@ For collecting the LiDAR data,
 [nebula](https://github.com/tier4/nebula/tree/6d55141ef3cf39d5612e34f2646834d6cd4a7ae3)
 repository is used.
 
-| Topic Name                                             | Message Type                                          |
-|--------------------------------------------------------|-------------------------------------------------------|
-| `/applanix/lvx_client/autoware_orientation`            | `autoware_sensing_msgs/msg/GnssInsOrientationStamped` |
-| `/applanix/lvx_client/imu_raw`                         | `sensor_msgs/msg/Imu`                                 |
-| `/localization/twist_estimator/twist_with_covariance ` | `geometry_msgs/msg/TwistWithCovarianceStamped`        |
-| `/applanix/lvx_client/odom`                            | `nav_msgs/msg/Odometry`                               |
-| `/applanix/lvx_client/gnss/fix`                        | `sensor_msgs/msg/NavSatFix`                           |
-| `/clock`                                               | `rosgraph_msgs/msg/Clock`                             |
-| `/pandar_points`                                       | `sensor_msgs/msg/PointCloud2`                         |
-| `/tf_static`                                           | `tf2_msgs/msg/TFMessage`                              |
+| Topic Name                                            | Message Type                                          |
+| ----------------------------------------------------- | ----------------------------------------------------- |
+| `/applanix/lvx_client/autoware_orientation`           | `autoware_sensing_msgs/msg/GnssInsOrientationStamped` |
+| `/applanix/lvx_client/imu_raw`                        | `sensor_msgs/msg/Imu`                                 |
+| `/localization/twist_estimator/twist_with_covariance` | `geometry_msgs/msg/TwistWithCovarianceStamped`        |
+| `/applanix/lvx_client/odom`                           | `nav_msgs/msg/Odometry`                               |
+| `/applanix/lvx_client/gnss/fix`                       | `sensor_msgs/msg/NavSatFix`                           |
+| `/clock`                                              | `rosgraph_msgs/msg/Clock`                             |
+| `/pandar_points`                                      | `sensor_msgs/msg/PointCloud2`                         |
+| `/tf_static`                                          | `tf2_msgs/msg/TFMessage`                              |
 
 #### Message Explanations
 
@@ -100,8 +103,6 @@ types for additional information. Following topics are the default ROS 2 message
 - `/pandar_points`
 
   - Gives the point cloud from the LiDAR sensor.
-
-  
 
 ## Bus-ODD (Operational Design Domain) datasets
 
