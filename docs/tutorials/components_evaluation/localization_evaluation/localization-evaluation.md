@@ -59,7 +59,8 @@ gdown --id 1WPWmFCjV7eQee4kyBpmGNlX7awerCPxc -O ~/autoware_ista_map/
 
 2.)Download the test rosbag files.
 
-* You can also download [the rosbag file](https://drive.google.com/drive/folders/1BMPcUhjq_BCLi521X88WpujoOiEi3_CJ?usp=drive_link) manually.
+- You can also download [the rosbag file](https://drive.google.com/drive/folders/1BMPcUhjq_BCLi521X88WpujoOiEi3_CJ?usp=drive_link) manually.
+
 ```bash
 mkdir ~/autoware_ista_data
 gdown --id 1uta5Xr_ftV4jERxPNVqooDvWerK0dn89 -O ~/autoware_ista_data/
