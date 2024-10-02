@@ -36,7 +36,7 @@ The data contains data from the following sensors:
   - Exported point clouds are exported via downsampling with 0.2 meters and 0.5 meters voxel grids.
 
 - You can find the ROS 2 bag which is collected simultaneously with the mapping data:
-  - [https://drive.google.com/drive/folders/1GOrMwiNJDleGTntfd_Cwr_mHb4tnuUW0?usp=drive_link](https://drive.google.com/drive/folders/1GOrMwiNJDleGTntfd_Cwr_mHb4tnuUW0?usp=drive_link)
+  - [https://drive.google.com/drive/folders/17zXiBeYlM90gQ5hV6EAWaoBTnNFoVPML?usp=drive_link](https://drive.google.com/drive/folders/17zXiBeYlM90gQ5hV6EAWaoBTnNFoVPML?usp=drive_link)
   - Due to the simultaneous data collection, we can assume that the point cloud maps and GNSS/INS
     data are the ground truth data for this rosbag.
 
@@ -60,13 +60,13 @@ For collecting the LiDAR data,
 repository is used.
 
 | Topic Name                                             | Message Type                                          |
-|--------------------------------------------------------| ----------------------------------------------------- |
+|--------------------------------------------------------|-------------------------------------------------------|
 | `/applanix/lvx_client/autoware_orientation`            | `autoware_sensing_msgs/msg/GnssInsOrientationStamped` |
 | `/applanix/lvx_client/imu_raw`                         | `sensor_msgs/msg/Imu`                                 |
 | `/localization/twist_estimator/twist_with_covariance ` | `geometry_msgs/msg/TwistWithCovarianceStamped`        |
 | `/applanix/lvx_client/odom`                            | `nav_msgs/msg/Odometry`                               |
 | `/applanix/lvx_client/gnss/fix`                        | `sensor_msgs/msg/NavSatFix`                           |
-| `/clock`                                               | `rosgraph_msgs/msg/Clock`                       |
+| `/clock`                                               | `rosgraph_msgs/msg/Clock`                             |
 | `/pandar_points`                                       | `sensor_msgs/msg/PointCloud2`                         |
 | `/tf_static`                                           | `tf2_msgs/msg/TFMessage`                              |
 
@@ -101,29 +101,7 @@ types for additional information. Following topics are the default ROS 2 message
 
   - Gives the point cloud from the LiDAR sensor.
 
-- `/pandar_packets`
-  - Gives the LiDAR packets.
-
-Also the Applanix raw messages are also included in the rosbag.
-In order to be able to play back these messages, you need to build and source
-the `applanix_msgs` package.
-
-```bash
-# Create a workspace and clone the repository
-mkdir -p ~/applanix_ws/src && cd "$_"
-git clone https://github.com/autowarefoundation/applanix.git
-cd ..
-
-# Build the workspace
-colcon build --symlink-install --packages-select applanix_msgs
-
-# Source the workspace
-source ~/applanix_ws/install/setup.bash
-
-# Now you can play back the messages
-```
-
-Also make sure to source Autoware Universe workspace too.
+  
 
 ## Bus-ODD (Operational Design Domain) datasets
 
