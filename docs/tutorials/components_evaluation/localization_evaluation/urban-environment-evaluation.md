@@ -25,9 +25,12 @@ The data contains data from the following sensors:
 
 You can find the data collected for testing and mapping in this [Documentation](https://autowarefoundation.github.io/autoware-documentation/main/datasets/#istanbul-open-dataset).
 
-> [!Note]
-> Since there was no velocity source coming from the vehicle during all these tests, the twist message coming from GNSS/INS was given to ekf_localizer as the linear&angular velocity source.
-> In order to understand whether this increases the error in cases where the GNSS/INS error increases in the tunnel and how it affects the system, localization in the tunnel was tested by giving only the pose from the NDT, without giving this velocity to ekf_localizer. The video of this test is [here](https://www.youtube.com/watch?v=ajgedIwwuaM).
+
+> <span style="color:blue">**NOTE ! :**</span> </br>
+> Since there was no velocity source coming from the vehicle during all these tests, the twist message coming from GNSS/INS was given to ekf_localizer as the linear&angular velocity source. </br>
+> In order to understand whether this increases the error in cases where the GNSS/INS error increases in the tunnel and how it affects the system, localization in the tunnel was tested by giving only the pose from the NDT, without giving this velocity to ekf_localizer. </br>
+> 
+> The video of this test is [here](https://www.youtube.com/watch?v=ajgedIwwuaM). </br>
 > As seen in the video, when velocity is not given, localization in the tunnel deteriorates more quickly.
 > It is also predicted that if the IMU Twist message combined (/localization/twist_estimator/twist_with_covariance) with the linear velocity from the vehicle is given instead of the GNSS/INS Twist message, the performance in the tunnel will increase. However, this test cannot be done with the current data.
 
@@ -54,7 +57,7 @@ mkdir ~/autoware_ista_map
 gdown --id 1WPWmFCjV7eQee4kyBpmGNlX7awerCPxc -O ~/autoware_ista_map/
 ```
 
-> [!Note]
+> <span style="color:blue">**NOTE ! :**</span></br>
 > You also need to add `lanelet2_map.osm` file to autoware_ista_map folder. Since no lanelet file is created for this map at the
 > moment, you can run any `lanelet2_map.osm` file by placing it in this folder.
 
@@ -132,7 +135,7 @@ mkdir ~/autoware_ista_map
 gdown --id 1WPWmFCjV7eQee4kyBpmGNlX7awerCPxc -O ~/autoware_ista_map/
 ```
 
-> [!Note]
+> <span style="color:blue">**NOTE ! :**</span></br>
 > You also need to add `lanelet2_map.osm` file to autoware_ista_map folder. Since no lanelet file is created for this map at the
 > moment, you can run any `lanelet2_map.osm` file by placing it in this folder.
 
