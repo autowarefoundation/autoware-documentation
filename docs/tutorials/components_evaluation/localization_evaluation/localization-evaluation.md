@@ -2,8 +2,8 @@
 
 #### Related Links
 
-The Issue --> <https://github.com/autowarefoundation/autoware.universe/issues/7652>
-Data Collection Documentation PR --> <https://github.com/autowarefoundation/autoware-documentation/pull/597>
+The Issue --> <https://github.com/autowarefoundation/autoware.universe/issues/7652> </br>
+Data Collection Documentation --> <https://autowarefoundation.github.io/autoware-documentation/main/datasets/#istanbul-open-dataset>
 
 #### Purpose
 
@@ -23,7 +23,7 @@ The data contains data from the following sensors:
 - 1 x Applanix POS LVX GNSS/INS System
 - 1 x Hesai Pandar XT32 LiDAR
 
-You can find the data collected for testing and mapping in this [PR document](https://github.com/autowarefoundation/autoware-documentation/pull/597).
+You can find the data collected for testing and mapping in this [Documentation](https://autowarefoundation.github.io/autoware-documentation/main/datasets/#istanbul-open-dataset).
 
 > [!Note]
 > Since there was no velocity source coming from the vehicle during all these tests, the twist message coming from GNSS/INS was given to ekf_localizer as the linear&angular velocity source.
