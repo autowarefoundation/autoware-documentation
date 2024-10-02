@@ -39,15 +39,12 @@ By repeatedly playing back the data, this simulation type can also be used for e
 
 Digital twin simulation is a simulation type that is able to produce realistic data and simulate almost the entire system. It is also commonly referred to as end-to-end simulation.
 
-
 # Evaluation Tutorials
 
 ## Components Evaluation
+
 Components evaluation tutorials provide a way to evaluate the performance of Autoware's components in a controlled environment.
 
 ### Localization Evaluation
 
 The Localization Evaluation tutorial provides a way to evaluate the performance of the Localization component in urban environment. It uses the [Istanbul Open Dataset](https://autowarefoundation.github.io/autoware-documentation/main/datasets/#istanbul-open-dataset) for testing.
-
-
-
