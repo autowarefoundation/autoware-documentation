@@ -62,7 +62,8 @@ sudo apt-get -y install git
     - [Install ROS 2 Dev Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2_dev_tools#manual-installation)
     - [Install Nvidia CUDA](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/cuda#manual-installation)
     - [Install Nvidia cuDNN and TensorRT](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/tensorrt#manual-installation)
-    - [Download the Artifacts](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts) (for perception inference)
+    - [Install the Autoware RViz Theme](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/qt5ct_setup#readme) (only affects Autoware RViz)
+    - [Download the Artifacts](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts#readme) (for perception inference)
 
 ## How to set up a workspace
 
@@ -88,6 +89,9 @@ sudo apt-get -y install git
 
    ```bash
    source /opt/ros/humble/setup.bash
+   # Make sure all previously installed ros-$ROS_DISTRO-* packages are upgraded to their latest version
+   sudo apt update && sudo apt upgrade
+   rosdep update
    rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 
@@ -135,10 +139,22 @@ sudo apt-get -y install git
 
    For more information, refer to the [official documentation](https://github.com/dirk-thomas/vcstool).
 
+   It might be the case that dependencies imported via `vcs import` have been moved/removed.
+   VCStool does not currently handle those cases, so if builds fail after `vcs import`, cleaning
+   and re-importing all dependencies may be necessary:
+
+   ```bash
+   rm -rf src/*
+   vcs import src < autoware.repos
+   ```
+
 3. Install dependent ROS packages.
 
    ```bash
    source /opt/ros/humble/setup.bash
+   # Make sure all previously installed ros-$ROS_DISTRO-* packages are upgraded to their latest version
+   sudo apt update && sudo apt upgrade
+   rosdep update
    rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 

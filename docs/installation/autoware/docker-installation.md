@@ -90,11 +90,12 @@ Inside the container, you can run the Autoware tutorials by following these link
 
 2. Update dependent ROS packages.
 
-   The dependency of Autoware may change after the Docker image was created.
-   In that case, you need to run the following commands to update the dependency.
+   The dependencies of Autoware may have changed after the Docker image was created.
+   In that case, you need to run the following commands to update the dependencies.
 
    ```bash
-   sudo apt update
+   # Make sure all ros-$ROS_DISTRO-* packages are upgraded to their latest version
+   sudo apt update && sudo apt upgrade
    rosdep update
    rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
@@ -114,6 +115,19 @@ Inside the container, you can run the Autoware tutorials by following these link
 > git pull
 > vcs import src < autoware.repos
 > vcs pull src
+> # Make sure all ros-$ROS_DISTRO-* packages are upgraded to their latest version
+> sudo apt update && sudo apt upgrade
+> rosdep update
+> rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
+> ```
+>
+> It might be the case that dependencies imported via `vcs import` have been moved/removed.
+> VCStool does not currently handle those cases, so if builds fail after `vcs import`, cleaning
+> and re-importing all dependencies may be necessary:
+>
+> ```bash
+> rm -rf src/*
+> vcs import src < autoware.repos
 > ```
 
 #### Using VS Code remote containers for development
