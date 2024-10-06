@@ -5,7 +5,7 @@
 When your created point cloud map is either too dense or too large (i.e., exceeding 300 MB),
 you may want to downsample it for improved computational and memory efficiency.
 Also, you can consider using dynamic map loading with partial loading,
-please check [map_loader package](https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_loader) for more information.
+please check [autoware_map_loader package](https://github.com/autowarefoundation/autoware.universe/tree/main/map/autoware_map_loader) for more information.
 
 At tutorial_vehicle implementation we will use the whole map,
 so we will downsample it with using [CloudCompare](https://www.cloudcompare.org/main.html).
