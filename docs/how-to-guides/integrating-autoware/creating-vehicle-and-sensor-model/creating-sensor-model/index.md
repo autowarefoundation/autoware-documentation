@@ -420,7 +420,7 @@ The current autoware sensing launch files design for `sensor_kit_launch` package
   </figcaption>
 </figure>
 
-The `sensing.launch.xml` also launches `vehicle_velocity_converter` package
+The `sensing.launch.xml` also launches `autoware_vehicle_velocity_converter` package
 for converting `autoware_auto_vehicle_msgs::msg::VelocityReport` message to `geometry_msgs::msg::TwistWithCovarianceStamped` for gyro_odometer node.
 So,
 be sure
@@ -429,7 +429,7 @@ or you must update `input_vehicle_velocity_topic` at `sensing.launch.xml`.
 
 ```diff
     ...
-    <include file="$(find-pkg-share vehicle_velocity_converter)/launch/vehicle_velocity_converter.launch.xml">
+    <include file="$(find-pkg-share autoware_vehicle_velocity_converter)/launch/vehicle_velocity_converter.launch.xml">
 -     <arg name="input_vehicle_velocity_topic" value="/vehicle/status/velocity_status"/>
 +     <arg name="input_vehicle_velocity_topic" value="<YOUR-VELOCITY-STATUS-TOPIC>"/>
       <arg name="output_twist_with_covariance" value="/sensing/vehicle_velocity_converter/twist_with_covariance"/>

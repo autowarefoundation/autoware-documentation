@@ -90,7 +90,7 @@ Current velocity of the ego vehicle, published by the vehicle interface.
   - float lateral_velocity;
   - float heading_rate;
 
-Before the velocity input localization interface, module `vehicle_velocity_converter` converts message type `autoware_auto_vehicle_msgs/msg/VelocityReport` to `geometry_msgs/msg/TwistWithCovarianceStamped`.
+Before the velocity input localization interface, module `autoware_vehicle_velocity_converter` converts message type `autoware_auto_vehicle_msgs/msg/VelocityReport` to `geometry_msgs/msg/TwistWithCovarianceStamped`.
 
 ## Outputs
 
