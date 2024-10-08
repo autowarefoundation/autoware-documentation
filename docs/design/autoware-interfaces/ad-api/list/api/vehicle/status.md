@@ -1,7 +1,7 @@
 ---
 title: /api/vehicle/status
 status: v1.4.0
-method: notification
+method: realtime stream
 type:
   name: autoware_adapi_v1_msgs/msg/VehicleStatus
   msg:

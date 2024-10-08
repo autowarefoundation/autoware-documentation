@@ -11,5 +11,5 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Clear the route.
+Clear the route. This API fails when the vehicle is using the route.
 {% endblock %}
