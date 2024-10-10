@@ -18,7 +18,7 @@
 
    ```bash
    ros2 launch random_test_runner random_test.launch.py \
-     architecture_type:=awf/universe \
+     architecture_type:=awf/universe/20240605 \
      sensor_model:=sample_sensor_kit \
      vehicle_model:=sample_vehicle
    ```
