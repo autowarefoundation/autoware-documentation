@@ -70,16 +70,16 @@ The simplest scenario is a single node.
 In this case, the integration test is commonly referred to as a component test.
 
 To add a component test to an existing node,
-you can follow the example of the `lanelet2_map_loader` in the [`map_loader` package](https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_loader)
+you can follow the example of the `lanelet2_map_loader` in the [`autoware_map_loader` package](https://github.com/autowarefoundation/autoware.universe/tree/main/map/autoware_map_loader)
 (added in [this PR](https://github.com/autowarefoundation/autoware.universe/pull/1056)).
 
-In [`package.xml`](https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/package.xml), add:
+In [`package.xml`](https://github.com/autowarefoundation/autoware.universe/blob/main/map/autoware_map_loader/package.xml), add:
 
 ```xml
 <test_depend>ros_testing</test_depend>
 ```
 
-In [`CMakeLists.txt`](https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/CMakeLists.txt),
+In [`CMakeLists.txt`](https://github.com/autowarefoundation/autoware.universe/blob/main/map/autoware_map_loader/CMakeLists.txt),
 add or modify the `BUILD_TESTING` section:
 
 ```cmake
@@ -106,7 +106,7 @@ To create a test,
 either read the [launch_testing quick-start example](https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example),
 or follow the steps below.
 
-Taking [`test/lanelet2_map_loader_launch.test.py`](https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/test/lanelet2_map_loader_launch.test.py) as an example,
+Taking [`test/lanelet2_map_loader_launch.test.py`](https://github.com/autowarefoundation/autoware.universe/blob/main/map/autoware_map_loader/test/lanelet2_map_loader_launch.test.py) as an example,
 first dependencies are imported:
 
 ```python
@@ -122,7 +122,7 @@ import pytest
 ```
 
 Then a launch description is created to launch the node under test.
-Note that the [`test_map.osm`](https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/test/data/test_map.osm) file path is found and passed to the node,
+Note that the [`test_map.osm`](https://github.com/autowarefoundation/autoware.universe/blob/main/map/autoware_map_loader/test/data/test_map.osm) file path is found and passed to the node,
 something that cannot be done with the [smoke testing API](#smoke-tests):
 
 ```python
@@ -130,12 +130,12 @@ something that cannot be done with the [smoke testing API](#smoke-tests):
 def generate_test_description():
 
     lanelet2_map_path = os.path.join(
-        get_package_share_directory("map_loader"), "test/data/test_map.osm"
+        get_package_share_directory("autoware_map_loader"), "test/data/test_map.osm"
     )
 
     lanelet2_map_loader = Node(
-        package="map_loader",
-        executable="lanelet2_map_loader",
+        package="autoware_map_loader",
+        executable="autoware_lanelet2_map_loader",
         parameters=[{"lanelet2_map_path": lanelet2_map_path}],
     )
 
@@ -177,20 +177,20 @@ class TestProcessOutput(unittest.TestCase):
 Continuing the example from above, first build your package:
 
 ```console
-colcon build --packages-up-to map_loader
+colcon build --packages-up-to autoware_map_loader
 source install/setup.bash
 ```
 
 Then either execute the component test manually:
 
 ```console
-ros2 test src/universe/autoware.universe/map/map_loader/test/lanelet2_map_loader_launch.test.py
+ros2 test src/universe/autoware.universe/map/autoware_map_loader/test/lanelet2_map_loader_launch.test.py
 ```
 
 Or as part of testing the entire package:
 
 ```console
-colcon test --packages-select map_loader
+colcon test --packages-select autoware_map_loader
 ```
 
 Verify that the test is executed; e.g.
@@ -198,7 +198,7 @@ Verify that the test is executed; e.g.
 ```console
 $ colcon test-result --all --verbose
 ...
-build/map_loader/test_results/map_loader/test_lanelet2_map_loader_launch.test.py.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped
+build/autoware_map_loader/test_results/autoware_map_loader/test_lanelet2_map_loader_launch.test.py.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped
 ```
 
 ### Next steps
