@@ -1,5 +1,12 @@
 # Release notes
 
+## v1.6.0 (Not released)
+
+- [Change] Fix communication method of {{ link_ad_api('/api/vehicle/status') }}
+- [Change] Add options to [the routing API](./features/routing.md)
+- [Change] Add restrictions to {{ link_ad_api('/api/routing/clear_route') }}
+- [Change] Add restrictions to {{ link_ad_api('/api/vehicle/doors/command') }}
+
 ## v1.5.0
 
 - [New] Add {{ link_ad_api('/api/routing/change_route_points') }}

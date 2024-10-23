@@ -35,3 +35,7 @@ See the sections below for supported options and details.
 ### allow_goal_modification
 
 **[v1.1.0]** Autoware tries to look for an alternate goal when goal is unreachable (e.g., when there is an obstacle on the given goal). When setting a route from the API, applications can choose whether they allow Autoware to adjust goal pose in such situation. When set false, Autoware may get stuck until the given goal becomes reachable.
+
+### allow_while_using_route
+
+**[v1.6.0]** This option only affects the route change APIs. Autoware accepts new route even while the vehicle is using the current route. The APIs fail if it cannot safely transition to new route. When set false, the APIs always fail when the vehicle is using the route.
