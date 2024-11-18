@@ -14,13 +14,13 @@ graph TD
     <font size=1>sensor_msgs/PointCloud2</font size>"):::cls_sen
 
     msg_lanenet("<font size=2><b>Lanelet2 Map</b></font size>
-    <font size=1>autoware_auto_mapping_msgs/HADMapBin</font size>"):::cls_loc
+    <font size=1>autoware_map_msgs/LaneletMapBin</font size>"):::cls_loc
 
     msg_vks("<font size=2><b>Vehicle Kinematic State</b></font size>
     <font size=1>nav_msgs/Odometry</font size>"):::cls_loc
 
     msg_obj("<font size=2><b>3D Object Predictions </b></font size>
-    <font size=1>autoware_auto_perception_msgs/PredictedObjects</font size>"):::cls_per
+    <font size=1>autoware_perception_msgs/PredictedObjects</font size>"):::cls_per
 
     msg_tl("<font size=2><b>Traffic Light Response </b></font size>
     <font size=1>autoware_perception_msgs/TrafficSignalArray</font size>"):::cls_per
@@ -72,23 +72,23 @@ map of the environment. See [outputs of Map](https://autowarefoundation.github.i
 
 3D Objects detected, tracked and predicted by sensor fusing.
 
-- [autoware_auto_perception_msgs/msg/PredictedObjects](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_perception_msgs/msg/PredictedObjects.idl)
+- [autoware_perception_msgs/msg/PredictedObjects](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/PredictedObjects.msg)
   - [std_msgs/Header](https://docs.ros.org/en/noetic/api/std_msgs/html/msg/Header.html) header
-  - sequence<[autoware_auto_perception_msgs::msg::PredictedObject](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_perception_msgs/msg/PredictedObject.idl)> objects
+  - sequence<[autoware_perception_msgs::msg::PredictedObject](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/PredictedObject.msg)> objects
     - unique_identifier_msgs::msg::UUID uuid
     - float existence_probability
-    - sequence<[autoware_auto_perception_msgs::msg::ObjectClassification](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_perception_msgs/msg/ObjectClassification.idl)> classification
+    - sequence<[autoware_perception_msgs::msg::ObjectClassification](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/ObjectClassification.msg)> classification
       - uint8 classification
       - float probability
-    - [autoware_auto_perception_msgs::msg::PredictedObjectKinematics](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_perception_msgs/msg/PredictedObjectKinematics.idl) kinematics
+    - [autoware_perception_msgs::msg::PredictedObjectKinematics](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/PredictedObjectKinematics.msg) kinematics
       - [geometry_msgs::msg::PoseWithCovariance](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/PoseWithCovariance.html) initial_pose
       - [geometry_msgs::msg::TwistWithCovariance](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/TwistWithCovariance.html)
       - [geometry_msgs::msg::AccelWithCovariance](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/AccelWithCovariance.html) initial_acceleration
-      - sequence<[autoware_auto_perception_msgs::msg::PredictedPath](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_perception_msgs/msg/PredictedPath.idl), 10> predicted_paths
+    - sequence<[autoware_perception_msgs::msg::PredictedPath](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/PredictedPath.msg), 10> predicted_paths
         - sequence<[geometry_msgs::msg::Pose](https://docs.ros.org/en/lunar/api/geometry_msgs/html/msg/Pose.html), 100> path
         - builtin_interfaces::msg::Duration time_step
         - float confidence
-    - sequence<[autoware_auto_perception_msgs::msg::Shape](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_perception_msgs/msg/Shape.idl), 5> shape
+    - sequence<[autoware_perception_msgs::msg::Shape](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/Shape.msg), 5> shape
       - [geometry_msgs::msg::Polygon](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/Polygon.html) polygon
       - float height
 

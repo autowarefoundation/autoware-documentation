@@ -84,13 +84,13 @@ Current orientation, angular velocity and linear acceleration of ego, calculated
 
 Current velocity of the ego vehicle, published by the vehicle interface.
 
-- autoware_auto_vehicle_msgs/msg/VelocityReport
+- autoware_vehicle_msgs/msg/VelocityReport
   - std_msgs/msg/Header header;
   - float longitudinal_velocity;
   - float lateral_velocity;
   - float heading_rate;
 
-Before the velocity input localization interface, module `vehicle_velocity_converter` converts message type `autoware_auto_vehicle_msgs/msg/VelocityReport` to `geometry_msgs/msg/TwistWithCovarianceStamped`.
+Before the velocity input localization interface, module `vehicle_velocity_converter` converts message type `autoware_vehicle_msgs/msg/VelocityReport` to `geometry_msgs/msg/TwistWithCovarianceStamped`.
 
 ## Outputs
 

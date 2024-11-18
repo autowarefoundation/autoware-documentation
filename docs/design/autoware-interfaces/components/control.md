@@ -43,13 +43,13 @@ TODO This represents the reported physical efforts exerted by the vehicle actuat
 
 A motion signal to drive the vehicle, achieved by the low-level controller in the vehicle layer. Used by the Vehicle Interface.
 
-- [autoware_auto_control_msgs/AckermannControlCommand](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl)
+- [autoware_control_msgs/Control](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_control_msgs/msg/Control.msg)
   - builtin_interfaces::msg::Time stamp
-  - [autoware_auto_control_msgs/AckermannLateralCommand](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannLateralCommand.idl) lateral
+  - [autoware_control_msgs/Lateral](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_control_msgs/msg/Lateral.msg) lateral
     - builtin_interfaces::msg::Time stamp
     - float steering_tire_angle
     - float steering_tire_rotation_rate
-  - [autoware_auto_control_msgs/LongitudinalCommand](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/LongitudinalCommand.idl) longitudinal
+  - [autoware_control_msgs/Longitudinal](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_control_msgs/msg/Lateral.msg) longitudinal
     - builtin_interfaces::msg::Time stamp
     - builtin_interfaces::msg::Duration duration
     - builtin_interfaces::msg::Duration time_step
