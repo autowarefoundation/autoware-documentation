@@ -81,6 +81,14 @@ sudo apt-get -y install git
    vcs import src < autoware.repos
    ```
 
+   If you are an active developer, you may also want to pull the nightly repositories, which contain the latest updates:
+   
+   ```bash
+   vcs import src < autoware-nightly.repos
+   ```
+
+   > ⚠️ Note: The nightly repositories are unstable and may contain bugs. Use them with caution.
+
 2. Install dependent ROS packages.
 
    Autoware requires some ROS 2 packages in addition to the core components.
@@ -127,6 +135,14 @@ sudo apt-get -y install git
 
    ```bash
    vcs import src < autoware.repos
+   ```
+
+   > ⚠️ If you are using nightly repositories, you can also update them.
+   > ```bash
+   > vcs import src < autoware-nightly.repos
+   > ```
+
+   ```bash
    vcs pull src
    ```
 
@@ -147,6 +163,12 @@ sudo apt-get -y install git
    rm -rf src/*
    vcs import src < autoware.repos
    ```
+
+   > ⚠️ If you are using nightly repositories, import them as well.
+   > ```bash
+   > vcs import src < autoware-nightly.repos
+   > ```
+
 
 3. Install dependent ROS packages.
 
