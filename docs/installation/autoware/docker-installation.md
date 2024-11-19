@@ -122,10 +122,10 @@ Inside the container, you can run the Autoware tutorials by following these link
 > cd autoware
 > git pull
 > vcs import src < autoware.repos
-> 
+>
 > # If you are using nightly repositories, also run the following command:
 > vcs import src < autoware-nightly.repos
-> 
+>
 > vcs pull src
 > # Make sure all ros-$ROS_DISTRO-* packages are upgraded to their latest version
 > sudo apt update && sudo apt upgrade

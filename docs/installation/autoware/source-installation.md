@@ -82,7 +82,7 @@ sudo apt-get -y install git
    ```
 
    If you are an active developer, you may also want to pull the nightly repositories, which contain the latest updates:
-   
+
    ```bash
    vcs import src < autoware-nightly.repos
    ```
@@ -138,6 +138,7 @@ sudo apt-get -y install git
    ```
 
    > ⚠️ If you are using nightly repositories, you can also update them.
+   >
    > ```bash
    > vcs import src < autoware-nightly.repos
    > ```
@@ -165,10 +166,10 @@ sudo apt-get -y install git
    ```
 
    > ⚠️ If you are using nightly repositories, import them as well.
+   >
    > ```bash
    > vcs import src < autoware-nightly.repos
    > ```
-
 
 3. Install dependent ROS packages.
 
