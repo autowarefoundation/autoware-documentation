@@ -85,9 +85,9 @@ map of the environment. See [outputs of Map](https://autowarefoundation.github.i
       - [geometry_msgs::msg::TwistWithCovariance](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/TwistWithCovariance.html)
       - [geometry_msgs::msg::AccelWithCovariance](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/AccelWithCovariance.html) initial_acceleration
     - sequence<[autoware_perception_msgs::msg::PredictedPath](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/PredictedPath.msg), 10> predicted_paths
-        - sequence<[geometry_msgs::msg::Pose](https://docs.ros.org/en/lunar/api/geometry_msgs/html/msg/Pose.html), 100> path
-        - builtin_interfaces::msg::Duration time_step
-        - float confidence
+      - sequence<[geometry_msgs::msg::Pose](https://docs.ros.org/en/lunar/api/geometry_msgs/html/msg/Pose.html), 100> path
+      - builtin_interfaces::msg::Duration time_step
+      - float confidence
     - sequence<[autoware_perception_msgs::msg::Shape](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/Shape.msg), 5> shape
       - [geometry_msgs::msg::Polygon](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/Polygon.html) polygon
       - float height
