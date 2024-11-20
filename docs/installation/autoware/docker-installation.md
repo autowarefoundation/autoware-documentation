@@ -88,6 +88,14 @@ Inside the container, you can run the Autoware tutorials by following these link
    vcs import src < autoware.repos
    ```
 
+   If you are an active developer, you may also want to pull the nightly repositories, which contain the latest updates:
+
+   ```bash
+   vcs import src < autoware-nightly.repos
+   ```
+
+   > ⚠️ Note: The nightly repositories are unstable and may contain bugs. Use them with caution.
+
 2. Update dependent ROS packages.
 
    The dependencies of Autoware may have changed after the Docker image was created.
@@ -114,6 +122,10 @@ Inside the container, you can run the Autoware tutorials by following these link
 > cd autoware
 > git pull
 > vcs import src < autoware.repos
+>
+> # If you are using nightly repositories, also run the following command:
+> vcs import src < autoware-nightly.repos
+>
 > vcs pull src
 > # Make sure all ros-$ROS_DISTRO-* packages are upgraded to their latest version
 > sudo apt update && sudo apt upgrade
@@ -128,6 +140,8 @@ Inside the container, you can run the Autoware tutorials by following these link
 > ```bash
 > rm -rf src/*
 > vcs import src < autoware.repos
+> # If you are using nightly repositories, import them as well.
+> vcs import src < autoware-nightly.repos
 > ```
 
 #### Using VS Code remote containers for development
