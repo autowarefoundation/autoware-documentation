@@ -21,6 +21,12 @@
 | [/api/planning/cooperation/set_policies](./api/planning/cooperation/set_policies.md)             | not released |
 | [/api/planning/steering_factors](./api/planning/steering_factors.md)                             | not released |
 | [/api/planning/velocity_factors](./api/planning/velocity_factors.md)                             | not released |
+| [/api/remote/command/accel](./api/remote/command/accel.md)                                       | not released |
+| [/api/remote/command/gear](./api/remote/command/gear.md)                                         | not released |
+| [/api/remote/command/hazard_lights](./api/remote/command/hazard_lights.md)                       | not released |
+| [/api/remote/command/pedal](./api/remote/command/pedal.md)                                       | not released |
+| [/api/remote/command/steer](./api/remote/command/steer.md)                                       | not released |
+| [/api/remote/command/turn_indicators](./api/remote/command/turn_indicators.md)                   | not released |
 | [/api/routing/change_route](./api/routing/change_route.md)                                       | v1.5.0       |
 | [/api/routing/change_route_points](./api/routing/change_route_points.md)                         | v1.5.0       |
 | [/api/routing/clear_route](./api/routing/clear_route.md)                                         | v1.0.0       |

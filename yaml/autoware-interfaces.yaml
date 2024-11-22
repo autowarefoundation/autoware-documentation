@@ -1,4 +1,8 @@
 types:
+  autoware_adapi_v1_msgs/msg/AccelCommand:
+    msg:
+      accel: float32
+      stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/CooperationCommand:
     msg:
       cooperator: autoware_adapi_v1_msgs/msg/CooperationDecision
@@ -78,9 +82,17 @@ types:
   autoware_adapi_v1_msgs/msg/Gear:
     msg:
       status: uint8
+  autoware_adapi_v1_msgs/msg/GearCommand:
+    msg:
+      command: autoware_adapi_v1_msgs/msg/Gear
+      stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/HazardLights:
     msg:
       status: uint8
+  autoware_adapi_v1_msgs/msg/HazardLightsCommand:
+    msg:
+      command: autoware_adapi_v1_msgs/msg/HazardLights
+      stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/Heartbeat:
     msg:
       seq: uint16
@@ -112,6 +124,11 @@ types:
       is_stop_mode_available: bool
       mode: uint8
       stamp: builtin_interfaces/msg/Time
+  autoware_adapi_v1_msgs/msg/PedalCommand:
+    msg:
+      accel: float32
+      brake: float32
+      stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/ResponseStatus:
     msg:
       code: uint16
@@ -142,6 +159,10 @@ types:
     msg:
       stamp: builtin_interfaces/msg/Time
       state: uint16
+  autoware_adapi_v1_msgs/msg/SteerCommand:
+    msg:
+      stamp: builtin_interfaces/msg/Time
+      steer: float32
   autoware_adapi_v1_msgs/msg/SteeringFactor:
     msg:
       behavior: string
@@ -159,6 +180,10 @@ types:
   autoware_adapi_v1_msgs/msg/TurnIndicators:
     msg:
       status: uint8
+  autoware_adapi_v1_msgs/msg/TurnIndicatorsCommand:
+    msg:
+      command: autoware_adapi_v1_msgs/msg/TurnIndicators
+      stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/VehicleDimensions:
     msg:
       footprint: geometry_msgs/msg/Polygon
