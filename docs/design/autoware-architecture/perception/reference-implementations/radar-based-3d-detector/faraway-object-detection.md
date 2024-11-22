@@ -10,13 +10,13 @@ This diagram describes the pipeline for radar faraway dynamic object detection.
 
 ### Crossing filter
 
-- [radar_crossing_objects_noise_filter](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/radar_crossing_objects_noise_filter)
+- [radar_crossing_objects_noise_filter](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_radar_crossing_objects_noise_filter)
 
 This package can filter the noise objects crossing to the ego vehicle, which are most likely ghost objects.
 
 ### Velocity filter
 
-- [object_velocity_splitter](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/object_velocity_splitter)
+- [object_velocity_splitter](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_object_velocity_splitter)
 
 Static objects include many noise like the objects reflected from ground.
 In many cases for radars, dynamic objects can be detected stably.
@@ -24,14 +24,14 @@ To filter out static objects, `object_velocity_splitter` can be used.
 
 ### Range filter
 
-- [object_range_splitter](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/object_range_splitter)
+- [object_range_splitter](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_object_range_splitter)
 
 For some radars, ghost objects sometimes occur for near objects.
 To filter these objects, `object_range_splitter` can be used.
 
 ### Vector map filter
 
-- [object-lanelet-filter](https://github.com/autowarefoundation/autoware.universe/blob/main/perception/detected_object_validation/object-lanelet-filter.md)
+- [object-lanelet-filter](https://github.com/autowarefoundation/autoware.universe/blob/main/perception/autoware_detected_object_validation/object-lanelet-filter.md)
 
 In most cases, vehicles drive in drivable are.
 To filter objects that are out of drivable area, `object-lanelet-filter` can be used.
@@ -41,12 +41,12 @@ Note that if you use `object-lanelet-filter` for radar faraway detection, you ne
 
 ### Radar object clustering
 
-- [radar_object_clustering](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/radar_object_clustering)
+- [radar_object_clustering](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_radar_object_clustering)
 
 This package can combine multiple radar detections from one object into one and adjust class and size.
 It can suppress splitting objects in tracking module.
 
-![radar_object_clustering](https://raw.githubusercontent.com/autowarefoundation/autoware.universe/main/perception/radar_object_clustering/docs/radar_clustering.drawio.svg)
+![radar_object_clustering](https://raw.githubusercontent.com/autowarefoundation/autoware.universe/main/perception/autoware_radar_object_clustering/docs/radar_clustering.drawio.svg)
 
 ## Note
 

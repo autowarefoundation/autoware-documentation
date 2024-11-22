@@ -788,7 +788,7 @@ if you decided to use container for 2D detection pipeline are:
   for example, we will use `/perception/object_detection` as tensorrt_yolo node namespace,
   it will be explained in autoware usage section.
   For more information,
-  please check [image_projection_based_fusion](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/image_projection_based_fusion) package.
+  please check [image_projection_based_fusion](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_image_projection_based_fusion) package.
 
 After the preparing `camera_node_container.launch.py` to our forked `common_sensor_launch` package,
 we need to build the package:

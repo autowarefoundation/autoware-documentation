@@ -37,7 +37,7 @@ that we want
 to change it since `tier4_perception_component.launch.xml` is the top-level launch file of other perception launch files.
 Here are some predefined perception launch arguments:
 
-- **`occupancy_grid_map_method:`** This argument determines the occupancy grid map method for perception stack. Please check [probabilistic_occupancy_grid_map](https://autowarefoundation.github.io/autoware.universe/main/perception/probabilistic_occupancy_grid_map/) package for detailed information.
+- **`occupancy_grid_map_method:`** This argument determines the occupancy grid map method for perception stack. Please check [probabilistic_occupancy_grid_map](https://autowarefoundation.github.io/autoware.universe/main/perception/autoware_probabilistic_occupancy_grid_map/) package for detailed information.
   The default probabilistic occupancy grid map method is `pointcloud_based_occupancy_grid_map`.
   If you want to change it to the `laserscan_based_occupancy_grid_map`, you can change it here:
 
@@ -47,7 +47,7 @@ Here are some predefined perception launch arguments:
   ```
 
 - **`detected_objects_filter_method:`** This argument determines the filter method for detected objects.
-  Please check [detected_object_validation](https://autowarefoundation.github.io/autoware.universe/main/perception/detected_object_validation/) package for detailed information about lanelet and position filter.
+  Please check [detected_object_validation](https://autowarefoundation.github.io/autoware.universe/main/perception/autoware_detected_object_validation/) package for detailed information about lanelet and position filter.
   The default detected object filter method is `lanelet_filter`.
   If you want to change it to the `position_filter`, you can change it here:
 
@@ -57,7 +57,7 @@ Here are some predefined perception launch arguments:
   ```
 
 - **`detected_objects_validation_method:`** This argument determines the validation method for detected objects.
-  Please check [detected_object_validation](https://autowarefoundation.github.io/autoware.universe/main/perception/detected_object_validation/) package for detailed information about validation methods.
+  Please check [detected_object_validation](https://autowarefoundation.github.io/autoware.universe/main/perception/autoware_detected_object_validation/) package for detailed information about validation methods.
   The default detected object filter method is `obstacle_pointcloud`.
   If you want to change it to the `occupancy_grid`, you can change it here,
   but remember it requires `laserscan_based_occupancy_grid_map` method as `occupancy_grid_map_method`:
@@ -99,7 +99,7 @@ we will apply these changes `tier4_perception_component.launch.xml` instead of `
 Here are some example changes for the perception pipeline:
 
 - **`remove_unknown:`** This parameter determines the remove unknown objects at camera-lidar fusion.
-  Please check [roi_cluster_fusion](https://github.com/autowarefoundation/autoware.universe/blob/main/perception/image_projection_based_fusion/docs/roi-cluster-fusion.md) node for detailed information.
+  Please check [roi_cluster_fusion](https://github.com/autowarefoundation/autoware.universe/blob/main/perception/autoware_image_projection_based_fusion/docs/roi-cluster-fusion.md) node for detailed information.
   The default value is `true`.
   If you want to change it to the `false`,
   you can add this argument to `tier4_perception_component.launch.xml`,

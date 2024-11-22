@@ -13,7 +13,7 @@ Autoware Universe's object detection can be run using one of five possible confi
 - `lidar-centerpoint` + `tensorrt_yolo`
 - `euclidean_cluster`
 
-Of these five configurations, only the last one (`euclidean_cluster`) can be run without CUDA. For more details, refer to the [`euclidean_cluster` module's README file](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/euclidean_cluster).
+Of these five configurations, only the last one (`euclidean_cluster`) can be run without CUDA. For more details, refer to the [`euclidean_cluster` module's README file](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_euclidean_cluster).
 
 ## Running traffic light detection without CUDA
 
