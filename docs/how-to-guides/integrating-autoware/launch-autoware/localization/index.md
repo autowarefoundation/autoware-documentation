@@ -95,7 +95,7 @@ you can add this argument on `tier4_localization_component.launch.xml` launch fi
 ```
 
 **Note:** Gyro odometer input topic provided from velocity converter package. This package will be launched at sensor_kit. For more information,
-please check [velocity converter package](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/vehicle_velocity_converter).
+please check [velocity converter package](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/autoware_vehicle_velocity_converter).
 
 ## Note when using non NDT pose estimator
 
