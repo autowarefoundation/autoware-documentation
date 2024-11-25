@@ -522,7 +522,7 @@ You can create <YOUR-LIDAR-MODEL>.launch.xml for common sensor launch,
 please check [`hesai_PandarQT64.launch.xml`](https://github.com/leo-drive/tutorial_vehicle_sensor_kit_launch/blob/main/common_sensor_launch/launch/hesai_PandarQT64.launch.xml) as an example.
 
 The [nebula_node_container.py](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/common_sensor_launch/launch/nebula_node_container.launch.py) creates the Lidar pipeline for autoware,
-the pointcloud preprocessing pipeline is constructed for each lidar please check [pointcloud_preprocessor](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/pointcloud_preprocessor) package for filters information as well.
+the pointcloud preprocessing pipeline is constructed for each lidar please check [autoware_pointcloud_preprocessor](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/autoware_pointcloud_preprocessor) package for filters information as well.
 
 For example, If you want to change your `outlier_filter` method,
 you can modify the pipeline components like this way:
