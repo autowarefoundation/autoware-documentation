@@ -5,7 +5,7 @@ method: realtime stream
 type:
   name: autoware_adapi_v1_msgs/msg/AccelCommand
   msg:
-    - name:
+    - name: stamp
       text:
 ---
 

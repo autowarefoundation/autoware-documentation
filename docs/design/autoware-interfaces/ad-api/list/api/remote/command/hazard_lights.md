@@ -5,7 +5,7 @@ method: notification
 type:
   name: autoware_adapi_v1_msgs/msg/HazardLightsCommand
   msg:
-    - name:
+    - name: stamp
       text:
 ---
 
