@@ -101,6 +101,13 @@ types:
     msg:
       stamp: builtin_interfaces/msg/Time
       state: uint16
+  autoware_adapi_v1_msgs/msg/ManualControlMode:
+    msg:
+      mode: uint8
+  autoware_adapi_v1_msgs/msg/ManualControlModeStatus:
+    msg:
+      mode: autoware_adapi_v1_msgs/msg/ManualControlMode
+      stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/MotionState:
     msg:
       stamp: builtin_interfaces/msg/Time
@@ -246,6 +253,11 @@ types:
   autoware_adapi_v1_msgs/srv/InitializeLocalization:
     req:
       pose: geometry_msgs/msg/PoseWithCovarianceStamped[<=1]
+    res:
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/SelectManualControlMode:
+    req:
+      mode: autoware_adapi_v1_msgs/msg/ManualControlMode
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/SetCooperationCommands:

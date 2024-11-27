@@ -9,6 +9,7 @@ used:
   - autoware_adapi_v1_msgs/srv/GetDoorLayout
   - autoware_adapi_v1_msgs/srv/GetVehicleDimensions
   - autoware_adapi_v1_msgs/srv/InitializeLocalization
+  - autoware_adapi_v1_msgs/srv/SelectManualControlMode
   - autoware_adapi_v1_msgs/srv/SetCooperationCommands
   - autoware_adapi_v1_msgs/srv/SetCooperationPolicies
   - autoware_adapi_v1_msgs/srv/SetDoorCommand

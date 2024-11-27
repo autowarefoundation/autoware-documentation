@@ -27,6 +27,8 @@
 | [/api/remote/command/pedal](./api/remote/command/pedal.md)                                       | not released |
 | [/api/remote/command/steer](./api/remote/command/steer.md)                                       | not released |
 | [/api/remote/command/turn_indicators](./api/remote/command/turn_indicators.md)                   | not released |
+| [/api/remote/control_mode/select](./api/remote/control_mode/select.md)                           | not released |
+| [/api/remote/control_mode/status](./api/remote/control_mode/status.md)                           | not released |
 | [/api/routing/change_route](./api/routing/change_route.md)                                       | v1.5.0       |
 | [/api/routing/change_route_points](./api/routing/change_route_points.md)                         | v1.5.0       |
 | [/api/routing/clear_route](./api/routing/clear_route.md)                                         | v1.0.0       |
