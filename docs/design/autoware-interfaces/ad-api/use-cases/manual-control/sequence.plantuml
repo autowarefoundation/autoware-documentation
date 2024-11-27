@@ -1,0 +1,17 @@
+@startuml
+
+skinparam SequenceMessageAlign center
+participant "Application" as app
+participant "AD API" as adapi
+
+app -> adapi ++: /api/remote/control_mode/select
+return
+adapi -> app: /api/remote/control_mode/status
+
+par
+  app -> adapi: /api/remote/command/**
+else
+  adapi -> app: /api/veihcie/status
+end
+
+@enduml
