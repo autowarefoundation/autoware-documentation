@@ -36,7 +36,7 @@ The current localization launcher implemented by TIER IV supports multiple local
 `tier4_localization_component.launch.xml` has two arguments to select which estimators to launch:
 
 - **`pose_source:`** This argument specifies the pose_estimator, currently supporting `ndt` (default), `yabloc`, `artag` and `eagleye` for localization.
-  By default, Autoware launches [ndt_scan_matcher](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/ndt_scan_matcher) for pose estimator.
+  By default, Autoware launches [ndt_scan_matcher](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/autoware_ndt_scan_matcher) for pose estimator.
   You can use YabLoc as a camera-based localization method.
   For more details on YabLoc,
   please refer to the [README of YabLoc](https://github.com/autowarefoundation/autoware.universe/blob/main/localization/yabloc/README.md) in autoware.universe.
@@ -59,7 +59,7 @@ The current localization launcher implemented by TIER IV supports multiple local
 
 - **`twist_source:`** This argument specifies the twist_estimator, currently supporting `gyro_odom` (default), and `eagleye`.
   By default,
-  Autoware launches [gyro_odometer](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/gyro_odometer) for twist estimator.
+  Autoware launches [gyro_odometer](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/autoware_gyro_odometer) for twist estimator.
   Also, you can use eagleye for the twist source, please refer to the [Eagleye](./eagleye/index.md).
   If you want to change your twist source to eagleye, you can update `tier4_localization_component.launch.xml` like:
 
@@ -76,7 +76,7 @@ The current localization launcher implemented by TIER IV supports multiple local
 
 - **`input_pointcloud:`** This argument specifies the input pointcloud of the localization pointcloud pipeline. The default value is
   `/sensing/lidar/top/outlier_filtered/pointcloud` which
-  is output of the [pointcloud pre-processing](https://autowarefoundation.github.io/autoware.universe/main/sensing/pointcloud_preprocessor/) pipeline from sensing.
+  is output of the [pointcloud pre-processing](https://autowarefoundation.github.io/autoware.universe/main/sensing/autoware_pointcloud_preprocessor/) pipeline from sensing.
   You can change this value according to your LiDAR topic name,
   or you can choose to use concatenated point cloud:
 
@@ -95,7 +95,7 @@ you can add this argument on `tier4_localization_component.launch.xml` launch fi
 ```
 
 **Note:** Gyro odometer input topic provided from velocity converter package. This package will be launched at sensor_kit. For more information,
-please check [velocity converter package](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/vehicle_velocity_converter).
+please check [velocity converter package](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/autoware_vehicle_velocity_converter).
 
 ## Note when using non NDT pose estimator
 

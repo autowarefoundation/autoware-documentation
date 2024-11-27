@@ -161,7 +161,7 @@ but if you want to use `camera-lidar fusion` you need to change your perception 
 If you want to use traffic light recognition and visualization,
 you can set `traffic_light_recognition/enable_fine_detection` as true (default).
 Please check
-[traffic_light_fine_detector](https://autowarefoundation.github.io/autoware.universe/main/perception/traffic_light_fine_detector/)
+[traffic_light_fine_detector](https://autowarefoundation.github.io/autoware.universe/main/perception/autoware_traffic_light_fine_detector/)
 page for more information.
 If you don't want to use traffic light classifier, then you can disable it:
 

@@ -420,7 +420,7 @@ The current autoware sensing launch files design for `sensor_kit_launch` package
   </figcaption>
 </figure>
 
-The `sensing.launch.xml` also launches `vehicle_velocity_converter` package
+The `sensing.launch.xml` also launches `autoware_vehicle_velocity_converter` package
 for converting `autoware_auto_vehicle_msgs::msg::VelocityReport` message to `geometry_msgs::msg::TwistWithCovarianceStamped` for gyro_odometer node.
 So,
 be sure
@@ -429,7 +429,7 @@ or you must update `input_vehicle_velocity_topic` at `sensing.launch.xml`.
 
 ```diff
     ...
-    <include file="$(find-pkg-share vehicle_velocity_converter)/launch/vehicle_velocity_converter.launch.xml">
+    <include file="$(find-pkg-share autoware_vehicle_velocity_converter)/launch/vehicle_velocity_converter.launch.xml">
 -     <arg name="input_vehicle_velocity_topic" value="/vehicle/status/velocity_status"/>
 +     <arg name="input_vehicle_velocity_topic" value="<YOUR-VELOCITY-STATUS-TOPIC>"/>
       <arg name="output_twist_with_covariance" value="/sensing/vehicle_velocity_converter/twist_with_covariance"/>
@@ -474,11 +474,25 @@ but you need to update `sensor_id`, `data_port`, `sensor_frame` and other necess
 
 Please add similar launch groups according to your sensor architecture.
 For example, we use Robosense Lidars for our `tutorial_vehicle`,
-so the lidar group for Robosense Lidar should be like this structure:
+so the lidar group for Robosense Lidar (i.e., for Bpearl) should be like this structure:
 
-!!! warning
-
-    under construction
+```xml
+    <group>
+      <push-ros-namespace namespace="<YOUR-SENSOR-NAMESPACE>"/>
+      <include file="$(find-pkg-share common_sensor_launch)/launch/robosense_Bpearl.launch.xml">
+        <arg name="max_range" value="30.0"/>
+        <arg name="sensor_frame" value="<YOUR-ROBOSENSE-SENSOR-FRAME>"/>
+        <arg name="sensor_ip" value="<YOUR-ROBOSENSE-SENSOR-IP>"/>
+        <arg name="host_ip" value="$(var host_ip)"/>
+        <arg name="data_port" value="<YOUR-ROBOSENSE-SENSOR-DATA-PORT>"/>
+        <arg name="gnss_port" value="<YOUR-ROBOSENSE-SENSOR-GNSS-PORT>"/>
+        <arg name="scan_phase" value="0.0"/>
+        <arg name="launch_driver" value="$(var launch_driver)"/>
+        <arg name="vehicle_mirror_param_file" value="$(var vehicle_mirror_param_file)"/>
+        <arg name="container_name" value="pointcloud_container"/>
+      </include>
+    </group>
+```
 
 If you are using a Hesai lidar (i.e. PandarQT64,
 please check [nebula](https://github.com/tier4/nebula) driver page for supported sensors),
@@ -508,7 +522,7 @@ You can create <YOUR-LIDAR-MODEL>.launch.xml for common sensor launch,
 please check [`hesai_PandarQT64.launch.xml`](https://github.com/leo-drive/tutorial_vehicle_sensor_kit_launch/blob/main/common_sensor_launch/launch/hesai_PandarQT64.launch.xml) as an example.
 
 The [nebula_node_container.py](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/common_sensor_launch/launch/nebula_node_container.launch.py) creates the Lidar pipeline for autoware,
-the pointcloud preprocessing pipeline is constructed for each lidar please check [pointcloud_preprocessor](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/pointcloud_preprocessor) package for filters information as well.
+the pointcloud preprocessing pipeline is constructed for each lidar please check [autoware_pointcloud_preprocessor](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/autoware_pointcloud_preprocessor) package for filters information as well.
 
 For example, If you want to change your `outlier_filter` method,
 you can modify the pipeline components like this way:
@@ -517,10 +531,10 @@ you can modify the pipeline components like this way:
 
     nodes.append(
         ComposableNode(
-            package="pointcloud_preprocessor",
--           plugin="pointcloud_preprocessor::RingOutlierFilterComponent",
+            package="autoware_pointcloud_preprocessor",
+-           plugin="autoware::pointcloud_preprocessor::RingOutlierFilterComponent",
 -           name="ring_outlier_filter",
-+           plugin="pointcloud_preprocessor::DualReturnOutlierFilterComponent",
++           plugin="autoware::pointcloud_preprocessor::DualReturnOutlierFilterComponent",
 +           name="dual_return_outlier_filter",
             remappings=[
                 ("input", "rectified/pointcloud_ex"),
@@ -774,7 +788,7 @@ if you decided to use container for 2D detection pipeline are:
   for example, we will use `/perception/object_detection` as tensorrt_yolo node namespace,
   it will be explained in autoware usage section.
   For more information,
-  please check [image_projection_based_fusion](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/image_projection_based_fusion) package.
+  please check [image_projection_based_fusion](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_image_projection_based_fusion) package.
 
 After the preparing `camera_node_container.launch.py` to our forked `common_sensor_launch` package,
 we need to build the package:
@@ -995,12 +1009,12 @@ our `gnss.launch.xml` for tutorial vehicle should be like this file
       <!-- IMU corrector -->
       <group>
         <push-ros-namespace namespace="imu"/>
-        <include file="$(find-pkg-share imu_corrector)/launch/imu_corrector.launch.xml">
+        <include file="$(find-pkg-share autoware_imu_corrector)/launch/imu_corrector.launch.xml">
           <arg name="input_topic" value="/sensing/gnss/clap/ros/imu"/>
           <arg name="output_topic" value="imu_data"/>
           <arg name="param_file" value="$(find-pkg-share individual_params)/config/$(var vehicle_id)/robione_sensor_kit/imu_corrector.param.yaml"/>
         </include>
-        <include file="$(find-pkg-share imu_corrector)/launch/gyro_bias_estimator.launch.xml">
+        <include file="$(find-pkg-share autoware_imu_corrector)/launch/gyro_bias_estimator.launch.xml">
           <arg name="input_imu_raw" value="/sensing/gnss/clap/ros/imu"/>
           <arg name="input_twist" value="/sensing/vehicle_velocity_converter/twist_with_covariance"/>
           <arg name="imu_corrector_param_file" value="$(find-pkg-share individual_params)/config/$(var vehicle_id)/robione_sensor_kit/imu_corrector.param.yaml"/>
@@ -1016,8 +1030,8 @@ At the [sample_sensor_kit](https://github.com/autowarefoundation/sample_sensor_k
 there is [Tamagawa IMU sensor](https://mems.tamagawa-seiki.com/en/) used as a IMU sensor.
 You can add your IMU driver instead of the Tamagawa IMU driver.
 Also,
-we will launch [gyro_bias_estimator](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/imu_corrector#gyro_bias_estimator) and
-[imu_corrector](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/imu_corrector#imu_corrector) at `imu.launch.xml` file.
+we will launch [gyro_bias_estimator](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/autoware_imu_corrector#gyro_bias_estimator) and
+[imu_corrector](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/autoware_imu_corrector#imu_corrector) at `imu.launch.xml` file.
 Please refer these documentations for more information
 (We added imu_corrector and gyro_bias_estimator at gnss.launch.xml at tutorial_vehicle,
 so we will not create and use `imu.launch.xml` for tutorial_vehicle).
@@ -1051,13 +1065,13 @@ Here is a sample `imu.launch.xml` launch file for autoware:
 -   <arg name="imu_raw_name" default="tamagawa/imu_raw"/>
 +   <arg name="imu_raw_name" default="<YOUR-IMU_MODEL/YOUR-RAW-IMU-TOPIC>"/>
     <arg name="imu_corrector_param_file" default="$(find-pkg-share individual_params)/config/$(var vehicle_id)/sample_sensor_kit/imu_corrector.param.yaml"/>
-    <include file="$(find-pkg-share imu_corrector)/launch/imu_corrector.launch.xml">
+    <include file="$(find-pkg-share autoware_imu_corrector)/launch/imu_corrector.launch.xml">
       <arg name="input_topic" value="$(var imu_raw_name)"/>
       <arg name="output_topic" value="imu_data"/>
       <arg name="param_file" value="$(var imu_corrector_param_file)"/>
     </include>
 
-    <include file="$(find-pkg-share imu_corrector)/launch/gyro_bias_estimator.launch.xml">
+    <include file="$(find-pkg-share autoware_imu_corrector)/launch/gyro_bias_estimator.launch.xml">
       <arg name="input_imu_raw" value="$(var imu_raw_name)"/>
       <arg name="input_twist" value="/sensing/vehicle_velocity_converter/twist_with_covariance"/>
       <arg name="imu_corrector_param_file" value="$(var imu_corrector_param_file)"/>

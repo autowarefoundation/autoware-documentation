@@ -22,7 +22,7 @@ Note that the initial focus of this architecture design was solely on driving ca
 
 ![Overview](image/autoware-architecture-overview.drawio.svg)
 
-Autoware's architecture consists of the following six stacks. Each linked page contains a more detailed set of requirements and use cases specific to that stack:
+Autoware's architecture consists of the following seven stacks. Each linked page contains a more detailed set of requirements and use cases specific to that stack:
 
 - [Sensing design](sensing/index.md)
 - [Map design](map/index.md)

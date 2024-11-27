@@ -58,7 +58,7 @@ In detail, please see [this document](faraway-object-detection.md)
 
 ### Radar fusion to LiDAR-based 3D object detection
 
-- [radar_fusion_to_detected_object](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/radar_fusion_to_detected_object)
+- [radar_fusion_to_detected_object](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_radar_fusion_to_detected_object)
 
 This package contains a sensor fusion module for radar-detected objects and 3D detected objects. The fusion node can:
 

@@ -2,6 +2,108 @@
 
 Autoware partners provide datasets for testing and development. These datasets are available for download here.
 
+## Istanbul Open Dataset
+
+The dataset is collected in the following route. Tunnels and bridges are annotated on the image.
+The included specific areas into the dataset are:
+
+- Galata Bridge (Small Bridge)
+- Eurasia Tunnel (Long Tunnel with High Elevation Changes)
+- 2nd Bosphorus Bridge (Long Bridge)
+- Kagithane-Bomonti Tunnel (Small Tunnel)
+- Viaducts, road junctions, highways, dense urban areas...
+
+<p align='center'>
+    <img src="images/ist_dataset_route_3_resized.png" alt="ist_dataset_route2" width="80%"/>
+</p>
+
+### Leo Drive - Mapping Kit Sensor Data
+
+This dataset contains data from the portable mapping kit used for general mapping purposes.
+
+The data contains data from the following sensors:
+
+- 1 x Applanix POS LVX GNSS/INS System
+- 1 x Hesai Pandar XT32 LiDAR
+
+**For sensor calibrations, `/tf_static` topic is added.**
+
+### Data Links
+
+- You can find the produced full point cloud map, corner feature point cloud map and
+  surface feature point cloud map here:
+
+  - [https://drive.google.com/drive/folders/1_jiQod4lO6-V2NDEr3d-M3XF_Nqmc0Xf?usp=drive_link](https://drive.google.com/drive/folders/1_jiQod4lO6-V2NDEr3d-M3XF_Nqmc0Xf?usp=drive_link)
+  - Exported point clouds are exported via downsampling with 0.2 meters and 0.5 meters voxel grids.
+
+- You can find the ROS 2 bag which is collected simultaneously with the mapping data:
+
+  - [https://drive.google.com/drive/folders/17zXiBeYlM90gQ5hV6EAWaoBTnNFoVPML?usp=drive_link](https://drive.google.com/drive/folders/17zXiBeYlM90gQ5hV6EAWaoBTnNFoVPML?usp=drive_link)
+  - Due to the simultaneous data collection, we can assume that the point cloud maps and GNSS/INS
+    data are the ground truth data for this rosbag.
+
+- Additionally, you can find the raw data used for mapping at the below link:
+  - [https://drive.google.com/drive/folders/1HmWYkxF5XvVCR27R8W7ZqO7An4HlJ6lD?usp=drive_link](https://drive.google.com/drive/folders/1HmWYkxF5XvVCR27R8W7ZqO7An4HlJ6lD?usp=drive_link)
+  - Point clouds are collected as PCAP and feature-matched GNSS/INS data exported to a txt file.
+
+### Localization Performance Evaluation with Autoware
+
+The report of the performance evaluation of the current Autoware with the collected data can be found in the link below.
+
+> The report documented at **2024-08-28**.
+
+- [https://github.com/orgs/autowarefoundation/discussions/5135](https://github.com/orgs/autowarefoundation/discussions/5135)
+
+### Topic list
+
+For collecting the GNSS/INS data, [this](https://github.com/autowarefoundation/applanix) repository is used.
+
+For collecting the LiDAR data,
+[nebula](https://github.com/tier4/nebula/tree/6d55141ef3cf39d5612e34f2646834d6cd4a7ae3)
+repository is used.
+
+| Topic Name                                            | Message Type                                          |
+| ----------------------------------------------------- | ----------------------------------------------------- |
+| `/applanix/lvx_client/autoware_orientation`           | `autoware_sensing_msgs/msg/GnssInsOrientationStamped` |
+| `/applanix/lvx_client/imu_raw`                        | `sensor_msgs/msg/Imu`                                 |
+| `/localization/twist_estimator/twist_with_covariance` | `geometry_msgs/msg/TwistWithCovarianceStamped`        |
+| `/applanix/lvx_client/odom`                           | `nav_msgs/msg/Odometry`                               |
+| `/applanix/lvx_client/gnss/fix`                       | `sensor_msgs/msg/NavSatFix`                           |
+| `/clock`                                              | `rosgraph_msgs/msg/Clock`                             |
+| `/pandar_points`                                      | `sensor_msgs/msg/PointCloud2`                         |
+| `/tf_static`                                          | `tf2_msgs/msg/TFMessage`                              |
+
+#### Message Explanations
+
+Used drivers for sensors give output in default ROS 2 message types and their own ROS 2 message
+types for additional information. Following topics are the default ROS 2 message types:
+
+- `/applanix/lvx_client/imu_raw`
+
+  - Gives the output of INS system in ENU. Due to the 9-axis IMU, `yaw` value demonstrates the
+    heading value of the sensor.
+
+- `/applanix/lvx_client/twist_with_covariance`
+
+  - Gives the twist output of the sensor.
+
+- `/applanix/lvx_client/odom`
+
+  - Gives the position and orientation of the sensor from the starting point of the ROS 2 driver.
+    Implemented with `GeographicLib::LocalCartesian`.
+
+    **This topic is not related to the wheel odometry.**
+
+- `/applanix/lvx_client/gnss/fix`
+
+  - Gives the latitude, longitude and height values of the sensors.
+
+    **Ellipsoidal height of WGS84 ellipsoid is given as height value.**
+
+- `/pandar_points`
+
+  - Gives the point cloud from the LiDAR sensor.
+
 ## Bus-ODD (Operational Design Domain) datasets
 
 ### Leo Drive - ISUZU sensor data
