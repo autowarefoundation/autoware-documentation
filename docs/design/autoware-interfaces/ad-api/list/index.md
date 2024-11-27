@@ -13,6 +13,7 @@
 | [/api/local/control_mode/list](./api/local/control_mode/list.md)                                 | not released |
 | [/api/local/control_mode/select](./api/local/control_mode/select.md)                             | not released |
 | [/api/local/control_mode/status](./api/local/control_mode/status.md)                             | not released |
+| [/api/local/operator/status](./api/local/operator/status.md)                                     | not released |
 | [/api/localization/initialization_state](./api/localization/initialization_state.md)             | v1.0.0       |
 | [/api/localization/initialize](./api/localization/initialize.md)                                 | v1.0.0       |
 | [/api/motion/accept_start](./api/motion/accept_start.md)                                         | not released |
@@ -39,6 +40,7 @@
 | [/api/remote/control_mode/list](./api/remote/control_mode/list.md)                               | not released |
 | [/api/remote/control_mode/select](./api/remote/control_mode/select.md)                           | not released |
 | [/api/remote/control_mode/status](./api/remote/control_mode/status.md)                           | not released |
+| [/api/remote/operator/status](./api/remote/operator/status.md)                                   | not released |
 | [/api/routing/change_route](./api/routing/change_route.md)                                       | v1.5.0       |
 | [/api/routing/change_route_points](./api/routing/change_route_points.md)                         | v1.5.0       |
 | [/api/routing/clear_route](./api/routing/clear_route.md)                                         | v1.0.0       |
