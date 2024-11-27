@@ -4,6 +4,15 @@
 | ------------------------------------------------------------------------------------------------ | ------------ |
 | [/api/fail_safe/mrm_state](./api/fail_safe/mrm_state.md)                                         | v1.1.0       |
 | [/api/interface/version](./api/interface/version.md)                                             | v1.0.0       |
+| [/api/local/command/acceleration](./api/local/command/acceleration.md)                           | not released |
+| [/api/local/command/gear](./api/local/command/gear.md)                                           | not released |
+| [/api/local/command/hazard_lights](./api/local/command/hazard_lights.md)                         | not released |
+| [/api/local/command/pedal](./api/local/command/pedal.md)                                         | not released |
+| [/api/local/command/steering](./api/local/command/steering.md)                                   | not released |
+| [/api/local/command/turn_indicators](./api/local/command/turn_indicators.md)                     | not released |
+| [/api/local/control_mode/list](./api/local/control_mode/list.md)                                 | not released |
+| [/api/local/control_mode/select](./api/local/control_mode/select.md)                             | not released |
+| [/api/local/control_mode/status](./api/local/control_mode/status.md)                             | not released |
 | [/api/localization/initialization_state](./api/localization/initialization_state.md)             | v1.0.0       |
 | [/api/localization/initialize](./api/localization/initialize.md)                                 | v1.0.0       |
 | [/api/motion/accept_start](./api/motion/accept_start.md)                                         | not released |
@@ -21,12 +30,13 @@
 | [/api/planning/cooperation/set_policies](./api/planning/cooperation/set_policies.md)             | not released |
 | [/api/planning/steering_factors](./api/planning/steering_factors.md)                             | not released |
 | [/api/planning/velocity_factors](./api/planning/velocity_factors.md)                             | not released |
-| [/api/remote/command/accel](./api/remote/command/accel.md)                                       | not released |
+| [/api/remote/command/acceleration](./api/remote/command/acceleration.md)                         | not released |
 | [/api/remote/command/gear](./api/remote/command/gear.md)                                         | not released |
 | [/api/remote/command/hazard_lights](./api/remote/command/hazard_lights.md)                       | not released |
 | [/api/remote/command/pedal](./api/remote/command/pedal.md)                                       | not released |
-| [/api/remote/command/steer](./api/remote/command/steer.md)                                       | not released |
+| [/api/remote/command/steering](./api/remote/command/steering.md)                                 | not released |
 | [/api/remote/command/turn_indicators](./api/remote/command/turn_indicators.md)                   | not released |
+| [/api/remote/control_mode/list](./api/remote/control_mode/list.md)                               | not released |
 | [/api/remote/control_mode/select](./api/remote/control_mode/select.md)                           | not released |
 | [/api/remote/control_mode/status](./api/remote/control_mode/status.md)                           | not released |
 | [/api/routing/change_route](./api/routing/change_route.md)                                       | v1.5.0       |

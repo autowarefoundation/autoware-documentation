@@ -44,3 +44,4 @@ Service providers can combine these use cases to define user stories and check i
 - [Cooperation](./features/cooperation.md)
 - [Heartbeat](./features/heartbeat.md)
 - [Diagnostics](./features/diagnostics.md)
+- [Manual control](./features/manual-control.md)

@@ -1,6 +1,6 @@
 # Types of Autoware AD API
 
-- [autoware_adapi_v1_msgs/msg/AccelCommand](./autoware_adapi_v1_msgs/msg/AccelCommand.md)
+- [autoware_adapi_v1_msgs/msg/AccelerationCommand](./autoware_adapi_v1_msgs/msg/AccelerationCommand.md)
 - [autoware_adapi_v1_msgs/msg/CooperationCommand](./autoware_adapi_v1_msgs/msg/CooperationCommand.md)
 - [autoware_adapi_v1_msgs/msg/CooperationDecision](./autoware_adapi_v1_msgs/msg/CooperationDecision.md)
 - [autoware_adapi_v1_msgs/msg/CooperationPolicy](./autoware_adapi_v1_msgs/msg/CooperationPolicy.md)
@@ -38,7 +38,7 @@
 - [autoware_adapi_v1_msgs/msg/RoutePrimitive](./autoware_adapi_v1_msgs/msg/RoutePrimitive.md)
 - [autoware_adapi_v1_msgs/msg/RouteSegment](./autoware_adapi_v1_msgs/msg/RouteSegment.md)
 - [autoware_adapi_v1_msgs/msg/RouteState](./autoware_adapi_v1_msgs/msg/RouteState.md)
-- [autoware_adapi_v1_msgs/msg/SteerCommand](./autoware_adapi_v1_msgs/msg/SteerCommand.md)
+- [autoware_adapi_v1_msgs/msg/SteeringCommand](./autoware_adapi_v1_msgs/msg/SteeringCommand.md)
 - [autoware_adapi_v1_msgs/msg/SteeringFactor](./autoware_adapi_v1_msgs/msg/SteeringFactor.md)
 - [autoware_adapi_v1_msgs/msg/SteeringFactorArray](./autoware_adapi_v1_msgs/msg/SteeringFactorArray.md)
 - [autoware_adapi_v1_msgs/msg/TurnIndicators](./autoware_adapi_v1_msgs/msg/TurnIndicators.md)
@@ -55,6 +55,7 @@
 - [autoware_adapi_v1_msgs/srv/GetDoorLayout](./autoware_adapi_v1_msgs/srv/GetDoorLayout.md)
 - [autoware_adapi_v1_msgs/srv/GetVehicleDimensions](./autoware_adapi_v1_msgs/srv/GetVehicleDimensions.md)
 - [autoware_adapi_v1_msgs/srv/InitializeLocalization](./autoware_adapi_v1_msgs/srv/InitializeLocalization.md)
+- [autoware_adapi_v1_msgs/srv/ListManualControlMode](./autoware_adapi_v1_msgs/srv/ListManualControlMode.md)
 - [autoware_adapi_v1_msgs/srv/SelectManualControlMode](./autoware_adapi_v1_msgs/srv/SelectManualControlMode.md)
 - [autoware_adapi_v1_msgs/srv/SetCooperationCommands](./autoware_adapi_v1_msgs/srv/SetCooperationCommands.md)
 - [autoware_adapi_v1_msgs/srv/SetCooperationPolicies](./autoware_adapi_v1_msgs/srv/SetCooperationPolicies.md)

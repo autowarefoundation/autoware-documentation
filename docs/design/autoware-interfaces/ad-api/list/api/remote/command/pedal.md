@@ -7,7 +7,7 @@ type:
   msg:
     - name: stamp
       text: Timestamp when this message was sent.
-    - name: accel
+    - name: accelerator
       text: Target accelerator pedal ratio.
     - name: brake
       text: Target brake pedal ratio.
@@ -15,6 +15,6 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Send accelerator and brake pedal command to this API. The pedal value is the ratio with the maximum pedal depression being 1.0.
-This API is not available until a control mode is selected using {{ link_ad_api('/api/remote/control_mode/select') }}.
+Sends pedal command used in remote operation mode. The pedal value is the ratio with the maximum pedal depression being 1.0.
+To use this API, select the corresponding mode as described in [manual control](../../../../features/manual-control.md).
 {% endblock %}

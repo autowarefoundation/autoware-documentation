@@ -11,4 +11,5 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
+Get the current manual operation mode.
 {% endblock %}

@@ -14,6 +14,6 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-This API selects the type of command to use.
-This API cannot be used while [operation mode](../../../../features/operation_mode.md) is remote.
+Selects the manual control mode as described in [manual control](../../../../features/manual-control.md).
+This API fails while [operation mode](../../../../features/operation_mode.md) is remote.
 {% endblock %}

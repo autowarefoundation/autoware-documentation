@@ -3,6 +3,7 @@
 title: autoware_adapi_v1_msgs/msg/ManualControlMode
 used:
   - autoware_adapi_v1_msgs/msg/ManualControlModeStatus
+  - autoware_adapi_v1_msgs/srv/ListManualControlMode
   - autoware_adapi_v1_msgs/srv/SelectManualControlMode
 ---
 
@@ -12,7 +13,7 @@ used:
 ```txt
 uint8 DISABLED = 1
 uint8 PEDAL = 2
-uint8 ACCEL = 3
+uint8 ACCELERATION = 3
 
 uint8 mode
 ```

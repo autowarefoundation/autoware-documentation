@@ -1,7 +1,7 @@
 types:
-  autoware_adapi_v1_msgs/msg/AccelCommand:
+  autoware_adapi_v1_msgs/msg/AccelerationCommand:
     msg:
-      accel: float32
+      acceleration: float32
       stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/CooperationCommand:
     msg:
@@ -133,7 +133,7 @@ types:
       stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/PedalCommand:
     msg:
-      accel: float32
+      accelerator: float32
       brake: float32
       stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/ResponseStatus:
@@ -166,10 +166,10 @@ types:
     msg:
       stamp: builtin_interfaces/msg/Time
       state: uint16
-  autoware_adapi_v1_msgs/msg/SteerCommand:
+  autoware_adapi_v1_msgs/msg/SteeringCommand:
     msg:
       stamp: builtin_interfaces/msg/Time
-      steer: float32
+      steering_tire_angle: float32
   autoware_adapi_v1_msgs/msg/SteeringFactor:
     msg:
       behavior: string
@@ -254,6 +254,10 @@ types:
     req:
       pose: geometry_msgs/msg/PoseWithCovarianceStamped[<=1]
     res:
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/ListManualControlMode:
+    res:
+      modes: autoware_adapi_v1_msgs/msg/ManualControlMode[]
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/SelectManualControlMode:
     req:
