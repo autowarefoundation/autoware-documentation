@@ -5,6 +5,7 @@
 - {{ link_ad_api('/api/remote/control_mode/list') }}
 - {{ link_ad_api('/api/remote/control_mode/select') }}
 - {{ link_ad_api('/api/remote/control_mode/status') }}
+- {{ link_ad_api('/api/remote/operator/status') }}
 - {{ link_ad_api('/api/remote/command/pedal') }}
 - {{ link_ad_api('/api/remote/command/acceleration') }}
 - {{ link_ad_api('/api/remote/command/steering') }}
@@ -14,6 +15,7 @@
 - {{ link_ad_api('/api/local/control_mode/list') }}
 - {{ link_ad_api('/api/local/control_mode/select') }}
 - {{ link_ad_api('/api/local/control_mode/status') }}
+- {{ link_ad_api('/api/local/operator/status') }}
 - {{ link_ad_api('/api/local/command/pedal') }}
 - {{ link_ad_api('/api/local/command/acceleration') }}
 - {{ link_ad_api('/api/local/command/steering') }}
@@ -26,6 +28,12 @@
 This API is used to manually control the vehicle, and provides the same interface for different operators: remote and local.
 For example, the local operator controls a vehicle without a driver's seat using a joystick, while the remote operator provides remote support when problems occur with autonomous driving.
 The command sent is used in [operation modes](./operation_mode.md) remote and local.
+
+## Operator status
+
+The application needs to determine whether the operator is able to drive and send that information via the operator status API.
+If the operator is unable to continue driving during manual operation, Autoware will perform MRM to bring the vehicle to a safe state.
+For level 3 and below, the operator status is referenced even during autonomous driving.
 
 ## Control mode
 
