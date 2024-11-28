@@ -27,7 +27,7 @@
 
 This API is used to manually control the vehicle, and provides the same interface for different operators: remote and local.
 For example, the local operator controls a vehicle without a driver's seat using a joystick, while the remote operator provides remote support when problems occur with autonomous driving.
-The command sent is used in [operation modes](./operation_mode.md) remote and local.
+The command sent will be used when [operation mode](./operation_mode.md) is remote or local.
 
 ## Operator status
 

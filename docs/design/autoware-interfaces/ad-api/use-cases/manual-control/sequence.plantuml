@@ -11,7 +11,7 @@ adapi -> app: /api/remote/control_mode/status
 par
   app -> adapi: /api/remote/command/**
 else
-  adapi -> app: /api/veihcie/status
+  adapi -> app: /api/vehicle/status
 end
 
 @enduml

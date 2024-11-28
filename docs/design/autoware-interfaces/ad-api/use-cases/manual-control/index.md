@@ -12,7 +12,7 @@ To operate a vehicle without a steering wheel or steering wheel, or to develop a
   - Steering tire angle as lateral control
   - Gear
   - Turn indicators
-  - Hazard lignts
+  - Hazard lights
 - The following are under consideration.
   - Headlights
   - Wipers
