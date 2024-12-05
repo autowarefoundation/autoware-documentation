@@ -10,6 +10,7 @@
 | [/api/local/command/pedal](./api/local/command/pedal.md)                                         | not released | realtime stream |
 | [/api/local/command/steering](./api/local/command/steering.md)                                   | not released | realtime stream |
 | [/api/local/command/turn_indicators](./api/local/command/turn_indicators.md)                     | not released | notification    |
+| [/api/local/command/velocity](./api/local/command/velocity.md)                                   | not released | realtime stream |
 | [/api/local/control_mode/list](./api/local/control_mode/list.md)                                 | not released | function call   |
 | [/api/local/control_mode/select](./api/local/control_mode/select.md)                             | not released | function call   |
 | [/api/local/control_mode/status](./api/local/control_mode/status.md)                             | not released | notification    |
@@ -37,6 +38,7 @@
 | [/api/remote/command/pedal](./api/remote/command/pedal.md)                                       | not released | realtime stream |
 | [/api/remote/command/steering](./api/remote/command/steering.md)                                 | not released | realtime stream |
 | [/api/remote/command/turn_indicators](./api/remote/command/turn_indicators.md)                   | not released | notification    |
+| [/api/remote/command/velocity](./api/remote/command/velocity.md)                                 | not released | realtime stream |
 | [/api/remote/control_mode/list](./api/remote/control_mode/list.md)                               | not released | function call   |
 | [/api/remote/control_mode/select](./api/remote/control_mode/select.md)                           | not released | function call   |
 | [/api/remote/control_mode/status](./api/remote/control_mode/status.md)                           | not released | notification    |

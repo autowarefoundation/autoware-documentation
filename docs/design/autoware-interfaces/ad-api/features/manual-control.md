@@ -8,6 +8,7 @@
 - {{ link_ad_api('/api/remote/operator/status') }}
 - {{ link_ad_api('/api/remote/command/pedal') }}
 - {{ link_ad_api('/api/remote/command/acceleration') }}
+- {{ link_ad_api('/api/remote/command/velocity') }}
 - {{ link_ad_api('/api/remote/command/steering') }}
 - {{ link_ad_api('/api/remote/command/gear') }}
 - {{ link_ad_api('/api/remote/command/turn_indicators') }}
@@ -18,6 +19,7 @@
 - {{ link_ad_api('/api/local/operator/status') }}
 - {{ link_ad_api('/api/local/command/pedal') }}
 - {{ link_ad_api('/api/local/command/acceleration') }}
+- {{ link_ad_api('/api/local/command/velocity') }}
 - {{ link_ad_api('/api/local/command/steering') }}
 - {{ link_ad_api('/api/local/command/gear') }}
 - {{ link_ad_api('/api/local/command/turn_indicators') }}
@@ -44,16 +46,18 @@ Since there are multiple ways to control a vehicle, such as pedals or accelerati
 | disabled     | This is the initial mode. When selected, all command APIs are unavailable. |
 | pedal        | This mode provides longitudinal control using the pedals.                  |
 | acceleration | This mode provides longitudinal control using the target acceleration.     |
+| velocity     | This mode provides longitudinal control using the target velocity.         |
 
 ## Commands
 
 The commands available in each mode are as follows.
 
-| Command         | disabled | pedal | acceleration |
-| --------------- | :------: | :---: | :----------: |
-| pedal           |    -     |   ✓   |      -       |
-| acceleration    |    -     |   -   |      ✓       |
-| steering        |    -     |   ✓   |      ✓       |
-| gear            |    -     |   ✓   |      ✓       |
-| turn_indicators |    -     |   ✓   |      ✓       |
-| hazard_lights   |    -     |   ✓   |      ✓       |
+| Command         | disabled | pedal | acceleration | velocity |
+| --------------- | :------: | :---: | :----------: | :------: |
+| pedal           |    -     |   X   |      -       |    -     |
+| acceleration    |    -     |   -   |      X       |    -     |
+| velocity        |    -     |   -   |      -       |    X     |
+| steering        |    -     |   X   |      X       |    X     |
+| gear            |    -     |   X   |      X       |    X     |
+| turn_indicators |    -     |   X   |      X       |    X     |
+| hazard_lights   |    -     |   X   |      X       |    X     |

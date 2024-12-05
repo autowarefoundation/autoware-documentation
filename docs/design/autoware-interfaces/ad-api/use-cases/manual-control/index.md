@@ -8,7 +8,7 @@ To operate a vehicle without a steering wheel or steering wheel, or to develop a
 
 - The vehicle can transition to a safe state when a communication problem occurs.
 - Supports the following commands and statuses.
-  - Pedal or acceleration as longitudinal control
+  - Pedal, acceleration or velocity as longitudinal control
   - Steering tire angle as lateral control
   - Gear
   - Turn indicators

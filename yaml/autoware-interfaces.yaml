@@ -220,6 +220,10 @@ types:
       stamp: builtin_interfaces/msg/Time
       steering_tire_angle: float64
       turn_indicators: autoware_adapi_v1_msgs/msg/TurnIndicators
+  autoware_adapi_v1_msgs/msg/VelocityCommand:
+    msg:
+      stamp: builtin_interfaces/msg/Time
+      velocity: float32
   autoware_adapi_v1_msgs/msg/VelocityFactor:
     msg:
       behavior: string
