@@ -60,7 +60,7 @@
 
     Note that you cannot use `~` instead of `$HOME` here.
 
-    ![after-autoware-launch](images/rosbag-replay/after-autoware-launch.png)
+    ![after-autoware-launch](https://github.com/vish0012/autoware-documentation/blob/45bd22487008b43b674525bebab038d37ab097a6/docs/tutorials/ad-hoc-simulation/images/rosbag-replay/ros%201.png)
 
     > ⚠️ You might encounter error and warning messages in the terminal before playing the `rosbag`. This is normal behavior. These should cease once the `rosbag` is played and proper initialization takes place
 
@@ -73,15 +73,15 @@
 
     > ⚠️ Due to the discrepancy between the timestamp in the `rosbag` and the current system timestamp, Autoware may generate warning messages in the terminal alerting to this mismatch. This is normal behavior.
 
-    ![after-rosbag-play](images/rosbag-replay/after-rosbag-play.png)
+    ![after-rosbag-play](https://github.com/vish0012/autoware-documentation/blob/a1fe06e30daf6a6e63e112d20d795bed53e3ad66/docs/tutorials/ad-hoc-simulation/images/rosbag-replay/rosbeg%202.png)
 
 3.  To focus the view on the ego vehicle, change the `Target Frame` in the RViz Views panel from `viewer` to `base_link`.
 
-    ![change-target-frame](images/rosbag-replay/change-target-frame.png)
+    ![change-target-frame](https://github.com/vish0012/autoware-documentation/blob/3b7bd4ca1795fbdedd9ffed66ca105c0729762a9/docs/tutorials/ad-hoc-simulation/images/rosbag-replay/ros%203.png)
 
 4.  To switch the view to `Third Person Follower` etc, change the `Type` in the RViz Views panel.
 
-    ![third-person-follower](images/rosbag-replay/third-person-follower.png)
+    ![third-person-follower](https://github.com/vish0012/autoware-documentation/blob/1b8f76610a8e66204bec887571cc8820c3bfeff1/docs/tutorials/ad-hoc-simulation/images/rosbag-replay/third%20person%20follwer%20view%20rosbag.png)
 
 [Reference video tutorials](https://drive.google.com/file/d/12D6aSC1Y3Kf7STtEPWG5RYynxKdVcPrc/view?usp=sharing)
 
