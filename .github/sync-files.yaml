@@ -1,4 +1,5 @@
-- repository: autowarefoundation/autoware
+- repository: autowarefoundation/sync-file-templates
+  source-dir: sources
   files:
     - source: CODE_OF_CONDUCT.md
     - source: CONTRIBUTING.md
