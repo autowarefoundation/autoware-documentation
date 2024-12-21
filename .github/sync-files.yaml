@@ -31,6 +31,7 @@
     - source: .prettierignore
     - source: .prettierrc.yaml
     - source: .yamllint.yaml
+    - source: setup.cfg
 
 - repository: autowarefoundation/autoware-documentation
   files:
