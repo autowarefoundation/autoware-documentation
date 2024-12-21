@@ -154,7 +154,7 @@ def update_type_page(pages):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text)
 
-    ## Generate api type page.
+    # Generate api type page.
     text = "# Types of Autoware AD API\n\n"
     for spec in sorted(specs):
         text += f"- [{spec}](./{spec}.md)\n"
@@ -162,7 +162,7 @@ def update_type_page(pages):
 
 
 def update_list_page(pages):
-    ## Generate api list page.
+    # Generate api list page.
     data = []
     for page in sorted(pages, key=lambda page: page["title"]):
         title = page["title"]
