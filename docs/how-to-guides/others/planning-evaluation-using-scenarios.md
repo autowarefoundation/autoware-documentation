@@ -190,7 +190,7 @@ However, the AWF project will be public, it is under development.**
 - Firstly, you should create a free TIER IV account to access the Autoware Evaluator. You can create an account by using
   the [TIER IV account creation page](https://account.tier4.jp/registration).
 
-- After you created an account, please reach out to Hiroshi IGATA (hiroshi.igata@tier4.jp), the AWF ODD WG leader, for
+- After you created an account, please reach out to Hiroshi IGATA (<hiroshi.igata@tier4.jp>), the AWF ODD WG leader, for
   an invitation to AWF project of the Autoware Evaluator. It is advised to join the ODD WG meeting once to briefly
   introduce yourself and your interest. The ODD WG information
   is [here](https://github.com/autowarefoundation/autoware-projects/wiki/operational-design-domain-working-group#how-to-participate-in-the-working-group).

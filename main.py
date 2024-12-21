@@ -18,10 +18,10 @@ def define_env(env):
         return create_relative_link(name, f"design/autoware-interfaces/ad-api/list/{name}.md")
 
     @env.macro
-    def resolve_msg_field(type, name, ext):
+    def resolve_msg_field(msg_type, name, ext):
         specs = env.variables["autoware_interfaces"]["types"]
         for field in name.split("."):
-            type = type.split("[")[0]
-            type = specs[type][ext][field]
+            msg_type = msg_type.split("[")[0]
+            msg_type = specs[msg_type][ext][field]
             ext = "msg"
-        return type
+        return msg_type
