@@ -49,7 +49,7 @@ def test_markdown_metadata(data, path):
 
 
 def is_documentation_msg(name: str):
-    targets = set(["autoware_adapi_version_msgs", "autoware_adapi_v1_msgs"])
+    targets = {"autoware_adapi_version_msgs", "autoware_adapi_v1_msgs"}
     return name.split("/")[0] in targets
 
 
