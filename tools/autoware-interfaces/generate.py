@@ -16,14 +16,15 @@
 
 # This script requires "source install/setup.bash" for dependent messages/services.
 
-import shutil
-import yaml
 from pathlib import Path
+import shutil
 
+from ament_index_python.packages import get_package_share_directory
 from rosidl_adapter.parser import MessageSpecification
 from rosidl_adapter.parser import parse_message_file
 from rosidl_adapter.parser import parse_service_file
-from ament_index_python.packages import get_package_share_directory
+
+import yaml
 
 
 # cSpell:words indentless
@@ -35,7 +36,7 @@ class MyDumper(yaml.SafeDumper):
 def load_markdown_metadata(path: Path):
     lines = path.read_text().splitlines()
     if (2 < len(lines)) and (lines[0] == "---"):
-        data = lines[1:lines.index("---", 1)]
+        data = lines[1 : lines.index("---", 1)]
         data = yaml.safe_load("\n".join(data))
         return test_markdown_metadata(data, path)
     return None
@@ -178,7 +179,6 @@ def main():
 
     update_list_page(pages)
     update_type_page(pages)
-
 
 
 main()
