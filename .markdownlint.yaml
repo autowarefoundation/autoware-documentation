@@ -1,3 +1,7 @@
+# This file is automatically synced from:
+# https://github.com/autowarefoundation/sync-file-templates
+# To make changes, update the source repository and follow the guidelines in its README.
+
 # See https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md for all rules.
 default: true
 MD013: false
@@ -5,8 +9,8 @@ MD024:
   siblings_only: true
 MD029:
   style: ordered
-MD030: false
 MD033: false
 MD041: false
+MD045: false
 MD046: false
 MD049: false
