@@ -136,8 +136,8 @@ def update_type_page(pages):
 
     # Generate data type pages.
     for name in specs:
-        uses = list(sorted(type_uses[name]))
-        used = list(sorted(type_used[name]))
+        uses = sorted(type_uses[name])
+        used = sorted(type_used[name])
         data = {"title": name, "uses": uses, "used": used}
         data = {k: v for k, v in data.items() if v}
         text = "---\n"
