@@ -98,9 +98,9 @@ def tabulate(data, header):
     for line in data:
         widths = map(max, zip(map(len, line), widths))
     widths = list(widths)
-    format = "| " + " | ".join(f"{{:{width}}}" for width in widths) + " |"
+    str_format = "| " + " | ".join(f"{{:{width}}}" for width in widths) + " |"
     border = ["-" * width for width in widths]
-    return "\n".join(format.format(*line) for line in [header, border, *data])
+    return "\n".join(str_format.format(*line) for line in [header, border, *data])
 
 
 def update_type_page(pages):
