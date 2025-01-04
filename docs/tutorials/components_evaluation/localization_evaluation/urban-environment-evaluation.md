@@ -209,7 +209,7 @@ NDT Score (Nearest Voxel Transformation Likelihood) Threshold = 2.3
 
 Ground Truth : In these tests, the post-processed GNSS / INS data was used as ground truth. Since the error of this ground truth data also decreases in the tunnel environment, it is necessary to evaluate these regions by taking into account the Ground Truth error.
 
-During these tests, I compared the NDT and EKF exposures with Ground Truth and presented the results. I am sharing the test results below as png. However, if you want to examine this data in more detail, I have created an executable file for you to visualize and take a closer look at. You can access this executable file from [here](https://drive.google.com/drive/folders/145QXl6wfV7IB9NS-PzFQtsNnxnAn6a9o?usp=sharing). Currently there is only a version that works on Ubuntu at this link, but I plan to add it for Windows as well.
+During these tests, I compared the NDT and EKF exposures with Ground Truth and presented the results. I am sharing the test results below as png. However, if you want to examine this data in more detail, I have created an executable file for you to visualize and take a closer look at. You can access this executable file from [here](https://drive.google.com/drive/folders/1ges_2q8qljgLfwjZbv2Bn35Rv5awhd_U?usp=sharing). Currently there is only a version that works on Ubuntu at this link, but I plan to add it for Windows as well.
 You need to follow these steps:
 
 ```bash
