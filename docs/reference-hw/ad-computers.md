@@ -6,7 +6,7 @@
 
 ADLINK solutions which is used for autonomous driving and tested by one or more community members are listed below:
 
-  <!-- cspell: ignore Altra BLUEBOX  -->
+  <!-- cspell: ignore Altra BLUEBOX Grms Quadro Vecow vecow -->
 
 | Supported Products List         | CPU                                    | GPU                      | RAM, Interfaces                                                                                    | Environmental                                                                   | Autoware Tested (Y/N) |
 | ------------------------------- | -------------------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | --------------------- |
