@@ -27,7 +27,7 @@ You can find the data collected for testing and mapping in this [Documentation](
 > <span style="color:green">**NOTE !**</span> </br>  
 > Since there was no velocity source coming from the vehicle during all these tests, the twist message coming from GNSS/INS was given to ekf_localizer as the linear&angular velocity source. </br>
 > In order to understand whether this increases the error in cases where the GNSS/INS error increases in the tunnel and how it affects the system, localization in the tunnel was tested by giving only the pose from the NDT, without giving this velocity to ekf_localizer. </br>  
-> The video of this test is [here](https://www.youtube.com/watch?v=ajgedIwwuaM). </br>
+> The video of this test is [here](https://youtu.be/6On130bjQUY?si=vumtij7a66WBIV3z). </br>
 > As seen in the video, when velocity is not given, localization in the tunnel deteriorates more quickly.
 > It is also predicted that if the IMU Twist message combined (/localization/twist_estimator/twist_with_covariance) with the linear velocity from the vehicle is given instead of the GNSS/INS Twist message, the performance in the tunnel will increase. However, this test cannot be done with the current data.
 
@@ -182,7 +182,7 @@ ros2 bag play ~/autoware_ista_data/rosbag2_2024_09_12-14_59_58_0.db3
 #### Test 1: Simple Test of Localization
 
 Simply put, how localization works in an urban environment was tested and the results were recorded on video.
-Here is the [test video](https://youtu.be/Bk4Oyk6FOg0?t=6).
+Here is the [test video](https://youtu.be/DQsk3rY7NjY?si=NkJYIZoPd6HqLIHp).
 [<img src="https://github.com/user-attachments/assets/e0f7edbf-0596-4806-8dcd-b4156584e4c0" width="60%">](https://youtu.be/Bk4Oyk6FOg0?t=6")
 
 We can see from video that there is a localization error in the longitudinal axis along the Eurasia tunnel. As expected, NDT based localization does not work properly here. However, since the NDT score cannot detect the distortion here, localization is not completely broken until the end of the tunnel. Localization is completely broken at the exit of the tunnel. I re-initialized the localization after vehicle exit the tunnel.
@@ -209,7 +209,7 @@ NDT Score (Nearest Voxel Transformation Likelihood) Threshold = 2.3
 
 Ground Truth : In these tests, the post-processed GNSS / INS data was used as ground truth. Since the error of this ground truth data also decreases in the tunnel environment, it is necessary to evaluate these regions by taking into account the Ground Truth error.
 
-During these tests, I compared the NDT and EKF exposures with Ground Truth and presented the results. I am sharing the test results below as png. However, if you want to examine this data in more detail, I have created an executable file for you to visualize and take a closer look at. You can access this executable file from [here](https://drive.google.com/drive/folders/145QXl6wfV7IB9NS-PzFQtsNnxnAn6a9o?usp=sharing). Currently there is only a version that works on Ubuntu at this link, but I plan to add it for Windows as well.
+During these tests, I compared the NDT and EKF exposures with Ground Truth and presented the results. I am sharing the test results below as png. However, if you want to examine this data in more detail, I have created an executable file for you to visualize and take a closer look at. You can access this executable file from [here](https://drive.google.com/drive/folders/1ges_2q8qljgLfwjZbv2Bn35Rv5awhd_U?usp=sharing). Currently there is only a version that works on Ubuntu at this link, but I plan to add it for Windows as well.
 You need to follow these steps:
 
 ```bash
