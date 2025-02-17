@@ -1,6 +1,10 @@
 # Release notes
 
-## v1.6.0 (Not released)
+## v1.7.0
+
+- [Chore] Change the messages for the prototype implementation.
+
+## v1.6.0
 
 - [Change] Fix communication method of {{ link_ad_api('/api/vehicle/status') }}
 - [Change] Add restrictions to {{ link_ad_api('/api/routing/clear_route') }}
