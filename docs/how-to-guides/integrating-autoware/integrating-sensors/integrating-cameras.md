@@ -33,10 +33,22 @@ once the video device node is recognized as a V4L2 device.
 
 
 ### [Optional] Compress image data using `accelerated_image_processor`
+For logging perpurse, Compressed images, such as `sensor_msgs/CompressedImage`, are preferable in terms of reducing storage footprint,
+while all perception modules of Autoware expect `sensor_msgs/Image`.
+
+[`accelerated_image_processor`](https://github.com/tier4/accelerated_image_processor) provides accelerated compression processes.
+The node takes `sensor_msgs/Image` as an input and publishes `sensor_msgs/CompressedImage` as an output.
+The key parameters are as follows:
+
+| Parameter | Description | Example Value |
+| --- | --- | --- |
+| `jpeg_quality` | JPEG quality | `80` |
+
 
 ## Supported/Experienced Interfaces
 As a hardware interface of the camera, 
 the following interfaces are introduced in this document to show how to integrate the camera into Autoware.
+
 - Gigabit Multimedia Serial Link2 (GMSL2)
 - USB
 <!-- interface comparison: https://medium.com/tier-iv-tech-blog/automotive-camera-interfaces-explained-7e7d8e3ba09e -->
