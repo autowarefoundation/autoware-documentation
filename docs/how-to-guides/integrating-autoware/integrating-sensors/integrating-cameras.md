@@ -5,6 +5,8 @@ as long as the RBG color images are published in `sensor_msgs/Image` topic forma
 To handle realtime video capture, users who would like to integrate their own camera into Autoware are recommended to
 utilize Video for Linux version 2 (V4L2) framework, which provides a standard interfaces that allows user-space applications to interact with video capture devices.
 
+The following figure depicts the architecture overview to integrate cameras to Autowre:
+![Architecture overview](images/camera_connection_architecture_overview.svg)
 ## Adapt to `ros2_v4l2_camera`
 [`ros2_v4l2_camera`](https://github.com/tier4/ros2_v4l2_camera) can be used to capture images from a video device node, such as `/dev/video*`,
 once the video device node is recognized as a V4L2 device.
