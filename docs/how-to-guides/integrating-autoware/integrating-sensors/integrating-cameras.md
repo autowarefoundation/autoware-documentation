@@ -20,6 +20,7 @@ This scenario will be addressed in a separate section of this document.
 once the video device node is recognized as a V4L2 device.
 
 - Specify `/dev/video*` as a parameter of the node to acquire images
+- Adjust `image_size` and `pixel_format` parameters to match the resolution and format of the camera
 - topic name is arbitrary. Autoware typically assume that the topic name is `image_raw` for the images without any processing from the camera output, and `image_rect_color` for the images rectified (i.e., lens distortion corrected) after capturing.
 - Representative node parameters are as follows (parameters can be differ according to the device driver imprelemtaion):
 
@@ -55,9 +56,14 @@ the following interfaces are introduced in this document to show how to integrat
 
 ## How to integrate GMSL2 cameras
 ### 1. Implement Device driver
-- Build and load the device driver. The target camera is expected to be able to be accessed via `/dev/video*` 
+<!-- - Build and load the device driver. The target camera is expected to be able to be accessed via `/dev/video*`  -->
+Device drivers are responsible for exposing the camera as a V4L2 device. The main driver creates V4L2 device nodes, such as `/dev/video*`, and handle structured defined by V4L2 framework to communicate V4L2. If the target camera adopts Serializer/Deserializer technorogy, which allows transmission over longer runs, the sub drivers to handle those components are also required.
 
-### 2. Trigger FSYNC signals 
+### 2. Prepare device tree
+Whereas the device tree provides the controls for hardware devices, device tree describes hardware.
+The device tree provides the static information of the devcies and their connections, which the kernel uses to discover/configure the devices.
+
+### 3. Trigger FSYNC signals
 - Design trigger timing (in terms of synchronization with other sensors / SoF or EoF)
 - configure the components on the tranmission path, including Deserializer, Serializer, (IPS, ) Imaging sensor, so that the FSYNC signals are transmitted properly
 - If GPIO is connected to the deserializer, FSYNC sigmal emission can be done using `sensor_trigger` node
