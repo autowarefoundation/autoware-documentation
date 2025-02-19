@@ -1,6 +1,6 @@
 ---
 title: /api/perception/objects
-status: v1.0.0
+status: not released
 method: realtime stream
 type:
   name: autoware_adapi_v1_msgs/msg/DynamicObjectArray

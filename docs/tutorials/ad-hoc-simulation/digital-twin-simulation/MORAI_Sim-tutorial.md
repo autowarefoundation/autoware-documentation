@@ -45,5 +45,5 @@ Be aware that the following manuals are for _ver.22.R2_
 
 Hyeongseok Jeon will give full technical support
 
-- hsjeon@morai.ai
+- <hsjeon@morai.ai>
 - Hyeongseok Jeon#2355 in Discord

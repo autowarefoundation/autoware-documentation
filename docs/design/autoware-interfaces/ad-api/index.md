@@ -26,6 +26,7 @@ Service providers can combine these use cases to define user stories and check i
 - [Get on and get off](./use-cases/get-on-off.md)
 - [Vehicle monitoring](./use-cases/vehicle-monitoring.md)
 - [Vehicle operation](./use-cases/vehicle-operation.md)
+- [System monitoring](./use-cases/system-monitoring.md)
 
 ## Features
 
@@ -40,3 +41,5 @@ Service providers can combine these use cases to define user stories and check i
 - [Vehicle status](./features/vehicle-status.md)
 - [Vehicle doors](./features/vehicle-doors.md)
 - [Cooperation](./features/cooperation.md)
+- [Heartbeat](./features/heartbeat.md)
+- [Diagnostics](./features/diagnostics.md)

@@ -39,10 +39,10 @@ When developing a new node, it could be beneficial to reference a package that i
 
 It is advisable to thoroughly read the [Design page](https://autowarefoundation.github.io/autoware-documentation/main/design/), contemplate the addition or replacement of nodes in Autoware, and then implement your solution.
 
-For example, a node doing NDT, a LiDAR-based localization method, is [ndt_scan_matcher](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/ndt_scan_matcher).
+For example, a node doing NDT, a LiDAR-based localization method, is [ndt_scan_matcher](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/autoware_ndt_scan_matcher).
 If you want to replace this with a different approach, implement a node which produces the same topics and provides the same services.
 
-`ndt_scan_matcher` is launched as [pose_estimator](https://github.com/autowarefoundation/autoware.universe/blob/main/launch/tier4_localization_launch/launch/pose_estimator/pose_estimator.launch.xml), so it is necessary to replace the launch file as well.
+`ndt_scan_matcher` is launched as [pose_estimator](https://github.com/autowarefoundation/autoware.universe/blob/main/launch/tier4_localization_launch/launch/pose_twist_estimator/ndt_scan_matcher.launch.xml), so it is necessary to replace the launch file as well.
 
 ## 4. Evaluating by a rosbag-based simulator
 
@@ -67,7 +67,7 @@ Once you have sufficiently verified the behavior in the logging_simulator, let's
 To debug Autoware, the method described at [debug-autoware](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/others/debug-autoware/) is useful.
 
 For reproducibility, you may want to fix the GoalPose.
-In such cases, consider using the [tier4_automatic_goal_rviz_plugin](https://github.com/autowarefoundation/autoware.universe/tree/main/common/tier4_automatic_goal_rviz_plugin).
+In such cases, consider using the [tier4_automatic_goal_rviz_plugin](https://github.com/autowarefoundation/autoware_tools/tree/main/common/tier4_automatic_goal_rviz_plugin).
 
 ## 6. Sharing the results
 

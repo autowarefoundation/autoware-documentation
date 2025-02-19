@@ -2,8 +2,7 @@
 
 ## Related API
 
-- Interface
-- Launcher
+- T.B.D.
 
 ## Sequence
 

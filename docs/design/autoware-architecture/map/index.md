@@ -69,7 +69,7 @@ The point cloud map must be supplied as a file with the following requirements:
 - Its resolution should be at least 0.2 m to yield reliable localization results.
 - It can be in either local or global coordinates, but must be in global coordinates (georeferenced) to use GNSS data for localization.
 
-For more details on divided map format, please refer to [the readme of `map_loader` in Autoware Universe](https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/README.md).
+For more details on divided map format, please refer to [the readme of `map_loader` in Autoware Universe](https://github.com/autowarefoundation/autoware.universe/blob/main/map/autoware_map_loader/README.md).
 
 !!! note
 
@@ -87,9 +87,7 @@ The vector cloud map must be supplied as a file with the following requirements:
 - Each lanelet in the map must contain traffic rule information including its speed limit, right of way, traffic direction, associated traffic lights, stop lines, and traffic signs.
 - It must cover the entire operational area of the vehicle.
 
-!!! warning
-
-    Under Construction
+For detailed specifications on Vector Map creation, please refer to [Vector Map Creation Requirement Specification document](./map-requirements/vector-map-requirements-overview/index.md).
 
 ### Projection Information
 

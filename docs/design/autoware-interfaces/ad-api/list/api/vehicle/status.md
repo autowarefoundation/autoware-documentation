@@ -1,7 +1,7 @@
 ---
 title: /api/vehicle/status
-status: not released
-method: notification
+status: v1.4.0
+method: realtime stream
 type:
   name: autoware_adapi_v1_msgs/msg/VehicleStatus
   msg:
@@ -13,8 +13,6 @@ type:
       text: Hazard lights status.
     - name: steering_tire_angle
       text: Vehicle current tire angle in radian.
-    - name: energy_percentage
-      text: Battery percentage or fuel percentage, it will depends on the vehicle.
 ---
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}

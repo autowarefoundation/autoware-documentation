@@ -11,7 +11,7 @@ Find more information on parameters from the official ROS documentation:
 
 A ROS package which uses the [declare_parameter(...)](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb) function should:
 
-- use the [declare_parameter(...)](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb) with out a default value
+- use the [declare_parameter(...)](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb) without a default value
 - create a parameter file
 - create a schema file
 
@@ -149,7 +149,7 @@ Autoware has the following two types of parameter files for ROS packages:
 
 The schema file path is `INSERT_PATH_TO_PACKAGE/schema/` and the schema file name is `INSERT_NODE_NAME.schema.json`. To adapt the template to the ROS node, replace each `INSERT_...` and add all parameters `1..N`.
 
-See example: _Lidar Apollo Segmentation TVM Nodes_ [schema](https://github.com/autowarefoundation/autoware.universe/blob/main/perception/lidar_apollo_segmentation_tvm_nodes/schema/lidar_apollo_segmentation_tvm_nodes.schema.json)
+See example: _Image Projection Based Fusion - Pointpainting_ [schema](https://github.com/autowarefoundation/autoware.universe/blob/main/universe/perception/autoware_image_projection_based_fusion/schema/pointpainting.schema.json)
 
 ### Attributes
 

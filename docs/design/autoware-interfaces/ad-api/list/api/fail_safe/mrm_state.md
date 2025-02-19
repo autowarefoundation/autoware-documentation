@@ -1,6 +1,6 @@
 ---
 title: /api/fail_safe/mrm_state
-status: not released
+status: v1.1.0
 method: notification
 type:
   name: autoware_adapi_v1_msgs/msg/MrmState
