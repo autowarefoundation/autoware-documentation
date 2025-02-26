@@ -15,6 +15,50 @@ The following figure depicts the architecture overview to integrate cameras to A
 For users who prefer cameras connected via Ethernet, it may be efficient to decode packets directly instead of relying on the V4L2 framework.
 This scenario will be addressed in a separate section of this document.
 
+## Integration overview
+This section describes main procedure flow to integrate new cameras into Autoware.
+
+### Select interface to connect the cameras
+There are some interfaces for camera connection. In terms of performance, integration easiness, and operation experiences,
+this document introduces three major interfaces; GMSL2, USB, and GigE. The following table summaries 
+qualitative comparison of pros/cons for each interfaces
+(You can see more technical detailes [here](https://medium.com/tier-iv-tech-blog/automotive-camera-interfaces-explained-7e7d8e3ba09e)).
+
+|                       | GMSL2         | USB                      | GigE                     |
+|-----------------------|---------------|--------------------------|--------------------------|
+| shutter trigger       | **supported** | require extra equippment | require extra equippment |
+| plug and play         | No            | **Yes**                  | Depends on products      |
+| data transfer latency | **Ultra-Low** | Low                      | Low                      |
+| maximum bandwidth     | **6 Gbps**    | 5 Gbps@USB3.0            | 1 Gbps                   |
+
+Typically, USB is easy to integrate because of its plug-and-play feature.
+GigE is suitable for use cases where long transmission is required (up to 100 m).
+GMSL2 is likely to be preferred for automotive usage because of 
+its strengths of ultra-low data transfer latency, high bandwidth, and functional safety rated options.
+
+### need-to-implement/reusable items for integration
+According to the selected interface, items to be implemented/tuned will be different.
+
+|                      | GMSL2                                                                                          | USB3                                                                      | GigE                                                           |
+|----------------------|------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|----------------------------------------------------------------|
+| Device driver        | need to implement dedicated ones according to camera type and ECU type to use as a V4L2 device | UVC driver can make it exposed as a V4L2 driver with various cameras/ECUs | Not needed (V4L2 is not applicable)                            |
+| available ROS driver | - `ros2_v4l2_camera` <br> - `gscam`                                                            | - `ros2_v4l2_camera` <br> - `uvc_camera` <br> - `gscam`                   | - `gscan` (if data is transferred in RTP) <br> - dedicated one |
+
+
+### Calibration
+"Calibration" to calculate camera intrinsic parameters are mandatory for some use cases, such as 3D to 2D projection (performed during traffic light recognition) and rectification.
+For calibration procedure, see [here](/autoware-documentation/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors/intrinsic-camera-calibration/) for more details.
+
+### Time synchronization
+Some cameras support the shutter triggering feature, which enables precise time synchronization between multiple cameras and other sensors/ECUs.
+The following table shows which features in Autoware require time synchronization. Time synchronization is highly recommended in Autoware since the available features are limited without it.
+See [here]() for more detail regarding time synchronization.
+
+|                          | image based object detection/segmentation | image based localization                           | traffic light recognition | LiDAR-camera fusion |
+|--------------------------|:-----------------------------------------:|:--------------------------------------------------:|:-------------------------:|:-------------------:|
+| w/o time synchronization | $\checkmark$                              | $\checkmark$<br>(for single camera operation only) |                           |                     |
+| w/  time synchronization | $\checkmark$                              | $\checkmark$                                       | $\checkmark$              | $\checkmark$        |
+
 ## Adapt to `ros2_v4l2_camera`
 [`ros2_v4l2_camera`](https://github.com/tier4/ros2_v4l2_camera) can be used to capture images from a video device node, such as `/dev/video*`,
 once the video device node is recognized as a V4L2 device.
