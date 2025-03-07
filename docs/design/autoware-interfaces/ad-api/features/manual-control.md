@@ -52,12 +52,12 @@ Since there are multiple ways to control a vehicle, such as pedals or accelerati
 
 The commands available in each mode are as follows.
 
-| Command         | disabled | pedals  | acceleration | velocity |
-| --------------- | :------: | :-----: | :----------: | :------: |
-| pedals          |    -     | &check; |      -       |    -     |
-| acceleration    |    -     |    -    |   &check;    |    -     |
-| velocity        |    -     |    -    |      -       | &check;  |
-| steering        |    -     | &check; |   &check;    | &check;  |
-| gear            |    -     | &check; |   &check;    | &check;  |
-| turn_indicators |    -     | &check; |   &check;    | &check;  |
-| hazard_lights   |    -     | &check; |   &check;    | &check;  |
+| Command         | disabled |  pedals  | acceleration | velocity |
+| --------------- | :------: | :------: | :----------: | :------: |
+| pedals          |    -     | &#x2713; |      -       |    -     |
+| acceleration    |    -     |    -     |   &#x2713;   |    -     |
+| velocity        |    -     |    -     |      -       | &#x2713; |
+| steering        |    -     | &#x2713; |   &#x2713;   | &#x2713; |
+| gear            |    -     | &#x2713; |   &#x2713;   | &#x2713; |
+| turn_indicators |    -     | &#x2713; |   &#x2713;   | &#x2713; |
+| hazard_lights   |    -     | &#x2713; |   &#x2713;   | &#x2713; |
