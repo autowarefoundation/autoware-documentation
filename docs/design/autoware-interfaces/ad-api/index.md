@@ -27,6 +27,7 @@ Service providers can combine these use cases to define user stories and check i
 - [Vehicle monitoring](./use-cases/vehicle-monitoring.md)
 - [Vehicle operation](./use-cases/vehicle-operation.md)
 - [System monitoring](./use-cases/system-monitoring.md)
+- [Manual control](./use-cases/manual-control/index.md)
 
 ## Features
 
@@ -43,3 +44,4 @@ Service providers can combine these use cases to define user stories and check i
 - [Cooperation](./features/cooperation.md)
 - [Heartbeat](./features/heartbeat.md)
 - [Diagnostics](./features/diagnostics.md)
+- [Manual control](./features/manual-control.md)
