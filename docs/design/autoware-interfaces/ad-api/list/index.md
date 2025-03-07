@@ -3,6 +3,7 @@
 | API                                                                                              | Release      | Method          |
 | ------------------------------------------------------------------------------------------------ | ------------ | --------------- |
 | [/api/fail_safe/mrm_state](./api/fail_safe/mrm_state.md)                                         | v1.1.0       | notification    |
+| [/api/fail_safe/rti_state](./api/fail_safe/rti_state.md)                                         | not released | notification    |
 | [/api/interface/version](./api/interface/version.md)                                             | v1.0.0       | function call   |
 | [/api/localization/initialization_state](./api/localization/initialization_state.md)             | v1.0.0       | notification    |
 | [/api/localization/initialize](./api/localization/initialize.md)                                 | v1.0.0       | function call   |
