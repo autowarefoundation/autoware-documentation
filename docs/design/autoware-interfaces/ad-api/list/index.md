@@ -7,7 +7,7 @@
 | [/api/local/command/acceleration](./api/local/command/acceleration.md)                           | not released | realtime stream |
 | [/api/local/command/gear](./api/local/command/gear.md)                                           | not released | notification    |
 | [/api/local/command/hazard_lights](./api/local/command/hazard_lights.md)                         | not released | notification    |
-| [/api/local/command/pedal](./api/local/command/pedal.md)                                         | not released | realtime stream |
+| [/api/local/command/pedals](./api/local/command/pedals.md)                                       | not released | realtime stream |
 | [/api/local/command/steering](./api/local/command/steering.md)                                   | not released | realtime stream |
 | [/api/local/command/turn_indicators](./api/local/command/turn_indicators.md)                     | not released | notification    |
 | [/api/local/command/velocity](./api/local/command/velocity.md)                                   | not released | realtime stream |
@@ -35,7 +35,7 @@
 | [/api/remote/command/acceleration](./api/remote/command/acceleration.md)                         | not released | realtime stream |
 | [/api/remote/command/gear](./api/remote/command/gear.md)                                         | not released | notification    |
 | [/api/remote/command/hazard_lights](./api/remote/command/hazard_lights.md)                       | not released | notification    |
-| [/api/remote/command/pedal](./api/remote/command/pedal.md)                                       | not released | realtime stream |
+| [/api/remote/command/pedals](./api/remote/command/pedals.md)                                     | not released | realtime stream |
 | [/api/remote/command/steering](./api/remote/command/steering.md)                                 | not released | realtime stream |
 | [/api/remote/command/turn_indicators](./api/remote/command/turn_indicators.md)                   | not released | notification    |
 | [/api/remote/command/velocity](./api/remote/command/velocity.md)                                 | not released | realtime stream |

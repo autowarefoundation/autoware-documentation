@@ -6,7 +6,7 @@
 - {{ link_ad_api('/api/remote/control_mode/select') }}
 - {{ link_ad_api('/api/remote/control_mode/status') }}
 - {{ link_ad_api('/api/remote/operator/status') }}
-- {{ link_ad_api('/api/remote/command/pedal') }}
+- {{ link_ad_api('/api/remote/command/pedals') }}
 - {{ link_ad_api('/api/remote/command/acceleration') }}
 - {{ link_ad_api('/api/remote/command/velocity') }}
 - {{ link_ad_api('/api/remote/command/steering') }}
@@ -17,7 +17,7 @@
 - {{ link_ad_api('/api/local/control_mode/select') }}
 - {{ link_ad_api('/api/local/control_mode/status') }}
 - {{ link_ad_api('/api/local/operator/status') }}
-- {{ link_ad_api('/api/local/command/pedal') }}
+- {{ link_ad_api('/api/local/command/pedals') }}
 - {{ link_ad_api('/api/local/command/acceleration') }}
 - {{ link_ad_api('/api/local/command/velocity') }}
 - {{ link_ad_api('/api/local/command/steering') }}
@@ -44,7 +44,7 @@ Since there are multiple ways to control a vehicle, such as pedals or accelerati
 | Mode         | Description                                                                |
 | ------------ | -------------------------------------------------------------------------- |
 | disabled     | This is the initial mode. When selected, all command APIs are unavailable. |
-| pedal        | This mode provides longitudinal control using the pedals.                  |
+| pedals       | This mode provides longitudinal control using the pedals.                  |
 | acceleration | This mode provides longitudinal control using the target acceleration.     |
 | velocity     | This mode provides longitudinal control using the target velocity.         |
 
@@ -52,9 +52,9 @@ Since there are multiple ways to control a vehicle, such as pedals or accelerati
 
 The commands available in each mode are as follows.
 
-| Command         | disabled |  pedal  | acceleration | velocity |
+| Command         | disabled | pedals  | acceleration | velocity |
 | --------------- | :------: | :-----: | :----------: | :------: |
-| pedal           |    -     | &check; |      -       |    -     |
+| pedals          |    -     | &check; |      -       |    -     |
 | acceleration    |    -     |    -    |   &check;    |    -     |
 | velocity        |    -     |    -    |      -       | &check;  |
 | steering        |    -     | &check; |   &check;    | &check;  |

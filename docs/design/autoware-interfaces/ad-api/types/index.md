@@ -31,7 +31,7 @@
 - [autoware_adapi_v1_msgs/msg/MrmState](./autoware_adapi_v1_msgs/msg/MrmState.md)
 - [autoware_adapi_v1_msgs/msg/ObjectClassification](./autoware_adapi_v1_msgs/msg/ObjectClassification.md)
 - [autoware_adapi_v1_msgs/msg/OperationModeState](./autoware_adapi_v1_msgs/msg/OperationModeState.md)
-- [autoware_adapi_v1_msgs/msg/PedalCommand](./autoware_adapi_v1_msgs/msg/PedalCommand.md)
+- [autoware_adapi_v1_msgs/msg/PedalsCommand](./autoware_adapi_v1_msgs/msg/PedalsCommand.md)
 - [autoware_adapi_v1_msgs/msg/ResponseStatus](./autoware_adapi_v1_msgs/msg/ResponseStatus.md)
 - [autoware_adapi_v1_msgs/msg/Route](./autoware_adapi_v1_msgs/msg/Route.md)
 - [autoware_adapi_v1_msgs/msg/RouteData](./autoware_adapi_v1_msgs/msg/RouteData.md)

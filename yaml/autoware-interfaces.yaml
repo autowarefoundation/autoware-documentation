@@ -135,7 +135,7 @@ types:
       is_stop_mode_available: bool
       mode: uint8
       stamp: builtin_interfaces/msg/Time
-  autoware_adapi_v1_msgs/msg/PedalCommand:
+  autoware_adapi_v1_msgs/msg/PedalsCommand:
     msg:
       accelerator: float32
       brake: float32

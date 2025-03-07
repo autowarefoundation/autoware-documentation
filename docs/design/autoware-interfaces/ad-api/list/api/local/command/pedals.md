@@ -1,9 +1,9 @@
 ---
-title: /api/remote/command/pedal
+title: /api/local/command/pedals
 status: not released
 method: realtime stream
 type:
-  name: autoware_adapi_v1_msgs/msg/PedalCommand
+  name: autoware_adapi_v1_msgs/msg/PedalsCommand
   msg:
     - name: stamp
       text: Timestamp when this message was sent.
@@ -15,6 +15,6 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Sends pedal command used in remote operation mode. The pedal value is the ratio with the maximum pedal depression being 1.0.
+Sends pedals command used in local operation mode. The pedal value is the ratio with the maximum pedal depression being 1.0.
 To use this API, select the corresponding mode as described in [manual control](../../../../features/manual-control.md).
 {% endblock %}
