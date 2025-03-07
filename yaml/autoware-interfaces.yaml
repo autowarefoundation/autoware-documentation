@@ -157,7 +157,6 @@ types:
   autoware_adapi_v1_msgs/msg/RouteOption:
     msg:
       allow_goal_modification: bool
-      allow_while_using_route: bool
   autoware_adapi_v1_msgs/msg/RoutePrimitive:
     msg:
       id: int64

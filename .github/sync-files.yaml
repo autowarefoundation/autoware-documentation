@@ -1,4 +1,5 @@
-- repository: autowarefoundation/autoware
+- repository: autowarefoundation/sync-file-templates
+  source-dir: sources
   files:
     - source: CODE_OF_CONDUCT.md
     - source: CONTRIBUTING.md
@@ -7,9 +8,10 @@
     - source: .github/ISSUE_TEMPLATE/config.yml
     - source: .github/ISSUE_TEMPLATE/task.yaml
     - source: .github/dependabot.yaml
+    - source: .github/pull_request_template.md
     - source: .github/stale.yml
+    - source: .github/workflows/comment-on-pr.yaml
     - source: .github/workflows/github-release.yaml
-    - source: .github/workflows/pre-commit.yaml
     - source: .github/workflows/pre-commit-optional.yaml
     - source: .github/workflows/semantic-pull-request.yaml
     - source: .github/workflows/spell-check-differential.yaml
@@ -24,10 +26,12 @@
               "pattern": "^http://localhost"' \
           {source}
     - source: .markdownlint.yaml
+    - source: .pre-commit-config.yaml
     - source: .pre-commit-config-optional.yaml
     - source: .prettierignore
     - source: .prettierrc.yaml
     - source: .yamllint.yaml
+    - source: setup.cfg
 
 - repository: autowarefoundation/autoware-documentation
   files:

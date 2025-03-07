@@ -13,3 +13,6 @@
 .history/
 *.code-workspace
 *.vsix
+
+# pre-commit
+node_modules/

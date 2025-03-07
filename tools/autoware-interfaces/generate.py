@@ -16,14 +16,15 @@
 
 # This script requires "source install/setup.bash" for dependent messages/services.
 
-import shutil
-import yaml
 from pathlib import Path
+import shutil
 
+from ament_index_python.packages import get_package_share_directory
 from rosidl_adapter.parser import MessageSpecification
 from rosidl_adapter.parser import parse_message_file
 from rosidl_adapter.parser import parse_service_file
-from ament_index_python.packages import get_package_share_directory
+
+import yaml
 
 
 # cSpell:words indentless
@@ -35,7 +36,7 @@ class MyDumper(yaml.SafeDumper):
 def load_markdown_metadata(path: Path):
     lines = path.read_text().splitlines()
     if (2 < len(lines)) and (lines[0] == "---"):
-        data = lines[1:lines.index("---", 1)]
+        data = lines[1 : lines.index("---", 1)]
         data = yaml.safe_load("\n".join(data))
         return test_markdown_metadata(data, path)
     return None
@@ -48,7 +49,7 @@ def test_markdown_metadata(data, path):
 
 
 def is_documentation_msg(name: str):
-    targets = set(["autoware_adapi_version_msgs", "autoware_adapi_v1_msgs"])
+    targets = {"autoware_adapi_version_msgs", "autoware_adapi_v1_msgs"}
     return name.split("/")[0] in targets
 
 
@@ -97,9 +98,9 @@ def tabulate(data, header):
     for line in data:
         widths = map(max, zip(map(len, line), widths))
     widths = list(widths)
-    format = "| " + " | ".join(f"{{:{width}}}" for width in widths) + " |"
+    str_format = "| " + " | ".join(f"{{:{width}}}" for width in widths) + " |"
     border = ["-" * width for width in widths]
-    return "\n".join(format.format(*line) for line in [header, border, *data])
+    return "\n".join(str_format.format(*line) for line in [header, border, *data])
 
 
 def update_type_page(pages):
@@ -135,8 +136,8 @@ def update_type_page(pages):
 
     # Generate data type pages.
     for name in specs:
-        uses = list(sorted(type_uses[name]))
-        used = list(sorted(type_used[name]))
+        uses = sorted(type_uses[name])
+        used = sorted(type_used[name])
         data = {"title": name, "uses": uses, "used": used}
         data = {k: v for k, v in data.items() if v}
         text = "---\n"
@@ -153,7 +154,7 @@ def update_type_page(pages):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text)
 
-    ## Generate api type page.
+    # Generate api type page.
     text = "# Types of Autoware AD API\n\n"
     for spec in sorted(specs):
         text += f"- [{spec}](./{spec}.md)\n"
@@ -161,7 +162,7 @@ def update_type_page(pages):
 
 
 def update_list_page(pages):
-    ## Generate api list page.
+    # Generate api list page.
     data = []
     for page in sorted(pages, key=lambda page: page["title"]):
         title = page["title"]
@@ -178,7 +179,6 @@ def main():
 
     update_list_page(pages)
     update_type_page(pages)
-
 
 
 main()
