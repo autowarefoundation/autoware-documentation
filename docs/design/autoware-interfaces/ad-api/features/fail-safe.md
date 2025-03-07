@@ -45,10 +45,3 @@ This is service dependent. Autoware supports the following transitions by defaul
 ## RTI state
 
 The RTI state indicates whether RTI is requested. If for some reason autonomous driving cannot continue, Autoware will request a change to manual driving.
-The following states are provided to properly handle RTI from multiple vehicles.
-
-| State         | Description                                                                               |
-| ------------- | ----------------------------------------------------------------------------------------- |
-| NONE          | RTI is not requested.                                                                     |
-| MRM_OPERATING | MRM is operating. Since MRC has not been achieved, immediate intervention is recommended. |
-| MRM_COMPLETED | MRM is completed. Since MRC has been achieved, give priority to vehicles with urgency.    |

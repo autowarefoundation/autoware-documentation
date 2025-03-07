@@ -5,8 +5,8 @@ method: notification
 type:
   name: autoware_adapi_v1_msgs/msg/RtiState
   msg:
-    - name: state
-      text: The state of RTI.
+    - name: request
+      text: The flag for whether RTI is requested.
     - name: message
       text: The message such as reasons for RTI.
 ---

@@ -144,8 +144,8 @@ types:
   autoware_adapi_v1_msgs/msg/RtiState:
     msg:
       message: string
+      request: bool
       stamp: builtin_interfaces/msg/Time
-      state: uint16
   autoware_adapi_v1_msgs/msg/SteeringFactor:
     msg:
       behavior: string
