@@ -39,6 +39,7 @@
 - [autoware_adapi_v1_msgs/msg/RoutePrimitive](./autoware_adapi_v1_msgs/msg/RoutePrimitive.md)
 - [autoware_adapi_v1_msgs/msg/RouteSegment](./autoware_adapi_v1_msgs/msg/RouteSegment.md)
 - [autoware_adapi_v1_msgs/msg/RouteState](./autoware_adapi_v1_msgs/msg/RouteState.md)
+- [autoware_adapi_v1_msgs/msg/RtiState](./autoware_adapi_v1_msgs/msg/RtiState.md)
 - [autoware_adapi_v1_msgs/msg/SteeringCommand](./autoware_adapi_v1_msgs/msg/SteeringCommand.md)
 - [autoware_adapi_v1_msgs/msg/SteeringFactor](./autoware_adapi_v1_msgs/msg/SteeringFactor.md)
 - [autoware_adapi_v1_msgs/msg/SteeringFactorArray](./autoware_adapi_v1_msgs/msg/SteeringFactorArray.md)

@@ -3,6 +3,7 @@
 | API                                                                                              | Release      | Method          |
 | ------------------------------------------------------------------------------------------------ | ------------ | --------------- |
 | [/api/fail_safe/mrm_state](./api/fail_safe/mrm_state.md)                                         | v1.1.0       | notification    |
+| [/api/fail_safe/rti_state](./api/fail_safe/rti_state.md)                                         | not released | notification    |
 | [/api/interface/version](./api/interface/version.md)                                             | v1.0.0       | function call   |
 | [/api/local/command/acceleration](./api/local/command/acceleration.md)                           | not released | realtime stream |
 | [/api/local/command/gear](./api/local/command/gear.md)                                           | not released | notification    |
