@@ -2,8 +2,8 @@
 
 ## Related API
 
-- {{ link_ad_api('/api/fail_safe/mrm_state') }}
 - {{ link_ad_api('/api/fail_safe/rti_state') }}
+- {{ link_ad_api('/api/fail_safe/mrm_state') }}
 
 ## Description
 
@@ -15,6 +15,10 @@ Since the required behavior differs depending on the situation, MRM is implement
 The fail-safe module selects the behavior of MRM according to the abnormality and switches the gate output to that command.
 
 ![fail-safe-architecture](./fail-safe/architecture.drawio.svg)
+
+## RTI state
+
+The RTI state indicates whether RTI is requested. If for some reason autonomous driving cannot continue, Autoware will request a change to manual driving. As a side note, RTI is sometimes called Take Over Request (TOR).
 
 ## MRM state
 
@@ -41,7 +45,3 @@ This is service dependent. Autoware supports the following transitions by defaul
 | COMFORTABLE_STOP | The vehicle will stop quickly with a comfortable deceleration.            |
 | EMERGENCY_STOP   | The vehicle will stop immediately with as much deceleration as possible.  |
 | PULL_OVER        | The vehicle will stop after moving to the side of the road.               |
-
-## RTI state
-
-The RTI state indicates whether RTI is requested. If for some reason autonomous driving cannot continue, Autoware will request a change to manual driving.
