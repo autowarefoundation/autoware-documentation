@@ -1,4 +1,8 @@
 types:
+  autoware_adapi_v1_msgs/msg/AccelerationCommand:
+    msg:
+      acceleration: float32
+      stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/CooperationCommand:
     msg:
       cooperator: autoware_adapi_v1_msgs/msg/CooperationDecision
@@ -78,9 +82,17 @@ types:
   autoware_adapi_v1_msgs/msg/Gear:
     msg:
       status: uint8
+  autoware_adapi_v1_msgs/msg/GearCommand:
+    msg:
+      command: autoware_adapi_v1_msgs/msg/Gear
+      stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/HazardLights:
     msg:
       status: uint8
+  autoware_adapi_v1_msgs/msg/HazardLightsCommand:
+    msg:
+      command: autoware_adapi_v1_msgs/msg/HazardLights
+      stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/Heartbeat:
     msg:
       seq: uint16
@@ -89,6 +101,17 @@ types:
     msg:
       stamp: builtin_interfaces/msg/Time
       state: uint16
+  autoware_adapi_v1_msgs/msg/ManualControlMode:
+    msg:
+      mode: uint8
+  autoware_adapi_v1_msgs/msg/ManualControlModeStatus:
+    msg:
+      mode: autoware_adapi_v1_msgs/msg/ManualControlMode
+      stamp: builtin_interfaces/msg/Time
+  autoware_adapi_v1_msgs/msg/ManualOperatorStatus:
+    msg:
+      ready: bool
+      stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/MotionState:
     msg:
       stamp: builtin_interfaces/msg/Time
@@ -111,6 +134,11 @@ types:
       is_remote_mode_available: bool
       is_stop_mode_available: bool
       mode: uint8
+      stamp: builtin_interfaces/msg/Time
+  autoware_adapi_v1_msgs/msg/PedalsCommand:
+    msg:
+      accelerator: float32
+      brake: float32
       stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/ResponseStatus:
     msg:
@@ -146,6 +174,10 @@ types:
       message: string
       request: bool
       stamp: builtin_interfaces/msg/Time
+  autoware_adapi_v1_msgs/msg/SteeringCommand:
+    msg:
+      stamp: builtin_interfaces/msg/Time
+      steering_tire_angle: float32
   autoware_adapi_v1_msgs/msg/SteeringFactor:
     msg:
       behavior: string
@@ -163,6 +195,10 @@ types:
   autoware_adapi_v1_msgs/msg/TurnIndicators:
     msg:
       status: uint8
+  autoware_adapi_v1_msgs/msg/TurnIndicatorsCommand:
+    msg:
+      command: autoware_adapi_v1_msgs/msg/TurnIndicators
+      stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/VehicleDimensions:
     msg:
       footprint: geometry_msgs/msg/Polygon
@@ -188,6 +224,10 @@ types:
       stamp: builtin_interfaces/msg/Time
       steering_tire_angle: float64
       turn_indicators: autoware_adapi_v1_msgs/msg/TurnIndicators
+  autoware_adapi_v1_msgs/msg/VelocityCommand:
+    msg:
+      stamp: builtin_interfaces/msg/Time
+      velocity: float32
   autoware_adapi_v1_msgs/msg/VelocityFactor:
     msg:
       behavior: string
@@ -225,6 +265,15 @@ types:
   autoware_adapi_v1_msgs/srv/InitializeLocalization:
     req:
       pose: geometry_msgs/msg/PoseWithCovarianceStamped[<=1]
+    res:
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/ListManualControlMode:
+    res:
+      modes: autoware_adapi_v1_msgs/msg/ManualControlMode[]
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/SelectManualControlMode:
+    req:
+      mode: autoware_adapi_v1_msgs/msg/ManualControlMode
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/SetCooperationCommands:
