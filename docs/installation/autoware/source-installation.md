@@ -89,6 +89,12 @@ sudo apt-get -y install git
 
    > ⚠️ Note: The nightly repositories are unstable and may contain bugs. Use them with caution.
 
+   Optionally, you may also download the extra repositories that contain drivers for specific hardware, but they are not necessary for building and running Autoware:
+
+   ```bash
+   vcs import src < extra-packages.repos
+   ```
+
 2. Install dependent ROS packages.
 
    Autoware requires some ROS 2 packages in addition to the core components.
