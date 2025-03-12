@@ -42,7 +42,7 @@ According to the selected interface, items to be implemented/tuned will be diffe
 |                      | GMSL2                                                                                          | USB3                                                                      | GigE                                                           |
 |----------------------|------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|----------------------------------------------------------------|
 | Device driver        | need to implement dedicated ones according to camera type and ECU type to use as a V4L2 device | UVC driver can make it exposed as a V4L2 driver with various cameras/ECUs | Not needed (V4L2 is not applicable)                            |
-| available ROS driver | - `ros2_v4l2_camera` <br> - `gscam`                                                            | - `ros2_v4l2_camera` <br> - `uvc_camera` <br> - `gscam`                   | - `gscan` (if data is transferred in RTP) <br> - dedicated one |
+| available ROS driver | - `ros2_v4l2_camera` <br> - `gscam`                                                            | - `ros2_v4l2_camera` <br> - `uvc_camera` <br> - `gscam`                   | - `gscam` (if data is transferred in RTP) <br> - dedicated one |
 
 
 ### Calibration
@@ -101,11 +101,17 @@ The device tree provides the static information of the devices and their connect
 ### 3. Trigger FSYNC signals
 - Design trigger timing (in terms of synchronization with other sensors / SoF or EoF)
 - configure the components on the transmission path, including Deserializer, Serializer, (IPS, ) Imaging sensor, so that the FSYNC signals are transmitted properly
-- If GPIO is connected to the deserializer, FSYNC signal emission can be done using `sensor_trigger` node
+- If GPIO is connected to the deserializer, FSYNC signal emission can be done using [`sensor_trigger`](https://github.com/tier4/sensor_trigger) node
 
 ## How to integrate USB cameras
-### Limitation/Requirement
+Since the biggest advantage of this interface is its plug-and-play feature, a new camera should be recognized as an V4L2 device just after connection thanks to the UVC driver. Hence, users can just leverage some ROS node, such as `ros2_v4l2_camera` to publish images as ROS topics and are not required to additional items for integration.
+
+### Tips/Notes
 - most USB cameras lack of capability for triggering; which decreases time synchronization accuracy
-- To capture images from the camera, it is required to be recognized as a V4l2 device node, such as `/dev/video0`
+- In some cases, the connected USB camera can be recognized as `/dev/media*`, which is associated with the media controller devices and sometimes causes failure to capture frames. The common reason for that misrecognition is using incompatible cables/ports for connection; changing cables and/or USB ports to those compatible with later generations, such as USB 3.0, may solve the problem.
 
+## How to integrate GigE cameras
+Many this type of cameras control streaming on the device side. Once images are streamed over the network by proper configuration, users need to decode the packets and reconstruct images on the receiver side using a ROS node, such as `gscam` or dedicated decoder node. 
 
+### Tips/Notes
+- In addition to the ROS node configuration, some type of cameras requires proper network configuration, such as destination IP address, net mask, and/or maximum trasmission unit (MTU) etc.
