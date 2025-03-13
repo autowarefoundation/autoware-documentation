@@ -59,4 +59,5 @@
 | [/api/vehicle/doors/layout](./api/vehicle/doors/layout.md)                                       | v1.2.0       | function call   |
 | [/api/vehicle/doors/status](./api/vehicle/doors/status.md)                                       | v1.2.0       | notification    |
 | [/api/vehicle/kinematics](./api/vehicle/kinematics.md)                                           | v1.1.0       | realtime stream |
+| [/api/vehicle/metrics](./api/vehicle/metrics.md)                                                 | not released | reliable stream |
 | [/api/vehicle/status](./api/vehicle/status.md)                                                   | v1.4.0       | realtime stream |
