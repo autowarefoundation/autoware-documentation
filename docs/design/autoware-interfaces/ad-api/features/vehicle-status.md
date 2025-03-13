@@ -5,6 +5,7 @@
 - {{ link_ad_api('/api/vehicle/kinematics') }}
 - {{ link_ad_api('/api/vehicle/status') }}
 - {{ link_ad_api('/api/vehicle/dimensions') }}
+- {{ link_ad_api('/api/vehicle/specs') }}
 - {{ link_ad_api('/api/vehicle/command/acceleration') }}
 - {{ link_ad_api('/api/vehicle/command/pedals') }}
 - {{ link_ad_api('/api/vehicle/command/steering') }}

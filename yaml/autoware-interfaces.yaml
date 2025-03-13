@@ -217,6 +217,9 @@ types:
       geographic_pose: geographic_msgs/msg/GeoPointStamped
       pose: geometry_msgs/msg/PoseWithCovarianceStamped
       twist: geometry_msgs/msg/TwistWithCovarianceStamped
+  autoware_adapi_v1_msgs/msg/VehicleSpecs:
+    msg:
+      max_steering_tire_angle: float32
   autoware_adapi_v1_msgs/msg/VehicleStatus:
     msg:
       gear: autoware_adapi_v1_msgs/msg/Gear
@@ -261,6 +264,10 @@ types:
   autoware_adapi_v1_msgs/srv/GetVehicleDimensions:
     res:
       dimensions: autoware_adapi_v1_msgs/msg/VehicleDimensions
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/GetVehicleSpecs:
+    res:
+      specs: autoware_adapi_v1_msgs/msg/VehicleSpecs
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/InitializeLocalization:
     req:
