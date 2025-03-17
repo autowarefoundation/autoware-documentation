@@ -277,7 +277,7 @@ The above content describes the process for conducting some operations in the pl
 
 The original Autoware is designed to operate at a wide speed range. But for safety reasons, the default maximum velocity has been limited to 15 km/h. In that case, even you drag the slider to a higher speed in rviz panel, the system will not allow it.
 
-If you want to run Autoware at a higher speed, you can modify the `max_vel` parameter in the config file [common.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/common/common.param.yaml) located in the `config` directory of your autoware_launch. 
+If you want to run Autoware at a higher speed, you can modify the `max_vel` parameter in the config file [common.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/common/common.param.yaml) located in the `config` directory of your autoware_launch.
 
 ![common.param.yaml](images/planning/others/common.param.yaml.png)
 
