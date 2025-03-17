@@ -272,3 +272,15 @@ This section provides a step-by-step guide on using the Autoware Launch GUI for 
 The above content describes the process for conducting some operations in the planning simulator using a sample map. If you are interested in running Autoware with maps of your own environment, please visit the [How to Create Vector Map](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-maps/#creating-maps) section for guidance.
 
 ![psim-custom-map](images/planning/others/psim-custom-map.png)
+
+## Want to Try Autoware with Higher Speed?
+
+The original Autoware is designed to operate at a wide speed range. But for safety reasons, the default maximum velocity has been limited to 15 km/h. In that case, even you drag the slider to a higher speed in rviz panel, the system will not allow it.
+
+If you want to run Autoware at a higher speed, you can modify the `max_vel` parameter in the config file [common.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/common/common.param.yaml) located in the `config` directory of your autoware_launch. 
+
+![common.param.yaml](images/planning/others/common.param.yaml.png)
+
+For example, to set the maximum velocity to 72 km/h, you would change the value to `20.0` (since 72 km/h is equivalent to 20 m/s).
+
+![increase-max-velocity](images/planning/others/increase-max-velocity.png)
