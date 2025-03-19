@@ -50,7 +50,7 @@
         <text x="920" y="261" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="11px" text-anchor="middle">route</text>
       </switch>
     </g>
-    <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/mission_planner">
+    <a xlink:href="https://github.com/autowarefoundation/autoware_universe/tree/main/planning/mission_planner">
       <rect x="640" y="189" width="560" height="40" rx="6" ry="6" fill="#fff2cc" stroke="#d6b656" pointer-events="all">
         <title>高精度地図情報をもとに、自己位置からゴールまでのルートを計算します。</title>
       </rect>
@@ -91,7 +91,7 @@
         <text x="705" y="547" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="11px" text-anchor="middle">path_with_lane_id</text>
       </switch>
     </g>
-    <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/behavior_path_planner">
+    <a xlink:href="https://github.com/autowarefoundation/autoware_universe/tree/main/planning/behavior_path_planner">
       <rect x="490" y="424" width="430" height="100" rx="5" ry="5" fill="#fff2cc" stroke="#d6b656" pointer-events="all">
         <title>ルート情報や障害物情報をもとに、レーンチェンジを実行します。</title>
       </rect>
@@ -114,7 +114,7 @@
         <text x="705" y="838" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="11px" text-anchor="middle">path</text>
       </switch>
     </g>
-    <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/behavior_velocity_planner">
+    <a xlink:href="https://github.com/autowarefoundation/autoware_universe/tree/main/planning/behavior_velocity_planner">
       <rect x="490" y="574" width="430" height="193" rx="7.72" ry="7.72" fill="#fff2cc" stroke="#d6b656" pointer-events="all">
         <title>交通ルールをもとに、経路上の最大速度を決定します。各モジュールは、自身の計算した最大速度と上段の結果を比較し、小さい速度を経路上に書き込みます。</title>
       </rect>
@@ -140,7 +140,7 @@
         <text x="706" y="1036" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="11px" text-anchor="middle">Trajectory</text>
       </switch>
     </g>
-    <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/obstacle_avoidance_planner">
+    <a xlink:href="https://github.com/autowarefoundation/autoware_universe/tree/main/planning/obstacle_avoidance_planner">
       <rect x="560" y="984" width="290" height="40" rx="6" ry="6" fill="#fff2cc" stroke="#d6b656" pointer-events="all">
         <title>車両形状や走行可能領域を考慮して、経路の平滑化を行う。障害物も避けるが、long historyで最近は回避機能はoffになっています。</title>
       </rect>
@@ -184,7 +184,7 @@
         <text x="705" y="1107" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="11px" text-anchor="middle">Trajectory</text>
       </switch>
     </g>
-    <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/obstacle_velocity_limiter">
+    <a xlink:href="https://github.com/autowarefoundation/autoware_universe/tree/main/planning/obstacle_velocity_limiter">
       <rect x="560" y="1054" width="290" height="40" rx="6" ry="6" fill="#fff2cc" stroke="#d6b656" pointer-events="all">
         <title>自車が停止しているときに、周囲の障害物を確認し、近くに障害物がいる場合は車両を発進させない。</title>
       </rect>
@@ -228,7 +228,7 @@
         <text x="701" y="1248" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="11px" text-anchor="middle">Trajectory</text>
       </switch>
     </g>
-    <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/obstacle_stop_planner">
+    <a xlink:href="https://github.com/autowarefoundation/autoware_universe/tree/main/planning/obstacle_stop_planner">
       <rect x="560" y="1124" width="290" height="100" rx="7" ry="7" fill="#fff2cc" stroke="#d6b656" pointer-events="all">
         <title
         >障害物停止・前車追従・近傍障害物減速の複数の機能を持ち、機能に応じて経路上に速度を埋め込む。&#xa;目標経路上に障害物点がある場合は停止、経路近くに障害物点群がある場合は減速、前方に車両が居る場合は前車追従。</title>
@@ -255,7 +255,7 @@
         <text x="925" y="1472" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="11px" text-anchor="middle">Trajectory</text>
       </switch>
     </g>
-    <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/scenario_selector">
+    <a xlink:href="https://github.com/autowarefoundation/autoware_universe/tree/main/planning/scenario_selector">
       <rect x="720" y="1374" width="410" height="40" rx="6" ry="6" fill="#fff2cc" stroke="#d6b656" pointer-events="all">
         <title>いまのrouteおよび地図情報から、LaneDriving / Parkingのシナリオを判断し、どちらの経路を使うかを切り替える。</title>
       </rect>
@@ -299,7 +299,7 @@
         <text x="926" y="1594" fill="#666666" font-family="Helvetica" font-size="11px" text-anchor="middle">Trajectory</text>
       </switch>
     </g>
-    <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/motion_velocity_smoother">
+    <a xlink:href="https://github.com/autowarefoundation/autoware_universe/tree/main/planning/motion_velocity_smoother">
       <rect x="722.5" y="1524" width="405" height="40" rx="6" ry="6" fill="#fff2cc" stroke="#d6b656" pointer-events="all">
         <title>経路に埋め込まれた最大速度を超過しないように、うまい具合で速度を平滑化する。カーブでの減速もここで行う。</title>
       </rect>
@@ -345,7 +345,7 @@
         <text x="1241" y="1248" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="11px" text-anchor="middle">Trajectory</text>
       </switch>
     </g>
-    <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/freespace_planner">
+    <a xlink:href="https://github.com/autowarefoundation/autoware_universe/tree/main/planning/freespace_planner">
       <rect x="1170" y="668" width="140" height="40" rx="6" ry="6" fill="#fff2cc" stroke="#d6b656" pointer-events="all">
         <title>コストマップとゴールから、自車の走行ルートを計算する。いまはHA*を使ってる。</title>
       </rect>
@@ -389,7 +389,7 @@
         <text x="1240" y="623" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="11px" text-anchor="middle">occupancy_grid</text>
       </switch>
     </g>
-    <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/costmap_generator">
+    <a xlink:href="https://github.com/autowarefoundation/autoware_universe/tree/main/planning/costmap_generator">
       <rect x="1170" y="488" width="140" height="90" rx="6.3" ry="6.3" fill="#fff2cc" stroke="#d6b656" pointer-events="all">
         <title>障害物点群や地図の走行可能エリアの情報から、駐車プランナー用のコストマップを生成する。</title>
       </rect>
@@ -1473,7 +1473,7 @@
         <text x="261" y="190" fill="#000000" font-family="Helvetica" font-size="11px" text-anchor="middle">vector_map</text>
       </switch>
     </g>
-    <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/surround_obstacle_checker">
+    <a xlink:href="https://github.com/autowarefoundation/autoware_universe/tree/main/planning/surround_obstacle_checker">
       <rect x="430" y="1424" width="200" height="40" rx="6" ry="6" fill="#fff2cc" stroke="#d6b656" pointer-events="all">
         <title>自車が停止しているときに、周囲の障害物を確認し、近くに障害物がいる場合は車両を発進させない。</title>
       </rect>
@@ -1566,7 +1566,7 @@
         <text x="925" y="1707" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="11px" text-anchor="middle">Trajectory</text>
       </switch>
     </g>
-    <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/planning_validator">
+    <a xlink:href="https://github.com/autowarefoundation/autoware_universe/tree/main/planning/planning_validator">
       <rect x="845" y="1634" width="160" height="50" rx="7.5" ry="7.5" fill="#fff2cc" stroke="#d6b656" pointer-events="all">
         <title>Check the trajectory and stop publishing it if it is unsafe.</title>
       </rect>
@@ -1790,7 +1790,7 @@
         <text x="1650" y="210" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">Modlue Plugin</text>
       </switch>
     </g>
-    <a xlink:href="https://autowarefoundation.github.io/autoware.universe/main/planning/path_smoother/">
+    <a xlink:href="https://autowarefoundation.github.io/autoware_universe/main/planning/path_smoother/">
       <rect x="560" y="914" width="290" height="40" rx="6" ry="6" fill="#fff2cc" stroke="#d6b656" pointer-events="all">
         <title>車両形状や走行可能領域を考慮して、経路の平滑化を行う。障害物も避けるが、long historyで最近は回避機能はoffになっています。</title>
       </rect>
@@ -1831,7 +1831,7 @@
         <text x="706" y="966" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="11px" text-anchor="middle">Trajectory</text>
       </switch>
     </g>
-    <a xlink:href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_out_of_lane_module/">
+    <a xlink:href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_out_of_lane_module/">
       <rect x="715" y="727" width="120" height="20" rx="3" ry="3" fill="#997a00" stroke="#663300" pointer-events="all">
         <title>module to stop or slowdown before ego overlaps an other lane where other vehicles are incoming</title>
       </rect>

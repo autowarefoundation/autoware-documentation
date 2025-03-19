@@ -56,11 +56,11 @@ allowing for a more intuitive and human-like driving experience.
 If you use your own vehicle like this way
 (i.e., controlling gas and brake pedal),
 you need
-to use [raw_vehicle_cmd_converter](https://github.com/autowarefoundation/autoware.universe/tree/main/vehicle/raw_vehicle_cmd_converter) package
+to use [raw_vehicle_cmd_converter](https://github.com/autowarefoundation/autoware_universe/tree/main/vehicle/raw_vehicle_cmd_converter) package
 to convert autoware output control cmd to brake, gas and steer map.
 In order to do that, you will need brake, gas and steering calibration.
 So,
-you can get the calibration with using [accel_brake_map_calibrator](https://github.com/autowarefoundation/autoware.universe/tree/main/vehicle/accel_brake_map_calibrator/accel_brake_map_calibrator) package.
+you can get the calibration with using [accel_brake_map_calibrator](https://github.com/autowarefoundation/autoware_universe/tree/main/vehicle/accel_brake_map_calibrator/accel_brake_map_calibrator) package.
 Please follow the steps for calibration your vehicle actuation.
 
 The choice between these control interfaces profoundly influences the design and development process.

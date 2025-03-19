@@ -5,7 +5,7 @@
 The Autoware vehicle stacks begin launching with autoware_launch.xml as mentioned on the
 [Launch Autoware](../index.md) page,
 and the tier4_vehicle.launch.xml is called in this context. The following diagram describes some of
-the Autoware vehicle launch file flow within the `autoware_launch` and `autoware.universe` packages.
+the Autoware vehicle launch file flow within the `autoware_launch` and `autoware_universe` packages.
 
 <figure markdown>
   ![vehicle-launch-flow](images/vehicle_launch_flow.svg){ align=center width=720}

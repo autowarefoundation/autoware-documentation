@@ -61,7 +61,7 @@ The Map component consists of the following sub-components:
 
 The point cloud map must be supplied as a file with the following requirements:
 
-- The point cloud map must be projected on the same coordinate defined in `map_projection_loader` in order to be consistent with the lanelet2 map and other packages that converts between local and geodetic coordinates. For more information, please refer to [the readme of `map_projection_loader`](https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_projection_loader/README.md).
+- The point cloud map must be projected on the same coordinate defined in `map_projection_loader` in order to be consistent with the lanelet2 map and other packages that converts between local and geodetic coordinates. For more information, please refer to [the readme of `map_projection_loader`](https://github.com/autowarefoundation/autoware_universe/tree/main/map/map_projection_loader/README.md).
 - It must be in the [PCD (Point Cloud Data) file format](https://pointclouds.org/documentation/tutorials/pcd_file_format.html), but can be a single PCD file or divided into multiple PCD files.
 - Each point in the map must contain X, Y, and Z coordinates.
 - An intensity or RGB value for each point may be optionally included.
@@ -69,7 +69,7 @@ The point cloud map must be supplied as a file with the following requirements:
 - Its resolution should be at least 0.2 m to yield reliable localization results.
 - It can be in either local or global coordinates, but must be in global coordinates (georeferenced) to use GNSS data for localization.
 
-For more details on divided map format, please refer to [the readme of `map_loader` in Autoware Universe](https://github.com/autowarefoundation/autoware.universe/blob/main/map/autoware_map_loader/README.md).
+For more details on divided map format, please refer to [the readme of `map_loader` in Autoware Universe](https://github.com/autowarefoundation/autoware_universe/blob/main/map/autoware_map_loader/README.md).
 
 !!! note
 
@@ -98,4 +98,4 @@ The projection information must be supplied as a file with the following require
   - The name of the projection method used to convert between local and global coordinates
   - The parameters of the projection method (depending on the projection method)
 
-For further information, please refer to [the readme of `map_projection_loader` in Autoware Universe](https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_projection_loader/README.md).
+For further information, please refer to [the readme of `map_projection_loader` in Autoware Universe](https://github.com/autowarefoundation/autoware_universe/tree/main/map/map_projection_loader/README.md).

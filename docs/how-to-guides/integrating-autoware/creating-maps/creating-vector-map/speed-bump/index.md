@@ -1,6 +1,6 @@
 # Speed bump
 
-Behavior velocity planner's [speed bump module](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_crosswalk_module/) plans velocity
+Behavior velocity planner's [speed bump module](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_crosswalk_module/) plans velocity
 to slow down before speed bump for comfortable and safety driving.
 In order to operate that, we will add speed bumps to our lanelet2 map.
 

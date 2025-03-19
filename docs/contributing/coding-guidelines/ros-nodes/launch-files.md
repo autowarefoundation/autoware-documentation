@@ -8,15 +8,15 @@ Autoware use ROS 2 launch system to startup the software. Please see the [offici
 
 ### The organization of launch files in Autoware
 
-Autoware mainly has two repositories related to launch file organization: the [autoware.universe](https://github.com/autowarefoundation/autoware.universe) and the [autoware_launch](https://github.com/autowarefoundation/autoware_launch).
+Autoware mainly has two repositories related to launch file organization: the [autoware_universe](https://github.com/autowarefoundation/autoware_universe) and the [autoware_launch](https://github.com/autowarefoundation/autoware_launch).
 
-#### autoware.universe
+#### autoware_universe
 
-the `autoware.universe` contains the code of the main Autoware modules, and its `launch` directory is responsible for launching the nodes of each module. Autoware software stack is organized based on the [architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture/#high-level-architecture-design), so you may find that we try to match the launch structure similar to the architecture (splitting of files, namespace). For example, the `tier4_map_launch` subdirectory corresponds to the map module, so do the other `tier4_*_launch` subdirectories.
+the `autoware_universe` contains the code of the main Autoware modules, and its `launch` directory is responsible for launching the nodes of each module. Autoware software stack is organized based on the [architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture/#high-level-architecture-design), so you may find that we try to match the launch structure similar to the architecture (splitting of files, namespace). For example, the `tier4_map_launch` subdirectory corresponds to the map module, so do the other `tier4_*_launch` subdirectories.
 
 #### autoware_launch
 
-The `autoware_launch` is a repository referring to `autoware.universe`. The mainly purpose of introducing this repository is to provide the general entrance to start the Autoware software stacks, i.e, calling the launch file of each module.
+The `autoware_launch` is a repository referring to `autoware_universe`. The mainly purpose of introducing this repository is to provide the general entrance to start the Autoware software stacks, i.e, calling the launch file of each module.
 
 - The `autoware.launch.xml` is the basic launch file for road driving scenarios.
 
@@ -56,12 +56,12 @@ A33-->A43[twist2accel.launch.xml]
 
 If a newly created package has executable node, we expect sample launch file and configuration within the package, just like the recommended structure shown in previous [directory structure](https://autowarefoundation.github.io/autoware-documentation/main/contributing/coding-guidelines/ros-nodes/directory-structure/) page.
 
-In order to automatically load the newly added package when starting Autoware, you need to make some necessary changes to the corresponding launch file. For example, if using ICP instead of NDT as the pointcloud registration algorithm, you can modify the `autoware.universe/launch/tier4_localization_launch/launch/pose_estimator/pose_estimator.launch.xml` file to load the newly added ICP package.
+In order to automatically load the newly added package when starting Autoware, you need to make some necessary changes to the corresponding launch file. For example, if using ICP instead of NDT as the pointcloud registration algorithm, you can modify the `autoware_universe/launch/tier4_localization_launch/launch/pose_estimator/pose_estimator.launch.xml` file to load the newly added ICP package.
 
 ## Parameter management
 
-Another purpose of introducing the `autoware_launch` repository is to facilitate the parameter management of Autoware. Thinking about this situation: if we want to integrate Autoware to a specific vehicle and modify parameters, we have to fork `autoware.universe` which also has a lot of code other than parameters and is frequently updated by developers. By integrating these parameters in `autoware_launch`, we can customize the Autoware parameters just by forking `autoware_launch` repository. Taking the localization module as an examples:
+Another purpose of introducing the `autoware_launch` repository is to facilitate the parameter management of Autoware. Thinking about this situation: if we want to integrate Autoware to a specific vehicle and modify parameters, we have to fork `autoware_universe` which also has a lot of code other than parameters and is frequently updated by developers. By integrating these parameters in `autoware_launch`, we can customize the Autoware parameters just by forking `autoware_launch` repository. Taking the localization module as an examples:
 
 1. all the “launch parameters” for localization component is listed in the files under `autoware_launch/autoware_launch/config/localization`.
 2. the "launch parameters" file paths are set in the `autoware_launch/autoware_launch/launch/components/tier4_localization_component.launch.xml` file.
-3. in `autoware.universe/launch/tier4_localization_launch/launch`, the launch files loads the “launch parameters” if the argument is given in the parameter configuration file. You can still use the default parameters in each packages to launch `tier4_localization_launch` within `autoware.universe`.
+3. in `autoware_universe/launch/tier4_localization_launch/launch`, the launch files loads the “launch parameters” if the argument is given in the parameter configuration file. You can still use the default parameters in each packages to launch `tier4_localization_launch` within `autoware_universe`.

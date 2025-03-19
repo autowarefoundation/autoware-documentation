@@ -7,7 +7,7 @@ launching at `autoware_launch.xml` as we mentioned at [Launch Autoware](../index
 The `autoware_launch` package includes `tier4_map_component.launch.xml`
 for starting map launch files invocation from `autoware_launch.xml`.
 This diagram describes some of the Autoware map launch files flow at `autoware_launch`
-and `autoware.universe` packages.
+and `autoware_universe` packages.
 
 <figure markdown>
   ![map-launch-flow](images/map_launch_flow.svg){ align=center }

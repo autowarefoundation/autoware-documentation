@@ -37,26 +37,26 @@ In detail, please see [Device driver for radars](reference-implementations/devic
 
 ### Noise filter
 
-- [radar_tracks_noise_filter](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/radar_tracks_noise_filter)
+- [radar_tracks_noise_filter](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/radar_tracks_noise_filter)
 
 Radar can detect x-axis velocity as doppler velocity, but cannot detect y-axis velocity. Some radar can estimate y-axis velocity inside the device, but it sometimes lack precision. This package treats these objects as noise by y-axis threshold filter.
 
 ### Message converter
 
-- [radar_tracks_msgs_converter](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_radar_tracks_msgs_converter)
+- [radar_tracks_msgs_converter](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_radar_tracks_msgs_converter)
 
 This package converts from `radar_msgs/msg/RadarTracks` into `autoware_auto_perception_msgs/msg/DetectedObject` with ego vehicle motion compensation and coordinate transform.
 
 ### Object merger
 
-- [object_merger](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_object_merger)
+- [object_merger](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_object_merger)
 
 This package can merge 2 topics of `autoware_auto_perception_msgs/msg/DetectedObject`.
 
-- [simple_object_merger](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_simple_object_merger)
+- [simple_object_merger](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_simple_object_merger)
 
 This package can merge simply multiple topics of `autoware_auto_perception_msgs/msg/DetectedObject`.
-Different from [object_merger](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_object_merger), this package doesn't use association algorithm and can merge with low calculation cost.
+Different from [object_merger](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_object_merger), this package doesn't use association algorithm and can merge with low calculation cost.
 
 - [topic_tools](https://github.com/ros-tooling/topic_tools)
 

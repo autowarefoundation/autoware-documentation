@@ -42,4 +42,4 @@ None in particular.
 
 #### Related Autoware module
 
-- [Stop Line design - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_stop_line_module/)
+- [Stop Line design - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_stop_line_module/)
