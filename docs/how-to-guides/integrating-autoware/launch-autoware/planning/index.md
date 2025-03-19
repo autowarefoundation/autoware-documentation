@@ -40,7 +40,7 @@ Here are some predefined planning launch arguments:
 - **`use_experimental_lane_change_function:`** This argument enables
   `enable_collision_check_at_prepare_phase`, `use_predicted_path_outside_lanelet`,
   and `use_all_predicted_path` options for Autoware for experimental lane changing
-  (for more information, please refer to [lane_change documentation](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/docs/behavior_path_planner_lane_change_design/)).
+  (for more information, please refer to [lane_change documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/docs/behavior_path_planner_lane_change_design/)).
   The default value is True.
   To set it to False, make the following change in the `tier4_planning_component.launch.xml` file:
 
@@ -49,8 +49,8 @@ Here are some predefined planning launch arguments:
   + <arg name="use_experimental_lane_change_function" default="false"/>
   ```
 
-- **`cruise_planner_type:`** There are two types of cruise planners in Autoware: [obstacle_stop_planner](https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_stop_planner/)
-  and [obstacle_cruise_planner](https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_cruise_planner/). For specifications on these cruise planner types,
+- **`cruise_planner_type:`** There are two types of cruise planners in Autoware: [obstacle_stop_planner](https://autowarefoundation.github.io/autoware_universe/main/planning/obstacle_stop_planner/)
+  and [obstacle_cruise_planner](https://autowarefoundation.github.io/autoware_universe/main/planning/obstacle_cruise_planner/). For specifications on these cruise planner types,
   please refer to the package documentation. The default cruise planner is `obstacle_stop_planner`.
   To change it to obstacle_cruise_planner, update the argument value in the `tier4_planning_component.launch.xml` file:
 
@@ -59,7 +59,7 @@ Here are some predefined planning launch arguments:
   + <arg name="cruise_planner_type" default="obstacle_cruise_planner" description="options: obstacle_stop_planner, obstacle_cruise_planner, none"/>
   ```
 
-- **`use_surround_obstacle_check:`** This argument enables the [surround_obstacle_checker](https://autowarefoundation.github.io/autoware.universe/main/planning/surround_obstacle_checker/)
+- **`use_surround_obstacle_check:`** This argument enables the [surround_obstacle_checker](https://autowarefoundation.github.io/autoware_universe/main/planning/surround_obstacle_checker/)
   for Autoware. If you want to disable it, you can do in the
   `tier4_planning_component.launch.xml` file:
 
@@ -69,7 +69,7 @@ Here are some predefined planning launch arguments:
   ```
 
 - **`velocity_smoother_type:`** This argument specifies the type of smoother
-  for the [motion_velocity_smoother](https://autowarefoundation.github.io/autoware.universe/main/planning/motion_velocity_smoother/) package. Please consult the documentation
+  for the [motion_velocity_smoother](https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_smoother/) package. Please consult the documentation
   for detailed information about available smoother types. For instance, if
   you wish to change your smoother type from JerkFiltered to L2, you can do
   in the tier4_planning_component.launch.xml file.:

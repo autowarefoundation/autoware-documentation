@@ -25,7 +25,7 @@ This may not be suitable for all vehicles and we thus distinguish between two ty
 
 For vehicles of type 2,
 a vehicle adapter is necessary to convert the Autoware control command into the vehicle specific commands.
-For an example, see the [raw_vehicle_cmd_converter](https://autowarefoundation.github.io/autoware.universe/main/vehicle/raw_vehicle_cmd_converter/)
+For an example, see the [raw_vehicle_cmd_converter](https://autowarefoundation.github.io/autoware_universe/main/vehicle/raw_vehicle_cmd_converter/)
 which converts the target speed and steering angle to acceleration, steering, and brake mechanical inputs.
 
 ## Inputs from Autoware

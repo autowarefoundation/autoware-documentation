@@ -50,7 +50,7 @@ Here are some predefined control launch arguments:
 
 - **`enable_autonomous_emergency_braking:`** This argument enables autonomous emergency
   braking under specific conditions.
-  Please refer to the [Autonomous emergency braking (AEB)](https://autowarefoundation.github.io/autoware.universe/main/control/autonomous_emergency_braking/) page for
+  Please refer to the [Autonomous emergency braking (AEB)](https://autowarefoundation.github.io/autoware_universe/main/control/autonomous_emergency_braking/) page for
   more information.
   To enable it, update the value in the `tier4_control_component.launch.xml` file:
 
@@ -60,7 +60,7 @@ Here are some predefined control launch arguments:
   ```
 
 - **`enable_predicted_path_checker:`** This argument enables the predicted path checker module.
-  Please refer to the [Predicted Path Checker](https://autowarefoundation.github.io/autoware.universe/main/control/predicted_path_checker/) page for
+  Please refer to the [Predicted Path Checker](https://autowarefoundation.github.io/autoware_universe/main/control/predicted_path_checker/) page for
   more information.
   To enable it, update the value in the `tier4_control_component.launch.xml` file:
 

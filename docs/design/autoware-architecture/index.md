@@ -34,7 +34,7 @@ Autoware's architecture consists of the following seven stacks. Each linked page
 
 ## Node diagram
 
-A diagram showing Autoware's nodes in the default configuration can be found on the [Node diagram](node-diagram/index.md) page. Detailed documents for each node are available in the [Autoware Universe docs](https://autowarefoundation.github.io/autoware.universe/main/).
+A diagram showing Autoware's nodes in the default configuration can be found on the [Node diagram](node-diagram/index.md) page. Detailed documents for each node are available in the [Autoware Universe docs](https://autowarefoundation.github.io/autoware_universe/main/).
 
 Note that Autoware configurations are scalable / selectable and will vary depending on the environment and required use cases.
 

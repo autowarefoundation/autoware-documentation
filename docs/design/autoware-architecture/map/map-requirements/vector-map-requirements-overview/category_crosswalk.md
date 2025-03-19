@@ -39,7 +39,7 @@ None in particular.
 
 #### Related Autoware module
 
-- [Crosswalk - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_crosswalk_module/)
+- [Crosswalk - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_crosswalk_module/)
 
 ---
 
@@ -69,7 +69,7 @@ None in particular.
 
 #### Related Autoware module
 
-- [Crosswalk - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_crosswalk_module/)
+- [Crosswalk - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_crosswalk_module/)
 
 ---
 
@@ -92,7 +92,7 @@ None in particular.
 
 #### Related Autoware module
 
-- [Crosswalk - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_crosswalk_module/)
+- [Crosswalk - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_crosswalk_module/)
 
 ---
 
@@ -116,4 +116,4 @@ None in particular.
 
 #### Related Autoware module
 
-- [map_based_prediction - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware.universe/main/perception/autoware_map_based_prediction/)
+- [map_based_prediction - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/perception/autoware_map_based_prediction/)

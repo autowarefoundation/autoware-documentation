@@ -1,6 +1,6 @@
 # Detection area element
 
-Behavior velocity planner's [detection area](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_detection_area_module/) plans velocity
+Behavior velocity planner's [detection area](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_detection_area_module/) plans velocity
 when if pointcloud is detected in a detection area defined on a map, the stop planning will be executed at the predetermined point.
 In order to operate that, we will add a detection area element to our lanelet2 map.
 

@@ -1790,7 +1790,7 @@
         <text x="1650" y="210" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">Modlue Plugin</text>
       </switch>
     </g>
-    <a xlink:href="https://autowarefoundation.github.io/autoware.universe/main/planning/path_smoother/">
+    <a xlink:href="https://autowarefoundation.github.io/autoware_universe/main/planning/path_smoother/">
       <rect x="560" y="914" width="290" height="40" rx="6" ry="6" fill="#fff2cc" stroke="#d6b656" pointer-events="all">
         <title>車両形状や走行可能領域を考慮して、経路の平滑化を行う。障害物も避けるが、long historyで最近は回避機能はoffになっています。</title>
       </rect>
@@ -1831,7 +1831,7 @@
         <text x="706" y="966" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="11px" text-anchor="middle">Trajectory</text>
       </switch>
     </g>
-    <a xlink:href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_out_of_lane_module/">
+    <a xlink:href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_out_of_lane_module/">
       <rect x="715" y="727" width="120" height="20" rx="3" ry="3" fill="#997a00" stroke="#663300" pointer-events="all">
         <title>module to stop or slowdown before ego overlaps an other lane where other vehicles are incoming</title>
       </rect>
