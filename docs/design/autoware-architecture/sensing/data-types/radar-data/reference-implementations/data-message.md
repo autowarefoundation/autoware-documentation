@@ -78,7 +78,7 @@ uint16 BICYCLE = 32006;
 uint16 PEDESTRIAN = 32007;
 ```
 
-For detail implementation, please see [radar_tracks_msgs_converter](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_radar_tracks_msgs_converter).
+For detail implementation, please see [radar_tracks_msgs_converter](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_radar_tracks_msgs_converter).
 
 ## Note
 

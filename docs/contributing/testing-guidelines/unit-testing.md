@@ -163,6 +163,6 @@ Total Test time (real) =   7.91 sec
 Loosely described,
 a code coverage metric is a measure of how much of the program code has been exercised (covered) during testing.
 
-In the Autoware repositories, [Codecov](https://app.codecov.io/gh/autowarefoundation/autoware.universe/) is used to automatically calculate coverage of any open pull request.
+In the Autoware repositories, [Codecov](https://app.codecov.io/gh/autowarefoundation/autoware_universe/) is used to automatically calculate coverage of any open pull request.
 
 More details about the code coverage metrics can be found in the [Codecov documentation](https://docs.codecov.com/docs/about-code-coverage).

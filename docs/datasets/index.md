@@ -177,4 +177,4 @@ The pcap file and ros2 bag file is recorded in the same time with slight differe
 
 [Click here to download (~553MB)](https://autoware-files.s3.us-west-2.amazonaws.com/collected_data/2022-04-14_autocore-lidar-bag-pcap/Lidar_Data_220414_bag_pcap.zip)
 
-[Reference Issue](https://github.com/autowarefoundation/autoware.universe/issues/562#issuecomment-1102662448)
+[Reference Issue](https://github.com/autowarefoundation/autoware_universe/issues/562#issuecomment-1102662448)

@@ -1,6 +1,6 @@
 # Stop Line
 
-Behavior velocity planner's [stop line module](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_stop_line_module/) plans velocity
+Behavior velocity planner's [stop line module](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_stop_line_module/) plans velocity
 to stop right before stop lines and restart driving after stopped.
 In order to operate that, we will add stop line attribute to our lanelet2 map.
 

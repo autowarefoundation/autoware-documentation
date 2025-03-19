@@ -20,16 +20,16 @@ Generally, repository maintainers handle the updates to `CODEOWNERS` files. To p
 
 ### Special case for the Autoware Universe repository
 
-In the [autoware.universe](https://github.com/autowarefoundation/autoware.universe) repository, maintenance of the `CODEOWNERS` file is automated by the CI.
+In the [autoware_universe](https://github.com/autowarefoundation/autoware_universe) repository, maintenance of the `CODEOWNERS` file is automated by the CI.
 
-[This workflow](https://github.com/autowarefoundation/autoware.universe/actions/workflows/update-codeowners-from-packages.yaml) updates the `CODEOWNERS` file based on the `maintainer` information in the `package.xml` files of the packages in the repository.
+[This workflow](https://github.com/autowarefoundation/autoware_universe/actions/workflows/update-codeowners-from-packages.yaml) updates the `CODEOWNERS` file based on the `maintainer` information in the `package.xml` files of the packages in the repository.
 
-In order to change the code owners for a package in the `autoware.universe` repository:
+In order to change the code owners for a package in the `autoware_universe` repository:
 
 1. Modify the `maintainer` information in the `package.xml` file via a PR.
 2. Once merged, the CI workflow runs at midnight UTC (or can be triggered manually by a maintainer) to update the `CODEOWNERS` file and create a PR.
 3. A maintainer then needs to merge the CI-generated PR to finalize the update.
-   - **Example Automated PR:** [chore: update CODEOWNERS #6866](https://github.com/autowarefoundation/autoware.universe/pull/6866)
+   - **Example Automated PR:** [chore: update CODEOWNERS #6866](https://github.com/autowarefoundation/autoware_universe/pull/6866)
 
 ## Responsibilities of code owners
 

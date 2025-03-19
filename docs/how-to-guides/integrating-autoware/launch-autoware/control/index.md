@@ -6,7 +6,7 @@ The Autoware control stacks start
 launching at `autoware_launch.xml` as mentioned on the [Launch Autoware](../index.md) page.
 The `autoware_launch` package includes `tier4_control_component.launch.xml`
 for initiating control launch files invocation from `autoware_launch.xml`.
-The diagram below illustrates the flow of Autoware control launch files within the autoware_launch and autoware.universe packages.
+The diagram below illustrates the flow of Autoware control launch files within the autoware_launch and autoware_universe packages.
 
 <figure markdown>
   ![control-launch-flow](images/control_launch_flow.svg){ align=center }
@@ -29,8 +29,8 @@ The diagram below illustrates the flow of Autoware control launch files within t
 ## tier4_control_component.launch.xml
 
 The tier4_control_component.launch.xml launch file is the main control component launch in the autoware_launch package.
-This launch file calls control.launch.xml from the [tier4_control_launch](https://github.com/autowarefoundation/autoware.universe/tree/main/launch/tier4_control_launch) package
-within the autoware.universe repository.
+This launch file calls control.launch.xml from the [tier4_control_launch](https://github.com/autowarefoundation/autoware_universe/tree/main/launch/tier4_control_launch) package
+within the autoware_universe repository.
 We can modify control launch arguments in tier4_control_component.launch.xml.
 Additionally,
 we can add any other necessary arguments
@@ -50,7 +50,7 @@ Here are some predefined control launch arguments:
 
 - **`enable_autonomous_emergency_braking:`** This argument enables autonomous emergency
   braking under specific conditions.
-  Please refer to the [Autonomous emergency braking (AEB)](https://autowarefoundation.github.io/autoware.universe/main/control/autonomous_emergency_braking/) page for
+  Please refer to the [Autonomous emergency braking (AEB)](https://autowarefoundation.github.io/autoware_universe/main/control/autonomous_emergency_braking/) page for
   more information.
   To enable it, update the value in the `tier4_control_component.launch.xml` file:
 
@@ -60,7 +60,7 @@ Here are some predefined control launch arguments:
   ```
 
 - **`enable_predicted_path_checker:`** This argument enables the predicted path checker module.
-  Please refer to the [Predicted Path Checker](https://autowarefoundation.github.io/autoware.universe/main/control/predicted_path_checker/) page for
+  Please refer to the [Predicted Path Checker](https://autowarefoundation.github.io/autoware_universe/main/control/predicted_path_checker/) page for
   more information.
   To enable it, update the value in the `tier4_control_component.launch.xml` file:
 

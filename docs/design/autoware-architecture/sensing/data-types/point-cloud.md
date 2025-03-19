@@ -27,9 +27,9 @@ graph TD
 
 ## List of modules
 
-The modules used here are from [pointcloud_preprocessor package](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/pointcloud_preprocessor).
+The modules used here are from [pointcloud_preprocessor package](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/pointcloud_preprocessor).
 
-For details about the modules, see [the following table](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/pointcloud_preprocessor#inner-workings--algorithms).
+For details about the modules, see [the following table](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/pointcloud_preprocessor#inner-workings--algorithms).
 
 It is recommended that these modules are used in a single container as components. For details see [ROS 2 Composition](https://docs.ros.org/en/rolling/Tutorials/Intermediate/Composition.html)
 

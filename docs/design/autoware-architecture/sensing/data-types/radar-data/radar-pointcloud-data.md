@@ -37,21 +37,21 @@ In detail, please see [Device driver for radars](reference-implementations/devic
 
 ### Basic noise filter
 
-- [radar_threshold_filter](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/radar_threshold_filter)
+- [radar_threshold_filter](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/radar_threshold_filter)
 
 This package removes pointcloud noise with low amplitude, edge angle, too near pointcloud by threshold.
 The noise depends on the radar devices and installation location.
 
 ### Filter to static/dynamic pointcloud
 
-- [radar_static_pointcloud_filter](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/radar_static_pointcloud_filter)
+- [radar_static_pointcloud_filter](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/radar_static_pointcloud_filter)
 
 This package extracts static/dynamic radar pointcloud by using doppler velocity and ego motion.
 The static radar pointcloud can be used for localization like NDT scan matching, and the dynamic radar pointcloud can be used for dynamic object detection.
 
 ### Message converter from RadarScan to Pointcloud2
 
-- [radar_scan_to_pointcloud2](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/radar_scan_to_pointcloud2)
+- [radar_scan_to_pointcloud2](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/radar_scan_to_pointcloud2)
 
 For convenient use of radar pointcloud within existing LiDAR packages, we suggest a `radar_scan_to_pointcloud2_convertor` package for conversion from `ros-perception/radar_msgs/msg/RadarScan.msg` to `sensor_msgs/msg/Pointcloud2.msg`.
 
@@ -63,8 +63,8 @@ For convenient use of radar pointcloud within existing LiDAR packages, we sugges
 
 For considered use cases,
 
-- Use [pointcloud_preprocessor](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/pointcloud_preprocessor) for radar scan.
-- Apply obstacle segmentation like [ground segmentation](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_ground_segmentation) to radar points for LiDAR-less (camera + radar) systems.
+- Use [pointcloud_preprocessor](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/pointcloud_preprocessor) for radar scan.
+- Apply obstacle segmentation like [ground segmentation](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_ground_segmentation) to radar points for LiDAR-less (camera + radar) systems.
 
 ## Appendix
 

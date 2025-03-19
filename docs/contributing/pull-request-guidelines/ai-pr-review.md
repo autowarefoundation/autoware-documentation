@@ -4,7 +4,7 @@ We have [Codium-ai/pr-agent](https://github.com/Codium-ai/pr-agent/tree/main) en
 
 ## The workflow
 
-Workflow: [pr-agent.yaml](https://github.com/autowarefoundation/autoware.universe/blob/main/.github/workflows/pr-agent.yaml)
+Workflow: [pr-agent.yaml](https://github.com/autowarefoundation/autoware_universe/blob/main/.github/workflows/pr-agent.yaml)
 
 ### Additional links for the workflow maintainers
 

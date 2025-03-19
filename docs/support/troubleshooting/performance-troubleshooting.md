@@ -52,7 +52,7 @@ Even if a build starts with these flags but same workspace gets compiled without
 
 In addition, the nodes will run slow in general, especially the `pointcloud_preprocessor` nodes.
 
-Example issue: [issue2597](https://github.com/autowarefoundation/autoware.universe/issues/2597#issuecomment-1491789081)
+Example issue: [issue2597](https://github.com/autowarefoundation/autoware_universe/issues/2597#issuecomment-1491789081)
 
 #### Solution
 

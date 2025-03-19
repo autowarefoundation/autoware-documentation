@@ -44,5 +44,5 @@ Autoware is the world’s leading open-source project dedicated to autonomous dr
 
 In addition to this page, there are several related documentations to further your knowledge and understanding of Autoware:
 
-- [Autoware Universe Documentation](https://autowarefoundation.github.io/autoware.universe/) contains technical documentations of each component/function such as localization, planning, etc.
+- [Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/) contains technical documentations of each component/function such as localization, planning, etc.
 - [Autoware Tools Documentation](https://autowarefoundation.github.io/autoware_tools/main/) contains technical documentations of each tools for autonomous driving such as performance analysis, calibration, etc.
