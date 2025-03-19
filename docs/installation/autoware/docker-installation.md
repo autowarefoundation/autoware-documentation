@@ -101,6 +101,12 @@ Inside the container, you can run the Autoware tutorials by following these link
 
    > ⚠️ Note: The nightly repositories are unstable and may contain bugs. Use them with caution.
 
+   Optionally, you may also download the extra repositories that contain drivers for specific hardware, but they are not necessary for building and running Autoware:
+
+   ```bash
+   vcs import src < extra-packages.repos
+   ```
+
 2. Update dependent ROS packages.
 
    The dependencies of Autoware may have changed after the Docker image was created.
