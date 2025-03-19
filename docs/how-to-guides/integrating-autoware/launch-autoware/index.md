@@ -161,7 +161,7 @@ but if you want to use `camera-lidar fusion` you need to change your perception 
 If you want to use traffic light recognition and visualization,
 you can set `traffic_light_recognition/enable_fine_detection` as true (default).
 Please check
-[traffic_light_fine_detector](https://autowarefoundation.github.io/autoware.universe/main/perception/autoware_traffic_light_fine_detector/)
+[traffic_light_fine_detector](https://autowarefoundation.github.io/autoware_universe/main/perception/autoware_traffic_light_fine_detector/)
 page for more information.
 If you don't want to use traffic light classifier, then you can disable it:
 
@@ -191,7 +191,7 @@ ros2 launch autoware_launch autoware_launch.launch.xml map_path:=<YOUR-MAP-PATH>
 ```
 
 After launching Autoware, we need to initialize our vehicle on our map.
-If you set [gnss_poser](https://autowarefoundation.github.io/autoware.universe/main/sensing/autoware_gnss_poser/) for your GNSS/INS sensor at `gnss.launch.xml`,
+If you set [gnss_poser](https://autowarefoundation.github.io/autoware_universe/main/sensing/autoware_gnss_poser/) for your GNSS/INS sensor at `gnss.launch.xml`,
 then gnss_poser will send pose for initialization.
 If you don't have a GNSS sensor, then you need to set initial pose manually.
 

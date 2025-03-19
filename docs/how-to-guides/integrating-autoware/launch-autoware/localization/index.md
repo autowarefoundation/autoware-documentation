@@ -76,7 +76,7 @@ The current localization launcher implemented by TIER IV supports multiple local
 
 - **`input_pointcloud:`** This argument specifies the input pointcloud of the localization pointcloud pipeline. The default value is
   `/sensing/lidar/top/outlier_filtered/pointcloud` which
-  is output of the [pointcloud pre-processing](https://autowarefoundation.github.io/autoware.universe/main/sensing/autoware_pointcloud_preprocessor/) pipeline from sensing.
+  is output of the [pointcloud pre-processing](https://autowarefoundation.github.io/autoware_universe/main/sensing/autoware_pointcloud_preprocessor/) pipeline from sensing.
   You can change this value according to your LiDAR topic name,
   or you can choose to use concatenated point cloud:
 

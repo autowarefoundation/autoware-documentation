@@ -1,6 +1,6 @@
 # Crosswalk attribute
 
-Behavior velocity planner's [crosswalk module](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_crosswalk_module/) plans velocity
+Behavior velocity planner's [crosswalk module](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_crosswalk_module/) plans velocity
 to stop or decelerate for pedestrians approaching or walking on a crosswalk.
 In order to operate that, we will add crosswalk attribute to our lanelet2 map.
 
