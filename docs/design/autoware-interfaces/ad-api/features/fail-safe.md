@@ -4,6 +4,8 @@
 
 - {{ link_ad_api('/api/fail_safe/rti_state') }}
 - {{ link_ad_api('/api/fail_safe/mrm_state') }}
+- {{ link_ad_api('/api/fail_safe/mrm_request/send') }}
+- {{ link_ad_api('/api/fail_safe/mrm_request/list') }}
 
 ## Description
 
@@ -45,3 +47,16 @@ This is service dependent. Autoware supports the following transitions by defaul
 | COMFORTABLE_STOP | The vehicle will stop quickly with a comfortable deceleration.            |
 | EMERGENCY_STOP   | The vehicle will stop immediately with as much deceleration as possible.  |
 | PULL_OVER        | The vehicle will stop after moving to the side of the road.               |
+
+## MRM request
+
+MRM request is a feature that triggers MRM from an application, and is mainly used when the application wants to transition the vehicle to a safe state by detecting an abnormality. When an MRM request is sent, Autoware attempts to operate the MRM. To distinguish requests from multiple applications, an MRM request must include a user name as an identifier.
+
+Since MRM has multiple behaviors, this feature provides a selection strategy. Please refer to the table below for supported strategies.
+If there are multiple requests, the strategy with the highest priority will be used.
+Note that when Autoware detects an abnormality, it may not be able to operate according to the MRM request strategy.
+
+| Strategy | Description                                                |
+| -------- | ---------------------------------------------------------- |
+| CANCEL   | Cancel the MRM request associated with the specified user. |
+| DELEGATE | Delegate the selection of MRM behavior to Autoware.        |
