@@ -44,7 +44,7 @@ According to the selected interface, items to be implemented/tuned will be diffe
 |                      | GMSL2                                                                                          | USB3                                                                          | GigE                                                                               |
 |----------------------|------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
 | Device driver        | need to implement dedicated ones according to camera type and ECU type to use as a V4L2 device | UVC driver can make it exposed as a V4L2 driver with various cameras/ECUs     | Not needed (V4L2 is not applicable)                                                |
-| available ROS driver | <ul> <li>`ros2_v4l2_camera`</li> <li>`gscam`</li> <ul>                                         | <ul> <li>`ros2_v4l2_camera`</li> <li>`uvc_camera`</li> <li>`gscam`</li> </ul> | <ul> <li>`gscan` (if data is transferred in RTP)</li> <li>dedicated one</li> </ul> |
+| available ROS driver | <ul> <li>`ros2_v4l2_camera`</li> <li>`gscam`</li> <ul>                                         | <ul> <li>`ros2_v4l2_camera`</li> <li>`uvc_camera`</li> <li>`gscam`</li> </ul> | <ul> <li>`gscam` (if data is transferred in RTP)</li> <li>dedicated one</li> </ul> |
 
 
 ### Calibration
