@@ -1,5 +1,5 @@
 ---
-title: /api/remote/command/acceleration
+title: /api/manual/local/command/acceleration
 status: not released
 method: realtime stream
 type:
@@ -13,6 +13,6 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Sends acceleration command used in remote operation mode.
-To use this API, select the corresponding mode as described in [manual control](../../../../features/manual-control.md).
+Sends acceleration command used in local operation mode.
+To use this API, select the corresponding mode as described in [manual control](../../../../../features/manual-control.md).
 {% endblock %}

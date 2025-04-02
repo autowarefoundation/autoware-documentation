@@ -1,5 +1,5 @@
 ---
-title: /api/local/control_mode/list
+title: /api/manual/local/control_mode/list
 status: not released
 method: function call
 type:
@@ -13,6 +13,6 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-List the available manual control modes as described in [manual control](../../../../features/manual-control.md).
+List the available manual control modes as described in [manual control](../../../../../features/manual-control.md).
 The disabled mode is not included in the available modes.
 {% endblock %}

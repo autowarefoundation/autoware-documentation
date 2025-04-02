@@ -2,28 +2,28 @@
 
 ## Related API
 
-- {{ link_ad_api('/api/remote/control_mode/list') }}
-- {{ link_ad_api('/api/remote/control_mode/select') }}
-- {{ link_ad_api('/api/remote/control_mode/status') }}
-- {{ link_ad_api('/api/remote/operator/status') }}
-- {{ link_ad_api('/api/remote/command/pedals') }}
-- {{ link_ad_api('/api/remote/command/acceleration') }}
-- {{ link_ad_api('/api/remote/command/velocity') }}
-- {{ link_ad_api('/api/remote/command/steering') }}
-- {{ link_ad_api('/api/remote/command/gear') }}
-- {{ link_ad_api('/api/remote/command/turn_indicators') }}
-- {{ link_ad_api('/api/remote/command/hazard_lights') }}
-- {{ link_ad_api('/api/local/control_mode/list') }}
-- {{ link_ad_api('/api/local/control_mode/select') }}
-- {{ link_ad_api('/api/local/control_mode/status') }}
-- {{ link_ad_api('/api/local/operator/status') }}
-- {{ link_ad_api('/api/local/command/pedals') }}
-- {{ link_ad_api('/api/local/command/acceleration') }}
-- {{ link_ad_api('/api/local/command/velocity') }}
-- {{ link_ad_api('/api/local/command/steering') }}
-- {{ link_ad_api('/api/local/command/gear') }}
-- {{ link_ad_api('/api/local/command/turn_indicators') }}
-- {{ link_ad_api('/api/local/command/hazard_lights') }}
+- {{ link_ad_api('/api/manual/remote/control_mode/list') }}
+- {{ link_ad_api('/api/manual/remote/control_mode/select') }}
+- {{ link_ad_api('/api/manual/remote/control_mode/status') }}
+- {{ link_ad_api('/api/manual/remote/operator/heartbeat') }}
+- {{ link_ad_api('/api/manual/remote/command/pedals') }}
+- {{ link_ad_api('/api/manual/remote/command/acceleration') }}
+- {{ link_ad_api('/api/manual/remote/command/velocity') }}
+- {{ link_ad_api('/api/manual/remote/command/steering') }}
+- {{ link_ad_api('/api/manual/remote/command/gear') }}
+- {{ link_ad_api('/api/manual/remote/command/turn_indicators') }}
+- {{ link_ad_api('/api/manual/remote/command/hazard_lights') }}
+- {{ link_ad_api('/api/manual/local/control_mode/list') }}
+- {{ link_ad_api('/api/manual/local/control_mode/select') }}
+- {{ link_ad_api('/api/manual/local/control_mode/status') }}
+- {{ link_ad_api('/api/manual/local/operator/heartbeat') }}
+- {{ link_ad_api('/api/manual/local/command/pedals') }}
+- {{ link_ad_api('/api/manual/local/command/acceleration') }}
+- {{ link_ad_api('/api/manual/local/command/velocity') }}
+- {{ link_ad_api('/api/manual/local/command/steering') }}
+- {{ link_ad_api('/api/manual/local/command/gear') }}
+- {{ link_ad_api('/api/manual/local/command/turn_indicators') }}
+- {{ link_ad_api('/api/manual/local/command/hazard_lights') }}
 
 ## Description
 

@@ -9,6 +9,7 @@ title: autoware_adapi_v1_msgs/msg/SteeringCommand
 ```txt
 builtin_interfaces/Time stamp
 float32 steering_tire_angle
+float32 steering_tire_velocity
 ```
 
 {% endblock %}

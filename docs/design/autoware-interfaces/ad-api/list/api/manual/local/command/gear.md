@@ -1,5 +1,5 @@
 ---
-title: /api/local/command/gear
+title: /api/manual/local/command/gear
 status: not released
 method: notification
 type:
@@ -14,5 +14,5 @@ type:
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
 Sends gear command used in local operation mode.
-To use this API, select the corresponding mode as described in [manual control](../../../../features/manual-control.md).
+To use this API, select the corresponding mode as described in [manual control](../../../../../features/manual-control.md).
 {% endblock %}

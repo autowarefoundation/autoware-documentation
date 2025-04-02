@@ -1,5 +1,5 @@
 ---
-title: /api/local/command/pedals
+title: /api/manual/remote/command/pedals
 status: not released
 method: realtime stream
 type:
@@ -7,14 +7,14 @@ type:
   msg:
     - name: stamp
       text: Timestamp when this message was sent.
-    - name: accelerator
-      text: Target accelerator pedal ratio.
+    - name: throttle
+      text: Target throttle pedal ratio.
     - name: brake
       text: Target brake pedal ratio.
 ---
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Sends pedals command used in local operation mode. The pedal value is the ratio with the maximum pedal depression being 1.0.
-To use this API, select the corresponding mode as described in [manual control](../../../../features/manual-control.md).
+Sends pedals command used in remote operation mode. The pedal value is the ratio with the maximum pedal depression being 1.0.
+To use this API, select the corresponding mode as described in [manual control](../../../../../features/manual-control.md).
 {% endblock %}

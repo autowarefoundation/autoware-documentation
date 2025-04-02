@@ -26,7 +26,7 @@
 - [autoware_adapi_v1_msgs/msg/LocalizationInitializationState](./autoware_adapi_v1_msgs/msg/LocalizationInitializationState.md)
 - [autoware_adapi_v1_msgs/msg/ManualControlMode](./autoware_adapi_v1_msgs/msg/ManualControlMode.md)
 - [autoware_adapi_v1_msgs/msg/ManualControlModeStatus](./autoware_adapi_v1_msgs/msg/ManualControlModeStatus.md)
-- [autoware_adapi_v1_msgs/msg/ManualOperatorStatus](./autoware_adapi_v1_msgs/msg/ManualOperatorStatus.md)
+- [autoware_adapi_v1_msgs/msg/ManualOperatorHeartbeat](./autoware_adapi_v1_msgs/msg/ManualOperatorHeartbeat.md)
 - [autoware_adapi_v1_msgs/msg/MotionState](./autoware_adapi_v1_msgs/msg/MotionState.md)
 - [autoware_adapi_v1_msgs/msg/MrmState](./autoware_adapi_v1_msgs/msg/MrmState.md)
 - [autoware_adapi_v1_msgs/msg/ObjectClassification](./autoware_adapi_v1_msgs/msg/ObjectClassification.md)

@@ -1,5 +1,5 @@
 ---
-title: /api/remote/command/velocity
+title: /api/manual/remote/command/velocity
 status: not released
 method: realtime stream
 type:
@@ -14,5 +14,5 @@ type:
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
 Sends velocity command used in remote operation mode.
-To use this API, select the corresponding mode as described in [manual control](../../../../features/manual-control.md).
+To use this API, select the corresponding mode as described in [manual control](../../../../../features/manual-control.md).
 {% endblock %}

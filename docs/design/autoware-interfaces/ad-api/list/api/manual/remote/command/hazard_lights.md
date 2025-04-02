@@ -1,5 +1,5 @@
 ---
-title: /api/local/command/hazard_lights
+title: /api/manual/remote/command/hazard_lights
 status: not released
 method: notification
 type:
@@ -13,6 +13,6 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Sends hazard lights command used in local operation mode.
-To use this API, select the corresponding mode as described in [manual control](../../../../features/manual-control.md).
+Sends hazard lights command used in remote operation mode.
+To use this API, select the corresponding mode as described in [manual control](../../../../../features/manual-control.md).
 {% endblock %}
