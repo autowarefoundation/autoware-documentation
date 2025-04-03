@@ -1,5 +1,5 @@
 ---
-title: /api/remote/control_mode/status
+title: /api/manual/remote/control_mode/status
 status: not released
 method: notification
 type:

@@ -8,7 +8,7 @@ title: autoware_adapi_v1_msgs/msg/PedalsCommand
 
 ```txt
 builtin_interfaces/Time stamp
-float32 accelerator
+float32 throttle
 float32 brake
 ```
 

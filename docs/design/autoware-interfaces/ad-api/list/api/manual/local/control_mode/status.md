@@ -1,5 +1,5 @@
 ---
-title: /api/local/control_mode/status
+title: /api/manual/local/control_mode/status
 status: not released
 method: notification
 type:

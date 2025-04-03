@@ -1,5 +1,5 @@
 ---
-title: /api/remote/command/turn_indicators
+title: /api/manual/local/command/turn_indicators
 status: not released
 method: notification
 type:
@@ -13,6 +13,6 @@ type:
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Sends turn indicators command used in remote operation mode.
-To use this API, select the corresponding mode as described in [manual control](../../../../features/manual-control.md).
+Sends turn indicators command used in local operation mode.
+To use this API, select the corresponding mode as described in [manual control](../../../../../features/manual-control.md).
 {% endblock %}

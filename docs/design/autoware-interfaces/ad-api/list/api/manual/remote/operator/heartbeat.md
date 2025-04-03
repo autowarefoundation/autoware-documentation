@@ -1,9 +1,9 @@
 ---
-title: /api/remote/operator/status
+title: /api/manual/remote/operator/heartbeat
 status: not released
 method: realtime stream
 type:
-  name: autoware_adapi_v1_msgs/msg/ManualOperatorStatus
+  name: autoware_adapi_v1_msgs/msg/ManualOperatorHeartbeat
   msg:
     - name: stamp
       text: Timestamp when this message was sent.
@@ -14,5 +14,5 @@ type:
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
 The application needs to determine whether the operator is able to drive and send that information via this API.
-For details, see the [manual control](../../../../features/manual-control.md).
+For details, see the [manual control](../../../../../features/manual-control.md).
 {% endblock %}
