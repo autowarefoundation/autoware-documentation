@@ -7,28 +7,28 @@
 | [/api/interface/version](./api/interface/version.md)                                             | v1.0.0       | function call   |
 | [/api/localization/initialization_state](./api/localization/initialization_state.md)             | v1.0.0       | notification    |
 | [/api/localization/initialize](./api/localization/initialize.md)                                 | v1.0.0       | function call   |
-| [/api/manual/local/command/acceleration](./api/manual/local/command/acceleration.md)             | not released | realtime stream |
-| [/api/manual/local/command/gear](./api/manual/local/command/gear.md)                             | not released | notification    |
-| [/api/manual/local/command/hazard_lights](./api/manual/local/command/hazard_lights.md)           | not released | notification    |
-| [/api/manual/local/command/pedals](./api/manual/local/command/pedals.md)                         | not released | realtime stream |
-| [/api/manual/local/command/steering](./api/manual/local/command/steering.md)                     | not released | realtime stream |
-| [/api/manual/local/command/turn_indicators](./api/manual/local/command/turn_indicators.md)       | not released | notification    |
-| [/api/manual/local/command/velocity](./api/manual/local/command/velocity.md)                     | not released | realtime stream |
-| [/api/manual/local/control_mode/list](./api/manual/local/control_mode/list.md)                   | not released | function call   |
-| [/api/manual/local/control_mode/select](./api/manual/local/control_mode/select.md)               | not released | function call   |
-| [/api/manual/local/control_mode/status](./api/manual/local/control_mode/status.md)               | not released | notification    |
-| [/api/manual/local/operator/heartbeat](./api/manual/local/operator/heartbeat.md)                 | not released | realtime stream |
-| [/api/manual/remote/command/acceleration](./api/manual/remote/command/acceleration.md)           | not released | realtime stream |
-| [/api/manual/remote/command/gear](./api/manual/remote/command/gear.md)                           | not released | notification    |
-| [/api/manual/remote/command/hazard_lights](./api/manual/remote/command/hazard_lights.md)         | not released | notification    |
-| [/api/manual/remote/command/pedals](./api/manual/remote/command/pedals.md)                       | not released | realtime stream |
-| [/api/manual/remote/command/steering](./api/manual/remote/command/steering.md)                   | not released | realtime stream |
-| [/api/manual/remote/command/turn_indicators](./api/manual/remote/command/turn_indicators.md)     | not released | notification    |
-| [/api/manual/remote/command/velocity](./api/manual/remote/command/velocity.md)                   | not released | realtime stream |
-| [/api/manual/remote/control_mode/list](./api/manual/remote/control_mode/list.md)                 | not released | function call   |
-| [/api/manual/remote/control_mode/select](./api/manual/remote/control_mode/select.md)             | not released | function call   |
-| [/api/manual/remote/control_mode/status](./api/manual/remote/control_mode/status.md)             | not released | notification    |
-| [/api/manual/remote/operator/heartbeat](./api/manual/remote/operator/heartbeat.md)               | not released | realtime stream |
+| [/api/manual/local/command/acceleration](./api/manual/local/command/acceleration.md)             | v1.8.0       | realtime stream |
+| [/api/manual/local/command/gear](./api/manual/local/command/gear.md)                             | v1.8.0       | notification    |
+| [/api/manual/local/command/hazard_lights](./api/manual/local/command/hazard_lights.md)           | v1.8.0       | notification    |
+| [/api/manual/local/command/pedals](./api/manual/local/command/pedals.md)                         | v1.8.0       | realtime stream |
+| [/api/manual/local/command/steering](./api/manual/local/command/steering.md)                     | v1.8.0       | realtime stream |
+| [/api/manual/local/command/turn_indicators](./api/manual/local/command/turn_indicators.md)       | v1.8.0       | notification    |
+| [/api/manual/local/command/velocity](./api/manual/local/command/velocity.md)                     | v1.8.0       | realtime stream |
+| [/api/manual/local/control_mode/list](./api/manual/local/control_mode/list.md)                   | v1.8.0       | function call   |
+| [/api/manual/local/control_mode/select](./api/manual/local/control_mode/select.md)               | v1.8.0       | function call   |
+| [/api/manual/local/control_mode/status](./api/manual/local/control_mode/status.md)               | v1.8.0       | notification    |
+| [/api/manual/local/operator/heartbeat](./api/manual/local/operator/heartbeat.md)                 | v1.8.0       | realtime stream |
+| [/api/manual/remote/command/acceleration](./api/manual/remote/command/acceleration.md)           | v1.8.0       | realtime stream |
+| [/api/manual/remote/command/gear](./api/manual/remote/command/gear.md)                           | v1.8.0       | notification    |
+| [/api/manual/remote/command/hazard_lights](./api/manual/remote/command/hazard_lights.md)         | v1.8.0       | notification    |
+| [/api/manual/remote/command/pedals](./api/manual/remote/command/pedals.md)                       | v1.8.0       | realtime stream |
+| [/api/manual/remote/command/steering](./api/manual/remote/command/steering.md)                   | v1.8.0       | realtime stream |
+| [/api/manual/remote/command/turn_indicators](./api/manual/remote/command/turn_indicators.md)     | v1.8.0       | notification    |
+| [/api/manual/remote/command/velocity](./api/manual/remote/command/velocity.md)                   | v1.8.0       | realtime stream |
+| [/api/manual/remote/control_mode/list](./api/manual/remote/control_mode/list.md)                 | v1.8.0       | function call   |
+| [/api/manual/remote/control_mode/select](./api/manual/remote/control_mode/select.md)             | v1.8.0       | function call   |
+| [/api/manual/remote/control_mode/status](./api/manual/remote/control_mode/status.md)             | v1.8.0       | notification    |
+| [/api/manual/remote/operator/heartbeat](./api/manual/remote/operator/heartbeat.md)               | v1.8.0       | realtime stream |
 | [/api/motion/accept_start](./api/motion/accept_start.md)                                         | not released | function call   |
 | [/api/motion/state](./api/motion/state.md)                                                       | not released | notification    |
 | [/api/operation_mode/change_to_autonomous](./api/operation_mode/change_to_autonomous.md)         | v1.0.0       | function call   |

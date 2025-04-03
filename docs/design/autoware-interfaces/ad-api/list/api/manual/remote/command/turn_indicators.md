@@ -1,6 +1,6 @@
 ---
 title: /api/manual/remote/command/turn_indicators
-status: not released
+status: v1.8.0
 method: notification
 type:
   name: autoware_adapi_v1_msgs/msg/TurnIndicatorsCommand
