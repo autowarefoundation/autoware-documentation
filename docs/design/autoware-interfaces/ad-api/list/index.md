@@ -2,6 +2,8 @@
 
 | API                                                                                              | Release      | Method          |
 | ------------------------------------------------------------------------------------------------ | ------------ | --------------- |
+| [/api/fail_safe/mrm_request/list](./api/fail_safe/mrm_request/list.md)                           | not released | notification    |
+| [/api/fail_safe/mrm_request/send](./api/fail_safe/mrm_request/send.md)                           | not released | function call   |
 | [/api/fail_safe/mrm_state](./api/fail_safe/mrm_state.md)                                         | v1.1.0       | notification    |
 | [/api/fail_safe/rti_state](./api/fail_safe/rti_state.md)                                         | not released | notification    |
 | [/api/interface/version](./api/interface/version.md)                                             | v1.0.0       | function call   |
