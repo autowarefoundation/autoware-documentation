@@ -47,6 +47,7 @@
 - [autoware_adapi_v1_msgs/msg/TurnIndicatorsCommand](./autoware_adapi_v1_msgs/msg/TurnIndicatorsCommand.md)
 - [autoware_adapi_v1_msgs/msg/VehicleDimensions](./autoware_adapi_v1_msgs/msg/VehicleDimensions.md)
 - [autoware_adapi_v1_msgs/msg/VehicleKinematics](./autoware_adapi_v1_msgs/msg/VehicleKinematics.md)
+- [autoware_adapi_v1_msgs/msg/VehicleMetrics](./autoware_adapi_v1_msgs/msg/VehicleMetrics.md)
 - [autoware_adapi_v1_msgs/msg/VehicleStatus](./autoware_adapi_v1_msgs/msg/VehicleStatus.md)
 - [autoware_adapi_v1_msgs/msg/VelocityCommand](./autoware_adapi_v1_msgs/msg/VelocityCommand.md)
 - [autoware_adapi_v1_msgs/msg/VelocityFactor](./autoware_adapi_v1_msgs/msg/VelocityFactor.md)

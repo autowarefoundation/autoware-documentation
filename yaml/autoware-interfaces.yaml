@@ -218,6 +218,10 @@ types:
       geographic_pose: geographic_msgs/msg/GeoPointStamped
       pose: geometry_msgs/msg/PoseWithCovarianceStamped
       twist: geometry_msgs/msg/TwistWithCovarianceStamped
+  autoware_adapi_v1_msgs/msg/VehicleMetrics:
+    msg:
+      energy: float32
+      stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/VehicleStatus:
     msg:
       gear: autoware_adapi_v1_msgs/msg/Gear
