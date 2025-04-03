@@ -1,6 +1,6 @@
 ---
 title: /api/manual/local/command/acceleration
-status: not released
+status: v1.8.0
 method: realtime stream
 type:
   name: autoware_adapi_v1_msgs/msg/AccelerationCommand

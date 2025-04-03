@@ -1,5 +1,9 @@
 # Release notes
 
+## v1.8.0
+
+- [New] Add [manual control API](./features/manual-control.md)
+
 ## v1.7.0
 
 - [Chore] Change the messages for the prototype implementation.
