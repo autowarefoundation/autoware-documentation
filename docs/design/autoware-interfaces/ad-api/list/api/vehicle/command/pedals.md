@@ -7,8 +7,8 @@ type:
   msg:
     - name: stamp
       text: Timestamp when this message was sent.
-    - name: accelerator
-      text: Target accelerator pedal ratio.
+    - name: throttle
+      text: Target throttle pedal ratio.
     - name: brake
       text: Target brake pedal ratio.
 ---
