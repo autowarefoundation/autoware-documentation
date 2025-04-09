@@ -298,7 +298,7 @@ types:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/SendMrmRequest:
     req:
-      requests: autoware_adapi_v1_msgs/msg/MrmRequest[]
+      request: autoware_adapi_v1_msgs/msg/MrmRequest
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/SetCooperationCommands:

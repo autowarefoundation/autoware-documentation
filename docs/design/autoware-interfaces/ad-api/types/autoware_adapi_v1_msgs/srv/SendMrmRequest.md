@@ -10,7 +10,7 @@ uses:
 {% block definition %}
 
 ```txt
-autoware_adapi_v1_msgs/MrmRequest[] requests
+autoware_adapi_v1_msgs/MrmRequest request
 ---
 autoware_adapi_v1_msgs/ResponseStatus status
 ```
