@@ -48,7 +48,7 @@ Open AD Kit offers two types of Docker image to let you get started with Autowar
 
 ### Runtime
 
-You can use `run.sh` to run the Autoware runtime container with the map data:
+You can use `run.sh` to run the Autoware runtime container with the map and data (artifacts) paths:
 
 ```bash
 ./docker/run.sh --map-path path_to_map --data-path path_to_data
