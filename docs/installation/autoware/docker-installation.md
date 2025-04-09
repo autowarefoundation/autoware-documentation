@@ -34,12 +34,6 @@ Open AD Kit offers two types of Docker image to let you get started with Autowar
    ./setup-dev-env.sh -y --no-nvidia docker
    ```
 
-   To download only the artifacts:
-
-   ```bash
-   ./setup-dev-env.sh -y download_artifacts
-   ```
-
 !!! info
 
     GPU acceleration is required for some features such as object detection and traffic light detection/classification. For details of how to enable these features without a GPU, refer to the [Running Autoware without CUDA](../../how-to-guides/others/running-autoware-without-cuda.md).
@@ -51,7 +45,7 @@ Open AD Kit offers two types of Docker image to let you get started with Autowar
 You can use `run.sh` to run the Autoware runtime container with the map data:
 
 ```bash
-./docker/run.sh --map-path path_to_map --data-path path_to_data
+./docker/run.sh --map-path path_to_map_data
 ```
 
 For more launch options, you can append a custom launch command instead of using the default launch command which is `ros2 launch autoware_launch autoware.launch.xml`.
@@ -59,7 +53,8 @@ For more launch options, you can append a custom launch command instead of using
 Here is an example of running the runtime container with a custom launch command:
 
 ```bash
-./docker/run.sh --map-path ~/autoware_map/sample-map-rosbag --data-path ~/autoware_data ros2 launch autoware_launch planning_simulator.launch.xml map_path:=/autoware_map vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+./docker/run.sh --map-path ~/autoware_map/sample-map-rosbag ros2 launch autoware_launch planning_simulator.launch.xml map_path:=/autoware_map vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+
 ```
 
 !!! info
@@ -100,6 +95,12 @@ Inside the container, you can run the Autoware tutorials by following these link
    ```
 
    > ⚠️ Note: The nightly repositories are unstable and may contain bugs. Use them with caution.
+
+   Optionally, you may also download the extra repositories that contain drivers for specific hardware, but they are not necessary for building and running Autoware:
+
+   ```bash
+   vcs import src < extra-packages.repos
+   ```
 
 2. Update dependent ROS packages.
 

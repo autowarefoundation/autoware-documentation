@@ -24,12 +24,12 @@
               <div
                 style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; overflow-wrap: normal;"
               >
-                autoware.universe
+                autoware_universe
               </div>
             </div>
           </div>
         </foreignObject>
-        <text x="360" y="305" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle" font-weight="bold">autoware.universe</text>
+        <text x="360" y="305" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle" font-weight="bold">autoware_universe</text>
       </switch>
     </g>
     <path
@@ -316,7 +316,7 @@
               <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">
                 <div align="left">
                   <ul>
-                    <li>autoware.universe parameter (config) files</li>
+                    <li>autoware_universe parameter (config) files</li>
                   </ul>
                 </div>
                 <div align="left">
@@ -331,7 +331,7 @@
             </div>
           </div>
         </foreignObject>
-        <text x="216" y="109" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px">autoware.universe parameter (config) files...</text>
+        <text x="216" y="109" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px">autoware_universe parameter (config) files...</text>
       </switch>
     </g>
     <path d="M 360 140 Q 355 210 330 220 Q 305 230 210 225 Q 115 220 120.98 334.91" fill="none" stroke="#62a0ea" stroke-width="3" stroke-miterlimit="10" pointer-events="stroke"/>

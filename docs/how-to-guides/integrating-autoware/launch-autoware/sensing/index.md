@@ -6,7 +6,7 @@ The Autoware sensing stacks start
 launching at `autoware_launch.xml` as we mentioned at [Launch Autoware](../index.md) page.
 The `autoware_launch` package includes `tier4_sensing_component.launch.xml`
 for starting sensing launch files invocation from `autoware_launch.xml`.
-This diagram describes some of the Autoware sensing launch files flow at `autoware_launch` and `autoware.universe` packages.
+This diagram describes some of the Autoware sensing launch files flow at `autoware_launch` and `autoware_universe` packages.
 
 <figure markdown>
   ![sensing-launch-flow](images/sensing_launch_flow.svg){ align=center }

@@ -5,7 +5,7 @@ This page shows how to use `control_performance_analysis` package to evaluate th
 `control_performance_analysis` is the package to analyze the tracking performance of a control module
 and monitor the driving status of the vehicle.
 
-If you need more detailed information about package, refer to the [control_performance_analysis](https://github.com/autowarefoundation/autoware.universe/tree/main/control/control_performance_analysis).
+If you need more detailed information about package, refer to the [control_performance_analysis](https://github.com/autowarefoundation/autoware_universe/tree/main/control/control_performance_analysis).
 
 ## How to use
 
@@ -37,7 +37,7 @@ ros2 run plotjuggler plotjuggler
 
 - If you do not have PlotJuggler in your computer, please refer [here](https://github.com/facontidavide/PlotJuggler#installation) for installation guideline.
 
-#### 5. Increase the buffer size (maximum is 100), and import the layout from `/autoware.universe/control/control_performance_analysis/config/controller_monitor.xml`
+#### 5. Increase the buffer size (maximum is 100), and import the layout from `/autoware_universe/control/control_performance_analysis/config/controller_monitor.xml`
 
 - After import the layout, please specify the topics that are listed below.
 
@@ -72,4 +72,4 @@ ros2 run plotjuggler plotjuggler
 
 ![Plot XY Curve](images/evaluating-controller-performance/plot-xy.png)
 
-- If you see too much noised curve in plots, you can adjust the `odom_interval` and `low_pass_filter_gain` from [here](https://github.com/autowarefoundation/autoware.universe/blob/main/control/control_performance_analysis/config/control_performance_analysis.param.yaml) to avoid noised data.
+- If you see too much noised curve in plots, you can adjust the `odom_interval` and `low_pass_filter_gain` from [here](https://github.com/autowarefoundation/autoware_universe/blob/main/control/control_performance_analysis/config/control_performance_analysis.param.yaml) to avoid noised data.

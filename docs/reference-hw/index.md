@@ -1,6 +1,6 @@
 # Reference HW Design
 
-This document is created to describe and give additional information of the sensors and systems supported by Autoware.Universe software.
+This document is created to describe and give additional information of the sensors and systems supported by Autoware Universe software.
 
 All equipment listed in this document has available ROS 2 drivers and has been tested by one or more of the community members on field in autonomous vehicle and robotics applications.
 

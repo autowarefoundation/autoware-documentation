@@ -204,4 +204,4 @@ If `rclcpp::Executor` based object, an executor, is programmed to call a callbac
 As of May 2024, the recommended manners are beginning to be used in Autoware Universe.
 See the following PR if you want an example in Autoware Universe.
 
-[_feat(tier4_autoware_utils, obstacle_cruise): change to read topic by polling #6702_](https://github.com/autowarefoundation/autoware.universe/pull/6702)
+[_feat(tier4_autoware_utils, obstacle_cruise): change to read topic by polling #6702_](https://github.com/autowarefoundation/autoware_universe/pull/6702)

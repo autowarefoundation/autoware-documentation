@@ -29,7 +29,7 @@ If there is a crosswalk at the intersection, arrange for the road's Lanelet and 
 
 #### Related Autoware module
 
-- [Traffic Light design - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_traffic_light_module/)
+- [Traffic Light design - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_traffic_light_module/)
 
 ---
 
@@ -60,7 +60,7 @@ None in particular.
 
 #### Related Autoware module
 
-- [Traffic Light design - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_traffic_light_module/)
+- [Traffic Light design - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_traffic_light_module/)
 
 ---
 
@@ -89,4 +89,4 @@ None in particular.
 
 #### Related Autoware module
 
-- [Traffic Light design - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_traffic_light_module/)
+- [Traffic Light design - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_traffic_light_module/)

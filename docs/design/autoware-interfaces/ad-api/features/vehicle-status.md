@@ -4,6 +4,7 @@
 
 - {{ link_ad_api('/api/vehicle/kinematics') }}
 - {{ link_ad_api('/api/vehicle/status') }}
+- {{ link_ad_api('/api/vehicle/metrics') }}
 - {{ link_ad_api('/api/vehicle/dimensions') }}
 - {{ link_ad_api('/api/vehicle/specs') }}
 - {{ link_ad_api('/api/vehicle/command/acceleration') }}
@@ -18,8 +19,13 @@ Also, using velocity and acceleration, applications can find vehicles that need 
 
 ## Status
 
-This is the status provided by the vehicle. The indicators and steering are mainly used for visualization and remote control.
-The remaining energy can be also used for vehicle scheduling.
+This is the status provided by the vehicle, such as indicators and steering.
+These are mainly used for visualization and remote control.
+
+## Metrics
+
+This is metrics data provided by the vehicle, such as remaining energy
+The remaining energy can be used for vehicle dispatch scheduling.
 
 ## Dimensions
 

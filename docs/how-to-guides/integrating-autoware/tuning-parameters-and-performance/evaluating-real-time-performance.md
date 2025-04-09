@@ -114,7 +114,7 @@ In this section, we will present several case studies that demonstrate the perfo
 ### Sensing component
 
 First, we will explain the procedure for performance improvement, taking the node `ring_outlier_filter` as an example.
-Refer to the [Pull Request](https://github.com/autowarefoundation/autoware.universe/pull/3014) for details.
+Refer to the [Pull Request](https://github.com/autowarefoundation/autoware_universe/pull/3014) for details.
 
 The following figure is a time-series plot of the turnaround time of the main processing part of `ring_outlier_filter`, analyzed as described in the "Performance Measurement" section above.
 
@@ -200,6 +200,6 @@ for ( area : detection_areas )
 ```
 
 By using O(N) algorithm for minimum enclosing circle, the computational complexity of this program is reduced to almost O(N \* (N + M)) (note that the exact computational complexity does not really change).
-If you are interested, refer to the [Pull Request](https://github.com/autowarefoundation/autoware.universe/pull/2846).
+If you are interested, refer to the [Pull Request](https://github.com/autowarefoundation/autoware_universe/pull/2846).
 
 Similar to this example, in the planning component, we take into consideration thousands to tens of thousands of point clouds, thousands of points in a path representing our own route, and polygons representing obstacles and detection areas in the surroundings, and we repeatedly create paths based on them. Therefore, we access the contents of the point clouds and paths multiple times using for-loops. In most cases, the bottleneck lies in these naive for-loops. Here, understanding Big O notation and reducing the order of computational complexity directly leads to performance improvements.

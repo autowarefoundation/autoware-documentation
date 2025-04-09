@@ -39,10 +39,10 @@ When developing a new node, it could be beneficial to reference a package that i
 
 It is advisable to thoroughly read the [Design page](https://autowarefoundation.github.io/autoware-documentation/main/design/), contemplate the addition or replacement of nodes in Autoware, and then implement your solution.
 
-For example, a node doing NDT, a LiDAR-based localization method, is [ndt_scan_matcher](https://github.com/autowarefoundation/autoware.universe/tree/main/localization/autoware_ndt_scan_matcher).
+For example, a node doing NDT, a LiDAR-based localization method, is [ndt_scan_matcher](https://github.com/autowarefoundation/autoware_universe/tree/main/localization/autoware_ndt_scan_matcher).
 If you want to replace this with a different approach, implement a node which produces the same topics and provides the same services.
 
-`ndt_scan_matcher` is launched as [pose_estimator](https://github.com/autowarefoundation/autoware.universe/blob/main/launch/tier4_localization_launch/launch/pose_twist_estimator/ndt_scan_matcher.launch.xml), so it is necessary to replace the launch file as well.
+`ndt_scan_matcher` is launched as [pose_estimator](https://github.com/autowarefoundation/autoware_universe/blob/main/launch/tier4_localization_launch/launch/pose_twist_estimator/ndt_scan_matcher.launch.xml), so it is necessary to replace the launch file as well.
 
 ## 4. Evaluating by a rosbag-based simulator
 

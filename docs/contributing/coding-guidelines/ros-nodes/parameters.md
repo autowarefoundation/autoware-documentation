@@ -57,7 +57,7 @@ As there is no _default_value_ provided, the function throws an exception if a p
 
 The table has been derived from [Parameter Type](https://github.com/ros2/rcl_interfaces/blob/humble/rcl_interfaces/msg/ParameterType.msg) and [Parameter Value](https://github.com/ros2/rcl_interfaces/blob/humble/rcl_interfaces/msg/ParameterValue.msg).
 
-See example: _Lidar Apollo Segmentation TVM Nodes_ [declare function](https://github.com/autowarefoundation/autoware.universe/blob/f85c90b56ed4c7d6b52e787570e590cff786b28b/perception/lidar_apollo_segmentation_tvm_nodes/src/lidar_apollo_segmentation_tvm_node.cpp#L38)
+See example: _Lidar Apollo Segmentation TVM Nodes_ [declare function](https://github.com/autowarefoundation/autoware_universe/blob/f85c90b56ed4c7d6b52e787570e590cff786b28b/perception/lidar_apollo_segmentation_tvm_nodes/src/lidar_apollo_segmentation_tvm_node.cpp#L38)
 
 ## Parameter File
 
@@ -78,7 +78,7 @@ Autoware has the following two types of parameter files for ROS packages:
 
 - **Node parameter file**
   - Node parameter files store the default parameters provided for each package in Autoware.
-    - For example, [the parameter of `behavior_path_planner`](https://github.com/autowarefoundation/autoware.universe/tree/245242cee866de2d113e89c562353c5fc17f1f98/planning/behavior_path_planner/config)
+    - For example, [the parameter of `behavior_path_planner`](https://github.com/autowarefoundation/autoware_universe/tree/245242cee866de2d113e89c562353c5fc17f1f98/planning/behavior_path_planner/config)
   - All nodes in Autoware must have a parameter file if ROS parameters are declared in the node.
   - For `FOO_package`, the parameter is expected to be stored in `FOO_package/config`.
   - The launch file for individual packages must load node parameter by default:
@@ -149,7 +149,7 @@ Autoware has the following two types of parameter files for ROS packages:
 
 The schema file path is `INSERT_PATH_TO_PACKAGE/schema/` and the schema file name is `INSERT_NODE_NAME.schema.json`. To adapt the template to the ROS node, replace each `INSERT_...` and add all parameters `1..N`.
 
-See example: _Image Projection Based Fusion - Pointpainting_ [schema](https://github.com/autowarefoundation/autoware.universe/blob/main/universe/perception/autoware_image_projection_based_fusion/schema/pointpainting.schema.json)
+See example: _Image Projection Based Fusion - Pointpainting_ [schema](https://github.com/autowarefoundation/autoware_universe/blob/main/universe/perception/autoware_image_projection_based_fusion/schema/pointpainting.schema.json)
 
 ### Attributes
 
