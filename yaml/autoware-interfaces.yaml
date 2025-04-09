@@ -116,6 +116,14 @@ types:
     msg:
       stamp: builtin_interfaces/msg/Time
       state: uint16
+  autoware_adapi_v1_msgs/msg/MrmRequest:
+    msg:
+      strategy: uint16
+      user: string
+  autoware_adapi_v1_msgs/msg/MrmRequestList:
+    msg:
+      requests: autoware_adapi_v1_msgs/msg/MrmRequest[]
+      stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/MrmState:
     msg:
       behavior: uint16
@@ -286,6 +294,11 @@ types:
   autoware_adapi_v1_msgs/srv/SelectManualControlMode:
     req:
       mode: autoware_adapi_v1_msgs/msg/ManualControlMode
+    res:
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/SendMrmRequest:
+    req:
+      requests: autoware_adapi_v1_msgs/msg/MrmRequest[]
     res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/SetCooperationCommands:
