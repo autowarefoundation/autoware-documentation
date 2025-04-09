@@ -54,10 +54,15 @@
 | [/api/system/diagnostics/status](./api/system/diagnostics/status.md)                             | v1.3.0       | realtime stream |
 | [/api/system/diagnostics/struct](./api/system/diagnostics/struct.md)                             | v1.3.0       | notification    |
 | [/api/system/heartbeat](./api/system/heartbeat.md)                                               | v1.3.0       | realtime stream |
+| [/api/vehicle/command/acceleration](./api/vehicle/command/acceleration.md)                       | not released | realtime stream |
+| [/api/vehicle/command/pedals](./api/vehicle/command/pedals.md)                                   | not released | realtime stream |
+| [/api/vehicle/command/steering](./api/vehicle/command/steering.md)                               | not released | realtime stream |
+| [/api/vehicle/command/velocity](./api/vehicle/command/velocity.md)                               | not released | realtime stream |
 | [/api/vehicle/dimensions](./api/vehicle/dimensions.md)                                           | v1.1.0       | function call   |
 | [/api/vehicle/doors/command](./api/vehicle/doors/command.md)                                     | v1.2.0       | function call   |
 | [/api/vehicle/doors/layout](./api/vehicle/doors/layout.md)                                       | v1.2.0       | function call   |
 | [/api/vehicle/doors/status](./api/vehicle/doors/status.md)                                       | v1.2.0       | notification    |
 | [/api/vehicle/kinematics](./api/vehicle/kinematics.md)                                           | v1.1.0       | realtime stream |
 | [/api/vehicle/metrics](./api/vehicle/metrics.md)                                                 | not released | reliable stream |
+| [/api/vehicle/specs](./api/vehicle/specs.md)                                                     | not released | function call   |
 | [/api/vehicle/status](./api/vehicle/status.md)                                                   | v1.4.0       | realtime stream |
