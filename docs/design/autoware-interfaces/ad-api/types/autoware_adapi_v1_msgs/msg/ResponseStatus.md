@@ -7,6 +7,7 @@ used:
   - autoware_adapi_v1_msgs/srv/ClearRoute
   - autoware_adapi_v1_msgs/srv/GetCooperationPolicies
   - autoware_adapi_v1_msgs/srv/GetDoorLayout
+  - autoware_adapi_v1_msgs/srv/GetInterfaceList
   - autoware_adapi_v1_msgs/srv/GetVehicleDimensions
   - autoware_adapi_v1_msgs/srv/GetVehicleSpecs
   - autoware_adapi_v1_msgs/srv/InitializeLocalization
