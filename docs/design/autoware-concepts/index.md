@@ -1,6 +1,6 @@
 # Autoware concepts
 
-Autoware is the world’s first open-source software for autonomous driving systems. Autoware provides value for both The technology developers of autonomous driving systems can create new components based on Autoware. The service operators of autonomous driving systems, on the other hand, can select appropriate technology components with Autoware. This is enabled by the microautonomy architecture that modularizes its software stack into the core and universe subsystems (modules).
+Autoware is the world’s first open-source software for autonomous driving systems. Autoware provides value for both technology developers and service operators. The technology developers of autonomous driving systems can create new components based on Autoware. The service operators of autonomous driving systems, on the other hand, can select appropriate technology components with Autoware. This is enabled by the microautonomy architecture that modularizes its software stack into the core and universe subsystems (modules).
 
 ## Microautonomy architecture
 
