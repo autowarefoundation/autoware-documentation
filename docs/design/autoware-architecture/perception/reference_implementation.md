@@ -2,7 +2,7 @@
 
 ## Purpose of this document
 
-This document outlines detailed design of the reference imprementations. This allows developers and users to understand what is currently available with the Perception Component, how to utilize, expand, or add to its features.
+This document outlines detailed design of the reference implementations. This allows developers and users to understand what is currently available with the Perception Component, how to utilize, expand, or add to its features.
 
 ## Whole architecture
 
@@ -64,10 +64,6 @@ The detection range typically falls between 30m and 50m.
 As optional method for detection to improve detection of objects that LiDAR-based methods struggle with, we have introduced **Camera-Only 3D Detection**.
 `Camera-Only 3D detection` aims to solve the cases that are difficult to detect with LiDAR-based methods.
 For example, `Camera-Only 3D detection` will deal with detection of objects with tree occlusion and long-distance recognition.
-
-Available methods include:
-
-- StreamPETR (TBD)
 
 Note that we will apply a high-confidence threshold to suppress the impact of false positives in `Camera-Only 3D Detection`.
 
