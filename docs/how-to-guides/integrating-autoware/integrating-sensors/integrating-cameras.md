@@ -106,9 +106,9 @@ The device tree provides the static information of the devices and their connect
 FSYNC is the frame synchronization signal, which is usually triggered using external GPIO. 
 The GMSL2 interface supports transmission of the FSYNC signal over the same cable as data transmission, via the FSYNC pins on the serializer/deserializer.
 Synchronization implementation requires the following processes:
-- Design trigger timing (in terms of synchronization with other sensors, and use of SoF or EoF)
-  - SoF: Start of Frame, where the trigger is aligned with the start of image frame capture
-  - EoF: End of Frame, where the trigger is aligned with the end of image frame capture
+- Design trigger timing (in terms of synchronization with other sensors, and trigger alignment with SOE or SOF)
+  - SOE: Start of Exposure, the moment that the image sensor starts integrating light
+  - SOF: Start of Frame, the moment when a new frame begins to be read out
 - Configure the components on the transmission path so that the FSYNC signals are transmitted properly. For GMSL2, these include the deserializer, serializer, and imaging sensor. 
 - If GPIO is connected to the deserializer, the FSYNC signal emission can be done using the [`sensor_trigger`](https://github.com/tier4/sensor_trigger) node. This node provides precise timing control for FSYNC signal.
 
