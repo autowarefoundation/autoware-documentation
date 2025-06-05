@@ -118,8 +118,8 @@ types:
       state: uint16
   autoware_adapi_v1_msgs/msg/MrmRequest:
     msg:
+      sender: string
       strategy: uint16
-      user: string
   autoware_adapi_v1_msgs/msg/MrmRequestList:
     msg:
       requests: autoware_adapi_v1_msgs/msg/MrmRequest[]
