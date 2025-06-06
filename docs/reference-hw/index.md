@@ -11,9 +11,9 @@ The documents consists of the sections listed below:
 - AD COMPUTERs
 
   - ADLINK In-Vehicle Computers
-    - NXP In-Vehicle Computers
-    - Neousys In-Vehicle Computers
-    - Crystal Rugged In-Vehicle Computers
+  - NXP In-Vehicle Computers
+  - Neousys In-Vehicle Computers
+  - Crystal Rugged In-Vehicle Computers
 
 - LiDARs
 
