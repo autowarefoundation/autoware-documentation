@@ -58,7 +58,7 @@ The Planning Component comprises several sub-components:
 
 Key aspects of this high-level design include:
 
-#### Modulation of each function
+#### Modularization of each function
 
 Essential Planning functions, such as route generation, lane changes, and intersection management, are modularized. These modules come with standardized interfaces, enabling easy addition or modification. More details on these interfaces will be discussed in subsequent sections. You can see the details about how to enable/disable each module in [the implementation documentation of Planning](https://autowarefoundation.github.io/autoware_universe/main/planning/#how-to-enable-or-disable-planning-module).
 
