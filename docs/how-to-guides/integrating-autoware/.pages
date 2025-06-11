@@ -7,3 +7,4 @@ nav:
   - 5. Launch Autoware: launch-autoware
   - 6. Tuning parameters and performance: tuning-parameters-and-performance
   - 7. AWSIM Integration: awsim-integration
+  - 8. Integrating Sensors: integrating-sensors
