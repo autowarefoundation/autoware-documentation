@@ -4,6 +4,7 @@
 
 - {{ link_ad_api('/api/fail_safe/rti_state') }}
 - {{ link_ad_api('/api/fail_safe/mrm_state') }}
+- {{ link_ad_api('/api/fail_safe/mrm_description') }}
 - {{ link_ad_api('/api/fail_safe/mrm_request/send') }}
 - {{ link_ad_api('/api/fail_safe/mrm_request/list') }}
 
@@ -36,6 +37,7 @@ This state also provides success or failure of the operation. Generally, MRM wil
 | SUCCEEDED | MRM succeeded. The vehicle is in a safe condition.         |
 | FAILED    | MRM failed. The vehicle is still in an unsafe condition.   |
 
+**[v1.9.0] Deprecated: Use the MRM behavior ID instead of following constants.**
 There is a dependency between MRM behaviors. For example, it switches from a comfortable stop to a emergency stop, but not the other way around.
 This is service dependent. Autoware supports the following transitions by default.
 
@@ -47,6 +49,11 @@ This is service dependent. Autoware supports the following transitions by defaul
 | COMFORTABLE_STOP | The vehicle will stop quickly with a comfortable deceleration.            |
 | EMERGENCY_STOP   | The vehicle will stop immediately with as much deceleration as possible.  |
 | PULL_OVER        | The vehicle will stop after moving to the side of the road.               |
+
+## MRM description
+
+Autoware supports various MRM implementation to provide appropriate behavior for each use case.
+Therefore, use this API when detailed information about MRM behavior is required. The MRM behavior ID listed by this API is used in MRM state API.
 
 ## MRM request
 
