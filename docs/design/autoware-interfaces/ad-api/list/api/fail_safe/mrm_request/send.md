@@ -5,7 +5,7 @@ method: function call
 type:
   name: autoware_adapi_v1_msgs/srv/SendMrmRequest
   req:
-    - name: request.user
+    - name: request.sender
       text: The sender name of the MRM request.
     - name: request.strategy
       text: The strategy of the MRM request.

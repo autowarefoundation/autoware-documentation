@@ -5,7 +5,7 @@ method: notification
 type:
   name: autoware_adapi_v1_msgs/msg/MrmRequestList
   msg:
-    - name: requests.user
+    - name: requests.sender
       text: The sender name of the MRM request.
     - name: requests.strategy
       text: The strategy of the MRM request.

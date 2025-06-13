@@ -19,5 +19,5 @@ type:
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
 Get the list of MRM description.
-For details, see the [fail-safe](../../../../features/fail-safe.md).
+For details, see the [fail-safe](../../../features/fail-safe.md).
 {% endblock %}
