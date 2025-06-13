@@ -23,22 +23,37 @@ types:
       uuid: unique_identifier_msgs/msg/UUID
   autoware_adapi_v1_msgs/msg/DiagGraphStatus:
     msg:
+      diags: autoware_adapi_v1_msgs/msg/DiagLeafStatus[]
       id: string
       nodes: autoware_adapi_v1_msgs/msg/DiagNodeStatus[]
       stamp: builtin_interfaces/msg/Time
   autoware_adapi_v1_msgs/msg/DiagGraphStruct:
     msg:
+      diags: autoware_adapi_v1_msgs/msg/DiagLeafStruct[]
       id: string
       links: autoware_adapi_v1_msgs/msg/DiagLinkStruct[]
       nodes: autoware_adapi_v1_msgs/msg/DiagNodeStruct[]
       stamp: builtin_interfaces/msg/Time
+  autoware_adapi_v1_msgs/msg/DiagLeafStatus:
+    msg:
+      hardware_id: string
+      level: byte
+      message: string
+      values: autoware_adapi_v1_msgs/msg/KvString[]
+  autoware_adapi_v1_msgs/msg/DiagLeafStruct:
+    msg:
+      name: string
   autoware_adapi_v1_msgs/msg/DiagLinkStruct:
     msg:
       child: uint32
       parent: uint32
   autoware_adapi_v1_msgs/msg/DiagNodeStatus:
     msg:
+      actual_level: byte
+      is_dependent: bool
+      latch_level: byte
       level: byte
+      stable_level: byte
   autoware_adapi_v1_msgs/msg/DiagNodeStruct:
     msg:
       path: string
@@ -97,6 +112,10 @@ types:
     msg:
       seq: uint16
       stamp: builtin_interfaces/msg/Time
+  autoware_adapi_v1_msgs/msg/KvString:
+    msg:
+      key: string
+      value: string
   autoware_adapi_v1_msgs/msg/LocalizationInitializationState:
     msg:
       stamp: builtin_interfaces/msg/Time
@@ -290,6 +309,9 @@ types:
   autoware_adapi_v1_msgs/srv/ListManualControlMode:
     res:
       modes: autoware_adapi_v1_msgs/msg/ManualControlMode[]
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/ResetDiagGraph:
+    res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/SelectManualControlMode:
     req:
