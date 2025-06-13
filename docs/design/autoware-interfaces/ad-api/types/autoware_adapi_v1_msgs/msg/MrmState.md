@@ -18,7 +18,7 @@ uint16 MRM_OPERATING = 2
 uint16 MRM_SUCCEEDED = 3
 uint16 MRM_FAILED = 4
 
-# For behavior
+# For behavior. Deprecated: use description API.
 uint16 NONE = 1
 uint16 EMERGENCY_STOP = 2
 uint16 COMFORTABLE_STOP = 3
