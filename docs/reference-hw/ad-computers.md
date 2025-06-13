@@ -1,17 +1,17 @@
 # AD Computers
 
 ## Advantech
+
 ![Advantech AD Computers](https://github.com/user-attachments/assets/cfbe2c0c-0661-4fa5-86b1-b768e8b19e8f)
 
 Advantech's autonomous driving and robotic computers are of compact size, with GMSL camera and other sensor data available at ROS level.
 
-| Supported Products List | CPU | GPU | RAM, Interfaces | Environmental | Autoware Tested (Y/N) |
-| --- | --- | --- | --- | --- |--- |
-| **AFE-R760** (system, but the board  AFE-R360 is also avaialbe)|Intel® Core™ Ultra 7/5 Processors|(Optional) MXM-type RTX A2000/A4500/5000Ada| <ul><li>4 GMSL2 cameras</li><li>Dual Channel DDR5-5600, up to 96GB</li><li>3 x LAN up to 2.5GbE</li><li>4 x RS-232/422/485</li><li>2 x USB-C & 2 USB-A  (10Gbps)</li><li>2 x CAN-FD</li></ul>|<ul><li>Operating Temperature: -20 ~ 60° C with 0.7m/s air flow</li><li>Vibration During Operation: 3 Grms, IEC 60068-2-64, random, 5 ~ 500 Hz, 1 hr/axis.</li><li>Shock During Operation 30 G, IEC 60068-2-27, half sine, 11 ms duration</li><li>EMC: Heavy industrial certificates, CE/FCC Class B, UKCA, CCC, BSMI</li></ul>|Y|
-| **AFE-R750-X0A1U** (AGX Orin 32GB/64GB system, but the board  ASR-A701 is also avaialbe) | 8/12-core NVIDIA Arm® Cortex A78AE v8.2 | 1792/2048-core NVIDIA Ampere GPU with 56/64 Tensor Cores | <ul><li>8 x GMSL2 cameras</li><li>BOSCH BMI088 IMU</li><li>Xsens MTi3 IMU (Optional)</li><li>32/64GB 256-bit LPDDR5 DRAM</li><li> 4 x 2.5GbE, 4 x USB 3.2 Type A, 2 x isolated CANFD, 16bit isolated DIO, 2 x RS232/422/485</li> </ul> | <ul><li>20~28V DC</li> <li>-10 ~ 60°C/50°C with 0.7 m/s air flow for 32GB/64GB</li></ul> |Y|
+| Supported Products List                                                                 | CPU                                      | GPU                                                      | RAM, Interfaces                                                                                                                                                                                                                        | Environmental                                                                                                                                                                                                                                                                                                                   | Autoware Tested (Y/N) |
+| --------------------------------------------------------------------------------------- | ---------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| **AFE-R760** (system, but the board AFE-R360 is also avaialbe)                          | Intel® Core™ Ultra 7/5 Processors      | (Optional) MXM-type RTX A2000/A4500/5000Ada              | <ul><li>4 GMSL2 cameras</li><li>Dual Channel DDR5-5600, up to 96GB</li><li>3 x LAN up to 2.5GbE</li><li>4 x RS-232/422/485</li><li>2 x USB-C & 2 USB-A (10Gbps)</li><li>2 x CAN-FD</li></ul>                                           | <ul><li>Operating Temperature: -20 ~ 60° C with 0.7m/s air flow</li><li>Vibration During Operation: 3 Grms, IEC 60068-2-64, random, 5 ~ 500 Hz, 1 hr/axis.</li><li>Shock During Operation 30 G, IEC 60068-2-27, half sine, 11 ms duration</li><li>EMC: Heavy industrial certificates, CE/FCC Class B, UKCA, CCC, BSMI</li></ul> | Y                     |
+| **AFE-R750-X0A1U** (AGX Orin 32GB/64GB system, but the board ASR-A701 is also avaialbe) | 8/12-core NVIDIA Arm® Cortex A78AE v8.2 | 1792/2048-core NVIDIA Ampere GPU with 56/64 Tensor Cores | <ul><li>8 x GMSL2 cameras</li><li>BOSCH BMI088 IMU</li><li>Xsens MTi3 IMU (Optional)</li><li>32/64GB 256-bit LPDDR5 DRAM</li><li> 4 x 2.5GbE, 4 x USB 3.2 Type A, 2 x isolated CANFD, 16bit isolated DIO, 2 x RS232/422/485</li> </ul> | <ul><li>20~28V DC</li> <li>-10 ~ 60°C/50°C with 0.7 m/s air flow for 32GB/64GB</li></ul>                                                                                                                                                                                                                                        | Y                     |
 
 Link to company website is [here.](https://campaign.advantech.online/en/AMR-Robotic-Solutions/))
-
 
 ## **ADLINK In-Vehicle Computers**
 
@@ -30,7 +30,6 @@ ADLINK solutions which is used for autonomous driving and tested by one or more 
 | RQX-59G                         | 8-core Arm                             | Nvidia Jetson AGX Orin   | USB, Ethernet, M.2 NVME SSD, CAN, USIM, GMSL2 Camera support                                       | 9~36VDC, IEC 60068-2-64: Operating 3Grms, 5-500 Hz, 3 axes                                     | -                     |
 
 Link to company website is [here.](https://www.adlinktech.com/en/Connected-Autonomous-Vehicle-Solutions)
-
 
 ## **NXP In-Vehicle Computers**
 
