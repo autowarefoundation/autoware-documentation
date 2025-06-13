@@ -97,6 +97,10 @@ types:
     msg:
       seq: uint16
       stamp: builtin_interfaces/msg/Time
+  autoware_adapi_v1_msgs/msg/InterfaceInfo:
+    msg:
+      available: bool
+      name: string
   autoware_adapi_v1_msgs/msg/LocalizationInitializationState:
     msg:
       stamp: builtin_interfaces/msg/Time
@@ -273,6 +277,10 @@ types:
   autoware_adapi_v1_msgs/srv/GetDoorLayout:
     res:
       doors: autoware_adapi_v1_msgs/msg/DoorLayout[]
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/GetInterfaceList:
+    res:
+      apis: autoware_adapi_v1_msgs/msg/InterfaceInfo[]
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/GetVehicleDimensions:
     res:
