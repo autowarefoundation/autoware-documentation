@@ -28,8 +28,8 @@ The status has an array of nodes of the same length as the struct, with the same
 
 ![graph-data](./diagnostics/data.drawio.svg)
 
-Some functional unit levels may be latched. In this case, if the abnormality continues for a certain period, the level value will not return to normal.
-Use stable_level to know the level before it was latched. Also, use latch_level to know if the latch is currently activated.
+Some functional unit levels may be latched. If the abnormality continues for a certain period, the level value will not return to normal.
+Use input_level to know the level before it was latched. Also, use latch_level to know if the latch is currently activated.
 To restore the level after the latch has been activated, use the reset API.
 
 ![level](./diagnostics/level.drawio.svg)
