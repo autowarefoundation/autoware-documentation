@@ -24,7 +24,7 @@ The static part of the diagnostic is published only once as the DiagGraphStruct 
 The links specify dependencies between nodes and nodes/diags by index into an array of them.
 Note that the index for diags is offset by the size of the nodes.
 The dynamic part of the diagnostic is published periodically as DiagGraphStatus.
-The status has an array of nodes of the same length as the struct, with the same index representing the same functional unit.
+The status has nodes and diags of the same length as the struct, with the same index representing the same functional unit.
 
 ![graph-data](./diagnostics/data.drawio.svg)
 
