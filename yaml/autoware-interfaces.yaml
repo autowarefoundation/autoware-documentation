@@ -37,6 +37,7 @@ types:
   autoware_adapi_v1_msgs/msg/DiagLeafStatus:
     msg:
       hardware_id: string
+      input_level: byte
       level: byte
       message: string
       values: autoware_adapi_v1_msgs/msg/KvString[]
@@ -49,11 +50,10 @@ types:
       parent: uint32
   autoware_adapi_v1_msgs/msg/DiagNodeStatus:
     msg:
-      actual_level: byte
+      input_level: byte
       is_dependent: bool
       latch_level: byte
       level: byte
-      stable_level: byte
   autoware_adapi_v1_msgs/msg/DiagNodeStruct:
     msg:
       path: string
