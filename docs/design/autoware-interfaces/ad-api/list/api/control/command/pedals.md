@@ -1,5 +1,5 @@
 ---
-title: /api/vehicle/command/pedals
+title: /api/control/command/pedals
 status: not released
 method: realtime stream
 type:
