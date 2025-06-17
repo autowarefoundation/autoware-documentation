@@ -135,6 +135,11 @@ types:
     msg:
       stamp: builtin_interfaces/msg/Time
       state: uint16
+  autoware_adapi_v1_msgs/msg/MrmDescription:
+    msg:
+      behavior: uint16
+      description: string
+      name: string
   autoware_adapi_v1_msgs/msg/MrmRequest:
     msg:
       sender: string
@@ -309,6 +314,11 @@ types:
   autoware_adapi_v1_msgs/srv/ListManualControlMode:
     res:
       modes: autoware_adapi_v1_msgs/msg/ManualControlMode[]
+      status: autoware_adapi_v1_msgs/msg/ResponseStatus
+  autoware_adapi_v1_msgs/srv/ListMrmDescription:
+    req:
+      descriptions: autoware_adapi_v1_msgs/msg/MrmDescription[]
+    res:
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/ResetDiagGraph:
     res:
