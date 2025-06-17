@@ -53,6 +53,7 @@
 | [/api/routing/set_route](./api/routing/set_route.md)                                             | v1.0.0       | function call   |
 | [/api/routing/set_route_points](./api/routing/set_route_points.md)                               | v1.0.0       | function call   |
 | [/api/routing/state](./api/routing/state.md)                                                     | v1.0.0       | notification    |
+| [/api/system/diagnostics/reset](./api/system/diagnostics/reset.md)                               | not released | function call   |
 | [/api/system/diagnostics/status](./api/system/diagnostics/status.md)                             | v1.3.0       | realtime stream |
 | [/api/system/diagnostics/struct](./api/system/diagnostics/struct.md)                             | v1.3.0       | notification    |
 | [/api/system/heartbeat](./api/system/heartbeat.md)                                               | v1.3.0       | realtime stream |
