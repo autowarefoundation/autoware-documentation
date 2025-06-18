@@ -2,6 +2,10 @@
 
 | API                                                                                              | Release      | Method          |
 | ------------------------------------------------------------------------------------------------ | ------------ | --------------- |
+| [/api/control/command/acceleration](./api/control/command/acceleration.md)                       | not released | realtime stream |
+| [/api/control/command/pedals](./api/control/command/pedals.md)                                   | not released | realtime stream |
+| [/api/control/command/steering](./api/control/command/steering.md)                               | not released | realtime stream |
+| [/api/control/command/velocity](./api/control/command/velocity.md)                               | not released | realtime stream |
 | [/api/fail_safe/mrm_description](./api/fail_safe/mrm_description.md)                             | not released | function call   |
 | [/api/fail_safe/mrm_request/list](./api/fail_safe/mrm_request/list.md)                           | not released | notification    |
 | [/api/fail_safe/mrm_request/send](./api/fail_safe/mrm_request/send.md)                           | not released | function call   |
@@ -58,10 +62,6 @@
 | [/api/system/diagnostics/status](./api/system/diagnostics/status.md)                             | v1.3.0       | realtime stream |
 | [/api/system/diagnostics/struct](./api/system/diagnostics/struct.md)                             | v1.3.0       | notification    |
 | [/api/system/heartbeat](./api/system/heartbeat.md)                                               | v1.3.0       | realtime stream |
-| [/api/vehicle/command/acceleration](./api/vehicle/command/acceleration.md)                       | not released | realtime stream |
-| [/api/vehicle/command/pedals](./api/vehicle/command/pedals.md)                                   | not released | realtime stream |
-| [/api/vehicle/command/steering](./api/vehicle/command/steering.md)                               | not released | realtime stream |
-| [/api/vehicle/command/velocity](./api/vehicle/command/velocity.md)                               | not released | realtime stream |
 | [/api/vehicle/dimensions](./api/vehicle/dimensions.md)                                           | v1.1.0       | function call   |
 | [/api/vehicle/doors/command](./api/vehicle/doors/command.md)                                     | v1.2.0       | function call   |
 | [/api/vehicle/doors/layout](./api/vehicle/doors/layout.md)                                       | v1.2.0       | function call   |

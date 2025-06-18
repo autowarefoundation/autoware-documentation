@@ -1,17 +1,17 @@
 ---
-title: /api/vehicle/command/steering
+title: /api/control/command/velocity
 status: not released
 method: realtime stream
 type:
-  name: autoware_adapi_v1_msgs/msg/SteeringCommand
+  name: autoware_adapi_v1_msgs/msg/VelocityCommand
   msg:
     - name: stamp
       text: Timestamp when this message was sent.
-    - name: steering_tire_angle
-      text: Target steering tire angle [rad].
+    - name: velocity
+      text: Target velocity [m/s].
 ---
 
 {% extends 'design/autoware-interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-This is the target steering that Autoware is sending to the vehicle.
+This is the target velocity that Autoware is sending to the vehicle.
 {% endblock %}
