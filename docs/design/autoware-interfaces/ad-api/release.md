@@ -1,5 +1,16 @@
 # Release notes
 
+## v1.9.0
+
+- [New] Add [control command API](./features/control.md)
+- [New] Add {{ link_ad_api('/api/vehicle/metrics') }}
+- [New] Add {{ link_ad_api('/api/system/diagnostics/reset') }}
+- [New] Add {{ link_ad_api('/api/fail_safe/list_mrm_description') }}
+- [New] Add {{ link_ad_api('/api/fail_safe/mrm_request/list') }}
+- [New] Add {{ link_ad_api('/api/fail_safe/mrm_request/send') }}
+- [Change] Support more detailed status in [diagnostics API](./features/diagnostics.md)
+- [Change] Deprecate the MRM behavior constants in [fail-safe API](./features/fail-safe.md)
+
 ## v1.8.0
 
 - [New] Add [manual control API](./features/manual-control.md)

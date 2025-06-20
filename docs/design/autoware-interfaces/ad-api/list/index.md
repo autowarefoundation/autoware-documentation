@@ -2,13 +2,13 @@
 
 | API                                                                                              | Release      | Method          |
 | ------------------------------------------------------------------------------------------------ | ------------ | --------------- |
-| [/api/control/command/acceleration](./api/control/command/acceleration.md)                       | not released | realtime stream |
-| [/api/control/command/pedals](./api/control/command/pedals.md)                                   | not released | realtime stream |
-| [/api/control/command/steering](./api/control/command/steering.md)                               | not released | realtime stream |
-| [/api/control/command/velocity](./api/control/command/velocity.md)                               | not released | realtime stream |
-| [/api/fail_safe/list_mrm_description](./api/fail_safe/list_mrm_description.md)                   | not released | function call   |
-| [/api/fail_safe/mrm_request/list](./api/fail_safe/mrm_request/list.md)                           | not released | notification    |
-| [/api/fail_safe/mrm_request/send](./api/fail_safe/mrm_request/send.md)                           | not released | function call   |
+| [/api/control/command/acceleration](./api/control/command/acceleration.md)                       | v1.9.0       | realtime stream |
+| [/api/control/command/pedals](./api/control/command/pedals.md)                                   | v1.9.0       | realtime stream |
+| [/api/control/command/steering](./api/control/command/steering.md)                               | v1.9.0       | realtime stream |
+| [/api/control/command/velocity](./api/control/command/velocity.md)                               | v1.9.0       | realtime stream |
+| [/api/fail_safe/list_mrm_description](./api/fail_safe/list_mrm_description.md)                   | v1.9.0       | function call   |
+| [/api/fail_safe/mrm_request/list](./api/fail_safe/mrm_request/list.md)                           | v1.9.0       | notification    |
+| [/api/fail_safe/mrm_request/send](./api/fail_safe/mrm_request/send.md)                           | v1.9.0       | function call   |
 | [/api/fail_safe/mrm_state](./api/fail_safe/mrm_state.md)                                         | v1.1.0       | notification    |
 | [/api/fail_safe/rti_state](./api/fail_safe/rti_state.md)                                         | not released | notification    |
 | [/api/interface/version](./api/interface/version.md)                                             | v1.0.0       | function call   |
@@ -58,7 +58,7 @@
 | [/api/routing/set_route](./api/routing/set_route.md)                                             | v1.0.0       | function call   |
 | [/api/routing/set_route_points](./api/routing/set_route_points.md)                               | v1.0.0       | function call   |
 | [/api/routing/state](./api/routing/state.md)                                                     | v1.0.0       | notification    |
-| [/api/system/diagnostics/reset](./api/system/diagnostics/reset.md)                               | not released | function call   |
+| [/api/system/diagnostics/reset](./api/system/diagnostics/reset.md)                               | v1.9.0       | function call   |
 | [/api/system/diagnostics/status](./api/system/diagnostics/status.md)                             | v1.3.0       | realtime stream |
 | [/api/system/diagnostics/struct](./api/system/diagnostics/struct.md)                             | v1.3.0       | notification    |
 | [/api/system/heartbeat](./api/system/heartbeat.md)                                               | v1.3.0       | realtime stream |
@@ -67,6 +67,6 @@
 | [/api/vehicle/doors/layout](./api/vehicle/doors/layout.md)                                       | v1.2.0       | function call   |
 | [/api/vehicle/doors/status](./api/vehicle/doors/status.md)                                       | v1.2.0       | notification    |
 | [/api/vehicle/kinematics](./api/vehicle/kinematics.md)                                           | v1.1.0       | realtime stream |
-| [/api/vehicle/metrics](./api/vehicle/metrics.md)                                                 | not released | reliable stream |
+| [/api/vehicle/metrics](./api/vehicle/metrics.md)                                                 | v1.9.0       | reliable stream |
 | [/api/vehicle/specs](./api/vehicle/specs.md)                                                     | not released | function call   |
 | [/api/vehicle/status](./api/vehicle/status.md)                                                   | v1.4.0       | realtime stream |

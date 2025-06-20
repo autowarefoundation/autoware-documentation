@@ -1,6 +1,6 @@
 ---
 title: /api/vehicle/metrics
-status: not released
+status: v1.9.0
 method: reliable stream
 type:
   name: autoware_adapi_v1_msgs/msg/VehicleMetrics

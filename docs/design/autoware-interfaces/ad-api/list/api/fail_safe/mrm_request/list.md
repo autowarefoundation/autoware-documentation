@@ -1,6 +1,6 @@
 ---
 title: /api/fail_safe/mrm_request/list
-status: not released
+status: v1.9.0
 method: notification
 type:
   name: autoware_adapi_v1_msgs/msg/MrmRequestList
