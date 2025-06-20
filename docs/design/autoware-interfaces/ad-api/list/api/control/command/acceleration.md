@@ -1,5 +1,5 @@
 ---
-title: /api/vehicle/command/acceleration
+title: /api/control/command/acceleration
 status: not released
 method: realtime stream
 type:

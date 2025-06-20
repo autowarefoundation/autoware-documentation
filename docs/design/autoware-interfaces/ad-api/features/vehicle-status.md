@@ -7,10 +7,6 @@
 - {{ link_ad_api('/api/vehicle/metrics') }}
 - {{ link_ad_api('/api/vehicle/dimensions') }}
 - {{ link_ad_api('/api/vehicle/specs') }}
-- {{ link_ad_api('/api/vehicle/command/acceleration') }}
-- {{ link_ad_api('/api/vehicle/command/pedals') }}
-- {{ link_ad_api('/api/vehicle/command/steering') }}
-- {{ link_ad_api('/api/vehicle/command/velocity') }}
 
 ## Kinematics
 
@@ -30,8 +26,3 @@ The remaining energy can be used for vehicle dispatch scheduling.
 ## Dimensions
 
 The vehicle dimensions are used to know the actual distance between the vehicle and objects because the vehicle position in kinematics is the coordinates of the base link. This is necessary for visualization when supporting vehicles remotely.
-
-## Commands
-
-The vehicle commands are target values that Autoware is sending to the vehicle. Note that unlike vehicle status, this does not represent the actual vehicle status.
-Some commands may not be supported depending on the vehicle control method.
