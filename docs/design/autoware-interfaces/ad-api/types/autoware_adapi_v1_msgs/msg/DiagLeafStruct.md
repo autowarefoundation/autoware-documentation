@@ -9,6 +9,7 @@ used:
 {% block definition %}
 
 ```txt
+uint32 parent
 string name
 ```
 

@@ -6,7 +6,7 @@
 | [/api/control/command/pedals](./api/control/command/pedals.md)                                   | not released | realtime stream |
 | [/api/control/command/steering](./api/control/command/steering.md)                               | not released | realtime stream |
 | [/api/control/command/velocity](./api/control/command/velocity.md)                               | not released | realtime stream |
-| [/api/fail_safe/mrm_description](./api/fail_safe/mrm_description.md)                             | not released | function call   |
+| [/api/fail_safe/list_mrm_description](./api/fail_safe/list_mrm_description.md)                   | not released | function call   |
 | [/api/fail_safe/mrm_request/list](./api/fail_safe/mrm_request/list.md)                           | not released | notification    |
 | [/api/fail_safe/mrm_request/send](./api/fail_safe/mrm_request/send.md)                           | not released | function call   |
 | [/api/fail_safe/mrm_state](./api/fail_safe/mrm_state.md)                                         | v1.1.0       | notification    |

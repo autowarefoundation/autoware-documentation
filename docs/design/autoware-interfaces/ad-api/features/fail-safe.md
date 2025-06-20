@@ -3,7 +3,7 @@
 ## Related API
 
 - {{ link_ad_api('/api/fail_safe/rti_state') }}
-- {{ link_ad_api('/api/fail_safe/mrm_description') }}
+- {{ link_ad_api('/api/fail_safe/list_mrm_description') }}
 - {{ link_ad_api('/api/fail_safe/mrm_state') }}
 - {{ link_ad_api('/api/fail_safe/mrm_request/send') }}
 - {{ link_ad_api('/api/fail_safe/mrm_request/list') }}
@@ -27,6 +27,7 @@ The RTI state indicates whether RTI is requested. If for some reason autonomous 
 
 Autoware supports various MRM implementation to provide appropriate behavior for each use case.
 Therefore, use this API when detailed information about MRM behavior is required. The MRM behavior ID listed by this API is used in MRM state API.
+For backward compatibility, the values listed in the MRM behavior table are reserved.
 
 ## MRM state
 
@@ -48,12 +49,12 @@ This is service dependent. Autoware supports the following transitions by defaul
 
 ![mrm-behavior](./fail-safe/mrm-behavior.drawio.svg)
 
-| State            | Description                                                               |
-| ---------------- | ------------------------------------------------------------------------- |
-| NONE             | MRM is not operating or is operating but no special behavior is required. |
-| COMFORTABLE_STOP | The vehicle will stop quickly with a comfortable deceleration.            |
-| EMERGENCY_STOP   | The vehicle will stop immediately with as much deceleration as possible.  |
-| PULL_OVER        | The vehicle will stop after moving to the side of the road.               |
+| State            | Value | Description                                                               |
+| ---------------- | ----- | ------------------------------------------------------------------------- |
+| NONE             | 1     | MRM is not operating or is operating but no special behavior is required. |
+| COMFORTABLE_STOP | 2     | The vehicle will stop quickly with a comfortable deceleration.            |
+| EMERGENCY_STOP   | 3     | The vehicle will stop immediately with as much deceleration as possible.  |
+| PULL_OVER        | 4     | The vehicle will stop after moving to the side of the road.               |
 
 ## MRM request
 

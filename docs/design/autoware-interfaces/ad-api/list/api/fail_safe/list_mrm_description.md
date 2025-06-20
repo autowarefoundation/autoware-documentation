@@ -1,17 +1,16 @@
 ---
-title: /api/fail_safe/mrm_description
+title: /api/fail_safe/list_mrm_description
 status: not released
 method: function call
 type:
   name: autoware_adapi_v1_msgs/srv/ListMrmDescription
-  req:
+  res:
     - name: descriptions.behavior
       text: The behavior ID of the MRM.
     - name: descriptions.name
       text: The name of the MRM.
     - name: descriptions.description
       text: The description of the MRM.
-  res:
     - name: status
       text: response status
 ---
