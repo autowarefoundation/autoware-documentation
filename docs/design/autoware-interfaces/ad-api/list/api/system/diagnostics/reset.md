@@ -1,6 +1,6 @@
 ---
 title: /api/system/diagnostics/reset
-status: not released
+status: v1.9.0
 method: function call
 type:
   name: autoware_adapi_v1_msgs/srv/ResetDiagGraph
