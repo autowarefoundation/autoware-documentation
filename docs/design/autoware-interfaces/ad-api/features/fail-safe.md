@@ -3,7 +3,7 @@
 ## Related API
 
 - {{ link_ad_api('/api/fail_safe/rti_state') }}
-- {{ link_ad_api('/api/fail_safe/mrm_description') }}
+- {{ link_ad_api('/api/fail_safe/list_mrm_description') }}
 - {{ link_ad_api('/api/fail_safe/mrm_state') }}
 - {{ link_ad_api('/api/fail_safe/mrm_request/send') }}
 - {{ link_ad_api('/api/fail_safe/mrm_request/list') }}

@@ -44,6 +44,7 @@ types:
   autoware_adapi_v1_msgs/msg/DiagLeafStruct:
     msg:
       name: string
+      parent: uint32
   autoware_adapi_v1_msgs/msg/DiagLinkStruct:
     msg:
       child: uint32
@@ -316,9 +317,8 @@ types:
       modes: autoware_adapi_v1_msgs/msg/ManualControlMode[]
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/ListMrmDescription:
-    req:
-      descriptions: autoware_adapi_v1_msgs/msg/MrmDescription[]
     res:
+      descriptions: autoware_adapi_v1_msgs/msg/MrmDescription[]
       status: autoware_adapi_v1_msgs/msg/ResponseStatus
   autoware_adapi_v1_msgs/srv/ResetDiagGraph:
     res:
