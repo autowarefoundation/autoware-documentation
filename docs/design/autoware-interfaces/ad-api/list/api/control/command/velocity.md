@@ -1,6 +1,6 @@
 ---
-title: /api/vehicle/command/velocity
-status: not released
+title: /api/control/command/velocity
+status: v1.9.0
 method: realtime stream
 type:
   name: autoware_adapi_v1_msgs/msg/VelocityCommand

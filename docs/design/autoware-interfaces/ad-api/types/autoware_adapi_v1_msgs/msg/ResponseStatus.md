@@ -11,6 +11,8 @@ used:
   - autoware_adapi_v1_msgs/srv/GetVehicleSpecs
   - autoware_adapi_v1_msgs/srv/InitializeLocalization
   - autoware_adapi_v1_msgs/srv/ListManualControlMode
+  - autoware_adapi_v1_msgs/srv/ListMrmDescription
+  - autoware_adapi_v1_msgs/srv/ResetDiagGraph
   - autoware_adapi_v1_msgs/srv/SelectManualControlMode
   - autoware_adapi_v1_msgs/srv/SendMrmRequest
   - autoware_adapi_v1_msgs/srv/SetCooperationCommands

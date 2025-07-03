@@ -1,6 +1,6 @@
 ---
-title: /api/vehicle/command/pedals
-status: not released
+title: /api/control/command/pedals
+status: v1.9.0
 method: realtime stream
 type:
   name: autoware_adapi_v1_msgs/msg/PedalsCommand
