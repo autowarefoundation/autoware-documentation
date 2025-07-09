@@ -1,4 +1,4 @@
-# How is Autoware Core/Universe different from Autoware.AI and Autoware.Auto?
+# Past Distributions of Autoware
 
 Autoware is the world's first "all-in-one" open-source software for self-driving vehicles.
 Since it was first released in 2015, there have been multiple releases made with differing underlying concepts, each one aimed at improving the software.
