@@ -2,7 +2,7 @@
 
 ## Advantech AD Computers
 
-![Advantech AD Computers](https://github.com/user-attachments/assets/0798fc0d-e799-4c54-8f81-dfe98466e726)
+<img src="https://github.com/user-attachments/assets/0798fc0d-e799-4c54-8f81-dfe98466e726" alt="Advantech AD Computers" width="50%">
 
 Advantech's autonomous driving and robotic computers are of compact size, with GMSL camera and other sensor data available at ROS level.
 
