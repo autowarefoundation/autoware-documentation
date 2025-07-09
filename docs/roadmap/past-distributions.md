@@ -31,4 +31,3 @@ Autoware.Auto development seemed to work fine initially, but after completing th
   - As a consequence, most Autoware.Auto developers were from companies in the Autoware Foundation and so there were very few people who were able to add state-of-the-art features from research papers.
 - Making large-scale architecture changes was too difficult.
   - To try out experimental architecture, there was a very large overhead involved in keeping the main branch stable whilst also making sure that every change satisfied the continuous integration requirements.
-
