@@ -32,12 +32,10 @@ The data contains data from the following sensors:
 
 - You can find the produced full point cloud map, corner feature point cloud map and
   surface feature point cloud map here:
-
   - [https://drive.google.com/drive/folders/1_jiQod4lO6-V2NDEr3d-M3XF_Nqmc0Xf?usp=drive_link](https://drive.google.com/drive/folders/1_jiQod4lO6-V2NDEr3d-M3XF_Nqmc0Xf?usp=drive_link)
   - Exported point clouds are exported via downsampling with 0.2 meters and 0.5 meters voxel grids.
 
 - You can find the ROS 2 bag which is collected simultaneously with the mapping data:
-
   - [https://drive.google.com/drive/folders/17zXiBeYlM90gQ5hV6EAWaoBTnNFoVPML?usp=drive_link](https://drive.google.com/drive/folders/17zXiBeYlM90gQ5hV6EAWaoBTnNFoVPML?usp=drive_link)
   - Due to the simultaneous data collection, we can assume that the point cloud maps and GNSS/INS
     data are the ground truth data for this rosbag.
@@ -79,29 +77,24 @@ Used drivers for sensors give output in default ROS 2 message types and their ow
 types for additional information. Following topics are the default ROS 2 message types:
 
 - `/applanix/lvx_client/imu_raw`
-
   - Gives the output of INS system in ENU. Due to the 9-axis IMU, `yaw` value demonstrates the
     heading value of the sensor.
 
 - `/applanix/lvx_client/twist_with_covariance`
-
   - Gives the twist output of the sensor.
 
 - `/applanix/lvx_client/odom`
-
   - Gives the position and orientation of the sensor from the starting point of the ROS 2 driver.
     Implemented with `GeographicLib::LocalCartesian`.
 
     **This topic is not related to the wheel odometry.**
 
 - `/applanix/lvx_client/gnss/fix`
-
   - Gives the latitude, longitude and height values of the sensors.
 
     **Ellipsoidal height of WGS84 ellipsoid is given as height value.**
 
 - `/pandar_points`
-
   - Gives the point cloud from the LiDAR sensor.
 
 ## Bus-ODD (Operational Design Domain) datasets

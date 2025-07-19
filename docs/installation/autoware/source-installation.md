@@ -3,11 +3,9 @@
 ## Prerequisites
 
 - OS
-
   - [Ubuntu 22.04](https://releases.ubuntu.com/22.04/)
 
 - ROS
-
   - ROS 2 Humble
 
   For ROS 2 system dependencies, refer to [REP-2000](https://www.ros.org/reps/rep-2000.html).
@@ -154,7 +152,6 @@ sudo apt-get -y install git
    ```
 
    For Git users:
-
    - `vcs import` is similar to `git checkout`.
      - Note that it doesn't pull from the remote.
    - `vcs pull` is similar to `git pull`.

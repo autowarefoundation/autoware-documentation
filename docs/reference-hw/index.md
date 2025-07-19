@@ -9,14 +9,12 @@ The listed sensors and systems are not sold, developed or given direct technical
 The documents consists of the sections listed below:
 
 - AD COMPUTERs
-
   - ADLINK In-Vehicle Computers
   - NXP In-Vehicle Computers
   - Neousys In-Vehicle Computers
   - Crystal Rugged In-Vehicle Computers
 
 - LiDARs
-
   - Velodyne 3D LiDAR Sensors
   - Robosense 3D LiDAR Sensors
   - HESAI 3D LiDAR Sensors
@@ -25,13 +23,11 @@ The documents consists of the sections listed below:
   - Ouster 3D LiDAR Sensors
 
 - RADARs
-
   - Smartmicro Automotive Radars
   - Aptiv Automotive Radars
   - Continental Engineering Radars
 
 - CAMERAs
-
   - FLIR Machine Vision Cameras
   - Lucid Vision Cameras
   - Allied Vision Cameras
@@ -39,11 +35,9 @@ The documents consists of the sections listed below:
   - Neousys Technology Cameras
 
 - Thermal CAMERAs
-
   - FLIR Thermal Automotive Dev. Kit
 
 - IMU, AHRS & GNSS/INS
-
   - NovAtel GNSS/INS Sensors
   - XSens GNSS/INS & IMU Sensors
   - SBG GNSS/INS & IMU Sensors
@@ -53,26 +47,22 @@ The documents consists of the sections listed below:
 
 - Vehicle Drive By Wire Suppliers
   <!-- cspell: ignore Paravan -->
-
   - Dataspeed DBW Solutions
   - AStuff Pacmod DBW Solutions
   - Schaeffler-Paravan Space Drive DBW Solutions
 
 - Vehicle Platform Suppliers
-
   - PIX MOVING Autonomous Vehicle Solutions
   - Autonomoustuff AV Solutions
   - NAVYA AV Solutions
 
 - Remote Drive
-
   - FORT ROBOTICS
   - LOGITECH
 
 - Full Drivers List
 
 - AD Sensor Kit Suppliers
-
   - LEO Drive AD Sensor Kit
   - TIER IV AD Kit
   - RoboSense AD Sensor Kit

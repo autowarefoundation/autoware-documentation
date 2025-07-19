@@ -48,21 +48,17 @@ Here is a snippet of [_ros2_subscription_examples/intra_process_talker_listener/
 Below is a line-by-line explanation of the above code.
 
 - `if (this->get_node_options().use_intra_process_comms()){`
-
   - The statement checks whether or not intra-process communication is enabled or not by using `NodeOptions`
 
 - `auto intra_process_sub = sub_->get_intra_process_waitable();`
-
   - The statement means to get an embodied object which performs intra-process communication
 
 - `if (intra_process_sub->is_ready(nullptr) == true) {`
-
   - The statement checks if a message has already been received through intra-process communication
   - The argument of `is_ready()` is of type `rcl_wait_set_t` type, but because the argument is not used within `is_ready()`, `nullptr` is used for the moment.
     - Using `nullptr` is currently a workaround, as it has no intent.
 
 - `std::shared_ptr<void> data = intra_process_sub->take_data();`
-
   - This statement means to obtain a topic message from subscriptions for intra-process communication.
   - `intra_process_sub->take_data()` does not return a boolean value indicating whether a message is received successfully or not, so it is necessary to check this by calling `is_ready()` beforehand
 

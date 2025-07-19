@@ -23,7 +23,6 @@
 ### Dependencies
 
 - [ROS](http://wiki.ros.org/ROS/Installation) (tested with Kinetic and Melodic)
-
   - `for ROS melodic:`
 
     ```bash
