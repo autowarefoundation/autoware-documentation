@@ -5,11 +5,9 @@
 During the Autoware development, you will probably need to define your own messages. Read the following instructions before adding a custom message.
 
 1. Message in [autoware_msgs](https://github.com/autowarefoundation/autoware_msgs) define interfaces of `Autoware Core`.
-
    - If a contributor wishes to make changes or add new messages to `autoware_msgs`, they should first create a new discussion post under the [Design category](https://github.com/orgs/autowarefoundation/discussions/categories/design).
 
 2. Any other minor or proposal messages used for internal communication within a component(such as planning) should be defined in another repository.
-
    - [tier4_autoware_msgs](https://github.com/tier4/tier4_autoware_msgs) is an example of that.
 
 The following is a simple tutorial of adding a message package to `autoware_msgs`. For the general ROS 2 tutorial, see [Create custom msg and srv files](http://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.html).

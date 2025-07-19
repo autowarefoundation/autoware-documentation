@@ -35,7 +35,6 @@ Each component contains static nodes of Autoware, while each module can be dynam
 The Vehicle Interface component can provide the following features in functionality and capability:
 
 - Basic functions
-
   - Converting Autoware control commands to vehicle specific command
   - Converting vehicle specific status information (velocity, steering) to Autoware status message
 

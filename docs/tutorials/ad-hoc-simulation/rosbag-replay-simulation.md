@@ -3,7 +3,6 @@
 ## Steps
 
 1. Download and unpack a sample map.
-
    - You can also download [the map](https://drive.google.com/file/d/1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI/view?usp=sharing) manually.
 
    ```bash
@@ -12,7 +11,6 @@
    ```
 
 2. Download the sample rosbag files.
-
    - You can also download [the rosbag files](https://drive.google.com/file/d/1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP/view?usp=sharing) manually.
 
    ```bash
