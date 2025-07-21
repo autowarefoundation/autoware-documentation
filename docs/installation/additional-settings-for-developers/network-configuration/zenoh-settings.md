@@ -5,8 +5,7 @@
 1. Install rmw_zenoh
 
    ```bash
-   sudo apt update && sudo apt install ros-<DISTRO>-rmw-zenoh-cpp
-   # Replace <DISTRO> with your ROS 2 distribution codename, e.g., humble, iron, rolling
+   sudo apt update && sudo apt install ros-humble-rmw-zenoh-cpp
    ```
 
 2. Set rmw_zenoh as the default RMW implementation
@@ -39,15 +38,17 @@ This package already runs `behavior_path_planner` in a single-threaded node cont
 1. Clone `evshary/tier4_planning_launch` and move to the directory:
 
    ```bash
+   mkdir -p ~/tier4_planning_launch_ws/src
+   cd ~/tier4_planning_launch_ws/src
    git clone https://github.com/evshary/tier4_planning_launch.git
-   cd tier4_planning_launch
    ```
 
 
 2. Build the workspace:
 
    ``` bash
-   source ~/<YOUR-AUTOWARE-DIR>/install/setup.bash
+   source <YOUR-AUTOWARE-DIR>/install/setup.bash
+   cd ~/tier4_planning_launch_ws
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
 
@@ -64,7 +65,7 @@ This package already runs `behavior_path_planner` in a single-threaded node cont
 
    ```bash
    # terminal 2
-   source ~/<YOUR-TIER4_PLANNING_LAUNCH-DIR>/install/setup.bash
+   source ~/tier4_planning_launch_ws/install/setup.bash
    ros2 launch autoware_launch autoware.launch.xml ...
    ```
 
@@ -75,7 +76,7 @@ If you are using a version of Autoware that is not compatible with our `tier4_pl
 1. Open the launch file:
 
    ```bash
-   vim ~/<YOUR-AUTOWARE-DIR>/src/universe/autoware_universe/launch/tier4_planning_launch/launch/scenario_planning/lane_driving/behavior_planning/behavior_planning.launch.xml
+   vim <YOUR-AUTOWARE-DIR>/src/universe/autoware_universe/launch/tier4_planning_launch/launch/scenario_planning/lane_driving/behavior_planning/behavior_planning.launch.xml
    ```
 
 
@@ -127,7 +128,7 @@ If you are using a version of Autoware that is not compatible with our `tier4_pl
    Launch modified Autoware
    ```bash
    # terminal 2
-   source ~/<YOUR-AUTOWARE-DIR>/install/setup.bash
+   source <YOUR-AUTOWARE-DIR>/install/setup.bash
    ros2 launch autoware_launch autoware.launch.xml ...
    ```
 
