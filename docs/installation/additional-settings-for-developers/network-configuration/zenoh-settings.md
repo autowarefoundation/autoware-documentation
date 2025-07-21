@@ -43,10 +43,9 @@ This package already runs `behavior_path_planner` in a single-threaded node cont
    git clone https://github.com/evshary/tier4_planning_launch.git
    ```
 
-
 2. Build the workspace:
 
-   ``` bash
+   ```bash
    source <YOUR-AUTOWARE-DIR>/install/setup.bash
    cd ~/tier4_planning_launch_ws
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
@@ -79,7 +78,6 @@ If you are using a version of Autoware that is not compatible with our `tier4_pl
    vim <YOUR-AUTOWARE-DIR>/src/universe/autoware_universe/launch/tier4_planning_launch/launch/scenario_planning/lane_driving/behavior_planning/behavior_planning.launch.xml
    ```
 
-
 2. Find the block for `autoware_behavior_path_planner`:
 
    ```xml
@@ -93,8 +91,8 @@ If you are using a version of Autoware that is not compatible with our `tier4_pl
    </load_composable_node>
    ```
 
-3. Modify opening and closing tags and add the `thread_num` param to ensure  single-threaded execution:
-  
+3. Modify opening and closing tags and add the `thread_num` param to ensure single-threaded execution:
+
    ```xml
    <!-- <load_composable_node target="/planning/scenario_planning/lane_driving/behavior_planning/behavior_planning_container"> -->
    <node_container pkg="rclcpp_components" exec="$(var container_type)" name="behavior_planning_container2" namespace="" args="" output="both">
@@ -116,16 +114,17 @@ If you are using a version of Autoware that is not compatible with our `tier4_pl
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
 
-
 5. Launch modified Autoware with rmw_zenoh
- 
+
    Start the Zenoh router
+
    ```bash
    # terminal 1
    ros2 run rmw_zenoh_cpp rmw_zenohd
    ```
 
    Launch modified Autoware
+
    ```bash
    # terminal 2
    source <YOUR-AUTOWARE-DIR>/install/setup.bash
@@ -137,7 +136,7 @@ If you are using a version of Autoware that is not compatible with our `tier4_pl
 Zenoh is implemented in Rust and uses a logging library configurable via the `RUST_LOG` environment variable.
 You can specify different levels (such as `info`, `debug`, or `trace`) for more or less verbosity.
 
-### Example:
+### Example
 
 Start the Zenoh router with debug logs enabled:
 
