@@ -7756,25 +7756,19 @@ You can run the program as below. If you set <code>true</code> to <code>use_intr
 </code></pre></div>
 <p>Below is a line-by-line explanation of the above code.</p>
 <ul>
-<li>
-<p><code>if (this-&gt;get_node_options().use_intra_process_comms()){</code></p>
-<ul>
+<li><code>if (this-&gt;get_node_options().use_intra_process_comms()){</code><ul>
 <li>The statement checks whether or not intra-process communication is enabled or not by using <code>NodeOptions</code></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li>
-<p><code>auto intra_process_sub = sub_-&gt;get_intra_process_waitable();</code></p>
-<ul>
+<li><code>auto intra_process_sub = sub_-&gt;get_intra_process_waitable();</code><ul>
 <li>The statement means to get an embodied object which performs intra-process communication</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li>
-<p><code>if (intra_process_sub-&gt;is_ready(nullptr) == true) {</code></p>
-<ul>
+<li><code>if (intra_process_sub-&gt;is_ready(nullptr) == true) {</code><ul>
 <li>The statement checks if a message has already been received through intra-process communication</li>
 <li>The argument of <code>is_ready()</code> is of type <code>rcl_wait_set_t</code> type, but because the argument is not used within <code>is_ready()</code>, <code>nullptr</code> is used for the moment.<ul>
 <li>Using <code>nullptr</code> is currently a workaround, as it has no intent.</li>
@@ -7784,9 +7778,7 @@ You can run the program as below. If you set <code>true</code> to <code>use_intr
 </li>
 </ul>
 <ul>
-<li>
-<p><code>std::shared_ptr&lt;void&gt; data = intra_process_sub-&gt;take_data();</code></p>
-<ul>
+<li><code>std::shared_ptr&lt;void&gt; data = intra_process_sub-&gt;take_data();</code><ul>
 <li>This statement means to obtain a topic message from subscriptions for intra-process communication.</li>
 <li><code>intra_process_sub-&gt;take_data()</code> does not return a boolean value indicating whether a message is received successfully or not, so it is necessary to check this by calling <code>is_ready()</code> beforehand</li>
 </ul>
