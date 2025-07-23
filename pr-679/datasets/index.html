@@ -7732,19 +7732,15 @@ The included specific areas into the dataset are:</p>
 <p><strong>For sensor calibrations, <code>/tf_static</code> topic is added.</strong></p>
 <h3 id="data-links">Data Links<a class="headerlink" href="#data-links" title="Permanent link">#</a></h3>
 <ul>
-<li>
-<p>You can find the produced full point cloud map, corner feature point cloud map and
-  surface feature point cloud map here:</p>
-<ul>
+<li>You can find the produced full point cloud map, corner feature point cloud map and
+  surface feature point cloud map here:<ul>
 <li><a href="https://drive.google.com/drive/folders/1_jiQod4lO6-V2NDEr3d-M3XF_Nqmc0Xf?usp=drive_link">https://drive.google.com/drive/folders/1_jiQod4lO6-V2NDEr3d-M3XF_Nqmc0Xf?usp=drive_link</a></li>
 <li>Exported point clouds are exported via downsampling with 0.2 meters and 0.5 meters voxel grids.</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li>
-<p>You can find the <abbr title="Robot Operating System">ROS</abbr> 2 bag which is collected simultaneously with the mapping data:</p>
-<ul>
+<li>You can find the <abbr title="Robot Operating System">ROS</abbr> 2 bag which is collected simultaneously with the mapping data:<ul>
 <li><a href="https://drive.google.com/drive/folders/17zXiBeYlM90gQ5hV6EAWaoBTnNFoVPML?usp=drive_link">https://drive.google.com/drive/folders/17zXiBeYlM90gQ5hV6EAWaoBTnNFoVPML?usp=drive_link</a></li>
 <li>Due to the simultaneous data collection, we can assume that the point cloud maps and <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS
   data are the ground truth data for this rosbag.</li>
@@ -7817,26 +7813,20 @@ repository is used.</p>
 <p>Used drivers for sensors give output in default <abbr title="Robot Operating System">ROS</abbr> 2 message types and their own <abbr title="Robot Operating System">ROS</abbr> 2 message
 types for additional information. Following topics are the default <abbr title="Robot Operating System">ROS</abbr> 2 message types:</p>
 <ul>
-<li>
-<p><code>/applanix/lvx_client/imu_raw</code></p>
-<ul>
+<li><code>/applanix/lvx_client/imu_raw</code><ul>
 <li>Gives the output of INS system in ENU. Due to the 9-axis <abbr title="Inertial Measurement Unit">IMU</abbr>, <code>yaw</code> value demonstrates the
   heading value of the sensor.</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li>
-<p><code>/applanix/lvx_client/twist_with_covariance</code></p>
-<ul>
+<li><code>/applanix/lvx_client/twist_with_covariance</code><ul>
 <li>Gives the twist output of the sensor.</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li>
-<p><code>/applanix/lvx_client/odom</code></p>
-<ul>
+<li><code>/applanix/lvx_client/odom</code><ul>
 <li>
 <p>Gives the position and orientation of the sensor from the starting point of the <abbr title="Robot Operating System">ROS</abbr> 2 driver.
   Implemented with <code>GeographicLib::LocalCartesian</code>.</p>
@@ -7846,9 +7836,7 @@ types for additional information. Following topics are the default <abbr title="
 </li>
 </ul>
 <ul>
-<li>
-<p><code>/applanix/lvx_client/gnss/fix</code></p>
-<ul>
+<li><code>/applanix/lvx_client/gnss/fix</code><ul>
 <li>
 <p>Gives the latitude, longitude and height values of the sensors.</p>
 <p><strong>Ellipsoidal height of WGS84 ellipsoid is given as height value.</strong></p>
@@ -7857,9 +7845,7 @@ types for additional information. Following topics are the default <abbr title="
 </li>
 </ul>
 <ul>
-<li>
-<p><code>/pandar_points</code></p>
-<ul>
+<li><code>/pandar_points</code><ul>
 <li>Gives the point cloud from the LiDAR sensor.</li>
 </ul>
 </li>
