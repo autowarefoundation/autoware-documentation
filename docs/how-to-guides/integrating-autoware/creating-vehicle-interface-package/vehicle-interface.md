@@ -6,7 +6,6 @@ The purpose of the vehicle interface package is to convert the control messages 
 So, we can say that the purposes of the vehicle_interface are:
 
 1. Converting Autoware control commands to a vehicle-specific format. Example control commands of autoware:
-
    - lateral controls: steering tire angle, steering tire rotation rate
    - longitudinal controls: speed, acceleration, jerk
 

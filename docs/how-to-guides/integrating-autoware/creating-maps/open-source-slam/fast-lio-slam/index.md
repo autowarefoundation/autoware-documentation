@@ -80,7 +80,6 @@ sudo make install
 ## Other Examples
 
 - [Tutorial video 1](https://youtu.be/nu8j4yaBMnw) (using KAIST 03 sequence of [MulRan dataset](https://sites.google.com/view/mulran-pr/dataset))
-
   - Example result captures
     <p><img src="images/kaist03.png" width=712pix></p>
   - [download the KAIST 03 pcd map](https://www.dropbox.com/s/w599ozdg7h6215q/KAIST03.pcd?dl=0) made by FAST-LIO-SLAM, 500MB
