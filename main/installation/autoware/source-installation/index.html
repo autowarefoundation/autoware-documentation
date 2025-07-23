@@ -7805,9 +7805,7 @@
 <div><h1 id="source-installation">Source installation<a class="headerlink" href="#source-installation" title="Permanent link">#</a></h1>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h2>
 <ul>
-<li>
-<p>OS</p>
-<ul>
+<li>OS<ul>
 <li><a href="https://releases.ubuntu.com/22.04/">Ubuntu 22.04</a></li>
 </ul>
 </li>
@@ -7949,17 +7947,11 @@ git<span class="w"> </span>pull<span class="w"> </span>&lt;remote&gt;<span class
 </blockquote>
 <div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>pull<span class="w"> </span>src
 </code></pre></div>
-<p>For Git users:</p>
-<ul>
-<li><code>vcs import</code> is similar to <code>git checkout</code>.<ul>
-<li>Note that it doesn't pull from the remote.</li>
-</ul>
-</li>
-<li><code>vcs pull</code> is similar to <code>git pull</code>.<ul>
-<li>Note that it doesn't switch branches.</li>
-</ul>
-</li>
-</ul>
+<p>For Git users:
+ - <code>vcs import</code> is similar to <code>git checkout</code>.
+   - Note that it doesn't pull from the remote.
+ - <code>vcs pull</code> is similar to <code>git pull</code>.
+   - Note that it doesn't switch branches.</p>
 <p>For more information, refer to the <a href="https://github.com/dirk-thomas/vcstool">official documentation</a>.</p>
 <p>It might be the case that dependencies imported via <code>vcs import</code> have been moved/removed.
  VCStool does not currently handle those cases, so if builds fail after <code>vcs import</code>, cleaning
