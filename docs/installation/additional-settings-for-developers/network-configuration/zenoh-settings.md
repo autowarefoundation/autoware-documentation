@@ -36,8 +36,7 @@ You can use our patched `tier4_planning_launch` package directly.
 This package already runs `behavior_path_planner` in a single-threaded node container, so no manual modification is needed.
 
 1. Clone `evshary/tier4_planning_launch` and move to the directory:
-
-   * Note that the version should match the one in autoware_universe.
+   - Note that the version should match the one in autoware_universe.
 
    ```bash
    mkdir -p ~/tier4_planning_launch_ws/src
