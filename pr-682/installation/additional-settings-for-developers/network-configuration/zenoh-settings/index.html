@@ -7846,9 +7846,13 @@ This package already runs <code>behavior_path_planner</code> in a single-threade
 <ol>
 <li>
 <p>Clone <code>evshary/tier4_planning_launch</code> and move to the directory:</p>
+<ul>
+<li>Note that the version should match the one in autoware_universe.</li>
+</ul>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/tier4_planning_launch_ws/src
 <span class="nb">cd</span><span class="w"> </span>~/tier4_planning_launch_ws/src
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/evshary/tier4_planning_launch.git
+<span class="c1"># Switch to the version you are using in autoware_universe, for example, 0.45.0.</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/evshary/tier4_planning_launch.git<span class="w"> </span>-b<span class="w"> </span><span class="m">0</span>.45.0
 </code></pre></div>
 </li>
 <li>
