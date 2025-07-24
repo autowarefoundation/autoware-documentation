@@ -30,17 +30,20 @@ When running Autoware with Zenoh, a modification to `behavior_planning.launch.xm
 
 There are two options to avoid this issue:
 
-### Option 1: Use the Latest Autoware Main Branch
+### Option 1: Use the Patched Package
 
-If you are using the latest Autoware main branch, you can use our patched `tier4_planning_launch` package directly.
+You can use our patched `tier4_planning_launch` package directly.
 This package already runs `behavior_path_planner` in a single-threaded node container, so no manual modification is needed.
 
 1. Clone `evshary/tier4_planning_launch` and move to the directory:
 
+   * Note that the version should match the one in autoware_universe.
+
    ```bash
    mkdir -p ~/tier4_planning_launch_ws/src
    cd ~/tier4_planning_launch_ws/src
-   git clone https://github.com/evshary/tier4_planning_launch.git
+   # Switch to the version you are using in autoware_universe, for example, 0.45.0.
+   git clone https://github.com/evshary/tier4_planning_launch.git -b 0.45.0
    ```
 
 2. Build the workspace:
