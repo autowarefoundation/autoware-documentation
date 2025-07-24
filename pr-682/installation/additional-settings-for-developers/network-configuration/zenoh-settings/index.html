@@ -798,8 +798,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#option-1-use-the-latest-autoware-main-branch" class="md-nav__link">
-    Option 1: Use the Latest Autoware Main Branch
+  <a href="#option-1-use-the-patched-package" class="md-nav__link">
+    Option 1: Use the Patched Package
   </a>
   
 </li>
@@ -7760,8 +7760,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#option-1-use-the-latest-autoware-main-branch" class="md-nav__link">
-    Option 1: Use the Latest Autoware Main Branch
+  <a href="#option-1-use-the-patched-package" class="md-nav__link">
+    Option 1: Use the Patched Package
   </a>
   
 </li>
@@ -7840,8 +7840,8 @@
 <h2 id="avoid-the-guardcondition-use-after-free-issue-with-zenoh">Avoid the GuardCondition Use-After-Free Issue with Zenoh<a class="headerlink" href="#avoid-the-guardcondition-use-after-free-issue-with-zenoh" title="Permanent link">#</a></h2>
 <p>When running Autoware with Zenoh, a modification to <code>behavior_planning.launch.xml</code> is required to avoid a GuardCondition use-after-free issue in <abbr title="Robot Operating System">ROS</abbr> 2 Humble’s multi-threaded executor. This issue is fixed in <abbr title="Robot Operating System">ROS</abbr> 2 Rolling (2025.04+) but not backported.</p>
 <p>There are two options to avoid this issue:</p>
-<h3 id="option-1-use-the-latest-autoware-main-branch">Option 1: Use the Latest Autoware Main Branch<a class="headerlink" href="#option-1-use-the-latest-autoware-main-branch" title="Permanent link">#</a></h3>
-<p>If you are using the latest Autoware main branch, you can use our patched <code>tier4_planning_launch</code> package directly.
+<h3 id="option-1-use-the-patched-package">Option 1: Use the Patched Package<a class="headerlink" href="#option-1-use-the-patched-package" title="Permanent link">#</a></h3>
+<p>You can use our patched <code>tier4_planning_launch</code> package directly.
 This package already runs <code>behavior_path_planner</code> in a single-threaded node container, so no manual modification is needed.</p>
 <ol>
 <li>
