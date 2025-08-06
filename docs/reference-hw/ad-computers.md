@@ -84,3 +84,18 @@ Vecow solutions which is used for autonomous driving and tested by one or more c
 | IVX-1000                | Intel® 13th/12th-Gen Core™ | NVIDIA Quadro® MXM Graphics           | 64GB RAM, Ethernet, PoE, Serial, M.2/SATA/mSATA SSD, SIM Card     | 16-160 Volt, Vibration: IEC 61373 : 2010, 40°C to 85°C       | -                     |
 
 Link to company website is [here.](https://www.vecow.com/dispPageBox/vecow/VecowHp.aspx?ddsPageID=VECOW_EN)
+
+## **MIIVII In-Vehicle Computers**
+
+![ad_comp-miivii.png](images/ad_comp-miivii.png)
+
+MIIVII solutions which is used for autonomous driving and tested by one or more community members are listed below:
+
+| Supported Products List | CPU                          | GPU                                    | RAM, Interfaces                                                   | Environmental                                                | Autoware Tested (Y/N) |
+| ----------------------- | ---------------------------- | -------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------ | --------------------- |
+| MIIVII APEX THOR            | Jetson T5000  | Jetson T5000 | 128GB RAM, GMSL, CAN, USB, Ethernet, Serial, M.2 SSD, SIM Card | 9-36 Volt, Vibration: 2 G RMS 10-1000 Hz, 3 axes, -25°C to 70°C | -                     |
+| MIIVII APEX AD10                | Jetson AGX Orin | Jetson AGX Orin           | 32/64GB RAM, GMSL, CAN, USB, Ethernet, Serial, M.2 SSD, SIM Card     | 9-36 Volt, Vibration: 2 G RMS 10-1000 Hz, 3 axes, -25°C to 70°C       | Y                     |
+| MIIVII APEX ORIN NX                | Jetson Orin NX | Jetson Orin NX           | 8/16GB RAM, GMSL, CAN, USB, Ethernet, Serial, M.2 SSD, SIM Card     | 9-36 Volt, Vibration: 2 G RMS 10-1000 Hz, 3 axes, -25°C to 70°C       | Y                     |
+| MIIVII APEX ORIN NANO                | Jetson Orin Nano | Jetson Orin Nano           | 4/8GB RAM, GMSL, CAN, USB, Ethernet, Serial, M.2 SSD, SIM Card     | 9-36 Volt, Vibration: 2 G RMS 10-1000 Hz, 3 axes, -25°C to 70°C       | Y                     |
+
+Link to company website is [here.](https://en.miivii.com/)
