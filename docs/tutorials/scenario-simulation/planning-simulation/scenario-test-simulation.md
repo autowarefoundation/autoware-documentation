@@ -22,7 +22,8 @@
      record:=false \
      scenario:='$(find-pkg-share scenario_test_runner)/scenario/sample.yaml' \
      sensor_model:=sample_sensor_kit \
-     vehicle_model:=sample_vehicle
+     vehicle_model:=sample_vehicle \
+     rviz_config:=$($(ros2 pkg prefix autoware_launch)/share/autoware_launch/rviz/scenario_simulator.rviz)
    ```
 
 ![scenario_test_runner](images/scenario_test_runner.png)
