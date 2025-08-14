@@ -7817,6 +7817,15 @@
 
 
 <div><h1 id="zenoh-settings-for-ros-2-and-autoware">Zenoh settings for <abbr title="Robot Operating System">ROS</abbr> 2 and Autoware<a class="headerlink" href="#zenoh-settings-for-ros-2-and-autoware" title="Permanent link">#</a></h1>
+<p>Autoware uses CycloneDDS as its default communication middleware, but it's also compatible with other protocols like Zenoh. The <abbr title="Robot Operating System">ROS</abbr> community <a href="https://discourse.openrobotics.org/t/ros-2-alternative-middleware-report/33771">has selected</a> Zenoh as a promising new middleware alternative due to its key advantages:</p>
+<ul>
+<li><strong>Internet Communication</strong>: Unlike DDS, which is limited to a local area network (LAN), Zenoh can seamlessly communicate with the cloud, eliminating the need for a separate bridge.</li>
+<li><strong>Namespace Support</strong>: Zenoh allows for the use of namespaces for each vehicle. This feature simplifies managing multiple vehicles and isolating network traffic.</li>
+<li><strong>Non-Multicast Support</strong>: Zenoh functions in non-multicast environments like 5G, a key limitation for DDS.</li>
+<li><strong>Reduced Discovery Overhead</strong>: Zenoh significantly reduces discovery packet overhead, a known issue with DDS in wireless environments.</li>
+<li><strong>Superior Performance</strong>: <a href="https://zenoh.io/blog/2023-03-21-zenoh-vs-mqtt-kafka-dds/">A study</a> has shown that Zenoh generally outperforms other protocols such as DDS, MQTT, and Kafka.</li>
+</ul>
+<p>The following sections provide a step-by-step tutorial for running Autoware with Zenoh. Please note that a workaround patch is currently required to enable Zenoh in Autoware. This patch may not be compatible with the Autoware main branch.</p>
 <h2 id="install-rmw_zenoh">Install rmw_zenoh<a class="headerlink" href="#install-rmw_zenoh" title="Permanent link">#</a></h2>
 <ol>
 <li>
