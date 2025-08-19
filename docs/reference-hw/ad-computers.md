@@ -91,11 +91,11 @@ Link to company website is [here.](https://www.vecow.com/dispPageBox/vecow/Vecow
 
 MIIVII solutions which is used for autonomous driving and tested by one or more community members are listed below:
 
-| Supported Products List | CPU                          | GPU                                    | RAM, Interfaces                                                   | Environmental                                                | Autoware Tested (Y/N) |
-| ----------------------- | ---------------------------- | -------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------ | --------------------- |
-| MIIVII APEX THOR            | Jetson T5000  | Jetson T5000 | 128GB RAM, GMSL, CAN, USB, Ethernet, Serial, M.2 SSD, SIM Card | 9-36 Volt, Vibration: 2 G RMS 10-1000 Hz, 3 axes, -25°C to 70°C | -                     |
-| MIIVII APEX AD10                | Jetson AGX Orin | Jetson AGX Orin           | 32/64GB RAM, GMSL, CAN, USB, Ethernet, Serial, M.2 SSD, SIM Card     | 9-36 Volt, Vibration: 2 G RMS 10-1000 Hz, 3 axes, -25°C to 70°C       | Y                     |
-| MIIVII APEX ORIN NX                | Jetson Orin NX | Jetson Orin NX           | 8/16GB RAM, GMSL, CAN, USB, Ethernet, Serial, M.2 SSD, SIM Card     | 9-36 Volt, Vibration: 2 G RMS 10-1000 Hz, 3 axes, -25°C to 70°C       | Y                     |
-| MIIVII APEX ORIN NANO                | Jetson Orin Nano | Jetson Orin Nano           | 4/8GB RAM, GMSL, CAN, USB, Ethernet, Serial, M.2 SSD, SIM Card     | 9-36 Volt, Vibration: 2 G RMS 10-1000 Hz, 3 axes, -25°C to 70°C       | Y                     |
+| Supported Products List | CPU              | GPU              | RAM, Interfaces                                                  | Environmental                                                   | Autoware Tested (Y/N) |
+| ----------------------- | ---------------- | ---------------- | ---------------------------------------------------------------- | --------------------------------------------------------------- | --------------------- |
+| MIIVII APEX THOR        | Jetson T5000     | Jetson T5000     | 128GB RAM, GMSL, CAN, USB, Ethernet, Serial, M.2 SSD, SIM Card   | 9-36 Volt, Vibration: 2 G RMS 10-1000 Hz, 3 axes, -25°C to 70°C | -                     |
+| MIIVII APEX AD10        | Jetson AGX Orin  | Jetson AGX Orin  | 32/64GB RAM, GMSL, CAN, USB, Ethernet, Serial, M.2 SSD, SIM Card | 9-36 Volt, Vibration: 2 G RMS 10-1000 Hz, 3 axes, -25°C to 70°C | Y                     |
+| MIIVII APEX ORIN NX     | Jetson Orin NX   | Jetson Orin NX   | 8/16GB RAM, GMSL, CAN, USB, Ethernet, Serial, M.2 SSD, SIM Card  | 9-36 Volt, Vibration: 2 G RMS 10-1000 Hz, 3 axes, -25°C to 70°C | Y                     |
+| MIIVII APEX ORIN NANO   | Jetson Orin Nano | Jetson Orin Nano | 4/8GB RAM, GMSL, CAN, USB, Ethernet, Serial, M.2 SSD, SIM Card   | 9-36 Volt, Vibration: 2 G RMS 10-1000 Hz, 3 axes, -25°C to 70°C | Y                     |
 
 Link to company website is [here.](https://en.miivii.com/)
