@@ -4,3 +4,4 @@ nav:
   - autoware-architecture
   - autoware-interfaces
   - configuration-management
+  - e2e-architecture
