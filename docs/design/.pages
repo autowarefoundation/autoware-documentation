@@ -1,7 +1,7 @@
 nav:
   - index.md
+  - e2e-architecture
   - autoware-concepts
   - autoware-architecture
   - autoware-interfaces
   - configuration-management
-  - e2e-architecture
