@@ -1306,6 +1306,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-685/design/e2e-architecture/</loc>
+         <lastmod>2025-08-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-685/design/e2e-architecture/generator-selector-architecture/</loc>
          <lastmod>2025-08-19</lastmod>
          <changefreq>daily</changefreq>
