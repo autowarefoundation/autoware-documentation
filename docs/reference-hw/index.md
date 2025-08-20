@@ -13,6 +13,7 @@ The documents consists of the sections listed below:
   - NXP In-Vehicle Computers
   - Neousys In-Vehicle Computers
   - Crystal Rugged In-Vehicle Computers
+  - MIIVII TECH In-Vehicle Computers
 
 - LiDARs
   - Velodyne 3D LiDAR Sensors
