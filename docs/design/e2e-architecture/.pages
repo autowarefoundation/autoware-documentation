@@ -1,0 +1,4 @@
+nav:
+  - index.md
+  - requirements-and-considerations.md
+  - generator-selector-architecture.md
