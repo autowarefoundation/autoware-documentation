@@ -1776,11 +1776,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-680/roadmap/past-distributions/</loc>
-         <lastmod>2025-08-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-680/roadmap/vision-mission-core-values/</loc>
          <lastmod>2025-08-27</lastmod>
          <changefreq>daily</changefreq>
