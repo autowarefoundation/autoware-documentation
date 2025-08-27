@@ -5,4 +5,3 @@ We need to set the key objectives and multi-year goals we wish to achieve as AWF
 We have currently defined 8 Key Objectives covering three themes: Technology, Membership & Open Source Community, and Brand. For each Key Objective, we have defined goals over a three year period (Y1 - Y3).
 
 ## Key Objectives and Goals
-

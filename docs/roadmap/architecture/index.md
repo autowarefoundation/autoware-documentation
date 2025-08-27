@@ -16,4 +16,3 @@ One of the latest such technological breakthroughs is the introduction of End-to
 While this approach has great promise, there are important considerations around safety, explainability and model training which must be addressed.
 
 Here, we present our framework for adopting End-to-End autonomous within the open-source Autoware project.
-
