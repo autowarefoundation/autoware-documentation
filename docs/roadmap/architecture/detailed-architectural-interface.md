@@ -1,0 +1,3 @@
+# Detailed Architectural Interface
+
+TBD
