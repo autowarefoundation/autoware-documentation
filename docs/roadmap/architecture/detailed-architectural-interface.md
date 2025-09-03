@@ -34,12 +34,15 @@ To flexibly accommodate these diverse approaches, we propose a Generator-Selecto
 - Selector: Selects the safest and most optimal trajectory from among the candidates.
 
 ![Generator-Selector Framework](./media/detailed_architecture_figure2.png)
+
 <p align="center"><strong>Figure 2:</strong> Generator-Selector Framework</p>
 
 This framework enables unified handling of different autonomous driving architectures with varying levels of End-to-End AI technologies, while allowing safety and performance considerations to guide the final decision.
 
 ### Generator
+
 The Generator can be any autonomous driving stack capable of generating candidate trajectories that the vehicle may follow. For example:
+
 - Traditional Robotics stack: The existing Autoware stack can be reused as-is.
 - Proprietary AI-Models: Autoware Foundation member companies can utilize their in-house models
 - Open-Source End-to-End AI: Autoware E2E models
@@ -47,6 +50,7 @@ The Generator can be any autonomous driving stack capable of generating candidat
 Multiple Generators can be executed in parallel or selectively activated depending on the context.
 
 ### Selector
+
 The Selector is responsible for two main functions:
 
 - Safety Gate (Safety Assurance)
@@ -59,9 +63,10 @@ The Selector is responsible for two main functions:
 
 These Selector functions are implemented as plugins, allowing developers to customize safety requirements and inject preferences to select a suitable trajectory for their own use case.
 
-### Reference links:
+### Reference links
+
 - GitHub Discussions:
-  - https://github.com/orgs/autowarefoundation/discussions/5033
-  - https://github.com/orgs/autowarefoundation/discussions/6301
-- Proposed Architecture Interface: https://github.com/tier4/new_planning_framework/wiki
+  - <https://github.com/orgs/autowarefoundation/discussions/5033>
+  - <https://github.com/orgs/autowarefoundation/discussions/6301>
+- Proposed Architecture Interface: <https://github.com/tier4/new_planning_framework/wiki>
 - Migration plan for introducing new generator-selector framework: [Enable generator-selector planning framework #6292](https://github.com/autowarefoundation/autoware.universe/pull/6292)
