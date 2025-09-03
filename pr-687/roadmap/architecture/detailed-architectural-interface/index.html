@@ -6493,7 +6493,7 @@
         
           <li class="md-nav__item">
   <a href="#reference-links" class="md-nav__link">
-    Reference links
+    Reference links:
   </a>
   
 </li>
@@ -8133,7 +8133,7 @@
         
           <li class="md-nav__item">
   <a href="#reference-links" class="md-nav__link">
-    Reference links
+    Reference links:
   </a>
   
 </li>
@@ -8166,6 +8166,9 @@
 <p>In order to introduce End-to-End autonomous driving technologies within Autoware open-source project, we have set the following high level software design requirements for the new Autoware E2E architecture implementation and software interfaces:</p>
 <h3 id="1-define-a-robust-consistent-interface-across-evolutionary-steps">1. Define a Robust, Consistent Interface Across Evolutionary Steps<a class="headerlink" href="#1-define-a-robust-consistent-interface-across-evolutionary-steps" title="Permanent link">#</a></h3>
 <p>As explained in the earlier section titled <a href="../autonomous-driving-stack-architecture/">Autonomous Driving Stack Architecture</a> we plan to take the following evolutionary steps towards implementing End-to-End autonomous driving.</p>
+<p><img alt="Stepwise technology evolution" src="../media/detailed_architecture_figure1.png"></p>
+<p align="center"><strong>Figure 1:</strong> Stepwise technology evolution</p>
+
 <p>We aim to avoid disruptive changes to core interfaces at each stage. This ensures users can adopt new End-to-End AI modules incrementally, without requiring major rewrites. Moreover, some users may prefer to retain classical rule-based planners for specific scenarios (e.g., deterministic planning). By preserving interface consistency, we allow these users to easily switch between End-to-End AI and traditional approaches as needed.</p>
 <h3 id="2-introduce-a-framework-for-minimum-safety-guarantees">2. Introduce a Framework for Minimum Safety Guarantees<a class="headerlink" href="#2-introduce-a-framework-for-minimum-safety-guarantees" title="Permanent link">#</a></h3>
 <p>A major challenge with End-to-End AI models is their black-box nature, making it difficult to verify whether the generated trajectories are safe and valid. To address this, the architecture must incorporate a post-processing phase that enforces safety constraints on neural network outputs.</p>
@@ -8179,13 +8182,15 @@
 <li>Generator: Generates candidate trajectories that the vehicle can follow.</li>
 <li>Selector: Selects the safest and most optimal trajectory from among the candidates.</li>
 </ul>
+<p><img alt="Generator-Selector Framework" src="../media/detailed_architecture_figure2.png"></p>
+<p align="center"><strong>Figure 2:</strong> Generator-Selector Framework</p>
+
+<p>This framework enables unified handling of different autonomous driving architectures with varying levels of End-to-End AI technologies, while allowing safety and performance considerations to guide the final decision.</p>
 <h3 id="generator">Generator<a class="headerlink" href="#generator" title="Permanent link">#</a></h3>
-<p>The Generator can be any autonomous driving stack capable of generating candidate trajectories that the vehicle may follow. For example:</p>
-<ul>
-<li>Traditional Robotics stack: The existing Autoware stack can be reused as-is.</li>
-<li>Proprietary AI-Models: Autoware Foundation member companies can utilize their in-house models</li>
-<li>Open-Source End-to-End AI: Autoware E2E models</li>
-</ul>
+<p>The Generator can be any autonomous driving stack capable of generating candidate trajectories that the vehicle may follow. For example:
+- Traditional Robotics stack: The existing Autoware stack can be reused as-is.
+- Proprietary AI-Models: Autoware Foundation member companies can utilize their in-house models
+- Open-Source End-to-End AI: Autoware E2E models</p>
 <p>Multiple Generators can be executed in parallel or selectively activated depending on the context.</p>
 <h3 id="selector">Selector<a class="headerlink" href="#selector" title="Permanent link">#</a></h3>
 <p>The Selector is responsible for two main functions:</p>
@@ -8207,14 +8212,14 @@
 </li>
 </ul>
 <p>These Selector functions are implemented as plugins, allowing developers to customize safety requirements and inject preferences to select a suitable trajectory for their own use case.</p>
-<h3 id="reference-links">Reference links<a class="headerlink" href="#reference-links" title="Permanent link">#</a></h3>
+<h3 id="reference-links">Reference links:<a class="headerlink" href="#reference-links" title="Permanent link">#</a></h3>
 <ul>
 <li>GitHub Discussions:<ul>
-<li><a href="https://github.com/orgs/autowarefoundation/discussions/5033">https://github.com/orgs/autowarefoundation/discussions/5033</a></li>
-<li><a href="https://github.com/orgs/autowarefoundation/discussions/6301">https://github.com/orgs/autowarefoundation/discussions/6301</a></li>
+<li>https://github.com/orgs/autowarefoundation/discussions/5033</li>
+<li>https://github.com/orgs/autowarefoundation/discussions/6301</li>
 </ul>
 </li>
-<li>Proposed Architecture Interface: <a href="https://github.com/tier4/new_planning_framework/wiki">https://github.com/tier4/new_planning_framework/wiki</a></li>
+<li>Proposed Architecture Interface: https://github.com/tier4/new_planning_framework/wiki</li>
 <li>Migration plan for introducing new generator-selector framework: <a href="https://github.com/autowarefoundation/autoware.universe/pull/6292">Enable generator-selector planning framework #6292</a></li>
 </ul>
 <!-- prettier-ignore --></div>
