@@ -2,6 +2,10 @@
 
 ## Traditional Robotics Stack
 
+![Architecture diagram of traditional robotics stack for autonomous driving](./media/architecture_figure1.png)
+
+<p align="center"><strong>Figure 1:</strong> Architecture diagram of traditional robotics stack for autonomous driving</p>
+
 Early architectures for autonomous driving were architected as per a traditional robotics stack comprising hand-coded algorithms for perception, localization and planning, as illustrated in Figure 1. Whilst such approaches are able to achieve robust performance in known scenarios and constrained Operational Design Domains, there are certain drawbacks of this classical architecture.
 
 These include difficulty in handling previously unseen scenarios, challenges in code upgrades for new features, driving behaviour which doesn’t match natural human driving styles, and challenges in addressing negotiated driving maneuvers such as merges, nudges, giving way and taking way.
@@ -15,6 +19,11 @@ This evolution is being driven by our core value of developing ‘cutting edge�
 
 The Autoware E2E stack aims to achieve global scalability across (Operational Design Domains) ODDs by utilizing data-centric End-to-End AI through which hand-coded modules will be replaced in a modular and incremental fashion by neural networks - which have shown great promise in being able to handle diverse and complex driving scenarios across domains.
 
+![Definition of SAE Level 4+ autonomous driving](./media/architecture_figure2.png)
+
+<p align="center"><strong>Figure 2:</strong> Definition of SAE Level 4+ autonomous driving</p>
+
+
 In particular, we aim to achieve SAE Level 4+ autonomous driving functionality through Autoware E2E, in which the autonomous system is able to operate without any human intervention and is able to dynamically adapt to new scenarios which the system has not previously encountered - as illustrated in Figure 2.
 
 ## Autoware E2E Architecture Description
@@ -24,6 +33,10 @@ The Autoware E2E architecture will be implemented in an evolutionary fashion in 
 ### Step 1 - Learned Planner
 
 Step 1 aims to introduce a learned planning module which is able to ingest a world state consisting of the ego-vehicle’s localized position with respect to an HD map, alongside key perception information including elements such as 3D bounding boxes of other foreground objects, traffic light state etc.
+
+![Learned planner](./media/architecture_figure3.png)
+
+<p align="center"><strong>Figure 3:</strong> Autoware E2E - Learned Planning architecture</p>
 
 The learned planning module is able to take this ‘local world representation’ from upstream perception and localization processes and devises an optimal trajectory which aligns with the overall navigation goal as determined by the mission plan.
 
@@ -35,7 +48,17 @@ Step 2 builds on top of the milestone achievement of Step 1 and introduces learn
 
 Option A:
 
+![Learned Perception and Learned Planning supported by an HD-map](./media/architecture_figure4.png)
+
+<p align="center"><strong>Figure 4:</strong> Autoware E2E - Learned Perception and Learned Planning supported by an HD-map</p>
+
+
 Option B:
+
+![Learned Perception and Learned Planning supported by a standard 2D-map](./media/architecture_figure5.png)
+
+<p align="center"><strong>Figure 5:</strong> Autoware E2E - Learned Perception and Learned Planning supported by a standard 2D-map</p>
+
 
 In Step 2, the entire autonomous driving stack is learned and trainable End-to-End, however, there is an interface between the learned perception module and the learned planning module, where the outputs of the learned perception modules need to satisfy the requirements of the learned planning module. This approach decouples perception and planning and allows for introspection of the full End-to-End stack, allowing for easier debugging and testing.
 
@@ -48,7 +71,16 @@ Similar to Step 2, there are two options which can be leveraged to implement Ste
 
 Option A:
 
+![Monolithic Learned Driving model supported by an HD-map](./media/architecture_figure6.png)
+
+<p align="center"><strong>Figure 6:</strong> Autoware E2E - Monolithic Learned Driving model supported by an HD-map</p>
+
+
 Option B:
+
+![Monolithic Learned Driving model supported by a standard 2D-map](./media/architecture_figure7.png)
+
+<p align="center"><strong>Figure 7:</strong> Autoware E2E - Monolithic Learned Driving model supported by a standard 2D-map</p>
 
 
 Multiple Neural network architectures can be applied for ‘Learned Driving’ models, however, they can broadly be categorised as belonging to two types; convolutional neural network models and vision-language-action models.
@@ -59,10 +91,21 @@ Convolutional Neural Network models usually rely upon two stages within the mode
 
 The advantage of Convolutional Neural Network models is that, based on careful selection of the feature backbone and policy model design, the model can be deployed on embedded edge hardware devices and be trained on a smaller set of data samples compared to larger, more complex models. However, a significant limitation of Convolutional Neural Network models is that they may not be able to capture the overall scene context and relationship between scene elements, and instead can only capture higher level features corresponding to the presence of shapes, or object elements - leading to a potential drop in performance and model generalizability.
 
+
+![Learned Driving - Convolutional Neural Network Implementation](./media/architecture_figure8.png)
+
+<p align="center"><strong>Figure 8:</strong> Autoware E2E - Learned Driving - Convolutional Neural Network Implementation</p>
+
+
 #### Vision Language Action Models:
 An alternative architecture for Learned Driving is based on Vision-Language-Action models. These models utilize a combination of Vision Transformers and Large Language Models to jointly learn image features, scene context and reason about driving decisions.
 
 The model can be conditioned on learned queries or text inputs, for example ‘continue straight along the road’ and the model can execute a driving policy to follow these commands. A diffusion transformer model decodes the network features to output the driving action in the form of a trajectory and can also optionally output text, which aims to explain the reasoning through which the model predicted the trajectory - helping with model introspection and explainability.
+
+![Learned Driving - Vision Language Action Model Implementation](./media/architecture_figure9.png)
+
+<p align="center"><strong>Figure 9:</strong> Autoware E2E - Learned Driving - Vision Language Action Model Implementation</p>
+
 
 #### Open Challenges with Learned Driving:
 
@@ -82,4 +125,14 @@ A Safety Guardian module is responsible for cross-referencing the Safety Percept
 
 Option A:
 
+![Learned Hybrid model supported by an HD-map](./media/architecture_figure10.png)
+
+<p align="center"><strong>Figure 10:</strong> Autoware E2E - Learned Hybrid model supported by an HD-map</p>
+
+
 Option B:
+
+![Learned Hybrid model supported by a standard 2D-map](./media/architecture_figure11.png)
+
+<p align="center"><strong>Figure 11:</strong> Autoware E2E - Learned Hybrid model supported by a standard 2D-map</p>
+

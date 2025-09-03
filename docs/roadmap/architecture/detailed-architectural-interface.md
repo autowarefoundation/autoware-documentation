@@ -8,6 +8,10 @@ In order to introduce End-to-End autonomous driving technologies within Autoware
 
 As explained in the earlier section titled [Autonomous Driving Stack Architecture](./autonomous-driving-stack-architecture.md) we plan to take the following evolutionary steps towards implementing End-to-End autonomous driving.
 
+![Stepwise technology evolution](./media/detailed_architecture_figure1.png)
+
+<p align="center"><strong>Figure 1:</strong> Stepwise technology evolution</p>
+
 We aim to avoid disruptive changes to core interfaces at each stage. This ensures users can adopt new End-to-End AI modules incrementally, without requiring major rewrites. Moreover, some users may prefer to retain classical rule-based planners for specific scenarios (e.g., deterministic planning). By preserving interface consistency, we allow these users to easily switch between End-to-End AI and traditional approaches as needed.
 
 ### 2. Introduce a Framework for Minimum Safety Guarantees
@@ -28,6 +32,11 @@ To flexibly accommodate these diverse approaches, we propose a Generator-Selecto
 
 - Generator: Generates candidate trajectories that the vehicle can follow.
 - Selector: Selects the safest and most optimal trajectory from among the candidates.
+
+![Generator-Selector Framework](./media/detailed_architecture_figure2.png)
+<p align="center"><strong>Figure 2:</strong> Generator-Selector Framework</p>
+
+This framework enables unified handling of different autonomous driving architectures with varying levels of End-to-End AI technologies, while allowing safety and performance considerations to guide the final decision.
 
 ### Generator
 The Generator can be any autonomous driving stack capable of generating candidate trajectories that the vehicle may follow. For example:
