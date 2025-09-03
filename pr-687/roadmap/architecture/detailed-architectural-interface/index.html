@@ -6493,7 +6493,7 @@
         
           <li class="md-nav__item">
   <a href="#reference-links" class="md-nav__link">
-    Reference links:
+    Reference links
   </a>
   
 </li>
@@ -8133,7 +8133,7 @@
         
           <li class="md-nav__item">
   <a href="#reference-links" class="md-nav__link">
-    Reference links:
+    Reference links
   </a>
   
 </li>
@@ -8187,10 +8187,12 @@
 
 <p>This framework enables unified handling of different autonomous driving architectures with varying levels of End-to-End AI technologies, while allowing safety and performance considerations to guide the final decision.</p>
 <h3 id="generator">Generator<a class="headerlink" href="#generator" title="Permanent link">#</a></h3>
-<p>The Generator can be any autonomous driving stack capable of generating candidate trajectories that the vehicle may follow. For example:
-- Traditional Robotics stack: The existing Autoware stack can be reused as-is.
-- Proprietary AI-Models: Autoware Foundation member companies can utilize their in-house models
-- Open-Source End-to-End AI: Autoware E2E models</p>
+<p>The Generator can be any autonomous driving stack capable of generating candidate trajectories that the vehicle may follow. For example:</p>
+<ul>
+<li>Traditional Robotics stack: The existing Autoware stack can be reused as-is.</li>
+<li>Proprietary AI-Models: Autoware Foundation member companies can utilize their in-house models</li>
+<li>Open-Source End-to-End AI: Autoware E2E models</li>
+</ul>
 <p>Multiple Generators can be executed in parallel or selectively activated depending on the context.</p>
 <h3 id="selector">Selector<a class="headerlink" href="#selector" title="Permanent link">#</a></h3>
 <p>The Selector is responsible for two main functions:</p>
@@ -8212,14 +8214,14 @@
 </li>
 </ul>
 <p>These Selector functions are implemented as plugins, allowing developers to customize safety requirements and inject preferences to select a suitable trajectory for their own use case.</p>
-<h3 id="reference-links">Reference links:<a class="headerlink" href="#reference-links" title="Permanent link">#</a></h3>
+<h3 id="reference-links">Reference links<a class="headerlink" href="#reference-links" title="Permanent link">#</a></h3>
 <ul>
 <li>GitHub Discussions:<ul>
-<li>https://github.com/orgs/autowarefoundation/discussions/5033</li>
-<li>https://github.com/orgs/autowarefoundation/discussions/6301</li>
+<li><a href="https://github.com/orgs/autowarefoundation/discussions/5033">https://github.com/orgs/autowarefoundation/discussions/5033</a></li>
+<li><a href="https://github.com/orgs/autowarefoundation/discussions/6301">https://github.com/orgs/autowarefoundation/discussions/6301</a></li>
 </ul>
 </li>
-<li>Proposed Architecture Interface: https://github.com/tier4/new_planning_framework/wiki</li>
+<li>Proposed Architecture Interface: <a href="https://github.com/tier4/new_planning_framework/wiki">https://github.com/tier4/new_planning_framework/wiki</a></li>
 <li>Migration plan for introducing new generator-selector framework: <a href="https://github.com/autowarefoundation/autoware.universe/pull/6292">Enable generator-selector planning framework #6292</a></li>
 </ul>
 <!-- prettier-ignore --></div>

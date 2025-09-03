@@ -6452,7 +6452,7 @@
         
           <li class="md-nav__item">
   <a href="#step-2-component-based-end-to-end-ai-learned-perception-learned-planner" class="md-nav__link">
-    Step 2 -  Component Based End-to-End AI - Learned Perception &amp; Learned Planner
+    Step 2 - Component Based End-to-End AI - Learned Perception &amp; Learned Planner
   </a>
   
 </li>
@@ -8093,7 +8093,7 @@
         
           <li class="md-nav__item">
   <a href="#step-2-component-based-end-to-end-ai-learned-perception-learned-planner" class="md-nav__link">
-    Step 2 -  Component Based End-to-End AI - Learned Perception &amp; Learned Planner
+    Step 2 - Component Based End-to-End AI - Learned Perception &amp; Learned Planner
   </a>
   
 </li>
@@ -8159,7 +8159,7 @@
 
 <p>The learned planning module is able to take this ‘local world representation’ from upstream perception and localization processes and devises an optimal trajectory which aligns with the overall navigation goal as determined by the mission plan.</p>
 <p>The advantages of a learned local planner are that complex negotiated traffic scenarios such as merges, nudges and giving way can be learned from human driving data and do not need to be hand-coded. Additionally, the model can be trained on data from different cities to better learn local driving styles which match the temperament of drivers - for example, driving in London is very different from driving in Mumbai.</p>
-<h3 id="step-2-component-based-end-to-end-ai-learned-perception-learned-planner">Step 2 -  Component Based End-to-End AI - Learned Perception &amp; Learned Planner<a class="headerlink" href="#step-2-component-based-end-to-end-ai-learned-perception-learned-planner" title="Permanent link">#</a></h3>
+<h3 id="step-2-component-based-end-to-end-ai-learned-perception-learned-planner">Step 2 - Component Based End-to-End AI - Learned Perception &amp; Learned Planner<a class="headerlink" href="#step-2-component-based-end-to-end-ai-learned-perception-learned-planner" title="Permanent link">#</a></h3>
 <p>Step 2 builds on top of the milestone achievement of Step 1 and introduces learned perception, such that the ‘local world representation’ is also learned rather than based on hand-coded algorithms. At this stage, an HD map and localizer can be used (option A), or, the vehicle can create a ‘local map’ implicitly through Learned Perception which estimates the potential driving corridors and localizes key scene elements with respect to the ego-vehicle, most often utilizing a 2D map (option B).</p>
 <p>Option A:</p>
 <p><img alt="Learned Perception and Learned Planning supported by an HD-map" src="../media/architecture_figure4.png"></p>
@@ -8183,19 +8183,19 @@
 <p align="center"><strong>Figure 7:</strong> Autoware E2E - Monolithic Learned Driving model supported by a standard 2D-map</p>
 
 <p>Multiple Neural network architectures can be applied for ‘Learned Driving’ models, however, they can broadly be categorised as belonging to two types; convolutional neural network models and vision-language-action models.</p>
-<h4 id="convolutional-neural-network-models">Convolutional Neural Network Models:<a class="headerlink" href="#convolutional-neural-network-models" title="Permanent link">#</a></h4>
+<h4 id="convolutional-neural-network-models">Convolutional Neural Network Models<a class="headerlink" href="#convolutional-neural-network-models" title="Permanent link">#</a></h4>
 <p>Convolutional Neural Network models usually rely upon two stages within the model. In the first stage, sensor data is passed through a ‘Feature Backbone’ which is responsible for extracting and capturing general-purpose image features which represent the content of the scene. These features are then fed into a second stage, often referred to as a ‘Policy Model’, which usually consists of fully-connected neural network layers which are responsible for predicting the future trajectory of the vehicle.</p>
 <p>The advantage of Convolutional Neural Network models is that, based on careful selection of the feature backbone and policy model design, the model can be deployed on embedded edge hardware devices and be trained on a smaller set of data samples compared to larger, more complex models. However, a significant limitation of Convolutional Neural Network models is that they may not be able to capture the overall scene context and relationship between scene elements, and instead can only capture higher level features corresponding to the presence of shapes, or object elements - leading to a potential drop in performance and model generalizability.</p>
 <p><img alt="Learned Driving - Convolutional Neural Network Implementation" src="./media/architecture_figure8.png"></p>
 <p align="center"><strong>Figure 8:</strong> Autoware E2E - Learned Driving - Convolutional Neural Network Implementation</p>
 
-<h4 id="vision-language-action-models">Vision Language Action Models:<a class="headerlink" href="#vision-language-action-models" title="Permanent link">#</a></h4>
+<h4 id="vision-language-action-models">Vision Language Action Models<a class="headerlink" href="#vision-language-action-models" title="Permanent link">#</a></h4>
 <p>An alternative architecture for Learned Driving is based on Vision-Language-Action models. These models utilize a combination of Vision Transformers and Large Language Models to jointly learn image features, scene context and reason about driving decisions.</p>
 <p>The model can be conditioned on learned queries or text inputs, for example ‘continue straight along the road’ and the model can execute a driving policy to follow these commands. A diffusion transformer model decodes the network features to output the driving action in the form of a trajectory and can also optionally output text, which aims to explain the reasoning through which the model predicted the trajectory - helping with model introspection and explainability.</p>
 <p><img alt="Learned Driving - Vision Language Action Model Implementation" src="./media/architecture_figure9.png"></p>
 <p align="center"><strong>Figure 9:</strong> Autoware E2E - Learned Driving - Vision Language Action Model Implementation</p>
 
-<h4 id="open-challenges-with-learned-driving">Open Challenges with Learned Driving:<a class="headerlink" href="#open-challenges-with-learned-driving" title="Permanent link">#</a></h4>
+<h4 id="open-challenges-with-learned-driving">Open Challenges with Learned Driving<a class="headerlink" href="#open-challenges-with-learned-driving" title="Permanent link">#</a></h4>
 <p>Although both Convolutional Neural Network architectures and Vision-Language-Action models present viable options at executing Learned Driving, and demonstrate great promise and potential, there still remain challenges with these approaches. One of the most important challenges is that the entire autonomous driving stack is learned and executed in a single forward pass of a large monolithic neural network, which can be difficult to train and debug, since there are no explicit scene level representations - only representations inside the neural network’s feature space. Such Learned Driving networks are also difficult to validate, since it is challenging to truly understand ‘what the network has learned’ in feature space. Such approaches are also limited by the quality of training data - for example, a naive approach which simply applies Imitation Learning may learn to follow human drivers which disobey traffic rules, such as not stopping at a stop sign - making data cleanliness of utmost importance.</p>
 <h3 id="step-4-learned-hybrid-approach-under-development-by-industry">Step 4 - Learned Hybrid approach - (Under development by industry)<a class="headerlink" href="#step-4-learned-hybrid-approach-under-development-by-industry" title="Permanent link">#</a></h3>
 <p>In order to have the best of both worlds, in Step 4, a Learned Hybrid approach can be adopted which combines a Learned Driving model alongside complementary Safety Perception modules allowing for redundancy and greater built-in safety and introspection as well as diversity in sensing. Similar to prior steps, there are options to support either an HD-map or a 2D-map interface.</p>
