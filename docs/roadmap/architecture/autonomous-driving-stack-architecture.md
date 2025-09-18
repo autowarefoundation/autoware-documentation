@@ -2,7 +2,7 @@
 
 ## Traditional Robotics Stack
 
-![Architecture diagram of traditional robotics stack for autonomous driving](./media/architecture_figure1.png)
+![Architecture diagram of traditional robotics stack for autonomous driving](./media/architecture_figure01.png)
 
 <p align="center"><strong>Figure 1:</strong> Architecture diagram of traditional robotics stack for autonomous driving</p>
 
@@ -18,7 +18,7 @@ This evolution is being driven by our core value of developing ‘cutting edge�
 
 The Autoware E2E stack aims to achieve global scalability across (Operational Design Domains) ODDs by utilizing data-centric End-to-End AI through which hand-coded modules will be replaced in a modular and incremental fashion by neural networks - which have shown great promise in being able to handle diverse and complex driving scenarios across domains.
 
-![Definition of SAE Level 4+ autonomous driving](./media/architecture_figure2.png)
+![Definition of SAE Level 4+ autonomous driving](./media/architecture_figure02.png)
 
 <p align="center"><strong>Figure 2:</strong> Definition of SAE Level 4+ autonomous driving</p>
 
@@ -32,7 +32,7 @@ The Autoware E2E architecture will be implemented in an evolutionary fashion in 
 
 Step 1 aims to introduce a learned planning module which is able to ingest a world state consisting of the ego-vehicle’s localized position with respect to an HD map, alongside key perception information including elements such as 3D bounding boxes of other foreground objects, traffic light state etc.
 
-![Learned planner](./media/architecture_figure3.png)
+![Learned planner](media/architecture_figure03.png)
 
 <p align="center"><strong>Figure 3:</strong> Autoware E2E - Learned Planning architecture</p>
 
@@ -46,13 +46,13 @@ Step 2 builds on top of the milestone achievement of Step 1 and introduces learn
 
 Option A:
 
-![Learned Perception and Learned Planning supported by an HD-map](./media/architecture_figure4.png)
+![Learned Perception and Learned Planning supported by an HD-map](media/architecture_figure04.png)
 
 <p align="center"><strong>Figure 4:</strong> Autoware E2E - Learned Perception and Learned Planning supported by an HD-map</p>
 
 Option B:
 
-![Learned Perception and Learned Planning supported by a standard 2D-map](./media/architecture_figure5.png)
+![Learned Perception and Learned Planning supported by a standard 2D-map](media/architecture_figure05.png)
 
 <p align="center"><strong>Figure 5:</strong> Autoware E2E - Learned Perception and Learned Planning supported by a standard 2D-map</p>
 
@@ -68,13 +68,13 @@ Similar to Step 2, there are two options which can be leveraged to implement Ste
 
 Option A:
 
-![Monolithic Learned Driving model supported by an HD-map](./media/architecture_figure6.png)
+![Monolithic Learned Driving model supported by an HD-map](media/architecture_figure06.png)
 
 <p align="center"><strong>Figure 6:</strong> Autoware E2E - Monolithic Learned Driving model supported by an HD-map</p>
 
 Option B:
 
-![Monolithic Learned Driving model supported by a standard 2D-map](./media/architecture_figure7.png)
+![Monolithic Learned Driving model supported by a standard 2D-map](media/architecture_figure07.png)
 
 <p align="center"><strong>Figure 7:</strong> Autoware E2E - Monolithic Learned Driving model supported by a standard 2D-map</p>
 
@@ -112,12 +112,12 @@ A Safety Guardian module is responsible for cross-referencing the Safety Percept
 
 Option A:
 
-![Learned Hybrid model supported by an HD-map](./media/architecture_figure10.png)
+![Learned Hybrid model supported by an HD-map](./media/architecture_figure08.png)
 
-<p align="center"><strong>Figure 10:</strong> Autoware E2E - Learned Hybrid model supported by an HD-map</p>
+<p align="center"><strong>Figure 8:</strong> Autoware E2E - Learned Hybrid model supported by an HD-map</p>
 
 Option B:
 
-![Learned Hybrid model supported by a standard 2D-map](./media/architecture_figure11.png)
+![Learned Hybrid model supported by a standard 2D-map](./media/architecture_figure09.png)
 
-<p align="center"><strong>Figure 11:</strong> Autoware E2E - Learned Hybrid model supported by a standard 2D-map</p>
+<p align="center"><strong>Figure 9:</strong> Autoware E2E - Learned Hybrid model supported by a standard 2D-map</p>
