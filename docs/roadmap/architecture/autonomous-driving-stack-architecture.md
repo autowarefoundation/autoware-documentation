@@ -86,19 +86,11 @@ Convolutional Neural Network models usually rely upon two stages within the mode
 
 The advantage of Convolutional Neural Network models is that, based on careful selection of the feature backbone and policy model design, the model can be deployed on embedded edge hardware devices and be trained on a smaller set of data samples compared to larger, more complex models. However, a significant limitation of Convolutional Neural Network models is that they may not be able to capture the overall scene context and relationship between scene elements, and instead can only capture higher level features corresponding to the presence of shapes, or object elements - leading to a potential drop in performance and model generalizability.
 
-![Learned Driving - Convolutional Neural Network Implementation](./media/architecture_figure8.png)
-
-<p align="center"><strong>Figure 8:</strong> Autoware E2E - Learned Driving - Convolutional Neural Network Implementation</p>
-
 #### Vision Language Action Models
 
 An alternative architecture for Learned Driving is based on Vision-Language-Action models. These models utilize a combination of Vision Transformers and Large Language Models to jointly learn image features, scene context and reason about driving decisions.
 
 The model can be conditioned on learned queries or text inputs, for example ‘continue straight along the road’ and the model can execute a driving policy to follow these commands. A diffusion transformer model decodes the network features to output the driving action in the form of a trajectory and can also optionally output text, which aims to explain the reasoning through which the model predicted the trajectory - helping with model introspection and explainability.
-
-![Learned Driving - Vision Language Action Model Implementation](./media/architecture_figure9.png)
-
-<p align="center"><strong>Figure 9:</strong> Autoware E2E - Learned Driving - Vision Language Action Model Implementation</p>
 
 #### Open Challenges with Learned Driving
 
