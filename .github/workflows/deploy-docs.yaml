@@ -36,7 +36,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Deploy docs
-        uses: evshary/autoware-github-actions/deploy-docs@main
+        uses: autowarefoundation/autoware-github-actions/deploy-docs@test-evshary-solution
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           latest: ${{ github.event_name != 'pull_request_target' && github.ref_name == github.event.repository.default_branch }}
