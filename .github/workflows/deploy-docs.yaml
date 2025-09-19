@@ -26,7 +26,7 @@ jobs:
 
   deploy-docs:
     needs: require-label
-    if: ${{ needs.prevent-no-label-execution.outputs.run == 'true' }}
+    if: ${{ needs.require-label.outputs.result == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
