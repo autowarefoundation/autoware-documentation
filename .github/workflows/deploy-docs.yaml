@@ -11,7 +11,7 @@ on:
       - "**/*.svg"
       - "**/*.png"
       - "**/*.jpg"
-  pull_request:
+  pull_request_target:
     types:
       - opened
       - synchronize
