@@ -36,11 +36,11 @@ We have currently defined 8 Key Objectives covering three themes: Technology, Me
   - Secure a pilot with at least one anchor company to trial Autoware’s Production-Capable stack at TRL-6 for Low Speed Autonomy and Privately Owned Vehicles on a single vehicle in real-world environments - potential anchor companies for Low Speed Autonomy include (Eve Autonomy, Whale Dynamic and Robeff), potential anchor companies for Privately Owned Vehicles include (AMD, DeepenAI, and AutoCore.ai).
 - **Year 2:**
   - Secure a pilot with at least one anchor company to trial Autoware’s Production-Capable stack at TRL-7 for Low Speed Autonomy and Privately Owned Vehicles in a small-scale deployment across multiple vehicles in real-world environments.
-  - Secure a pilot with at least one anchor company to trial Autoware’s Production-Capable stack at TRL-6 for Robobus and Off-Road Vehicles on a single vehicle in real-world environments - potential anchor company candidates for Robobus (Adastec), potential anchor company candidates for Off-Road Vehicles (DriveBlocks).
+  - Secure a pilot with at least one anchor company to trial Autoware’s Production-Capable stack at TRL-6 for Robobus and Off-Road Vehicles on a single vehicle in real-world environments - potential anchor company candidates for Robobus (ADASTEC), potential anchor company candidates for Off-Road Vehicles (DriveBlocks).
 - **Year 3:**
   - Secure a pilot with at least one anchor company to trial Autoware’s Production-Capable stack at TRL-8 for Low Speed Autonomy and Privately Owned Vehicles across a larger scale deployment in a vehicle fleet in real-world environments.
   - Secure a pilot with at least one anchor company to trial Autoware’s Production-Capable stack at TRL-7 for Robobus and Off-Road Vehicles in a small-scale deployment across multiple vehicles in real-world environments.
-  - Secure a pilot with at least one anchor company to trial Autoware’s Production-Capable stack at TRL-6 for Robotaxi on a single vehicle in real-world environments - potential anchor company candidates for Robotaxi include (TierIV)
+  - Secure a pilot with at least one anchor company to trial Autoware’s Production-Capable stack at TRL-6 for Robotaxi on a single vehicle in real-world environments - potential anchor company candidates for Robotaxi include (TIER IV)
 
 ### Membership & Open Source Community
 
@@ -63,22 +63,22 @@ We have currently defined 8 Key Objectives covering three themes: Technology, Me
   - Develop and implement a two-tiered marketing plan to on-board more Premium Members, and Individual contributors through tactics such as increased social media marketing (focus on video content - YouTube and LinkedIn as primary platforms), Press Releases (CISION etc.), content marketing (blogs and monthly newsletters - AWF Website, Medium, Substack etc.), SEO, Technology Influencer Collaborations (ride/demo in AWF powered car - could garner large number of views) and engagement on platforms with developer heavy communities (e.g. Reddit/Discord/HackerNews)
   - Add at least 12 New Premium Members
   - Add at least 25 new open-source contributors (not associated with Premium Members) actively participating (attending WG meetings and contributing code) in Autoware
-  - Achieve over 15,000 Github stars in total across all AWF repositories.
+  - Achieve over 15,000 GitHub stars in total across all AWF repositories.
 - **Year 2:**
   - Continue execution of two-tiered marketing plan to on-board more Premium Members, and Individual contributors
   - Add at least 20 New Premium Members
   - Add at least 40 new open-source contributors (not associated with Premium Members) actively participating (attending WG meetings and contributing code) in Autoware
-  - Achieve over 20,000 Github stars in total across all AWF repositories.
+  - Achieve over 20,000 GitHub stars in total across all AWF repositories.
 - **Year 3:**
   - Continue execution of two-tiered marketing plan to on-board more Premium Members, and Individual contributors
   - Add at least 30 New Premium Members
   - Add at least 60 new open-source contributors (not associated with Premium Members) actively participating (attending WG meetings and contributing code) in Autoware
-  - Achieve over 25,000 Github stars in total across all AWF repositories.
+  - Achieve over 25,000 GitHub stars in total across all AWF repositories.
 
 #### Objective 6: Improve engagement with Autoware members and the community at large for a tight feedback loop which helps foster stronger collaboration and active participation by the community
 
 - **Year 1:**
-  - Assign a key individual for Premium Member engagement - who is responsible for holding regular touchpoint meetings with each Premium Member to help bolster their active participation, tracking w.r.t committed AWF plan and contributions within the community/usage of Autoware in their applications
+  - Assign a key individual for Premium Member engagement - who is responsible for holding regular meetings with each Premium Member to help bolster their active participation, tracking w.r.t committed AWF plan and contributions within the community/usage of Autoware in their applications
   - Host another round of Autoware Technical Challenges with monetary prizes to encourage top-tier R&D submissions for Autoware’s most pressing technology challenges
   - Host the first Annual Autoware Awards Ceremony (similar to ROS Awards), recognizing and rewarding efforts by both individual open-source contributors and members companies - ‘Oscars for Autoware’ - for example: Individual contributors could be given certificates/monetary awards for authoring a certain number of commits, fixing a certain number of bugs, or being recognized for hard work by the WG chair and Member companies could be awarded financial prizes based on their contributions to Autoware on factors such as real-world deployments, community participation, open-source code contributions etc.
 - **Year 2:**
