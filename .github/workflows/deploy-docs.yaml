@@ -19,13 +19,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  prevent-no-label-execution:
-    uses: autowarefoundation/autoware-github-actions/.github/workflows/prevent-no-label-execution.yaml@v1
+  require-label:
+    uses: autowarefoundation/autoware-github-actions/.github/workflows/require-label.yaml@v1
     with:
       label: tag:deploy-docs
 
   deploy-docs:
-    needs: prevent-no-label-execution
+    needs: require-label
     if: ${{ needs.prevent-no-label-execution.outputs.run == 'true' }}
     runs-on: ubuntu-latest
     steps:
