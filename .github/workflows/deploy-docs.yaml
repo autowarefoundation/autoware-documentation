@@ -11,7 +11,12 @@ on:
       - "**/*.svg"
       - "**/*.png"
       - "**/*.jpg"
-  pull_request_target:
+#  pull_request_target:
+#    types:
+#      - opened
+#      - synchronize
+#      - labeled
+  pull_request:
     types:
       - opened
       - synchronize
@@ -36,7 +41,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Deploy docs
-        uses: autowarefoundation/autoware-github-actions/deploy-docs@fix-deploy-docs
+        uses: autowarefoundation/autoware-github-actions/deploy-docs@test-evshary-solution
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           latest: ${{ github.event_name != 'pull_request_target' && github.ref_name == github.event.repository.default_branch }}
