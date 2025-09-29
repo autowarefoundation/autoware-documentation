@@ -35,6 +35,7 @@ colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=1
 ## Usage
 
 If you are on Ubuntu 22.04, run the following command **only once** to help `run-clang-tidy` find the correct include paths.
+**Reference:** [autoware/pull/5543](https://github.com/autowarefoundation/autoware/pull/5543#issuecomment-2533325979).
 
 ```bash
 sed -i '/- -Wno-c11-extensions/a\  - -I/usr/include/c++/11\n  - -I/usr/include/x86_64-linux-gnu/c++/11' .clang-tidy-ci
