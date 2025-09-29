@@ -5637,6 +5637,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#preparation" class="md-nav__link">
     <span class="md-ellipsis">
       Preparation
@@ -5684,15 +5693,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
   
 </li>
       
@@ -11243,6 +11243,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#preparation" class="md-nav__link">
     <span class="md-ellipsis">
       Preparation
@@ -11293,15 +11302,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11323,17 +11323,36 @@
 
 <div><h1 id="applying-clang-tidy-to-ros-packages">Applying Clang-Tidy to <abbr title="Robot Operating System">ROS</abbr> packages<a class="headerlink" href="#applying-clang-tidy-to-ros-packages" title="Permanent link">#</a></h1>
 <p><a href="https://clang.llvm.org/extra/clang-tidy/">Clang-Tidy</a> is a powerful C++ linter.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h2>
+<p>Install <code>fd-find</code> to make it easier to feed file lists to <code>run-clang-tidy</code>.
+More info can be found in the <a href="https://github.com/sharkdp/fd?tab=readme-ov-file#on-ubuntu">fd documentation</a>.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>fd-find
+</code></pre></div>
+<p>Install <code>clang-tidy</code> and <code>clang-apply-replacements</code>.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>clang-tidy<span class="w"> </span>clang-tools
+</code></pre></div>
+<p>If you encounter <code>clang-diagnostic-error</code>, try installing <code>libomp-dev</code>.
+Related: <a href="https://github.com/autowarefoundation/autoware-github-actions/pull/172">https://github.com/autowarefoundation/autoware-github-actions/pull/172</a></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libomp-dev
+</code></pre></div>
 <h2 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">#</a></h2>
 <p>You need to generate <code>build/compile_commands.json</code> before using Clang-Tidy.</p>
 <div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_EXPORT_COMPILE_COMMANDS<span class="o">=</span><span class="m">1</span>
 </code></pre></div>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code>clang-tidy<span class="w"> </span>-p<span class="w"> </span>build/<span class="w"> </span>path/to/file1<span class="w"> </span>path/to/file2<span class="w"> </span>...
+<p>If you are on Ubuntu 22.04, run the following command <strong>only once</strong> to help <code>run-clang-tidy</code> find the correct include paths.
+<strong>Reference:</strong> <a href="https://github.com/autowarefoundation/autoware/pull/5543#issuecomment-2533325979">autoware/pull/5543</a>.</p>
+<div class="highlight"><pre><span></span><code>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">'/- -Wno-c11-extensions/a\  - -I/usr/include/c++/11\n  - -I/usr/include/x86_64-linux-gnu/c++/11'</span><span class="w"> </span>.clang-tidy-ci
 </code></pre></div>
-<p>If you want to apply Clang-Tidy to all files in a package, using the <a href="https://github.com/sharkdp/fd">fd</a> command is useful.
-To install <code>fd</code>, see the <a href="https://github.com/sharkdp/fd#on-ubuntu">installation manual</a>.</p>
-<div class="highlight"><pre><span></span><code>clang-tidy<span class="w"> </span>-p<span class="w"> </span>build/<span class="w"> </span><span class="k">$(</span>fd<span class="w"> </span>-e<span class="w"> </span>cpp<span class="w"> </span>-e<span class="w"> </span>hpp<span class="w"> </span>--full-path<span class="w"> </span><span class="s2">"/autoware_utils/"</span><span class="k">)</span>
+<p>To run Clang-Tidy with all files in a package and export fixes to a YAML file, run the following command from the workspace root.
+Here we use <code>autoware_utils</code> as an example package name.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>autoware/
+run-clang-tidy<span class="w"> </span>-p<span class="w"> </span>build/<span class="w"> </span>-config<span class="o">=</span><span class="s2">"</span><span class="k">$(</span>cat<span class="w"> </span>.clang-tidy-ci<span class="k">)</span><span class="s2">"</span><span class="w"> </span>-export-fixes<span class="w"> </span>clang-tidy-fixes.yaml<span class="w"> </span>-j<span class="w"> </span><span class="k">$(</span>nproc<span class="k">)</span><span class="w"> </span><span class="k">$(</span>fdfind<span class="w"> </span>-e<span class="w"> </span>cpp<span class="w"> </span>-e<span class="w"> </span>hpp<span class="w"> </span>--full-path<span class="w"> </span><span class="s2">"/autoware_utils/"</span><span class="k">)</span><span class="w"> </span>&gt;<span class="w"> </span>clang-tidy-report.log
 </code></pre></div>
+<p>To apply fixes directly, run the following command.</p>
+<div class="highlight"><pre><span></span><code>run-clang-tidy<span class="w"> </span>-p<span class="w"> </span>build/<span class="w"> </span>-config<span class="o">=</span><span class="s2">"</span><span class="k">$(</span>cat<span class="w"> </span>.clang-tidy-ci<span class="k">)</span><span class="s2">"</span><span class="w"> </span>-j<span class="w"> </span><span class="k">$(</span>nproc<span class="k">)</span><span class="w"> </span>-fix<span class="w"> </span><span class="k">$(</span>fdfind<span class="w"> </span>-e<span class="w"> </span>cpp<span class="w"> </span>-e<span class="w"> </span>hpp<span class="w"> </span>--full-path<span class="w"> </span><span class="s2">"/autoware_utils/"</span><span class="k">)</span>
+</code></pre></div>
+<p><code>clang-apply-replacements</code> command can also be used to apply fixes from a YAML file.</p>
 <h2 id="ide-integration">IDE integration<a class="headerlink" href="#ide-integration" title="Permanent link">#</a></h2>
 <h3 id="clion">CLion<a class="headerlink" href="#clion" title="Permanent link">#</a></h3>
 <p>Refer to the <a href="https://www.jetbrains.com/help/clion/clang-tidy-checks-support.html">CLion Documentation</a>.</p>
@@ -11343,9 +11362,6 @@ To install <code>fd</code>, see the <a href="https://github.com/sharkdp/fd#on-ub
 <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a></li>
 <li><a href="https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd">clangd</a></li>
 </ul>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
-<p>If you encounter <code>clang-diagnostic-error</code>, try installing <code>libomp-dev</code>.</p>
-<p>Related: <a href="https://github.com/autowarefoundation/autoware-github-actions/pull/172">https://github.com/autowarefoundation/autoware-github-actions/pull/172</a></p>
 <!-- prettier-ignore --></div>
 
 
