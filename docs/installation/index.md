@@ -32,14 +32,14 @@ For details of how to enable object detection and traffic light detection/classi
 
 ## Installing Autoware
 
-There are two ways to set up Autoware. Choose one according to your preference.
+There are three ways to set up Autoware. Choose one according to your preference.
 
 If any issues occur during installation, refer to the [Support page](../support/index.md).
 
 ### 1. Docker installation
 
 Autoware's Open AD Kit containers enables you to
-run Autoware easily on your host machine ensuring same environment for all deployments without installing any dependencies. Full Guide on [Docker Installation Setup](autoware/docker-installation.md).
+run Autoware easily on your host machine ensuring same environment for all deployments without installing any dependencies. Full Guide on [Autoware Core Docker installation guide](autoware/core-docker-installation.md) or [Autoware Universe Docker Installation Setup](autoware/docker-installation.md).
 
 [Open AD Kit](https://autoware.org/open-ad-kit/) is also the First [SOAFEE Blueprint](https://www.soafee.io/about/charter) for autonomous driving that offers extensible modular containers for making it easier to run Autoware's AD stack on distributed systems. Full Guide on [Open AD Kit Setup](https://autowarefoundation.github.io/open-ad-kit-docs/openadkit_v3/version-3.0/).
 
@@ -51,7 +51,14 @@ Source installation is for the cases where more granular control of the installa
 It is recommended for experienced users or people who want to customize their environment.
 Note that some problems may occur depending on your local environment.
 
-For more information, refer to the [source installation guide](autoware/source-installation.md).
+For more information, refer to the [Autoware Core source installation guide](autoware/core-source-installation.md) or [Autoware Universe source installation guide](autoware/source-installation.md).
+
+### 3. Debian Package installation
+
+Autoware Core packages are available on the ROS build farm.
+If you have an environment where ROS is set up, Autoware packages can be easily installed and used with other packages in the ROS ecosystem.
+
+For more information, refer to the [Autoware Core Debian Package installation guide](autoware/core-debian-installation.md)
 
 ## Installing related tools
 
