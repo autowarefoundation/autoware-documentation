@@ -8,7 +8,7 @@
 | ROS                         | ROS 2 Humble (For ROS 2 system dependencies, refer to [REP-2000](https://www.ros.org/reps/rep-2000.html)) |
 | [Git](https://git-scm.com/) | [Registering SSH keys to GitHub](https://github.com/settings/keys) is preferable.                         |
 
-##
+## How to set up
 
 1. Install dependent tools.
 
