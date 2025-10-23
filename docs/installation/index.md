@@ -38,12 +38,9 @@ If any issues occur during installation, refer to the [Support page](../support/
 
 ### 1. Docker installation
 
-Autoware's Open AD Kit containers enables you to
-run Autoware easily on your host machine ensuring same environment for all deployments without installing any dependencies. Full Guide on [Docker Installation Setup](autoware/docker-installation.md).
+Autoware's Open AD Kit containers enable you to run and develop Autoware easily on your host machine, ensuring the same environment for development and deployment without installing dependencies. Full guide: [Docker Installation](autoware/docker-installation.md).
 
-[Open AD Kit](https://autoware.org/open-ad-kit/) is also the First [SOAFEE Blueprint](https://www.soafee.io/about/charter) for autonomous driving that offers extensible modular containers for making it easier to run Autoware's AD stack on distributed systems. Full Guide on [Open AD Kit Setup](https://autowarefoundation.github.io/open-ad-kit-docs/openadkit_v3/version-3.0/).
-
-Developer containers are also available for developers making it easier to build Autoware from source and ensuring same environment for all developers.
+[Open AD Kit](https://autoware.org/open-ad-kit/) is the first [SOAFEE Blueprint](https://www.soafee.io/about/charter) for autonomous driving, offering extensible modular containerized workloads to simplify running Autoware's AD stack on distributed systems. Refer to the [Open AD Kit Documentation](https://autowarefoundation.github.io/openadkit/) for more details.
 
 ### 2. Source installation
 
