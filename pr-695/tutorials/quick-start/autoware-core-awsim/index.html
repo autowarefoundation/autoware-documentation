@@ -11265,7 +11265,12 @@ ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </s
 <h2 id="launch-autoware-for-docker-installation">Launch Autoware for Docker installation<a class="headerlink" href="#launch-autoware-for-docker-installation" title="Permanent link">#</a></h2>
 <p>T.B.D.</p>
 <h2 id="launch-autoware-for-source-installation">Launch Autoware for source installation<a class="headerlink" href="#launch-autoware-for-source-installation" title="Permanent link">#</a></h2>
-<p>T.B.D.</p>
+<ul>
+<li>Same as "Launch Autoware for Debian Package installation" section except:<ul>
+<li>In step 4, source <code>$HOME/autoware_core_workspace/install/setup.bash</code> instead of <code>/opt/ros/humble/setup.bash</code>.</li>
+</ul>
+</li>
+</ul>
 <h2 id="launch-autoware-for-debian-package-installation">Launch Autoware for Debian Package installation<a class="headerlink" href="#launch-autoware-for-debian-package-installation" title="Permanent link">#</a></h2>
 <ol>
 <li>
@@ -11289,6 +11294,7 @@ rm<span class="w"> </span>-rf<span class="w"> </span>tmp
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/autoware_launch_workspace
 rosdep<span class="w"> </span>update
 rosdep<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>--rosdistro<span class="w"> </span>humble
+sudo<span class="w"> </span>apt<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>ros-humble-topic-tools
 </code></pre></div>
 </li>
 <li>
