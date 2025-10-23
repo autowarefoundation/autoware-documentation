@@ -46,7 +46,9 @@
 
 ## Launch Autoware for Docker installation
 
-T.B.D.
+!!! warning
+
+    Under Construction. It cannot be executed because the description package has not been released yet,
 
 ## Launch Autoware for source installation
 
@@ -77,9 +79,10 @@ T.B.D.
 
    ```bash
    cd $HOME/autoware_launch_workspace
+   sudo apt update
+   sudo apt -y install ros-humble-topic-tools
    rosdep update
    rosdep install -y --from-paths src --ignore-src --rosdistro humble
-   sudo apt -y install ros-humble-topic-tools
    ```
 
 4. Build the workspace.
