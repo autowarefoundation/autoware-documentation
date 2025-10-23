@@ -50,7 +50,8 @@ T.B.D.
 
 ## Launch Autoware for source installation
 
-T.B.D.
+- Same as "Launch Autoware for Debian Package installation" section except:
+  - In step 4, source `$HOME/autoware_core_workspace/install/setup.bash` instead of `/opt/ros/humble/setup.bash`.
 
 ## Launch Autoware for Debian Package installation
 
@@ -78,6 +79,7 @@ T.B.D.
    cd $HOME/autoware_launch_workspace
    rosdep update
    rosdep install -y --from-paths src --ignore-src --rosdistro humble
+   sudo apt -y install ros-humble-topic-tools
    ```
 
 4. Build the workspace.
