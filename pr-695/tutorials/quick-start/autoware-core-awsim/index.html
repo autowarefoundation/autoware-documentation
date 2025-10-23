@@ -11263,7 +11263,10 @@ ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </s
 </li>
 </ol>
 <h2 id="launch-autoware-for-docker-installation">Launch Autoware for Docker installation<a class="headerlink" href="#launch-autoware-for-docker-installation" title="Permanent link">#</a></h2>
-<p>T.B.D.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Under Construction. It cannot be executed because the description package has not been released yet,</p>
+</div>
 <h2 id="launch-autoware-for-source-installation">Launch Autoware for source installation<a class="headerlink" href="#launch-autoware-for-source-installation" title="Permanent link">#</a></h2>
 <ul>
 <li>Same as "Launch Autoware for Debian Package installation" section except:<ul>
@@ -11292,9 +11295,10 @@ rm<span class="w"> </span>-rf<span class="w"> </span>tmp
 <li>
 <p>Install dependent <abbr title="Robot Operating System">ROS</abbr> packages.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/autoware_launch_workspace
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>ros-humble-topic-tools
 rosdep<span class="w"> </span>update
 rosdep<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>--rosdistro<span class="w"> </span>humble
-sudo<span class="w"> </span>apt<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>ros-humble-topic-tools
 </code></pre></div>
 </li>
 <li>
