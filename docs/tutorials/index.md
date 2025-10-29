@@ -4,7 +4,7 @@
 
 This is a quick start guide to experience Autoware. See the sections below for detailed tutorials for different purposes.
 
-- [Autoware Core digital twin simulation with AWSIM](./quick-start/autoware-core-awsim.md)
+- [Autoware Core digital twin simulation with AWSIM](./quick-start/autoware-core-awsim/index.md)
 
 ## Simulation tutorials
 
