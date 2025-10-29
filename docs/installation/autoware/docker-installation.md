@@ -1,4 +1,4 @@
-# Open AD Kit: containerized workloads for Autoware
+# Open AD Kit: Containerized workloads for Autoware
 
 Open AD Kit offers two types of Docker image to let you get started with Autoware quickly: `devel` and `runtime`.
 
@@ -44,9 +44,9 @@ Open AD Kit offers two types of Docker image to let you get started with Autowar
 
     GPU acceleration is required for some features such as object detection and traffic light detection/classification. For details of how to enable these features without a GPU, refer to the [Running Autoware without CUDA](../../how-to-guides/others/running-autoware-without-cuda.md).
 
-## Usage
+## Quick Start
 
-### Runtime
+### Launching the runtime container
 
 You can use `run.sh` to run the Autoware runtime container with the map and data (artifacts) paths:
 
@@ -64,17 +64,21 @@ Here is an example of running the runtime container with a custom launch command
 
 !!! info
 
-    You can use `--no-nvidia` to run without NVIDIA GPU support, and `--headless` to run without display that means no RViz visualization.
+    Use `--no-nvidia` to run without NVIDIA GPU support, and `--headless` to run without display (no RViz visualization).
 
-#### Run the Autoware tutorials
+### Running Autoware tutorials
 
-Inside the container, you can run the Autoware tutorials by following these links:
+Inside the container, run the Autoware tutorials by following these links:
 
 [Planning Simulation](../../tutorials/ad-hoc-simulation/planning-simulation.md)
 
 [Rosbag Replay Simulation](../../tutorials/ad-hoc-simulation/rosbag-replay-simulation.md).
 
-### Development environment
+## Deployment
+
+Open AD Kit provides different deployment options for Autoware, so that you can deploy Autoware on different platforms and scenarios easily. Refer to the [Open AD Kit Documentation](https://autowarefoundation.github.io/openadkit/) for more details.
+
+## Development
 
 ```bash
 ./docker/run.sh --devel
@@ -84,7 +88,7 @@ Inside the container, you can run the Autoware tutorials by following these link
 
     By default workspace mounted on the container will be current directory(pwd), you can change the workspace path by `--workspace path_to_workspace`. For development environments without NVIDIA GPU support use `--no-nvidia`.
 
-#### How to set up a workspace
+### How to set up a workspace
 
 1. Create the `src` directory and clone repositories into it.
 
@@ -155,7 +159,7 @@ Inside the container, you can run the Autoware tutorials by following these link
 > vcs import src < autoware-nightly.repos
 > ```
 
-#### Using VS Code remote containers for development
+### Using VS Code remote containers for development
 
 Using the [Visual Studio Code](https://code.visualstudio.com/) with the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension, you can develop Autoware in the containerized environment with ease.
 
@@ -164,7 +168,7 @@ And reopen the workspace in the container by selecting `Remote-Containers: Reope
 
 You can choose Autoware or Autoware-cuda image to develop with or without CUDA support.
 
-## Building Docker images from scratch
+### Building Docker images from scratch
 
 If you want to build these images locally for development purposes, run the following command:
 
@@ -192,7 +196,7 @@ To specify the platform, use the `--platform` option:
 ./docker/build.sh --platform linux/arm64
 ```
 
-### Using Docker images other than `latest`
+#### Using Docker images other than `latest`
 
 There are also images versioned based on the `date` or `release tag`.  
 Use them when you need a fixed version of the image.
