@@ -18,7 +18,7 @@
    - Launch Autoware for Debian Package installation
 
    The map will be displayed in Rviz as shown below.
-   - TODO: image
+   ![rviz](./images/rviz.png)
 
 2. Launch AWSIM.
 
@@ -28,13 +28,15 @@
    ```
 
    The AWSIM will be displayed as shown below.
-   - TODO: image
+   ![awsim](./images/awsim.png)
 
-3. Initialize pose.
-   - TODO: image
+3. Initialize pose. Select "2D Pose Estimate" and drag the mouse as shown by the arrow.
 
-4. Set goal pose.
-   - TODO: image
+   ![init-pose](./images/init-pose.png)
+
+4. Set goal pose. Select "2D Goal Pose" and drag the mouse as shown by the arrow.
+
+   ![goal-pose](./images/goal-pose.png)
 
 5. Start autonomous driving.
 
