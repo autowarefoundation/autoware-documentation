@@ -1,5 +1,9 @@
 # Release notes
 
+## v1.9.1
+
+- [Change] Add roundabout as [Planning Behavior](./features/planning-factors.md)
+
 ## v1.9.0
 
 - [New] Add [control command API](./features/control.md)
