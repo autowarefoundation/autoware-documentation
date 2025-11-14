@@ -24,6 +24,7 @@ Some behavior types have sequence and details as additional information.
 | crosswalk                   | There are obstacles on the crosswalk.                                               |
 | rear-check                  | There are obstacles behind that would be in a human driver's blind spot.            |
 | user-defined-attention-area | There are obstacles in the predefined attention area.                               |
+| roundabout                  | There are obstacles in the roundabout.                                              |
 | no-stopping-area            | There is not enough space beyond the no stopping area.                              |
 | stop-sign                   | A stop by a stop sign.                                                              |
 | traffic-signal              | A stop by a traffic signal.                                                         |
