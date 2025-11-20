@@ -25,6 +25,7 @@ TensorRT-optimized Vectorized Autonomous Driving ([VAD](https://github.com/hustv
   3. Ensure VAD models are downloaded (default to `~/autoware_data/vad` via the Autoware setup script).
   4. Start CARLA server (example headless/GPU-friendly): `./CarlaUE4.sh -prefernvidia -quality-level=Low -RenderOffScreen`.
   5. Launch Autoware in E2E mode:
+
      ```bash
      ros2 launch autoware_launch e2e_simulator.launch.xml \
        map_path:=$HOME/autoware_map/Town01 \
