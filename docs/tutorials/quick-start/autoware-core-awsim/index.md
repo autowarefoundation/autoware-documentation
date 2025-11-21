@@ -1,5 +1,10 @@
 # Autoware Core digital twin simulation with AWSIM
 
+## Installing Autoware
+
+This page describes the procedure for an environment where Autoware Core is already installed.
+If you have not yet installed Autoware, please refer to the [Installation](../../../installation/index.md).
+
 ## Download AWSIM
 
 1. Download following files from [this page](https://tier4.github.io/AWSIM/Downloads/).
