@@ -16,3 +16,5 @@
 
 # pre-commit
 node_modules/
+
+/site/*

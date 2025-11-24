@@ -1,8 +1,9 @@
 nav:
-  - Introduction: index.md
+  - Home: index.md
   - installation
+  - Demos: demos
+  - Evaluation & Simulation: evaluation_and_simulation
   - tutorials
-  - how-to-guides
   - design
   - roadmap
   - Reference HW: reference-hw

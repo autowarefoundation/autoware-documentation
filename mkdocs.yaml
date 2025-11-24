@@ -8,13 +8,18 @@ copyright: Copyright &copy; 2023 The Autoware Foundation
 theme:
   name: material
   features:
-    - navigation.expand
+    #    - navigation.prune
     - navigation.indexes
     - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.instant.preview
+    - navigation.path
     - navigation.sections
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
+    - navigation.tracking
     - navigation.footer
   favicon: assets/images/autoware-foundation.png
   icon:
@@ -68,7 +73,7 @@ markdown_extensions:
   - attr_list
   - codehilite:
       guess_lang: false
-  - fontawesome_markdown
+  - fontawesome_in_markdown
   - footnotes
   - md_in_html
   - mdx_math
@@ -81,8 +86,8 @@ markdown_extensions:
       generic: true
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight
   - pymdownx.snippets:
       auto_append:

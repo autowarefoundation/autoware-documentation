@@ -4,17 +4,6 @@ Thank you for your interest in contributing! Autoware is supported by people lik
 
 As a contributor, here are the guidelines that we would like you to follow for Autoware and its associated repositories.
 
-- [Code of Conduct](#code-of-conduct)
-- [What should I know before I get started?](#what-should-i-know-before-i-get-started)
-  - [Autoware concepts](#autoware-concepts)
-  - [Contributing to open source projects](#contributing-to-open-source-projects)
-- [How can I get help?](#how-can-i-get-help)
-- [How can I contribute?](#how-can-i-contribute)
-  - [Participate in discussions](#discussions)
-  - [Join a working group](#working-groups)
-  - [Report bugs](#bug-reports)
-  - [Make a pull request](#pull-requests)
-
 Like Autoware itself, these guidelines are being actively developed and suggestions for improvement are always welcome! Guideline changes can be proposed by [creating a discussion in the Ideas category](https://github.com/autowarefoundation/autoware/discussions/new?category=ideas).
 
 ## Code of Conduct
@@ -32,7 +21,7 @@ To gain a high-level understanding of Autoware's architecture and design, the fo
 - [Autoware architecture](../design/index.md)
 - [Autoware concepts](../design/autoware-concepts/index.md)
 
-For experienced developers, the [Autoware interfaces](../design/autoware-interfaces/index.md) and [individual component pages](../design/autoware-interfaces/components/index.md) should also be reviewed to understand the inputs and outputs for each component or module at a more detailed level.
+For experienced developers, the [Autoware interfaces](../design/autoware-architecture-v1/interfaces/index.md) and [individual component pages](../design/autoware-architecture-v1/interfaces/components/index.md) should also be reviewed to understand the inputs and outputs for each component or module at a more detailed level.
 
 ### Contributing to open source projects
 

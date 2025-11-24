@@ -112,7 +112,7 @@ rm -rf build/ install/ log/
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
 
-If the error is not resolved, remove `src/` and update your workspace according to installation type ([Docker](../../installation/autoware/docker-installation.md#how-to-update-a-workspace) / [source](../../installation/autoware/source-installation.md#how-to-update-a-workspace)).
+If the error is not resolved, remove `src/` and update your workspace according to installation type ([Docker](../../installation/autoware/docker-installation.md#to-update-the-workspace) / [source](../../installation/autoware/source-installation.md#how-to-update-a-workspace)).
 
 !!! Warning
 
@@ -192,7 +192,7 @@ If you have any of these symptoms, please the [Performance Troubleshooting](perf
 
 ### Map does not display when running the Planning Simulator
 
-When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because [the map path has not been specified correctly in the launch command](../../tutorials/ad-hoc-simulation/planning-simulation.md#how-to-run-a-planning-simulation). You can confirm if this is the case by searching for `Could not find lanelet map under {path-to-map-dir}/lanelet2_map.osm` errors in the log.
+When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because [the map path has not been specified correctly in the launch command](../../demos/planning-simulation.md#lane-driving-scenario). You can confirm if this is the case by searching for `Could not find lanelet map under {path-to-map-dir}/lanelet2_map.osm` errors in the log.
 
 Another possible reason is that map loading is taking a long time due to poor DDS performance. For this, please visit the [Performance Troubleshooting](performance-troubleshooting.md) page.
 

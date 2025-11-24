@@ -1,6 +1,6 @@
 nav:
-  - index.md
-  - autoware-concepts
-  - autoware-architecture
-  - autoware-interfaces
-  - configuration-management
+  - Concepts: autoware-concepts
+  - Architecture 1.0: autoware-architecture-v1
+  - Architecture 2.0: autoware-architecture-v2
+  - Versioning & Repositories: versioning_and_repositories
+  - autoware-system-capabilities.md
