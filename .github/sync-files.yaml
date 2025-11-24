@@ -11,7 +11,6 @@
     - source: .github/pull_request_template.md
     - source: .github/stale.yml
     - source: .github/workflows/comment-on-pr.yaml
-    - source: .github/workflows/github-release.yaml
     - source: .github/workflows/pre-commit-optional.yaml
     - source: .github/workflows/semantic-pull-request.yaml
     - source: .github/workflows/spell-check-differential.yaml
