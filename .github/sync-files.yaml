@@ -25,6 +25,8 @@
               "pattern": "^http://localhost"' \
           {source}
     - source: .markdownlint.yaml
+      pre-commands: |
+        sd 'MD059: false' 'MD059: false\nMD060: false' {source}
     - source: .pre-commit-config.yaml
       pre-commands: |
         sd -f s \
