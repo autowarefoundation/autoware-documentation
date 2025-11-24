@@ -26,6 +26,10 @@
           {source}
     - source: .markdownlint.yaml
     - source: .pre-commit-config.yaml
+      pre-commands: |
+        sd -f s \
+        '  - repo: https://github.com/autowarefoundation/autoware-guideline-check\n(.|\n)*?\n  - repo: ' \
+        '  - repo: ' {source}
     - source: .pre-commit-config-optional.yaml
     - source: .prettierignore
     - source: .prettierrc.yaml
