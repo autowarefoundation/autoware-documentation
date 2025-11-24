@@ -11,7 +11,6 @@
     - source: .github/pull_request_template.md
     - source: .github/stale.yml
     - source: .github/workflows/comment-on-pr.yaml
-    - source: .github/workflows/github-release.yaml
     - source: .github/workflows/pre-commit-optional.yaml
     - source: .github/workflows/semantic-pull-request.yaml
     - source: .github/workflows/spell-check-differential.yaml
@@ -26,7 +25,13 @@
               "pattern": "^http://localhost"' \
           {source}
     - source: .markdownlint.yaml
+      pre-commands: |
+        sd 'MD059: false' 'MD059: false\nMD060: false' {source}
     - source: .pre-commit-config.yaml
+      pre-commands: |
+        sd -f s \
+        '  - repo: https://github.com/autowarefoundation/autoware-guideline-check\n(.|\n)*?\n  - repo: ' \
+        '  - repo: ' {source}
     - source: .pre-commit-config-optional.yaml
     - source: .prettierignore
     - source: .prettierrc.yaml
