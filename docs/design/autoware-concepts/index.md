@@ -21,8 +21,6 @@ This architecture is made possible through collaboration with AWF partners, who 
 
 ![generator-selector-simple.svg](images/generator-selector-simple.svg)
 
-
-
 ## 🌌 Core & Universe repository model
 
 Autoware consists of packages managed by the Autoware Foundation as well as open-source contributions outside the foundation.
