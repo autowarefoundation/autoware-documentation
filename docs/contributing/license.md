@@ -1,7 +1,9 @@
 # License
 
+Also see: [🔗 Open Source Philosophy](open-source-philosophy.md).
+
 Autoware is licensed under Apache License 2.0.
-Thus all contributions will be licensed as such as per clause 5 of the Apache License 2.0:
+Thus, all contributions will be licensed as such as per clause 5 of the Apache License 2.0:
 
 ```text
 5. Submission of Contributions. Unless You explicitly state otherwise,
