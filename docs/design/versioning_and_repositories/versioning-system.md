@@ -1,4 +1,4 @@
-# Configuration management
+# Versioning system
 
 !!! warning
 

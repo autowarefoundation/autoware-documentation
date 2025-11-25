@@ -37,7 +37,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Deploy docs
-        uses: autowarefoundation/autoware-github-actions/deploy-docs@v1
+        uses: autowarefoundation/autoware-github-actions/deploy-docs@chore/update-deploy-docs
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           latest: false
