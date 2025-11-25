@@ -21,6 +21,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-702/contributing/open-source-philosophy/</loc>
+         <lastmod>2025-11-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-702/contributing/coding-guidelines/</loc>
          <lastmod>2025-11-25</lastmod>
          <changefreq>daily</changefreq>
@@ -231,7 +236,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-702/demos/scenario-simulation/rosbag-replay-simulation/driving-log-replayer/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-702/demos/scenario-simulation/driving-log-replayer/</loc>
          <lastmod>2025-11-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -252,6 +257,11 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-702/design/</loc>
+         <lastmod>2025-11-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-702/design/autoware-system-capabilities/</loc>
          <lastmod>2025-11-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
