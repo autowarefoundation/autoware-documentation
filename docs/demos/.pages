@@ -1,0 +1,6 @@
+nav:
+  - index.md
+  - digital-twin-simulation
+  - planning-simulation
+  - rosbag-replay-simulation
+  - scenario-simulation

@@ -1,7 +1,8 @@
 nav:
   - Introduction: index.md
   - installation
-  - Demos & Simulation: demos_and_simulation
+  - Demos: demos
+  - Evaluation & Simulation: evaluation_and_simulation
   - tutorials
   - design
   - roadmap
