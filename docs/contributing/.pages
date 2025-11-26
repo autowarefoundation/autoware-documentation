@@ -1,5 +1,6 @@
 nav:
   - index.md
+  - open-source-philosophy.md
   - license.md
   - coding-guidelines
   - testing-guidelines

@@ -7,7 +7,7 @@ Please remember,
 Autoware control output (/control/command/control_cmd)
 publishes lateral and longitudinal commands according to the Ackermann kinematic model.
 
-- If your vehicle does not suit the Ackermann kinematic model, you have to modify the control commands. [Another document gives you an example how to convert your Ackermann kinematic model control inputs into a differential drive model.](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/customizing-for-differential-drive-model/)
+- If your vehicle does not suit the Ackermann kinematic model, you have to modify the control commands. [Another document gives you an example how to convert your Ackermann kinematic model control inputs into a differential drive model.](customizing-for-differential-drive-model.md)
 
 ## Geometry
 

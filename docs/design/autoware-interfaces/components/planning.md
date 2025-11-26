@@ -76,7 +76,7 @@ This page provides specific specifications about the Interface of the Planning C
 
 ## Planning internal interface
 
-This section explains the communication between the different planning modules shown in the [Planning Architecture Design](../../autoware-architecture/planning/index.md#high-level-architecture).
+This section explains the communication between the different planning modules shown in the [Planning Architecture Design](../../autoware-architecture/planning/index.md#high-level-design).
 
 ![planning-internal](images/planning-interface-internal.drawio.svg)
 

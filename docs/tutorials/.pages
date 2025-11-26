@@ -1,5 +1,5 @@
 nav:
   - index.md
-  - ad-hoc-simulation
-  - scenario-simulation
-  - components_evaluation
+  - Integrating Autoware: integrating-autoware
+  - Training Machine Learning Models: training-machine-learning-models
+  - others

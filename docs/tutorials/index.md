@@ -1,62 +1,27 @@
 # Tutorials
 
-## Quick start guides
+## Integrating Autoware
 
-This is a quick start guide to experience Autoware. See the sections below for detailed tutorials for different purposes.
+- [Overview](integrating-autoware/overview.md)
 
-- [Autoware Core digital twin simulation with AWSIM](./quick-start/autoware-core-awsim/index.md)
+## Training Machine Learning Models
 
-## Simulation tutorials
+- [Training and Deploying Models](training-machine-learning-models/training-models.md)
 
-Simulations provide a way of verifying Autoware's functionality before field testing with an actual vehicle.
-There are three main types of simulation that can be run ad hoc or via a scenario runner.
+## Others
 
-### Simulation methods
+- [Debug Autoware](others/debug-autoware.md)
+- [Running Autoware without CUDA](others/running-autoware-without-cuda.md)
+- [Fixing dependent package versions](others/fixing-dependent-package-versions.md)
+- [Add a custom ROS message](others/add-a-custom-ros-message.md)
+- [Determining component dependencies](others/determining-component-dependencies.md)
+- [Advanced usage of colcon](others/advanced-usage-of-colcon.md)
+- [Applying Clang-Tidy to ROS packages](others/applying-clang-tidy-to-ros-packages.md)
+- [Defining temporal performance metrics on components](others/defining-temporal-performance-metrics.md)
+- [An example procedure for adding and evaluating a new node](others/an-example-procedure-for-adding-and-evaluating-a-new-node.md)
+- [Lane Detection Methods](others/lane-detection-methods.md)
 
-#### Ad hoc simulation
+TODO: Write the following contents.
 
-Ad hoc simulation is a flexible method for running basic simulations on your local machine, and is the recommended method for anyone new to Autoware.
-
-#### Scenario simulation
-
-Scenario simulation uses a scenario runner to run more complex simulations based on predefined scenarios.
-It is often run automatically for continuous integration purposes, but can also be run on a local machine.
-
-### Simulation types
-
-#### Planning simulation
-
-Planning simulation uses simple dummy data to test the Planning and Control components - specifically path generation, path following and obstacle avoidance. It verifies that a vehicle can reach a goal destination while avoiding pedestrians and surrounding cars, and is another method for verifying the validity of Lanelet2 maps. It also allows for testing of traffic light handling.
-
-##### How does planning simulation work?
-
-1. Generate a path to the goal destination
-2. Control the car along the generated path
-3. Detect and avoid any humans or other vehicles on the way to the goal destination
-
-#### Rosbag replay simulation
-
-Rosbag replay simulation uses prerecorded rosbag data to test the following aspects of the Localization and Perception components:
-
-- Localization: Estimation of the vehicle's location on the map by matching sensor and vehicle feedback data to the map.
-- Perception: Using sensor data to detect, track and predict dynamic objects such as surrounding cars, pedestrians, and other objects
-
-By repeatedly playing back the data, this simulation type can also be used for endurance testing.
-
-#### Digital twin simulation
-
-Digital twin simulation is a simulation type that is able to produce realistic data and simulate almost the entire system. It is also commonly referred to as end-to-end simulation.
-
-## Evaluation Tutorials
-
-### Components Evaluation
-
-Components evaluation tutorials provide a way to evaluate the performance of Autoware's components in a controlled environment.
-
-#### Localization Evaluation
-
-The Localization Evaluation tutorial provides a way to evaluate the performance of the Localization component.
-
-##### Urban Environment Evaluation
-
-The Urban Environment Evaluation tutorial provides a way to evaluate the performance of the Localization component in urban environment. It uses the [Istanbul Open Dataset](https://autowarefoundation.github.io/autoware-documentation/main/datasets/#istanbul-open-dataset) for testing. Test data, map, test steps are included. Test results are also shared.
+- Create an Autoware package
+- etc.

@@ -28,7 +28,7 @@ The Autoware Foundation provides no support on other platforms than those listed
 - 16GB RAM
 - [Optional] NVIDIA GPU (4GB RAM)
 
-For details of how to enable object detection and traffic light detection/classification without a GPU, refer to the [Running Autoware without CUDA](../how-to-guides/others/running-autoware-without-cuda.md).
+For details of how to enable object detection and traffic light detection/classification without a GPU, refer to the [Running Autoware without CUDA](../tutorials/others/running-autoware-without-cuda.md).
 
 ## Installing Autoware
 

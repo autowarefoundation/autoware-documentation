@@ -3,4 +3,5 @@ nav:
   - autoware-concepts
   - autoware-architecture
   - autoware-interfaces
-  - configuration-management
+  - Versioning & Repositories: versioning_and_repositories
+  - autoware-system-capabilities.md
