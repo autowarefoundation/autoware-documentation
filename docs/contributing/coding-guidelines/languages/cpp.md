@@ -13,7 +13,7 @@ Follow the guidelines below if a rule is not defined on this page.
 3. <https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines>
 
 Also, it is encouraged to apply Clang-Tidy to each file.
-For the usage, see [Applying Clang-Tidy to ROS packages](../../../how-to-guides/others/applying-clang-tidy-to-ros-packages.md).
+For the usage, see [Applying Clang-Tidy to ROS packages](../../../tutorials/others/applying-clang-tidy-to-ros-packages.md).
 
 Note that not all rules are covered by Clang-Tidy.
 

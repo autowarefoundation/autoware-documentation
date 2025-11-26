@@ -2,8 +2,8 @@
 
 ## Digital twin demos (End to end simulation)
 
-- [🔗 AWSIM Full Demo](digital-twin-simulation/awsim-tutorial.md)
-- [🔗 AWSIM with Autoware Core Demo](digital-twin-simulation/autoware-core-awsim/index.md)
+- [🔗 AWSIM Full Demo](digital-twin-demos/awsim-tutorial.md)
+- [🔗 AWSIM with Autoware Core Demo](digital-twin-demos/autoware-core-awsim/index.md)
 
 **Tests:**
 
@@ -55,7 +55,7 @@
 
 ## Scenario simulator v2 demo
 
-[🔗 Scenario Simulator v2 Demo](scenario-simulation)
+[🔗 Scenario Simulator v2 Demo](scenario-simulation/scenario-simulator/installation.md)
 
 **Tests:**
 
