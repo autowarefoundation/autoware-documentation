@@ -12679,7 +12679,7 @@
   <a href="#microautonomy-architecture-conceptual-overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🧩 Microautonomy Architecture: Conceptual Overview
+        Microautonomy Architecture: conceptual Overview
       
     </span>
   </a>
@@ -12690,12 +12690,12 @@
   <a href="#generator-selector-architecture-conceptual-overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔀 Generator - Selector architecture: Conceptual overview
+        Generator - Selector architecture: conceptual overview
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔀 Generator - Selector architecture: Conceptual overview">
+    <nav class="md-nav" aria-label="Generator - Selector architecture: conceptual overview">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -12720,17 +12720,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#what-this-enables" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What this enables
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -12740,12 +12729,12 @@
   <a href="#core-universe-repository-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🌌 Core &amp; Universe repository model
+        Core &amp; Universe repository model
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🌌 Core &amp; Universe repository model">
+    <nav class="md-nav" aria-label="Core &amp; Universe repository model">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -12868,17 +12857,17 @@
 <li><a href="../../contributing/open-source-philosophy/">Open Source Philosophy</a></li>
 <li><a href="../autoware-system-capabilities/">Autoware System Capabilities</a></li>
 </ul>
-<h2 id="microautonomy-architecture-conceptual-overview">🧩 Microautonomy Architecture: Conceptual Overview<a class="headerlink" href="#microautonomy-architecture-conceptual-overview" title="Permanent link">#</a></h2>
+<h2 id="microautonomy-architecture-conceptual-overview">Microautonomy Architecture: conceptual Overview<a class="headerlink" href="#microautonomy-architecture-conceptual-overview" title="Permanent link">#</a></h2>
 <p><strong>Microautonomy architecture</strong> is the way Autoware breaks down “autonomous driving” into many small, replaceable
 capabilities rather than one monolithic stack.
 Each capability (e.g., object detection, behavior planning, lane-level routing) is a module with clear inputs and
 outputs, so systems can be composed like building blocks for different vehicles and use cases.</p>
-<div class="admonition info">
+<div class="admonition question">
 <p class="admonition-title">What is <em>microautonomy architecture</em>?</p>
-</div>
 <p>In short, it’s a <strong>component-based autonomy design</strong> where driving behaviors are built by <em>composing many small autonomy
 modules</em> instead of relying on a single, fixed pipeline.
 This makes it easy to mix, match, and upgrade parts without rewriting the whole system.</p>
+</div>
 <p>Autoware’s modules are connected through well-defined interfaces, which allows you to <strong>swap or extend individual
 components</strong> while keeping the rest of the system intact. For example, you can replace the default object detection with
 a custom neural network specialized in construction cones, and the downstream tracking, planning, and control modules
@@ -12906,7 +12895,7 @@ still work as before.</p>
   ecosystem.</li>
 </ul>
 </div>
-<h2 id="generator-selector-architecture-conceptual-overview">🔀 Generator - Selector architecture: Conceptual overview<a class="headerlink" href="#generator-selector-architecture-conceptual-overview" title="Permanent link">#</a></h2>
+<h2 id="generator-selector-architecture-conceptual-overview">Generator - Selector architecture: conceptual overview<a class="headerlink" href="#generator-selector-architecture-conceptual-overview" title="Permanent link">#</a></h2>
 <p><img alt="generator-selector-simple.svg" src="images/generator-selector-simple.svg"></p>
 <p>Traditional autonomous driving follows a fixed pipeline:</p>
 <p><strong>Sensing → Perception → Localization → Planning → Trajectory</strong></p>
@@ -12928,18 +12917,20 @@ Multiple generators can run in parallel.</p>
 <li><strong>Safety-checks</strong> them (e.g., rule compliance, drivable area)</li>
 <li><strong>Ranks and selects</strong> the best one based on context or driving policies</li>
 </ul>
-<h3 id="what-this-enables">What this enables<a class="headerlink" href="#what-this-enables" title="Permanent link">#</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">This enables:</p>
 <ul>
 <li>Seamless integration of both robotics-based and E2E planners</li>
 <li>Safe use of black-box models through explicit checks</li>
 <li>Flexible experimentation with new planning methods</li>
 <li>Robust decision-making by comparing multiple trajectory proposals</li>
 </ul>
-<h2 id="core-universe-repository-model">🌌 Core &amp; Universe repository model<a class="headerlink" href="#core-universe-repository-model" title="Permanent link">#</a></h2>
+</div>
+<h2 id="core-universe-repository-model">Core &amp; Universe repository model<a class="headerlink" href="#core-universe-repository-model" title="Permanent link">#</a></h2>
 <p>Autoware’s software ecosystem is organized into two layers: <strong>Autoware Core</strong> and <strong>Autoware Universe</strong>.
 Together, they balance <strong>quality assurance</strong> with <strong>community-driven innovation</strong>.</p>
 <h3 id="autoware-core-the-quality-assured-base">Autoware Core: The quality-assured base<a class="headerlink" href="#autoware-core-the-quality-assured-base" title="Permanent link">#</a></h3>
-<p><strong>Autoware Core</strong> contains the foundational packages maintained by the Autoware Foundation (<abbr title="Autoware Foundation">AWF</abbr>).
+<p><a href="https://github.com/autowarefoundation/autoware_core"><strong>Autoware Core</strong></a> contains the foundational packages maintained by the Autoware Foundation (<abbr title="Autoware Foundation">AWF</abbr>).
 These packages follow strict development standards—unit tests, integration tests, performance validation, and on-vehicle testing.
 Core serves as the <strong>stable, production-ready platform</strong> that users can rely on for building autonomous driving systems.</p>
 <div class="admonition success">
@@ -12951,7 +12942,7 @@ Core serves as the <strong>stable, production-ready platform</strong> that users
 </ul>
 </div>
 <h3 id="autoware-universe-the-community-innovation-layer">Autoware Universe: The community innovation layer<a class="headerlink" href="#autoware-universe-the-community-innovation-layer" title="Permanent link">#</a></h3>
-<p><strong>Autoware Universe</strong> is a broader collection of open-source packages contributed by individuals, companies, and research groups.
+<p><a href="https://github.com/autowarefoundation/autoware_universe"><strong>Autoware Universe</strong></a> is a broader collection of open-source packages contributed by individuals, companies, and research groups.
 These packages are owned and maintained by their original authors, who set their own quality and development practices.</p>
 <p>Contributions can take two forms:</p>
 <ul>
@@ -12959,7 +12950,7 @@ These packages are owned and maintained by their original authors, who set their
 <li>hosted externally and listed as part of the Universe ecosystem.</li>
 </ul>
 <p>Universe acts as a <strong>sandbox for experimentation</strong>, allowing new ideas, algorithms, and hardware adaptations to be shared quickly.</p>
-<div class="admonition note">
+<div class="admonition example">
 <p class="admonition-title">Universe enables:</p>
 <ul>
 <li>Rapid prototyping and experimentation</li>

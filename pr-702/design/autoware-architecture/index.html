@@ -12676,10 +12676,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#microautonomy-architecture-structural-foundation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Introduction
+        Microautonomy architecture (structural foundation)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generatorselector-architecture-behavioral-execution-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generator–Selector architecture (behavioral execution model)
       
     </span>
   </a>
@@ -12690,7 +12701,46 @@
   <a href="#high-level-architecture-design" class="md-nav__link">
     <span class="md-ellipsis">
       
-        High-level architecture design
+        High-Level architecture design
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="High-Level architecture design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generators-flexible-trajectory-producers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generators: Flexible trajectory producers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selector-safety-and-final-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Selector: Safety and final decision
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoware-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoware components
       
     </span>
   </a>
@@ -12702,17 +12752,6 @@
     <span class="md-ellipsis">
       
         Node diagram
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
       
     </span>
   </a>
@@ -12806,41 +12845,93 @@
 
 
 <div><h1 id="architecture-overview">Architecture overview<a class="headerlink" href="#architecture-overview" title="Permanent link">#</a></h1>
-<p>This page describes the architecture of Autoware.</p>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
-<p>The current Autoware is defined to be a layered architecture that clarifies each module's role and simplifies the interface between them. By doing so:</p>
+<p>This page provides a high-level overview of the <strong>Autoware architecture</strong>, which is built on two complementary principles:</p>
 <ul>
-<li>Autoware's internal processing becomes more transparent.</li>
-<li>Collaborative development is made easier because of the reduced interdependency between modules.</li>
-<li>Users can easily replace an existing module (e.g. localization) with their own software component by simply wrapping their software to fit in with Autoware's interface.</li>
+<li>the <strong>Microautonomy architecture</strong>, defining <em>how Autoware is constructed</em> as a set of small, composable modules</li>
+<li>the <strong>Generator–Selector architecture</strong>, defining <em>how Autoware makes driving decisions</em> using those modules</li>
 </ul>
-<p>Note that the initial focus of this architecture design was solely on driving capability, and so the following features were left as future work:</p>
+<p>Together, these principles enable Autoware to support a wide range of autonomous driving approaches—from classical robotics pipelines to modern learning-based planners—within a unified and consistent system.</p>
+<h2 id="microautonomy-architecture-structural-foundation">Microautonomy architecture (structural foundation)<a class="headerlink" href="#microautonomy-architecture-structural-foundation" title="Permanent link">#</a></h2>
+<p>Autoware follows a <strong>modular and composable <a href="../autoware-concepts/#microautonomy-architecture-conceptual-overview">microautonomy architecture</a></strong>.
+In this paradigm, the autonomy stack is built from many small, replaceable components, each with clear inputs and outputs.
+This ensures that:</p>
 <ul>
-<li>Fail safe</li>
-<li>Human Machine Interface</li>
-<li>Real-time processing</li>
-<li>Redundant system</li>
-<li>State monitoring system</li>
+<li><a href="#autoware-components">components</a> can be independently developed, swapped, or extended</li>
+<li>system integration remains stable even as modules evolve</li>
+<li>different vehicles and algorithms can share the same architectural framework</li>
 </ul>
-<h2 id="high-level-architecture-design">High-level architecture design<a class="headerlink" href="#high-level-architecture-design" title="Permanent link">#</a></h2>
-<p><img alt="Overview" src="image/autoware-architecture-overview.drawio.svg"></p>
-<p>Autoware's architecture consists of the following seven stacks. Each linked page contains a more detailed set of requirements and use cases specific to that stack:</p>
+<p>The microautonomy architecture defines <em>what the building blocks are</em> and <em>how they connect</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These building blocks include the domain-specific <a href="#autoware-components">components</a> listed later on this page: sensing, perception, localization, map, planning, control, and the vehicle interface.</p>
+</div>
+<h2 id="generatorselector-architecture-behavioral-execution-model">Generator–Selector architecture (behavioral execution model)<a class="headerlink" href="#generatorselector-architecture-behavioral-execution-model" title="Permanent link">#</a></h2>
+<p>While microautonomy defines the <em>components</em>, the <strong><a href="../autoware-concepts/#generator-selector-architecture-conceptual-overview">Generator–Selector architecture</a></strong> defines the <em>behavioral loop</em> that produces motion commands.</p>
+<p>Autoware’s runtime decision-making is organized around two key roles:</p>
 <ul>
-<li><a href="sensing/">Sensing design</a></li>
-<li><a href="map/">Map design</a></li>
-<li><a href="localization/">Localization design</a></li>
-<li><a href="perception/">Perception design</a></li>
-<li><a href="planning/">Planning design</a></li>
-<li><a href="control/">Control design</a></li>
-<li><a href="vehicle/">Vehicle Interface design</a></li>
+<li><strong>Generators</strong>, which propose candidate trajectories</li>
+<li><strong>The Selector</strong>, which validates and chooses the final trajectory</li>
 </ul>
+<p>This separation allows diverse planning strategies to coexist safely and consistently.</p>
+<h2 id="high-level-architecture-design">High-Level architecture design<a class="headerlink" href="#high-level-architecture-design" title="Permanent link">#</a></h2>
+<p><img src="../autoware-concepts/images/generator-selector-simple.svg" alt="Overview"></p>
+<p>Autoware’s autonomy loop operates through <strong>multiple trajectory Generators</strong> feeding into a <strong>Selector</strong> that determines the final motion command.</p>
+<h3 id="generators-flexible-trajectory-producers">Generators: Flexible trajectory producers<a class="headerlink" href="#generators-flexible-trajectory-producers" title="Permanent link">#</a></h3>
+<p>Generators are modular components that output possible trajectories for the vehicle.
+They may use:</p>
+<ul>
+<li>classical robotics-style pipelines (sensing → perception → localization → planning)</li>
+<li>optimization or sampling-based methods</li>
+<li>end-to-end or neural network approaches</li>
+<li>specialized domain planners for unique environments</li>
+</ul>
+<p>Because all Generators follow the same interface pattern, they can be freely added, replaced, or run in parallel.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Generators may reuse Autoware’s domain components such as: sensing, perception, maps, localization, and control—depending on their design.</p>
+</div>
+<h3 id="selector-safety-and-final-decision">Selector: Safety and final decision<a class="headerlink" href="#selector-safety-and-final-decision" title="Permanent link">#</a></h3>
+<p>The Selector receives all candidate trajectories and performs two primary functions:</p>
+<h4 id="safety-gate">Safety gate<a class="headerlink" href="#safety-gate" title="Permanent link">#</a></h4>
+<p>Each trajectory must pass checks for:</p>
+<ul>
+<li>drivable area compliance</li>
+<li>adherence to traffic rules</li>
+<li>obstacle avoidance</li>
+<li>system-level constraints</li>
+</ul>
+<p>This ensures safety even when using black-box or machine-learned Generators.</p>
+<h4 id="ranking-selection">Ranking &amp; selection<a class="headerlink" href="#ranking-selection" title="Permanent link">#</a></h4>
+<p>Among the valid trajectories, the Selector chooses the one that best satisfies the driving policy using criteria such as:</p>
+<ul>
+<li>safety margin</li>
+<li>comfort</li>
+<li>progress and efficiency</li>
+<li>scenario-specific behavior rules</li>
+</ul>
+<p>The selected trajectory is then sent to the control component for execution.</p>
+<h2 id="autoware-components">Autoware components<a class="headerlink" href="#autoware-components" title="Permanent link">#</a></h2>
+<p>Autoware’s microautonomy architecture organizes functionality into <strong>domain-specific components</strong>.
+Generators rely on these components as needed.</p>
+<p>The primary components include:</p>
+<ul>
+<li><a href="sensing/">Sensing</a></li>
+<li><a href="map/">Map</a></li>
+<li><a href="localization/">Localization</a></li>
+<li><a href="perception/">Perception</a></li>
+<li><a href="planning/">Planning</a></li>
+<li><a href="control/">Control</a></li>
+<li><a href="vehicle/">Vehicle Interface</a></li>
+</ul>
+<p>These components define responsibilities and interfaces that ensure consistent behavior across the system.
+Developers can replace or extend individual components without altering the architecture as a whole.</p>
 <h2 id="node-diagram">Node diagram<a class="headerlink" href="#node-diagram" title="Permanent link">#</a></h2>
-<p>A diagram showing Autoware's nodes in the default configuration can be found on the <a href="node-diagram/">Node diagram</a> page. Detailed documents for each node are available in the <a href="https://autowarefoundation.github.io/autoware_universe/main/">Autoware Universe docs</a>.</p>
-<p>Note that Autoware configurations are scalable / selectable and will vary depending on the environment and required use cases.</p>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">#</a></h2>
-<ul>
-<li><a href="https://discourse.ros.org/uploads/short-url/woUU7TGLPXFCTJLtht11rJ0SqCL.pdf">The architecture presentation given to the <abbr title="Autoware Foundation">AWF</abbr> Technical Steering Committee, March 2020</a></li>
-</ul>
+<p>A diagram of Autoware’s nodes in the default configuration is available on the <a href="node-diagram/">Node diagram</a> page.
+Configurations vary depending on which Generators and components are enabled and on the vehicle and sensor setup.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Detailed component and node-level documentation is available in the <a href="https://autowarefoundation.github.io/autoware_universe/main/">Autoware Universe documentation</a>.</p>
+</div>
 <!-- prettier-ignore --></div>
 
 
