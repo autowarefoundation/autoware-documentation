@@ -7,14 +7,14 @@ The concept of Autoware revolves around providing an open and flexible platform 
 - [Open Source Philosophy](../../contributing/open-source-philosophy.md)
 - [Autoware System Capabilities](../autoware-system-capabilities.md)
 
-## 🧩 Microautonomy Architecture: Conceptual Overview
+## Microautonomy Architecture: conceptual Overview
 
 **Microautonomy architecture** is the way Autoware breaks down “autonomous driving” into many small, replaceable
 capabilities rather than one monolithic stack.
 Each capability (e.g., object detection, behavior planning, lane-level routing) is a module with clear inputs and
 outputs, so systems can be composed like building blocks for different vehicles and use cases.
 
-!!! info "What is *microautonomy architecture*?"
+!!! question "What is *microautonomy architecture*?"
     In short, it’s a **component-based autonomy design** where driving behaviors are built by *composing many small autonomy
     modules* instead of relying on a single, fixed pipeline.
     This makes it easy to mix, match, and upgrade parts without rewriting the whole system.
@@ -43,7 +43,7 @@ At a high level, these interfaces come in two flavors:
     - Partners can **collaborate around shared, stable interfaces**, contributing components that plug into a common
       ecosystem.
 
-## 🔀 Generator - Selector architecture: Conceptual overview
+## Generator - Selector architecture: conceptual overview
 
 ![generator-selector-simple.svg](images/generator-selector-simple.svg)
 
@@ -74,21 +74,21 @@ The **Selector** receives candidate trajectories and:
 * **Safety-checks** them (e.g., rule compliance, drivable area)
 * **Ranks and selects** the best one based on context or driving policies
 
-### What this enables
+!!! tip "This enables:"
 
-* Seamless integration of both robotics-based and E2E planners
-* Safe use of black-box models through explicit checks
-* Flexible experimentation with new planning methods
-* Robust decision-making by comparing multiple trajectory proposals
+    * Seamless integration of both robotics-based and E2E planners
+    * Safe use of black-box models through explicit checks
+    * Flexible experimentation with new planning methods
+    * Robust decision-making by comparing multiple trajectory proposals
 
-## 🌌 Core & Universe repository model
+## Core & Universe repository model
 
 Autoware’s software ecosystem is organized into two layers: **Autoware Core** and **Autoware Universe**.
 Together, they balance **quality assurance** with **community-driven innovation**.
 
 ### Autoware Core: The quality-assured base
 
-**Autoware Core** contains the foundational packages maintained by the Autoware Foundation (AWF).
+[**Autoware Core**](https://github.com/autowarefoundation/autoware_core) contains the foundational packages maintained by the Autoware Foundation (AWF).
 These packages follow strict development standards—unit tests, integration tests, performance validation, and on-vehicle testing.
 Core serves as the **stable, production-ready platform** that users can rely on for building autonomous driving systems.
 
@@ -100,7 +100,7 @@ Core serves as the **stable, production-ready platform** that users can rely on 
 
 ### Autoware Universe: The community innovation layer
 
-**Autoware Universe** is a broader collection of open-source packages contributed by individuals, companies, and research groups.
+[**Autoware Universe**](https://github.com/autowarefoundation/autoware_universe) is a broader collection of open-source packages contributed by individuals, companies, and research groups.
 These packages are owned and maintained by their original authors, who set their own quality and development practices.
 
 Contributions can take two forms:
@@ -110,7 +110,7 @@ Contributions can take two forms:
 
 Universe acts as a **sandbox for experimentation**, allowing new ideas, algorithms, and hardware adaptations to be shared quickly.
 
-!!! note "Universe enables:"
+!!! example "Universe enables:"
 
     - Rapid prototyping and experimentation
     - A place for sharing specialized modules
