@@ -12676,10 +12676,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#microautonomy-architecture-conceptual-overview" class="md-nav__link">
+  <a href="#microautonomy-architecture-concepntual-overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Microautonomy Architecture: conceptual Overview
+        Microautonomy Architecture: concepNtual Overview
       
     </span>
   </a>
@@ -12857,17 +12857,16 @@
 <li><a href="../../contributing/open-source-philosophy/">Open Source Philosophy</a></li>
 <li><a href="../autoware-system-capabilities/">Autoware System Capabilities</a></li>
 </ul>
-<h2 id="microautonomy-architecture-conceptual-overview">Microautonomy Architecture: conceptual Overview<a class="headerlink" href="#microautonomy-architecture-conceptual-overview" title="Permanent link">#</a></h2>
+<h2 id="microautonomy-architecture-concepntual-overview">Microautonomy Architecture: concepNtual Overview<a class="headerlink" href="#microautonomy-architecture-concepntual-overview" title="Permanent link">#</a></h2>
 <p><strong>Microautonomy architecture</strong> is the way Autoware breaks down “autonomous driving” into many small, replaceable
 capabilities rather than one monolithic stack.
 Each capability (e.g., object detection, behavior planning, lane-level routing) is a module with clear inputs and
 outputs, so systems can be composed like building blocks for different vehicles and use cases.</p>
 <div class="admonition question">
 <p class="admonition-title">What is <em>microautonomy architecture</em>?</p>
-</div>
-<p>In short, it’s a <strong>component-based autonomy design</strong> where driving behaviors are built by <em>composing many small autonomy
-modules</em> instead of relying on a single, fixed pipeline.
+<p>In short, it’s a <strong>component-based autonomy design</strong> where driving behaviors are built by <em>composing many small autonomy modules</em> instead of relying on a single, fixed pipeline.
 This makes it easy to mix, match, and upgrade parts without rewriting the whole system.</p>
+</div>
 <p>Autoware’s modules are connected through well-defined interfaces, which allows you to <strong>swap or extend individual
 components</strong> while keeping the rest of the system intact. For example, you can replace the default object detection with
 a custom neural network specialized in construction cones, and the downstream tracking, planning, and control modules
@@ -12898,7 +12897,9 @@ still work as before.</p>
 <h2 id="generator-selector-architecture-conceptual-overview">Generator - Selector architecture: conceptual overview<a class="headerlink" href="#generator-selector-architecture-conceptual-overview" title="Permanent link">#</a></h2>
 <p><img alt="generator-selector-simple.svg" src="images/generator-selector-simple.svg"></p>
 <p>Traditional autonomous driving follows a fixed pipeline:</p>
+<blockquote>
 <p><strong>Sensing → Perception → Localization → Planning → Trajectory</strong></p>
+</blockquote>
 <p>This works well for rule-based planners, but newer approaches like E2E or diffusion models don’t fit neatly into that structure.
 They may skip or replace parts of the pipeline, making integration difficult.</p>
 <p>To support both classical and modern approaches, we <strong>abstracted away the front half of the pipeline</strong>.</p>
