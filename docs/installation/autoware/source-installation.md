@@ -107,7 +107,7 @@ sudo apt-get -y install git
    rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 
-3. [Install and set up ccache to speed up consecutive builds](../../how-to-guides/others/advanced-usage-of-colcon.md#using-ccache-to-speed-up-recompilation). _(optional but highly recommended)_
+3. [Install and set up ccache to speed up consecutive builds](../../tutorials/others/advanced-usage-of-colcon.md#using-ccache-to-speed-up-recompilation). _(optional but highly recommended)_
 
 4. Build the workspace.
 

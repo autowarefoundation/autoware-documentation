@@ -42,7 +42,7 @@ Open AD Kit offers two types of Docker image to let you get started with Autowar
 
 !!! info
 
-    GPU acceleration is required for some features such as object detection and traffic light detection/classification. For details of how to enable these features without a GPU, refer to the [Running Autoware without CUDA](../../how-to-guides/others/running-autoware-without-cuda.md).
+    GPU acceleration is required for some features such as object detection and traffic light detection/classification. For details of how to enable these features without a GPU, refer to the [Running Autoware without CUDA](../../tutorials/others/running-autoware-without-cuda.md).
 
 ## Quick Start
 
@@ -70,9 +70,9 @@ Here is an example of running the runtime container with a custom launch command
 
 Inside the container, run the Autoware tutorials by following these links:
 
-[Planning Simulation](../../tutorials/ad-hoc-simulation/planning-simulation.md)
+[Planning Simulation](../../demos/planning-simulation.md)
 
-[Rosbag Replay Simulation](../../tutorials/ad-hoc-simulation/rosbag-replay-simulation.md).
+[Rosbag Replay Simulation](../../demos/rosbag-replay-simulation.md).
 
 ## Deployment
 
@@ -131,33 +131,31 @@ Open AD Kit provides different deployment options for Autoware, so that you can 
 
    If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting/index.md#build-issues).
 
-> **To Update the Workspace**
->
-> ```bash
-> cd autoware
-> git pull
-> vcs import src < autoware.repos
->
-> # If you are using nightly repositories, also run the following command:
-> vcs import src < autoware-nightly.repos
->
-> vcs pull src
-> # Make sure all ros-$ROS_DISTRO-* packages are upgraded to their latest version
-> sudo apt update && sudo apt upgrade
-> rosdep update
-> rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
-> ```
->
-> It might be the case that dependencies imported via `vcs import` have been moved/removed.
-> VCStool does not currently handle those cases, so if builds fail after `vcs import`, cleaning
-> and re-importing all dependencies may be necessary:
->
-> ```bash
-> rm -rf src/*
-> vcs import src < autoware.repos
-> # If you are using nightly repositories, import them as well.
-> vcs import src < autoware-nightly.repos
-> ```
+#### To Update the Workspace
+
+```bash
+cd autoware
+git pull
+vcs import src < autoware.repos
+# If you are using nightly repositories, also run the following command:
+vcs import src < autoware-nightly.repos
+vcs pull src
+# Make sure all ros-$ROS_DISTRO-* packages are upgraded to their latest version
+sudo apt update && sudo apt upgrade
+rosdep update
+rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
+```
+
+It might be the case that dependencies imported via `vcs import` have been moved/removed.
+VCStool does not currently handle those cases, so if builds fail after `vcs import`, cleaning
+and re-importing all dependencies may be necessary:
+
+```bash
+rm -rf src/*
+vcs import src < autoware.repos
+# If you are using nightly repositories, import them as well.
+vcs import src < autoware-nightly.repos
+```
 
 ### Using VS Code remote containers for development
 
