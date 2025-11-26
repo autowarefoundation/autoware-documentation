@@ -7,7 +7,7 @@ The concept of Autoware revolves around providing an open and flexible platform 
 - [Open Source Philosophy](../../contributing/open-source-philosophy.md)
 - [Autoware System Capabilities](../autoware-system-capabilities.md)
 
-## Microautonomy Architecture: concepNtual Overview
+## Microautonomy Architecture: conceptual Overview
 
 **Microautonomy architecture** is the way Autoware breaks down “autonomous driving” into many small, replaceable
 capabilities rather than one monolithic stack.
