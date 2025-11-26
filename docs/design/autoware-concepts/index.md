@@ -7,16 +7,16 @@ The concept of Autoware revolves around providing an open and flexible platform 
 - [Open Source Philosophy](../../contributing/open-source-philosophy.md)
 - [Autoware System Capabilities](../autoware-system-capabilities.md)
 
-## Microautonomy Architecture: conceptual Overview
+## Microautonomy Architecture: concepNtual Overview
 
 **Microautonomy architecture** is the way Autoware breaks down “autonomous driving” into many small, replaceable
 capabilities rather than one monolithic stack.
 Each capability (e.g., object detection, behavior planning, lane-level routing) is a module with clear inputs and
 outputs, so systems can be composed like building blocks for different vehicles and use cases.
 
-!!! question "What is *microautonomy architecture*?"
-    In short, it’s a **component-based autonomy design** where driving behaviors are built by *composing many small autonomy
-    modules* instead of relying on a single, fixed pipeline.
+!!! question "What is _microautonomy architecture_?"
+
+    In short, it’s a **component-based autonomy design** where driving behaviors are built by _composing many small autonomy modules_ instead of relying on a single, fixed pipeline.
     This makes it easy to mix, match, and upgrade parts without rewriting the whole system.
 
 Autoware’s modules are connected through well-defined interfaces, which allows you to **swap or extend individual
@@ -32,8 +32,8 @@ still work as before.
 
 At a high level, these interfaces come in two flavors:
 
-* **Internal component interfaces** connect modules inside Autoware (e.g., perception → planning → control).
-* **External AD APIs** expose Autoware’s capabilities to the outside world (e.g., fleet management, cloud services,
+- **Internal component interfaces** connect modules inside Autoware (e.g., perception → planning → control).
+- **External AD APIs** expose Autoware’s capabilities to the outside world (e.g., fleet management, cloud services,
   infotainment).
 
 !!! success "Why this matters for developers and partners"
@@ -49,7 +49,7 @@ At a high level, these interfaces come in two flavors:
 
 Traditional autonomous driving follows a fixed pipeline:
 
-**Sensing → Perception → Localization → Planning → Trajectory**
+> **Sensing → Perception → Localization → Planning → Trajectory**
 
 This works well for rule-based planners, but newer approaches like E2E or diffusion models don’t fit neatly into that structure.
 They may skip or replace parts of the pipeline, making integration difficult.
@@ -60,9 +60,9 @@ To support both classical and modern approaches, we **abstracted away the front 
 
 A **Generator** is any module that outputs trajectories. It could be one or more:
 
-* rule-based or optimization planners using perception and maps
-* E2E models using raw sensor input
-* learned or sampling-based planners
+- rule-based or optimization planners using perception and maps
+- E2E models using raw sensor input
+- learned or sampling-based planners
 
 Generators can reuse Autoware’s sensing, perception, localization, and control. Or bypass them.
 Multiple generators can run in parallel.
@@ -71,8 +71,8 @@ Multiple generators can run in parallel.
 
 The **Selector** receives candidate trajectories and:
 
-* **Safety-checks** them (e.g., rule compliance, drivable area)
-* **Ranks and selects** the best one based on context or driving policies
+- **Safety-checks** them (e.g., rule compliance, drivable area)
+- **Ranks and selects** the best one based on context or driving policies
 
 !!! tip "This enables:"
 
@@ -105,8 +105,8 @@ These packages are owned and maintained by their original authors, who set their
 
 Contributions can take two forms:
 
-* merged directly into the Universe repository hosted by AWF, or
-* hosted externally and listed as part of the Universe ecosystem.
+- merged directly into the Universe repository hosted by AWF, or
+- hosted externally and listed as part of the Universe ecosystem.
 
 Universe acts as a **sandbox for experimentation**, allowing new ideas, algorithms, and hardware adaptations to be shared quickly.
 
