@@ -12864,10 +12864,10 @@ Each capability (e.g., object detection, behavior planning, lane-level routing) 
 outputs, so systems can be composed like building blocks for different vehicles and use cases.</p>
 <div class="admonition question">
 <p class="admonition-title">What is <em>microautonomy architecture</em>?</p>
+</div>
 <p>In short, it’s a <strong>component-based autonomy design</strong> where driving behaviors are built by <em>composing many small autonomy
 modules</em> instead of relying on a single, fixed pipeline.
 This makes it easy to mix, match, and upgrade parts without rewriting the whole system.</p>
-</div>
 <p>Autoware’s modules are connected through well-defined interfaces, which allows you to <strong>swap or extend individual
 components</strong> while keeping the rest of the system intact. For example, you can replace the default object detection with
 a custom neural network specialized in construction cones, and the downstream tracking, planning, and control modules
