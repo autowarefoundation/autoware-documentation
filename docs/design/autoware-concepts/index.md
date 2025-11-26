@@ -7,26 +7,118 @@ The concept of Autoware revolves around providing an open and flexible platform 
 - [Open Source Philosophy](../../contributing/open-source-philosophy.md)
 - [Autoware System Capabilities](../autoware-system-capabilities.md)
 
-## 🧩 Microautonomy architecture: Conceptual overview
+## 🧩 Microautonomy Architecture: Conceptual Overview
 
-Autoware is designed with a **modular** and **flexible** architecture, enabling seamless adaptation to a wide range of requirements and use cases. Its well-defined interface design facilitates efficient inter-component communication, allowing for the smooth integration of new features and functionalities.
+**Microautonomy architecture** is the way Autoware breaks down “autonomous driving” into many small, replaceable
+capabilities rather than one monolithic stack.
+Each capability (e.g., object detection, behavior planning, lane-level routing) is a module with clear inputs and
+outputs, so systems can be composed like building blocks for different vehicles and use cases.
 
-For instance, users can replace the default object detection module with a custom neural network tailored for specific tasks, such as identifying construction cones in a work zone. This ability to swap or enhance individual modules without disrupting the rest of the system underscores Autoware’s flexibility and robustness.
+!!! info "What is *microautonomy architecture*?"
+    In short, it’s a **component-based autonomy design** where driving behaviors are built by *composing many small autonomy
+    modules* instead of relying on a single, fixed pipeline.
+    This makes it easy to mix, match, and upgrade parts without rewriting the whole system.
 
-At the core of the microautonomy architecture is its interface design, which is categorized into internal and external interfaces. Internal [**Component Interfaces**](../autoware-interfaces/components/) connect components across different modules within Autoware, facilitating coordinated behavior. External interfaces called [**Autonomous Driving (AD) API**](../autoware-interfaces/ad-api/) expose Autoware’s capabilities to external applications, such as infotainment systems and cloud services.
+Autoware’s modules are connected through well-defined interfaces, which allows you to **swap or extend individual
+components** while keeping the rest of the system intact. For example, you can replace the default object detection with
+a custom neural network specialized in construction cones, and the downstream tracking, planning, and control modules
+still work as before.
 
-This architecture is made possible through collaboration with AWF partners, who both contribute to and benefit from the clearly defined and standardized interfaces.
+!!! example "Composability example"
 
-## 🔀 Generator - selector architecture: Conceptual overview
+    - Start with the default perception pipeline
+    - Plug in a dedicated detector for special targets (e.g., cones, forklifts)
+    - Keep the same planner and controller. They just see “objects”, regardless of how they were detected
+
+At a high level, these interfaces come in two flavors:
+
+* **Internal component interfaces** connect modules inside Autoware (e.g., perception → planning → control).
+* **External AD APIs** expose Autoware’s capabilities to the outside world (e.g., fleet management, cloud services,
+  infotainment).
+
+!!! success "Why this matters for developers and partners"
+
+    - You can **reuse** core Autoware modules and only customize what’s unique to your product.
+    - You can **incrementally evolve** your stack (swap one module at a time).
+    - Partners can **collaborate around shared, stable interfaces**, contributing components that plug into a common
+      ecosystem.
+
+## 🔀 Generator - Selector architecture: Conceptual overview
 
 ![generator-selector-simple.svg](images/generator-selector-simple.svg)
 
+Traditional autonomous driving follows a fixed pipeline:
+
+**Sensing → Perception → Localization → Planning → Trajectory**
+
+This works well for rule-based planners, but newer approaches like E2E or diffusion models don’t fit neatly into that structure.
+They may skip or replace parts of the pipeline, making integration difficult.
+
+To support both classical and modern approaches, we **abstracted away the front half of the pipeline**.
+
+### Generators: Flexible trajectory producers
+
+A **Generator** is any module that outputs trajectories. It could be one or more:
+
+* rule-based or optimization planners using perception and maps
+* E2E models using raw sensor input
+* learned or sampling-based planners
+
+Generators can reuse Autoware’s sensing, perception, localization, and control. Or bypass them.
+Multiple generators can run in parallel.
+
+### Selector: Safety + final choice
+
+The **Selector** receives candidate trajectories and:
+
+* **Safety-checks** them (e.g., rule compliance, drivable area)
+* **Ranks and selects** the best one based on context or driving policies
+
+### What this enables
+
+* Seamless integration of both robotics-based and E2E planners
+* Safe use of black-box models through explicit checks
+* Flexible experimentation with new planning methods
+* Robust decision-making by comparing multiple trajectory proposals
+
 ## 🌌 Core & Universe repository model
 
-Autoware consists of packages managed by the Autoware Foundation as well as open-source contributions outside the foundation.
+Autoware’s software ecosystem is organized into two layers: **Autoware Core** and **Autoware Universe**.
+Together, they balance **quality assurance** with **community-driven innovation**.
 
-The packages maintained by the Autoware Foundation (AWF) are referred to as **Autoware Core**, and maintained under the AWF GitHub organization. These packages are developed and released according to quality standards set by AWF, which include unit tests, integration tests, and real-world testing. The users are expected to use the Core packages as the base platform for their autonomous driving systems.
+### Autoware Core: The quality-assured base
 
-In contrast, **Autoware Universe** is a collection of OSS packages that are independently developed and maintained by external individuals, companies, and research institutions. These packages are owned and managed by their original authors, who follow their own criteria for code quality and functionality. Authors have the option to either directly merge their contributions into the Autoware Universe repository hosted by the Autoware Foundation or register their own repositories as part of the Universe repository list. Autoware Universe packages may be ported to Autoware Core if their functionality and maturity are recognized by the Autoware Foundation.
+**Autoware Core** contains the foundational packages maintained by the Autoware Foundation (AWF).
+These packages follow strict development standards—unit tests, integration tests, performance validation, and on-vehicle testing.
+Core serves as the **stable, production-ready platform** that users can rely on for building autonomous driving systems.
 
-With this two-tier package management, the Autoware Foundation ensures a quality-assured base platform by Autoware Core, while also fostering a collaborative ecosystem where third-party developers can easily share their contributions with the community under Autoware Universe.
+!!! success "Core provides:"
+
+    - A vetted, reliable foundation
+    - Consistent APIs and behavior
+    - Maintained, tested, and versioned releases
+
+### Autoware Universe: The community innovation layer
+
+**Autoware Universe** is a broader collection of open-source packages contributed by individuals, companies, and research groups.
+These packages are owned and maintained by their original authors, who set their own quality and development practices.
+
+Contributions can take two forms:
+
+* merged directly into the Universe repository hosted by AWF, or
+* hosted externally and listed as part of the Universe ecosystem.
+
+Universe acts as a **sandbox for experimentation**, allowing new ideas, algorithms, and hardware adaptations to be shared quickly.
+
+!!! note "Universe enables:"
+
+    - Rapid prototyping and experimentation
+    - A place for sharing specialized modules
+    - An entry point for contributions from the global community
+
+Promising packages from Autoware Universe may be **adopted into Autoware Core** when they demonstrate sufficient maturity, stability, and usefulness.
+This creates a natural pipeline from innovation → standardization → production.
+
+!!! info
+
+    Find more details in [🔗 Repository Structure](../versioning_and_repositories/repository-structure.md) documentation.
