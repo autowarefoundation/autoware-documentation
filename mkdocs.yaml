@@ -68,7 +68,7 @@ markdown_extensions:
   - attr_list
   - codehilite:
       guess_lang: false
-  - fontawesome_markdown
+  - fontawesome_in_markdown
   - footnotes
   - md_in_html
   - mdx_math
