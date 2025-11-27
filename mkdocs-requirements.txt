@@ -1,0 +1,17 @@
+fontawesome-in-markdown
+markdown
+mdx_truly_sane_lists
+mkdocs
+mkdocs-awesome-pages-plugin==2.9.1
+mkdocs-exclude
+mkdocs-macros-plugin
+mkdocs-material
+mkdocs-same-dir
+mkdocs-static-i18n
+mkdocs-video
+mike
+pathspec
+plantuml-markdown==3.10.4
+pymdown-extensions
+python-markdown-math
+tabulate
