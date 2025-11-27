@@ -51,7 +51,7 @@ Each interface type requires different components to be implemented or configure
 ### Calibration
 
 Calibration may be required to calculate the camera intrinsic parameters for some use cases, such as 3D to 2D projection (performed during traffic light recognition) and rectification.
-For the calibration procedure, please refer to the documentation [here](/autoware-documentation/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors/intrinsic-camera-calibration/) for more details.
+For the calibration procedure, please refer to the documentation [here](../../integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors/intrinsic-camera-calibration/index.md) for more details.
 
 ### Time synchronization
 

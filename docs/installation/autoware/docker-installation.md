@@ -131,33 +131,33 @@ Open AD Kit provides different deployment options for Autoware, so that you can 
 
    If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting/index.md#build-issues).
 
-> **To Update the Workspace**
->
-> ```bash
-> cd autoware
-> git pull
-> vcs import src < autoware.repos
->
-> # If you are using nightly repositories, also run the following command:
-> vcs import src < autoware-nightly.repos
->
-> vcs pull src
-> # Make sure all ros-$ROS_DISTRO-* packages are upgraded to their latest version
-> sudo apt update && sudo apt upgrade
-> rosdep update
-> rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
-> ```
->
-> It might be the case that dependencies imported via `vcs import` have been moved/removed.
-> VCStool does not currently handle those cases, so if builds fail after `vcs import`, cleaning
-> and re-importing all dependencies may be necessary:
->
-> ```bash
-> rm -rf src/*
-> vcs import src < autoware.repos
-> # If you are using nightly repositories, import them as well.
-> vcs import src < autoware-nightly.repos
-> ```
+### Update the Workspace
+
+```bash
+cd autoware
+git pull
+vcs import src < autoware.repos
+
+# If you are using nightly repositories, also run the following command:
+vcs import src < autoware-nightly.repos
+
+vcs pull src
+# Make sure all ros-$ROS_DISTRO-* packages are upgraded to their latest version
+sudo apt update && sudo apt upgrade
+rosdep update
+rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
+```
+
+It might be the case that dependencies imported via `vcs import` have been moved/removed.
+VCStool does not currently handle those cases, so if builds fail after `vcs import`, cleaning
+and re-importing all dependencies may be necessary:
+
+```bash
+rm -rf src/*
+vcs import src < autoware.repos
+# If you are using nightly repositories, import them as well.
+vcs import src < autoware-nightly.repos
+```
 
 ### Using VS Code remote containers for development
 
