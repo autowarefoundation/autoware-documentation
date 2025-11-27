@@ -13075,7 +13075,7 @@ However, this also means that the build process takes longer.</p>
 <div class="highlight"><pre><span></span><code>rm<span class="w"> </span>-rf<span class="w"> </span>build/<span class="w"> </span>install/<span class="w"> </span>log/
 colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </code></pre></div>
-<p>If the error is not resolved, remove <code>src/</code> and update your workspace according to installation type (<a href="../../installation/autoware/docker-installation/#how-to-update-a-workspace">Docker</a> / <a href="../../installation/autoware/source-installation/#how-to-update-a-workspace">source</a>).</p>
+<p>If the error is not resolved, remove <code>src/</code> and update your workspace according to installation type (<a href="../../installation/autoware/docker-installation/#update-the-workspace">Docker</a> / <a href="../../installation/autoware/source-installation/#how-to-update-a-workspace">source</a>).</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Before removing <code>src/</code>, confirm that there are no modifications in your local environment that you want to keep!</p>
@@ -13138,7 +13138,7 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
 </ul>
 <p>If you have any of these symptoms, please the <a href="performance-troubleshooting/">Performance Troubleshooting</a> page.</p>
 <h3 id="map-does-not-display-when-running-the-planning-simulator">Map does not display when running the Planning Simulator<a class="headerlink" href="#map-does-not-display-when-running-the-planning-simulator" title="Permanent link">#</a></h3>
-<p>When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because <a href="../../tutorials/ad-hoc-simulation/planning-simulation/#how-to-run-a-planning-simulation">the map path has not been specified correctly in the launch command</a>. You can confirm if this is the case by searching for <code>Could not find lanelet map under {path-to-map-dir}/lanelet2_map.osm</code> errors in the log.</p>
+<p>When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because <a href="../../tutorials/ad-hoc-simulation/planning-simulation/#lane-driving-scenario">the map path has not been specified correctly in the launch command</a>. You can confirm if this is the case by searching for <code>Could not find lanelet map under {path-to-map-dir}/lanelet2_map.osm</code> errors in the log.</p>
 <p>Another possible reason is that map loading is taking a long time due to poor DDS performance. For this, please visit the <a href="performance-troubleshooting/">Performance Troubleshooting</a> page.</p>
 <h3 id="died-process-issues">Died process issues<a class="headerlink" href="#died-process-issues" title="Permanent link">#</a></h3>
 <p>Some modules may not be launched properly at runtime, and you may see "process has died" in your terminal.
