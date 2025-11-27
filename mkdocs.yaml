@@ -11,11 +11,15 @@ theme:
     - navigation.expand
     - navigation.indexes
     - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.path
     - navigation.sections
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
     - navigation.footer
+    - navigation.tracking
   favicon: assets/images/autoware-foundation.png
   icon:
     logo: fontawesome/solid/car
