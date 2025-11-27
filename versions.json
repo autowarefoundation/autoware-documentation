@@ -78,5 +78,10 @@
     "version": "fix-toggle",
     "title": "fix-toggle",
     "aliases": []
+  },
+  {
+    "version": "build-fix-warnings-update",
+    "title": "build-fix-warnings-update",
+    "aliases": []
   }
 ]
