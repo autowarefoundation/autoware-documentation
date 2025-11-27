@@ -85,6 +85,11 @@
     "aliases": []
   },
   {
+    "version": "chore-pymdownx-emoji",
+    "title": "chore-pymdownx-emoji",
+    "aliases": []
+  },
+  {
     "version": "build-fix-warnings-update",
     "title": "build-fix-warnings-update",
     "aliases": []
