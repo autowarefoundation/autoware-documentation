@@ -20,9 +20,9 @@ Autoware is the world’s leading open-source project dedicated to autonomous dr
 
 ### Dive Deeper
 
-**Hands-on Experience**: After installation, head over to the [Tutorials](demos/index.md) pages. These tutorials are designed to provide you with hands-on experience with some simulations, allowing you to apply what you've learned and gain practical skills. From basic operations to advanced applications, these tutorials cover a wide range of topics to enhance your understanding of Autoware.
+**Hands-on Experience**: After installation, head over to the [Demos](demos/index.md) pages. These tutorials are designed to provide you with hands-on experience with some simulations, allowing you to apply what you've learned and gain practical skills. From basic operations to advanced applications, these tutorials cover a wide range of topics to enhance your understanding of Autoware.
 
-**Advanced Topics**: As you become more familiar with Autoware, the [How-to Guides](how-to-guides/index.md) will be your next destination. These pages delve into more advanced topics, offering deeper insights and more complex scenarios. They're perfect for those looking to expand their knowledge and expertise in specific areas of Autoware. Additionally, this section also covers methods for integrating Autoware with real vehicles, providing practical guidance for those seeking to apply Autoware in real-world settings.
+**Advanced Topics**: As you become more familiar with Autoware, the [Tutorials](tutorials/index.md) will be your next destination. These pages delve into more advanced topics, offering deeper insights and more complex scenarios. They're perfect for those looking to expand their knowledge and expertise in specific areas of Autoware. Additionally, this section also covers methods for integrating Autoware with real vehicles, providing practical guidance for those seeking to apply Autoware in real-world settings.
 
 ### Understand the Design
 
