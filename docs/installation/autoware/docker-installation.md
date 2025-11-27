@@ -70,9 +70,9 @@ Here is an example of running the runtime container with a custom launch command
 
 Inside the container, run the Autoware tutorials by following these links:
 
-[Planning Simulation](../../tutorials/ad-hoc-simulation/planning-simulation.md)
+[Planning Simulation](../../demos/ad-hoc-simulation/planning-simulation.md)
 
-[Rosbag Replay Simulation](../../tutorials/ad-hoc-simulation/rosbag-replay-simulation.md).
+[Rosbag Replay Simulation](../../demos/ad-hoc-simulation/rosbag-replay-simulation.md).
 
 ## Deployment
 

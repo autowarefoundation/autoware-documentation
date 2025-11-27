@@ -28,7 +28,7 @@ There are several tools available for evaluating Autoware according to the metri
 
 !!! note
 
-    TIER IV plans to measure Autoware, which is running according to [the tutorial](../../tutorials/index.md), and provide a performance evaluation report periodically. An example of such a report can be found [here](https://tier4.github.io/CARET_report/), although it may not include all of the metrics listed.
+    TIER IV plans to measure Autoware, which is running according to [the demos](../../demos/index.md), and provide a performance evaluation report periodically. An example of such a report can be found [here](https://tier4.github.io/CARET_report/), although it may not include all of the metrics listed.
 
 The page does not aim to provide instructions on how to use these tools or measure the metrics. Its primary focus is on the metrics themselves, as they are more important than the specific tools used. These metrics retain their relevance regardless of the employed platform.
 
@@ -53,11 +53,11 @@ In addition, it is recommended that metrics be determined incrementally from the
 
 ## List of sample metrics
 
-This section demonstrates how to define metrics according to the policies explained and has lists of the metrics for Autoware launched according to [the tutorial](../../tutorials/index.md). The section is divided into multiple subsections, each containing a model diagram and an accompanying list that explains the important temporal performance metrics. Each model is equipped with checkpoints that serve as indicators for these metrics.
+This section demonstrates how to define metrics according to the policies explained and has lists of the metrics for Autoware launched according to [the tutorial](../../demos/index.md). The section is divided into multiple subsections, each containing a model diagram and an accompanying list that explains the important temporal performance metrics. Each model is equipped with checkpoints that serve as indicators for these metrics.
 
 The first subsection presents the top-level temporal performance metrics, which are depicted in the abstract structure of Autoware as a whole. The detailed metrics are not included in the model as they would add complexity to it. Instead, the subsequent section introduces the detailed metrics. The detailed metrics are subject to more frequent updates compared to the top-level ones, which is another reason for categorizing them separately.
 
-Each list includes a column for the reference value. The reference value represents the observed value of each metric when Autoware is running according to [the tutorial](../../tutorials/index.md). It is important to note that the reference value is not a required value, meaning that Autoware does not necessarily fail in [the tutorial](../../tutorials/index.md) execution if certain metrics do not fulfill the reference value.
+Each list includes a column for the reference value. The reference value represents the observed value of each metric when Autoware is running according to [the tutorial](../../demos/index.md). It is important to note that the reference value is not a required value, meaning that Autoware does not necessarily fail in [the tutorial](../../demos/index.md) execution if certain metrics do not fulfill the reference value.
 
 ### Top-level temporal performance metrics for Autoware
 

@@ -1,4 +1,4 @@
-# Tutorials
+# Demos
 
 ## Quick start guides
 
