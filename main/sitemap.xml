@@ -185,14 +185,6 @@
          <lastmod>2025-11-28</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/components_evaluation/</loc>
-         <lastmod>2025-11-28</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/components_evaluation/localization_evaluation/urban-environment-evaluation/</loc>
-         <lastmod>2025-11-28</lastmod>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/quick-start/autoware-core-awsim/</loc>
          <lastmod>2025-11-28</lastmod>
     </url>
@@ -1254,6 +1246,14 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/main/roadmap/vision-mission-core-values/</loc>
+         <lastmod>2025-11-28</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/simulation-evaluation/</loc>
+         <lastmod>2025-11-28</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/simulation-evaluation/components_evaluation/localization_evaluation/urban-environment-evaluation/</loc>
          <lastmod>2025-11-28</lastmod>
     </url>
     <url>
