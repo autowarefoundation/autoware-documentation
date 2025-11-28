@@ -5,69 +5,77 @@
 - [🔗 AWSIM Full Demo](digital-twin-demos/awsim-tutorial.md)
 - [🔗 AWSIM with Autoware Core Demo](digital-twin-demos/autoware-core-awsim/index.md)
 
-**Tests:**
+???+ abstract "Summary"
 
-- All components _(in the demo)_
-- Can test specific components _(based on the configuration)_
+    **Tests:**
 
-**Simulates:**
+    - All components _(in the demo)_
+    - Can test specific components _(based on the configuration)_
 
-- Sensors (Lidar, camera, GNSS/INS, etc.)
-- Vehicle dynamics
-- NPCs (Non playable characters / other road users & obstacles)
+    **Simulates:**
+
+    - Sensors (Lidar, camera, GNSS/INS, etc.)
+    - Vehicle dynamics
+    - NPCs (Non playable characters / other road users & obstacles)
 
 ## Planning simulation demo
 
 [🔗 Planning Simulation Demo](planning-simulation.md)
 
-**Tests:**
+???+ abstract "Summary"
 
-- Planning component
-- Control component
+    **Tests:**
 
-**Simulates:**
+    - Planning component
+    - Control component
 
-- Perception output (bounding boxes)
-  - Allows you to place dummy objects and simulate their simple movement
-  - Traffic light output
-- Localization output
-  - Allows you to place the ego vehicle anywhere on the map
-- Map output
-  - Lets you test the validity of Lanelet2 maps
+    **Simulates:**
+
+    - Perception output (bounding boxes)
+      - Allows you to place dummy objects and simulate their simple movement
+      - Traffic light output
+    - Localization output
+      - Allows you to place the ego vehicle anywhere on the map
+    - Map output
+      - Lets you test the validity of Lanelet2 maps
 
 ## Rosbag replay simulation demo
 
 [🔗 Rosbag Replay Simulation Demo](rosbag-replay-simulation.md)
 
-**Tests:**
+???+ abstract "Summary"
 
-- Sensing component _(in the demo)_
-- Perception component _(in the demo)_
-- Localization component _(in the demo)_
-- Anything else _(based on recorded data)_
+    **Tests:**
 
-**Plays back:**
+    - Sensing component _(in the demo)_
+    - Perception component _(in the demo)_
+    - Localization component _(in the demo)_
+    - Anything else _(based on recorded data)_
 
-- Left, right and top lidar output _(in the demo)_
-- GNSS/INS data _(in the demo)_
-- Vehicle status _(in the demo)_
-- Anything else _(based on recorded data)_
+    **Plays back:**
+
+    - Left, right and top lidar output _(in the demo)_
+    - GNSS/INS data _(in the demo)_
+    - Vehicle status _(in the demo)_
+    - Anything else _(based on recorded data)_
 
 ## Scenario simulator v2 demo
 
 [🔗 Scenario Simulator v2 Demo](scenario-simulation/scenario-simulator/installation.md)
 
-**Tests:**
+???+ abstract "Summary"
 
-- Planning component
-- Control component
+    **Tests:**
 
-**Simulates:**
+    - Planning component
+    - Control component
 
-- Perception output (bounding boxes)
-  - Allows you to place dummy objects and simulate their simple movement
-  - Traffic light output
-- Localization output
-  - Allows you to place the ego vehicle anywhere on the map
-- Map output
-  - Lets you test the validity of Lanelet2 maps
+    **Simulates:**
+
+    - Perception output (bounding boxes)
+      - Allows you to place dummy objects and simulate their simple movement
+      - Traffic light output
+    - Localization output
+      - Allows you to place the ego vehicle anywhere on the map
+    - Map output
+      - Lets you test the validity of Lanelet2 maps
