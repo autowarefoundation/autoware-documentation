@@ -1,4 +1,6 @@
 nav:
   - index.md
-  - ad-hoc-simulation
+  - digital-twin-demos
+  - planning-simulation.md
+  - rosbag-replay-simulation.md
   - scenario-simulation

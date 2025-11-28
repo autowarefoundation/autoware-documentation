@@ -1,0 +1,5 @@
+nav:
+  - AWSIM Full Demo: awsim-tutorial.md
+  - AWSIM with Autoware Core Demo: autoware-core-awsim
+  - MORAI_Sim-tutorial.md
+  - carla-tutorial.md

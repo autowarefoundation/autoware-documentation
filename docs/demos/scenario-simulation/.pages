@@ -1,4 +1,3 @@
 nav:
-  - index.md
-  - planning-simulation
-  - rosbag-replay-simulation
+  - scenario-simulator
+  - driving-log-replayer.md
