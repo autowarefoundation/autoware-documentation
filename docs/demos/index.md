@@ -2,12 +2,7 @@
 
 ## Digital twin demos (End to end simulation)
 
-<div class="grid cards" markdown>
-
-- [:fa-cl-s fa-circle-arrow-right: AWSIM Full Demo](digital-twin-demos/awsim-tutorial.md)
-- [:fa-cl-s fa-circle-arrow-right: AWSIM with Autoware Core Demo](digital-twin-demos/autoware-core-awsim/index.md)
-
-</div>
+[:fa-cl-s fa-circle-arrow-right: AWSIM Full Demo](digital-twin-demos/awsim-tutorial.md){ .md-button } [:fa-cl-s fa-circle-arrow-right: AWSIM with Autoware Core Demo](digital-twin-demos/autoware-core-awsim/index.md){ .md-button }
 
 ???+ abstract "Summary"
 
@@ -32,11 +27,7 @@
 
 ## Planning simulation demo
 
-<div class="grid cards" markdown>
-
-- [:fa-cl-s fa-circle-arrow-right: Planning Simulation Demo](planning-simulation.md)
-
-</div>
+[:fa-cl-s fa-circle-arrow-right: Planning Simulation Demo](planning-simulation.md){ .md-button }
 
 ???+ abstract "Summary"
 
@@ -65,11 +56,8 @@
 
 ## Rosbag replay simulation demo
 
-<div class="grid cards" markdown>
+[:fa-cl-s fa-circle-arrow-right: Rosbag Replay Simulation Demo](rosbag-replay-simulation.md){ .md-button }
 
-- [:fa-cl-s fa-circle-arrow-right: Rosbag Replay Simulation Demo](rosbag-replay-simulation.md)
-
-</div>
 
 ???+ abstract "Summary"
 
@@ -97,11 +85,7 @@
 
 ## Scenario simulator v2 demo
 
-<div class="grid cards" markdown>
-
-- [:fa-cl-s fa-circle-arrow-right: Scenario Simulator v2 Demo](scenario-simulation/scenario-simulator/installation.md)
-
-</div>
+[:fa-cl-s fa-circle-arrow-right: Scenario Simulator v2 Demo](scenario-simulation/scenario-simulator/installation.md){ .md-button }
 
 ???+ abstract "Summary"
 
