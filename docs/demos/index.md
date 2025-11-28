@@ -58,7 +58,6 @@
 
 [:fa-cl-s fa-circle-arrow-right: Rosbag Replay Simulation Demo](rosbag-replay-simulation.md){ .md-button }
 
-
 ???+ abstract "Summary"
 
     <div class="grid cards" markdown>
