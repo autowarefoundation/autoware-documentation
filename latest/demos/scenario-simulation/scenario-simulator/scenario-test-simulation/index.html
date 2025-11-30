@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/latest/demos/ad-hoc-simulation/digital-twin-simulation/awsim-tutorial/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/latest/demos/scenario-simulation/scenario-simulator/scenario-test-simulation/">
       
       
-        <link rel="prev" href="../../rosbag-replay-simulation/">
+        <link rel="prev" href="../installation/">
       
       
-        <link rel="next" href="../MORAI_Sim-tutorial/">
+        <link rel="next" href="../random-test-simulation/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>AWSIM simulator - Autoware Documentation</title>
+        <title>Scenario test simulation - Autoware Documentation</title>
       
     
     
@@ -53,7 +53,7 @@
     
       <link rel="stylesheet" href="../../../../assets/css/extra.css">
     
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css">
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#awsim-simulator" class="md-skip">
+        <a href="#scenario-test-simulation" class="md-skip">
           Skip to content
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AWSIM simulator
+              Scenario test simulation
             
           </span>
         </div>
@@ -1185,6 +1185,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -1246,15 +1250,11 @@
                 
   
   
-    
-  
   
   
     
     
       
-        
-          
         
       
         
@@ -1275,22 +1275,112 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Digital twin demos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Digital twin demos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../digital-twin-demos/awsim-tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWSIM Full Demo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_2" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../../digital-twin-demos/autoware-core-awsim/" class="md-nav__link ">
               
   
   
   <span class="md-ellipsis">
     
   
-    Ad hoc simulation
+    AWSIM with Autoware Core Demo
   
 
     
@@ -1300,24 +1390,27 @@
 
             </a>
             
-              
-              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Ad hoc simulation
+    AWSIM with Autoware Core Demo
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
               
             
               
@@ -1327,7 +1420,71 @@
   
   
     <li class="md-nav__item">
-      <a href="../../planning-simulation/" class="md-nav__link">
+      <a href="../../../digital-twin-demos/MORAI_Sim-tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MORAI Sim: Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../digital-twin-demos/carla-tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CARLA simulator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../planning-simulation/" class="md-nav__link">
         
   
   
@@ -1355,7 +1512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rosbag-replay-simulation/" class="md-nav__link">
+      <a href="../../../rosbag-replay-simulation/" class="md-nav__link">
         
   
   
@@ -1391,6 +1548,69 @@
       
         
       
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scenario simulation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Scenario simulation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
         
       
     
@@ -1406,17 +1626,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5_1" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_5_1" id="__nav_3_5_1_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    Digital twin simulation
+    Scenario simulator
   
 
     
@@ -1427,16 +1647,44 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2_4">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_5_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_5_1">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Digital twin simulation
+    Scenario simulator
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1461,7 +1709,7 @@
   <span class="md-ellipsis">
     
   
-    AWSIM simulator
+    Scenario test simulation
   
 
     
@@ -1479,7 +1727,7 @@
   <span class="md-ellipsis">
     
   
-    AWSIM simulator
+    Scenario test simulation
   
 
     
@@ -1505,60 +1753,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#feature-differences-from-the-awsim-and-awsim-labs" class="md-nav__link">
+  <a href="#running-steps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Feature differences from the AWSIM and AWSIM Labs
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Feature differences from the AWSIM and AWSIM Labs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#simulator-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Simulator Features
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#development-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Development Features
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#awsim-labs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AWSIM Labs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#awsim" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AWSIM
+        Running steps
       
     </span>
   </a>
@@ -1581,273 +1779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../MORAI_Sim-tutorial/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    MORAI Sim: Drive
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../carla-tutorial/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CARLA simulator
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../../scenario-simulation/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Scenario simulation
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Scenario simulation
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Planning simulation
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Planning simulation
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../scenario-simulation/planning-simulation/installation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Installation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../scenario-simulation/planning-simulation/scenario-test-simulation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Scenario test simulation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../scenario-simulation/planning-simulation/random-test-simulation/" class="md-nav__link">
+      <a href="../random-test-simulation/" class="md-nav__link">
         
   
   
@@ -1882,66 +1814,8 @@
   
   
   
-    
-    
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Rosbag replay simulation
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Rosbag replay simulation
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
     <li class="md-nav__item">
-      <a href="../../../scenario-simulation/rosbag-replay-simulation/driving-log-replayer/" class="md-nav__link">
+      <a href="../../driving-log-replayer/" class="md-nav__link">
         
   
   
@@ -1957,14 +1831,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -13007,60 +12873,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#feature-differences-from-the-awsim-and-awsim-labs" class="md-nav__link">
+  <a href="#running-steps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Feature differences from the AWSIM and AWSIM Labs
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Feature differences from the AWSIM and AWSIM Labs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#simulator-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Simulator Features
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#development-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Development Features
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#awsim-labs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AWSIM Labs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#awsim" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AWSIM
+        Running steps
       
     </span>
   </a>
@@ -13127,15 +12943,23 @@
   
     
     
+      
+  
+  
+    
+    
       <li class="md-path__item">
-        <a href="../../" class="md-path__link">
+        <a href="../installation/" class="md-path__link">
           
   <span class="md-ellipsis">
-    Ad hoc simulation
+    Scenario simulation
   </span>
 
         </a>
       </li>
+    
+  
+
     
   
 
@@ -13146,10 +12970,10 @@
     
     
       <li class="md-path__item">
-        <a href="./" class="md-path__link">
+        <a href="../installation/" class="md-path__link">
           
   <span class="md-ellipsis">
-    Digital twin simulation
+    Scenario simulator
   </span>
 
         </a>
@@ -13171,165 +12995,34 @@
   
 
 
-<div><h1 id="awsim-simulator">AWSIM simulator<a class="headerlink" href="#awsim-simulator" title="Permanent link">#</a></h1>
-<p>AWSIM is a simulator for Autoware development and testing, initially developed by TIER IV and still actively maintained.</p>
-<p>AWSIM Labs is a fork of AWSIM, developed under the Autoware Foundation, providing additional features and lighter resource usage.</p>
-<h2 id="feature-differences-from-the-awsim-and-awsim-labs">Feature differences from the AWSIM and AWSIM Labs<a class="headerlink" href="#feature-differences-from-the-awsim-and-awsim-labs" title="Permanent link">#</a></h2>
-<h3 id="simulator-features">Simulator Features<a class="headerlink" href="#simulator-features" title="Permanent link">#</a></h3>
-<table>
-<thead>
-<tr>
-<th>Simulator Features</th>
-<th>AWSIM 1.2.3</th>
-<th>AWSIM Labs 1.4.2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Rendering Pipeline</td>
-<td>HDRP</td>
-<td>URP</td>
-</tr>
-<tr>
-<td>Resource usage</td>
-<td>Heavy 🐢</td>
-<td>Light 🐇</td>
-</tr>
-<tr>
-<td>Can toggle vehicle keyboard control from GUI</td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Radar sensor support</td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Lidar sensor multiple returns support</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
-<tr>
-<td>Raw radar output</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
-<tr>
-<td>Lidar snow energy loss feature</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
-<tr>
-<td>Physically based vehicle dynamics simulation (VPP integration)</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Can reset vehicle position on runtime</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Select maps and vehicles at startup</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Scenario simulator integrated into the same binary</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Multi-lidars are enabled by default</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Set vehicle pose and spawn objects from RViz2</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Visualize multiple cameras and move them dynamically</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Turn sensors on/off during runtime</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Graphics quality settings (Low/Medium/Ultra)</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Bird’s eye view camera option</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Works with the latest Autoware main branch</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-</tbody>
-</table>
-<h3 id="development-features">Development Features<a class="headerlink" href="#development-features" title="Permanent link">#</a></h3>
-<table>
-<thead>
-<tr>
-<th>Development Features</th>
-<th>AWSIM</th>
-<th>AWSIM Labs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Unity Version</td>
-<td>Unity 2021.1.7f1</td>
-<td>Unity LTS 2022.3.36f1</td>
-</tr>
-<tr>
-<td>CI for build</td>
-<td>✅</td>
-<td>❌ (disabled temporarily)</td>
-</tr>
-<tr>
-<td>Various regression unit tests</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
-<tr>
-<td>CI for documentation generation within PR</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Main branch is protected with linear history</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Pre-commit for code formatting</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Documentation page shows PR branches before merge</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-</tbody>
-</table>
-<h2 id="awsim-labs">AWSIM Labs<a class="headerlink" href="#awsim-labs" title="Permanent link">#</a></h2>
-<p><a href="https://github.com/autowarefoundation/AWSIM-Labs">AWSIM Labs</a> supports Unity LTS 2022.3.36f1 and uses the Universal Render Pipeline (URP), optimized for lighter resource usage. It introduces several enhancements such as the ability to reset vehicle positions at runtime, support for multiple scenes and vehicle setups on runtime, and multi-lidars enabled by default.</p>
-<p>To get started with AWSIM Labs, please follow the <a href="https://autowarefoundation.github.io/AWSIM-Labs/main/GettingStarted/QuickStartDemo/">instructions</a>.</p>
-<h2 id="awsim">AWSIM<a class="headerlink" href="#awsim" title="Permanent link">#</a></h2>
-<p><a href="https://github.com/tier4/AWSIM">AWSIM</a> runs on Unity 2021.1.7f1 using the High Definition Render Pipeline (HDRP), which requires more system resources.</p>
-<p>To get started with AWSIM, please follow the <a href="https://tier4.github.io/AWSIM/GettingStarted/QuickStartDemo/">instructions</a> provided by TIER IV.</p>
+<div><h1 id="scenario-test-simulation">Scenario test simulation<a class="headerlink" href="#scenario-test-simulation" title="Permanent link">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Running the Scenario Simulator requires some additional steps on top of building and installing Autoware, so make sure that <a href="../installation/">Scenario Simulator installation</a> has been completed first before proceeding.</p>
+</div>
+<h2 id="running-steps">Running steps<a class="headerlink" href="#running-steps" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>Move to the workspace directory where Autoware and the Scenario Simulator have been built.</p>
+</li>
+<li>
+<p>Source the workspace setup script:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>install/setup.bash
+</code></pre></div>
+</li>
+<li>
+<p>Run the simulation:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>scenario_test_runner<span class="w"> </span>scenario_test_runner.launch.py<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>architecture_type:<span class="o">=</span>awf/universe/20250130<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>record:<span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>scenario:<span class="o">=</span><span class="s1">'$(find-pkg-share scenario_test_runner)/scenario/sample.yaml'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>sensor_model:<span class="o">=</span>sample_sensor_kit<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>vehicle_model:<span class="o">=</span>sample_vehicle
+</code></pre></div>
+</li>
+</ol>
+<p><img alt="scenario_test_runner" src="../images/scenario_test_runner.png"></p>
+<p><a href="https://user-images.githubusercontent.com/102840938/206996920-758b62ae-270a-497c-8a72-f9e4867df695.mp4">Reference video tutorials</a></p>
 <!-- prettier-ignore --></div>
 
 
@@ -13366,7 +13059,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../rosbag-replay-simulation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Rosbag replay simulation">
+          <a href="../installation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Installation">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -13376,20 +13069,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Rosbag replay simulation
+                Installation
               </div>
             </div>
           </a>
         
         
           
-          <a href="../MORAI_Sim-tutorial/" class="md-footer__link md-footer__link--next" aria-label="Next: MORAI Sim: Drive">
+          <a href="../random-test-simulation/" class="md-footer__link md-footer__link--next" aria-label="Next: Random test simulation">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                MORAI Sim: Drive
+                Random test simulation
               </div>
             </div>
             <div class="md-footer__button md-icon">
