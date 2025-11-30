@@ -46,7 +46,7 @@ You can utilize this example dataset to facilitate your training efforts.
 To train a custom YOLOX model for use with the **Autoware Traffic Light Fine Detector**, please refer to the official YOLOX and Autoware training guides listed below. These documents provide the required setup, data preparation steps, and export instructions.
 
 ???+ abstract "Relevant documentation"
-    
+
     <div class="grid cards" markdown>
 
     -   **Autoware traffic_light_fine_detector README**
