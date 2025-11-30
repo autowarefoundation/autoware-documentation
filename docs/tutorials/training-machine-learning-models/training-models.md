@@ -40,3 +40,38 @@ In order to assist you with your training process, we have also included an exam
 This dataset contains 600 lidar frames and covers 5 classes, including 6905 cars, 3951 pedestrians, 75 cyclists, 162 buses, and 326 trucks.
 
 You can utilize this example dataset to facilitate your training efforts.
+
+## Training a YOLOX model for `autoware_traffic_light_fine_detector`
+
+To train a custom YOLOX model for use with the **Autoware Traffic Light Fine Detector**, please refer to the official YOLOX and Autoware training guides listed below. These documents provide the required setup, data preparation steps, and export instructions.
+
+???+ abstract "Relevant documentation"
+
+    <div class="grid cards" markdown>
+
+    -   **Autoware traffic_light_fine_detector README**
+
+        ---
+
+        Training overview, model requirements, and ONNX export details:
+        [autoware_universe/perception/autoware_traffic_light_fine_detector/README.md](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_traffic_light_fine_detector/README.md)
+
+    -   **YOLOX Custom Dataset Training Guide**
+
+        ---
+
+        Instructions for preparing datasets, configuring experiments, and launching training:
+        [YOLOX/train_custom_data.md](https://github.com/Megvii-BaseDetection/YOLOX/blob/main/docs/train_custom_data.md)
+
+    </div>
+
+### 📦 Example Dataset (VOC Format)
+
+To assist with training, an example dataset containing **1062 cropped traffic-light images with Pascal VOC annotations** is available here:
+
+[:fa-cl-s fa-cloud-arrow-down: Download the sample traffic light dataset (3 MB)](https://autoware-files.s3.us-west-2.amazonaws.com/dataset/traffic_light_detection_sample_dataset.tar.gz){ .md-button }
+
+- Use the YOLOX documentation to set up your environment and prepare your dataset (VOC or COCO).
+- Train a YOLOX model using your custom traffic-light data or the provided sample dataset.
+- After training, export the model to **ONNX** following the instructions in the Autoware `traffic_light_fine_detector` README.
+- Replace or integrate the exported ONNX model within the Autoware package for deployment.
