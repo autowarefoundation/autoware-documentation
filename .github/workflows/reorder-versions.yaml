@@ -58,9 +58,9 @@ jobs:
           cat versions.sorted.json
         shell: bash
 
-      - name: Show the diff
+      - name: Show diff
         run: |
-          git diff versions.json versions.sorted.json || true
+          diff -u versions.json versions.sorted.json || true
         shell: bash
 
       - name: Replace versions.json
