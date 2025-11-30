@@ -45,6 +45,7 @@ jobs:
               ($all
                 | map(select(.version | test("^pr-[0-9]+$")))
                 | sort_by(.version | ltrimstr("pr-") | tonumber)
+                | reverse
                 | .[]
               ),
 
