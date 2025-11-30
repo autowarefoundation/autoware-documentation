@@ -41,13 +41,37 @@ This dataset contains 600 lidar frames and covers 5 classes, including 6905 cars
 
 You can utilize this example dataset to facilitate your training efforts.
 
-## Training yolox detection model for Traffic_light_fine_detector package
+## Training a YOLOX model for `autoware_traffic_light_fine_detector`
 
-To train custom yolox traffic light detection models and convert them into ONNX format for deployment in Autoware, please refer to the instructions provided in the README file included with the
-**"traffic_light_fine_detector"** package. These instructions will provide a step-by-step guide for training yolox model.
+To train a custom YOLOX model for use with the **Autoware Traffic Light Fine Detector**, please refer to the official YOLOX and Autoware training guides listed below. These documents provide the required setup, data preparation steps, and export instructions.
 
-In order to assist you with your training process, we have also included a sample dataset in the Pascal VOC format.
-This dataset contains 1062 cropped images of traffic lights and annotations.
-You can utilize **[this example dataset](https://autoware-files.s3.us-west-2.amazonaws.com/dataset/traffic_light_detection_sample_dataset.tar.gz)** to facilitate your training efforts.
+???+ abstract "Relevant documentation"
+    
+    <div class="grid cards" markdown>
 
-Detailed instructions for training the traffic light detector model can be found **[here](https://github.com/autowarefoundation/autoware.universe/blob/main/perception/traffic_light_fine_detector/README.md)**.
+    -   **Autoware traffic_light_fine_detector README**
+
+        ---
+
+        Training overview, model requirements, and ONNX export details:
+        [autoware_universe/perception/autoware_traffic_light_fine_detector/README.md](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_traffic_light_fine_detector/README.md)
+
+    -   **YOLOX Custom Dataset Training Guide**
+
+        ---
+
+        Instructions for preparing datasets, configuring experiments, and launching training:
+        [YOLOX/train_custom_data.md](https://github.com/Megvii-BaseDetection/YOLOX/blob/main/docs/train_custom_data.md)
+
+    </div>
+
+### 📦 Example Dataset (VOC Format)
+
+To assist with training, an example dataset containing **1062 cropped traffic-light images with Pascal VOC annotations** is available here:
+
+[:fa-cl-s fa-cloud-arrow-down: Download the sample traffic light dataset (3 MB)](https://autoware-files.s3.us-west-2.amazonaws.com/dataset/traffic_light_detection_sample_dataset.tar.gz){ .md-button }
+
+- Use the YOLOX documentation to set up your environment and prepare your dataset (VOC or COCO).
+- Train a YOLOX model using your custom traffic-light data or the provided sample dataset.
+- After training, export the model to **ONNX** following the instructions in the Autoware `traffic_light_fine_detector` README.
+- Replace or integrate the exported ONNX model within the Autoware package for deployment.
