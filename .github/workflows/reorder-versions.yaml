@@ -15,31 +15,36 @@ jobs:
 
       - name: Reorder versions.json
         run: |
-          # Extract and reorder using jq
-          jq '
+          DEFAULT_BRANCH="${{ github.event.repository.default_branch }}"
+
+          jq --arg DEFAULT_BRANCH "$DEFAULT_BRANCH" '
             . as $all |
+            [
+              # 1. Default branch
+              ($all | map(select(.version == $DEFAULT_BRANCH))[]),
 
-            # 1. main
-            ($all | map(select(.version == "main"))),
+              # 2. numeric versions like 1.4
+              ($all
+                | map(select(.version | test("^[0-9]+\\.[0-9]+$")))
+                | sort_by(.version | split(".") | map(tonumber))
+                | reverse
+                | .[]
+              ),
 
-            # 2. numeric versions like 1.4, 2.0, etc.
-            ($all
-              | map(select(.version | test("^[0-9]+\\.[0-9]+$")))
-              | sort_by(.version | split(".") | map(tonumber)) # numeric sort
-              | reverse                                        # optional: newest first
-            ),
+              # 3. PR versions: pr-123
+              ($all
+                | map(select(.version | test("^pr-[0-9]+$")))
+                | sort_by(.version | ltrimstr("pr-") | tonumber)
+                | .[]
+              ),
 
-            # 3. PR versions: pr-123
-            ($all
-              | map(select(.version | test("^pr-[0-9]+$")))
-              | sort_by(.version | ltrimstr("pr-") | tonumber)
-            ),
-
-            # 4. everything else (other branches)
-            ($all
-              | map(select(.version | test("^(main|[0-9]+\\.[0-9]+|pr-[0-9]+)$") | not))
-              | sort_by(.version)
-            )
+              # 4. everything else (other branches)
+              ($all
+                | map(select(.version | test("^(main|[0-9]+\\.[0-9]+|pr-[0-9]+)$") | not))
+                | sort_by(.version)
+                | .[]
+              )
+            ]
           ' versions.json > versions.sorted.json
 
           cat versions.sorted.json
