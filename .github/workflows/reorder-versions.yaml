@@ -19,30 +19,30 @@ jobs:
           # Extract and reorder using jq
           jq '
             . as $all |
-          
+
             # 1. main
             ($all | map(select(.version == "main"))),
-          
+
             # 2. numeric versions like 1.4, 2.0, etc.
             ($all
               | map(select(.version | test("^[0-9]+\\.[0-9]+$")))
               | sort_by(.version | split(".") | map(tonumber)) # numeric sort
               | reverse                                        # optional: newest first
             ),
-          
+
             # 3. PR versions: pr-123
             ($all
               | map(select(.version | test("^pr-[0-9]+$")))
               | sort_by(.version | ltrimstr("pr-") | tonumber)
             ),
-          
+
             # 4. everything else (other branches)
             ($all
               | map(select(.version | test("^(main|[0-9]+\\.[0-9]+|pr-[0-9]+)$") | not))
               | sort_by(.version)
             )
           ' versions.json > versions.sorted.json
-          
+
           cat versions.sorted.json
-          
+
           # mv versions.sorted.json versions.json
