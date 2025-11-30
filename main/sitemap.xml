@@ -161,51 +161,43 @@
          <lastmod>2025-11-30</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/ad-hoc-simulation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/planning-simulation/</loc>
          <lastmod>2025-11-30</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/ad-hoc-simulation/planning-simulation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/rosbag-replay-simulation/</loc>
          <lastmod>2025-11-30</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/ad-hoc-simulation/rosbag-replay-simulation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/digital-twin-demos/MORAI_Sim-tutorial/</loc>
          <lastmod>2025-11-30</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/ad-hoc-simulation/digital-twin-simulation/MORAI_Sim-tutorial/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/digital-twin-demos/awsim-tutorial/</loc>
          <lastmod>2025-11-30</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/ad-hoc-simulation/digital-twin-simulation/awsim-tutorial/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/digital-twin-demos/carla-tutorial/</loc>
          <lastmod>2025-11-30</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/ad-hoc-simulation/digital-twin-simulation/carla-tutorial/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/digital-twin-demos/autoware-core-awsim/</loc>
          <lastmod>2025-11-30</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/quick-start/autoware-core-awsim/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/scenario-simulation/driving-log-replayer/</loc>
          <lastmod>2025-11-30</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/scenario-simulation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/scenario-simulation/scenario-simulator/installation/</loc>
          <lastmod>2025-11-30</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/scenario-simulation/planning-simulation/installation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/scenario-simulation/scenario-simulator/random-test-simulation/</loc>
          <lastmod>2025-11-30</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/scenario-simulation/planning-simulation/random-test-simulation/</loc>
-         <lastmod>2025-11-30</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/scenario-simulation/planning-simulation/scenario-test-simulation/</loc>
-         <lastmod>2025-11-30</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/scenario-simulation/rosbag-replay-simulation/driving-log-replayer/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/scenario-simulation/scenario-simulator/scenario-test-simulation/</loc>
          <lastmod>2025-11-30</lastmod>
     </url>
     <url>
