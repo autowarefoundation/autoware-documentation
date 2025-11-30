@@ -57,7 +57,7 @@ Necessary requirements for creation:
     - _height_:value
 - Ensure the crosswalk's Lanelet references a Regulatory Element (_subtype:traffic_light_). Also, ensure the Regulatory Element references Linestring (_type:traffic_light_).
 
-Refer to [vm-04-02](./category_traffic_light.md#vm-04-02-traffic-light-position-and-size) for more about traffic light object.
+Refer to [vm-04-02](category_traffic_light.md#vm-04-02-traffic-light-position-and-size) for more about traffic light object.
 
 #### Preferred vector map <!-- omit in toc -->
 

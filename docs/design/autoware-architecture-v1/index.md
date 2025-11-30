@@ -24,13 +24,13 @@ Note that the initial focus of this architecture design was solely on driving ca
 
 Autoware's architecture consists of the following seven stacks. Each linked page contains a more detailed set of requirements and use cases specific to that stack:
 
-- [Sensing design](sensing/index.md)
-- [Map design](map/index.md)
-- [Localization design](localization/index.md)
-- [Perception design](perception/index.md)
-- [Planning design](planning/index.md)
-- [Control design](control/index.md)
-- [Vehicle Interface design](vehicle/index.md)
+- [Sensing design](components/sensing/index.md)
+- [Map design](components/map/index.md)
+- [Localization design](components/localization/index.md)
+- [Perception design](components/perception/index.md)
+- [Planning design](components/planning/index.md)
+- [Control design](components/control/index.md)
+- [Vehicle Interface design](components/vehicle/index.md)
 
 ## Node diagram
 

@@ -13,7 +13,7 @@ However, if the following conditions are met, the range you must create lanelets
 - The vehicle drives on the priority lane through the intersection without traffic lights.
 - The vehicle drives straight or turn left through the intersection with traffic lights
 
-Refer to [vm-03-04](./category_intersection.md#vm-03-04-lanelet-creation-in-the-intersection) for more about intersection requirements.
+Refer to [vm-03-04](category_intersection.md#vm-03-04-lanelet-creation-in-the-intersection) for more about intersection requirements.
 
 ##### Behavior of Autoware： <!-- omit in toc -->
 

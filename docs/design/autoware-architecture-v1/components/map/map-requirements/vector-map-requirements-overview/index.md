@@ -27,7 +27,7 @@ Next, you must comply with the laws of the country where the autonomous driving 
 
 | Category                                              | ID       | Requirements                                            |
 | ----------------------------------------------------- | -------- | ------------------------------------------------------- |
-| [Category Lane](./category_lane.md)                   | vm-01-01 | Lanelet basics                                          |
+| [Category Lane](category_lane.md)                   | vm-01-01 | Lanelet basics                                          |
 |                                                       | vm-01-02 | Allowance for lane changes                              |
 |                                                       | vm-01-03 | Linestring sharing                                      |
 |                                                       | vm-01-04 | Sharing of the centerline of lanes for opposing traffic |
@@ -46,9 +46,9 @@ Next, you must comply with the laws of the country where the autonomous driving 
 |                                                       | vm-01-17 | Side strip                                              |
 |                                                       | vm-01-18 | Side strip Linestring sharing                           |
 |                                                       | vm-01-19 | Walkway                                                 |
-| [Category Stop Line](./category_stop_line.md)         | vm-02-01 | Stop line alignment                                     |
+| [Category Stop Line](category_stop_line.md)         | vm-02-01 | Stop line alignment                                     |
 |                                                       | vm-02-02 | Stop sign                                               |
-| [Category Intersection](./category_intersection.md)   | vm-03-01 | Intersection criteria                                   |
+| [Category Intersection](category_intersection.md)   | vm-03-01 | Intersection criteria                                   |
 |                                                       | vm-03-02 | Lanelet's turn direction and virtual                    |
 |                                                       | vm-03-03 | Lanelet width in the intersection                       |
 |                                                       | vm-03-04 | Lanelet creation in the intersection                    |
@@ -63,19 +63,19 @@ Next, you must comply with the laws of the country where the autonomous driving 
 |                                                       | vm-03-13 | Merging from private area, sidewalk                     |
 |                                                       | vm-03-14 | Road marking                                            |
 |                                                       | vm-03-15 | Exclusive bicycle lane                                  |
-| [Category Traffic Light](./category_traffic_light.md) | vm-04-01 | Traffic light basics                                    |
+| [Category Traffic Light](category_traffic_light.md) | vm-04-01 | Traffic light basics                                    |
 |                                                       | vm-04-02 | Traffic light position and size                         |
 |                                                       | vm-04-03 | Traffic light lamps                                     |
-| [Category Crosswalk](./category_crosswalk.md)         | vm-05-01 | Crosswalks across the road                              |
+| [Category Crosswalk](category_crosswalk.md)         | vm-05-01 | Crosswalks across the road                              |
 |                                                       | vm-05-02 | Crosswalks with pedestrian signals                      |
 |                                                       | vm-05-03 | Deceleration for safety at crosswalks                   |
 |                                                       | vm-05-04 | Fences                                                  |
-| [Category Area](./category_area.md)                   | vm-06-01 | Buffer Zone                                             |
+| [Category Area](category_area.md)                   | vm-06-01 | Buffer Zone                                             |
 |                                                       | vm-06-02 | No parking signs                                        |
 |                                                       | vm-06-03 | No stopping signs                                       |
 |                                                       | vm-06-04 | No stopping sections                                    |
 |                                                       | vm-06-05 | Detection area                                          |
-| [Category Others](./category_others.md)               | vm-07-01 | Vector Map creation range                               |
+| [Category Others](category_others.md)               | vm-07-01 | Vector Map creation range                               |
 |                                                       | vm-07-02 | Range of detecting pedestrians who enter the road       |
 |                                                       | vm-07-03 | Guardrails, guard pipes, fences                         |
 |                                                       | vm-07-04 | Ellipsoidal height                                      |

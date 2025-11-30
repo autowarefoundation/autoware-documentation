@@ -30,7 +30,7 @@ At the core of the microautonomy architecture is its interface design, which is 
 
 This architecture is made possible through collaboration with AWF partners, who both contribute to and benefit from the clearly defined and standardized interfaces.
 
-![Overview](../autoware-architecture/image/autoware-architecture-overview.drawio.svg)
+![Overview](../autoware-architecture-v1/image/autoware-architecture-overview.drawio.svg)
 
 ## 4. Core & Universe Package Management
 
