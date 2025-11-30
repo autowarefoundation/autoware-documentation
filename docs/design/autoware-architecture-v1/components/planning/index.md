@@ -102,7 +102,7 @@ Organizations or research entities developing autonomous driving Planning system
 
 ## Component interface
 
-This section describes the inputs and outputs of the Planning Component and of its internal modules. See the [Planning Component Interface](../../autoware-interfaces/components/planning.md) page for the current implementation.
+This section describes the inputs and outputs of the Planning Component and of its internal modules. See the [Planning Component Interface](../../../autoware-interfaces/components/planning.md) page for the current implementation.
 
 ### Input to the planning component
 

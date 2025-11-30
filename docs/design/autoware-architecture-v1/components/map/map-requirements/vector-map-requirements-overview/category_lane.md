@@ -15,7 +15,7 @@ The road's Lanelets must comply with the following requirements.
 - Set the Linestring IDs for Lanelet's left_bound and right_bound respectively. See [vm-01-03](#vm-01-03-linestring-sharing).
 - tag : _one_way=yes_. Autoware currently does not support no.
 - Connect the Lanelet to another Lanelet, except if it's at the start or end.
-- Position the points (x, y, z) within the Lanelet to align with the PCD Map, ensuring accuracy not only laterally but also in elevation. The height of a Point should be based on the ellipsoidal height (WGS84). Refer to [vm-07-04](./category_others.md#vm-07-04-ellipsoidal-height).
+- Position the points (x, y, z) within the Lanelet to align with the PCD Map, ensuring accuracy not only laterally but also in elevation. The height of a Point should be based on the ellipsoidal height (WGS84). Refer to [vm-07-04](category_others.md#vm-07-04-ellipsoidal-height).
 
 #### Preferred vector map <!-- omit in toc -->
 

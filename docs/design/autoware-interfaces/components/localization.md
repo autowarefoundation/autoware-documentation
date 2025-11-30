@@ -30,7 +30,7 @@ LiDAR scanning for NDT matching, published by the LiDAR sensor.
 
 - sensor_msgs/msg/PointCloud2
 
-The raw 3D-LiDAR data needs to be processed by the [point cloud pre-processing modules](../../autoware-architecture/sensing/data-types/point-cloud.md) before being used for localization.
+The raw 3D-LiDAR data needs to be processed by the [point cloud pre-processing modules](../../autoware-architecture-v1/components/sensing/data-types/point-cloud.md) before being used for localization.
 
 ### Automatic Initial pose
 

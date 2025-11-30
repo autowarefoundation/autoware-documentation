@@ -103,7 +103,7 @@ You can also refer to TIER IV's [pacmod_interface repository](https://github.com
 ## 4. Create maps
 
 You need both a pointcloud map and a vector map in order to use Autoware.
-For more information on map design, please click [here](../../design/autoware-architecture/map/index.md).
+For more information on map design, please click [here](../../design/autoware-architecture-v1/components/map/index.md).
 
 ### Create a pointcloud map
 

@@ -1,6 +1,6 @@
 # Vehicle Interface
 
-This page describes the Vehicle Interface Component. Please refer to the [Vehicle Interface design document](../../autoware-architecture/vehicle/index.md) for high-level concepts and data flow.
+This page describes the Vehicle Interface Component. Please refer to the [Vehicle Interface design document](../../autoware-architecture-v1/components/vehicle/index.md) for high-level concepts and data flow.
 
 ![Vehicle interface diagram](images/vehicle-interface.drawio.svg)
 

@@ -1,5 +1,4 @@
 nav:
-  - index.md
   - sensing
   - map
   - localization
@@ -7,4 +6,3 @@ nav:
   - planning
   - control
   - vehicle
-  - node-diagram

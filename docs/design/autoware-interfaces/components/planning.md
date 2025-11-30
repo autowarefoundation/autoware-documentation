@@ -1,6 +1,6 @@
 # Planning
 
-This page provides specific specifications about the Interface of the Planning Component. Please refer to the [planning architecture design document](../../autoware-architecture/planning/index.md) for high-level concepts and data flow.
+This page provides specific specifications about the Interface of the Planning Component. Please refer to the [planning architecture design document](../../autoware-architecture-v1/components/planning/index.md) for high-level concepts and data flow.
 
 **TODO: The detailed definitions (meanings of elements included in each topic) are not described yet, need to be updated.**
 
@@ -76,7 +76,7 @@ This page provides specific specifications about the Interface of the Planning C
 
 ## Planning internal interface
 
-This section explains the communication between the different planning modules shown in the [Planning Architecture Design](../../autoware-architecture/planning/index.md#high-level-design).
+This section explains the communication between the different planning modules shown in the [Planning Architecture Design](../../autoware-architecture-v1/components/planning/index.md#high-level-design).
 
 ![planning-internal](images/planning-interface-internal.drawio.svg)
 

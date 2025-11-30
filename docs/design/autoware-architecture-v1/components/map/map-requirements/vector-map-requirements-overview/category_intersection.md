@@ -103,7 +103,7 @@ The shape of this curve must be determined by the Vector Map creator.
 
 Create all Lanelets in the intersection, including lanelets not driven by the vehicle. Additionally, link stop lines and traffic lights to the Lanelets appropriately.
 
-Refer also to the creation scope [vm-07-01](./category_others.md#vm-07-01-vector-map-creation-range)
+Refer also to the creation scope [vm-07-01](category_others.md#vm-07-01-vector-map-creation-range)
 
 ##### Behavior of Autoware <!-- omit in toc -->
 
