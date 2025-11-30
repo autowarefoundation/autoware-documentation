@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       token:
-        description: 'GitHub token'
+        description: "GitHub token"
         required: true
         type: string
   workflow_dispatch:
