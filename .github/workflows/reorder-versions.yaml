@@ -1,8 +1,13 @@
 name: reorder-versions
 
 on:
+  workflow_call:
+    inputs:
+      token:
+        description: 'GitHub token'
+        required: true
+        type: string
   workflow_dispatch:
-  pull_request:
 
 jobs:
   reorder-versions:
@@ -58,6 +63,20 @@ jobs:
           cat versions.sorted.json
         shell: bash
 
+      - name: Validate element count matches
+        run: |
+          COUNT_ORIG=$(jq 'length' versions.json)
+          COUNT_SORTED=$(jq 'length' versions.sorted.json)
+
+          echo "Original count: $COUNT_ORIG"
+          echo "Sorted count:   $COUNT_SORTED"
+
+          if [ "$COUNT_ORIG" -ne "$COUNT_SORTED" ]; then
+            echo "ERROR: Element count mismatch! Sorting likely broke the structure."
+            exit 1
+          fi
+        shell: bash
+
       - name: Show diff
         run: |
           diff -u versions.json versions.sorted.json || true
@@ -68,11 +87,13 @@ jobs:
           mv versions.sorted.json versions.json
         shell: bash
 
+      - name: Set git config
+        uses: autowarefoundation/autoware-github-actions/set-git-config@v1
+        with:
+          token: ${{ inputs.token }}
+
       - name: Commit and push changes
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-
           # Commit only if changed
           if git diff --quiet; then
             echo "No changes to commit."
