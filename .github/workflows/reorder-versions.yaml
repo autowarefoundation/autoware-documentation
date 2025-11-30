@@ -13,6 +13,11 @@ jobs:
         with:
           ref: gh-pages
 
+      - name: Show existing versions.json
+        run: |
+          cat versions.json
+        shell: bash
+
       - name: Reorder versions.json
         run: |
           DEFAULT_BRANCH="${{ github.event.repository.default_branch }}"
@@ -46,7 +51,35 @@ jobs:
               )
             ]
           ' versions.json > versions.sorted.json
+        shell: bash
 
+      - name: Show sorted versions.json
+        run: |
           cat versions.sorted.json
+        shell: bash
 
-          # mv versions.sorted.json versions.json
+      - name: Show the diff
+        run: |
+          git diff versions.json versions.sorted.json || true
+        shell: bash
+
+      - name: Replace versions.json
+        run: |
+          mv versions.sorted.json versions.json
+        shell: bash
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          # Commit only if changed
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git add versions.json
+          git commit -m "Reorder versions.json"
+          git push
+        shell: bash
