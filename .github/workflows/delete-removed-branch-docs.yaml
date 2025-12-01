@@ -1,0 +1,99 @@
+name: delete-removed-branch-docs
+
+on:
+  delete:
+  workflow_call:
+    secrets:
+      token:
+        description: GitHub token
+        required: true
+  workflow_dispatch:
+
+jobs:
+  delete-removed-branch-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: 3.12
+
+      - name: Install MkDocs requirements
+        run: pip3 install -r mkdocs-requirements.txt
+
+      - name: Get mike versions starting with branch-
+        id: mike_branch_versions
+        run: |
+          VERSIONS=$(mike list | grep '^branch-' || true)
+
+          echo "Found versions:"
+          echo "$VERSIONS"
+
+          echo "count=$(echo "$VERSIONS" | grep -c .)" >> $GITHUB_OUTPUT
+          echo "versions<<EOF" >> $GITHUB_OUTPUT
+          echo "$VERSIONS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: No branch-* mike versions => exit successfully
+        if: ${{ steps.mike_branch_versions.outputs.count == '0' }}
+        run: echo "No branch-* versions found. Exiting."
+
+      - name: Normalize mike branch names
+        id: norm_mike
+        run: |
+          MIKE=$(echo "${{ steps.mike_branch_versions.outputs.versions }}" \
+            | sed -e 's/^branch-//' -e 's|/|-|g')
+
+          echo "Normalized mike branch names:"
+          echo "$MIKE"
+
+          echo "list<<EOF" >> $GITHUB_OUTPUT
+          echo "$MIKE" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Get remote Git branches (normalized)
+        id: norm_git
+        run: |
+          git fetch --all --prune --quiet
+
+          GIT=$(git branch -r --format='%(refname:short)' | sed 's|origin/||' | sort -u)
+          GIT=$(echo "$GIT" | sed 's|/|-|g')
+
+          echo "Normalized remote git branches:"
+          echo "$GIT"
+
+          echo "list<<EOF" >> $GITHUB_OUTPUT
+          echo "$GIT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Set git config
+        uses: autowarefoundation/autoware-github-actions/set-git-config@v1
+        with:
+          token: ${{ github.event_name == 'workflow_call' && secrets.token || secrets.GITHUB_TOKEN }}
+
+      - name: Delete orphaned mike branch versions
+        run: |
+          echo "==> Mike branches:"
+          echo "${{ steps.norm_mike.outputs.list }}"
+
+          echo "==> Git branches:"
+          echo "${{ steps.norm_git.outputs.list }}"
+
+          echo "==> Checking for orphans…"
+
+          echo "${{ steps.norm_mike.outputs.list }}" | while read MB; do
+            [ -z "$MB" ] && continue
+
+            if echo "${{ steps.norm_git.outputs.list }}" | grep -qx "$MB"; then
+              echo "✔ branch-$MB exists — keeping"
+            else
+              echo "🔥 branch-$MB is orphaned — deleting"
+              mike delete --push "branch-$MB"
+            fi
+          done
