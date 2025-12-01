@@ -96,12 +96,13 @@ IMU-based cost and LiDAR point-to-surfel (surfel = surface element) distance are
 
 ### Base-lidar calibration with tools provided by TIER IV
 
-TIER IV では Base - LiDAR のキャリブレーションを行うため以下の二種類のキャリブレーションツールを提供しています
+TIER IV provides the following two types of calibration tools for performing Base–LiDAR calibration:
 
-- [Extrinsic Manual Calibration](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor#generic-calibration)
-  - パラメータ値を直接変更し rviz を見ながら調整をするツールです。
-- [Extrinsic ground-plane Calibration](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor#base-lidar-calibration)
-  - roll, pitch, z を自動でキャリブレーションするツールです。
+- [**Extrinsic Manual Calibration**](https://github.com/tier4/CalibrationTools/blob/tier4/universe/docs/tutorials/mapping_based_calibrator.md)
+  This tool allows you to directly modify parameter values and adjust them while viewing the results in RViz.
+
+- [**Extrinsic Ground-Plane Calibration**](https://github.com/tier4/CalibrationTools/tree/tier4/universe/calibrators/ground_plane_calibrator)
+  This tool automatically calibrates roll, pitch, and z.
 
 ## Other calibration tools provided by TIER IV
 
