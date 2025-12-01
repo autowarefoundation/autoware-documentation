@@ -2,11 +2,10 @@ name: reorder-versions
 
 on:
   workflow_call:
-    inputs:
+    secrets:
       token:
         description: GitHub token
         required: true
-        type: string
   workflow_dispatch:
 
 jobs:
@@ -91,7 +90,7 @@ jobs:
       - name: Set git config
         uses: autowarefoundation/autoware-github-actions/set-git-config@v1
         with:
-          token: ${{ inputs.token }}
+          token: ${{ secrets.token }}
 
       - name: Commit and push changes
         run: |

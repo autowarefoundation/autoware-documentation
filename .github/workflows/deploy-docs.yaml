@@ -77,5 +77,5 @@ jobs:
 
   reorder-versions-json:
     uses: ./.github/workflows/reorder-versions.yml
-    with:
+    secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
