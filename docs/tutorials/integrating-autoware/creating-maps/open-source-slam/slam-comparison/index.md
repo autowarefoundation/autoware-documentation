@@ -1,4 +1,4 @@
-# Comparing Open Source SLAM Algorithms
+# Open source SLAM algorithms comparison
 
 In order to compare SLAM algorithms their trajectory errors can be
 compared in terms of positions and orientations, thus ground truth
