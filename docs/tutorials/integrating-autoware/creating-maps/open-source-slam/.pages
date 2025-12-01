@@ -11,3 +11,4 @@ nav:
   - Optimized-SC-F-LOAM: optimized-sc-f-loam
   - SC-A-LOAM: sc-a-loam
   - SC-LeGO-LOAM: sc-lego-loam
+  - SLAM Algorithms Comparison: slam-comparison
