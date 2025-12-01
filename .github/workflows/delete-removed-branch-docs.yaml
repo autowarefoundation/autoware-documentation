@@ -26,7 +26,7 @@ jobs:
 
       - name: Install mike
         run: |
-          pip3 install mike
+          pip3 install -r mkdocs-requirements.txt
         shell: bash
 
       - name: List mike versions
