@@ -76,6 +76,17 @@ jobs:
           mkdocs-requirements-txt: mkdocs-requirements.txt
 
   reorder-versions-json:
+    needs:
+      - deploy-docs-pr
+      - deploy-docs-push
+      - deploy-docs-workflow-dispatch
+    if: |
+      always() &&
+      (
+        needs.deploy-docs-pr.result == 'success' ||
+        needs.deploy-docs-push.result == 'success' ||
+        needs.deploy-docs-workflow-dispatch.result == 'success'
+      )
     uses: ./.github/workflows/reorder-versions.yaml
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
