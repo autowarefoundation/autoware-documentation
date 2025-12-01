@@ -1,0 +1,107 @@
+name: reorder-versions
+
+on:
+  workflow_call:
+    inputs:
+      token:
+        description: GitHub token
+        required: true
+        type: string
+  workflow_dispatch:
+
+jobs:
+  reorder-versions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+        with:
+          ref: gh-pages
+
+      - name: Show existing versions.json
+        run: |
+          cat versions.json
+        shell: bash
+
+      - name: Reorder versions.json
+        run: |
+          DEFAULT_BRANCH="${{ github.event.repository.default_branch }}"
+
+          jq --arg DEFAULT_BRANCH "$DEFAULT_BRANCH" '
+            . as $all |
+            [
+              # 1. Default branch
+              ($all | map(select(.version == $DEFAULT_BRANCH))[]),
+
+              # 2. numeric versions like 1.4
+              ($all
+                | map(select(.version | test("^[0-9]+\\.[0-9]+$")))
+                | sort_by(.version | split(".") | map(tonumber))
+                | reverse
+                | .[]
+              ),
+
+              # 3. PR versions: pr-123
+              ($all
+                | map(select(.version | test("^pr-[0-9]+$")))
+                | sort_by(.version | ltrimstr("pr-") | tonumber)
+                | reverse
+                | .[]
+              ),
+
+              # 4. everything else (other branches)
+              ($all
+                | map(select(.version | test("^(main|[0-9]+\\.[0-9]+|pr-[0-9]+)$") | not))
+                | sort_by(.version)
+                | .[]
+              )
+            ]
+          ' versions.json > versions.sorted.json
+        shell: bash
+
+      - name: Show sorted versions.json
+        run: |
+          cat versions.sorted.json
+        shell: bash
+
+      - name: Validate element count matches
+        run: |
+          COUNT_ORIG=$(jq 'length' versions.json)
+          COUNT_SORTED=$(jq 'length' versions.sorted.json)
+
+          echo "Original count: $COUNT_ORIG"
+          echo "Sorted count:   $COUNT_SORTED"
+
+          if [ "$COUNT_ORIG" -ne "$COUNT_SORTED" ]; then
+            echo "ERROR: Element count mismatch! Sorting likely broke the structure."
+            exit 1
+          fi
+        shell: bash
+
+      - name: Show diff
+        run: |
+          diff -u versions.json versions.sorted.json || true
+        shell: bash
+
+      - name: Replace versions.json
+        run: |
+          mv versions.sorted.json versions.json
+        shell: bash
+
+      - name: Set git config
+        uses: autowarefoundation/autoware-github-actions/set-git-config@v1
+        with:
+          token: ${{ inputs.token }}
+
+      - name: Commit and push changes
+        run: |
+          # Commit only if changed
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git add versions.json
+          git commit -m "Reorder versions.json"
+          git push
+        shell: bash
