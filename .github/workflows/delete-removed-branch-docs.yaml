@@ -24,112 +24,76 @@ jobs:
         with:
           python-version: 3.12
 
-      - name: Install requirements
+      - name: Install MkDocs requirements
+        run: pip3 install -r mkdocs-requirements.txt
+
+      - name: Get mike versions starting with branch-
+        id: mike_branch_versions
         run: |
-          pip3 install -r mkdocs-requirements.txt
-        shell: bash
+          VERSIONS=$(mike list | grep '^branch-' || true)
 
-      - name: List mike versions
-        run: |
-          mike list
-        shell: bash
+          echo "Found versions:"
+          echo "$VERSIONS"
 
-      - name: List mike versions starting with branch-
-        id: branch_versions
-        run: |
-          BRANCH_VERSIONS="$(mike list | grep '^branch-' || true)"
-
-          if [ -n "$BRANCH_VERSIONS" ]; then
-            echo "found=true" >> $GITHUB_OUTPUT
-          else
-            echo "found=false" >> $GITHUB_OUTPUT
-          fi
-
+          echo "count=$(echo "$VERSIONS" | grep -c .)" >> $GITHUB_OUTPUT
           echo "versions<<EOF" >> $GITHUB_OUTPUT
-          echo "$BRANCH_VERSIONS" >> $GITHUB_OUTPUT
+          echo "$VERSIONS" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
-        shell: bash
 
-      - name: Exit early if no branch-* versions found
-        if: ${{ steps.branch_versions.outputs.found == 'false' }}
-        run: echo "No branch-* versions found. Exiting successfully."
+      - name: No branch-* mike versions => exit successfully
+        if: ${{ steps.mike_branch_versions.outputs.count == '0' }}
+        run: echo "No branch-* versions found. Exiting."
 
-      - name: Extract stripped branch names
-        if: ${{ steps.branch_versions.outputs.found == 'true' }}
-        id: stripped
+      - name: Normalize mike branch names
+        id: norm_mike
         run: |
-          echo "Original versions:"
-          echo "${{ steps.branch_versions.outputs.versions }}"
+          MIKE=$(echo "${{ steps.mike_branch_versions.outputs.versions }}" \
+            | sed -e 's/^branch-//' -e 's|/|-|g')
 
-          STRIPPED=$(echo "${{ steps.branch_versions.outputs.versions }}" | sed 's/^branch-//')
+          echo "Normalized mike branch names:"
+          echo "$MIKE"
 
-          echo "Stripped names:"
-          echo "$STRIPPED"
-
-          echo "names<<EOF" >> $GITHUB_OUTPUT
-          echo "$STRIPPED" >> $GITHUB_OUTPUT
+          echo "list<<EOF" >> $GITHUB_OUTPUT
+          echo "$MIKE" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
-        shell: bash
 
-      - name: List existing git branches (remote)
-        id: git_branches
+      - name: Get remote Git branches (normalized)
+        id: norm_git
         run: |
-          # Fetch ALL remote branches
           git fetch --all --prune --quiet
 
-          # list remote branch names without origin/
-          BRANCHES=$(git branch -r --format='%(refname:short)' \
-            | sed 's|origin/||' \
-            | sort -u)
+          GIT=$(git branch -r --format='%(refname:short)' | sed 's|origin/||' | sort -u)
+          GIT=$(echo "$GIT" | sed 's|/|-|g')
 
-          echo "All branches in repo:"
-          echo "$BRANCHES"
+          echo "Normalized remote git branches:"
+          echo "$GIT"
 
-          # Store as GitHub multiline output
-          echo "names<<EOF" >> $GITHUB_OUTPUT
-          echo "$BRANCHES" >> $GITHUB_OUTPUT
+          echo "list<<EOF" >> $GITHUB_OUTPUT
+          echo "$GIT" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
-        shell: bash
 
-      - name: Set git config (workflow_call)
-        if: ${{ github.event_name == 'workflow_call' }}
+      - name: Set git config
         uses: autowarefoundation/autoware-github-actions/set-git-config@v1
         with:
-          token: ${{ secrets.token }}
-
-      - name: Set git config (workflow_dispatch or pull_request)
-        if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request' }}
-        uses: autowarefoundation/autoware-github-actions/set-git-config@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ github.event_name == 'workflow_call' && secrets.token || secrets.GITHUB_TOKEN }}
 
       - name: Delete orphaned mike branch versions
-        if: ${{ steps.branch_versions.outputs.found == 'true' }}
         run: |
-          echo "==> Mike branch versions:"
-          echo "${{ steps.branch_versions.outputs.versions }}"
-
-          echo "==> Stripped mike branch names:"
-          MIKE_BRANCHES=$(echo "${{ steps.stripped.outputs.names }}" | sed 's|/|-|g')
-          echo "$MIKE_BRANCHES"
+          echo "==> Mike branches:"
+          echo "${{ steps.norm_mike.outputs.list }}"
 
           echo "==> Git branches:"
-          echo "${{ steps.git_branches.outputs.names }}"
+          echo "${{ steps.norm_git.outputs.list }}"
 
-          echo "==> Git branches (slashes -> dashes):"
-          GIT_BRANCHES=$(echo "${{ steps.git_branches.outputs.names }}" | sed 's|/|-|g')
-          echo "$GIT_BRANCHES"
+          echo "==> Checking for orphans…"
 
-          # Loop over all mike branches and delete ones not in Git
-          echo "$MIKE_BRANCHES" | while read MB; do
-            # Skip empty lines
+          echo "${{ steps.norm_mike.outputs.list }}" | while read MB; do
             [ -z "$MB" ] && continue
 
-            if echo "$GIT_BRANCHES" | grep -qx "$MB"; then
-              echo "✔ Keeping: branch-$MB (branch exists)"
+            if echo "${{ steps.norm_git.outputs.list }}" | grep -qx "$MB"; then
+              echo "✔ branch-$MB exists — keeping"
             else
-              echo "🔥 Deleting orphaned mike version: branch-$MB"
+              echo "🔥 branch-$MB is orphaned — deleting"
               mike delete "branch-$MB"
             fi
           done
-        shell: bash
