@@ -88,4 +88,3 @@ jobs:
           echo "$BRANCHES" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
         shell: bash
-
