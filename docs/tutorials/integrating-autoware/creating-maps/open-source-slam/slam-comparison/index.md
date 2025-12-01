@@ -33,10 +33,10 @@ Before applying the transformation:
 
 Below are the RViz visualizations of the aligned ground-truth and SLAM trajectories, along with the corresponding position-error plots for each algorithm.
 
-|                          SLAM Algorithm                         |                     Trajectory After Transformation                    |                              Position Error Graphs                             |         Average Position Error (meters)         |
+|                         SLAM Algorithm                          |                    Trajectory After Transformation                     |                             Position Error Graphs                              |         Average Position Error (meters)         |
 | :-------------------------------------------------------------: | :--------------------------------------------------------------------: | :----------------------------------------------------------------------------: | :---------------------------------------------: |
-|    [hdl_graph_slam](https://github.com/koide3/hdl_graph_slam)   |    <img src="images/hdl_vs_gnss_path.png" width="200" height="400">    | <img src="images/hdl_graph_slam_position_errors.png" width="628" height="314"> | x: 11.903188 <br> y: 3.887582 <br> z: 13.905123 |
-| [lidarslam_ros2](https://github.com/rsasaki0109/lidarslam_ros2) | <img src="images/lidarslam_vs_gnss_path.png" width="200" height="400"> |    <img src="images/lidarslam_position_errors.png" width="628" height="314">   |  x: 8.949974 <br> y: 2.818557 <br> z: 16.495759 |
+|   [hdl_graph_slam](https://github.com/koide3/hdl_graph_slam)    |    <img src="images/hdl_vs_gnss_path.png" width="200" height="400">    | <img src="images/hdl_graph_slam_position_errors.png" width="628" height="314"> | x: 11.903188 <br> y: 3.887582 <br> z: 13.905123 |
+| [lidarslam_ros2](https://github.com/rsasaki0109/lidarslam_ros2) | <img src="images/lidarslam_vs_gnss_path.png" width="200" height="400"> |   <img src="images/lidarslam_position_errors.png" width="628" height="314">    | x: 8.949974 <br> y: 2.818557 <br> z: 16.495759  |
 
 ## TODO
 
