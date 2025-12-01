@@ -90,3 +90,34 @@ jobs:
           echo "$BRANCHES" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
         shell: bash
+
+      - name: Delete orphaned mike branch versions
+        if: ${{ steps.branch_versions.outputs.found == 'true' }}
+        run: |
+          echo "==> Mike branch versions:"
+          echo "${{ steps.branch_versions.outputs.versions }}"
+
+          echo "==> Stripped mike branch names:"
+          MIKE_BRANCHES=$(echo "${{ steps.stripped.outputs.names }}" | sed 's|/|-|g')
+          echo "$MIKE_BRANCHES"
+
+          echo "==> Git branches:"
+          echo "${{ steps.git_branches.outputs.names }}"
+
+          echo "==> Git branches (slashes -> dashes):"
+          GIT_BRANCHES=$(echo "${{ steps.git_branches.outputs.names }}" | sed 's|/|-|g')
+          echo "$GIT_BRANCHES"
+
+          # Loop over all mike branches and delete ones not in Git
+          echo "$MIKE_BRANCHES" | while read MB; do
+            # Skip empty lines
+            [ -z "$MB" ] && continue
+
+            if echo "$GIT_BRANCHES" | grep -qx "$MB"; then
+              echo "✔ Keeping: branch-$MB (branch exists)"
+            else
+              echo "🔥 Deleting orphaned mike version: branch-$MB"
+              mike delete "branch-$MB"
+            fi
+          done
+        shell: bash
