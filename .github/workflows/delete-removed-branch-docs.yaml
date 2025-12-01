@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: 3.12
 
-      - name: Install mike
+      - name: Install requirements
         run: |
           pip3 install -r mkdocs-requirements.txt
         shell: bash
@@ -32,4 +32,37 @@ jobs:
       - name: List mike versions
         run: |
           mike list
+        shell: bash
+
+      - name: List mike versions starting with branch-
+        id: branch_versions
+        run: |
+          BRANCH_VERSIONS="$(mike list | grep '^branch-' || true)"
+
+          if [ -n "$BRANCH_VERSIONS" ]; then
+            echo "found=true" >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+
+          echo "versions<<EOF" >> $GITHUB_OUTPUT
+          echo "$BRANCH_VERSIONS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+        shell: bash
+
+      - name: Extract stripped branch names
+        if: ${{ steps.branch_versions.outputs.found == 'true' }}
+        id: stripped
+        run: |
+          echo "Original versions:"
+          echo "${{ steps.branch_versions.outputs.versions }}"
+
+          STRIPPED=$(echo "${{ steps.branch_versions.outputs.versions }}" | sed 's/^branch-//')
+
+          echo "Stripped names:"
+          echo "$STRIPPED"
+
+          echo "names<<EOF" >> $GITHUB_OUTPUT
+          echo "$STRIPPED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
         shell: bash
