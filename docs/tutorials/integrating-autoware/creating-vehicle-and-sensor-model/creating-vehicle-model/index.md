@@ -105,7 +105,7 @@ Now, we will modify these files according to our vehicle design.
 ### mirror.param.yaml
 
 This file describes your vehicle mirror dimension for
-[CropBox filter](https://autowarefoundation.github.io/autoware_universe/main/sensing/pointcloud_preprocessor/docs/crop-box-filter/) of [PointCloudPreprocessor](../../../../design/autoware-architecture/sensing/data-types/point-cloud.md).
+[CropBox filter](https://autowarefoundation.github.io/autoware_universe/main/sensing/pointcloud_preprocessor/docs/crop-box-filter/) of [PointCloudPreprocessor](../../../../design/autoware-architecture-v1/components/sensing/data-types/point-cloud.md).
 This is important for cropping mirrors from your lidar's point cloud.
 
 The `mirror.param.yaml` consist of the following parameters:

@@ -1,7 +1,7 @@
 # Perception
 
 This page provides specific specifications about the Interface of the Perception Component.
-Please refer to [the perception architecture reference implementation design](../../autoware-architecture/perception/reference_implementation.md) for concepts and data flow.
+Please refer to [the perception architecture reference implementation design](../../autoware-architecture-v1/components/perception/reference_implementation.md) for concepts and data flow.
 
 ## Input
 
@@ -42,7 +42,7 @@ Notes:
 
 ### To Planning
 
-Please refer to [the perception component design](../../autoware-architecture/perception/index.md#high-level-architecture) for detailed definitions of each output."
+Please refer to [the perception component design](../../autoware-architecture-v1/components/perception/index.md#high-level-architecture) for detailed definitions of each output."
 
 | Name               | Topic                                                   | Type                                                                                                                                                                           | Description                                                                                                                                                                             |
 | ------------------ | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

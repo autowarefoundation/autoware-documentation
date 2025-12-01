@@ -44,7 +44,7 @@ The [Autoware concepts page](autoware-concepts/index.md) describes the design ph
 
 ### Autoware architecture
 
-The [Autoware architecture page](autoware-architecture/index.md) describes an overview of each module that makes up Autoware. Readers (all Autoware users) will gain a high-level picture of how each module that composes Autoware works.
+The [Autoware architecture page](autoware-architecture-v1/index.md) describes an overview of each module that makes up Autoware. Readers (all Autoware users) will gain a high-level picture of how each module that composes Autoware works.
 
 ### Autoware interfaces
 

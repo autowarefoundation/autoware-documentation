@@ -67,7 +67,7 @@ The Perception Component consists of the following sub-components:
 
 ## Component interface
 
-The following describes the input/output concept between Perception Component and other components. See [the Perception Component Interface](../../autoware-interfaces/components/perception.md) page for the current implementation.
+The following describes the input/output concept between Perception Component and other components. See [the Perception Component Interface](../../../autoware-interfaces/components/perception.md) page for the current implementation.
 
 ### Input to the Perception Component
 
@@ -114,4 +114,4 @@ As mentioned in the goal session, this perception module is designed to be exten
 
 ## Reference Implementation
 
-When Autoware is launched, the default parameters are loaded, and the Reference Implementation is started. For more details, please refer to [the Reference Implementation](./reference_implementation.md).
+When Autoware is launched, the default parameters are loaded, and the Reference Implementation is started. For more details, please refer to [the Reference Implementation](reference_implementation.md).
