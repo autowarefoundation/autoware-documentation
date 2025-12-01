@@ -2,11 +2,6 @@ name: delete-removed-branch-docs
 
 on:
   delete:
-  workflow_call:
-    secrets:
-      token:
-        description: GitHub token
-        required: true
   workflow_dispatch:
 
 jobs:
@@ -75,7 +70,7 @@ jobs:
       - name: Set git config
         uses: autowarefoundation/autoware-github-actions/set-git-config@v1
         with:
-          token: ${{ github.event_name == 'workflow_call' && secrets.token || secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Delete orphaned mike branch versions
         run: |
