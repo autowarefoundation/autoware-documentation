@@ -1,17 +1,17 @@
 # Installation of related tools
 
-## Calibration Tool
+## Calibration tools
 
-### Install Calibration of TIER IV
+### Calibration tools provided by TIER IV
 
-After installing [autoware](https://github.com/tier4/autoware) (please see [source-installation](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/) page), execute the following commands:
+Once the Autoware is installed, you can install the calibration tools provided by TIER IV as follows:
 
 ```bash
 cd autoware
-wget https://raw.githubusercontent.com/tier4/CalibrationTools/tier4/universe/calibration_tools.repos
+wget https://raw.githubusercontent.com/tier4/CalibrationTools/refs/heads/tier4/universe/calibration_tools_autoware.repos
 vcs import src < calibration_tools.repos
 rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
 
-Check [here](https://github.com/tier4/CalibrationTools/blob/tier4/universe/README.md) for a detailed explanation.
+Check the [README.md file](https://github.com/tier4/CalibrationTools/blob/tier4/universe/README.md) for a more detailed explanation.
