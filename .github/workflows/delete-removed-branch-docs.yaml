@@ -71,19 +71,21 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
         shell: bash
 
-      - name: List existing git branches
+      - name: List existing git branches (remote)
         id: git_branches
         run: |
-          # Fetch all branches
-          git fetch --all --quiet
+          # Fetch ALL remote branches
+          git fetch --all --prune --quiet
 
-          # List all branch names
-          BRANCHES=$(git for-each-ref --format='%(refname:short)' refs/heads/)
+          # list remote branch names without origin/
+          BRANCHES=$(git branch -r --format='%(refname:short)' \
+            | sed 's|origin/||' \
+            | sort -u)
 
-          echo "Branches in repo:"
+          echo "All branches in repo:"
           echo "$BRANCHES"
 
-          # Store as multiline GitHub Action output
+          # Store as GitHub multiline output
           echo "names<<EOF" >> $GITHUB_OUTPUT
           echo "$BRANCHES" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
