@@ -76,6 +76,6 @@ jobs:
           mkdocs-requirements-txt: mkdocs-requirements.txt
 
   reorder-versions-json:
-    uses: ./.github/workflows/reorder-versions.yml
+    uses: ./.github/workflows/reorder-versions.yaml
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
