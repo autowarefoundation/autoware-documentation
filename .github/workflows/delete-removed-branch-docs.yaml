@@ -94,6 +94,6 @@ jobs:
               echo "✔ branch-$MB exists — keeping"
             else
               echo "🔥 branch-$MB is orphaned — deleting"
-              mike delete "branch-$MB"
+              mike delete --push "branch-$MB"
             fi
           done
