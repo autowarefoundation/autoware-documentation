@@ -1,0 +1,34 @@
+name: delete-removed-branch-docs
+
+on:
+  workflow_call:
+    secrets:
+      token:
+        description: GitHub token
+        required: true
+  workflow_dispatch:
+
+jobs:
+  delete-removed-branch-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+        with:
+          ref: gh-pages
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: 3.10
+
+      - name: Install mike
+        run: |
+          pip3 install mike
+        shell: bash
+
+      - name: List mike versions
+        run: |
+          mike list
+        shell: bash
