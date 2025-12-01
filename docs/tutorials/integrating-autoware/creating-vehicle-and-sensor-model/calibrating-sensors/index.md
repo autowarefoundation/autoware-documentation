@@ -94,7 +94,7 @@ IMU-based cost and LiDAR point-to-surfel (surfel = surface element) distance are
 
 ## Base-lidar calibration
 
-### Base-lidar calibration from TIER IV
+### Base-lidar calibration with tools provided by TIER IV
 
 TIER IV では Base - LiDAR のキャリブレーションを行うため以下の二種類のキャリブレーションツールを提供しています
 
@@ -103,6 +103,7 @@ TIER IV では Base - LiDAR のキャリブレーションを行うため以下�
 - [Extrinsic ground-plane Calibration](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor#base-lidar-calibration)
   - roll, pitch, z を自動でキャリブレーションするツールです。
 
-## Other Calibration Tools from TIER IV
+## Other calibration tools provided by TIER IV
 
-TIER IV では sensor の他に Localization, control のキャリブレーションツールを開発し OSS として公開しています。他のキャリブレーションツールは[こちら](https://github.com/tier4/CalibrationTools)を参照してください
+In addition to sensor calibration, TIER IV also develops calibration tools for localization and control, which are released as open-source software.
+Please refer to the other calibration tools [here](https://github.com/tier4/CalibrationTools).
