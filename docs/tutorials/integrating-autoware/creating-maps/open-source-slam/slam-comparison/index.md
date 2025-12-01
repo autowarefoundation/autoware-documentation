@@ -17,9 +17,17 @@ Therefore, one trajectory must be rotated and translated to match the other.
 
 The TF tree defining these transformations is shown below:
 
-<p align="center">
-<img src="images/maptfinal.drawio.png" width="191" height="628">
-</p>
+```mermaid
+graph TD
+    A(["Global Frame (NED)"])
+    B(["GNSS Frame (NED)"])
+    C(["GNSS Frame (ENU)"])
+    D(["Velodyne Frame"])
+
+    A -->|"Global Orientation of <br> GNSS/INS"| B
+    B -->|"NED to ENU conversion"| C
+    C -->|"Lidar IMU calibration"| D
+```
 
 Transformation matrices are first derived from this tree, and these matrices are then applied to the GNSS/INS positions to align them with the lidar frame.
 
