@@ -91,6 +91,18 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
         shell: bash
 
+      - name: Set git config (workflow_call)
+        if: ${{ github.event_name == 'workflow_call' }}
+        uses: autowarefoundation/autoware-github-actions/set-git-config@v1
+        with:
+          token: ${{ secrets.token }}
+
+      - name: Set git config (workflow_dispatch or pull_request)
+        if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request' }}
+        uses: autowarefoundation/autoware-github-actions/set-git-config@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Delete orphaned mike branch versions
         if: ${{ steps.branch_versions.outputs.found == 'true' }}
         run: |
