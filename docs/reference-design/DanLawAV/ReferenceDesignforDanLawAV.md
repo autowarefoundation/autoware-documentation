@@ -22,15 +22,10 @@ One is interested in building your autonomous racing cars or low-cost platforms 
 
 ### Core Developers
 
-- Firstname Lastname
 
 ### Contributors
 
-- Firstname Lastname
-
 ## Community Outreach
-
-- Firstname Lastname
 
 ## Targeted Use Cases
 
