@@ -41,6 +41,10 @@ It loads a Lanelet2 file and publishes the map data as `autoware_map_msgs/msg/La
     - std_msgs/Header header
     - autoware_map_msgs/LaneletMapBin lanelet2_cells
 
+!!! warning
+
+    The Multiple Lanelet2 maps loading via ROS service is still under development and may not be available in the current release.
+
 ### Lanelet2 map visualization
 
 Visualize `autoware_map_msgs/msg/LaneletMapBin` messages in `Rviz`.
