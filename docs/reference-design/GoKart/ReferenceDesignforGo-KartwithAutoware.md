@@ -28,9 +28,9 @@ One is interested in building your small size autonomous vehicles and looks for 
 ## References and Resources
 
 - Complete Go-Kart with Autoware documents: [link](https://go-kart-upenn.readthedocs.io/en/latest/)
-- ROS2 Foxy setup and autonomous code: [link](https://github.com/mlab-upenn/gokart-sensor/tree/ros2_foxy_purepursuit)
+- ROS 2 Foxy setup and autonomous code: [link](https://github.com/mlab-upenn/gokart-sensor/tree/ros2_foxy_purepursuit)
 
-- ROS2 Humble setup and autonomous code: [Link](https://github.com/mlab-upenn/gokart-sensor/tree/ros2_humble_purepursuit)
+- ROS 2 Humble setup and autonomous code: [Link](https://github.com/mlab-upenn/gokart-sensor/tree/ros2_humble_purepursuit)
 
 - STM32 nucleo controller code: [link](https://github.com/mlab-upenn/gokart-mechatronics/tree/main/STM32%20Control)
 

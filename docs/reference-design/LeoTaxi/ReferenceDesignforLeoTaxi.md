@@ -22,15 +22,9 @@ One is interested in building autonomous cars for taxi service and looking for a
 
 ### Core Developers
 
-- Mert Çolak
-
 ### Contributors
 
-- (To be added.)
-
 ## Community Outreach
-
-- (To be added.)
 
 ## Targeted Use Cases
 

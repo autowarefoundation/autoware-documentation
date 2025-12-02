@@ -93,7 +93,7 @@ F1Tenth can be used for racing and education purpose. The simplest use case is t
 
 - Software on the car:
   - Operating System: Linux 20.04
-  - ROS: [ROS2 galactic](https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html)
+  - ROS: [ROS 2 galactic](https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html)
   - GPU Driver: nVidia: JetPack 5.1.1 (rev. 1)
   - [Autoware](https://github.com/autowarefoundation/autoware.git)
   - SLAM Toolbox to create and edit map: ros-galactic-slam-toolbox
