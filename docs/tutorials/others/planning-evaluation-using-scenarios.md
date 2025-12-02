@@ -164,7 +164,7 @@ record:=false \
 scenario:='/path/to/scenario/sample.yaml' \
 sensor_model:=sample_sensor_kit \
 vehicle_model:=sample_vehicle \
-rviz_config:=$($(ros2 pkg prefix autoware_launch)/share/autoware_launch/rviz/scenario_simulator.rviz)
+rviz_config:=$(ros2 pkg prefix autoware_launch)/share/autoware_launch/rviz/scenario_simulator.rviz
 ```
 
 - Now, the scenario will be executed in the Scenario Simulator. You can see the simulation in the RViz window.
