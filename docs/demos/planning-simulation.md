@@ -267,7 +267,7 @@ This section provides a step-by-step guide on using the Autoware Launch GUI for 
 
 ## Want to Try Autoware with Your Custom Map?
 
-The above content describes the process for conducting some operations in the planning simulator using a sample map. If you are interested in running Autoware with maps of your own environment, please visit the [How to Create Vector Map](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-maps/#creating-maps) section for guidance.
+The above content describes the process for conducting some operations in the planning simulator using a sample map. If you are interested in running Autoware with maps of your own environment, please visit the [How to Create Vector Map](../tutorials/integrating-autoware/creating-maps/index.md) section for guidance.
 
 ## Want to Try Autoware with Higher Speed?
 
