@@ -22,7 +22,6 @@ One is interested in building your autonomous racing cars or low-cost platforms 
 
 ### Core Developers
 
-
 ### Contributors
 
 ## Community Outreach
