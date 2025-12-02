@@ -92,3 +92,10 @@ jobs:
               mike delete --push "branch-$MB"
             fi
           done
+
+  reorder-versions-json:
+    needs:
+      - delete-removed-branch-docs
+    uses: ./.github/workflows/reorder-versions.yaml
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
