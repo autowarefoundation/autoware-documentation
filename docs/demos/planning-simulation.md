@@ -229,19 +229,19 @@ To pass through a non-signalized crosswalk, if the crosswalk is free of target o
 
 1. Set an initial pose and a goal pose for the ego vehicle driving across an non-signalized crosswalk. A path will be planned.
 
-   ![unsignalized-placing-ego-vehicle](images/planning/passing-crosswalk/unsignalized-placing-ego-vehicle.png)
+   ![non-signalized-placing-ego-vehicle](images/planning/passing-crosswalk/non-signalized-placing-ego-vehicle.png)
 
 2. Place a dummy pedestrian on the crosswalk and set its pose as if it is crossing the street.
 
-   ![unsignalized-crosswalk-start](images/planning/passing-crosswalk/unsignalized-crosswalk-start.png)
+   ![non-signalized-crosswalk-start](images/planning/passing-crosswalk/non-signalized-crosswalk-start.png)
 
 3. Engage the ego vehicle. The ego vehicle will decelerate and stop before the crosswalk. The marked **crosswalk** in the figure indicates that the stopping behavior is caused by the objects on the **crosswalk**.
 
-   ![unsignalized-crosswalk-stop](images/planning/passing-crosswalk/unsignalized-crosswalk-stop.png)
+   ![non-signalized-crosswalk-stop](images/planning/passing-crosswalk/non-signalized-crosswalk-stop.png)
 
 4. Wait for about a few seconds. The ego vehicle will start moving again and cross the crosswalk.
 
-   ![unsignalized-crosswalk-move-again](images/planning/passing-crosswalk/unsignalized-crosswalk-move-again.png)
+   ![non-signalized-crosswalk-move-again](images/planning/passing-crosswalk/non-signalized-crosswalk-move-again.png)
 
 #### Signalized crosswalk
 
