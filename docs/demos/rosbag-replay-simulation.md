@@ -1,6 +1,6 @@
 # Rosbag replay simulation
 
-## Requirements
+## Preparation
 
 1. Download and unpack a sample map.
    - You can also download [the map](https://drive.google.com/file/d/1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI/view?usp=sharing) manually.
