@@ -39,7 +39,7 @@ Change the [maximum velocity](https://github.com/autowarefoundation/autoware_lau
 
 !!! info "[Using Autoware Launch GUI](#using-autoware-launch-gui)"
 
-    If you prefer a graphical user interface (GUI) over the command line for launching and managing your simulations, refer to the `Using Autoware Launch GUI` section at the end of this document for a step-by-step guide.
+    If you prefer a graphical user interface (GUI) over the command line for launching and managing your simulations, refer to the [Using Autoware Launch GUI](#using-autoware-launch-gui) section at the end of this document for a step-by-step guide.
 
 ### Lane driving scenario
 
@@ -82,15 +82,15 @@ b) In the 3D View pane, click and hold the left-mouse button, and then drag to s
 
 #### 4. Start the ego vehicle
 
-Now you can start the ego vehicle driving by clicking the `AUTO` button on `OperationMode` in `AutowareStatePanel`.
-Alteratively, you can manually start the vehicle by running the following command:
+Now you can start the ego vehicle driving by clicking the `Auto` button in the `AutowareStatePanel`.
+Alternatively, you can manually start the vehicle by running the following command:
 
 ```bash
 source ~/autoware/install/setup.bash
 ros2 service call /api/operation_mode/change_to_autonomous autoware_adapi_v1_msgs/srv/ChangeOperationMode {}
 ```
 
-After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button is grayed out.
+After that, `Auto` button will be selected and grayed out.
 
 ![start-driving](images/planning/lane-following/start-driving.png)
 
