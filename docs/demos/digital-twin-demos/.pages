@@ -3,3 +3,4 @@ nav:
   - AWSIM with Autoware Core Demo: autoware-core-awsim
   - MORAI_Sim-tutorial.md
   - carla-tutorial.md
+  - panosim-demo.md
