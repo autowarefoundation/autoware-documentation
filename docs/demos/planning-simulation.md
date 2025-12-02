@@ -56,11 +56,11 @@ ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autowa
 
     If `~` is used, the map will fail to load.
 
-![after-autoware-launch](images/planning/others/first-overview.png)
+![after-autoware-launch](images/planning/others/after-autoware-launch.png)
 
 If you encounter a situation where the simulation is running but the view is not visible in Autoware like below, please follow these steps:
 
-![after-autoware-launch-error](images/planning/others/first%20error%20view.png)
+![after-autoware-launch-error](images/planning/others/wrong-rviz-view.png)
 
 Double-Click on 'TopDownOrtho' View
 Navigate to the Views section on the right panel and double-click on the TopDownOrtho option to properly display the simulation.
