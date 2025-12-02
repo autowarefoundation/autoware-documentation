@@ -4,20 +4,28 @@ Autoware has been developed and deployed in several autonomous vehicle projects.
 
 Two spider/radar charts are provided for each project to provide high-level overview of the design and technologies used in each project. The metrics for the chart are defined on [this page](metrics.md).
 
-## Bus
+## Reference design main documentation links
+
+[Privately Owned Vehicles Reference Design Documentation](https://autowarefoundation.github.io/autoware.pov-reference-design-docs/main/){ .md-button }
+
+[Low Speed Autonomy Reference Design Documentation](https://autowarefoundation.github.io/LSA-reference-design-docs/main/other-example-designs/AutoSDV/){ .md-button }
+
+## Other reference designs
+
+### Bus
 
 - [ITRI Bus](ITRIBus/ReferenceDesignforITRIBus.md)
 
-## Prototypes
+### Prototypes
 
 - [DanLaw AV](DanLawAV/ReferenceDesignforDanLawAV.md)
 - [LeoDrive RoboTaxi](LeoTaxi/ReferenceDesignforLeoTaxi.md)
 
-## Racing vehicles
+### Racing vehicles
 
 - [Go-Kart](GoKart/ReferenceDesignforGo-KartwithAutoware.md)
-  - https://autowarefoundation.github.io/LSA-reference-design-docs/main/other-example-designs/GoKart/
+  - <https://autowarefoundation.github.io/LSA-reference-design-docs/main/other-example-designs/GoKart/>
 - [F1Tenth](F1Tenth/ReferenceDesignforF1TenthwithAutoware.md)
-  - https://autowarefoundation.github.io/LSA-reference-design-docs/main/other-example-designs/F1Tenth/
+  - <https://autowarefoundation.github.io/LSA-reference-design-docs/main/other-example-designs/F1Tenth/>
 
-## Turing Taiwan Low Speed Utility vehicles
+### Turing Taiwan Low Speed Utility vehicles
