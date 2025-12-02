@@ -28,12 +28,22 @@ It loads point cloud files and publishes the maps to the other Autoware nodes in
 
 It loads a Lanelet2 file and publishes the map data as `autoware_map_msgs/msg/LaneletMapBin` message. The lan/lon coordinates are projected onto the MGRS coordinates.
 
-- autoware_map_msgs/msg/LaneletMapBin
+- Single Lanelet2 map (`autoware_map_msgs/msg/LaneletMapBin`)
   - std_msgs/Header header
   - string version_map_format
   - string version_map
   - string name_map
   - uint8[] data
+- Multiple Lanelet2 maps loading via ROS service (`autoware_map_msgs/srv/GetSelectedLanelet2Map`)
+  - Request:
+    - string[] cell_ids
+  - Response:
+    - std_msgs/Header header
+    - autoware_map_msgs/LaneletMapBin lanelet2_cells
+
+!!! warning
+
+    The Multiple Lanelet2 maps loading via ROS service is still under development and may not be available in the current release.
 
 ### Lanelet2 map visualization
 
