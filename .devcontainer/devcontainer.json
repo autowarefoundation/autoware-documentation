@@ -1,0 +1,26 @@
+{
+  "name": "Autoware Docs",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "options": ["--load"],
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      },
+      "extensions": [
+        "redhat.vscode-yaml",
+        "esbenp.prettier-vscode",
+        "DavidAnson.vscode-markdownlint"
+      ]
+    }
+  },
+  "forwardPorts": [8000],
+  "postCreateCommand": "pip install --user -r mkdocs-requirements.txt",
+  "remoteUser": "autoware",
+
+  "workspaceFolder": "/autoware-documentation",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/autoware-documentation,type=bind"
+}
