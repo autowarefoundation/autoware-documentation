@@ -1,6 +1,6 @@
 # Rosbag replay simulation
 
-## Steps
+## Preparation
 
 1. Download and unpack a sample map.
    - You can also download [the map](https://drive.google.com/file/d/1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI/view?usp=sharing) manually.
@@ -36,16 +36,16 @@
 
    If not, please, follow [Manual downloading of artifacts](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts).
 
-### Note
+!!! info
 
-- Sample map and rosbag: Copyright 2020 TIER IV, Inc.
-- Due to privacy concerns, the rosbag does not contain image data, which will cause:
-  - Traffic light recognition functionality cannot be tested with this sample rosbag.
-  - Object detection accuracy is decreased.
+    - Sample map and rosbag: Copyright 2020 TIER IV, Inc.
+    - Due to privacy concerns, the rosbag does not contain image data, which will cause:
+      - Traffic light recognition functionality cannot be tested with this sample rosbag.
+      - Object detection accuracy is decreased.
 
 ## How to run a rosbag replay simulation
 
-!!! info "[Using Autoware Launch GUI](#using-autoware-launch-gui)"
+!!! tip "[Using Autoware Launch GUI](#using-autoware-launch-gui)"
 
     If you prefer a graphical user interface (GUI) over the command line for launching and managing your simulations, refer to the `Using Autoware Launch GUI` section at the end of this document for a step-by-step guide.
 
@@ -81,7 +81,9 @@
 
    ![third-person-follower](images/rosbag-replay/third-person-follower.png)
 
-[Reference video tutorials](https://drive.google.com/file/d/12D6aSC1Y3Kf7STtEPWG5RYynxKdVcPrc/view?usp=sharing)
+!!! tip
+
+    [:fa-cl-s fa-film: Reference video tutorials](https://drive.google.com/file/d/12D6aSC1Y3Kf7STtEPWG5RYynxKdVcPrc/view?usp=sharing){ .md-button }
 
 ## Using Autoware Launch GUI
 
