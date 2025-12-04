@@ -23,7 +23,6 @@ we will enable or disable the necessary plugin modules in the [`default_preset.y
 
 - For example, in the YTU campus environment, there are many speed bumps, pedestrians, and specific areas where autonomous driving is not permitted.
   We will enable the following three modules to handle these conditions:
-
   - Speed bump module
   - Out of lane module
 
