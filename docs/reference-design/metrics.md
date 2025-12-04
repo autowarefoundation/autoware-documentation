@@ -4,7 +4,9 @@ Meta-Info and Tech-Info charts are provided for each project to provide a high-l
 
 ## Meta-Info charts
 
-- **Openness**: the adaptation of using open-source software.
+### Openness
+
+Degree to which the system relies on open-source versus proprietary software.
 
 | Value | Definition                                                                               |
 | :---: | ---------------------------------------------------------------------------------------- |
@@ -15,7 +17,9 @@ Meta-Info and Tech-Info charts are provided for each project to provide a high-l
 |   4   | Few proprietary software ( <20%) and mostly open source software (<80%)                  |
 |   5   | Complete (100%) open source software.                                                    |
 
-- **Vehicle size**: the length of the size.
+### Vehicle length
+
+Overall vehicle length category.
 
 | Value | Definition        |
 | :---: | ----------------- |
@@ -26,7 +30,9 @@ Meta-Info and Tech-Info charts are provided for each project to provide a high-l
 |   4   | Between 7m and 9m |
 |   5   | Longer than 9m    |
 
-- **Hardware Requirement**: the complexity of required computation hardware.
+### Hardware Requirement
+
+Required compute hardware complexity to operate the system.
 
 | Value | Definition                                                     |
 | :---: | -------------------------------------------------------------- |
@@ -37,7 +43,9 @@ Meta-Info and Tech-Info charts are provided for each project to provide a high-l
 |   4   | Multi-core CPU and Multi GPU                                   |
 |   5   | Multi-core CPU, Multi GPU, and Customized (Safety) Processors. |
 
-- **Software Requirement**: the complexity of required software.
+### Software Requirement
+
+Required software stack complexity to deploy and run the system.
 
 | Value | Definition                                                         |
 | :---: | ------------------------------------------------------------------ |
@@ -48,7 +56,9 @@ Meta-Info and Tech-Info charts are provided for each project to provide a high-l
 |   4   | Linux + ROS 2 + Autoware.core/universe + Containerization          |
 |   5   | Linux + ROS 2 + Autoware.core/universe + Containerization + SOAFEE |
 
-- **Automation Level**: compatibility to the level of automation.
+### Automation Level
+
+Highest SAE automation level the system targets/supports.
 
 | Value | Definition |
 | :---: | ---------- |
@@ -59,7 +69,9 @@ Meta-Info and Tech-Info charts are provided for each project to provide a high-l
 |   4   | Level 4    |
 |   5   | Level 5    |
 
-- **Sensors**: configuration of required sensors (unordered).
+### Sensors
+
+Minimum sensor suite required (unordered).
 
 | Value | Definition                                     |
 | :---: | ---------------------------------------------- |
@@ -70,7 +82,9 @@ Meta-Info and Tech-Info charts are provided for each project to provide a high-l
 |   4   | RGB Camera + GPS SNSS + IMU + 3D Lidar         |
 |   5   | RGB Camera + GPS SNSS + IMU + Radar + 3D Lidar |
 
-- **Maturity of the systems**: the maturity of the complete system
+### Maturity of the systems
+
+Demonstrated maturity of the complete system in testing and evaluation.
 
 | Value | Definition                                                                           |
 | :---: | ------------------------------------------------------------------------------------ |
@@ -81,7 +95,9 @@ Meta-Info and Tech-Info charts are provided for each project to provide a high-l
 |   4   | Tested in open regions, including other vehicles                                     |
 |   5   | Tested by third parties in open regions, including other vehicles                    |
 
-- **Availability**: the availability to be acquired.
+### Availability
+
+How readily the platform or components can be obtained.
 
 | Value | Definition                                          |
 | :---: | --------------------------------------------------- |
@@ -94,9 +110,9 @@ Meta-Info and Tech-Info charts are provided for each project to provide a high-l
 
 ## Tech-Info Charts
 
-- ### **Payload**
+### Payload
 
-Design Payload.
+Intended payload capacity of the platform.
 
 | Value | Definition                |
 | :---: | ------------------------- |
@@ -107,7 +123,9 @@ Design Payload.
 |   4   |                           |
 |   5   |                           |
 
-- **Cost**: Building cost excluding vehicle itself.
+### Cost
+
+Estimated build cost excluding the base vehicle.
 
 | Value | Definition              |
 | :---: | ----------------------- |
@@ -118,7 +136,9 @@ Design Payload.
 |   4   | Between 1M and 10M USD  |
 |   5   | > 10M USD               |
 
-- **Communicaiton**: Communication Capability.
+### Communicaiton
+
+Vehicle and infrastructure communication capabilities.
 
 | Value | Definition                                                   |
 | :---: | ------------------------------------------------------------ |
@@ -129,7 +149,9 @@ Design Payload.
 |   4   | CAN + On-Vehicle Ethernet + DSRC/C-V2X Receiving + V2I + V2V |
 |   5   | (Undefined)                                                  |
 
-- **Vehicle Speed**: Tested Vehicle Speed.
+### Vehicle Speed
+
+Maximum vehicle speed validated in testing.
 
 | Value | Definition              |
 | :---: | ----------------------- |
@@ -140,7 +162,9 @@ Design Payload.
 |   4   | Between 100 and 300 KMH |
 |   5   | > 300KMH                |
 
-- **Distance between Disengagement**: The average distance between disengagement.
+### Distance between Disengagement
+
+Average distance driven between human interventions/disengagements.
 
 | Value | Definition               |
 | :---: | ------------------------ |
@@ -151,7 +175,9 @@ Design Payload.
 |   4   | Between 100KM and 1000KM |
 |   5   | > 1000KM                 |
 
-- **Power Consumption**: Required power consumption for ECU, Sensors, and Actuators.
+### Power Consumption
+
+Estimated electrical power required by ECUs, sensors, and actuators.
 
 | Value | Definition              |
 | :---: | ----------------------- |
