@@ -224,25 +224,25 @@ To remove a traffic light from `TrafficLightPublishPanel`, click the `RESET` but
 
 ### Driving through a crosswalk
 
-When driving through a crosswalk, the ego vehicle will respond to objects on the crosswalk and the traffic light.
+When driving through a crosswalk, the ego vehicle evaluates **both** the presence of pedestrians/objects **and** the state of any associated traffic lights.
 
 !!! info
 
-    You can check the [autoware_behavior_velocity_crosswalk_module](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_crosswalk_module/) for more details.
+    For more technical details, refer to the [**autoware_behavior_velocity_crosswalk_module** documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_crosswalk_module/).
 
 !!! info
 
-    We will use the same map as in the [lane change scenario](#lane-change-scenario), Nishishinjuku map.
+    These examples use the **Nishishinjuku** map, the same one used in the [lane change scenario](#lane-change-scenario).
 
 !!! tip
 
-    For these tutorials, it's easier to place interactive dummy pedestrians, check [Placing interactive dummy objects](#placing-interactive-dummy-objects) above.
+    For these tutorials, it is easier to use **interactive dummy pedestrians** (see [Placing interactive dummy objects](#placing-interactive-dummy-objects) above).
 
     This way you can quickly add, move, and delete dummy pedestrians as needed.
 
 #### Non-signalized crosswalk (no traffic light)
 
-##### Logic
+##### Behavior logic
 
 ```mermaid
 flowchart TD
@@ -258,7 +258,7 @@ flowchart TD
 
 !!! example "Experiment"
 
-    We'll do the following:
+    We will test the expected “single stop then go” behavior:
 
     1. Place a still dummy pedestrian on the crosswalk. (Not on the planned path, just on the crosswalk.)
 
@@ -286,19 +286,19 @@ flowchart TD
 
 <figure markdown="span">
   ![test-location.png](images/planning/passing-crosswalk/signalized/test-location.png)
-  <figcaption>Signalized crosswalk experiments location</figcaption>
+  <figcaption>Location for signalized crosswalk experiments</figcaption>
 </figure>
 
-!!! example "Experiment 1"
+!!! example "Experiment 1: Pedestrian Present While Traffic Light Is GREEN"
 
-    Repeat the previous non-signalized crosswalk experiment on a signalized crosswalk with the traffic light set to `GREEN`. (Nothing interesting should happen here.)
+    This experiment mirrors the previous one but at a signalized crosswalk.
 
-Set the ego vehicle and an interactive dummy pedestrian at an intersection, similar to the previous scenario.
-Given that the traffic light for vehicles is `GREEN` by default and the dummy pedestrian is close to the planned path, the ego vehicle behaves as it would at a non-signalized crosswalk, decelerating and stopping. And after waiting for a few seconds, it will resume driving.
+With the pedestrian near the path and the traffic light **GREEN**, the ego behaves **the same as at a non-signalized crosswalk**:
+it slows, stops, waits, then continues.
 
 ![wait-for-pedestrian](images/planning/passing-crosswalk/signalized/wait-for-pedestrian.png)
 
-!!! example "Experiment 2"
+!!! example "Experiment 2: Interaction of Pedestrians and a RED Traffic Light"
 
     1. Stop before the crosswalk when the traffic light is set to `RED`. (Without pedestrians.)
 
@@ -306,19 +306,25 @@ Given that the traffic light for vehicles is `GREEN` by default and the dummy pe
 
     3. Finally, set the traffic light to `GREEN` again and the vehicle will pass normally.
 
-1. Delete the dummy interactive pedestrian (++alt+"🖱️ Right Click"++ on it) and set the traffic light to `RED`. The ego vehicle will decelerate and stop before the crosswalk. The marked **traffic_light** in the figure indicates that the stop is caused by the **traffic_light**. The ego vehicle will not move until the traffic light turns green.
+1. **Stop at red (no pedestrians).**
+   Remove any existing dummy pedestrians and set the traffic light to **RED**.
+   The ego vehicle will stop before the crosswalk and wait solely because of the **traffic_light** reason.
 
    ![stop-from-red-light](images/planning/passing-crosswalk/signalized/stop-from-red-light.png)
 
-2. Set a dummy pedestrian on the crosswalk again. Observe that both the **traffic_light** and **crosswalk** (the two markings may overlap) affect the stopping behavior.
+2. **Add a pedestrian while the light is RED.**
+   The ego remains stopped, now influenced by **both** the traffic light and the crosswalk object.
 
    ![stop-from-red-and-pedestrian](images/planning/passing-crosswalk/signalized/stop-from-red-and-pedestrian.png)
 
-3. If you wait for a bit after placing the pedestrian, the stop reason marker will only show **traffic_light**. If you move the pedestrian a bit (with ++shift+"🖱️ Right Click"++ drag), both markers will appear again. But only the **traffic_light** marker will remain after a short while.
+3. **Observe how the stop reasons update.**
+   After a short period, only **traffic_light** may remain displayed.
+   Moving the pedestrian slightly (with ++shift+"🖱️ Right Click"++ drag) reintroduces both markers, but the system stabilizes back to the traffic-light reason during the wait.
 
    ![stop-red-light-with-pedestrian.png](images/planning/passing-crosswalk/signalized/stop-red-light-with-pedestrian.png)
 
-4. Set the traffic light to `GREEN` and engage the vehicle by clicking on the `Auto` button, the ego vehicle will drive as usual.
+4. **Switch the light to GREEN.**
+   When set to green and `Auto` mode is engaged, the ego vehicle proceeds normally.
 
    ![move-after-red-to-green.png](images/planning/passing-crosswalk/signalized/move-after-red-to-green.png)
 
