@@ -30,7 +30,7 @@ Overall vehicle length category.
 |   4   | Between 7m and 9m |
 |   5   | Longer than 9m    |
 
-### Hardware Requirement
+### Hardware requirements
 
 Required compute hardware complexity to operate the system.
 
@@ -43,7 +43,7 @@ Required compute hardware complexity to operate the system.
 |   4   | Multi-core CPU and Multi GPU                                   |
 |   5   | Multi-core CPU, Multi GPU, and Customized (Safety) Processors. |
 
-### Software Requirement
+### Software requirements
 
 Required software stack complexity to deploy and run the system.
 
@@ -56,7 +56,7 @@ Required software stack complexity to deploy and run the system.
 |   4   | Linux + ROS 2 + Autoware.core/universe + Containerization          |
 |   5   | Linux + ROS 2 + Autoware.core/universe + Containerization + SOAFEE |
 
-### Automation Level
+### Automation level
 
 Highest SAE automation level the system targets/supports.
 
@@ -108,7 +108,7 @@ How readily the platform or components can be obtained.
 |   4   | Available for purchase but limited supply.          |
 |   5   | Available for purchase but limited supply.          |
 
-## Tech-Info Charts
+## Tech-Info charts
 
 ### Payload
 
@@ -136,7 +136,7 @@ Estimated build cost excluding the base vehicle.
 |   4   | Between 1M and 10M USD  |
 |   5   | > 10M USD               |
 
-### Communicaiton
+### Communication
 
 Vehicle and infrastructure communication capabilities.
 
@@ -149,7 +149,7 @@ Vehicle and infrastructure communication capabilities.
 |   4   | CAN + On-Vehicle Ethernet + DSRC/C-V2X Receiving + V2I + V2V |
 |   5   | (Undefined)                                                  |
 
-### Vehicle Speed
+### Vehicle speed
 
 Maximum vehicle speed validated in testing.
 
@@ -162,7 +162,7 @@ Maximum vehicle speed validated in testing.
 |   4   | Between 100 and 300 KMH |
 |   5   | > 300KMH                |
 
-### Distance between Disengagement
+### Distance between disengagements
 
 Average distance driven between human interventions/disengagements.
 
@@ -175,7 +175,7 @@ Average distance driven between human interventions/disengagements.
 |   4   | Between 100KM and 1000KM |
 |   5   | > 1000KM                 |
 
-### Power Consumption
+### Power consumption
 
 Estimated electrical power required by ECUs, sensors, and actuators.
 

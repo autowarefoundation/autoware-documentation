@@ -1,2 +1,4 @@
 nav:
   - index.md
+  - metrics.md
+  - ITRI Bus: itri-bus

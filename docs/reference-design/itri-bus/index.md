@@ -6,8 +6,8 @@ This document elaborates the hardware and software configurations for using Auto
 
 ## Design overview
 
-![Meta Chart for ITRI Bus Design](ITRIBus_Meta.png){ height="300" }
-![Tech Chart for ITRI Bus Design](ITRIBus_Tech.png){ height="300" }
+![Meta Chart for ITRI Bus Design](images/meta.png)
+![Tech Chart for ITRI Bus Design](images/tech.png)
 
 ## References and resources
 

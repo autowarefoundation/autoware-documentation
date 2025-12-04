@@ -5,17 +5,33 @@ The pages in this section elaborate their designs, including hardware and softwa
 
 Two spider/radar charts are provided for each project to provide high-level overview of the design and technologies used in each project. The metrics for the chart are defined on the [Metrics Page](metrics.md).
 
-## Reference design main documentation links
+## Main documentation links
 
-[Privately Owned Vehicles Reference Design Documentation](https://autowarefoundation.github.io/autoware.pov-reference-design-docs/main/){ .md-button }
+<div class="grid cards" markdown>
 
-[Low Speed Autonomy Reference Design Documentation](https://autowarefoundation.github.io/LSA-reference-design-docs/main/other-example-designs/AutoSDV/){ .md-button }
+- **Privately Owned Vehicles** Reference Design Documentation
+
+  ***
+
+  A modular design guideline for building a TRL-6 privately-owned vehicle using Autoware. This document defines how to choose sensors, ECUs, actuators and software stack; how to define the Operational Design Domain (ODD); and how to conduct evaluation and testing. But it does _not_ mandate a specific vehicle chassis. Covers a phased roadmap: from single-camera “Vision Pilot” (SAE Level 2+/2++) through multi-sensor configurations up to “Vision Drive” targeting Level 4 autonomy.
+
+  [:octicons-arrow-right-24: Link to the docs](https://autowarefoundation.github.io/autoware.pov-reference-design-docs/main/)
+
+- **Low Speed Autonomy** Reference Design Documentation
+
+  ***
+
+  A design guideline for building TRL-6 low-speed autonomous platforms (e.g. parking-lot robots, shuttles, small vehicles) using Autoware. Supports both indoor and outdoor use-cases, with flexible chassis and hardware configurations, adaptable ECUs, sensors and actuators. Includes guidance on software stack setup, middleware choices, optional custom workflows, and evaluation/testing procedures. Provides a solid starting point for small-scale autonomous mobility or robotics projects.
+
+  [:octicons-arrow-right-24: Link to the docs](https://autowarefoundation.github.io/LSA-reference-design-docs/main/)
+
+</div>
 
 ## Other reference designs
 
-### Bus 🚌
+### Buses 🚌
 
-- [ITRI Bus](ITRIBus/ReferenceDesignforITRIBus.md)
+- [ITRI Bus](itri-bus/index.md)
 
 ### Racing vehicles 🏎️
 
