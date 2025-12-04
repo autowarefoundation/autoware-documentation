@@ -25,6 +25,6 @@ For playing rosbag to simulate Autoware, please refer to the instruction in [the
 
 ## Related links
 
-- For specific format definition of the divided map, please refer to [Map component design page](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture/map/)
+- For specific format definition of the divided map, please refer to [Map component design page](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture-v1/components/map)
 - [The Readme of map_loader](https://github.com/autowarefoundation/autoware_universe/tree/main/map/autoware_map_loader) may be useful specific instructions for dividing maps
 - When dividing your own pointcloud map, you may use [pointcloud_divider](https://github.com/autowarefoundation/autoware_tools/tree/main/map/autoware_pointcloud_divider), which can divide the map as well as generating the compatible metadata
