@@ -1,12 +1,10 @@
-# Metrics for Meta-info and Tech-info Charts
+# Metrics for meta-info and tech-info charts
 
 Meta-Info and Tech-Info charts are provided for each project to provide a high-level overview of the design and technologies used in each project. The metrics for the chart are defined on this page.
 
-## Meta-Info Charts
+## Meta-Info charts
 
-- ### **Openness**
-
-the adaptation of using open-source software.
+- **Openness**: the adaptation of using open-source software.
 
 | Value | Definition                                                                               |
 | :---: | ---------------------------------------------------------------------------------------- |
@@ -17,9 +15,7 @@ the adaptation of using open-source software.
 |   4   | Few proprietary software ( <20%) and mostly open source software (<80%)                  |
 |   5   | Complete (100%) open source software.                                                    |
 
-- ### **Vehicle Size**
-
-the length of the size.
+- **Vehicle size**: the length of the size.
 
 | Value | Definition        |
 | :---: | ----------------- |
@@ -52,9 +48,7 @@ the length of the size.
 |   4   | Linux + ROS 2 + Autoware.core/universe + Containerization          |
 |   5   | Linux + ROS 2 + Autoware.core/universe + Containerization + SOAFEE |
 
-- ### **Automation Level**
-
-compatibility to the level of automation.
+- **Automation Level**: compatibility to the level of automation.
 
 | Value | Definition |
 | :---: | ---------- |
@@ -76,9 +70,7 @@ compatibility to the level of automation.
 |   4   | RGB Camera + GPS SNSS + IMU + 3D Lidar         |
 |   5   | RGB Camera + GPS SNSS + IMU + Radar + 3D Lidar |
 
-- ### **Maturity of the systems**
-
-  the maturity of the complete system
+- **Maturity of the systems**: the maturity of the complete system
 
 | Value | Definition                                                                           |
 | :---: | ------------------------------------------------------------------------------------ |
@@ -89,9 +81,7 @@ compatibility to the level of automation.
 |   4   | Tested in open regions, including other vehicles                                     |
 |   5   | Tested by third parties in open regions, including other vehicles                    |
 
-- ### **Availability**
-
-  the availability to be acquired.
+- **Availability**: the availability to be acquired.
 
 | Value | Definition                                          |
 | :---: | --------------------------------------------------- |
@@ -128,9 +118,7 @@ Design Payload.
 |   4   | Between 1M and 10M USD  |
 |   5   | > 10M USD               |
 
-- ### **Communicaiton**
-
-Communication Capability.
+- **Communicaiton**: Communication Capability.
 
 | Value | Definition                                                   |
 | :---: | ------------------------------------------------------------ |
@@ -141,9 +129,7 @@ Communication Capability.
 |   4   | CAN + On-Vehicle Ethernet + DSRC/C-V2X Receiving + V2I + V2V |
 |   5   | (Undefined)                                                  |
 
-- ### **Vehicle Speed**
-
-Tested Vehicle Speed.
+- **Vehicle Speed**: Tested Vehicle Speed.
 
 | Value | Definition              |
 | :---: | ----------------------- |
@@ -154,9 +140,7 @@ Tested Vehicle Speed.
 |   4   | Between 100 and 300 KMH |
 |   5   | > 300KMH                |
 
-- ### **Distance between Disengagement**
-
-The average distance between disengagement.
+- **Distance between Disengagement**: The average distance between disengagement.
 
 | Value | Definition               |
 | :---: | ------------------------ |
@@ -167,9 +151,7 @@ The average distance between disengagement.
 |   4   | Between 100KM and 1000KM |
 |   5   | > 1000KM                 |
 
-- ### **Power Consumption**
-
-Required power consumption for ECU, Sensors, and Actuators.
+- **Power Consumption**: Required power consumption for ECU, Sensors, and Actuators.
 
 | Value | Definition              |
 | :---: | ----------------------- |

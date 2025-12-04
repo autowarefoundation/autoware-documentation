@@ -6,18 +6,10 @@ This document elaborates the hardware and software configurations for using Auto
 
 ## Design overview
 
-![Meta Chart for ITRI Bus Design](ITRIBus_Meta.png)
-![Tech Chart for ITRI Bus Design](ITRIBus_Tech.png)
-
-## Who should read
-
-One is interested in building your autonomous bus, and looks for the place to start with.
+![Meta Chart for ITRI Bus Design](ITRIBus_Meta.png){ height="300" }
+![Tech Chart for ITRI Bus Design](ITRIBus_Tech.png){ height="300" }
 
 ## References and resources
-
-- (To-be-added)
-
-## Contributors
 
 - (To-be-added)
 
