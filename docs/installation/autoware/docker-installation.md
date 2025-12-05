@@ -111,6 +111,10 @@ Open AD Kit provides different deployment options for Autoware, so that you can 
    vcs import src < extra-packages.repos
    ```
 
+   > ⚠️ You might need to install the dependencies of the extra packages manually.
+   >
+   > ➡️ Check the readme of the extra packages for more information.
+
 2. Update dependent ROS packages.
 
    The dependencies of Autoware may have changed after the Docker image was created.
