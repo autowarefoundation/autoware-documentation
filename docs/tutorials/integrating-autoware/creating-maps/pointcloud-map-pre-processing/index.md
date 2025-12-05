@@ -117,6 +117,12 @@ Then, this pointcloud can be used by autoware.
 The [dynamic object removal package](https://github.com/davutcanakbas/dynamic_object_removal)
 removes dynamic objects from a point cloud using the output of the lidar-centerpoint package.
 
+!!! warning
+
+    This package might be outdated.
+
+    Please check the repository for the latest updates. If it works well, please make a PR to remove this warning.
+
 !!! info
 
     Please refer to [the package documentation](https://github.com/davutcanakbas/dynamic_object_removal/blob/main/README.md) for more information.
