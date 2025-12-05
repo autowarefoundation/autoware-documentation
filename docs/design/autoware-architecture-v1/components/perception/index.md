@@ -6,13 +6,13 @@ This document outlines the high-level design strategies, goals and related ratio
 
 ## Overview
 
-The Perception Component receives inputs from Sensing, Localization, and Map components, and adds semantic information (e.g., Object Recognition, Obstacle Segmentation, Traffic Light Recognition, Occupancy Grid Map), which is then passed on to Planning Component. This component design follows the overarching philosophy of Autoware, defined as the [microautonomy concept](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts/).
+The Perception Component receives inputs from Sensing, Localization, and Map components, and adds semantic information (e.g., Object Recognition, Obstacle Segmentation, Traffic Light Recognition, Occupancy Grid Map), which is then passed on to Planning Component. This component design follows the overarching philosophy of Autoware, defined as the [microautonomy concept](../../../autoware-concepts/index.md).
 
 ## Goals and non-goals
 
 The role of the Perception Component is to recognize the surrounding environment based on the data obtained through Sensing and acquire sufficient information (such as the presence of dynamic objects, stationary obstacles, blind spots, and traffic signal information) to enable autonomous driving.
 
-In our overall design, we emphasize the concept of [microautonomy architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts). This term refers to a design approach that focuses on the proper modularization of functions, clear definition of interfaces between these modules, and as a result, high expandability of the system. Given this context, the goal of the Perception Component is set not to solve every conceivable complex use case (although we do aim to support basic ones), but rather to provide a platform that can be customized to the user's needs and can facilitate the development of additional features.
+In our overall design, we emphasize the concept of [microautonomy architecture](../../../autoware-concepts/index.md). This term refers to a design approach that focuses on the proper modularization of functions, clear definition of interfaces between these modules, and as a result, high expandability of the system. Given this context, the goal of the Perception Component is set not to solve every conceivable complex use case (although we do aim to support basic ones), but rather to provide a platform that can be customized to the user's needs and can facilitate the development of additional features.
 
 To clarify the design concepts, the following points are listed as goals and non-goals.
 

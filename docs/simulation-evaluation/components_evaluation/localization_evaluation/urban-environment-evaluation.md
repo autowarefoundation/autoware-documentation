@@ -2,7 +2,7 @@
 
 #### Related Links
 
-Data Collection Documentation --> <https://autowarefoundation.github.io/autoware-documentation/main/datasets/#istanbul-open-dataset>
+Data Collection Documentation --> [İstanbul Open Dataset](../../../datasets/index.md#istanbul-open-dataset)
 
 #### Purpose
 
@@ -22,7 +22,7 @@ The data contains data from the following sensors:
 - 1 x Applanix POS LVX GNSS/INS System
 - 1 x Hesai Pandar XT32 LiDAR
 
-You can find the data collected for testing and mapping in this [Documentation](https://autowarefoundation.github.io/autoware-documentation/main/datasets/#istanbul-open-dataset).
+You can find the data collected for testing and mapping in this [İstanbul Open Dataset](../../../datasets/index.md#istanbul-open-dataset).
 
 > <span style="color:green">**NOTE !**</span> </br>  
 > Since there was no velocity source coming from the vehicle during all these tests, the twist message coming from GNSS/INS was given to ekf_localizer as the linear&angular velocity source. </br>

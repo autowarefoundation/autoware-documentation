@@ -257,4 +257,4 @@ There are some tips that may help you.
     version: main
   ```
 
-  Then you can import your entire environment easily to another local device by using the `vcs import` command. (See [the source installation guide](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#how-to-set-up-a-workspace))
+  Then you can import your entire environment easily to another local device by using the `vcs import` command. (See [the source installation guide](../../../installation/autoware/source-installation.md#how-to-set-up-a-workspace))
