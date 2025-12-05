@@ -60,11 +60,11 @@ Image frame captured by camera.
 
 ### Vehicle kinematic state
 
-current position of ego, used in traffic signals recognition. See [output of Localization](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/localization/#vehicle-kinematic-state).
+current position of ego, used in traffic signals recognition. See [output of Localization](localization.md#vehicle-kinematic-state).
 
 ### Lanelet2 Map
 
-map of the environment. See [outputs of Map](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/map/#outputs).
+map of the environment. See [outputs of Map](map.md/#outputs).
 
 ## Output
 

@@ -107,7 +107,7 @@ vcs import src < simulator.repos
 
 - If you are installing Autoware for the first time, you can automatically install the dependencies by using the
   provided Ansible script. Please refer to
-  the [Autoware source installation page](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/)
+  the [Autoware source installation page](../../installation/autoware/source-installation.md)
   for more information.
 
 ```bash
@@ -132,7 +132,7 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
 
 - If you have any issues with the installation, or if you need more detailed instructions, please refer to the
-  [Autoware source installation page](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/).
+  [Autoware source installation page](../../installation/autoware/source-installation.md)
 
 ### Execute the scenario by using Scenario Simulator
 

@@ -18,8 +18,6 @@ sudo apt-get -y update
 sudo apt-get -y install git
 ```
 
-> Note: If you wish to use ROS 2 Galactic on Ubuntu 20.04, refer to installation instruction from [galactic](https://autowarefoundation.github.io/autoware-documentation/galactic/installation/autoware/source-installation/) branch, but be aware that Galactic version of Autoware might not have the latest features.
-
 ## How to set up a development environment
 
 1. Clone `autowarefoundation/autoware` and move to the directory.
