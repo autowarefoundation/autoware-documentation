@@ -14086,7 +14086,7 @@ Please remember,
 Autoware control output (/control/command/control_cmd)
 publishes lateral and longitudinal commands according to the Ackermann kinematic model.</p>
 <ul>
-<li>If your vehicle does not suit the Ackermann kinematic model, you have to modify the control commands. <a href="../customizing-for-differential-drive-model/">Another document gives you an example of how to convert your Ackermann kinematic model control inputs into a differential drive model.</a></li>
+<li>If your vehicle does not suit the Ackermann kinematic model, you have to modify the control commands. <a href="https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/customizing-for-differential-drive-model/">Another document gives you an example how to convert your Ackermann kinematic model control inputs into a differential drive model.</a></li>
 </ul>
 <h2 id="geometry">Geometry<a class="headerlink" href="#geometry" title="Permanent link">#</a></h2>
 <p>The basic style of the Ackermann kinematic model has four wheels with an Ackermann link on the front,
@@ -14129,7 +14129,7 @@ A <code>control_cmd</code> topic is a <a href="https://gitlab.com/autowarefounda
 </code></pre></div>
 <p>See the <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannLateralCommand.idl">AckermannLateralCommand.idl</a> and <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/LongitudinalCommand.idl">LongitudinalCommand.idl</a> for details.</p>
 <p>The vehicle interface should realize these control commands through your vehicle's control device.</p>
-<p>Moreover, Autoware also provides brake commands, light commands, and more (see <a href="../../../../design/autoware-interfaces/components/vehicle-interface/">vehicle interface design</a>), so the vehicle interface module should be applicable to these commands as long as there are devices available to handle them.</p>
+<p>Moreover, Autoware also provides brake commands, light commands, and more (see <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/">vehicle interface design</a>), so the vehicle interface module should be applicable to these commands as long as there are devices available to handle them.</p>
 <!-- prettier-ignore --></div>
 
 

@@ -14168,8 +14168,8 @@
 <p>Autoware constantly incorporates new features.
 It is crucial to initially confirm that it operates as expected with the current version, which helps in problem troubleshooting.</p>
 <p>In this context, AWSIM is presumed.
-Therefore, <a href="../../../demos/digital-twin-demos/awsim-tutorial/">AWSIM simulator demo</a> can be useful.
-If you are using actual hardware, please refer to the <a href="../../">Tutorials</a>.</p>
+Therefore, <a href="https://autowarefoundation.github.io/autoware-documentation/main/tutorials/ad-hoc-simulation/digital-twin-simulation/awsim-tutorial/">AWSIM simulator</a> can be useful.
+If you are using actual hardware, please refer to the <a href="https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/">How-to guides</a>.</p>
 <h2 id="2-recording-a-rosbag-using-autoware">2. Recording a rosbag using Autoware<a class="headerlink" href="#2-recording-a-rosbag-using-autoware" title="Permanent link">#</a></h2>
 <p>Before developing a new node, it is recommended to record a rosbag in order to evaluate.
 If you need a new sensor, you should add it to your vehicle or AWSIM.</p>
@@ -14181,13 +14181,13 @@ After data recording, verifying the smooth flow of sensor data and unchanged tim
 This verification can be accomplished, for example, by inspecting the image data with <code>rqt_image_view</code> during <code>ros2 bag play</code>.</p>
 <h2 id="3-developing-the-new-node">3. Developing the new node<a class="headerlink" href="#3-developing-the-new-node" title="Permanent link">#</a></h2>
 <p>When developing a new node, it could be beneficial to reference a package that is similar to the one you intend to create.</p>
-<p>It is advisable to thoroughly read the <a href="../../../design/">Design page</a>, contemplate the addition or replacement of nodes in Autoware, and then implement your solution.</p>
+<p>It is advisable to thoroughly read the <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/">Design page</a>, contemplate the addition or replacement of nodes in Autoware, and then implement your solution.</p>
 <p>For example, a node doing NDT, a LiDAR-based localization method, is <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/localization/autoware_ndt_scan_matcher">ndt_scan_matcher</a>.
 If you want to replace this with a different approach, implement a node which produces the same topics and provides the same services.</p>
 <p><code>ndt_scan_matcher</code> is launched as <a href="https://github.com/autowarefoundation/autoware_universe/blob/main/launch/tier4_localization_launch/launch/pose_twist_estimator/ndt_scan_matcher.launch.xml">pose_estimator</a>, so it is necessary to replace the launch file as well.</p>
 <h2 id="4-evaluating-by-a-rosbag-based-simulator">4. Evaluating by a rosbag-based simulator<a class="headerlink" href="#4-evaluating-by-a-rosbag-based-simulator" title="Permanent link">#</a></h2>
 <p>Once the new node is implemented, it is time to evaluate it.
-<a href="../../../demos/rosbag-replay-simulation/">logging_simulator</a> is a tool of how to evaluate the new node using the rosbag captured in step 2.</p>
+<a href="https://autowarefoundation.github.io/autoware-documentation/main/tutorials/ad-hoc-simulation/rosbag-replay-simulation/">logging_simulator</a> is a tool of how to evaluate the new node using the rosbag captured in step 2.</p>
 <p>When you run the logging_simulator, you can set <code>planning:=false</code> or <code>control:=false</code> to disable the launch of specific component nodes.</p>
 <p><code>ros2 launch autoware_launch logging_simulator.launch.xml ... planning:=false control:=false</code></p>
 <p>After launching logging_simulator, the rosbag file obtained in step 2 should be replayed using <code>ros2 bag play &lt;rosbag_file&gt;</code>.</p>
@@ -14196,7 +14196,7 @@ Also, using the <code>--topics</code> option of <code>ros2 bag play</code>, you 
 <p>There is <a href="https://github.com/tier4/ros2bag_extensions">ros2bag_extensions</a> available to filter the rosbag file and create a new rosbag file that contains only the topics you need.</p>
 <h2 id="5-evaluating-in-a-realtime-environment">5. Evaluating in a realtime environment<a class="headerlink" href="#5-evaluating-in-a-realtime-environment" title="Permanent link">#</a></h2>
 <p>Once you have sufficiently verified the behavior in the logging_simulator, let's run it as Autoware with new nodes added in the realtime environment.</p>
-<p>To debug Autoware, the method described at <a href="../debug-autoware/">debug-autoware</a> is useful.</p>
+<p>To debug Autoware, the method described at <a href="https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/others/debug-autoware/">debug-autoware</a> is useful.</p>
 <p>For reproducibility, you may want to fix the GoalPose.
 In such cases, consider using the <a href="https://github.com/autowarefoundation/autoware_tools/tree/main/common/tier4_automatic_goal_rviz_plugin">tier4_automatic_goal_rviz_plugin</a>.</p>
 <h2 id="6-sharing-the-results">6. Sharing the results<a class="headerlink" href="#6-sharing-the-results" title="Permanent link">#</a></h2>
