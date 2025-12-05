@@ -52,7 +52,6 @@ sudo apt-get -y install git
     - [Install Dev Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/dev_tools#manual-installation)
     - [Install gdown](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/gdown#manual-installation)
     - [Install geographiclib](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/geographiclib#manual-installation)
-    - [Install pacmod](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/pacmod#manual-installation)
     - [Install the RMW Implementation](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rmw_implementation#manual-installation)
     - [Install ROS 2](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2#manual-installation)
     - [Install ROS 2 Dev Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2_dev_tools#manual-installation)
@@ -90,6 +89,10 @@ sudo apt-get -y install git
    ```bash
    vcs import src < extra-packages.repos
    ```
+
+   > ⚠️ You might need to install the dependencies of the extra packages manually.
+   >
+   > ➡️ Check the readme of the extra packages for more information.
 
 2. Install dependent ROS packages.
 
