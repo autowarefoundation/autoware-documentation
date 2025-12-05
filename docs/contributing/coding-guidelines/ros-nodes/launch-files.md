@@ -54,7 +54,7 @@ A33-->A43[twist2accel.launch.xml]
 
 ### Add a new package in Autoware
 
-If a newly created package has executable node, we expect sample launch file and configuration within the package, just like the recommended structure shown in previous [directory structure](https://autowarefoundation.github.io/autoware-documentation/main/contributing/coding-guidelines/ros-nodes/directory-structure/) page.
+If a newly created package has executable node, we expect sample launch file and configuration within the package, just like the recommended structure shown in the previous [directory structure](../../../contributing/coding-guidelines/ros-nodes/directory-structure.md) page.
 
 In order to automatically load the newly added package when starting Autoware, you need to make some necessary changes to the corresponding launch file. For example, if using ICP instead of NDT as the pointcloud registration algorithm, you can modify the `autoware_universe/launch/tier4_localization_launch/launch/pose_estimator/pose_estimator.launch.xml` file to load the newly added ICP package.
 

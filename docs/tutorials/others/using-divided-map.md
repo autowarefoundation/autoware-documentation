@@ -21,7 +21,7 @@ ros2 launch autoware_launch logging_simulator.launch.xml \
   vehicle_model:=sample_vehicle_split sensor_model:=sample_sensor_kit
 ```
 
-For playing rosbag to simulate Autoware, please refer to the instruction in [the tutorial for rosbag replay simulation](https://autowarefoundation.github.io/autoware-documentation/main/tutorials/ad-hoc-simulation/rosbag-replay-simulation/).
+For playing rosbag to simulate Autoware, please refer to the instruction in [the demo for rosbag replay simulation](../../demos/rosbag-replay-simulation.md).
 
 ## Related links
 
