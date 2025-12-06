@@ -1,12 +1,12 @@
 [
   {
-    "version": "pr-736",
-    "title": "pr-736",
+    "version": "main",
+    "title": "main",
     "aliases": []
   },
   {
-    "version": "main",
-    "title": "main",
+    "version": "pr-736",
+    "title": "pr-736",
     "aliases": []
   }
 ]
