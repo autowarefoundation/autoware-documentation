@@ -14160,7 +14160,7 @@ It is integrated in autoware_universe and actively maintained to stay compatible
 <h3 id="autoware_tensorrt_vad-end-to-end-planning">autoware_tensorrt_vad (end-to-end planning)<a class="headerlink" href="#autoware_tensorrt_vad-end-to-end-planning" title="Permanent link">#</a></h3>
 <p>TensorRT-optimized Vectorized Autonomous Driving (<a href="https://github.com/hustvl/VAD">VAD</a>) node that replaces the traditional perception/localization/planning stack with a single end-to-end model trained on CARLA (<a href="https://github.com/Thinklab-SJTU/Bench2Drive">Bench2Drive</a>). Ships with a CARLA-focused launch file and integrates with <code>autoware_launch</code> through <code>e2e_simulator.launch.xml</code>.</p>
 <ul>
-<li>Project Link: <a href="https://github.com/autowarefoundation/autoware/tree/main/src/universe/autoware_universe/planning/autoware_tensorrt_vad">autoware_tensorrt_vad</a> (README includes parameters, topics, and model details)</li>
+<li>Project Link: <a href="https://github.com/autowarefoundation/autoware/tree/main/src/universe/autoware_universe/e2e/autoware_tensorrt_vad">autoware_tensorrt_vad</a> (README includes parameters, topics, and model details)</li>
 <li>Usage (CARLA E2E mode):<ol>
 <li>Build the package and deps: <code>colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-up-to autoware_tensorrt_vad</code>.</li>
 <li>Prepare CARLA following <code>autoware_carla_interface</code> (use <code>carla_sensor_kit</code> so camera topics match the VAD training order: FRONT, BACK, FRONT_LEFT, BACK_LEFT, FRONT_RIGHT, BACK_RIGHT).</li>
