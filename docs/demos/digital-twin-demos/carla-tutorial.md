@@ -18,7 +18,7 @@ It is integrated in autoware_universe and actively maintained to stay compatible
 
 TensorRT-optimized Vectorized Autonomous Driving ([VAD](https://github.com/hustvl/VAD)) node that replaces the traditional perception/localization/planning stack with a single end-to-end model trained on CARLA ([Bench2Drive](https://github.com/Thinklab-SJTU/Bench2Drive)). Ships with a CARLA-focused launch file and integrates with `autoware_launch` through `e2e_simulator.launch.xml`.
 
-- Project Link: [autoware_tensorrt_vad](https://github.com/autowarefoundation/autoware/tree/main/src/universe/autoware_universe/planning/autoware_tensorrt_vad) (README includes parameters, topics, and model details)
+- Project Link: [autoware_tensorrt_vad](https://github.com/autowarefoundation/autoware/tree/main/src/universe/autoware_universe/e2e/autoware_tensorrt_vad) (README includes parameters, topics, and model details)
 - Usage (CARLA E2E mode):
   1. Build the package and deps: `colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-up-to autoware_tensorrt_vad`.
   2. Prepare CARLA following `autoware_carla_interface` (use `carla_sensor_kit` so camera topics match the VAD training order: FRONT, BACK, FRONT_LEFT, BACK_LEFT, FRONT_RIGHT, BACK_RIGHT).
