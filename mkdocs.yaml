@@ -8,7 +8,7 @@ copyright: Copyright &copy; 2023 The Autoware Foundation
 theme:
   name: material
   features:
-    - navigation.expand
+    #    - navigation.expand # Until we simplify the navigation
     - navigation.indexes
     - navigation.instant
     - navigation.instant.prefetch
