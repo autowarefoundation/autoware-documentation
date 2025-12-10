@@ -170,7 +170,7 @@ The file consists of these parameters:
 
 This file stores the vehicle dimensions for Autoware modules.
 Please update it with your vehicle information.
-You can refer to the [vehicle dimensions](../../../../design/autoware-interfaces/components/vehicle-dimensions.md) page for detailed dimension demonstration.
+You can refer to the [vehicle dimensions](../../../../design/autoware-architecture-v1/interfaces/components/vehicle-dimensions.md) page for detailed dimension demonstration.
 Here is the `vehicle_info.param.yaml` for [sample_vehicle](https://github.com/autowarefoundation/sample_vehicle_launch/blob/main/sample_vehicle_description/config/vehicle_info.param.yaml):
 
 ```yaml

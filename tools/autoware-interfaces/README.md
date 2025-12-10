@@ -27,5 +27,5 @@ A document will be generated in the following paths.
 
 ```txt
 yaml/autoware-interfaces.yaml
-docs/design/autoware-interfaces/ad-api/types/**/*.md
+docs/design/autoware-architecture-v1/interfaces/ad-api/types/**/*.md
 ```

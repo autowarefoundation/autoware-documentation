@@ -177,7 +177,7 @@ This file defines the mounting positions and orientations of `sensor_kit_base_li
 with `base_link` as the parent frame.
 At Autoware, `base_link` is on projection of the rear-axle center onto the ground surface.
 For more information,
-you can check [vehicle dimension](../../../../design/autoware-interfaces/components/vehicle-dimensions.md) page.
+you can check [vehicle dimension](../../../../design/autoware-architecture-v1/interfaces/components/vehicle-dimensions.md) page.
 You can use CAD values for this, but we will fill the values with `0` for now.
 
 ```yaml
