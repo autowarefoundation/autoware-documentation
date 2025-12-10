@@ -1,7 +1,7 @@
 # List of Autoware AD API
 
-| API                                                                                              | Release      | Method          |
-| ------------------------------------------------------------------------------------------------ | ------------ | --------------- |
+| API                                                                                            | Release      | Method          |
+| ---------------------------------------------------------------------------------------------- | ------------ | --------------- |
 | [/api/control/command/acceleration](api/control/command/acceleration.md)                       | v1.9.0       | realtime stream |
 | [/api/control/command/pedals](api/control/command/pedals.md)                                   | v1.9.0       | realtime stream |
 | [/api/control/command/steering](api/control/command/steering.md)                               | v1.9.0       | realtime stream |
