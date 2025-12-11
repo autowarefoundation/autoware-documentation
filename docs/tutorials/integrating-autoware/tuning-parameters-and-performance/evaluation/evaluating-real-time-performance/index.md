@@ -118,7 +118,7 @@ Refer to the [Pull Request](https://github.com/autowarefoundation/autoware_unive
 
 The following figure is a time-series plot of the turnaround time of the main processing part of `ring_outlier_filter`, analyzed as described in the "Performance Measurement" section above.
 
-![ring outlier filter turnaround time](https://raw.githubusercontent.com/autowarefoundation/autoware-documentation/0ad57338ca24b35f0a271c6ae003aa303b3dd4ce/docs/assets/images/ring_outlier_filter_turnaround_time.png)
+![ring outlier filter turnaround time](images/ring_outlier_filter_turnaround_time.png)
 
 The horizontal axis indicates the number of callbacks called (i.e., callback index), and the vertical axis indicates the turnaround time.
 
@@ -127,7 +127,7 @@ When analyzing the performance of the sensing module from the viewpoint of perfo
 Analysis of the performance counter shows that the largest fluctuations come from `minor-faults` (i.e., soft page faults), the second largest from `LLC-store-misses` and `LLC-load-misses` (i.e., cache misses in the last level cache), and the slowest fluctuations come from instructions (i.e., message data size fluctuations).
 For example, when we plot `minor-faults` on the horizontal axis and turnaround time on the vertical axis, we can see the following dominant proportional relationship.
 
-![ring outlier filter minor faults](https://raw.githubusercontent.com/autowarefoundation/autoware-documentation/0ad57338ca24b35f0a271c6ae003aa303b3dd4ce/docs/assets/images/ring_outlier_filter_minor_faults.png)
+![ring outlier filter minor faults](images/ring_outlier_filter_minor_faults.png)
 
 To achieve zero soft page faults, heap allocations must only be made from areas that have been first touched in advance.
 We have developed a library called [`heaphook`](https://github.com/tier4/heaphook) to avoid soft page faults while running Autoware callback.
@@ -176,7 +176,7 @@ First, we will pick up `detection_area` module in `behavior_velocity_planner` no
 We have followed the performance analysis steps above to obtain the following graph.
 Axises are the same as the graphs in the sensing case study.
 
-![detection area turnaround time](https://raw.githubusercontent.com/autowarefoundation/autoware-documentation/36647431080a837a1c8a983faf5045d6524cee66/docs/assets/images/detection_area_turnaround_time.png)
+![detection area turnaround time](images/detection_area_turnaround_time.png)
 
 Using [`pmu_analyzer`](https://github.com/sykwer/pmu_analyzer) tool to further identify the bottleneck, we have found that the following multiple loops were taking up a lot of processing time:
 
