@@ -8,7 +8,7 @@
 
     Changes to the `velocity` parameter will only affect objects placed after the parameter is changed.
 
-   ![set-dummy-car](images/lane-following/place-dummy-car.png)
+![set-dummy-car](images/lane-following/place-dummy-car.png)
 
 !!! tip "Delete all dummy objects"
 
