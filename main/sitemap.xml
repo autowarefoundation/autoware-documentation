@@ -1101,6 +1101,34 @@
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture-v2/roadmap/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture-v2/roadmap/assessment-safety-and-benchmarks/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture-v2/roadmap/autonomous-driving-stack-architecture/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture-v2/roadmap/data-mlops-and-training/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture-v2/roadmap/detailed-architectural-interface/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture-v2/roadmap/development-roadmap/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture-v2/roadmap/neural-world-simulation/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
@@ -1122,6 +1150,26 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/main/design/versioning_and_repositories/versioning-system/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/home/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/home/roadmap/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/home/roadmap/multi-year-roadmap/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/home/roadmap/multi-year-roadmap/year1-goals/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/home/vision-mission-core-values/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
@@ -1238,50 +1286,6 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/main/reference-design/reference-hw/vehicle_platform_suppliers/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/roadmap/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/roadmap/architecture/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/roadmap/architecture/assessment-safety-and-benchmarks/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/roadmap/architecture/autonomous-driving-stack-architecture/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/roadmap/architecture/data-mlops-and-training/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/roadmap/architecture/detailed-architectural-interface/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/roadmap/architecture/development-roadmap/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/roadmap/architecture/neural-world-simulation/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/roadmap/multi-year-roadmap/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/roadmap/multi-year-roadmap/year1-goals/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/roadmap/vision-mission-core-values/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
