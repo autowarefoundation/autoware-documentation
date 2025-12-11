@@ -4,13 +4,15 @@
 2. Set the pose of the dummy object by clicking and dragging on the map.
 3. Set the velocity of the object in `Tool Properties -> 2D Dummy Car/Pedestrian` panel.
 
-   !!! note
+!!! note
 
-   Changes to the `velocity` parameter will only affect objects placed after the parameter is changed.
+    Changes to the `velocity` parameter will only affect objects placed after the parameter is changed.
 
    ![set-dummy-car](images/lane-following/place-dummy-car.png)
 
-4. Delete any dummy objects placed in the view by clicking the `Delete All Objects` button in the toolbar and then click anywhere in the 3D View pane to complete it.
+!!! tip "Delete all dummy objects"
+
+    Click the `Delete All Objects` button in the toolbar and then click anywhere in the 3D View pane to complete it.
 
 ## Placing interactive dummy objects
 
