@@ -3,10 +3,10 @@ nav:
   - installation
   - demos
   - tutorials
-  - design
+  - Architecture design: design
+  - reference-design
   - Simulation & Evaluation: simulation-evaluation
   - roadmap
-  - reference-design
   - contributing
   - datasets
   - community
