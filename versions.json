@@ -1,5 +1,10 @@
 [
   {
+    "version": "main",
+    "title": "main",
+    "aliases": []
+  },
+  {
     "version": "pr-747",
     "title": "pr-747",
     "aliases": []
@@ -22,11 +27,6 @@
   {
     "version": "pr-736",
     "title": "pr-736",
-    "aliases": []
-  },
-  {
-    "version": "main",
-    "title": "main",
     "aliases": []
   }
 ]
