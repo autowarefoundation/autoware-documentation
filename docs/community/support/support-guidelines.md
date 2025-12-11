@@ -5,7 +5,7 @@ This page explains the support mechanisms we provide.
 !!! warning
 
     Before asking for help, search and read this documentation site carefully.
-    Also, follow the [discussion guidelines](../contributing/discussion-guidelines/index.md) for discussions.
+    Also, follow the [discussion guidelines](../../contributing/discussion-guidelines/index.md) for discussions.
 
 Choose appropriate resources depending on what kind of help you need and read the detailed description in the sections below.
 
@@ -63,7 +63,7 @@ If you are unsure how to create a discussion, refer to the [GitHub Docs on creat
 Visit them and see if there is any information related to your problem.
 
 Note that the documentation sites aren't always up-to-date and perfect.
-If you find out that some information is wrong, unclear, or missing in Autoware docs, feel free to submit a pull request following the [contribution guidelines](../contributing/index.md).
+If you find out that some information is wrong, unclear, or missing in Autoware docs, feel free to submit a pull request following the [contribution guidelines](../../contributing/index.md).
 
 ## GitHub Discussions
 
@@ -120,7 +120,7 @@ When creating a new issue, use the following guidelines:
 When you start working on an issue, link the related pull request to the issue by mentioning the issue number.
 This helps maintain a clear and traceable development history.
 
-For more details, see the [Pull Request Guidelines page](../contributing/pull-request-guidelines/index.md).
+For more details, see the [Pull Request Guidelines page](../../contributing/pull-request-guidelines/index.md).
 
 !!! warning
 

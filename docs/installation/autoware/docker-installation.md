@@ -133,7 +133,7 @@ Open AD Kit provides different deployment options for Autoware, so that you can 
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
 
-   If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting/index.md#build-issues).
+   If there is any build issue, refer to [Troubleshooting](../../community/support/troubleshooting/index.md#build-issues).
 
 ### Update the Workspace
 

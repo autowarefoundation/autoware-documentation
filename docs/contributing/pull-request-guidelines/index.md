@@ -10,7 +10,7 @@ Use this workflow as a reference when you contribute to Autoware.
 
 1. Create an issue.
    - Discuss the approaches to the issue with maintainers.
-   - Confirm the [support guidelines](../../support/support-guidelines.md) before creating an issue.
+   - Confirm the [support guidelines](../../community/support/support-guidelines.md) before creating an issue.
    - Follow the [discussion guidelines](../discussion-guidelines/index.md) when you discuss with other contributors.
 2. Create a fork repository. (for the first time only)
 3. Write code in your fork repository according to the approach agreed upon in the issue.

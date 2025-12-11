@@ -40,7 +40,7 @@ If you are new to open source projects, we recommend reading GitHub's [How to Co
 
 ## How can I get help?
 
-Do not open issues for general support questions as we want to keep GitHub issues for confirmed bug reports. Instead, open a discussion in the Q&A category. For more details on the support mechanisms for Autoware, refer to the [Support guidelines](../support/index.md).
+Do not open issues for general support questions as we want to keep GitHub issues for confirmed bug reports. Instead, open a discussion in the Q&A category. For more details on the support mechanisms for Autoware, refer to the [Support guidelines](../community/support/index.md).
 
 !!! note
 

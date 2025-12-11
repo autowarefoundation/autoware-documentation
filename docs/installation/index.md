@@ -33,7 +33,7 @@ For details of how to enable object detection and traffic light detection/classi
 ## Installing Autoware
 
 There are five ways to set up Autoware. Choose one according to your preference. Autoware Core contains only the essential Autoware packages, and Autoware Universe contains the full Autoware stack.
-For installation types, see the subsections below. If any issues occur during installation, refer to the [Support page](../support/index.md).
+For installation types, see the subsections below. If any issues occur during installation, refer to the [Support page](../community/support/index.md).
 
 - [Autoware Core Docker installation](autoware/core-docker-installation.md)
 - [Autoware Core source installation](autoware/core-source-installation.md)
