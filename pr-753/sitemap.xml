@@ -1101,6 +1101,34 @@
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-753/design/autoware-architecture-v2/roadmap/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-753/design/autoware-architecture-v2/roadmap/assessment-safety-and-benchmarks/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-753/design/autoware-architecture-v2/roadmap/autonomous-driving-stack-architecture/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-753/design/autoware-architecture-v2/roadmap/data-mlops-and-training/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-753/design/autoware-architecture-v2/roadmap/detailed-architectural-interface/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-753/design/autoware-architecture-v2/roadmap/development-roadmap/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-753/design/autoware-architecture-v2/roadmap/neural-world-simulation/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-753/design/autoware-concepts/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
@@ -1133,34 +1161,6 @@
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-753/home/roadmap/architecture/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-753/home/roadmap/architecture/assessment-safety-and-benchmarks/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-753/home/roadmap/architecture/autonomous-driving-stack-architecture/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-753/home/roadmap/architecture/data-mlops-and-training/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-753/home/roadmap/architecture/detailed-architectural-interface/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-753/home/roadmap/architecture/development-roadmap/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-753/home/roadmap/architecture/neural-world-simulation/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-753/home/roadmap/multi-year-roadmap/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
@@ -1169,7 +1169,7 @@
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-753/home/roadmap/vision-mission-core-values/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-753/home/vision-mission-core-values/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
