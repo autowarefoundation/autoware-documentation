@@ -1,5 +1,5 @@
 nav:
-  - Home: index.md
+  - home
   - installation
   - demos
   - tutorials
