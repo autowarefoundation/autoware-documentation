@@ -32,9 +32,9 @@ Autoware is the world’s leading open-source project dedicated to autonomous dr
 
 **Datasets**: The [Datasets](datasets/index.md) pages are a crucial resource for anyone working with Autoware. Here, you'll find a collection of datasets that are compatible with Autoware, providing real-world scenarios and data to test and refine your autonomous driving solutions.
 
-**Support**: As you dive deeper into Autoware, you might encounter challenges or have questions. The [Support](support/index.md) section is designed to assist you in these moments. This area includes FAQs, community forums, and contact information for getting help with Autoware. It's also a great place to connect with other Autoware users and contributors, sharing experiences and solutions.
+**Support**: As you dive deeper into Autoware, you might encounter challenges or have questions. The [Support](community/support/index.md) section is designed to assist you in these moments. This area includes FAQs, community forums, and contact information for getting help with Autoware. It's also a great place to connect with other Autoware users and contributors, sharing experiences and solutions.
 
-**Competitions**: The [Competitions](autoware-competitions/index.md) pages are where excitement meets innovation. Autoware regularly hosts or participates in various competitions and challenges, providing a platform for users to test their skills, showcase their work, and contribute to the community. These competitions range from local to global scale, offering opportunities for both beginners and experts to engage and excel. Stay updated with upcoming events and take part in the advancement of autonomous driving technologies.
+**Competitions**: The [Competitions](community/autoware-competitions/index.md) pages are where excitement meets innovation. Autoware regularly hosts or participates in various competitions and challenges, providing a platform for users to test their skills, showcase their work, and contribute to the community. These competitions range from local to global scale, offering opportunities for both beginners and experts to engage and excel. Stay updated with upcoming events and take part in the advancement of autonomous driving technologies.
 
 ### Contribute and Collaborate
 

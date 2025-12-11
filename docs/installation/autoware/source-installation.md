@@ -33,7 +33,7 @@ sudo apt-get -y install git
    ./setup-dev-env.sh
    ```
 
-   If you encounter any build issues, please consult the [Troubleshooting](../../support/troubleshooting/index.md#build-issues) section for assistance.
+   If you encounter any build issues, please consult the [Troubleshooting](../../community/support/troubleshooting/index.md#build-issues) section for assistance.
 
 !!! info
 
@@ -119,7 +119,7 @@ sudo apt-get -y install git
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
 
-   If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting/index.md#build-issues).
+   If there is any build issue, refer to [Troubleshooting](../../community/support/troubleshooting/index.md#build-issues).
 
 5. Follow the steps in [Network Configuration](../../installation/additional-settings-for-developers/network-configuration/index.md) before running Autoware.
 

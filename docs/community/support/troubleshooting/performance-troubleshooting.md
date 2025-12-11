@@ -32,9 +32,9 @@ If you get the error message `selected interface "{your-interface-name}" is not 
 
 #### Solution
 
-Follow [DDS settings for ROS 2 and Autoware](../../installation/additional-settings-for-developers/network-configuration/dds-settings.md)
+Follow [DDS settings for ROS 2 and Autoware](../../../installation/additional-settings-for-developers/network-configuration/dds-settings.md)
 
-Especially the [Enable `multicast` on `lo`](../../installation/additional-settings-for-developers/network-configuration/enable-multicast-for-lo.md) section.
+Especially the [Enable `multicast` on `lo`](../../../installation/additional-settings-for-developers/network-configuration/enable-multicast-for-lo.md) section.
 
 ### Check the compilation flags
 
@@ -93,7 +93,7 @@ If you are using a different DDS middleware, we might not have official support 
 
 Add `export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp` as a separate line in you `~/.bashrc` file.
 
-More details in: [CycloneDDS Configuration](../../installation/additional-settings-for-developers/network-configuration/dds-settings.md#cyclonedds-configuration)
+More details in: [CycloneDDS Configuration](../../../installation/additional-settings-for-developers/network-configuration/dds-settings.md#cyclonedds-configuration)
 
 #### Check if the CycloneDDS is configured correctly
 
@@ -117,7 +117,7 @@ This should print the `.xml` file on the terminal.
 
 ##### Solution
 
-Follow [CycloneDDS Configuration](../../installation/additional-settings-for-developers/network-configuration/dds-settings.md#cyclonedds-configuration) and make sure:
+Follow [CycloneDDS Configuration](../../../installation/additional-settings-for-developers/network-configuration/dds-settings.md#cyclonedds-configuration) and make sure:
 
 - you have `export CYCLONEDDS_URI=file:///absolute_path_to_your/cyclonedds.xml` as a line on your `~/.bashrc` file.
 - you have the `cyclonedds.xml` with the configuration provided in the documentation.
@@ -126,11 +126,11 @@ Follow [CycloneDDS Configuration](../../installation/additional-settings-for-dev
 
 ##### Diagnosis
 
-[Validate the sysctl settings](../../installation/additional-settings-for-developers/network-configuration/dds-settings.md#validate-the-sysctl-settings)
+[Validate the sysctl settings](../../../installation/additional-settings-for-developers/network-configuration/dds-settings.md#validate-the-sysctl-settings)
 
 ##### Solution
 
-[Tune system-wide network settings](../../installation/additional-settings-for-developers/network-configuration/dds-settings.md#tune-system-wide-network-settings)
+[Tune system-wide network settings](../../../installation/additional-settings-for-developers/network-configuration/dds-settings.md#tune-system-wide-network-settings)
 
 ### Check if localhost only communication for DDS is enabled
 
@@ -154,11 +154,11 @@ Run:
 cat ${CYCLONEDDS_URI#file://}
 ```
 
-And it should return [DDS settings for ROS 2 and Autoware: CycloneDDS Configuration](../../installation/additional-settings-for-developers/network-configuration/dds-settings.md#cyclonedds-configuration) this file.
+And it should return [DDS settings for ROS 2 and Autoware: CycloneDDS Configuration](../../../installation/additional-settings-for-developers/network-configuration/dds-settings.md#cyclonedds-configuration) this file.
 
 #### Solution
 
-Follow [DDS settings for ROS 2 and Autoware: Enable localhost-only communication](../../installation/additional-settings-for-developers/network-configuration/dds-settings.md#enable-localhost-only-communication).
+Follow [DDS settings for ROS 2 and Autoware: Enable localhost-only communication](../../../installation/additional-settings-for-developers/network-configuration/dds-settings.md#enable-localhost-only-communication).
 
 Also make sure the following returns an empty line:
 
