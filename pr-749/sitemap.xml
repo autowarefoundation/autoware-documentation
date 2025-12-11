@@ -5,7 +5,27 @@
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/autoware-competitions/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/community/autoware-competitions/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/community/support/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/community/support/docs-guide/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/community/support/support-guidelines/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/community/support/troubleshooting/</loc>
+         <lastmod>2025-12-11</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/community/support/troubleshooting/performance-troubleshooting/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
@@ -1173,51 +1193,51 @@
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-hw/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-design/reference-hw/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-hw/ad-computers/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-design/reference-hw/ad-computers/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-hw/ad_sensor_kit_suppliers/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-design/reference-hw/ad_sensor_kit_suppliers/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-hw/cameras/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-design/reference-hw/cameras/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-hw/full_drivers_list/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-design/reference-hw/full_drivers_list/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-hw/imu_ahrs_gnss_ins/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-design/reference-hw/imu_ahrs_gnss_ins/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-hw/lidars/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-design/reference-hw/lidars/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-hw/radars/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-design/reference-hw/radars/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-hw/remote_drive/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-design/reference-hw/remote_drive/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-hw/thermal_cameras/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-design/reference-hw/thermal_cameras/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-hw/vehicle_drive_by_wire_suppliers/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-design/reference-hw/vehicle_drive_by_wire_suppliers/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-hw/vehicle_platform_suppliers/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/reference-design/reference-hw/vehicle_platform_suppliers/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
@@ -1274,26 +1294,6 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/simulation-evaluation/digital-twin-simulation/compatibility-test/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/support/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/support/docs-guide/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/support/support-guidelines/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/support/troubleshooting/</loc>
-         <lastmod>2025-12-11</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-749/support/troubleshooting/performance-troubleshooting/</loc>
          <lastmod>2025-12-11</lastmod>
     </url>
     <url>
