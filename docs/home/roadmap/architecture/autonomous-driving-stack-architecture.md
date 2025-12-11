@@ -2,7 +2,7 @@
 
 ## Traditional Robotics Stack
 
-![Architecture diagram of traditional robotics stack for autonomous driving](./media/architecture_figure01.png)
+![Architecture diagram of traditional robotics stack for autonomous driving](media/architecture_figure01.png)
 
 <p align="center"><strong>Figure 1:</strong> Architecture diagram of traditional robotics stack for autonomous driving</p>
 
@@ -18,7 +18,7 @@ This evolution is being driven by our core value of developing â€˜cutting edgeâ€
 
 The Autoware E2E stack aims to achieve global scalability across (Operational Design Domains) ODDs by utilizing data-centric End-to-End AI through which hand-coded modules will be replaced in a modular and incremental fashion by neural networks - which have shown great promise in being able to handle diverse and complex driving scenarios across domains.
 
-![Definition of SAE Level 4+ autonomous driving](./media/architecture_figure02.png)
+![Definition of SAE Level 4+ autonomous driving](media/architecture_figure02.png)
 
 <p align="center"><strong>Figure 2:</strong> Definition of SAE Level 4+ autonomous driving</p>
 
@@ -112,12 +112,12 @@ A Safety Guardian module is responsible for cross-referencing the Safety Percept
 
 Option A:
 
-![Learned Hybrid model supported by an HD-map](./media/architecture_figure08.png)
+![Learned Hybrid model supported by an HD-map](media/architecture_figure08.png)
 
 <p align="center"><strong>Figure 8:</strong> Autoware E2E - Learned Hybrid model supported by an HD-map</p>
 
 Option B:
 
-![Learned Hybrid model supported by a standard 2D-map](./media/architecture_figure09.png)
+![Learned Hybrid model supported by a standard 2D-map](media/architecture_figure09.png)
 
 <p align="center"><strong>Figure 9:</strong> Autoware E2E - Learned Hybrid model supported by a standard 2D-map</p>
