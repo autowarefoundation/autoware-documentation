@@ -1,12 +1,11 @@
 nav:
-  - Home: index.md
+  - home
   - installation
   - demos
   - tutorials
   - Architecture design: design
   - reference-design
   - Simulation & Evaluation: simulation-evaluation
-  - roadmap
   - contributing
   - datasets
   - community

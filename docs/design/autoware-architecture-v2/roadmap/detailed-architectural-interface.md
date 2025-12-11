@@ -6,9 +6,9 @@ In order to introduce End-to-End autonomous driving technologies within Autoware
 
 ### 1. Define a Robust, Consistent Interface Across Evolutionary Steps
 
-As explained in the earlier section titled [Autonomous Driving Stack Architecture](./autonomous-driving-stack-architecture.md) we plan to take the following evolutionary steps towards implementing End-to-End autonomous driving.
+As explained in the earlier section titled [Autonomous Driving Stack Architecture](autonomous-driving-stack-architecture.md) we plan to take the following evolutionary steps towards implementing End-to-End autonomous driving.
 
-![Stepwise technology evolution](./media/detailed_architecture_figure1.png)
+![Stepwise technology evolution](media/detailed_architecture_figure1.png)
 
 <p align="center"><strong>Figure 1:</strong> Stepwise technology evolution</p>
 
@@ -33,7 +33,7 @@ To flexibly accommodate these diverse approaches, we propose a Generator-Selecto
 - Generator: Generates candidate trajectories that the vehicle can follow.
 - Selector: Selects the safest and most optimal trajectory from among the candidates.
 
-![Generator-Selector Framework](./media/detailed_architecture_figure2.png)
+![Generator-Selector Framework](media/detailed_architecture_figure2.png)
 
 <p align="center"><strong>Figure 2:</strong> Generator-Selector Framework</p>
 
