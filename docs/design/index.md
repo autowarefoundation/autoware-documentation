@@ -36,7 +36,7 @@ Autoware provides the runtimes and technology components by open-source software
 
 ### Autoware interfaces
 
-The [Autoware interfaces page](autoware-interfaces/index.md) describes in detail the interface of each module that makes up Autoware. Readers (intermediate developers) will learn how to add new functionality to Autoware and how to integrate their own modules with Autoware.
+The [Autoware interfaces page](autoware-architecture-v1/interfaces/index.md) describes in detail the interface of each module that makes up Autoware. Readers (intermediate developers) will learn how to add new functionality to Autoware and how to integrate their own modules with Autoware.
 
 ### Concern, Assumption, and Limitation
 

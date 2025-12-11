@@ -1,0 +1,19 @@
+# Change the operation mode
+
+## Related API
+
+- [Operation mode](../features/operation_mode.md)
+
+## Sequence
+
+- Change the mode with software switch.
+
+  ```plantuml
+  {% include 'design/autoware-architecture-v1/interfaces/ad-api/use-cases/sequence/operation-mode-software.plantuml' %}
+  ```
+
+- Change the mode with hardware switch.
+
+  ```plantuml
+  {% include 'design/autoware-architecture-v1/interfaces/ad-api/use-cases/sequence/operation-mode-hardware.plantuml' %}
+  ```

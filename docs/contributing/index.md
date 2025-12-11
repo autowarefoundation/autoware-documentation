@@ -32,7 +32,7 @@ To gain a high-level understanding of Autoware's architecture and design, the fo
 - [Autoware architecture](../design/index.md)
 - [Autoware concepts](../design/autoware-concepts/index.md)
 
-For experienced developers, the [Autoware interfaces](../design/autoware-interfaces/index.md) and [individual component pages](../design/autoware-interfaces/components/index.md) should also be reviewed to understand the inputs and outputs for each component or module at a more detailed level.
+For experienced developers, the [Autoware interfaces](../design/autoware-architecture-v1/interfaces/index.md) and [individual component pages](../design/autoware-architecture-v1/interfaces/components/index.md) should also be reviewed to understand the inputs and outputs for each component or module at a more detailed level.
 
 ### Contributing to open source projects
 

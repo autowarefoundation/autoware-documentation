@@ -15,7 +15,9 @@ def define_env(env):
 
     @env.macro
     def link_ad_api(name):
-        return create_relative_link(name, f"design/autoware-interfaces/ad-api/list/{name}.md")
+        return create_relative_link(
+            name, f"design/autoware-architecture-v1/interfaces/ad-api/list/{name}.md"
+        )
 
     @env.macro
     def resolve_msg_field(msg_type, name, ext):

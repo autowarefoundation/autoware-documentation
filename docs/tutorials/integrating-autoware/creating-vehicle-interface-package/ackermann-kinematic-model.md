@@ -64,4 +64,4 @@ See the [AckermannLateralCommand.idl](https://gitlab.com/autowarefoundation/auto
 
 The vehicle interface should realize these control commands through your vehicle's control device.
 
-Moreover, Autoware also provides brake commands, light commands, and more (see [vehicle interface design](../../../design/autoware-interfaces/components/vehicle-interface.md)), so the vehicle interface module should be applicable to these commands as long as there are devices available to handle them.
+Moreover, Autoware also provides brake commands, light commands, and more (see [vehicle interface design](../../../design/autoware-architecture-v1/interfaces/components/vehicle-interface.md)), so the vehicle interface module should be applicable to these commands as long as there are devices available to handle them.

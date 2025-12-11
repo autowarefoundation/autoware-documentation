@@ -97,7 +97,7 @@ The package is expected to provide the following two functions.
 1. Receive command messages from `vehicle_cmd_gate` and drive the vehicle accordingly
 2. Send vehicle status information to Autoware
 
-You can find detailed information about the requirements of the `vehicle_interface` package in the [Vehicle Interface design documentation](../../design/autoware-interfaces/components/vehicle-interface.md).
+You can find detailed information about the requirements of the `vehicle_interface` package in the [Vehicle Interface design documentation](../../design/autoware-architecture-v1/interfaces/components/vehicle-interface.md).
 You can also refer to TIER IV's [pacmod_interface repository](https://github.com/tier4/pacmod_interface) as an example of a vehicle interface package.
 
 ## 4. Create maps
