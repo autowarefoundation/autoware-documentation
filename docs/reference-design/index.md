@@ -27,6 +27,10 @@ Two spider/radar charts are provided for each project to provide high-level over
 
 </div>
 
+## Reference hardware
+
+[:fa-cl-s fa-circle-arrow-right: Reference Hardware Section](reference-hw/index.md){ .md-button }
+
 ## Other reference designs
 
 ### Buses 🚌
