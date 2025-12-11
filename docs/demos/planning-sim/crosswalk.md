@@ -103,4 +103,3 @@ it slows, stops, waits, then continues.
    When set to green and `Auto` mode is engaged, the ego vehicle proceeds normally.
 
    ![move-after-red-to-green.png](images/passing-crosswalk/signalized/move-after-red-to-green.png)
-

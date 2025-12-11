@@ -47,6 +47,7 @@ If not, please, follow [Manual downloading of artifacts](https://github.com/auto
 
 [:fa-cl-s fa-cube: Placing Dummy Objects](placing-objects.md){ .md-button style="margin: 5px" }
 [:fa-cl-s fa-film: Reference Video Tutorials](https://drive.google.com/file/d/1bs_dX1JJ76qHk-SGvS6YF9gmekkN8fz7/view?usp=sharing){ .md-button style="margin: 5px" }
+
 </div>
 
 ---
