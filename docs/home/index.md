@@ -41,7 +41,7 @@
 
 ---
 
-## Core Capabilities
+## Capabilities
 
 Autoware handles the full autonomous driving stack, from sensing to control.
 
