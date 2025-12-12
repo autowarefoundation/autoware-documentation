@@ -3,7 +3,7 @@ site_url: https://autowarefoundation.github.io/autoware-documentation
 repo_url: https://github.com/autowarefoundation/autoware
 edit_uri: https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/
 docs_dir: docs
-copyright: Copyright &copy; 2023 The Autoware Foundation
+copyright: Copyright &copy; 2025 The Autoware Foundation
 
 theme:
   name: material

@@ -1,6 +1,6 @@
 nav:
   - index.md
   - digital-twin-demos
-  - planning-simulation.md
+  - Planning simulation: planning-sim
   - rosbag-replay-simulation.md
   - scenario-simulation

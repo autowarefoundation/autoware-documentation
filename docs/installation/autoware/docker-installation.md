@@ -70,7 +70,7 @@ Here is an example of running the runtime container with a custom launch command
 
 Inside the container, run the Autoware tutorials by following these links:
 
-[Planning Simulation](../../demos/planning-simulation.md)
+[Planning Simulation](../../demos/planning-sim/index.md)
 
 [Rosbag Replay Simulation](../../demos/rosbag-replay-simulation.md).
 
