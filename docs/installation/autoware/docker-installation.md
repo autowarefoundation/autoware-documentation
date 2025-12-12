@@ -111,6 +111,10 @@ Open AD Kit provides different deployment options for Autoware, so that you can 
    vcs import src < extra-packages.repos
    ```
 
+   > ⚠️ You might need to install the dependencies of the extra packages manually.
+   >
+   > ➡️ Check the readme of the extra packages for more information.
+
 2. Update dependent ROS packages.
 
    The dependencies of Autoware may have changed after the Docker image was created.
@@ -129,7 +133,7 @@ Open AD Kit provides different deployment options for Autoware, so that you can 
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
 
-   If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting/index.md#build-issues).
+   If there is any build issue, refer to [Troubleshooting](../../community/support/troubleshooting/index.md#build-issues).
 
 ### Update the Workspace
 

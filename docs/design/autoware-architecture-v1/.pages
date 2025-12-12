@@ -2,3 +2,4 @@ nav:
   - index.md
   - node-diagram
   - components
+  - interfaces

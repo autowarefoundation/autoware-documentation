@@ -44,7 +44,7 @@ If your PR hasn't been reviewed:
 
 - 🏹 **Directly Address Code Owners**: Comment on the PR to alert the owners.
 - ⏳ **Follow Up After a Week**: If unreviewed after a week, add a comment under the PR and tag the `@autoware-maintainers`.
-- 📢 **Escalate if Necessary**: If your requests continue to go unanswered, you may escalate the issue by posting a message in the [Autoware Discord channel](../../support/support-guidelines.md#discord) 🚨. Remember, maintainers often juggle numerous responsibilities, so patience is appreciated🙇.
+- 📢 **Escalate if Necessary**: If your requests continue to go unanswered, you may escalate the issue by posting a message in the [Autoware Discord channel](../../community/support/support-guidelines.md#discord) 🚨. Remember, maintainers often juggle numerous responsibilities, so patience is appreciated🙇.
 
 ### PR author is the only code owner
 

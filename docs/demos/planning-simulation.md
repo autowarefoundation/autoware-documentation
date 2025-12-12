@@ -39,7 +39,7 @@ Change the [maximum velocity](https://github.com/autowarefoundation/autoware_lau
 
 !!! info "[Using Autoware Launch GUI](#using-autoware-launch-gui)"
 
-    If you prefer a graphical user interface (GUI) over the command line for launching and managing your simulations, refer to the `Using Autoware Launch GUI` section at the end of this document for a step-by-step guide.
+    If you prefer a graphical user interface (GUI) over the command line for launching and managing your simulations, refer to the [Using Autoware Launch GUI](#using-autoware-launch-gui) section at the end of this document for a step-by-step guide.
 
 ### Lane driving scenario
 
@@ -82,15 +82,15 @@ b) In the 3D View pane, click and hold the left-mouse button, and then drag to s
 
 #### 4. Start the ego vehicle
 
-Now you can start the ego vehicle driving by clicking the `AUTO` button on `OperationMode` in `AutowareStatePanel`.
-Alteratively, you can manually start the vehicle by running the following command:
+Now you can start the ego vehicle driving by clicking the `Auto` button in the `AutowareStatePanel`.
+Alternatively, you can manually start the vehicle by running the following command:
 
 ```bash
 source ~/autoware/install/setup.bash
 ros2 service call /api/operation_mode/change_to_autonomous autoware_adapi_v1_msgs/srv/ChangeOperationMode {}
 ```
 
-After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button is grayed out.
+After that, `Auto` button will be selected and grayed out.
 
 ![start-driving](images/planning/lane-following/start-driving.png)
 
@@ -101,7 +101,7 @@ After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button i
    ![after-set-goal-pose](images/planning/parking/after-set-goal-pose.png)
 
 2. When the vehicle approaches the goal, it will switch from lane driving mode to parking mode.
-3. After that, the vehicle will reverse into the destination parking spot.
+3. After that, the vehicle will maneuver into the destination parking spot.
 
    ![parking-maneuver](images/planning/parking/parking-maneuver.png)
 
@@ -109,7 +109,7 @@ After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button i
 
 1. In a pull out scenario, set the ego vehicle at the road shoulder.
 
-   ![pullover-pullout](images/planning/pullover-pullout/pullover-pullout.jpg)
+   ![pullover-pullout](images/planning/pullover-pullout/pullover-pullout.png)
 
 2. Set a goal and then engage the ego vehicle.
 
@@ -153,6 +153,8 @@ After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button i
 
 3. Engage the ego vehicle. It will avoid the obstacle along the newly planned path.
 
+   ![avoidance-driving](images/planning/avoidance/avoidance-driving.png)
+
 ## Advanced Simulations
 
 ### Placing dummy objects
@@ -167,17 +169,19 @@ After that, you can see `AUTONOMOUS` sign on `OperationMode` and `AUTO` button i
 
    ![set-dummy-car](images/planning/lane-following/place-dummy-car.png)
 
-4. Delete any dummy objects placed in the view by clicking the `Delete All Objects` button in the toolbar.
+4. Delete any dummy objects placed in the view by clicking the `Delete All Objects` button in the toolbar and then click anywhere in the 3D View pane to complete it.
 
-5. Click the `Interactive` button in the toolbar to make the dummy object interactive.
+#### Placing interactive dummy objects
 
-   ![set-interactive-dummy-car](images/planning/lane-following/check-interactive.png)
+Click the `Interactive` button in the toolbar to create the next dummy object in interactive mode.
 
-6. For adding an interactive dummy object, press `SHIFT` and click the `right click`.
-7. For deleting an interactive dummy object, press `ALT` and click the `right click`.
-8. For moving an interactive dummy object, hold the `right click` drag and drop the object.
+![set-interactive-dummy-car](images/planning/lane-following/check-interactive.png)
 
-   ![move-interactive-dummy-car](images/planning/lane-following/move-dummy-object.png)
+!!! info
+
+    - **Add an interactive dummy object:** ++shift+"🖱️ Right Click"++ on the map.
+    - **Delete an interactive dummy object:** ++alt+"🖱️ Right Click"++ on the object.
+    - **Move an existing interactive dummy object:** ++"🖱️ Right Click"++ and hold on the object. Then drag and drop it to the desired location.
 
 ### Traffic light recognition simulation
 
@@ -187,7 +191,17 @@ The following steps explain how to set and reset traffic lights in order to test
 
 #### Set traffic light
 
-1. Go to `Panels -> Add new panel`, select `TrafficLightPublishPanel`, and then press `OK`.
+By default, Rviz doesn't display the IDs of traffic lights on the map.
+To enable the display of traffic light IDs, follow these steps:
+
+1. In the `Displays` panel, find the `traffic_light_id` topic by toggling the triangle icons next to `Map > Lanelet2VectorMap > Namespaces`.
+2. Check the `traffic_light_id` checkbox.
+3. Reload the topic by clicking the `Map` checkbox twice.
+4. Have a closer look at the IDs by zooming in the region or by changing the View type.
+
+![see-traffic-light-ID](images/planning/traffic-light/see-traffic-light-ID.png)
+
+1. Go to `Panels -> Add new panel`, select `tier4_traffic_light_rviz_plugin/TrafficLightPublishPanel`, and then press `OK`.
 
 2. In `TrafficLightPublishPanel`, set the `ID` and color of the traffic light.
 
@@ -198,18 +212,6 @@ The following steps explain how to set and reset traffic lights in order to test
 
 ![send-traffic-light-color](images/planning/traffic-light/send-traffic-light-color.png)
 
-By default, Rviz should display the ID of each traffic light on the map. You can have a closer look at the IDs by zooming in the region or by changing the View type.
-
-In case the IDs are not displayed, try the following troubleshooting steps:
-
-a) In the `Displays` panel, find the `traffic_light_id` topic by toggling the triangle icons next to `Map > Lanelet2VectorMap > Namespaces`.
-
-b) Check the `traffic_light_id` checkbox.
-
-c) Reload the topic by clicking the `Map` checkbox twice.
-
-![see-traffic-light-ID](images/planning/traffic-light/see-traffic-light-ID.png)
-
 #### Update/Reset traffic light
 
 You can update the color of the traffic light by selecting the next color (in the image it is `GREEN`) and clicking `SET` button. In the image the traffic light in front of the ego vehicle changed from `RED` to `GREEN` and the vehicle restarted.
@@ -219,6 +221,112 @@ You can update the color of the traffic light by selecting the next color (in th
 To remove a traffic light from `TrafficLightPublishPanel`, click the `RESET` button.
 
 [Reference video tutorials](https://drive.google.com/file/d/1bs_dX1JJ76qHk-SGvS6YF9gmekkN8fz7/view?usp=sharing)
+
+### Driving through a crosswalk
+
+When driving through a crosswalk, the ego vehicle evaluates **both** the presence of pedestrians/objects **and** the state of any associated traffic lights.
+
+!!! info
+
+    For more technical details, refer to the [**autoware_behavior_velocity_crosswalk_module** documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_crosswalk_module/).
+
+!!! info
+
+    These examples use the **Nishishinjuku** map, the same one used in the [lane change scenario](#lane-change-scenario).
+
+!!! tip
+
+    For these tutorials, it is easier to use **interactive dummy pedestrians** (see [Placing interactive dummy objects](#placing-interactive-dummy-objects) above).
+
+    This way you can quickly add, move, and delete dummy pedestrians as needed.
+
+#### Non-signalized crosswalk (no traffic light)
+
+##### Behavior logic
+
+```mermaid
+flowchart TD
+    A["Approach **crosswalk**"] --> B{"Pedestrian somewhere on the **crosswalk**? <br/> (Pedestrian velocity is not important.)"}
+    B -- "No" --> C["Proceed without slowing down"]
+    B -- "Yes" --> D["Slow down and stop **one time**"]
+    D --> E["Wait a few seconds to confirm safe to proceed"]
+    E --> F{"Pedestrian or object on **planned path**?"}
+    F -- "Yes" --> G["Continue waiting / yield"]
+    F -- "No" --> H["Resume driving (will not stop again for this crosswalk)"]
+    H --> I["Crosswalk passed ➡️ behavior resets when encountering the same crosswalk again"]
+```
+
+!!! example "Experiment"
+
+    We will test the expected “single stop then go” behavior:
+
+    1. Place a still dummy pedestrian on the crosswalk. (Not on the planned path, just on the crosswalk.)
+
+    2. The ego vehicle will decelerate and stop before the crosswalk.
+
+    3. After waiting for a few seconds, the ego vehicle will start driving again as usual.
+
+1. Set an initial pose and a goal pose for the ego vehicle to drive through a non-signalized crosswalk. A path will be planned.
+
+   ![initial-setup](images/planning/passing-crosswalk/non-signalized/initial-setup.png)
+
+2. Place an interactive dummy pedestrian on the crosswalk and set its pose as if it is crossing the street. It doesn't matter whether the dummy pedestrian is moving or not, as long as it is on the crosswalk.
+
+   ![place-pedestrian](images/planning/passing-crosswalk/non-signalized/place-pedestrian.png)
+
+3. Engage the ego vehicle by clicking on `Auto`. The ego vehicle will decelerate and stop before the crosswalk. The marked **crosswalk** in the figure indicates that the stopping behavior is caused by the objects on the **crosswalk**.
+
+   ![wait-before-crosswalk](images/planning/passing-crosswalk/non-signalized/wait-before-crosswalk.png)
+
+4. The ego vehicle will wait for about a few seconds. Then it will start moving again and pass the crosswalk.
+
+   ![pass-crosswalk](images/planning/passing-crosswalk/non-signalized/pass-crosswalk.png)
+
+#### Signalized crosswalk (with traffic light)
+
+<figure markdown="span">
+  ![test-location.png](images/planning/passing-crosswalk/signalized/test-location.png)
+  <figcaption>Location for signalized crosswalk experiments</figcaption>
+</figure>
+
+!!! example "Experiment 1: Pedestrian Present While Traffic Light Is GREEN"
+
+    This experiment mirrors the previous one but at a signalized crosswalk.
+
+With the pedestrian near the path and the traffic light **GREEN**, the ego behaves **the same as at a non-signalized crosswalk**:
+it slows, stops, waits, then continues.
+
+![wait-for-pedestrian](images/planning/passing-crosswalk/signalized/wait-for-pedestrian.png)
+
+!!! example "Experiment 2: Interaction of Pedestrians and a RED Traffic Light"
+
+    1. Stop before the crosswalk when the traffic light is set to `RED`. (Without pedestrians.)
+
+    2. Add a dummy pedestrian on the crosswalk while the traffic light is `RED`. (Both the traffic light and the crosswalk should affect the stopping behavior.)
+
+    3. Finally, set the traffic light to `GREEN` again and the vehicle will pass normally.
+
+1. **Stop at red (no pedestrians).**
+   Remove any existing dummy pedestrians and set the traffic light to **RED**.
+   The ego vehicle will stop before the crosswalk and wait solely because of the **traffic_light** reason.
+
+   ![stop-from-red-light](images/planning/passing-crosswalk/signalized/stop-from-red-light.png)
+
+2. **Add a pedestrian while the light is RED.**
+   The ego remains stopped, now influenced by **both** the traffic light and the crosswalk object.
+
+   ![stop-from-red-and-pedestrian](images/planning/passing-crosswalk/signalized/stop-from-red-and-pedestrian.png)
+
+3. **Observe how the stop reasons update.**
+   After a short period, only **traffic_light** may remain displayed.
+   Moving the pedestrian slightly (with ++shift+"🖱️ Right Click"++ drag) reintroduces both markers, but the system stabilizes back to the traffic-light reason during the wait.
+
+   ![stop-red-light-with-pedestrian.png](images/planning/passing-crosswalk/signalized/stop-red-light-with-pedestrian.png)
+
+4. **Switch the light to GREEN.**
+   When set to green and `Auto` mode is engaged, the ego vehicle proceeds normally.
+
+   ![move-after-red-to-green.png](images/planning/passing-crosswalk/signalized/move-after-red-to-green.png)
 
 ## Using Autoware Launch GUI
 
@@ -269,18 +377,18 @@ This section provides a step-by-step guide on using the Autoware Launch GUI for 
 
 ## Want to Try Autoware with Your Custom Map?
 
-The above content describes the process for conducting some operations in the planning simulator using a sample map. If you are interested in running Autoware with maps of your own environment, please visit the [How to Create Vector Map](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-maps/#creating-maps) section for guidance.
-
-![psim-custom-map](images/planning/others/psim-custom-map.png)
+The above content describes the process for conducting some operations in the planning simulator using a sample map. If you are interested in running Autoware with maps of your own environment, please visit the [How to Create Vector Map](../tutorials/integrating-autoware/creating-maps/index.md) section for guidance.
 
 ## Want to Try Autoware with Higher Speed?
 
-The original Autoware is designed to operate at a wide speed range. But for safety reasons, the default maximum velocity has been limited to 15 km/h. In that case, even you drag the slider to a higher speed in rviz panel, the system will not allow it.
+The original Autoware is designed to operate at a wide speed range. But for safety reasons, the default maximum velocity has been limited to **15 km/h**.
+Because of that, even you drag the slider to a higher speed in rviz panel, the system will not allow it.
 
-If you want to run Autoware at a higher speed, you can modify the `max_vel` parameter in the config file [common.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/common/common.param.yaml) located in the `config` directory of your autoware_launch.
+If you want to run Autoware at a higher speed, you can modify the `max_vel` parameter in the config file [autoware_launch/config/planning/scenario_planning/common/common.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/common/common.param.yaml) located in the `autoware_launch` repository.
 
-![common.param.yaml](images/planning/others/common.param.yaml.png)
+!!! example
 
-For example, to set the maximum velocity to 72 km/h, you would change the value to `20.0` (since 72 km/h is equivalent to 20 m/s).
+    Set `max_vel` to `20.0` (20 m/s = 72 km/h).
+    Then launch the planning simulator, place the vehicle and set the velocity limit with the slider.
 
 ![increase-max-velocity](images/planning/others/increase-max-velocity.png)

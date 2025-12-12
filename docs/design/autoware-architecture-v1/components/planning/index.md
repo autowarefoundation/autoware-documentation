@@ -12,7 +12,7 @@ The document is divided into two parts: the first part discusses high-level requ
 
 Our objective extends beyond merely developing an autonomous driving system. We aim to offer an "autonomous driving platform" where users can enhance autonomous driving functionalities based on their individual needs.
 
-In Autoware, we utilize the [microautonomy architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts) concept, which emphasizes high extensibility, functional modularity, and clearly defined interfaces.
+In Autoware, we utilize the [microautonomy architecture](../../../autoware-concepts/index.md) concept, which emphasizes high extensibility, functional modularity, and clearly defined interfaces.
 
 With this in mind, the design policy for the Planning Component is focused not on addressing every complex autonomous driving scenario (as that is a very challenging problem), but on **providing a customizable and easily extendable Planning development platform**. We believe this approach will allow the platform to meet a wide range of needs, ultimately solving many complex use cases.
 
@@ -102,7 +102,7 @@ Organizations or research entities developing autonomous driving Planning system
 
 ## Component interface
 
-This section describes the inputs and outputs of the Planning Component and of its internal modules. See the [Planning Component Interface](../../../autoware-interfaces/components/planning.md) page for the current implementation.
+This section describes the inputs and outputs of the Planning Component and of its internal modules. See the [Planning Component Interface](../../interfaces/components/planning.md) page for the current implementation.
 
 ### Input to the planning component
 

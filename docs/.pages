@@ -1,14 +1,11 @@
 nav:
-  - Home: index.md
+  - home
   - installation
   - demos
   - tutorials
-  - design
+  - Architecture design: design
+  - reference-design
   - Simulation & Evaluation: simulation-evaluation
-  - roadmap
-  - Reference HW: reference-hw
   - contributing
   - datasets
-  - models
-  - support
-  - Competitions: autoware-competitions
+  - community

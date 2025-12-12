@@ -7,7 +7,7 @@ Please remember,
 Autoware control output (/control/command/control_cmd)
 publishes lateral and longitudinal commands according to the Ackermann kinematic model.
 
-- If your vehicle does not suit the Ackermann kinematic model, you have to modify the control commands. [Another document gives you an example how to convert your Ackermann kinematic model control inputs into a differential drive model.](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/customizing-for-differential-drive-model/)
+- If your vehicle does not suit the Ackermann kinematic model, you have to modify the control commands. [Another document gives you an example of how to convert your Ackermann kinematic model control inputs into a differential drive model.](customizing-for-differential-drive-model.md)
 
 ## Geometry
 
@@ -64,4 +64,4 @@ See the [AckermannLateralCommand.idl](https://gitlab.com/autowarefoundation/auto
 
 The vehicle interface should realize these control commands through your vehicle's control device.
 
-Moreover, Autoware also provides brake commands, light commands, and more (see [vehicle interface design](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/)), so the vehicle interface module should be applicable to these commands as long as there are devices available to handle them.
+Moreover, Autoware also provides brake commands, light commands, and more (see [vehicle interface design](../../../design/autoware-architecture-v1/interfaces/components/vehicle-interface.md)), so the vehicle interface module should be applicable to these commands as long as there are devices available to handle them.

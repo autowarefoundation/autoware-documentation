@@ -16,8 +16,8 @@ Autoware constantly incorporates new features.
 It is crucial to initially confirm that it operates as expected with the current version, which helps in problem troubleshooting.
 
 In this context, AWSIM is presumed.
-Therefore, [AWSIM simulator](https://autowarefoundation.github.io/autoware-documentation/main/tutorials/ad-hoc-simulation/digital-twin-simulation/awsim-tutorial/) can be useful.
-If you are using actual hardware, please refer to the [How-to guides](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/).
+Therefore, [AWSIM simulator demo](../../demos/digital-twin-demos/awsim-tutorial.md) can be useful.
+If you are using actual hardware, please refer to the [Tutorials](../index.md).
 
 ## 2. Recording a rosbag using Autoware
 
@@ -37,7 +37,7 @@ This verification can be accomplished, for example, by inspecting the image data
 
 When developing a new node, it could be beneficial to reference a package that is similar to the one you intend to create.
 
-It is advisable to thoroughly read the [Design page](https://autowarefoundation.github.io/autoware-documentation/main/design/), contemplate the addition or replacement of nodes in Autoware, and then implement your solution.
+It is advisable to thoroughly read the [Design page](../../design/index.md), contemplate the addition or replacement of nodes in Autoware, and then implement your solution.
 
 For example, a node doing NDT, a LiDAR-based localization method, is [ndt_scan_matcher](https://github.com/autowarefoundation/autoware_universe/tree/main/localization/autoware_ndt_scan_matcher).
 If you want to replace this with a different approach, implement a node which produces the same topics and provides the same services.
@@ -47,7 +47,7 @@ If you want to replace this with a different approach, implement a node which pr
 ## 4. Evaluating by a rosbag-based simulator
 
 Once the new node is implemented, it is time to evaluate it.
-[logging_simulator](https://autowarefoundation.github.io/autoware-documentation/main/tutorials/ad-hoc-simulation/rosbag-replay-simulation/) is a tool of how to evaluate the new node using the rosbag captured in step 2.
+[logging_simulator](../../demos/rosbag-replay-simulation.md) is a tool of how to evaluate the new node using the rosbag captured in step 2.
 
 When you run the logging_simulator, you can set `planning:=false` or `control:=false` to disable the launch of specific component nodes.
 
@@ -64,7 +64,7 @@ There is [ros2bag_extensions](https://github.com/tier4/ros2bag_extensions) avail
 
 Once you have sufficiently verified the behavior in the logging_simulator, let's run it as Autoware with new nodes added in the realtime environment.
 
-To debug Autoware, the method described at [debug-autoware](https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/others/debug-autoware/) is useful.
+To debug Autoware, the method described at [debug-autoware](debug-autoware.md) is useful.
 
 For reproducibility, you may want to fix the GoalPose.
 In such cases, consider using the [tier4_automatic_goal_rviz_plugin](https://github.com/autowarefoundation/autoware_tools/tree/main/common/tier4_automatic_goal_rviz_plugin).

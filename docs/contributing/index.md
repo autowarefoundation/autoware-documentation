@@ -32,7 +32,7 @@ To gain a high-level understanding of Autoware's architecture and design, the fo
 - [Autoware architecture](../design/index.md)
 - [Autoware concepts](../design/autoware-concepts/index.md)
 
-For experienced developers, the [Autoware interfaces](../design/autoware-interfaces/index.md) and [individual component pages](../design/autoware-interfaces/components/index.md) should also be reviewed to understand the inputs and outputs for each component or module at a more detailed level.
+For experienced developers, the [Autoware interfaces](../design/autoware-architecture-v1/interfaces/index.md) and [individual component pages](../design/autoware-architecture-v1/interfaces/components/index.md) should also be reviewed to understand the inputs and outputs for each component or module at a more detailed level.
 
 ### Contributing to open source projects
 
@@ -40,7 +40,7 @@ If you are new to open source projects, we recommend reading GitHub's [How to Co
 
 ## How can I get help?
 
-Do not open issues for general support questions as we want to keep GitHub issues for confirmed bug reports. Instead, open a discussion in the Q&A category. For more details on the support mechanisms for Autoware, refer to the [Support guidelines](../support/index.md).
+Do not open issues for general support questions as we want to keep GitHub issues for confirmed bug reports. Instead, open a discussion in the Q&A category. For more details on the support mechanisms for Autoware, refer to the [Support guidelines](../community/support/index.md).
 
 !!! note
 

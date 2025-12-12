@@ -70,7 +70,7 @@ Note that we will apply a high-confidence threshold to suppress the impact of fa
 ### Radar-Only Faraway Object 3D Detection
 
 For enhanced detection of distant objects, we use **Radar-Only 3D Detection**.
-For more details, see [the document on faraway radar object detection](https://github.com/autowarefoundation/autoware-documentation/blob/main/docs/design/autoware-architecture/perception/reference-implementations/radar-based-3d-detector/faraway-object-detection.md).
+For more details, see [the document on faraway radar object detection](reference-implementations/radar-based-3d-detector/faraway-object-detection.md).
 
 ### (TBD) 3D Semantic Segmentation
 

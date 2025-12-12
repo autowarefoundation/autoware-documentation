@@ -2,7 +2,7 @@
 
 Welcome to the Autoware Documentation! This repository is specifically designed to manage the source files for Autoware's documentation. If you wish to access the actual documentation, please visit [this link](https://autowarefoundation.github.io/autoware-documentation/main/).
 
-![autoware_front_image](docs/assets/images/autoware_front_image.png)
+![autoware_front_image](docs/home/assets/images/autoware_front_image.png)
 
 ## Notation
 

@@ -18,8 +18,6 @@ sudo apt-get -y update
 sudo apt-get -y install git
 ```
 
-> Note: If you wish to use ROS 2 Galactic on Ubuntu 20.04, refer to installation instruction from [galactic](https://autowarefoundation.github.io/autoware-documentation/galactic/installation/autoware/source-installation/) branch, but be aware that Galactic version of Autoware might not have the latest features.
-
 ## How to set up a development environment
 
 1. Clone `autowarefoundation/autoware` and move to the directory.
@@ -35,7 +33,7 @@ sudo apt-get -y install git
    ./setup-dev-env.sh
    ```
 
-   If you encounter any build issues, please consult the [Troubleshooting](../../support/troubleshooting/index.md#build-issues) section for assistance.
+   If you encounter any build issues, please consult the [Troubleshooting](../../community/support/troubleshooting/index.md#build-issues) section for assistance.
 
 !!! info
 
@@ -54,7 +52,6 @@ sudo apt-get -y install git
     - [Install Dev Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/dev_tools#manual-installation)
     - [Install gdown](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/gdown#manual-installation)
     - [Install geographiclib](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/geographiclib#manual-installation)
-    - [Install pacmod](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/pacmod#manual-installation)
     - [Install the RMW Implementation](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rmw_implementation#manual-installation)
     - [Install ROS 2](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2#manual-installation)
     - [Install ROS 2 Dev Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2_dev_tools#manual-installation)
@@ -93,6 +90,10 @@ sudo apt-get -y install git
    vcs import src < extra-packages.repos
    ```
 
+   > ⚠️ You might need to install the dependencies of the extra packages manually.
+   >
+   > ➡️ Check the readme of the extra packages for more information.
+
 2. Install dependent ROS packages.
 
    Autoware requires some ROS 2 packages in addition to the core components.
@@ -118,7 +119,7 @@ sudo apt-get -y install git
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
 
-   If there is any build issue, refer to [Troubleshooting](../../support/troubleshooting/index.md#build-issues).
+   If there is any build issue, refer to [Troubleshooting](../../community/support/troubleshooting/index.md#build-issues).
 
 5. Follow the steps in [Network Configuration](../../installation/additional-settings-for-developers/network-configuration/index.md) before running Autoware.
 
