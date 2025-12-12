@@ -13952,12 +13952,12 @@ This tool can measure the turnaround time of any section in the source code, as 
 <p>First, we will explain the procedure for performance improvement, taking the node <code>ring_outlier_filter</code> as an example.
 Refer to the <a href="https://github.com/autowarefoundation/autoware_universe/pull/3014">Pull Request</a> for details.</p>
 <p>The following figure is a time-series plot of the turnaround time of the main processing part of <code>ring_outlier_filter</code>, analyzed as described in the "Performance Measurement" section above.</p>
-<p><img alt="ring outlier filter turnaround time" src="https://raw.githubusercontent.com/autowarefoundation/autoware-documentation/0ad57338ca24b35f0a271c6ae003aa303b3dd4ce/docs/assets/images/ring_outlier_filter_turnaround_time.png"></p>
+<p><img alt="ring outlier filter turnaround time" src="images/ring_outlier_filter_turnaround_time.png"></p>
 <p>The horizontal axis indicates the number of callbacks called (i.e., callback index), and the vertical axis indicates the turnaround time.</p>
 <p>When analyzing the performance of the sensing module from the viewpoint of performance counter, pay attention to <code>instructions</code>, <code>LLC-load-misses</code>, <code>LLC-store-misses</code>, <code>cache-misses</code>, and <code>minor-faults</code>.</p>
 <p>Analysis of the performance counter shows that the largest fluctuations come from <code>minor-faults</code> (i.e., soft page faults), the second largest from <code>LLC-store-misses</code> and <code>LLC-load-misses</code> (i.e., cache misses in the last level cache), and the slowest fluctuations come from instructions (i.e., message data size fluctuations).
 For example, when we plot <code>minor-faults</code> on the horizontal axis and turnaround time on the vertical axis, we can see the following dominant proportional relationship.</p>
-<p><img alt="ring outlier filter minor faults" src="https://raw.githubusercontent.com/autowarefoundation/autoware-documentation/0ad57338ca24b35f0a271c6ae003aa303b3dd4ce/docs/assets/images/ring_outlier_filter_minor_faults.png"></p>
+<p><img alt="ring outlier filter minor faults" src="images/ring_outlier_filter_minor_faults.png"></p>
 <p>To achieve zero soft page faults, heap allocations must only be made from areas that have been first touched in advance.
 We have developed a library called <a href="https://github.com/tier4/heaphook"><code>heaphook</code></a> to avoid soft page faults while running Autoware callback.
 If you are interested, refer to the <a href="https://github.com/orgs/autowarefoundation/discussions/3274">GitHub discussion</a> and the <a href="https://github.com/autowarefoundation/autoware/issues/3310">issue</a>.</p>
@@ -13994,7 +13994,7 @@ For large message types such as map data, there should be only one instance in t
 <p>First, we will pick up <code>detection_area</code> module in <code>behavior_velocity_planner</code> node, which tends to have long turnaround time.
 We have followed the performance analysis steps above to obtain the following graph.
 Axises are the same as the graphs in the sensing case study.</p>
-<p><img alt="detection area turnaround time" src="https://raw.githubusercontent.com/autowarefoundation/autoware-documentation/36647431080a837a1c8a983faf5045d6524cee66/docs/assets/images/detection_area_turnaround_time.png"></p>
+<p><img alt="detection area turnaround time" src="images/detection_area_turnaround_time.png"></p>
 <p>Using <a href="https://github.com/sykwer/pmu_analyzer"><code>pmu_analyzer</code></a> tool to further identify the bottleneck, we have found that the following multiple loops were taking up a lot of processing time:</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">area</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">detection_areas</span><span class="w"> </span><span class="p">)</span>
 <span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">point_clouds</span><span class="w"> </span><span class="p">)</span>
