@@ -1,2 +1,11 @@
 nav:
   - index.md
+  - lane-driving.md
+  - parking.md
+  - pull-over-out.md
+  - lane-change.md
+  - placing-objects.md
+  - avoidance.md
+  - traffic-light.md
+  - crosswalk.md
+  - using-launch-gui.md
