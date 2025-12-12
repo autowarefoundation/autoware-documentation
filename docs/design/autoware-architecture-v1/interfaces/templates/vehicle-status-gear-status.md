@@ -1,12 +1,12 @@
 ---
 architecture: autoware basic components
 interface_type: topic
-interface_name: /autoware/example/topic
+interface_name: /vehicle/status/gear_status
 data_type: foo_msgs/msg/Message
 updated: 2025-12-01
-rate: 10~20
+rate: N/A
 qos_reliability: reliable
-qos_durability: volatile
+qos_durability: volatile / transient_lopcal
 qos_depth: 1
 endpoints:
   localization: pub
