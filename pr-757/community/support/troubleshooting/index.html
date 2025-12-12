@@ -14338,7 +14338,7 @@ You can use the gdb tool to locate where the problem is occurring.</p>
 <div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Debug<span class="w"> </span>--packages-up-to<span class="w"> </span>&lt;the<span class="w"> </span>modules<span class="w"> </span>you<span class="w"> </span>wish<span class="w"> </span>to<span class="w"> </span>analyze&gt;<span class="w"> </span>--catkin-skip-building-tests<span class="w"> </span>--symlink-install
 </code></pre></div>
 <p>In this state, when a died process occurs when you run the autoware again, a core file will be created.
-Remeber to remove the size limit of the core file.</p>
+Remember to remove the size limit of the core file.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">ulimit</span><span class="w"> </span>-c<span class="w"> </span>unlimited
 </code></pre></div>
 <p>Rename the core file as <code>core.&lt;PID&gt;</code>.</p>
