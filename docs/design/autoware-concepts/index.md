@@ -45,6 +45,8 @@ At a high level, these interfaces come in two flavors:
 
 ## Core & Universe repository model
 
+![Autoware Ecosystem](images/autoware_ecosystem.png)
+
 Autoware’s software ecosystem is organized into two layers: **Autoware Core** and **Autoware Universe**.
 Together, they balance **quality assurance** with **community-driven innovation**.
 
