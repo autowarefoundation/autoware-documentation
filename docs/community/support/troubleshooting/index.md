@@ -208,7 +208,7 @@ colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug --packages-up-to <the modules
 ```
 
 In this state, when a died process occurs when you run the autoware again, a core file will be created.
-Remeber to remove the size limit of the core file.
+Remember to remove the size limit of the core file.
 
 ```bash
 ulimit -c unlimited
