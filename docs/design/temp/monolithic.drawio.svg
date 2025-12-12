@@ -5,9 +5,9 @@
   xmlns:xlink="http://www.w3.org/1999/xlink"
   version="1.1"
   width="681px"
-  height="272px"
-  viewBox="-0.5 -0.5 681 272"
-  content="&lt;mxfile&gt;&lt;diagram id=&quot;fc42cag3V1V3n0TzBrJr&quot; name=&quot;Page-1&quot;&gt;7VZNj5swEP013PlKNnvcZLO7l0qVcujZxROw1niQbSDpr68dhgAhm3bVSumhJ+zn5/H4+c2IINmUh1fNquILcpBBHPJDkDwHcRyFq8R9PHLskMdo2QG5FpxIA7ATP6DfSWgtOJgJ0SJKK6opmKFSkNkJxrTGdkrbo5yeWrEcZsAuY3KOfhPcFh26WoQD/gYiL/qTo5BWStaTCTAF49iOoGQbJBuNaLtRediA9OL1unT7Xj5YPSemQdnf2kAvYeyxvxxwd1eaorYF5qiY3A7o2iVd+VWSF7XDNNaKg48auVlhS0lDYzW+wwalpz1z2LNautTWTIpc+SAuU/ARGtBWOI2faKEUnJ+O26OyL6wU0rvlDWQDnkcLZI4oovn8IMm+g1yz7D0/5TgngOJP3hQ+GcmMEZkDO1m8Fh8qS5DBWmfEismMTOdArPT8qq4cAEuw+ugoGiSzoplGZ+TL/MyjrS4/dhwRKhTKmlHkrx5wBCqxuDccFVicXtjgc3w36DLoZ6OrDNDJWtdtRro0TNZ0YwPKCJXP3Df4KHSv0BbCwq5iJ31b10ym3qKozjhwuP1M8wegDenFxR9o3g51nfTFWoxqut937clGst1UJZmp0kAhMifF/VW5oyzR4n9P+os9KZ33pOQePWmxvPDU4nZP+gX/j3tSOqu+bbz9Bypvcul0XnfL1ZW6ix4/X3huOvxodAIOv2vJ9ic=&lt;/diagram&gt;&lt;/mxfile&gt;"
+  height="271px"
+  viewBox="-0.5 -0.5 681 271"
+  content="&lt;mxfile&gt;&lt;diagram id=&quot;fc42cag3V1V3n0TzBrJr&quot; name=&quot;Page-1&quot;&gt;7VbBcpswEP0a7oBwmh5jx0kunemMDz2raA2aCC0jBNj9+kpmCWA5TtMekkMvjPT0JO0+vd0hYpvq8Gh4XX5DASpKY3GI2H2UprcscV8PHAcgWxFQGCkGaAbs5C8gMCa0lQKaBdEiKivrJZij1pDbBcaNwX5J26Na3lrzAgJgl3MVoj+ksCWltYon/AlkUY43JzGtVHwkE9CUXGA/g9g2YhuDaIdRddiA8tqNugz7Hl5ZfQnMgLZ/tIFRHPY4JgfC5UpTNLbEAjVX2wldu6Brv0ryonGYwVYL8KcmblbaStGwsQafYYPK0+4F7HmrXGhrrmSh/SEuUvAndGCsdBrf0UIlhThdt0dtH3gllXfLE6gOPI8WyBxJQvPwIsV/glrz/Lk4xRgSQIs7bwofjOJNI3MHhkKStg22JiepUvIeNwUQKxsgL+JsG4n/CFiBNUdHMKC4ld3SUJx8WbzwaKuLjx9nhBqlts3s5O8ecASqsHQ0HBVYmp3Z4H18NxgiGGezVCboZK3LNiOhOq5ayrgB3UhdBO6bfBS7V+hLaWFX85PgveslS2+9+kjeS3C4+gC0mp0l/oXm/VTXbCzWclbT475LTzaT7aoqLFClg1LmToqPV+UDZUlW/3vS3/ekLOxJ7FP0pNXNmadW13vSG/x/7klZUH28tdg7dT9B+S0yz8Liu7m9UHzJ1/dXn5tOfxuDitMvG9v+Bg==&lt;/diagram&gt;&lt;/mxfile&gt;"
 >
   <defs/>
   <g>
@@ -137,12 +137,12 @@
                 <div
                   style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; "
                 >
-                  E2E
+                  autoware
                 </div>
               </div>
             </div>
           </foreignObject>
-          <text x="340" y="99" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">E2E</text>
+          <text x="340" y="99" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">autoware</text>
         </switch>
       </g>
     </g>
