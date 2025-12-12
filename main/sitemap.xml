@@ -185,10 +185,6 @@
          <lastmod>2025-12-12</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/planning-simulation/</loc>
-         <lastmod>2025-12-12</lastmod>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/rosbag-replay-simulation/</loc>
          <lastmod>2025-12-12</lastmod>
     </url>
@@ -210,6 +206,46 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/digital-twin-demos/autoware-core-awsim/</loc>
+         <lastmod>2025-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/planning-sim/</loc>
+         <lastmod>2025-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/planning-sim/avoidance/</loc>
+         <lastmod>2025-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/planning-sim/crosswalk/</loc>
+         <lastmod>2025-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/planning-sim/lane-change/</loc>
+         <lastmod>2025-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/planning-sim/lane-driving/</loc>
+         <lastmod>2025-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/planning-sim/parking/</loc>
+         <lastmod>2025-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/planning-sim/placing-objects/</loc>
+         <lastmod>2025-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/planning-sim/pull-over-out/</loc>
+         <lastmod>2025-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/planning-sim/traffic-light/</loc>
+         <lastmod>2025-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/demos/planning-sim/using-launch-gui/</loc>
          <lastmod>2025-12-12</lastmod>
     </url>
     <url>

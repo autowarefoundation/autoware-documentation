@@ -1753,9 +1753,50 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../demos/planning-simulation/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../demos/planning-sim/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1769,7 +1810,283 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Planning simulation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/planning-sim/lane-driving/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lane driving scenario
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/planning-sim/parking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parking scenario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/planning-sim/pull-over-out/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pull out and pull over scenario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/planning-sim/lane-change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lane change scenario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/planning-sim/placing-objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Placing dummy objects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/planning-sim/avoidance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Avoidance scenario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/planning-sim/traffic-light/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Traffic light recognition simulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/planning-sim/crosswalk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Driving through a crosswalk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demos/planning-sim/using-launch-gui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Planning simulator demo with Autoware Launch GUI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -14012,7 +14329,7 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
 </ul>
 <p>If you have any of these symptoms, please the <a href="performance-troubleshooting/">Performance Troubleshooting</a> page.</p>
 <h3 id="map-does-not-display-when-running-the-planning-simulator">Map does not display when running the Planning Simulator<a class="headerlink" href="#map-does-not-display-when-running-the-planning-simulator" title="Permanent link">#</a></h3>
-<p>When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because <a href="../../../demos/planning-simulation/#lane-driving-scenario">the map path has not been specified correctly in the launch command</a>. You can confirm if this is the case by searching for <code>Could not find lanelet map under {path-to-map-dir}/lanelet2_map.osm</code> errors in the log.</p>
+<p>When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because <a href="../../../demos/planning-sim/lane-driving/">the map path has not been specified correctly in the launch command</a>. You can confirm if this is the case by searching for <code>Could not find lanelet map under {path-to-map-dir}/lanelet2_map.osm</code> errors in the log.</p>
 <p>Another possible reason is that map loading is taking a long time due to poor DDS performance. For this, please visit the <a href="performance-troubleshooting/">Performance Troubleshooting</a> page.</p>
 <h3 id="died-process-issues">Died process issues<a class="headerlink" href="#died-process-issues" title="Permanent link">#</a></h3>
 <p>Some modules may not be launched properly at runtime, and you may see "process has died" in your terminal.
@@ -14021,7 +14338,7 @@ You can use the gdb tool to locate where the problem is occurring.</p>
 <div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Debug<span class="w"> </span>--packages-up-to<span class="w"> </span>&lt;the<span class="w"> </span>modules<span class="w"> </span>you<span class="w"> </span>wish<span class="w"> </span>to<span class="w"> </span>analyze&gt;<span class="w"> </span>--catkin-skip-building-tests<span class="w"> </span>--symlink-install
 </code></pre></div>
 <p>In this state, when a died process occurs when you run the autoware again, a core file will be created.
-Remeber to remove the size limit of the core file.</p>
+Remember to remove the size limit of the core file.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">ulimit</span><span class="w"> </span>-c<span class="w"> </span>unlimited
 </code></pre></div>
 <p>Rename the core file as <code>core.&lt;PID&gt;</code>.</p>
@@ -14112,7 +14429,7 @@ Remeber to remove the size limit of the core file.</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2023 The Autoware Foundation
+      Copyright &copy; 2025 The Autoware Foundation
     </div>
   
   
