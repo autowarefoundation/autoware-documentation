@@ -2,16 +2,16 @@
 architecture: autoware basic components
 interface_type: topic
 interface_name: /vehicle/status/gear_status
-data_type: foo_msgs/msg/Message
+data_type: autoware_vehicle_msgs/msg/GearReport
 updated: 2025-12-01
 rate: N/A
 qos_reliability: reliable
 qos_durability: volatile / transient_lopcal
 qos_depth: 1
 endpoints:
-  localization: pub
-  planning: sub
-  perception: sub
+  vehicle: pub
+  control: sub
+  adapi: sub
 ---
 
 # {{ interface_name }}
@@ -22,15 +22,16 @@ endpoints:
 
 ## Description
 
-- インターフェースの基本的な説明をここに記載する
-- タイミングなどの仕様
-- 対象となるODDによって考慮すべき項目(Rateなど)。
-- 必要に応じて以下のようなセクションを追加する。
-  - ステート遷移
-  - シーケンス
-  - データフロー
+車両のギア状態を取得する。変化時のみ通知することが望ましいが、現状多くの実装は周期的に送信することを前提に作られている。
+そのため、通知方式で実装する場合はシステム全体で対応が行われているかの確認が必要になる点に注意すること。
 
 ## Message
+
+メッセージの詳細は[autoware_vehicle_msgs/msg/GearReport](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/GearReport.msg)を参照すること。
+
+まだ詳細な記載がないので以下のような説明がほしい。
+- stampはメッセージの送信時刻 or 状態取得時の車両時刻 or 最後に状態が切り替えられた時刻である。
+
 
 - メッセージの詳細を記載する。メッセージパッケージのREADMEへのリンクでも良い。
 - 時刻やフレームの扱い
@@ -40,13 +41,13 @@ endpoints:
 
 ## Errors
 
-- コマンドに応じて変化するステータストピックなど。
-- サービスの場合はレスポンスで想定されるエラーの説明なども。
+状態を取得できない場合はNONEを出力するため、Autowareで異常処理を行う必要がある。
 
 ## Support
 
-- インターフェースのサポートが必須かどうかや、段階的なサポートがあるかなど。
-- インターフェースをサポートできない場合の対応方法や影響についても記載する。
+このインターフェースは必須である。ギアが存在しない車両の場合は車両インターフェースで以下の条件を満たすように実装すること。
+- PARKING: 車両が重力などの外からの力を受けても停止保持できる状態。コマンドが入力された場合でも停止を保持する。
+- DRIVE: 前進するコマンドのみを受け付ける。もしくは後退コマンドが来たら自動的に切り替える。
 
 ## Limitations
 
