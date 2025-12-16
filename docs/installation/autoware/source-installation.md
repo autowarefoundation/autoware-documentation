@@ -68,18 +68,18 @@ sudo apt-get -y install git
 
 1. Create the `src` directory and clone repositories into it.
 
-   Autoware uses [vcstool](https://github.com/dirk-thomas/vcstool) to construct workspaces.
+   Autoware uses [vcs2l](https://github.com/dirk-thomas/vcs2l) to construct workspaces.
 
    ```bash
    cd autoware
    mkdir src
-   vcs import src < autoware.repos
+   vcs import src < repositories/autoware.repos
    ```
 
    If you are an active developer, you may also want to pull the nightly repositories, which contain the latest updates:
 
    ```bash
-   vcs import src < autoware-nightly.repos
+   vcs import src < repositories/autoware-nightly.repos
    ```
 
    > ⚠️ Note: The nightly repositories are unstable and may contain bugs. Use them with caution.
@@ -87,7 +87,7 @@ sudo apt-get -y install git
    Optionally, you may also download the extra repositories that contain drivers for specific hardware, but they are not necessary for building and running Autoware:
 
    ```bash
-   vcs import src < extra-packages.repos
+   vcs import src < repositories/extra-packages.repos
    ```
 
    > ⚠️ You might need to install the dependencies of the extra packages manually.
@@ -139,13 +139,13 @@ sudo apt-get -y install git
 2. Update the repositories.
 
    ```bash
-   vcs import src < autoware.repos
+   vcs import src < repositories/autoware.repos
    ```
 
    > ⚠️ If you are using nightly repositories, you can also update them.
    >
    > ```bash
-   > vcs import src < autoware-nightly.repos
+   > vcs import src < repositories/autoware-nightly.repos
    > ```
 
    ```bash
@@ -158,21 +158,21 @@ sudo apt-get -y install git
    - `vcs pull` is similar to `git pull`.
      - Note that it doesn't switch branches.
 
-   For more information, refer to the [official documentation](https://github.com/dirk-thomas/vcstool).
+   For more information, refer to the [official documentation](https://github.com/dirk-thomas/vcs2l).
 
    It might be the case that dependencies imported via `vcs import` have been moved/removed.
-   VCStool does not currently handle those cases, so if builds fail after `vcs import`, cleaning
+   Vcs2l does not currently handle those cases, so if builds fail after `vcs import`, cleaning
    and re-importing all dependencies may be necessary:
 
    ```bash
    rm -rf src/*
-   vcs import src < autoware.repos
+   vcs import src < repositories/autoware.repos
    ```
 
    > ⚠️ If you are using nightly repositories, import them as well.
    >
    > ```bash
-   > vcs import src < autoware-nightly.repos
+   > vcs import src < repositories/autoware-nightly.repos
    > ```
 
 3. Install dependent ROS packages.

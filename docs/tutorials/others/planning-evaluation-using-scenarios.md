@@ -101,8 +101,8 @@ mkdir src
 - Import the necessary repositories both for the Autoware and Scenario Simulator.
 
 ```bash
-vcs import src < autoware.repos
-vcs import src < simulator.repos
+vcs import src < repositories/autoware.repos
+vcs import src < repositories/simulator.repos
 ```
 
 - If you are installing Autoware for the first time, you can automatically install the dependencies by using the

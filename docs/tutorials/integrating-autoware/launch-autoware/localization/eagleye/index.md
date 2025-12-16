@@ -9,7 +9,7 @@ Eagleye is an open-source GNSS/IMU-based localizer initially developed by [MAP I
 
 ### Dependencies
 
-The below packages are automatically installed during the setup of Autoware as they are listed in [autoware.repos](https://github.com/autowarefoundation/autoware/blob/main/autoware.repos).
+The below packages are automatically installed during the setup of Autoware as they are listed in [repositories/autoware.repos](https://github.com/autowarefoundation/autoware/blob/main/repositories/autoware.repos).
 
 1. [Eagleye](https://github.com/MapIV/eagleye.git) (autoware-main branch)
 2. [RTKLIB ROS Bridge](https://github.com/MapIV/rtklib_ros_bridge.git) (ros2-v0.1.0 branch)

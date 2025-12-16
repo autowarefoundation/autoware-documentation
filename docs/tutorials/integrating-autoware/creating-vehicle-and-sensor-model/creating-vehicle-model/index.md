@@ -26,8 +26,8 @@ following the directory structure below:
 
 If your forked Autoware meta-repository doesn't include `<YOUR-VEHICLE-NAME>_vehicle_launch` with the correct folder structure
 as shown above,
-please add your forked `<YOUR-VEHICLE-NAME>_vehicle_launch` repository to the autoware.repos file
-and run the vcs import src < autoware.repos command in your terminal
+please add your forked `<YOUR-VEHICLE-NAME>_vehicle_launch` repository to the `repositories/autoware.repos` file
+and run the `vcs import src < repositories/autoware.repos` command in your terminal
 to import the newly included repositories at autoware.repos file.
 
 Now, we are ready to modify the following vehicle model packages for our vehicle.

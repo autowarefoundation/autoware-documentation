@@ -29,7 +29,7 @@ following the directory structure below:
 If your forked Autoware meta-repository doesn't include `<YOUR-VEHICLE-NAME>_sensor_kit_launch` with the correct folder structure
 as shown above,
 please add your forked `<YOUR-VEHICLE-NAME>_sensor_kit_launch` repository to the autoware.repos file
-and run the vcs import src < autoware.repos command in your terminal
+and run the `vcs import src < repositories/autoware.repos` command in your terminal
 to import the newly included repositories at autoware.repos file.
 
 Now, we are ready to modify the following sensor model packages for our vehicle.
@@ -558,7 +558,7 @@ you can launch the camera and 2D detection pipeline separately.
 For example,
 you can clone your camera driver
 at `src/sensor_component/external` folder
-(please don't forget adding this driver to `autoware.repos` file):
+(please don't forget adding this driver to `repositories/autoware.repos` file):
 
 ```diff
 <YOUR-AUTOWARE-DIR>
@@ -952,7 +952,7 @@ Also, you can remove dependencies and unused sensor launch files at `gnss.launch
 For example,
 we will use [Clap B7 sensor](https://en.unicorecomm.com/assets/upload/file/CLAP-B7_Product_Brief_En.pdf) as a GNSS/INS and IMU sensor,
 and we will use [nrtip_client_ros](https://github.com/Robeff-Technology/ntrip_client) for RTK.
-Also, we will add these packages to [autoware.repos](https://github.com/leo-drive/autoware.tutorial_vehicle/blob/main/autoware.repos) file.
+Also, we will add these packages to [autoware.repos](https://github.com/leo-drive/autoware.tutorial_vehicle/blob/main/repositories/autoware.repos) file.
 
 ```diff
 + sensor_component/external/clap_b7_driver:

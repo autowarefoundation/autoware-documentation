@@ -12,7 +12,7 @@ The `CODEOWNERS` file plays a vital role in managing pull requests (PRs) by:
 
 ## Locating `CODEOWNERS` files
 
-`CODEOWNERS` files are found in the `.github` directory across multiple repositories of the Autoware project. The [`autoware.repos` file](https://github.com/autowarefoundation/autoware/blob/main/autoware.repos) lists these repositories and their directories.
+`CODEOWNERS` files are found in the `.github` directory across multiple repositories of the Autoware project. The [`autoware.repos` file](https://github.com/autowarefoundation/autoware/blob/main/repositories/autoware.repos) lists these repositories and their directories.
 
 ## Maintenance of `CODEOWNERS`
 
