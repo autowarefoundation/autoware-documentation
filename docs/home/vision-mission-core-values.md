@@ -1,6 +1,7 @@
-# Autoware Vision, Mission and Core Values
+# Vision, Mission, and Core Values
 
-In this page, we define the vision, mission, and core values of Autoware which reflect our open-source philosophy. These will inform our goal setting and will drive our strategic planning and execution going forward.
+On this page, we define the vision, mission, and core values of Autoware which reflect our open-source philosophy.
+These will inform our goal setting and will drive our strategic planning and execution going forward.
 
 ## Vision Statement
 

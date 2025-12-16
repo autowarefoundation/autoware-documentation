@@ -192,7 +192,7 @@ If you have any of these symptoms, please the [Performance Troubleshooting](perf
 
 ### Map does not display when running the Planning Simulator
 
-When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because [the map path has not been specified correctly in the launch command](../../../demos/planning-simulation.md#lane-driving-scenario). You can confirm if this is the case by searching for `Could not find lanelet map under {path-to-map-dir}/lanelet2_map.osm` errors in the log.
+When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because [the map path has not been specified correctly in the launch command](../../../demos/planning-sim/lane-driving.md). You can confirm if this is the case by searching for `Could not find lanelet map under {path-to-map-dir}/lanelet2_map.osm` errors in the log.
 
 Another possible reason is that map loading is taking a long time due to poor DDS performance. For this, please visit the [Performance Troubleshooting](performance-troubleshooting.md) page.
 
@@ -208,7 +208,7 @@ colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug --packages-up-to <the modules
 ```
 
 In this state, when a died process occurs when you run the autoware again, a core file will be created.
-Remeber to remove the size limit of the core file.
+Remember to remove the size limit of the core file.
 
 ```bash
 ulimit -c unlimited

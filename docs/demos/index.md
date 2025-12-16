@@ -27,7 +27,7 @@
 
 ## Planning simulation demo
 
-[:fa-cl-s fa-circle-arrow-right: Planning Simulation Demo](planning-simulation.md){ .md-button }
+[:fa-cl-s fa-circle-arrow-right: Planning Simulation Demo](planning-sim/index.md){ .md-button }
 
 ???+ abstract "Summary"
 
