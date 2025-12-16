@@ -6,7 +6,7 @@ data_type: autoware_vehicle_msgs/msg/GearReport
 updated: 2025-12-01
 rate: N/A
 qos_reliability: reliable
-qos_durability: volatile / transient_lopcal
+qos_durability: volatile / transient_local
 qos_depth: 1
 endpoints:
   vehicle: pub
