@@ -8,6 +8,7 @@
 
 - /control/control_mode_request
 - /vehicle/status/control_mode
+- [/vehicle/status/gear_status](./vehicle-status-gear-status.md)
 
 ## アーキテクチャの適用方法
 
