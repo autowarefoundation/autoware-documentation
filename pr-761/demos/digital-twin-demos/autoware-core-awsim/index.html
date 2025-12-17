@@ -13931,7 +13931,7 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tier4
 <li>
 <p>Remove unnecessary packages.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/autoware_launch_workspace
-mkdir<span class="w"> </span>src
+mkdir<span class="w"> </span>-p<span class="w"> </span>src
 colcon<span class="w"> </span>list<span class="w"> </span>--paths-only<span class="w"> </span>--packages-up-to<span class="w"> </span>sample_vehicle_description<span class="w"> </span>awsim_sensor_kit_description<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-I<span class="o">{}</span><span class="w"> </span>mv<span class="w"> </span><span class="o">{}</span><span class="w"> </span>src
 rm<span class="w"> </span>-rf<span class="w"> </span>tmp
 </code></pre></div>

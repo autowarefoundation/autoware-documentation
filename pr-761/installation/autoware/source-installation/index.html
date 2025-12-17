@@ -14054,7 +14054,7 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </
 <p>Create the <code>src</code> directory and clone repositories into it.</p>
 <p>Autoware uses <a href="https://github.com/dirk-thomas/vcs2l">vcs2l</a> to construct workspaces.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>autoware
-mkdir<span class="w"> </span>src
+mkdir<span class="w"> </span>-p<span class="w"> </span>src
 vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware.repos
 </code></pre></div>
 <p>If you are an active developer, you may also want to pull the nightly repositories, which contain the latest updates:</p>
