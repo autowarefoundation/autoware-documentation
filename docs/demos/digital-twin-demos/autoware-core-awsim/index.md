@@ -77,7 +77,7 @@ If you have not yet installed Autoware, please refer to the [Installation](../..
 
    ```bash
    cd $HOME/autoware_launch_workspace
-   mkdir src
+   mkdir -p src
    colcon list --paths-only --packages-up-to sample_vehicle_description awsim_sensor_kit_description | xargs -I{} mv {} src
    rm -rf tmp
    ```

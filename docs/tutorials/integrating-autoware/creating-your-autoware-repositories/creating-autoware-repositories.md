@@ -146,7 +146,7 @@ First, create a src directory under your own Autoware meta-repository directory:
 
 ```bash
 cd <YOUR-AUTOWARE-DIR>
-mkdir src
+mkdir -p src
 ```
 
 Then, import all necessary repositories with vcs:

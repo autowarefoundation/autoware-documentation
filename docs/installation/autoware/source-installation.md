@@ -72,7 +72,7 @@ sudo apt-get -y install git
 
    ```bash
    cd autoware
-   mkdir src
+   mkdir -p src
    vcs import src < repositories/autoware.repos
    ```
 

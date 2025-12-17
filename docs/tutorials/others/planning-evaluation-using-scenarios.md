@@ -95,7 +95,7 @@ git clone https://github.com/autowarefoundation/autoware.git
 
 ```bash
 cd autoware
-mkdir src
+mkdir -p src
 ```
 
 - Import the necessary repositories both for the Autoware and Scenario Simulator.

@@ -93,7 +93,7 @@ Open AD Kit provides different deployment options for Autoware, so that you can 
 1. Create the `src` directory and clone repositories into it.
 
    ```bash
-   mkdir src
+   mkdir -p src
    vcs import src < repositories/autoware.repos
    ```
 
