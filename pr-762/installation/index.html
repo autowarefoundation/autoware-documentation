@@ -13937,24 +13937,25 @@ However, performance will be improved with more cores, RAM and a higher-spec gra
 For installation types, see the subsections below. If any issues occur during installation, refer to the <a href="../community/support/">Support page</a>.</p>
 <details class="abstract" open="open">
 <summary>Summary</summary>
-<div class="cards" markdown>
+<div class="grid cards" markdown>
 <ul>
 <li>
 <p><strong>Autoware Core</strong></p>
 <hr>
 <ul>
-<li>contains only the essential Autoware packages</li>
-<li>basic functionality for lane driving and obstacle detection</li>
-<li>no NVidia dependency</li>
+<li>Contains only the essential Autoware packages</li>
+<li>Basic functionality for lane driving and obstacle detection</li>
+<li>No NVIDIA dependency</li>
+<li>No neural networks for detecting objects (yet)</li>
 </ul>
 </li>
 </ul>
 <ul>
 <li>
-<p><strong>Autoware Universe</strong></p>
+<p><strong>Autoware Universe</strong> ⭐</p>
 <hr>
 <ul>
-<li>contains full stack Autoware and 3rd party packages</li>
+<li>Contains full stack Autoware and 3rd party packages</li>
 <li>ML-based perception/planning capabilities</li>
 </ul>
 </li>
@@ -13964,12 +13965,18 @@ For installation types, see the subsections below. If any issues occur during in
 <h3 id="1-docker-installation">1. Docker installation<a class="headerlink" href="#1-docker-installation" title="Permanent link">#</a></h3>
 <p>Autoware's Open AD Kit containers enable you to run and develop Autoware easily on your host machine, ensuring the same environment for development and deployment without installing dependencies.</p>
 <p><a href="https://autoware.org/open-ad-kit/">Open AD Kit</a> is the first <a href="https://www.soafee.io/about/charter">SOAFEE Blueprint</a> for autonomous driving, offering extensible modular containerized workloads to simplify running Autoware's AD stack on distributed systems. Refer to the <a href="https://autowarefoundation.github.io/openadkit/">Open AD Kit Documentation</a> for more details.</p>
-<p><a class="md-button" href="autoware/docker-installation/"><i class="fa-solid fa-circle-arrow-right"></i> Autoware Universe Docker Installation</a> <a class="md-button" href="autoware/core-docker-installation/"><i class="fa-solid fa-circle-arrow-right"></i> Autoware Core Docker Installation</a></p>
+<div style="text-align: center;">
+<p><a class="md-button" href="autoware/docker-installation/" style="margin: 5px"><i class="fa-solid fa-circle-arrow-right"></i> Autoware Universe Docker Installation ⭐</a>
+<a class="md-button" href="autoware/core-docker-installation/" style="margin: 5px"><i class="fa-solid fa-circle-arrow-right"></i> Autoware Core Docker Installation</a></p>
+</div>
 <h3 id="2-source-installation">2. Source installation<a class="headerlink" href="#2-source-installation" title="Permanent link">#</a></h3>
 <p>Source installation is for the cases where more granular control of the installation environment is needed.
 It is recommended for experienced users or people who want to customize their environment.
 Note that some problems may occur depending on your local environment.</p>
-<p><a class="md-button" href="autoware/source-installation/"><i class="fa-solid fa-circle-arrow-right"></i> Autoware Universe Source Installation</a> <a class="md-button" href="autoware/core-source-installation/"><i class="fa-solid fa-circle-arrow-right"></i> Autoware Core Source Installation</a></p>
+<div style="text-align: center;">
+<p><a class="md-button" href="autoware/source-installation/" style="margin: 5px"><i class="fa-solid fa-circle-arrow-right"></i> Autoware Universe Source Installation ⭐</a> 
+<a class="md-button" href="autoware/core-source-installation/" style="margin: 5px"><i class="fa-solid fa-circle-arrow-right"></i> Autoware Core Source Installation</a> </p>
+</div>
 <h3 id="3-debian-package-installation">3. Debian Package installation<a class="headerlink" href="#3-debian-package-installation" title="Permanent link">#</a></h3>
 <p>Autoware Core packages are available on the <abbr title="Robot Operating System">ROS</abbr> build farm.
 If you have an environment where <abbr title="Robot Operating System">ROS</abbr> is set up, Autoware packages can be easily installed and used with other packages in the <abbr title="Robot Operating System">ROS</abbr> ecosystem.</p>
