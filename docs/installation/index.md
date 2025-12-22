@@ -77,10 +77,10 @@ Note that some problems may occur depending on your local environment.
 
 <div style="text-align: center;" markdown="1">
 
-[:fa-cl-s fa-circle-arrow-right: Autoware Universe Source Installation ⭐](autoware/source-installation.md){ .md-button style="margin: 5px" } 
-[:fa-cl-s fa-circle-arrow-right: Autoware Core Source Installation](autoware/core-source-installation.md){ .md-button style="margin: 5px" } 
+[:fa-cl-s fa-circle-arrow-right: Autoware Universe Source Installation ⭐](autoware/source-installation.md){ .md-button style="margin: 5px" }
+[:fa-cl-s fa-circle-arrow-right: Autoware Core Source Installation](autoware/core-source-installation.md){ .md-button style="margin: 5px" }
 
-</div> 
+</div>
 
 ### 3. Debian Package installation
 
