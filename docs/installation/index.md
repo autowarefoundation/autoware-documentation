@@ -2,9 +2,8 @@
 
 ## Target platforms
 
-Autoware targets the platforms listed below. It may change in future versions of Autoware.
-
-The Autoware Foundation provides no support on other platforms than those listed below.
+Autoware officially supports the platforms listed below.
+Support for additional platforms may be introduced in future releases.
 
 ### Architecture
 
@@ -32,14 +31,29 @@ For details of how to enable object detection and traffic light detection/classi
 
 ## Installing Autoware
 
-There are five ways to set up Autoware. Choose one according to your preference. Autoware Core contains only the essential Autoware packages, and Autoware Universe contains the full Autoware stack.
+There are multiple ways to install Autoware depending on your use case and experience level. You may also choose to install Autoware Core which contains only the essential Autoware packages, or Autoware Universe which contains the full Autoware stack.
 For installation types, see the subsections below. If any issues occur during installation, refer to the [Support page](../community/support/index.md).
 
-- [Autoware Core Docker installation](autoware/core-docker-installation.md)
-- [Autoware Core source installation](autoware/core-source-installation.md)
-- [Autoware Core Debian Package installation guide](autoware/core-debian-installation.md)
-- [Autoware Universe Docker installation](autoware/docker-installation.md)
-- [Autoware Universe source installation](autoware/source-installation.md)
+???+ abstract "Summary"
+
+    <div class="cards" markdown>
+
+    -   **Autoware Core**
+
+        ---
+
+        - contains only the essential Autoware packages
+        - basic functionality for lane driving and obstacle detection
+        - no NVidia dependency
+
+    -   **Autoware Universe**
+
+        ---
+
+        - contains full stack Autoware and 3rd party packages
+        - ML-based perception/planning capabilities
+
+    </div>
 
 ### 1. Docker installation
 
@@ -47,16 +61,24 @@ Autoware's Open AD Kit containers enable you to run and develop Autoware easily 
 
 [Open AD Kit](https://autoware.org/open-ad-kit/) is the first [SOAFEE Blueprint](https://www.soafee.io/about/charter) for autonomous driving, offering extensible modular containerized workloads to simplify running Autoware's AD stack on distributed systems. Refer to the [Open AD Kit Documentation](https://autowarefoundation.github.io/openadkit/) for more details.
 
+
+[:fa-cl-s fa-circle-arrow-right: Autoware Universe Docker Installation](autoware/docker-installation.md){ .md-button } [:fa-cl-s fa-circle-arrow-right: Autoware Core Docker Installation](autoware/core-docker-installation.md){ .md-button }
+
 ### 2. Source installation
 
 Source installation is for the cases where more granular control of the installation environment is needed.
 It is recommended for experienced users or people who want to customize their environment.
 Note that some problems may occur depending on your local environment.
 
+[:fa-cl-s fa-circle-arrow-right: Autoware Universe Source Installation](autoware/source-installation.md){ .md-button } [:fa-cl-s fa-circle-arrow-right: Autoware Core Source Installation](autoware/core-source-installation.md){ .md-button }
+
+
 ### 3. Debian Package installation
 
 Autoware Core packages are available on the ROS build farm.
 If you have an environment where ROS is set up, Autoware packages can be easily installed and used with other packages in the ROS ecosystem.
+
+[:fa-cl-s fa-circle-arrow-right: Autoware Core Debian Package Installation](autoware/core-debian-installation.md){ .md-button }
 
 ## Installing related tools
 
