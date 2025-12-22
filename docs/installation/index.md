@@ -61,7 +61,6 @@ Autoware's Open AD Kit containers enable you to run and develop Autoware easily 
 
 [Open AD Kit](https://autoware.org/open-ad-kit/) is the first [SOAFEE Blueprint](https://www.soafee.io/about/charter) for autonomous driving, offering extensible modular containerized workloads to simplify running Autoware's AD stack on distributed systems. Refer to the [Open AD Kit Documentation](https://autowarefoundation.github.io/openadkit/) for more details.
 
-
 [:fa-cl-s fa-circle-arrow-right: Autoware Universe Docker Installation](autoware/docker-installation.md){ .md-button } [:fa-cl-s fa-circle-arrow-right: Autoware Core Docker Installation](autoware/core-docker-installation.md){ .md-button }
 
 ### 2. Source installation
@@ -71,7 +70,6 @@ It is recommended for experienced users or people who want to customize their en
 Note that some problems may occur depending on your local environment.
 
 [:fa-cl-s fa-circle-arrow-right: Autoware Universe Source Installation](autoware/source-installation.md){ .md-button } [:fa-cl-s fa-circle-arrow-right: Autoware Core Source Installation](autoware/core-source-installation.md){ .md-button }
-
 
 ### 3. Debian Package installation
 
