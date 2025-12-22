@@ -87,7 +87,11 @@ Note that some problems may occur depending on your local environment.
 Autoware Core packages are available on the ROS build farm.
 If you have an environment where ROS is set up, Autoware packages can be easily installed and used with other packages in the ROS ecosystem.
 
+<div style="text-align: center;" markdown="1">
+
 [:fa-cl-s fa-circle-arrow-right: Autoware Core Debian Package Installation](autoware/core-debian-installation.md){ .md-button }
+
+</div>
 
 ## Installing related tools
 
