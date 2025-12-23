@@ -1,7 +1,7 @@
 ---
 architecture: autoware components
 interface_type: topic
-interface_name: /autoware/example/topic
+interface_name: /control/command/hazard_lights_cmd
 data_type: foo_msgs/msg/Message
 updated: 2025-12-01
 rate: 10~20

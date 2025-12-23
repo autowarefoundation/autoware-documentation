@@ -1,24 +1,19 @@
 ---
 architecture: autoware components
 interface_type: topic
-interface_name: /autoware/example/topic
-data_type: foo_msgs/msg/Message
+interface_name: /autoware/example/service
+data_type: foo_msgs/srv/Service
 updated: 2025-12-01
-rate: 10~20
-qos_reliability: reliable
-qos_durability: volatile
-qos_depth: 1
+timeout: ---
 endpoints:
-  localization: pub
-  planning: sub
-  perception: sub
+  vehicle: srv
 ---
 
 # {{ interface_name }}
 
 ## Specifications
 
-{% include 'design/autoware-architecture-v1/interfaces/templates/topic.jinja2' %}
+{% include 'design/autoware-architecture-v1/interfaces/templates/service.jinja2' %}
 
 ## Description
 
@@ -30,13 +25,18 @@ endpoints:
   - シーケンス
   - データフロー
 
-## Message
+## Request
 
 - メッセージの詳細を記載する。メッセージパッケージのREADMEへのリンクでも良い。
 - 時刻やフレームの扱い
 - 任意フィールドの扱い
 - 無効値や範囲外の扱い（エラーになるのか無視されるのか）
 - サポートしていない場合の挙動（空配列、NaN、トピックが出ないなど）
+
+## Response
+
+- Requestと同様
+- エラー時の挙動や戻り値など
 
 ## Errors
 

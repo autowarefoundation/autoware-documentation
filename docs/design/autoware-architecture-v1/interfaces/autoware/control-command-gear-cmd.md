@@ -1,7 +1,7 @@
 ---
 architecture: autoware components
 interface_type: topic
-interface_name: /autoware/example/topic
+interface_name: /control/command/gear_cmd
 data_type: foo_msgs/msg/Message
 updated: 2025-12-01
 rate: 10~20
@@ -37,6 +37,8 @@ endpoints:
 - 任意フィールドの扱い
 - 無効値や範囲外の扱い（エラーになるのか無視されるのか）
 - サポートしていない場合の挙動（空配列、NaN、トピックが出ないなど）
+
+- NONEの扱い。エラーにしたい。送ってほしくない。維持する場合は送らない。
 
 ## Errors
 
