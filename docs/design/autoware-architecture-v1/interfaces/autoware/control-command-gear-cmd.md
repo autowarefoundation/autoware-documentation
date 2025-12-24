@@ -22,7 +22,7 @@ endpoints:
 
 ## Description
 
-Request a gear change. The gear types are listed in the table below.
+Send the gear change command to the vehicle. The commands are listed in the table below.
 It is recommended to set QoS to transient_local and publish only when the command changes, but currently many implementations publish the command periodically.
 Therefore, ensure consistency across the entire system.
 
@@ -35,14 +35,14 @@ Therefore, ensure consistency across the entire system.
 
 ## Message
 
-The `stamp` field is the time when the command changed. In the case of periodic publication, use the latest time, not the last command change.
+The `stamp` field is the command sent time. In the case of periodic publication, use the latest time, not the last command change.
 
-For the `command` field, use the valid gear values listed above. The `NONE` value can be used internally by programs, but will never be sent as a topic.
+For the `command` field, use the valid values listed above. The `NONE` value can be used internally by programs, but will never be sent as a topic.
 Values ​​such as `LOW` and `DRIVE_2` ​​can be used if the vehicle has its own special gear types, but a dedicated implementation is required to handle this.
 
 ## Errors
 
-If unsupported gear type is requested, ignore it and report the error as diagnostics.
+If an unsupported or unknown command is sent, ignore it and report the error as diagnostics.
 
 ## Support
 
@@ -50,21 +50,21 @@ This interface is required. If the vehicle does not have gears, simulate the gea
 
 ## Limitations
 
-None.
+- None.
 
 ## Use Cases
 
 - Control the vehicle for autonomous driving.
-- Relay gear change requests from the operator.
+- Relay commands from the operator.
 
 ## Requirement
 
-- Support obtaining the current vehicle gear status.
+- Support sending the gear command to the vehicle.
 - Support vehicle-specific gear status if necessary.
 
 ## Prerequisites
 
-None.
+- None.
 
 ## Design
 

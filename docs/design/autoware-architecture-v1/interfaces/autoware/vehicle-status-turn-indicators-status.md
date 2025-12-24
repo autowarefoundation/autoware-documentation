@@ -29,11 +29,11 @@ Therefore, ensure consistency across the entire system.
 ## Message
 
 The `stamp` field is the status received time or hardware time such as VCU. In the case of periodic publication, use the latest time, not the last status change.
-For the `report` field, use the valid gear values listed above.
+For the `report` field, use the valid values listed above.
 
 ## Errors
 
-If the status cannot be received or an unknown value is received, stop publishing the topic and report the error as diagnostics.
+If the status cannot be received or an unknown status is received, stop publishing the topic and report the error as diagnostics.
 
 ## Support
 
@@ -58,7 +58,7 @@ This interface is required. If the vehicle does not have turn indicators, always
 
 ## Design
 
-In the original implementation, turn indicators and hazard lights were managed as different states of the same interface, but were split because the states needed to be managed separately.
+In the early stages, turn indicators and hazard lights were managed as different states of the same interface, but were split because the states needed to be managed separately.
 
 ## History
 

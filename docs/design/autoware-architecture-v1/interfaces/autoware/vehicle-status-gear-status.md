@@ -22,7 +22,7 @@ endpoints:
 
 ## Description
 
-Get the current gear status of the vehicle. The status are listed in the table below.
+Get the current gear status of the vehicle. The statuses are listed in the table below.
 It is recommended to set QoS to transient_local and publish only when the status changes, but currently many implementations publish the status periodically.
 Therefore, ensure consistency across the entire system.
 
@@ -37,12 +37,12 @@ Therefore, ensure consistency across the entire system.
 
 The `stamp` field is the status received time or hardware time such as VCU. In the case of periodic publication, use the latest time, not the last status change.
 
-For the `report` field, use the valid gear values listed above. The `NONE` value can be used internally by programs, but will never be sent as a topic.
+For the `report` field, use the valid values listed above. The `NONE` value can be used internally by programs, but will never be sent as a topic.
 Values ​​such as `LOW` and `DRIVE_2` ​​can be used if the vehicle has its own special gear types, but a dedicated implementation is required to handle this.
 
 ## Errors
 
-If the status cannot be received or an unknown value is received, stop publishing the topic and report the error as diagnostics.
+If the status cannot be received or an unknown status is received, stop publishing the topic and report the error as diagnostics.
 
 ## Support
 
