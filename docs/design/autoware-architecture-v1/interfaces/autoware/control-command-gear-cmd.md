@@ -2,12 +2,12 @@
 architecture: autoware components
 interface_type: topic
 interface_name: /control/command/gear_cmd
-data_type: foo_msgs/msg/Message
-updated: 2025-12-01
-rate: 10~20
+data_type: "[autoware_vehicle_msgs/msg/GearCommand](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/GearCommand.msg)"
+rate: 10 or N/A
 qos_reliability: reliable
-qos_durability: volatile
+qos_durability: volatile or transient_local
 qos_depth: 1
+last_updated: 2025-12-01
 endpoints:
   localization: pub
   planning: sub
@@ -22,55 +22,58 @@ endpoints:
 
 ## Description
 
-- インターフェースの基本的な説明をここに記載する
-- タイミングなどの仕様
-- 対象となるODDによって考慮すべき項目(Rateなど)。
-- 必要に応じて以下のようなセクションを追加する。
-  - ステート遷移
-  - シーケンス
-  - データフロー
+Request a gear change. The gear types are listed in the table below.
+It is recommended to set QoS to transient_local and publish only when the command changes, but currently many implementations publish the command periodically.
+Therefore, ensure consistency across the entire system.
+
+| Value   | Description                                                                                 |
+| ------- | ------------------------------------------------------------------------------------------- |
+| PARKING | The engine or motor is disconnected from the tires and the stopping mechanism is activated. |
+| NEUTRAL | The engine or motor is disconnected from the tires.                                         |
+| DRIVE   | The engine or motor is connected to the tires in the forward direction.                     |
+| REVERSE | The engine or motor is connected to the tires in the backwoard direction.                   |
 
 ## Message
 
-- メッセージの詳細を記載する。メッセージパッケージのREADMEへのリンクでも良い。
-- 時刻やフレームの扱い
-- 任意フィールドの扱い
-- 無効値や範囲外の扱い（エラーになるのか無視されるのか）
-- サポートしていない場合の挙動（空配列、NaN、トピックが出ないなど）
+The `stamp` field is the time when the command changed. In the case of periodic publication, use the latest time, not the last command change.
 
-- NONEの扱い。エラーにしたい。送ってほしくない。維持する場合は送らない。
+For the `command` field, use the valid gear values listed above. The `NONE` value can be used internally by programs, but will never be sent as a topic.
+Values ​​such as `LOW` and `DRIVE_2` ​​can be used if the vehicle has its own special gear types, but a dedicated implementation is required to handle this.
 
 ## Errors
 
-- コマンドに応じて変化するステータストピックなど。
-- サービスの場合はレスポンスで想定されるエラーの説明なども。
+If unsupported gear type is requested, ignore it and report the error as diagnostics.
 
 ## Support
 
-- インターフェースのサポートが必須かどうかや、段階的なサポートがあるかなど。
-- インターフェースをサポートできない場合の対応方法や影響についても記載する。
+This interface is required. If the vehicle does not have gears, simulate the gear behavior.
 
 ## Limitations
 
-- 制限事項
+None.
+
+## Use Cases
+
+- Control the vehicle for autonomous driving.
+- Relay gear change requests from the operator.
 
 ## Requirement
 
-- 実装するときに満たすべき項目を記載する。
-- 任意な実装が許される項目も明示的に記載する。
+- Support obtaining the current vehicle gear status.
+- Support vehicle-specific gear status if necessary.
 
 ## Prerequisites
 
-- このインタフェースが動作するための前提条件を記載する。
-- 条件が満たされていない場合の通知手段や挙動などが記載してあると良い。
-- 前提トピックについては実装依存の部分があるので扱いが難しい。
+None.
 
 ## Design
 
-- 上記の要件や前提条件を考慮して何故この仕様になったのか意図を記載する。
+- Support four typical gear types: PARKING, NEUTRAL, DRIVE, and REVERSE.
+- Unused values ​​can be used for special gear types.
+- Simulate gear if necessary to increase reusability.
 
 ## History
 
-| Date       | Description |
-| ---------- | ----------- |
-| 2025-12-01 | Release.    |
+| Date       | Description                      |
+| ---------- | -------------------------------- |
+| 2025-12-01 | First release in the new format. |

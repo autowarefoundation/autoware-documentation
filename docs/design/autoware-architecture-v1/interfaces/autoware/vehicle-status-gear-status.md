@@ -22,8 +22,9 @@ endpoints:
 
 ## Description
 
-Get the current gear status of the vehicle. The gear status are listed in the table below.
+Get the current gear status of the vehicle. The status are listed in the table below.
 It is recommended to set QoS to transient_local and publish only when the status changes, but currently many implementations publish the status periodically.
+Therefore, ensure consistency across the entire system.
 
 | Value   | Description                                                                                 |
 | ------- | ------------------------------------------------------------------------------------------- |
@@ -34,44 +35,42 @@ It is recommended to set QoS to transient_local and publish only when the status
 
 ## Message
 
-The `stamp` field is the time when the status was obtained from the vehicle. In the case of periodic publication, use the latest time, not the last status changed.
+The `stamp` field is the status received time or hardware time such as VCU. In the case of periodic publication, use the latest time, not the last status change.
 
-For the `report` field, use the valid gear values listed above. `NONE` can be used as an invalid value to indicate not received, but will never be sent as a topic.
+For the `report` field, use the valid gear values listed above. The `NONE` value can be used internally by programs, but will never be sent as a topic.
 Values ​​such as `LOW` and `DRIVE_2` ​​can be used if the vehicle has its own special gear types, but a dedicated implementation is required to handle this.
-
-NOTE: Maybe we need an extension that separates the actual gear status and the abstracted gear status.
 
 ## Errors
 
-If vehicle status cannot be obtained, stop publishing the topic and send the error as diagnostics.
+If the status cannot be received or an unknown value is received, stop publishing the topic and report the error as diagnostics.
 
 ## Support
 
-This interface is required. If the vehicle does not have gears, simulate the gear behavior.
+This interface is required. If the vehicle does not have gear, simulate the gear behavior.
 
 ## Limitations
 
-None.
+- None.
 
 ## Use Cases
 
-- Use for autonomous vehicle control.
+- Control the vehicle for autonomous driving.
 - Display current gear status to the operator.
 
 ## Requirement
 
-- Support obtaining the current vehicle gear status.
+- Support getting the current gear status of the vehicle.
 - Support vehicle-specific gear status if necessary.
 
 ## Prerequisites
 
-None.
+- None.
 
 ## Design
 
-ギアが存在する車両については、取得したギア状態を送信する。
-ギアがない車両については、処理の一般化のためにドライバでギアを再現する。
-細かくギアが制御できる車両のためにユーザー定義領域を確保する？
+- Support four typical gear types: PARKING, NEUTRAL, DRIVE, and REVERSE.
+- Unused values ​​can be used for special gear types.
+- Simulate gear if necessary to increase reusability.
 
 ## History
 
