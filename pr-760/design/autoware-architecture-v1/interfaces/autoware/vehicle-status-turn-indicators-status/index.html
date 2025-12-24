@@ -14817,9 +14817,9 @@ It is recommended to set QoS to transient_local and publish only when the status
 Therefore, ensure consistency across the entire system.</p>
 <h2 id="message">Message<a class="headerlink" href="#message" title="Permanent link">#</a></h2>
 <p>The <code>stamp</code> field is the status received time or hardware time such as VCU. In the case of periodic publication, use the latest time, not the last status change.
-For the <code>report</code> field, use the valid gear values listed above.</p>
+For the <code>report</code> field, use the valid values listed above.</p>
 <h2 id="errors">Errors<a class="headerlink" href="#errors" title="Permanent link">#</a></h2>
-<p>If the status cannot be received or an unknown value is received, stop publishing the topic and report the error as diagnostics.</p>
+<p>If the status cannot be received or an unknown status is received, stop publishing the topic and report the error as diagnostics.</p>
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">#</a></h2>
 <p>This interface is required. If the vehicle does not have turn indicators, always treat it as <code>DISABLE</code>.</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h2>
@@ -14840,7 +14840,7 @@ For the <code>report</code> field, use the valid gear values listed above.</p>
 <li>None.</li>
 </ul>
 <h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
-<p>In the original implementation, turn indicators and hazard lights were managed as different states of the same interface, but were split because the states needed to be managed separately.</p>
+<p>In the early stages, turn indicators and hazard lights were managed as different states of the same interface, but were split because the states needed to be managed separately.</p>
 <h2 id="history">History<a class="headerlink" href="#history" title="Permanent link">#</a></h2>
 <table>
 <thead>

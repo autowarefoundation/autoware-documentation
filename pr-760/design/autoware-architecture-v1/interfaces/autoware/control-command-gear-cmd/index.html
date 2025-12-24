@@ -14812,7 +14812,7 @@
 <li>perception (sub)</li>
 </ul>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
-<p>Request a gear change. The gear types are listed in the table below.
+<p>Send the gear change command to the vehicle. The commands are listed in the table below.
 It is recommended to set QoS to transient_local and publish only when the command changes, but currently many implementations publish the command periodically.
 Therefore, ensure consistency across the entire system.</p>
 <table>
@@ -14842,27 +14842,31 @@ Therefore, ensure consistency across the entire system.</p>
 </tbody>
 </table>
 <h2 id="message">Message<a class="headerlink" href="#message" title="Permanent link">#</a></h2>
-<p>The <code>stamp</code> field is the time when the command changed. In the case of periodic publication, use the latest time, not the last command change.</p>
-<p>For the <code>command</code> field, use the valid gear values listed above. The <code>NONE</code> value can be used internally by programs, but will never be sent as a topic.
+<p>The <code>stamp</code> field is the command sent time. In the case of periodic publication, use the latest time, not the last command change.</p>
+<p>For the <code>command</code> field, use the valid values listed above. The <code>NONE</code> value can be used internally by programs, but will never be sent as a topic.
 Values ​​such as <code>LOW</code> and <code>DRIVE_2</code> ​​can be used if the vehicle has its own special gear types, but a dedicated implementation is required to handle this.</p>
 <h2 id="errors">Errors<a class="headerlink" href="#errors" title="Permanent link">#</a></h2>
-<p>If unsupported gear type is requested, ignore it and report the error as diagnostics.</p>
+<p>If an unsupported or unknown command is sent, ignore it and report the error as diagnostics.</p>
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">#</a></h2>
 <p>This interface is required. If the vehicle does not have gears, simulate the gear behavior.</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h2>
-<p>None.</p>
+<ul>
+<li>None.</li>
+</ul>
 <h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">#</a></h2>
 <ul>
 <li>Control the vehicle for autonomous driving.</li>
-<li>Relay gear change requests from the operator.</li>
+<li>Relay commands from the operator.</li>
 </ul>
 <h2 id="requirement">Requirement<a class="headerlink" href="#requirement" title="Permanent link">#</a></h2>
 <ul>
-<li>Support obtaining the current vehicle gear status.</li>
+<li>Support sending the gear command to the vehicle.</li>
 <li>Support vehicle-specific gear status if necessary.</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h2>
-<p>None.</p>
+<ul>
+<li>None.</li>
+</ul>
 <h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
 <ul>
 <li>Support four typical gear types: PARKING, NEUTRAL, DRIVE, and REVERSE.</li>

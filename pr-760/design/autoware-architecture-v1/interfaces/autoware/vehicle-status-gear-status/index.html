@@ -14812,7 +14812,7 @@
 <li>adapi (sub)</li>
 </ul>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
-<p>Get the current gear status of the vehicle. The status are listed in the table below.
+<p>Get the current gear status of the vehicle. The statuses are listed in the table below.
 It is recommended to set QoS to transient_local and publish only when the status changes, but currently many implementations publish the status periodically.
 Therefore, ensure consistency across the entire system.</p>
 <table>
@@ -14843,10 +14843,10 @@ Therefore, ensure consistency across the entire system.</p>
 </table>
 <h2 id="message">Message<a class="headerlink" href="#message" title="Permanent link">#</a></h2>
 <p>The <code>stamp</code> field is the status received time or hardware time such as VCU. In the case of periodic publication, use the latest time, not the last status change.</p>
-<p>For the <code>report</code> field, use the valid gear values listed above. The <code>NONE</code> value can be used internally by programs, but will never be sent as a topic.
+<p>For the <code>report</code> field, use the valid values listed above. The <code>NONE</code> value can be used internally by programs, but will never be sent as a topic.
 Values ​​such as <code>LOW</code> and <code>DRIVE_2</code> ​​can be used if the vehicle has its own special gear types, but a dedicated implementation is required to handle this.</p>
 <h2 id="errors">Errors<a class="headerlink" href="#errors" title="Permanent link">#</a></h2>
-<p>If the status cannot be received or an unknown value is received, stop publishing the topic and report the error as diagnostics.</p>
+<p>If the status cannot be received or an unknown status is received, stop publishing the topic and report the error as diagnostics.</p>
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">#</a></h2>
 <p>This interface is required. If the vehicle does not have gear, simulate the gear behavior.</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h2>
