@@ -10510,6 +10510,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Cases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#requirement" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14583,6 +14594,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Cases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#requirement" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14763,11 +14785,11 @@
 </tr>
 <tr>
 <td>Data Type</td>
-<td>foo_msgs/msg/Message</td>
+<td><a href="https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/HazardLightsReport.msg">autoware_vehicle_msgs/msg/HazardLightsReport</a></td>
 </tr>
 <tr>
 <td>Rate [Hz]</td>
-<td>10~20</td>
+<td>10 or N/A</td>
 </tr>
 <tr>
 <td>QoS Reliability</td>
@@ -14775,69 +14797,50 @@
 </tr>
 <tr>
 <td>QoS Durability</td>
-<td>volatile</td>
+<td>volatile or transient_local</td>
 </tr>
 <tr>
 <td>Last Updated</td>
-<td>{{ last_updated }}</td>
+<td>2025-12-01</td>
 </tr>
 </tbody>
 </table>
 <h2 id="endpoints">Endpoints<a class="headerlink" href="#endpoints" title="Permanent link">#</a></h2>
 <ul>
-<li>localization (pub)</li>
-<li>planning (sub)</li>
-<li>perception (sub)</li>
+<li>vehicle (pub)</li>
+<li>control (sub)</li>
+<li>adapi (sub)</li>
 </ul>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
-<ul>
-<li>インターフェースの基本的な説明をここに記載する</li>
-<li>タイミングなどの仕様</li>
-<li>対象となるODDによって考慮すべき項目(Rateなど)。</li>
-<li>必要に応じて以下のようなセクションを追加する。<ul>
-<li>ステート遷移</li>
-<li>シーケンス</li>
-<li>データフロー</li>
-</ul>
-</li>
-</ul>
+<p>Get the current hazard lights status of the vehicle. The status is <code>ENABLE</code> or <code>DISABLE</code>.
+It is recommended to set QoS to transient_local and publish only when the status changes, but currently many implementations publish the status periodically.
+Therefore, ensure consistency across the entire system.</p>
 <h2 id="message">Message<a class="headerlink" href="#message" title="Permanent link">#</a></h2>
-<ul>
-<li>メッセージの詳細を記載する。メッセージパッケージのREADMEへのリンクでも良い。</li>
-<li>時刻やフレームの扱い</li>
-<li>任意フィールドの扱い</li>
-<li>無効値や範囲外の扱い（エラーになるのか無視されるのか）</li>
-<li>サポートしていない場合の挙動（空配列、NaN、トピックが出ないなど）</li>
-</ul>
+<p>The <code>stamp</code> field is the status received time or hardware time such as VCU. In the case of periodic publication, use the latest time, not the last status change.
+For the <code>report</code> field, use the valid gear values listed above.</p>
 <h2 id="errors">Errors<a class="headerlink" href="#errors" title="Permanent link">#</a></h2>
-<ul>
-<li>コマンドに応じて変化するステータストピックなど。</li>
-<li>サービスの場合はレスポンスで想定されるエラーの説明なども。</li>
-</ul>
+<p>If the status cannot be received or an unknown value is received, stop publishing the topic and report the error as diagnostics.</p>
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">#</a></h2>
-<ul>
-<li>インターフェースのサポートが必須かどうかや、段階的なサポートがあるかなど。</li>
-<li>インターフェースをサポートできない場合の対応方法や影響についても記載する。</li>
-</ul>
+<p>This interface is required. If the vehicle does not have hazard lights, always treat it as <code>DISABLE</code>.</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h2>
 <ul>
-<li>制限事項</li>
+<li>None.</li>
+</ul>
+<h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">#</a></h2>
+<ul>
+<li>Control the vehicle for autonomous driving.</li>
+<li>Display current hazard lights status to the operator.</li>
 </ul>
 <h2 id="requirement">Requirement<a class="headerlink" href="#requirement" title="Permanent link">#</a></h2>
 <ul>
-<li>実装するときに満たすべき項目を記載する。</li>
-<li>任意な実装が許される項目も明示的に記載する。</li>
+<li>Support getting the current hazard lights status of the vehicle.</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h2>
 <ul>
-<li>このインタフェースが動作するための前提条件を記載する。</li>
-<li>条件が満たされていない場合の通知手段や挙動などが記載してあると良い。</li>
-<li>前提トピックについては実装依存の部分があるので扱いが難しい。</li>
+<li>None.</li>
 </ul>
 <h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
-<ul>
-<li>上記の要件や前提条件を考慮して何故この仕様になったのか意図を記載する。</li>
-</ul>
+<p>In the original implementation, turn indicators and hazard lights were managed as different states of the same interface, but were split because the states needed to be managed separately.</p>
 <h2 id="history">History<a class="headerlink" href="#history" title="Permanent link">#</a></h2>
 <table>
 <thead>

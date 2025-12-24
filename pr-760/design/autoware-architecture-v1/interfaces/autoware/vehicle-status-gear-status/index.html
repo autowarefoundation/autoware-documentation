@@ -14812,8 +14812,9 @@
 <li>adapi (sub)</li>
 </ul>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
-<p>Get the current gear status of the vehicle. The gear status are listed in the table below.
-It is recommended to set QoS to transient_local and publish only when the status changes, but currently many implementations publish the status periodically.</p>
+<p>Get the current gear status of the vehicle. The status are listed in the table below.
+It is recommended to set QoS to transient_local and publish only when the status changes, but currently many implementations publish the status periodically.
+Therefore, ensure consistency across the entire system.</p>
 <table>
 <thead>
 <tr>
@@ -14841,32 +14842,37 @@ It is recommended to set QoS to transient_local and publish only when the status
 </tbody>
 </table>
 <h2 id="message">Message<a class="headerlink" href="#message" title="Permanent link">#</a></h2>
-<p>The <code>stamp</code> field is the time when the status was obtained from the vehicle. In the case of periodic publication, use the latest time, not the last status changed.</p>
-<p>For the <code>report</code> field, use the valid gear values listed above. <code>NONE</code> can be used as an invalid value to indicate not received, but will never be sent as a topic.
+<p>The <code>stamp</code> field is the status received time or hardware time such as VCU. In the case of periodic publication, use the latest time, not the last status change.</p>
+<p>For the <code>report</code> field, use the valid gear values listed above. The <code>NONE</code> value can be used internally by programs, but will never be sent as a topic.
 Values ​​such as <code>LOW</code> and <code>DRIVE_2</code> ​​can be used if the vehicle has its own special gear types, but a dedicated implementation is required to handle this.</p>
-<p>NOTE: Maybe we need an extension that separates the actual gear status and the abstracted gear status.</p>
 <h2 id="errors">Errors<a class="headerlink" href="#errors" title="Permanent link">#</a></h2>
-<p>If vehicle status cannot be obtained, stop publishing the topic and send the error as diagnostics.</p>
+<p>If the status cannot be received or an unknown value is received, stop publishing the topic and report the error as diagnostics.</p>
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">#</a></h2>
-<p>This interface is required. If the vehicle does not have gears, simulate the gear behavior.</p>
+<p>This interface is required. If the vehicle does not have gear, simulate the gear behavior.</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h2>
-<p>None.</p>
+<ul>
+<li>None.</li>
+</ul>
 <h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">#</a></h2>
 <ul>
-<li>Use for autonomous vehicle control.</li>
+<li>Control the vehicle for autonomous driving.</li>
 <li>Display current gear status to the operator.</li>
 </ul>
 <h2 id="requirement">Requirement<a class="headerlink" href="#requirement" title="Permanent link">#</a></h2>
 <ul>
-<li>Support obtaining the current vehicle gear status.</li>
+<li>Support getting the current gear status of the vehicle.</li>
 <li>Support vehicle-specific gear status if necessary.</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h2>
-<p>None.</p>
+<ul>
+<li>None.</li>
+</ul>
 <h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
-<p>ギアが存在する車両については、取得したギア状態を送信する。
-ギアがない車両については、処理の一般化のためにドライバでギアを再現する。
-細かくギアが制御できる車両のためにユーザー定義領域を確保する？</p>
+<ul>
+<li>Support four typical gear types: PARKING, NEUTRAL, DRIVE, and REVERSE.</li>
+<li>Unused values ​​can be used for special gear types.</li>
+<li>Simulate gear if necessary to increase reusability.</li>
+</ul>
 <h2 id="history">History<a class="headerlink" href="#history" title="Permanent link">#</a></h2>
 <table>
 <thead>
