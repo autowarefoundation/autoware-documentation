@@ -33,7 +33,7 @@ Create the following two packages:
 - YOUR_VEHICLE_launch (see [here](https://github.com/autowarefoundation/sample_vehicle_launch) for example)
 - YOUR_SENSOR_KIT_launch (see [here](https://github.com/autowarefoundation/sample_sensor_kit_launch) for example)
 
-Once created, you need to update the `autoware.repos` file of your cloned Autoware repository to refer to these two description packages.
+Once created, you need to update the `repositories/autoware.repos` file of your cloned Autoware repository to refer to these two description packages.
 
 ```diff
 -  # sensor_kit

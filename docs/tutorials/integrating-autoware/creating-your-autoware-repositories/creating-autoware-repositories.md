@@ -7,9 +7,9 @@ and [Autoware](https://github.com/autowarefoundation/autoware) is one of them.
 It serves as a centralized control point for referencing, configuring,
 and versioning other repositories.
 To accomplish this,
-the Autoware meta-repository includes the [`autoware.repos`](https://github.com/autowarefoundation/autoware/blob/main/autoware.repos) file
+the Autoware meta-repository includes the [`repositories/autoware.repos`](https://github.com/autowarefoundation/autoware/blob/main/repositories/autoware.repos) file
 for managing multiple repositories.
-We will use the [VCS](https://github.com/dirk-thomas/vcstool) tool
+We will use the [VCS](https://github.com/dirk-thomas/vcs2l) tool
 (Version Control System) to handle the .repos file.
 VCS provides us with the capability to import, export, and pull from multiple repositories.
 VCS will be used to import all the necessary repositories to build Autoware into our workspace.
@@ -70,7 +70,7 @@ you need to fork and modify the following repositories as well:
 
 ### 2. Customize autoware.repos for your environment
 
-You need to customize your `autoware.repos` to import your forked repositories.
+You need to customize your `repositories/autoware.repos` to import your forked repositories.
 The `autoware.repos` file usually includes information for all necessary Autoware repositories
 (except calibration and simulator repositories).
 Therefore, your forked repositories should also be added to this file.
@@ -80,7 +80,7 @@ Therefore, your forked repositories should also be added to this file.
 After forking all repositories,
 you can start
 adding them to your Autoware meta-repository
-by opening the `autoware.repos` file using any text editor and updating `sample_sensor_kit_launch`,
+by opening the `repositories/autoware.repos` file using any text editor and updating `sample_sensor_kit_launch`,
 `sample_vehicle_launch`, `autoware_individual_params`
 and `autoware launch` with your own individual repos.
 For example, in this tutorial,
@@ -138,7 +138,7 @@ the necessary changes for our forked `tutorial_vehicle` repositories should be a
   +   version: main
   ```
 
-Please make similar changes to your own autoware.repos file.
+Please make similar changes to your own `repositories/autoware.repos` file.
 After making these changes,
 you will be ready to use VCS to import all the necessary repositories into your Autoware workspace.
 
@@ -146,14 +146,14 @@ First, create a src directory under your own Autoware meta-repository directory:
 
 ```bash
 cd <YOUR-AUTOWARE-DIR>
-mkdir src
+mkdir -p src
 ```
 
 Then, import all necessary repositories with vcs:
 
 ```bash
 cd <YOUR-AUTOWARE-DIR>
-vcs import src < autoware.repos
+vcs import src < repositories/autoware.repos
 ```
 
 After the running `vcs import` command,
@@ -176,4 +176,4 @@ on how to create and customize each of your vehicle's packages:
 - [creating-vehicle-interface-package](../creating-vehicle-interface-package/ackermann-kinematic-model.md)
 - [customizing-for-differential-drive-model](../creating-vehicle-interface-package/customizing-for-differential-drive-model.md)
 
-Please remember to add all your custom packages, such as interfaces and descriptions, to your `autoware.repos` to ensure that your packages are properly included and managed within the Autoware repository.
+Please remember to add all your custom packages, such as interfaces and descriptions, to your `repositories/autoware.repos` to ensure that your packages are properly included and managed within the Autoware repository.
