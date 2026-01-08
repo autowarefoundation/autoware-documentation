@@ -2,16 +2,15 @@
 architecture: autoware components
 interface_type: topic
 interface_name: /vehicle/status/control_mode
-data_type: foo_msgs/msg/Message
-updated: 2025-12-01
-rate: 10~20
+data_type: "[autoware_vehicle_msgs/msg/ControlModeReport](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/ControlModeReport.msg)"
+rate: 10 or N/A
 qos_reliability: reliable
-qos_durability: volatile
+qos_durability: volatile or transient_local
 qos_depth: 1
+last_updated: 2025-12-01
 endpoints:
-  localization: pub
-  planning: sub
-  perception: sub
+  vehicle: pub
+  control: sub
 ---
 
 # {{ interface_name }}
@@ -22,53 +21,60 @@ endpoints:
 
 ## Description
 
-- インターフェースの基本的な説明をここに記載する
-- タイミングなどの仕様
-- 対象となるODDによって考慮すべき項目(Rateなど)。
-- 必要に応じて以下のようなセクションを追加する。
-  - ステート遷移
-  - シーケンス
-  - データフロー
+Get the current control mode status of the vehicle. The status are listed in the table below.
+It is recommended to set QoS to transient_local and publish only when the status changes, but currently many implementations publish the status periodically.
+Therefore, ensure consistency across the entire system.
+
+| Value                    | Description |
+| ------------------------ | ----------- |
+| MANUAL                   |             |
+| AUTONOMOUS               |             |
+| AUTONOMOUS_STEER_ONLY    |             |
+| AUTONOMOUS_VELOCITY_ONLY |             |
+| DISENGAGED               |             |
+| NOT_READY                |             |
+| NO_COMMAND               |             |
+
+Please note that ignoring a command does not mean stopping the vehicle.
+The vehicle may drive in any behavior, by manual control interfaces such as the driver's seat.
 
 ## Message
 
-- メッセージの詳細を記載する。メッセージパッケージのREADMEへのリンクでも良い。
-- 時刻やフレームの扱い
-- 任意フィールドの扱い
-- 無効値や範囲外の扱い（エラーになるのか無視されるのか）
-- サポートしていない場合の挙動（空配列、NaN、トピックが出ないなど）
+The `stamp` field is the status received time or hardware time such as VCU. In the case of periodic publication, use the latest time, not the last status change.
+
+For the `mode` field, use the valid values listed above.
 
 ## Errors
 
-- コマンドに応じて変化するステータストピックなど。
-- サービスの場合はレスポンスで想定されるエラーの説明なども。
+If the status cannot be received or an unknown status is received, stop publishing the topic and report the error as diagnostics.
 
 ## Support
 
-- インターフェースのサポートが必須かどうかや、段階的なサポートがあるかなど。
-- インターフェースをサポートできない場合の対応方法や影響についても記載する。
+Support for `MANUAL` and `AUTONOMOUS` modes is required.
 
 ## Limitations
 
-- 制限事項
+- None.
+
+## Use Cases
+
+- Control the vehicle for autonomous driving.
+- Display current control mode status to the operator.
 
 ## Requirement
 
-- 実装するときに満たすべき項目を記載する。
-- 任意な実装が許される項目も明示的に記載する。
+- Support getting the current control mode status of the vehicle.
 
 ## Prerequisites
 
-- このインタフェースが動作するための前提条件を記載する。
-- 条件が満たされていない場合の通知手段や挙動などが記載してあると良い。
-- 前提トピックについては実装依存の部分があるので扱いが難しい。
+- None.
 
 ## Design
 
-- 上記の要件や前提条件を考慮して何故この仕様になったのか意図を記載する。
+-
 
 ## History
 
-| Date       | Description |
-| ---------- | ----------- |
-| 2025-12-01 | Release.    |
+| Date       | Description                      |
+| ---------- | -------------------------------- |
+| 2025-12-01 | First release in the new format. |

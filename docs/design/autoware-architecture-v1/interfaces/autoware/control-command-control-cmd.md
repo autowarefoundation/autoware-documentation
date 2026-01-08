@@ -13,6 +13,8 @@ endpoints:
   vehicle: sub
 ---
 
+過去に送ったコマンドはクリアされるべきです。
+
 # {{ interface_name }}
 
 ## Specifications
