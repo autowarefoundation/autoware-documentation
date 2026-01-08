@@ -9974,8 +9974,6 @@
       
         
       
-        
-      
     
     
     
@@ -10325,34 +10323,6 @@
     
   
     /control/control_mode_request
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../vehicle-command-control-cmd/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    /control/command/control_cmd
   
 
     
@@ -14764,11 +14734,11 @@
 </tr>
 <tr>
 <td>Data Type</td>
-<td>foo_msgs/msg/Message</td>
+<td><a href="https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_control_msgs/msg/Control.msg">autoware_control_msgs/msg/Control</a></td>
 </tr>
 <tr>
 <td>Rate [Hz]</td>
-<td>10~20</td>
+<td>33</td>
 </tr>
 <tr>
 <td>QoS Reliability</td>
@@ -14780,17 +14750,19 @@
 </tr>
 <tr>
 <td>Last Updated</td>
-<td>{{ last_updated }}</td>
+<td>2025-12-01</td>
 </tr>
 </tbody>
 </table>
 <h2 id="endpoints">Endpoints<a class="headerlink" href="#endpoints" title="Permanent link">#</a></h2>
 <ul>
-<li>localization (pub)</li>
-<li>planning (sub)</li>
-<li>perception (sub)</li>
+<li>control (pub)</li>
+<li>vehicle (sub)</li>
 </ul>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
+<p>Send the control command to the vehicle.</p>
+<p>異なる時刻のコマンドで複数回送信した場合、過去の時刻の情報は記憶されず、常に最新の時刻の</p>
+<p>時系列での制御を行いたい場合はControlHorizonを参照してください（提案中）</p>
 <ul>
 <li>インターフェースの基本的な説明をここに記載する</li>
 <li>タイミングなどの仕様</li>
@@ -14803,6 +14775,9 @@
 </li>
 </ul>
 <h2 id="message">Message<a class="headerlink" href="#message" title="Permanent link">#</a></h2>
+<p>For details about the message, <a href="https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_control_msgs/README.md">see the readme of autoware_control_msgs</a>.</p>
+<p>特定時刻における速度と加速度と躍度の値は事前に計画され、整合性を持っている必要があります。これは一般的にはplanning/controlコンポーネントが担当します。
+もしこれらの値が整合しない場合、どの値を使用するかは車両の実装に依存します。</p>
 <ul>
 <li>メッセージの詳細を記載する。メッセージパッケージのREADMEへのリンクでも良い。</li>
 <li>時刻やフレームの扱い</li>
