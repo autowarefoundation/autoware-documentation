@@ -29,7 +29,6 @@ Send the control command to the vehicle.
 
 時系列での制御を行いたい場合はControlHorizonを参照してください（提案中）
 
-
 - インターフェースの基本的な説明をここに記載する
 - タイミングなどの仕様
 - 対象となるODDによって考慮すべき項目(Rateなど)。
@@ -44,7 +43,6 @@ For details about the message, [see the readme of autoware_control_msgs](https:/
 
 特定時刻における速度と加速度と躍度の値は事前に計画され、整合性を持っている必要があります。これは一般的にはplanning/controlコンポーネントが担当します。
 もしこれらの値が整合しない場合、どの値を使用するかは車両の実装に依存します。
-
 
 - メッセージの詳細を記載する。メッセージパッケージのREADMEへのリンクでも良い。
 - 時刻やフレームの扱い
