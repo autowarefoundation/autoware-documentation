@@ -51,6 +51,19 @@ If not, please, follow [Manual downloading of artifacts](https://github.com/auto
 
 ---
 
+## Launch Autoware Planning Simulator
+
+```bash
+source ~/autoware/install/setup.bash
+ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware_map/sample-map-planning vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+```
+
+!!! warning
+
+    Note that you cannot use `~` instead of `$HOME` here.
+
+    If `~` is used, the map will fail to load.
+
 ## Basic simulations
 
 <div style="text-align: center;" markdown="1">
