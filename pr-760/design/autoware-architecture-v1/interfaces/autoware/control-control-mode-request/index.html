@@ -10295,10 +10295,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#requirement" class="md-nav__link">
+  <a href="#use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirement
+        Use Cases
       
     </span>
   </a>
@@ -10306,10 +10306,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#requirement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisites
+        Requirement
       
     </span>
   </a>
@@ -14575,10 +14575,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#requirement" class="md-nav__link">
+  <a href="#use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirement
+        Use Cases
       
     </span>
   </a>
@@ -14586,10 +14586,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#requirement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisites
+        Requirement
       
     </span>
   </a>
@@ -14755,7 +14755,7 @@
 </tr>
 <tr>
 <td>Data Type</td>
-<td>foo_msgs/srv/Service</td>
+<td><a href="https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/srv/ControlModeCommand.srv">autoware_vehicle_msgs/srv/ControlModeCommand</a></td>
 </tr>
 <tr>
 <td>Timeout [s]</td>
@@ -14770,60 +14770,90 @@
 <h2 id="endpoints">Endpoints<a class="headerlink" href="#endpoints" title="Permanent link">#</a></h2>
 <ul>
 <li>vehicle (srv)</li>
+<li>control (cli)</li>
 </ul>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
+<p>Send a change request of the control mode to the vehicle. The control mode manages whether the vehicle accepts commands from Autoware.</p>
+<p>The following table shows which commands are accepted in each mode.</p>
 <ul>
-<li>インターフェースの基本的な説明をここに記載する</li>
-<li>タイミングなどの仕様</li>
-<li>対象となるODDによって考慮すべき項目(Rateなど)。</li>
-<li>必要に応じて以下のようなセクションを追加する。<ul>
-<li>ステート遷移</li>
-<li>シーケンス</li>
-<li>データフロー</li>
+<li>velocity group<ul>
+<li>/control/command/control_cmd (longitudinal field)</li>
+<li>/control/command/gear_cmd</li>
+</ul>
+</li>
+<li>steering group<ul>
+<li>/control/command/control_cmd (lateral field)</li>
+<li>/control/command/turn_indicators_cmd</li>
+</ul>
+</li>
+<li>others group<ul>
+<li>/control/command/hazard_lights_cmd</li>
+<li>/vehicle/doors/command</li>
 </ul>
 </li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>control mode</th>
+<th>velocity group</th>
+<th>steering group</th>
+<th>others group</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AUTONOMOUS</td>
+<td>accept</td>
+<td>accept</td>
+<td>accept</td>
+</tr>
+<tr>
+<td>AUTONOMOUS_STEER_ONLY</td>
+<td>ignore</td>
+<td>accept</td>
+<td>accept</td>
+</tr>
+<tr>
+<td>AUTONOMOUS_VELOCITY_ONLY</td>
+<td>accept</td>
+<td>ignore</td>
+<td>accept</td>
+</tr>
+<tr>
+<td>MANUAL</td>
+<td>ignore</td>
+<td>ignore</td>
+<td>ignore</td>
+</tr>
+</tbody>
+</table>
 <h2 id="request">Request<a class="headerlink" href="#request" title="Permanent link">#</a></h2>
-<ul>
-<li>メッセージの詳細を記載する。メッセージパッケージのREADMEへのリンクでも良い。</li>
-<li>時刻やフレームの扱い</li>
-<li>任意フィールドの扱い</li>
-<li>無効値や範囲外の扱い（エラーになるのか無視されるのか）</li>
-<li>サポートしていない場合の挙動（空配列、NaN、トピックが出ないなど）</li>
-</ul>
+<p>The <code>stamp</code> field is the request sent time. For the <code>mode</code> field, use the valid values listed above.</p>
 <h2 id="response">Response<a class="headerlink" href="#response" title="Permanent link">#</a></h2>
-<ul>
-<li>Requestと同様</li>
-<li>エラー時の挙動や戻り値など</li>
-</ul>
+<p>If the mode change was successful or not needed, the <code>success</code> field will be true, otherwise it will be false.</p>
 <h2 id="errors">Errors<a class="headerlink" href="#errors" title="Permanent link">#</a></h2>
-<ul>
-<li>コマンドに応じて変化するステータストピックなど。</li>
-<li>サービスの場合はレスポンスで想定されるエラーの説明なども。</li>
-</ul>
+<p>If an unsupported or unknown command is requested, ignore it and return a response with the <code>success</code> field set to false.</p>
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">#</a></h2>
-<ul>
-<li>インターフェースのサポートが必須かどうかや、段階的なサポートがあるかなど。</li>
-<li>インターフェースをサポートできない場合の対応方法や影響についても記載する。</li>
-</ul>
+<p>This interface is required.
+If the mode change is not possible through this interface, for example, only a hardware switch is supported, always return a failure response.</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h2>
+<p>The mode change without using this interface may result in sudden changes in vehicle behavior.
+In this case, switch when the command difference is small, such as when the vehicle is stopped.</p>
+<h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">#</a></h2>
 <ul>
-<li>制限事項</li>
+<li>Switch to manual driving.</li>
+<li>Switch to Autoware control when the vehicle is stopped.</li>
+<li>Switch to Autoware control during manual driving.</li>
 </ul>
 <h2 id="requirement">Requirement<a class="headerlink" href="#requirement" title="Permanent link">#</a></h2>
 <ul>
-<li>実装するときに満たすべき項目を記載する。</li>
-<li>任意な実装が許される項目も明示的に記載する。</li>
-</ul>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h2>
-<ul>
-<li>このインタフェースが動作するための前提条件を記載する。</li>
-<li>条件が満たされていない場合の通知手段や挙動などが記載してあると良い。</li>
-<li>前提トピックについては実装依存の部分があるので扱いが難しい。</li>
+<li>If the vehicle does not support mode switching via Autoware, always return a failure response.</li>
+<li>If the vehicle supports mode switching via Autoware, accept MANUAL and AUTONOMOUS at least.</li>
 </ul>
 <h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
 <ul>
-<li>上記の要件や前提条件を考慮して何故この仕様になったのか意図を記載する。</li>
+<li>Simply change the mode as requested.</li>
 </ul>
 <h2 id="history">History<a class="headerlink" href="#history" title="Permanent link">#</a></h2>
 <table>
