@@ -13734,6 +13734,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#launch-autoware-planning-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launch Autoware Planning Simulator
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#basic-simulations" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -13874,6 +13885,15 @@ traffic_light_ssd_fine_detector
 yabloc_pose_initializer
 </code></pre></div>
 <p>If not, please, follow <a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts">Manual downloading of artifacts</a>.</p>
+<h2 id="launch-autoware-planning-simulator">Launch Autoware Planning Simulator<a class="headerlink" href="#launch-autoware-planning-simulator" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/autoware/install/setup.bash
+ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>planning_simulator.launch.xml<span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/autoware_map/sample-map-planning<span class="w"> </span>vehicle_model:<span class="o">=</span>sample_vehicle<span class="w"> </span>sensor_model:<span class="o">=</span>sample_sensor_kit
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note that you cannot use <code>~</code> instead of <code>$HOME</code> here.</p>
+<p>If <code>~</code> is used, the map will fail to load.</p>
+</div>
 <hr>
 <div class="admonition info">
 <p class="admonition-title"><a href="using-launch-gui/">Using Autoware Launch GUI</a></p>
