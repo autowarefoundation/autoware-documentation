@@ -14664,46 +14664,79 @@
 <p>Get the current control mode status of the vehicle. The status are listed in the table below.
 It is recommended to set QoS to transient_local and publish only when the status changes, but currently many implementations publish the status periodically.
 Therefore, ensure consistency across the entire system.</p>
+<p>Please note that ignoring a command does not mean stopping the vehicle.
+The vehicle may drive in any behavior, by manual control interfaces such as the driver's seat.</p>
+<ul>
+<li>velocity group<ul>
+<li>/control/command/control_cmd (longitudinal field)</li>
+<li>/control/command/gear_cmd</li>
+</ul>
+</li>
+<li>steering group<ul>
+<li>/control/command/control_cmd (lateral field)</li>
+<li>/control/command/turn_indicators_cmd</li>
+</ul>
+</li>
+<li>others group<ul>
+<li>/control/command/hazard_lights_cmd</li>
+<li>/vehicle/doors/command</li>
+</ul>
+</li>
+</ul>
 <table>
 <thead>
 <tr>
-<th>Value</th>
-<th>Description</th>
+<th>control mode</th>
+<th>velocity group</th>
+<th>steering group</th>
+<th>others group</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>MANUAL</td>
-<td></td>
-</tr>
-<tr>
 <td>AUTONOMOUS</td>
-<td></td>
+<td>accept</td>
+<td>accept</td>
+<td>accept</td>
 </tr>
 <tr>
 <td>AUTONOMOUS_STEER_ONLY</td>
-<td></td>
+<td>ignore</td>
+<td>accept</td>
+<td>accept</td>
 </tr>
 <tr>
 <td>AUTONOMOUS_VELOCITY_ONLY</td>
-<td></td>
+<td>accept</td>
+<td>ignore</td>
+<td>accept</td>
+</tr>
+<tr>
+<td>MANUAL</td>
+<td>ignore</td>
+<td>ignore</td>
+<td>ignore</td>
 </tr>
 <tr>
 <td>DISENGAGED</td>
-<td></td>
-</tr>
-<tr>
-<td>NOT_READY</td>
-<td></td>
+<td>T.B.D.</td>
+<td>T.B.D.</td>
+<td>T.B.D.</td>
 </tr>
 <tr>
 <td>NO_COMMAND</td>
-<td></td>
+<td>T.B.D.</td>
+<td>T.B.D.</td>
+<td>T.B.D.</td>
+</tr>
+<tr>
+<td>NOT_READY</td>
+<td>T.B.D.</td>
+<td>T.B.D.</td>
+<td>T.B.D.</td>
 </tr>
 </tbody>
 </table>
-<p>Please note that ignoring a command does not mean stopping the vehicle.
-The vehicle may drive in any behavior, by manual control interfaces such as the driver's seat.</p>
 <h2 id="message">Message<a class="headerlink" href="#message" title="Permanent link">#</a></h2>
 <p>The <code>stamp</code> field is the status received time or hardware time such as VCU. In the case of periodic publication, use the latest time, not the last status change.</p>
 <p>For the <code>mode</code> field, use the valid values listed above.</p>
@@ -14729,7 +14762,9 @@ The vehicle may drive in any behavior, by manual control interfaces such as the 
 <li>None.</li>
 </ul>
 <h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
-<p>-</p>
+<ul>
+<li>None.</li>
+</ul>
 <h2 id="history">History<a class="headerlink" href="#history" title="Permanent link">#</a></h2>
 <table>
 <thead>

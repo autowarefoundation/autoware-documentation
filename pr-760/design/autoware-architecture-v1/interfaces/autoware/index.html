@@ -25,7 +25,7 @@
     
     
       
-        <title>Autoware Architecture - Autoware Documentation</title>
+        <title>Autoware Component Interfaces - Autoware Documentation</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#autoware-architecture" class="md-skip">
+        <a href="#autoware-component-interfaces" class="md-skip">
           Skip to content
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Autoware Architecture
+              Autoware Component Interfaces
             
           </span>
         </div>
@@ -14188,10 +14188,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#templates" class="md-nav__link">
     <span class="md-ellipsis">
       
-        インターフェースページ雛形
+        Templates
       
     </span>
   </a>
@@ -14199,21 +14199,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#interfaces" class="md-nav__link">
     <span class="md-ellipsis">
       
-        インターフェースページ一覧
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        アーキテクチャの適用方法
+        Interfaces
       
     </span>
   </a>
@@ -14333,13 +14322,13 @@
   
 
 
-<div><h1 id="autoware-architecture">Autoware Architecture<a class="headerlink" href="#autoware-architecture" title="Permanent link">#</a></h1>
-<h2 id="_1">インターフェースページ雛形<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<div><h1 id="autoware-component-interfaces">Autoware Component Interfaces<a class="headerlink" href="#autoware-component-interfaces" title="Permanent link">#</a></h1>
+<h2 id="templates">Templates<a class="headerlink" href="#templates" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="../templates/topic/">topic</a></li>
 <li><a href="../templates/service/">service</a></li>
 </ul>
-<h2 id="_2">インターフェースページ一覧<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
+<h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="control-control-mode-request/">/control/control_mode_request</a></li>
 <li><a href="control-command-control-cmd/">/control/command/control_cmd</a></li>
@@ -14352,21 +14341,6 @@
 <li><a href="vehicle-status-gear-status/">/vehicle/status/gear_status</a></li>
 <li><a href="vehicle-status-turn-indicators-status/">/vehicle/status/turn_indicators_status</a></li>
 <li><a href="vehicle-status-hazard-lights-status/">/vehicle/status/hazard_lights_status</a></li>
-<li><a href="./vehicle-status-actuation-status.md">/vehicle/status/actuation_status</a></li>
-<li><a href="./vehicle-doors-command.md">/vehicle/doors/command</a></li>
-<li><a href="./vehicle-doors-layout.md">/vehicle/doors/layout</a></li>
-<li><a href="./vehicle-doors-status.md">/vehicle/doors/status</a></li>
-</ul>
-<h2 id="_3">アーキテクチャの適用方法<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
-<ol>
-<li>最上位レベルのアーキテクチャを選択する</li>
-<li>選択したアーキテクチャの各コンポーネントについて、内部アーキテクチャを選択する</li>
-<li>上記をアーキテクチャが細分化できなくなるまで繰り返す</li>
-</ol>
-<ul>
-<li>特定のモジュールはサブレベルの「モジュール配置」と「モジュール定義」を内包できる。</li>
-<li>複数のモジュール配置で使い回せるモジュール定義がある場合も想定する。</li>
-<li>互換性は低下するが複数モジュールの組み合わせを単一の複合モジュールとして扱っても良い。</li>
 </ul>
 <!-- prettier-ignore --></div>
 
