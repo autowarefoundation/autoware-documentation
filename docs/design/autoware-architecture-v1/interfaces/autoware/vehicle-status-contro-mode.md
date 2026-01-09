@@ -25,18 +25,28 @@ Get the current control mode status of the vehicle. The status are listed in the
 It is recommended to set QoS to transient_local and publish only when the status changes, but currently many implementations publish the status periodically.
 Therefore, ensure consistency across the entire system.
 
-| Value                    | Description |
-| ------------------------ | ----------- |
-| MANUAL                   |             |
-| AUTONOMOUS               |             |
-| AUTONOMOUS_STEER_ONLY    |             |
-| AUTONOMOUS_VELOCITY_ONLY |             |
-| DISENGAGED               |             |
-| NOT_READY                |             |
-| NO_COMMAND               |             |
-
 Please note that ignoring a command does not mean stopping the vehicle.
 The vehicle may drive in any behavior, by manual control interfaces such as the driver's seat.
+
+- velocity group
+  - /control/command/control_cmd (longitudinal field)
+  - /control/command/gear_cmd
+- steering group
+  - /control/command/control_cmd (lateral field)
+  - /control/command/turn_indicators_cmd
+- others group
+  - /control/command/hazard_lights_cmd
+  - /vehicle/doors/command
+
+| control mode             | velocity group | steering group | others group |
+| ------------------------ | -------------- | -------------- | ------------ |
+| AUTONOMOUS               | accept         | accept         | accept       |
+| AUTONOMOUS_STEER_ONLY    | ignore         | accept         | accept       |
+| AUTONOMOUS_VELOCITY_ONLY | accept         | ignore         | accept       |
+| MANUAL                   | ignore         | ignore         | ignore       |
+| DISENGAGED               | T.B.D.         | T.B.D.         | T.B.D.       |
+| NO_COMMAND               | T.B.D.         | T.B.D.         | T.B.D.       |
+| NOT_READY                | T.B.D.         | T.B.D.         | T.B.D.       |
 
 ## Message
 
@@ -71,7 +81,7 @@ Support for `MANUAL` and `AUTONOMOUS` modes is required.
 
 ## Design
 
--
+- None.
 
 ## History
 
