@@ -2,11 +2,12 @@
 architecture: autoware components
 interface_type: topic
 interface_name: /control/control_mode_request
-data_type: foo_msgs/srv/Service
+data_type: "[autoware_vehicle_msgs/srv/ControlModeCommand](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/srv/ControlModeCommand.srv)"
 updated: 2025-12-01
 timeout: ---
 endpoints:
   vehicle: srv
+  control: cli
 ---
 
 # {{ interface_name }}
@@ -17,55 +18,63 @@ endpoints:
 
 ## Description
 
-- インターフェースの基本的な説明をここに記載する
-- タイミングなどの仕様
-- 対象となるODDによって考慮すべき項目(Rateなど)。
-- 必要に応じて以下のようなセクションを追加する。
-  - ステート遷移
-  - シーケンス
-  - データフロー
+Send a change request of the control mode to the vehicle. The control mode manages whether the vehicle accepts commands from Autoware.
+
+The following table shows which commands are accepted in each mode.
+
+- velocity group
+  - /control/command/control_cmd (longitudinal field)
+  - /control/command/gear_cmd
+- steering group
+  - /control/command/control_cmd (lateral field)
+  - /control/command/turn_indicators_cmd
+- others group
+  - /control/command/hazard_lights_cmd
+  - /vehicle/doors/command
+
+| control mode             | velocity group | steering group | others group |
+| ------------------------ | -------------- | -------------- | ------------ |
+| AUTONOMOUS               | accept         | accept         | accept       |
+| AUTONOMOUS_STEER_ONLY    | ignore         | accept         | accept       |
+| AUTONOMOUS_VELOCITY_ONLY | accept         | ignore         | accept       |
+| MANUAL                   | ignore         | ignore         | ignore       |
 
 ## Request
 
-- メッセージの詳細を記載する。メッセージパッケージのREADMEへのリンクでも良い。
-- 時刻やフレームの扱い
-- 任意フィールドの扱い
-- 無効値や範囲外の扱い（エラーになるのか無視されるのか）
-- サポートしていない場合の挙動（空配列、NaN、トピックが出ないなど）
+The `stamp` field is the request sent time. For the `mode` field, use the valid values listed above.
 
 ## Response
 
-- Requestと同様
-- エラー時の挙動や戻り値など
+If the mode change was successful or not needed, the `success` field will be true, otherwise it will be false.
 
 ## Errors
 
-- コマンドに応じて変化するステータストピックなど。
-- サービスの場合はレスポンスで想定されるエラーの説明なども。
+If an unsupported or unknown command is requested, ignore it and return a response with the `success` field set to false.
 
 ## Support
 
-- インターフェースのサポートが必須かどうかや、段階的なサポートがあるかなど。
-- インターフェースをサポートできない場合の対応方法や影響についても記載する。
+This interface is required.
+If the mode change is not possible through this interface, for example, only a hardware switch is supported, always return a failure response.
 
 ## Limitations
 
-- 制限事項
+The mode change without using this interface may result in sudden changes in vehicle behavior.
+In this case, switch when the command difference is small, such as when the vehicle is stopped.
+
+## Use Cases
+
+- Switch to manual driving.
+- Switch to Autoware control when the vehicle is stopped.
+- Switch to Autoware control during manual driving.
 
 ## Requirement
 
-- 実装するときに満たすべき項目を記載する。
-- 任意な実装が許される項目も明示的に記載する。
-
-## Prerequisites
-
-- このインタフェースが動作するための前提条件を記載する。
-- 条件が満たされていない場合の通知手段や挙動などが記載してあると良い。
-- 前提トピックについては実装依存の部分があるので扱いが難しい。
+- If the vehicle does not support mode switching via Autoware, always return a failure response.
+- If the vehicle supports mode switching via Autoware, accept MANUAL and AUTONOMOUS at least.
 
 ## Design
 
-- 上記の要件や前提条件を考慮して何故この仕様になったのか意図を記載する。
+- Simply change the mode as requested.
 
 ## History
 
