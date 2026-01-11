@@ -1427,24 +1427,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AWSIM Full Demo
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1461,86 +1443,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#feature-differences-from-the-awsim-and-awsim-labs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Feature differences from the AWSIM and AWSIM Labs
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Feature differences from the AWSIM and AWSIM Labs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#simulator-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Simulator Features
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#development-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Development Features
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#awsim-labs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AWSIM Labs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#awsim" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AWSIM
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -13796,75 +13698,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#feature-differences-from-the-awsim-and-awsim-labs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Feature differences from the AWSIM and AWSIM Labs
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Feature differences from the AWSIM and AWSIM Labs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#simulator-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Simulator Features
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#development-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Development Features
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#awsim-labs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AWSIM Labs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#awsim" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AWSIM
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -13933,164 +13766,21 @@
 
 
 <div><h1 id="awsim-simulator">AWSIM simulator<a class="headerlink" href="#awsim-simulator" title="Permanent link">#</a></h1>
-<p>AWSIM is a simulator for Autoware development and testing, initially developed by TIER IV and still actively maintained.</p>
-<p>AWSIM Labs is a fork of AWSIM, developed under the Autoware Foundation, providing additional features and lighter resource usage.</p>
-<h2 id="feature-differences-from-the-awsim-and-awsim-labs">Feature differences from the AWSIM and AWSIM Labs<a class="headerlink" href="#feature-differences-from-the-awsim-and-awsim-labs" title="Permanent link">#</a></h2>
-<h3 id="simulator-features">Simulator Features<a class="headerlink" href="#simulator-features" title="Permanent link">#</a></h3>
-<table>
-<thead>
-<tr>
-<th>Simulator Features</th>
-<th>AWSIM 1.2.3</th>
-<th>AWSIM Labs 1.4.2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Rendering Pipeline</td>
-<td>HDRP</td>
-<td>URP</td>
-</tr>
-<tr>
-<td>Resource usage</td>
-<td>Heavy 🐢</td>
-<td>Light 🐇</td>
-</tr>
-<tr>
-<td>Can toggle vehicle keyboard control from GUI</td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Radar sensor support</td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Lidar sensor multiple returns support</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
-<tr>
-<td>Raw radar output</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
-<tr>
-<td>Lidar snow energy loss feature</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
-<tr>
-<td>Physically based vehicle dynamics simulation (VPP integration)</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Can reset vehicle position on runtime</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Select maps and vehicles at startup</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Scenario simulator integrated into the same binary</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Multi-lidars are enabled by default</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Set vehicle pose and spawn objects from RViz2</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Visualize multiple cameras and move them dynamically</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Turn sensors on/off during runtime</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Graphics quality settings (Low/Medium/Ultra)</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Bird’s eye view camera option</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Works with the latest Autoware main branch</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-</tbody>
-</table>
-<h3 id="development-features">Development Features<a class="headerlink" href="#development-features" title="Permanent link">#</a></h3>
-<table>
-<thead>
-<tr>
-<th>Development Features</th>
-<th>AWSIM</th>
-<th>AWSIM Labs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Unity Version</td>
-<td>Unity 2021.1.7f1</td>
-<td>Unity LTS 2022.3.36f1</td>
-</tr>
-<tr>
-<td>CI for build</td>
-<td>✅</td>
-<td>❌ (disabled temporarily)</td>
-</tr>
-<tr>
-<td>Various regression unit tests</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
-<tr>
-<td>CI for documentation generation within PR</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Main branch is protected with linear history</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Pre-commit for code formatting</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Documentation page shows PR branches before merge</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-</tbody>
-</table>
-<h2 id="awsim-labs">AWSIM Labs<a class="headerlink" href="#awsim-labs" title="Permanent link">#</a></h2>
-<p><a href="https://github.com/autowarefoundation/AWSIM-Labs">AWSIM Labs</a> supports Unity LTS 2022.3.36f1 and uses the Universal Render Pipeline (URP), optimized for lighter resource usage. It introduces several enhancements such as the ability to reset vehicle positions at runtime, support for multiple scenes and vehicle setups on runtime, and multi-lidars enabled by default.</p>
-<p>To get started with AWSIM Labs, please follow the <a href="https://autowarefoundation.github.io/AWSIM-Labs/main/GettingStarted/QuickStartDemo/">instructions</a>.</p>
-<h2 id="awsim">AWSIM<a class="headerlink" href="#awsim" title="Permanent link">#</a></h2>
-<p><a href="https://github.com/tier4/AWSIM">AWSIM</a> runs on Unity 2021.1.7f1 using the High Definition Render Pipeline (HDRP), which requires more system resources.</p>
+<p><a href="https://github.com/tier4/AWSIM">AWSIM</a> is a simulator for Autoware development and testing, initially developed by TIER IV and still actively maintained.</p>
 <p>To get started with AWSIM, please follow the <a href="https://tier4.github.io/AWSIM/GettingStarted/QuickStartDemo/">instructions</a> provided by TIER IV.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There are 2 versions of AWSIM:
+- 🐇 URP (Universal Render Pipeline) version: <strong>AWSIM-Demo-Lightweight.zip</strong>
+  - This is the recommended version.
+- 🐢 HDRP (High Definition Render Pipeline) version: <strong>AWSIM-Demo.zip</strong>
+  - This version has higher graphical fidelity but it very heavy.</p>
+<p>Find more details in <a href="https://tier4.github.io/AWSIM/Downloads/">AWSIM/Downloads</a>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you are looking for <a href="https://github.com/autowarefoundation/AWSIM-Labs">AWSIM Labs</a>, it is archived, see the <a href="https://github.com/orgs/autowarefoundation/discussions/6706">announcement post</a>.</p>
+</div>
 <!-- prettier-ignore --></div>
 
 
