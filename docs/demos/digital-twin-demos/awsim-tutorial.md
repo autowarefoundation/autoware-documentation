@@ -7,7 +7,8 @@ To get started with AWSIM, please follow the [instructions](https://tier4.github
 !!! tip
 
     There are 2 versions of AWSIM:
-    - 🐇 URP (Universal Render Pipeline) version: **AWSIM-Demo-Lightweight.zip**
+
+    - 🐇 URP (Universal Render Pipeline) version: ⭐ **AWSIM-Demo-Lightweight.zip**
       - This is the recommended version.
     - 🐢 HDRP (High Definition Render Pipeline) version: **AWSIM-Demo.zip**
       - This version has higher graphical fidelity but it very heavy.
