@@ -1193,7 +1193,19 @@
          <lastmod>2026-01-13</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/home/roadmap/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/home/roadmap/multi-year-roadmap/</loc>
+         <lastmod>2026-01-13</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/home/roadmap/timelines/carla-simulator-support/</loc>
+         <lastmod>2026-01-13</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/home/roadmap/timelines/humble-jazzy/</loc>
+         <lastmod>2026-01-13</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/home/roadmap/timelines/point-types/</loc>
          <lastmod>2026-01-13</lastmod>
     </url>
     <url>
