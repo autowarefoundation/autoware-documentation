@@ -1,0 +1,14 @@
+| Item            | Value                 |
+| --------------- | --------------------- |
+| Architecture    | {{ architecture }}    |
+| Interface Type  | {{ interface_type }}  |
+| Interface Name  | {{ interface_name }}  |
+| Data Type       | {{ data_type }}       |
+| Timeout [s]     | {{ timeout }}         |
+| Last Updated    | {{ last_updated }}    |
+
+## Endpoints
+
+{%- for module, type in endpoints.items() %}
+- {{ module }} ({{ type }})
+{%- endfor %}

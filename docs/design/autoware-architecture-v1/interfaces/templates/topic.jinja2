@@ -1,0 +1,16 @@
+| Item            | Value                 |
+| --------------- | --------------------- |
+| Architecture    | {{ architecture }}    |
+| Interface Type  | {{ interface_type }}  |
+| Interface Name  | {{ interface_name }}  |
+| Data Type       | {{ data_type }}       |
+| Rate [Hz]       | {{ rate }}            |
+| QoS Reliability | {{ qos_reliability }} |
+| QoS Durability  | {{ qos_durability }}  |
+| Last Updated    | {{ last_updated }}    |
+
+## Endpoints
+
+{%- for module, type in endpoints.items() %}
+- {{ module }} ({{ type }})
+{%- endfor %}
