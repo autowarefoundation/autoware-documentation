@@ -8,10 +8,6 @@ rate: 10~20
 qos_reliability: reliable
 qos_durability: volatile
 qos_depth: 1
-endpoints:
-  localization: pub
-  planning: sub
-  perception: sub
 ---
 
 # {{ interface_name }}
@@ -22,58 +18,63 @@ endpoints:
 
 ## Description
 
-多くの場合、何らかの機能の
-リンクを記載してこのインターフェースがどの部分を担当するか記載しても良いです。
+Describe the feature of this interface here. If the feature is complex, you can create a separate page and link to it.
+Also, please clarify any restrictions, such as relationships with other interfaces or timing conditions.
+If necessary, adding state transition, sequence, architecture diagrams, etc. will make it easier to understand.
 
-- インターフェースの基本的な説明をここに記載する
-- タイミングなどの仕様
-- 対象となるODDによって考慮すべき項目(Rateなど)。
-- 必要に応じて以下のようなセクションを追加する。
-  - ステート遷移
-  - シーケンス
-  - データフロー
-- アーキテクチャの方に機能の説明があってそれを参照しても良い
+Requirements such as topics and timeouts may vary depending on the target ODD.
+In such cases, cover all the necessary conditions for each ODD.
+If only a specific ODD is being considered, state that it cannot be used under other ODDs.
 
 ## Message
 
-- メッセージの詳細を記載する。メッセージパッケージのREADMEへのリンクでも良い。
-- 時刻やフレームの扱い
-- 任意フィールドの扱い
-- 無効値や範囲外の扱い（エラーになるのか無視されるのか）
-- サポートしていない場合の挙動（空配列、NaN、トピックが出ないなど）
+Describe the message or service type specifications.
+If there is information in the message definition file or message package README, you can link to that.
+The message definition should clarify the following:
+
+- Whether the field is required or optional, and how it will be handled if omitted.
+- Time stamp and frame ID definitions and related fields.
+- How positive and negative values are assigned (e.g. left and right).
+- Range and units, invalid values.
+- Behavior when invalid or out-of-range values ​​are input.
+- Behavior when interface feature is not supported.
 
 ## Errors
 
-- コマンドに応じて変化するステータストピックなど。
-- サービスの場合はレスポンスで想定されるエラーの説明なども。
+List all possible errors and diagnostics that may occur when using this interface and explain their causes.
+Additionally, state what is and is not guaranteed when an error occurs.
+Generally, error handling depends on the system design, but if there is any recommended procedures, provide them as examples.
 
 ## Support
 
-- インターフェースのサポートが必須かどうかや、段階的なサポートがあるかなど。
-- インターフェースをサポートできない場合の対応方法や影響についても記載する。
+Describe the possible interface support status.
+This means that all features always be supported, or there are cases where they are partially supported.
+For example, interfaces that specify modes should state which modes are required and which are optional.
+Also, describe how to handle cases where the interface features cannot be supported, such as sending NaN or an empty array.
 
 ## Limitations
 
-- 制限事項
+Note any limitations regarding this interface here.
 
 ## Use Cases
 
-- 要件を導出するためのユースケース。
+This section is for interface designers. Describe the use case this interface targets.
+This will help derive the requirements that should be maintained in future interface redesigns.
 
 ## Requirement
 
-実装者に向けた情報で、インターフェースを実装するときに満たすべき項目を記載する。
-ここまでの利用者向けの説明の繰り返しになるかもしれないが、必須部分と任意実装が許される部分を明示的に分けて記載する。
-安全に関する条件もあれば記載する。
-設計を変更する際に維持すべき項目をチェックできる。
+This section is for interface implementers. List the requirements that the interface must meet.
+Also, please clearly state any parts that are left to the implementation.
 
 ## Design
 
-- 上記の要件や前提条件を考慮して何故この仕様になったのか意図を記載する。
-- 考慮された他のデザインや選択理由など。再設計を検討する際にチェックできる。
+This section explains why the current design was chosen, taking into account the above use cases and requirements.
+Describe other designs considered and their advantages and disadvantages to help guide future design.
 
 ## History
 
-| Date       | Description |
-| ---------- | ----------- |
-| 2025-12-01 | Release.    |
+| Date       | Description  |
+| ---------- | ------------ |
+| YYYY-MM-DD | 3rd release. |
+| YYYY-MM-DD | 2nd release. |
+| YYYY-MM-DD | 1st release. |
