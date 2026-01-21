@@ -27,7 +27,7 @@ Therefore, ensure consistency across the entire system.
 | PARKING | The engine or motor is disconnected from the tires and the stopping mechanism is activated. |
 | NEUTRAL | The engine or motor is disconnected from the tires.                                         |
 | DRIVE   | The engine or motor is connected to the tires in the forward direction.                     |
-| REVERSE | The engine or motor is connected to the tires in the backwoard direction.                   |
+| REVERSE | The engine or motor is connected to the tires in the backward direction.                    |
 
 ## Message
 

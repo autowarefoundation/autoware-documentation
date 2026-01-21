@@ -43,7 +43,7 @@ None.
 
 ## Requirement
 
-- Support getting the current velocioty status of the vehicle.
+- Support getting the current velocity status of the vehicle.
 - Report the error as diagnostics if the status cannot be received or an unknown status is received.
 
 ## Design
