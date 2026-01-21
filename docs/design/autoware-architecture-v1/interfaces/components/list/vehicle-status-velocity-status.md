@@ -1,17 +1,12 @@
 ---
-architecture: autoware components
+updated: 2025-12-01
 interface_type: topic
 interface_name: /vehicle/status/velocity_status
 data_type: "[autoware_vehicle_msgs/msg/VelocityReport](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/VelocityReport.msg)"
-updated: 2025-12-01
 rate: 10
 qos_reliability: reliable
 qos_durability: volatile
 qos_depth: 1
-endpoints:
-  localization: pub
-  planning: sub
-  perception: sub
 ---
 
 # {{ interface_name }}

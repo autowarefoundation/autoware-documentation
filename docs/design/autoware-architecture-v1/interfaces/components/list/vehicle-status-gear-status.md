@@ -1,5 +1,5 @@
 ---
-architecture: autoware components
+last_updated: 2025-12-01
 interface_type: topic
 interface_name: /vehicle/status/gear_status
 data_type: "[autoware_vehicle_msgs/msg/GearReport](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/GearReport.msg)"
@@ -7,11 +7,6 @@ rate: 10 or N/A
 qos_reliability: reliable
 qos_durability: volatile or transient_local
 qos_depth: 1
-last_updated: 2025-12-01
-endpoints:
-  vehicle: pub
-  control: sub
-  adapi: sub
 ---
 
 # {{ interface_name }}

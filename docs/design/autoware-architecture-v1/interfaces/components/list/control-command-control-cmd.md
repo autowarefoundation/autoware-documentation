@@ -1,5 +1,5 @@
 ---
-architecture: autoware components
+last_updated: 2025-12-01
 interface_type: topic
 interface_name: /control/command/control_cmd
 data_type: "[autoware_control_msgs/msg/Control](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_control_msgs/msg/Control.msg)"
@@ -7,10 +7,6 @@ rate: 33
 qos_reliability: reliable
 qos_durability: volatile
 qos_depth: 1
-last_updated: 2025-12-01
-endpoints:
-  control: pub
-  vehicle: sub
 ---
 
 # {{ interface_name }}

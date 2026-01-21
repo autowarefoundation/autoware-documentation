@@ -1,13 +1,9 @@
 ---
-architecture: autoware components
+last_updated: 2025-12-01
 interface_type: topic
 interface_name: /control/control_mode_request
 data_type: "[autoware_vehicle_msgs/srv/ControlModeCommand](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/srv/ControlModeCommand.srv)"
-updated: 2025-12-01
 timeout: ---
-endpoints:
-  vehicle: srv
-  control: cli
 ---
 
 # {{ interface_name }}

@@ -1,4 +1,5 @@
 ---
+last_updated: 2025-12-01
 architecture: autoware components
 interface_type: topic
 interface_name: /control/command/turn_indicators_cmd
@@ -7,11 +8,6 @@ rate: 10 or N/A
 qos_reliability: reliable
 qos_durability: volatile or transient_local
 qos_depth: 1
-last_updated: 2025-12-01
-endpoints:
-  localization: pub
-  planning: sub
-  perception: sub
 ---
 
 # {{ interface_name }}

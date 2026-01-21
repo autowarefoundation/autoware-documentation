@@ -1,9 +1,8 @@
 ---
-architecture: autoware components
+updated: 2025-12-01
 interface_type: topic
 interface_name: /autoware/example/topic
 data_type: foo_msgs/msg/Message
-updated: 2025-12-01
 rate: 10~20
 qos_reliability: reliable
 qos_durability: volatile
@@ -22,7 +21,7 @@ Describe the feature of this interface here. If the feature is complex, you can 
 Also, please clarify any restrictions, such as relationships with other interfaces or timing conditions.
 If necessary, adding state transition, sequence, architecture diagrams, etc. will make it easier to understand.
 
-Requirements such as topics and timeouts may vary depending on the target ODD.
+Requirements such as topic rate and response timeout may vary depending on the target ODD.
 In such cases, cover all the necessary conditions for each ODD.
 If only a specific ODD is being considered, state that it cannot be used under other ODDs.
 
