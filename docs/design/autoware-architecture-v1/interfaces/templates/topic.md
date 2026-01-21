@@ -1,5 +1,5 @@
 ---
-last_updated: 2025-12-01
+last_updated: YYYY-MM-DD
 interface_type: topic
 interface_name: /autoware/example/topic
 data_type_name: std_msgs/msg/Bool

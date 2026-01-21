@@ -1,5 +1,5 @@
 ---
-updated: 2025-12-01
+last_updated: YYYY-MM-DD
 interface_type: service
 interface_name: /autoware/example/service
 data_type_name: std_srvs/srv/SetBool
