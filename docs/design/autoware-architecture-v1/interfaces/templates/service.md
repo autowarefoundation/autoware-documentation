@@ -1,8 +1,9 @@
 ---
 updated: 2025-12-01
-interface_type: topic
+interface_type: service
 interface_name: /autoware/example/service
-data_type: foo_msgs/srv/Service
+data_type_name: std_srvs/srv/SetBool
+data_type_link: https://github.com/ros2/common_interfaces/blob/humble/std_srvs/srv/SetBool.srv
 timeout: ---
 ---
 

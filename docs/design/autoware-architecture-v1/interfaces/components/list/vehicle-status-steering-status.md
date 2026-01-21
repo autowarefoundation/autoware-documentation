@@ -1,8 +1,9 @@
 ---
-updated: 2025-12-01
+last_updated: 2026-01-21
 interface_type: topic
 interface_name: /vehicle/status/steering_status
-data_type: "[autoware_vehicle_msgs/msg/SteeringReport](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/SteeringReport.msg)"
+data_type_name: autoware_vehicle_msgs/msg/SteeringReport
+data_type_link: https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/SteeringReport.msg
 rate: 10
 qos_reliability: reliable
 qos_durability: volatile
@@ -21,11 +22,11 @@ Get the current steering status of the vehicle.
 
 ## Message
 
-See the message definition: {{ data_type }}.
+See the [message definition]({{ data_type_link }}) for details.
 
 ## Errors
 
-If the status cannot be received or an unknown status is received, stop publishing the topic and report the error as diagnostics.
+TBD: Check the relevant diagnostics.
 
 ## Support
 
@@ -33,7 +34,7 @@ This interface is required.
 
 ## Limitations
 
-- None.
+None.
 
 ## Use Cases
 
@@ -43,6 +44,7 @@ This interface is required.
 ## Requirement
 
 - Support getting the current steering status of the vehicle.
+- Report the error as diagnostics if the status cannot be received or an unknown status is received.
 
 ## Design
 
@@ -50,6 +52,6 @@ None.
 
 ## History
 
-| Date       | Description |
-| ---------- | ----------- |
-| 2025-12-01 | Release.    |
+| Date       | Description                      |
+| ---------- | -------------------------------- |
+| 2026-01-21 | First release in the new format. |

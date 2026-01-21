@@ -1,8 +1,9 @@
 ---
-last_updated: 2025-12-01
+last_updated: 2026-01-21
 interface_type: topic
 interface_name: /control/control_mode_request
-data_type: "[autoware_vehicle_msgs/srv/ControlModeCommand](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/srv/ControlModeCommand.srv)"
+data_type_name: autoware_vehicle_msgs/srv/ControlModeCommand
+data_type_link: https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/srv/ControlModeCommand.srv
 timeout: ---
 ---
 
@@ -35,17 +36,13 @@ The following table shows which commands are accepted in each mode.
 | AUTONOMOUS_VELOCITY_ONLY | accept         | ignore         | accept       |
 | MANUAL                   | ignore         | ignore         | ignore       |
 
-## Request
+## Service
 
 The `stamp` field is the request sent time. For the `mode` field, use the valid values listed above.
 
-## Response
-
-If the mode change was successful or not needed, the `success` field will be true, otherwise it will be false.
-
 ## Errors
 
-If an unsupported or unknown command is requested, ignore it and return a response with the `success` field set to false.
+If an unsupported or unknown command is requested, a response with the `success` field set to false is returned.
 
 ## Support
 
@@ -67,6 +64,7 @@ In this case, switch when the command difference is small, such as when the vehi
 
 - If the vehicle does not support mode switching via Autoware, always return a failure response.
 - If the vehicle supports mode switching via Autoware, accept MANUAL and AUTONOMOUS at least.
+- Return a response with the `success` field set to false if an unsupported or unknown command is requested.
 
 ## Design
 
@@ -74,6 +72,6 @@ In this case, switch when the command difference is small, such as when the vehi
 
 ## History
 
-| Date       | Description |
-| ---------- | ----------- |
-| 2025-12-01 | Release.    |
+| Date       | Description                      |
+| ---------- | -------------------------------- |
+| 2026-01-21 | First release in the new format. |

@@ -1,8 +1,9 @@
 ---
-last_updated: 2025-12-01
+last_updated: 2026-01-21
 interface_type: topic
 interface_name: /control/command/gear_cmd
-data_type: "[autoware_vehicle_msgs/msg/GearCommand](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/GearCommand.msg)"
+data_type_name: autoware_vehicle_msgs/msg/GearCommand
+data_type_link: https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/GearCommand.msg
 rate: 10 or N/A
 qos_reliability: reliable
 qos_durability: volatile or transient_local
@@ -37,7 +38,7 @@ Values ​​such as `LOW` and `DRIVE_2` ​​can be used if the vehicle has it
 
 ## Errors
 
-If an unsupported or unknown command is sent, ignore it and report the error as diagnostics.
+TBD: Check the relevant diagnostics.
 
 ## Support
 
@@ -45,7 +46,7 @@ This interface is required. If the vehicle does not have gears, simulate the gea
 
 ## Limitations
 
-- None.
+None.
 
 ## Use Cases
 
@@ -56,10 +57,7 @@ This interface is required. If the vehicle does not have gears, simulate the gea
 
 - Support sending the gear command to the vehicle.
 - Support vehicle-specific gear status if necessary.
-
-## Prerequisites
-
-- None.
+- Report the error as diagnostics if an unsupported or unknown command is sent.
 
 ## Design
 
@@ -71,4 +69,4 @@ This interface is required. If the vehicle does not have gears, simulate the gea
 
 | Date       | Description                      |
 | ---------- | -------------------------------- |
-| 2025-12-01 | First release in the new format. |
+| 2026-01-21 | First release in the new format. |

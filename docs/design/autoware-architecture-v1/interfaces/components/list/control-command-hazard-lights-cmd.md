@@ -1,8 +1,9 @@
 ---
-last_updated: 2025-12-01
+last_updated: 2026-01-21
 interface_type: topic
 interface_name: /control/command/hazard_lights_cmd
-data_type: "[autoware_vehicle_msgs/msg/HazardLightsCommand](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/HazardLightsCommand.msg)"
+data_type_name: autoware_vehicle_msgs/msg/HazardLightsCommand
+data_type_link: https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/HazardLightsCommand.msg
 rate: 10 or N/A
 qos_reliability: reliable
 qos_durability: volatile or transient_local
@@ -24,12 +25,11 @@ Therefore, ensure consistency across the entire system.
 ## Message
 
 The `stamp` field is the command sent time. In the case of periodic publication, use the latest time, not the last command change.
-
 For the `command` field, use the valid values listed above. The `NO_COMMAND` value can be used internally by programs, but will never be sent as a topic.
 
 ## Errors
 
-If an unsupported or unknown command is sent, ignore it and report the error as diagnostics.
+TBD: Check the relevant diagnostics.
 
 ## Support
 
@@ -37,7 +37,7 @@ This interface is required. If the vehicle does not have hazard lights, always i
 
 ## Limitations
 
-- None.
+None.
 
 ## Use Cases
 
@@ -47,10 +47,7 @@ This interface is required. If the vehicle does not have hazard lights, always i
 ## Requirement
 
 - Support sending the hazard lights command to the vehicle.
-
-## Prerequisites
-
-- None.
+- Report the error as diagnostics if an unsupported or unknown command is sent.
 
 ## Design
 
@@ -58,6 +55,6 @@ In the early stages, turn indicators and hazard lights were managed as different
 
 ## History
 
-| Date       | Description |
-| ---------- | ----------- |
-| 2025-12-01 | Release.    |
+| Date       | Description                      |
+| ---------- | -------------------------------- |
+| 2026-01-21 | First release in the new format. |

@@ -1,8 +1,9 @@
 ---
-last_updated: 2025-12-01
+last_updated: 2026-01-21
 interface_type: topic
 interface_name: /vehicle/status/turn_indicators_status
-data_type: "[autoware_vehicle_msgs/msg/TurnIndicatorsReport](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/TurnIndicatorsReport.msg)"
+data_type_name: autoware_vehicle_msgs/msg/TurnIndicatorsReport
+data_type_link: https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/TurnIndicatorsReport.msg
 rate: 10 or N/A
 qos_reliability: reliable
 qos_durability: volatile or transient_local
@@ -28,7 +29,7 @@ For the `report` field, use the valid values listed above.
 
 ## Errors
 
-If the status cannot be received or an unknown status is received, stop publishing the topic and report the error as diagnostics.
+TBD: Check the relevant diagnostics.
 
 ## Support
 
@@ -46,10 +47,7 @@ This interface is required. If the vehicle does not have turn indicators, always
 ## Requirement
 
 - Support getting the current turn indicators status of the vehicle.
-
-## Prerequisites
-
-- None.
+- Report the error as diagnostics if the status cannot be received or an unknown status is received.
 
 ## Design
 
@@ -57,6 +55,6 @@ In the early stages, turn indicators and hazard lights were managed as different
 
 ## History
 
-| Date       | Description |
-| ---------- | ----------- |
-| 2025-12-01 | Release.    |
+| Date       | Description                      |
+| ---------- | -------------------------------- |
+| 2026-01-21 | First release in the new format. |

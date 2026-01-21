@@ -1,11 +1,12 @@
 ---
-updated: 2025-12-01
+last_updated: 2025-12-01
 interface_type: topic
 interface_name: /autoware/example/topic
-data_type: foo_msgs/msg/Message
-rate: 10~20
-qos_reliability: reliable
-qos_durability: volatile
+data_type_name: std_msgs/msg/Bool
+data_type_link: https://github.com/ros2/common_interfaces/blob/humble/std_msgs/msg/Bool.msg
+rate: ---
+qos_reliability: reliable or best_effort
+qos_durability: volatile or transient_local
 qos_depth: 1
 ---
 

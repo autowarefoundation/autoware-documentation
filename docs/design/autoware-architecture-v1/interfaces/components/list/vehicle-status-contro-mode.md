@@ -1,8 +1,9 @@
 ---
-last_updated: 2025-12-01
+last_updated: 2026-01-21
 interface_type: topic
 interface_name: /vehicle/status/control_mode
-data_type: "[autoware_vehicle_msgs/msg/ControlModeReport](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/ControlModeReport.msg)"
+data_type_name: autoware_vehicle_msgs/msg/ControlModeReport
+data_type_link: https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/ControlModeReport.msg
 rate: 10 or N/A
 qos_reliability: reliable
 qos_durability: volatile or transient_local
@@ -47,12 +48,11 @@ The vehicle may drive in any behavior, by manual control interfaces such as the 
 ## Message
 
 The `stamp` field is the status received time or hardware time such as VCU. In the case of periodic publication, use the latest time, not the last status change.
-
 For the `mode` field, use the valid values listed above.
 
 ## Errors
 
-If the status cannot be received or an unknown status is received, stop publishing the topic and report the error as diagnostics.
+TBD: Check the relevant diagnostics.
 
 ## Support
 
@@ -60,7 +60,7 @@ Support for `MANUAL` and `AUTONOMOUS` modes is required.
 
 ## Limitations
 
-- None.
+None.
 
 ## Use Cases
 
@@ -70,17 +70,14 @@ Support for `MANUAL` and `AUTONOMOUS` modes is required.
 ## Requirement
 
 - Support getting the current control mode status of the vehicle.
-
-## Prerequisites
-
-- None.
+- Report the error as diagnostics if the status cannot be received or an unknown status is received.
 
 ## Design
 
-- None.
+None.
 
 ## History
 
 | Date       | Description                      |
 | ---------- | -------------------------------- |
-| 2025-12-01 | First release in the new format. |
+| 2026-01-21 | First release in the new format. |

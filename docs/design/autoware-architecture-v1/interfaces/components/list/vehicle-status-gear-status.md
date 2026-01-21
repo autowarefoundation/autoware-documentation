@@ -1,8 +1,9 @@
 ---
-last_updated: 2025-12-01
+last_updated: 2026-01-21
 interface_type: topic
 interface_name: /vehicle/status/gear_status
-data_type: "[autoware_vehicle_msgs/msg/GearReport](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/GearReport.msg)"
+data_type_name: autoware_vehicle_msgs/msg/GearReport
+data_type_link: https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/GearReport.msg
 rate: 10 or N/A
 qos_reliability: reliable
 qos_durability: volatile or transient_local
@@ -31,7 +32,6 @@ Therefore, ensure consistency across the entire system.
 ## Message
 
 The `stamp` field is the status received time or hardware time such as VCU. In the case of periodic publication, use the latest time, not the last status change.
-
 For the `report` field, use the valid values listed above. The `NONE` value can be used internally by programs, but will never be sent as a topic.
 Values ​​such as `LOW` and `DRIVE_2` ​​can be used if the vehicle has its own special gear types, but a dedicated implementation is required to handle this.
 
@@ -45,7 +45,7 @@ This interface is required. If the vehicle does not have gear, simulate the gear
 
 ## Limitations
 
-- None.
+None.
 
 ## Use Cases
 
@@ -57,10 +57,6 @@ This interface is required. If the vehicle does not have gear, simulate the gear
 - Support getting the current gear status of the vehicle.
 - Support vehicle-specific gear status if necessary.
 
-## Prerequisites
-
-- None.
-
 ## Design
 
 - Support four typical gear types: PARKING, NEUTRAL, DRIVE, and REVERSE.
@@ -71,4 +67,4 @@ This interface is required. If the vehicle does not have gear, simulate the gear
 
 | Date       | Description                      |
 | ---------- | -------------------------------- |
-| 2025-12-01 | First release in the new format. |
+| 2026-01-21 | First release in the new format. |
