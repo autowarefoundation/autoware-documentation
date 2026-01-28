@@ -44,6 +44,6 @@ These are conceptual configurations optimized for different deployment scenarios
 | [PoV](https://autowarefoundation.github.io/autoware.pov-reference-design-docs/main/) | Highway |  Paved, GPS available | RTK GNSS | End-to-End Machine Learning Pipeline |
 | [Off-road]() | Racing, education, and research | Unpaved, GPS available | Single GNSS | No map and AI-enabled |
 | [Trunk]() | Heavy duty vehicles | Outdoor | RTK GNSS |  |
-| [Racier](../../F1Tenth/ReferenceDesignforF1TenthwithAutoware/) | Racing and Education | Indoor tracks | No | Racing robots using Autoware |
-| [Go-Kart](../../GoKart/ReferenceDesignforGo-KartwithAutoware/) | Racing and Development | Outdoor | RTK GNSS |  EV Go-Kart using Autoware |
+| [Racier](../RoboRacer/) | Racing and Education | Indoor tracks | No | Racing robots using Autoware |
+| [Go-Kart](../GoKart/) | Racing and Development | Outdoor | RTK GNSS |  EV Go-Kart using Autoware |
 
