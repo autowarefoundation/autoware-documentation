@@ -1,12 +1,17 @@
 [
   {
+    "version": "pr-760",
+    "title": "pr-760",
+    "aliases": []
+  },
+  {
     "version": "main",
     "title": "main",
     "aliases": []
   },
   {
-    "version": "pr-760",
-    "title": "pr-760",
+    "version": "1.6.0",
+    "title": "1.6.0",
     "aliases": []
   },
   {
