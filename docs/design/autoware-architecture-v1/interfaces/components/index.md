@@ -18,7 +18,7 @@ See [here](../index.md) for an overview.
 - [/control/command/gear_cmd](./list/control-command-gear-cmd.md)
 - [/control/command/turn_indicators_cmd](./list/control-command-turn-indicators-cmd.md)
 - [/control/command/hazard_lights_cmd](./list/control-command-hazard-lights-cmd.md)
-- [/vehicle/status/control_mode](./list/vehicle-status-contro-mode.md)
+- [/vehicle/status/control_mode](./list/vehicle-status-control-mode.md)
 - [/vehicle/status/velocity_status](./list/vehicle-status-velocity-status.md)
 - [/vehicle/status/steering_status](./list/vehicle-status-steering-status.md)
 - [/vehicle/status/gear_status](./list/vehicle-status-gear-status.md)
