@@ -14100,7 +14100,8 @@ Values ​​such as <code>LOW</code> and <code>DRIVE_2</code> ​​can be used
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">#</a></h2>
 <p>This interface is required. If the vehicle does not have gears, simulate the gear behavior.</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h2>
-<p>None.</p>
+<p>Response time: Mechanical gear shifting takes time (typically 0.5s - 2.0s). The gear_status will not change immediately after sending gear_cmd.</p>
+<p>Simulated gear: For vehicles without physical gears (e.g., direct drive EVs), for example, the NEUTRAL state might be simulated logic and not a mechanical disconnection.</p>
 <h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">#</a></h2>
 <ul>
 <li>Control the vehicle for autonomous driving.</li>
@@ -14117,6 +14118,7 @@ Values ​​such as <code>LOW</code> and <code>DRIVE_2</code> ​​can be used
 <li>Support four typical gear types: PARKING, NEUTRAL, DRIVE, and REVERSE.</li>
 <li>Unused values ​​can be used for special gear types.</li>
 <li>Simulate gear if necessary to increase reusability.</li>
+<li>To prevent gear shifting chattering, reject a new gear command during several seconds after the last successful gear command.</li>
 </ul>
 <h2 id="history">History<a class="headerlink" href="#history" title="Permanent link">#</a></h2>
 <table>

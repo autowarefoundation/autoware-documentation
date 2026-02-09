@@ -14070,7 +14070,9 @@
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">#</a></h2>
 <p>This interface is required.</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h2>
-<p>None.</p>
+<p>Conversion accuracy: This value is typically calculated from the Steering Wheel Angle using a steering gear ratio (which may be variable/non-linear). Therefore, the accuracy depends on the correctness of the gear ratio model parameters.</p>
+<p>Mechanical play: Due to mechanical backlash in the steering column, small movements of the steering wheel might not result in actual tire movement, causing a discrepancy between this reported status and the physical tire angle.</p>
+<p>Tire deformation: This value represents the kinematic angle of the wheel assembly, not the actual slip angle of the tire contact patch.</p>
 <h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">#</a></h2>
 <ul>
 <li>Control the vehicle for autonomous driving.</li>
@@ -14082,7 +14084,13 @@
 <li>Report the error as diagnostics if the status cannot be received or an unknown status is received.</li>
 </ul>
 <h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
-<p>None.</p>
+<p>Coordinate system &amp; sign convention: The interface follows the standard vehicle coordinate system (ISO 8855 / <abbr title="Robot Operating System">ROS</abbr> REP-103).</p>
+<ul>
+<li>Positive (+) indicates <strong>counter-clockwise</strong> rotation (left turn).</li>
+<li>Negative (-) indicates <strong>clockwise</strong> rotation (right turn).</li>
+</ul>
+<p>Data source: Reports the steering tire angle (average of front wheels or virtual center wheel).
+Typically converted from the steering wheel angle sensor data using a linear or variable gear ratio model.</p>
 <h2 id="history">History<a class="headerlink" href="#history" title="Permanent link">#</a></h2>
 <table>
 <thead>

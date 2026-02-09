@@ -14079,7 +14079,7 @@ Only the latest command, not the latest time stamp command, is valid.</p>
 <p>This interface is required. If there is only a vehicle-specific interface, provide a converter.
 For vehicles controlled by typical accelerator and brake pedals, consider using the <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/vehicle/autoware_raw_vehicle_cmd_converter">autoware_raw_vehicle_cmd_converter</a>.</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h2>
-<p>None.</p>
+<p>Command filter: The commands may be filtered by a rate limiter to prevent physically impossible or unsafe rapid acceleration or steering.</p>
 <h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">#</a></h2>
 <ul>
 <li>Control the vehicle for autonomous driving.</li>

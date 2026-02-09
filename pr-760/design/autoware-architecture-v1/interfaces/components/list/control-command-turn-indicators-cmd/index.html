@@ -14087,7 +14087,8 @@ For the <code>command</code> field, use the valid values listed above. The <code
 <li>Report the error as diagnostics if an unsupported or unknown command is sent.</li>
 </ul>
 <h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
-<p>In the early stages, turn indicators and hazard lights were managed as different states of the same interface, but were split because the states needed to be managed separately.</p>
+<p>Separation from hazard lights: Hazard lights and turn indicators are defined in separate interfaces to allow independent state management. For example, an autonomous stack might request "Turn Left" for routing, but a safety system might simultaneously request "Hazard Enable" due to an emergency. This simplifies the logic because an autonomous stack and safefy system no longer have to worry about their states being overwritten by each other's commands.</p>
+<p>Exclusive state: Unlike hazard lights, turn indicators are directional and mutually exclusive (Left vs. Right). Therefore, they are defined as an Enum in a single command interface rather than separate boolean flags.</p>
 <h2 id="history">History<a class="headerlink" href="#history" title="Permanent link">#</a></h2>
 <table>
 <thead>

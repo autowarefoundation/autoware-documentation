@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-760/design/autoware-architecture-v1/interfaces/components/list/vehicle-status-contro-mode/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-760/design/autoware-architecture-v1/interfaces/components/list/vehicle-status-control-mode/">
       
       
         <link rel="prev" href="../control-control-mode-request/">
@@ -14146,7 +14146,8 @@ For the <code>mode</code> field, use the valid values listed above.</p>
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">#</a></h2>
 <p>Support for <code>MANUAL</code> and <code>AUTONOMOUS</code> modes is required.</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h2>
-<p>None.</p>
+<p>Latency: There is an inevitable latency between sending a mode change request and this interface updating to the new state. Autoware must handle this transition period.</p>
+<p>Override detection: Some vehicle platforms do not explicitly report override activation. In such cases, the vehicle interface calculates this state by comparing command and feedback, which may introduce detection delay.</p>
 <h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">#</a></h2>
 <ul>
 <li>Control the vehicle for autonomous driving.</li>

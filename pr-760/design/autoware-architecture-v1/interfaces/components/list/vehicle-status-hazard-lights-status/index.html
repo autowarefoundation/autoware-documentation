@@ -14065,6 +14065,7 @@
 <p>Get the current hazard lights status of the vehicle. The status is <code>ENABLE</code> or <code>DISABLE</code>.
 It is recommended to set QoS to transient_local and publish only when the status changes, but currently many implementations publish the status periodically.
 Therefore, ensure consistency across the entire system.</p>
+<p>Note that this status indicates the logical activation state of the hazard lights system (i.e., whether the function is active), not the instantaneous physical state of the light bulbs (i.e., whether the bulb is lit or unlit during a blinking cycle). Therefore, the status typically remains ENABLE continuously while the hazard lights are blinking.</p>
 <h2 id="message">Message<a class="headerlink" href="#message" title="Permanent link">#</a></h2>
 <p>The <code>stamp</code> field is the status received time or hardware time such as VCU. In the case of periodic publication, use the latest time, not the last status change.
 For the <code>report</code> field, use the valid values listed above.</p>
@@ -14073,7 +14074,7 @@ For the <code>report</code> field, use the valid values listed above.</p>
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">#</a></h2>
 <p>This interface is required. If the vehicle does not have hazard lights, always treat it as <code>DISABLE</code>.</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h2>
-<p>None.</p>
+<p>Logical state: This interface reports the logical activation state (e.g., stalk position or system state). It typically does not toggle ENABLE/DISABLE in sync with the physical blinking of the light bulbs.</p>
 <h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">#</a></h2>
 <ul>
 <li>Control the vehicle for autonomous driving.</li>

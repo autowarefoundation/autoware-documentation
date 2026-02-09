@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-760/design/autoware-architecture-v1/interfaces/components/list/vehicle-status-gear-status/">
       
       
-        <link rel="prev" href="../vehicle-status-contro-mode/">
+        <link rel="prev" href="../vehicle-status-control-mode/">
       
       
         <link rel="next" href="../vehicle-status-hazard-lights-status/">
@@ -14100,7 +14100,7 @@ Values ​​such as <code>LOW</code> and <code>DRIVE_2</code> ​​can be used
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">#</a></h2>
 <p>This interface is required. If the vehicle does not have gear, simulate the gear behavior.</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h2>
-<p>None.</p>
+<p>Latency: Gear shifting is a mechanical process that takes time (typically 0.5s to 2.0s). The status reported here reflects the actual engaged gear, so there will be a delay after sending a command. Autoware must handle this transition period.</p>
 <h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">#</a></h2>
 <ul>
 <li>Control the vehicle for autonomous driving.</li>
@@ -14171,7 +14171,7 @@ Values ​​such as <code>LOW</code> and <code>DRIVE_2</code> ​​can be used
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../vehicle-status-contro-mode/" class="md-footer__link md-footer__link--prev" aria-label="Previous: /vehicle/status/control_mode">
+          <a href="../vehicle-status-control-mode/" class="md-footer__link md-footer__link--prev" aria-label="Previous: /vehicle/status/control_mode">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>

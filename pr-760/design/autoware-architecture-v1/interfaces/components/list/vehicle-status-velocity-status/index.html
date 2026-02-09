@@ -14082,7 +14082,12 @@
 <li>Report the error as diagnostics if the status cannot be received or an unknown status is received.</li>
 </ul>
 <h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
-<p>None.</p>
+<p>Coordinate system &amp; sign convention: The interface follows the standard vehicle coordinate system (ISO 8855 / <abbr title="Robot Operating System">ROS</abbr> REP-103).</p>
+<ul>
+<li>Longitudinal velocity: Positive (+) indicates <strong>forward</strong> motion. Negative (-) indicates <strong>backward</strong> motion.</li>
+<li>Lateral velocity: Positive (+) indicates motion to the <strong>left</strong>. Negative (-) indicates motion to the <strong>right</strong>.</li>
+<li>Heading rate: Positive (+) indicates <strong>counter-clockwise</strong> rotation (left turn).</li>
+</ul>
 <h2 id="history">History<a class="headerlink" href="#history" title="Permanent link">#</a></h2>
 <table>
 <thead>
