@@ -52,7 +52,9 @@ This interface is required. If the vehicle does not have turn indicators, always
 
 ## Design
 
-In the early stages, turn indicators and hazard lights were managed as different states of the same interface, but were split because the states needed to be managed separately.
+Separation from hazard lights: Hazard lights and turn indicators are defined in separate interfaces to allow independent state management. For example, an autonomous stack might request "Turn Left" for routing, but a safety system might simultaneously request "Hazard Enable" due to an emergency. This simplifies the logic because an autonomous stack and safefy system no longer have to worry about their states being overwritten by each other's commands.
+
+Exclusive state: Unlike hazard lights, turn indicators are directional and mutually exclusive (Left vs. Right). Therefore, they are defined as an Enum in a single command interface rather than separate boolean flags.
 
 ## History
 

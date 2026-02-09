@@ -22,6 +22,8 @@ Get the current turn indicators status of the vehicle. The status is `ENABLE_RIG
 It is recommended to set QoS to transient_local and publish only when the status changes, but currently many implementations publish the status periodically.
 Therefore, ensure consistency across the entire system.
 
+Note that this status indicates the logical activation state of the turn indicators system (i.e., whether the function is active), not the instantaneous physical state of the light bulbs (i.e., whether the bulb is lit or unlit during a blinking cycle). Therefore, the status typically remains ENABLE continuously while the turn indicators are blinking.
+
 ## Message
 
 The `stamp` field is the status received time or hardware time such as VCU. In the case of periodic publication, use the latest time, not the last status change.
@@ -37,7 +39,9 @@ This interface is required. If the vehicle does not have turn indicators, always
 
 ## Limitations
 
-- Regarding the actual lighting status of the vehicle, hazard lights may have priority.
+Hazard priority: If hazard lights are active, the vehicle hardware typically overrides the turn indicators. In such cases, this interface may report DISABLE or ENABLE, depending on the specific vehicle implementation, but the physical lights will be blinking as hazards.
+
+Logical state: This interface reports the logical activation state (e.g., stalk position or system state). It typically does not toggle ENABLE/DISABLE in sync with the physical blinking of the light bulbs.
 
 ## Use Cases
 

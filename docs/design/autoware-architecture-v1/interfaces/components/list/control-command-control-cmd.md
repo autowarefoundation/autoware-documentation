@@ -47,7 +47,7 @@ For vehicles controlled by typical accelerator and brake pedals, consider using 
 
 ## Limitations
 
-None.
+Command filter: The commands may be filtered by a rate limiter to prevent physically impossible or unsafe rapid acceleration or steering.
 
 ## Use Cases
 

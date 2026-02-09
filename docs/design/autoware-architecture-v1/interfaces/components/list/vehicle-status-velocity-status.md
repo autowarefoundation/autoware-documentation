@@ -48,7 +48,11 @@ None.
 
 ## Design
 
-None.
+Coordinate system & sign convention: The interface follows the standard vehicle coordinate system (ISO 8855 / ROS REP-103).
+
+- Longitudinal velocity: Positive (+) indicates **forward** motion. Negative (-) indicates **backward** motion.
+- Lateral velocity: Positive (+) indicates motion to the **left**. Negative (-) indicates motion to the **right**.
+- Heading rate: Positive (+) indicates **counter-clockwise** rotation (left turn).
 
 ## History
 

@@ -60,7 +60,9 @@ Support for `MANUAL` and `AUTONOMOUS` modes is required.
 
 ## Limitations
 
-None.
+Latency: There is an inevitable latency between sending a mode change request and this interface updating to the new state. Autoware must handle this transition period.
+
+Override detection: Some vehicle platforms do not explicitly report override activation. In such cases, the vehicle interface calculates this state by comparing command and feedback, which may introduce detection delay.
 
 ## Use Cases
 

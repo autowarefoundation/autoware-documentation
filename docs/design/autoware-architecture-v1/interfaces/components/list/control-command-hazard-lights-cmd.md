@@ -51,7 +51,9 @@ None.
 
 ## Design
 
-In the early stages, turn indicators and hazard lights were managed as different states of the same interface, but were split because the states needed to be managed separately.
+Separation from turn indicators: Hazard lights and turn indicators are defined in separate interfaces to allow independent state management. For example, an autonomous stack might request "Turn Left" for routing, but a safety system might simultaneously request "Hazard Enable" due to an emergency. This simplifies the logic because an autonomous stack and safefy system no longer have to worry about their states being overwritten by each other's commands.
+
+Priority logic: The vehicle interface must prioritize HazardLightsCommand.ENABLE over any TurnIndicatorsCommand. This ensures safety signals (hazards) always take precedence over navigation signals.
 
 ## History
 

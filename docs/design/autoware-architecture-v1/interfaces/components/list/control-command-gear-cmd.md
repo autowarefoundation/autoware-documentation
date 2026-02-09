@@ -46,7 +46,9 @@ This interface is required. If the vehicle does not have gears, simulate the gea
 
 ## Limitations
 
-None.
+Response time: Mechanical gear shifting takes time (typically 0.5s - 2.0s). The gear_status will not change immediately after sending gear_cmd.
+
+Simulated gear: For vehicles without physical gears (e.g., direct drive EVs), for example, the NEUTRAL state might be simulated logic and not a mechanical disconnection.
 
 ## Use Cases
 
@@ -64,6 +66,7 @@ None.
 - Support four typical gear types: PARKING, NEUTRAL, DRIVE, and REVERSE.
 - Unused values ​​can be used for special gear types.
 - Simulate gear if necessary to increase reusability.
+- To prevent gear shifting chattering, reject a new gear command during several seconds after the last successful gear command.
 
 ## History
 

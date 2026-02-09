@@ -22,6 +22,8 @@ Get the current hazard lights status of the vehicle. The status is `ENABLE` or `
 It is recommended to set QoS to transient_local and publish only when the status changes, but currently many implementations publish the status periodically.
 Therefore, ensure consistency across the entire system.
 
+Note that this status indicates the logical activation state of the hazard lights system (i.e., whether the function is active), not the instantaneous physical state of the light bulbs (i.e., whether the bulb is lit or unlit during a blinking cycle). Therefore, the status typically remains ENABLE continuously while the hazard lights are blinking.
+
 ## Message
 
 The `stamp` field is the status received time or hardware time such as VCU. In the case of periodic publication, use the latest time, not the last status change.
@@ -37,7 +39,7 @@ This interface is required. If the vehicle does not have hazard lights, always t
 
 ## Limitations
 
-None.
+Logical state: This interface reports the logical activation state (e.g., stalk position or system state). It typically does not toggle ENABLE/DISABLE in sync with the physical blinking of the light bulbs.
 
 ## Use Cases
 
