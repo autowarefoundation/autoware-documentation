@@ -56,7 +56,7 @@ Firstly, we will clone CalibrationTools repositories in own autoware.
 ```bash
 cd <YOUR-OWN-AUTOWARE-DIRECTORY> # for example: cd autoware.tutorial_vehicle
 wget https://raw.githubusercontent.com/tier4/CalibrationTools/tier4/universe/calibration_tools_autoware.repos
-vcs import src < calibration_tools_autoware.repos
+vcs import --recursive src < calibration_tools_autoware.repos
 rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 ```
 

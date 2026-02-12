@@ -59,7 +59,7 @@ You can install it with `sudo apt install python3-vcs2l`.
 Always first pull the `autoware.repos` since it holds the essential repositories.
 
 ```bash
-vcs import src < repositories/autoware.repos
+vcs import --recursive src < repositories/autoware.repos
 ```
 
 For most cases, this will be enough.
@@ -67,7 +67,7 @@ For most cases, this will be enough.
 If you want to use the nightly versions of the repositories, also pull the `autoware-nightly.repos` file. (It requires `autoware.repos` to be pulled first.)
 
 ```bash
-vcs import src < repositories/autoware-nightly.repos
+vcs import --recursive src < repositories/autoware-nightly.repos
 ```
 
 If you want to use the other repositories such as scenario simulator or the tools, pull the corresponding `.repos` files.
