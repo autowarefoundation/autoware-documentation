@@ -9,7 +9,7 @@ Once the Autoware is installed, you can install the calibration tools provided b
 ```bash
 cd autoware
 wget https://raw.githubusercontent.com/tier4/CalibrationTools/refs/heads/tier4/universe/calibration_tools_autoware.repos
-vcs import src < calibration_tools.repos
+vcs import --recursive src < calibration_tools.repos
 rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
