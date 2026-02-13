@@ -14270,16 +14270,16 @@
 <li>
 <p>Create the <code>src</code> directory and clone repositories into it.</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>src
-vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware.repos
+vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware.repos
 </code></pre></div>
 <p>If you are an active developer, you may also want to pull the nightly repositories, which contain the latest updates:</p>
-<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware-nightly.repos
+<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware-nightly.repos
 </code></pre></div>
 <blockquote>
 <p>⚠️ Note: The nightly repositories are unstable and may contain bugs. Use them with caution.</p>
 </blockquote>
 <p>Optionally, you may also download the extra repositories that contain drivers for specific hardware, but they are not necessary for building and running Autoware:</p>
-<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/extra-packages.repos
+<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/extra-packages.repos
 </code></pre></div>
 <blockquote>
 <p>⚠️ You might need to install the dependencies of the extra packages manually.</p>
@@ -14306,10 +14306,10 @@ rosdep<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> 
 <h3 id="update-the-workspace">Update the Workspace<a class="headerlink" href="#update-the-workspace" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>autoware
 git<span class="w"> </span>pull
-vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware.repos
+vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware.repos
 
 <span class="c1"># If you are using nightly repositories, also run the following command:</span>
-vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware-nightly.repos
+vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware-nightly.repos
 
 vcs<span class="w"> </span>pull<span class="w"> </span>src
 <span class="c1"># Make sure all ros-$ROS_DISTRO-* packages are upgraded to their latest version</span>
@@ -14317,13 +14317,13 @@ sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </
 rosdep<span class="w"> </span>update
 rosdep<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>--rosdistro<span class="w"> </span><span class="nv">$ROS_DISTRO</span>
 </code></pre></div>
-<p>It might be the case that dependencies imported via <code>vcs import</code> have been moved/removed.
-Vcs2l does not currently handle those cases, so if builds fail after <code>vcs import</code>, cleaning
+<p>It might be the case that dependencies imported via <code>vcs import --recursive</code> have been moved/removed.
+Vcs2l does not currently handle those cases, so if builds fail after <code>vcs import --recursive</code>, cleaning
 and re-importing all dependencies may be necessary:</p>
 <div class="highlight"><pre><span></span><code>rm<span class="w"> </span>-rf<span class="w"> </span>src/*
-vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware.repos
+vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware.repos
 <span class="c1"># If you are using nightly repositories, import them as well.</span>
-vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware-nightly.repos
+vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware-nightly.repos
 </code></pre></div>
 <h3 id="using-vs-code-remote-containers-for-development">Using VS Code remote containers for development<a class="headerlink" href="#using-vs-code-remote-containers-for-development" title="Permanent link">#</a></h3>
 <p>Using the <a href="https://code.visualstudio.com/">Visual Studio Code</a> with the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Remote - Containers</a> extension, you can develop Autoware in the containerized environment with ease.</p>

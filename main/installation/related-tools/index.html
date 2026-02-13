@@ -13943,7 +13943,7 @@
 <p>Once the Autoware is installed, you can install the calibration tools provided by TIER IV as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>autoware
 wget<span class="w"> </span>https://raw.githubusercontent.com/tier4/CalibrationTools/refs/heads/tier4/universe/calibration_tools_autoware.repos
-vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>calibration_tools.repos
+vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>calibration_tools.repos
 rosdep<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>--rosdistro<span class="w"> </span><span class="nv">$ROS_DISTRO</span>
 colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </code></pre></div>

@@ -14078,7 +14078,7 @@ following the directory structure below:</your-vehicle-name></p>
 <p>If your forked Autoware meta-repository doesn't include <code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch</code> with the correct folder structure
 as shown above,
 please add your forked <code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch</code> repository to the <code>repositories/autoware.repos</code> file
-and run the <code>vcs import src &lt; repositories/autoware.repos</code> command in your terminal
+and run the <code>vcs import --recursive src &lt; repositories/autoware.repos</code> command in your terminal
 to import the newly included repositories at autoware.repos file.</p>
 <p>Now, we are ready to modify the following vehicle model packages for our vehicle.
 Firstly, we need to rename the description and launch packages:</p>

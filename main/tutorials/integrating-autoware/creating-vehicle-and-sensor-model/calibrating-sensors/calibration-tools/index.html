@@ -14058,7 +14058,7 @@ we are ready to calibrate sensors which prepared their pipeline in creating the 
 <p>Firstly, we will clone CalibrationTools repositories in own autoware.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;YOUR-OWN-AUTOWARE-DIRECTORY&gt;<span class="w"> </span><span class="c1"># for example: cd autoware.tutorial_vehicle</span>
 wget<span class="w"> </span>https://raw.githubusercontent.com/tier4/CalibrationTools/tier4/universe/calibration_tools_autoware.repos
-vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>calibration_tools_autoware.repos
+vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>calibration_tools_autoware.repos
 rosdep<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>--rosdistro<span class="w"> </span><span class="nv">$ROS_DISTRO</span>
 </code></pre></div>
 <p>Then build the all packages

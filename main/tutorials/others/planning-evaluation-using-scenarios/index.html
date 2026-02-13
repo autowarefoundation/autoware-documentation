@@ -14453,8 +14453,8 @@ mkdir<span class="w"> </span>-p<span class="w"> </span>src
 <ul>
 <li>Import the necessary repositories both for the Autoware and Scenario Simulator.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware.repos
-vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/simulator.repos
+<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware.repos
+vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/simulator.repos
 </code></pre></div>
 <ul>
 <li>If you are installing Autoware for the first time, you can automatically install the dependencies by using the

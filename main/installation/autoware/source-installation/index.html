@@ -14201,16 +14201,16 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </
 <p>Autoware uses <a href="https://github.com/dirk-thomas/vcs2l">vcs2l</a> to construct workspaces.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>autoware
 mkdir<span class="w"> </span>-p<span class="w"> </span>src
-vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware.repos
+vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware.repos
 </code></pre></div>
 <p>If you are an active developer, you may also want to pull the nightly repositories, which contain the latest updates:</p>
-<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware-nightly.repos
+<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware-nightly.repos
 </code></pre></div>
 <blockquote>
 <p>⚠️ Note: The nightly repositories are unstable and may contain bugs. Use them with caution.</p>
 </blockquote>
 <p>Optionally, you may also download the extra repositories that contain drivers for specific hardware, but they are not necessary for building and running Autoware:</p>
-<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/extra-packages.repos
+<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/extra-packages.repos
 </code></pre></div>
 <blockquote>
 <p>⚠️ You might need to install the dependencies of the extra packages manually.</p>
@@ -14258,30 +14258,30 @@ git<span class="w"> </span>pull<span class="w"> </span>&lt;remote&gt;<span class
 </li>
 <li>
 <p>Update the repositories.</p>
-<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware.repos
+<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware.repos
 </code></pre></div>
 <blockquote>
 <p>⚠️ If you are using nightly repositories, you can also update them.</p>
-<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware-nightly.repos
+<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware-nightly.repos
 </code></pre></div>
 </blockquote>
 <div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>pull<span class="w"> </span>src
 </code></pre></div>
 <p>For Git users:
- - <code>vcs import</code> is similar to <code>git checkout</code>.
+ - <code>vcs import --recursive</code> is similar to <code>git checkout</code>.
    - Note that it doesn't pull from the remote.
  - <code>vcs pull</code> is similar to <code>git pull</code>.
    - Note that it doesn't switch branches.</p>
 <p>For more information, refer to the <a href="https://github.com/dirk-thomas/vcs2l">official documentation</a>.</p>
-<p>It might be the case that dependencies imported via <code>vcs import</code> have been moved/removed.
- Vcs2l does not currently handle those cases, so if builds fail after <code>vcs import</code>, cleaning
+<p>It might be the case that dependencies imported via <code>vcs import --recursive</code> have been moved/removed.
+ Vcs2l does not currently handle those cases, so if builds fail after <code>vcs import --recursive</code>, cleaning
  and re-importing all dependencies may be necessary:</p>
 <div class="highlight"><pre><span></span><code>rm<span class="w"> </span>-rf<span class="w"> </span>src/*
-vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware.repos
+vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware.repos
 </code></pre></div>
 <blockquote>
 <p>⚠️ If you are using nightly repositories, import them as well.</p>
-<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware-nightly.repos
+<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware-nightly.repos
 </code></pre></div>
 </blockquote>
 </li>
