@@ -14135,7 +14135,7 @@ simulator model parameters and <abbr title="Universal Robotic Description Format
 <p>Now, we will modify these files according to our vehicle design.</p>
 <h3 id="mirrorparamyaml">mirror.param.yaml<a class="headerlink" href="#mirrorparamyaml" title="Permanent link">#</a></h3>
 <p>This file describes your vehicle mirror dimension for
-<a href="https://autowarefoundation.github.io/autoware_universe/main/sensing/pointcloud_preprocessor/docs/crop-box-filter/">CropBox filter</a> of <a href="../../../../design/autoware-architecture-v1/components/sensing/data-types/point-cloud/">PointCloudPreprocessor</a>.
+<a href="https://autowarefoundation.github.io/autoware_universe/main/sensing/autoware_pointcloud_preprocessor/docs/crop-box-filter/">CropBox filter</a> of <a href="../../../../design/autoware-architecture-v1/components/sensing/data-types/point-cloud/">PointCloudPreprocessor</a>.
 This is important for cropping mirrors from your lidar's point cloud.</p>
 <p>The <code>mirror.param.yaml</code> consist of the following parameters:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">/**</span><span class="p">:</span>
@@ -14163,7 +14163,7 @@ it could be negative value like the mirror dimension figure below.</p>
 If your vehicle does not have mirror, you can set these values 0.0 as well.</p>
 </div>
 <h3 id="simulator_modelparamyaml">simulator_model.param.yaml<a class="headerlink" href="#simulator_modelparamyaml" title="Permanent link">#</a></h3>
-<p>This file is a configuration file for the <a href="https://autowarefoundation.github.io/autoware_universe/main/simulator/simple_planning_simulator/">simulator environment</a>.
+<p>This file is a configuration file for the <a href="https://autowarefoundation.github.io/autoware_universe/main/simulator/autoware_simple_planning_simulator/">simulator environment</a>.
 Please update these parameters according to your vehicle specifications.
 For detailed information about variables,
 please check the <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/simulator/simple_planning_simulator">simple_planning_simulator</a> package.
