@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -14096,7 +14096,9 @@ Therefore, ensure consistency across the entire system.</p>
 For the <code>report</code> field, use the valid values listed above. The <code>NONE</code> value can be used internally by programs, but will never be sent as a topic.
 Values ​​such as <code>LOW</code> and <code>DRIVE_2</code> ​​can be used if the vehicle has its own special gear types, but a dedicated implementation is required to handle this.</p>
 <h2 id="errors">Errors<a class="headerlink" href="#errors" title="Permanent link">#</a></h2>
-<p>If the status cannot be received or an unknown status is received, stop publishing the topic and report the error as diagnostics.</p>
+<p>Unknown status: If the vehicle interface cannot get the status due to connection loss, etc., the status is stopped and a diagnostic error is reported.</p>
+<p>Invalid status: If the vehicle interface receives an undefined status, stop publishing status and report as diagnostics.</p>
+<p>Hardware Fault: If the vehicle platform reports a sensor fault, a diagnostic error is reported.</p>
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">#</a></h2>
 <p>This interface is required. If the vehicle does not have gear, simulate the gear behavior.</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h2>

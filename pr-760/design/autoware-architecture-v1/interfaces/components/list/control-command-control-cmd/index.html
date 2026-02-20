@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -14074,7 +14074,8 @@ If these values ​​are inconsistent, which value takes priority depends on th
 <p>Sending the latest command will invalidate previous commands, which means that commands from different time stamps are not kept as a time series.
 Only the latest command, not the latest time stamp command, is valid.</p>
 <h2 id="errors">Errors<a class="headerlink" href="#errors" title="Permanent link">#</a></h2>
-<p>TBD: Check the relevant diagnostics.</p>
+<p>Command Timeout: If the command is not sent frequently enough to control the current vehicle speed, the vehicle executes an emergency stop.</p>
+<p>Out of Range: If the command exceeds the given physical limit, the value is clamped to the maximum.</p>
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">#</a></h2>
 <p>This interface is required. If there is only a vehicle-specific interface, provide a converter.
 For vehicles controlled by typical accelerator and brake pedals, consider using the <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/vehicle/autoware_raw_vehicle_cmd_converter">autoware_raw_vehicle_cmd_converter</a>.</p>

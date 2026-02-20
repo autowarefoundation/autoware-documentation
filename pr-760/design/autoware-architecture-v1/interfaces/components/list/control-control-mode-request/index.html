@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -14112,7 +14112,9 @@
 <h2 id="service">Service<a class="headerlink" href="#service" title="Permanent link">#</a></h2>
 <p>The <code>stamp</code> field is the request sent time. For the <code>mode</code> field, use the valid values listed above.</p>
 <h2 id="errors">Errors<a class="headerlink" href="#errors" title="Permanent link">#</a></h2>
-<p>If an unsupported or unknown command is requested, a response with the <code>success</code> field set to false is returned.</p>
+<p>Invalid Mode: If an unknown or unsupported mode is specified, the request is rejected and the service returns a response with <code>success=false</code>.</p>
+<p>Unsafe Transition: If the mode cannot be changed safely, the request is rejected and the service returns a response with <code>success=false</code>.
+For example, in the case of a hardware fault, emergency stop, or large command deviation.</p>
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">#</a></h2>
 <p>This interface is required.
 If the mode change is not possible through this interface, for example, only a hardware switch is supported, always return a failure response.</p>
@@ -14127,9 +14129,10 @@ In this case, switch when the command difference is small, such as when the vehi
 </ul>
 <h2 id="requirement">Requirement<a class="headerlink" href="#requirement" title="Permanent link">#</a></h2>
 <ul>
-<li>If the vehicle does not support mode switching via Autoware, always return a failure response.</li>
 <li>If the vehicle supports mode switching via Autoware, accept MANUAL and AUTONOMOUS at least.</li>
-<li>Return a response with the <code>success</code> field set to false if an unsupported or unknown command is requested.</li>
+<li>If the vehicle does not support mode switching via Autoware, always return a failure response.</li>
+<li>If an unknown or unsupported command is requested, return a failure response.</li>
+<li>If the mode cannot be changed safely, return a failure response.</li>
 </ul>
 <h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
 <ul>

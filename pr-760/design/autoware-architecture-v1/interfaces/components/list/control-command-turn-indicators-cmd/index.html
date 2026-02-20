@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -14069,7 +14069,7 @@ Therefore, ensure consistency across the entire system.</p>
 <p>The <code>stamp</code> field is the command sent time. In the case of periodic publication, use the latest time, not the last command change.
 For the <code>command</code> field, use the valid values listed above. The <code>NO_COMMAND</code> value can be used internally by programs, but will never be sent as a topic.</p>
 <h2 id="errors">Errors<a class="headerlink" href="#errors" title="Permanent link">#</a></h2>
-<p>TBD: Check the relevant diagnostics.</p>
+<p>Invalid command: If the vehicle interface receives an undefined command, it is ignored and a diagnostic error is reported.</p>
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">#</a></h2>
 <p>This interface is required. If the vehicle does not have turn indicators, always ignore the command.</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h2>
