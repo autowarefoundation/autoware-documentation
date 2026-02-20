@@ -42,7 +42,10 @@ The `stamp` field is the request sent time. For the `mode` field, use the valid 
 
 ## Errors
 
-If an unsupported or unknown command is requested, a response with the `success` field set to false is returned.
+Invalid Mode: If an unknown or unsupported mode is specified, the request is rejected and the service returns a response with `success=false`.
+
+Unsafe Transition: If the mode cannot be changed safely, the request is rejected and the service returns a response with `success=false`.
+For example, in the case of a hardware fault, emergency stop, or large command deviation.
 
 ## Support
 
@@ -62,9 +65,10 @@ In this case, switch when the command difference is small, such as when the vehi
 
 ## Requirement
 
-- If the vehicle does not support mode switching via Autoware, always return a failure response.
 - If the vehicle supports mode switching via Autoware, accept MANUAL and AUTONOMOUS at least.
-- Return a response with the `success` field set to false if an unsupported or unknown command is requested.
+- If the vehicle does not support mode switching via Autoware, always return a failure response.
+- If an unknown or unsupported command is requested, return a failure response.
+- If the mode cannot be changed safely, return a failure response.
 
 ## Design
 

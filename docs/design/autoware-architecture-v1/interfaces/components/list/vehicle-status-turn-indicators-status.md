@@ -31,7 +31,11 @@ For the `report` field, use the valid values listed above.
 
 ## Errors
 
-TBD: Check the relevant diagnostics.
+Unknown status: If the vehicle interface cannot get the status due to connection loss, etc., the status is stopped and a diagnostic error is reported.
+
+Invalid status: If the vehicle interface receives an undefined status, stop publishing status and report as diagnostics.
+
+Hardware Fault: If the vehicle platform reports a sensor fault, a diagnostic error is reported.
 
 ## Support
 

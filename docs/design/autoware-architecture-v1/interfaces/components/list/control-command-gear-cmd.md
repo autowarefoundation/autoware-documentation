@@ -38,7 +38,9 @@ Values ​​such as `LOW` and `DRIVE_2` ​​can be used if the vehicle has it
 
 ## Errors
 
-TBD: Check the relevant diagnostics.
+Safety guard: The command is ignored if the vehicle cannot change gear safely, for example, because the vehicle is not stopped.
+
+Invalid command: If the vehicle interface receives an undefined command, it is ignored and a diagnostic error is reported.
 
 ## Support
 

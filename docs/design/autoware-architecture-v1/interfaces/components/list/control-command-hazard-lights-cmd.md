@@ -29,7 +29,7 @@ For the `command` field, use the valid values listed above. The `NO_COMMAND` val
 
 ## Errors
 
-TBD: Check the relevant diagnostics.
+Invalid command: If the vehicle interface receives an undefined command, it is ignored and a diagnostic error is reported.
 
 ## Support
 

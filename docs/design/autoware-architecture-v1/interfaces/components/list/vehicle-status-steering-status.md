@@ -26,7 +26,9 @@ See the [message definition]({{ data_type_link }}) for details.
 
 ## Errors
 
-TBD: Check the relevant diagnostics.
+Unknown status: If the vehicle interface cannot get the status due to connection loss, etc., the status is stopped and a diagnostic error is reported.
+
+Hardware Fault: If the vehicle platform reports a sensor fault, a diagnostic error is reported.
 
 ## Support
 

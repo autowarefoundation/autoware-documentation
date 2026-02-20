@@ -38,7 +38,9 @@ Only the latest command, not the latest time stamp command, is valid.
 
 ## Errors
 
-TBD: Check the relevant diagnostics.
+Command Timeout: If the command is not sent frequently enough to control the current vehicle speed, the vehicle executes an emergency stop.
+
+Out of Range: If the command exceeds the given physical limit, the value is clamped to the maximum.
 
 ## Support
 

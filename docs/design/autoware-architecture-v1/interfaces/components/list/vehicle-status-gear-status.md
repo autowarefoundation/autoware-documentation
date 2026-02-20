@@ -37,7 +37,11 @@ Values ​​such as `LOW` and `DRIVE_2` ​​can be used if the vehicle has it
 
 ## Errors
 
-If the status cannot be received or an unknown status is received, stop publishing the topic and report the error as diagnostics.
+Unknown status: If the vehicle interface cannot get the status due to connection loss, etc., the status is stopped and a diagnostic error is reported.
+
+Invalid status: If the vehicle interface receives an undefined status, stop publishing status and report as diagnostics.
+
+Hardware Fault: If the vehicle platform reports a sensor fault, a diagnostic error is reported.
 
 ## Support
 
