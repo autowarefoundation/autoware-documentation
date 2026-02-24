@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -13998,7 +13998,7 @@ it will override the value on lower-level launches.</p>
 </div>
 <h2 id="tier4_control_componentlaunchxml">tier4_control_component.launch.xml<a class="headerlink" href="#tier4_control_componentlaunchxml" title="Permanent link">#</a></h2>
 <p>The tier4_control_component.launch.xml launch file is the main control component launch in the autoware_launch package.
-This launch file calls control.launch.xml from the <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/launch/tier4_control_launch">tier4_control_launch</a> package
+This launch file calls control.launch.xml from the <a href="https://github.com/autowarefoundation/autoware_launch/tree/main/tier4_universe_launch/tier4_control_launch">tier4_control_launch</a> package
 within the autoware_universe repository.
 We can modify control launch arguments in tier4_control_component.launch.xml.
 Additionally,
@@ -14021,7 +14021,7 @@ Here are some predefined control launch arguments:</p>
 <li>
 <p><strong><code>enable_autonomous_emergency_braking:</code></strong> This argument enables autonomous emergency
   braking under specific conditions.
-  Please refer to the <a href="https://autowarefoundation.github.io/autoware_universe/main/control/autonomous_emergency_braking/">Autonomous emergency braking (AEB)</a> page for
+  Please refer to the <a href="https://autowarefoundation.github.io/autoware_universe/main/control/autoware_autonomous_emergency_braking/">Autonomous emergency braking (AEB)</a> page for
   more information.
   To enable it, update the value in the <code>tier4_control_component.launch.xml</code> file:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="enable_autonomous_emergency_braking" default="false"/&gt;</span>
@@ -14032,7 +14032,7 @@ Here are some predefined control launch arguments:</p>
 <ul>
 <li>
 <p><strong><code>enable_predicted_path_checker:</code></strong> This argument enables the predicted path checker module.
-  Please refer to the <a href="https://autowarefoundation.github.io/autoware_universe/main/control/predicted_path_checker/">Predicted Path Checker</a> page for
+  Please refer to the <a href="https://autowarefoundation.github.io/autoware_universe/main/control/autoware_predicted_path_checker/">Predicted Path Checker</a> page for
   more information.
   To enable it, update the value in the <code>tier4_control_component.launch.xml</code> file:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="enable_predicted_path_checker" default="false"/&gt;</span>

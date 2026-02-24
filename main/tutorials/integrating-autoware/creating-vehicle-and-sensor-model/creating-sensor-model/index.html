@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -14878,11 +14878,11 @@ you can check debug image with rviz2 or <a href="http://wiki.ros.org/rqt">rqt</a
 The default <abbr title="Global Navigation Satellite System">GNSS</abbr> sensor options at <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_launch/launch/gnss.launch.xml"><code>sample_sensor_kit_launch</code></a> for <a href="https://www.u-blox.com/en/">u-blox</a>
 and <a href="https://www.septentrio.com/en">septentrio</a> is included in <code>gnss.launch.xml</code>,
 so If we use other sensors as <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS receiver, we need to add it here.
-Moreover, <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_gnss_poser">gnss_poser</a> package launches here,
+Moreover, <a href="https://github.com/autowarefoundation/autoware_core/tree/main/sensing/autoware_gnss_poser">gnss_poser</a> package launches here,
 we will use this package for the pose source of our vehicle at localization initialization but remember,
 your sensor_driver must provide <a href="https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_sensing_msgs/msg/GnssInsOrientationStamped.msg">autoware gnss orientation message</a> for this node.
 If you are ready with your <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS driver,
-you must set <code>navsatfix_topic_name</code> and <code>orientation_topic_name</code> variables at this launch file for <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_gnss_poser">gnss_poser</a> arguments.
+you must set <code>navsatfix_topic_name</code> and <code>orientation_topic_name</code> variables at this launch file for <a href="https://github.com/autowarefoundation/autoware_core/tree/main/sensing/autoware_gnss_poser">gnss_poser</a> arguments.
 For Example, necessary modifications for <your-gnss-sensor> should be like this:</your-gnss-sensor></p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span> ...
 <span class="gd">- &lt;arg name="gnss_receiver" default="ublox" description="ublox(default) or septentrio"/&gt;</span>
@@ -14912,7 +14912,7 @@ For Example, necessary modifications for <your-gnss-sensor> should be like this:
 For example,
 we will use <a href="https://en.unicorecomm.com/assets/upload/file/CLAP-B7_Product_Brief_En.pdf">Clap B7 sensor</a> as a <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS and <abbr title="Inertial Measurement Unit">IMU</abbr> sensor,
 and we will use <a href="https://github.com/Robeff-Technology/ntrip_client">nrtip_client_ros</a> for RTK.
-Also, we will add these packages to <a href="https://github.com/leo-drive/autoware.tutorial_vehicle/blob/main/repositories/autoware.repos">autoware.repos</a> file.</p>
+Also, we will add these packages to <a href="https://github.com/leo-drive/autoware.tutorial_vehicle/blob/main/autoware.repos">autoware.repos</a> file.</p>
 <div class="highlight"><pre><span></span><code><span class="gi">+ sensor_component/external/clap_b7_driver:</span>
 <span class="gi">+   type: git</span>
 <span class="gi">+   url: https://github.com/Robeff-Technology/clap_b7_driver.git</span>

@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -14039,7 +14039,7 @@
 <p>This page shows how to use <code>control_performance_analysis</code> package to evaluate the controllers.</p>
 <p><code>control_performance_analysis</code> is the package to analyze the tracking performance of a control module
 and monitor the driving status of the vehicle.</p>
-<p>If you need more detailed information about package, refer to the <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/control/control_performance_analysis">control_performance_analysis</a>.</p>
+<p>If you need more detailed information about package, refer to the <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/control/autoware_control_performance_analysis">control_performance_analysis</a>.</p>
 <h2 id="how-to-use">How to use<a class="headerlink" href="#how-to-use" title="Permanent link">#</a></h2>
 <h3 id="before-driving">Before Driving<a class="headerlink" href="#before-driving" title="Permanent link">#</a></h3>
 <h4 id="1-firstly-you-need-to-launch-autoware-you-can-also-use-this-tool-with-real-vehicle-driving">1. Firstly you need to launch Autoware. You can also use this tool with real vehicle driving<a class="headerlink" href="#1-firstly-you-need-to-launch-autoware-you-can-also-use-this-tool-with-real-vehicle-driving" title="Permanent link">#</a></h4>
@@ -14061,7 +14061,7 @@ and monitor the driving status of the vehicle.</p>
 <ul>
 <li>If you do not have PlotJuggler in your computer, please refer <a href="https://github.com/facontidavide/PlotJuggler#installation">here</a> for installation guideline.</li>
 </ul>
-<h4 id="5-increase-the-buffer-size-maximum-is-100-and-import-the-layout-from-autoware_universecontrolcontrol_performance_analysisconfigcontroller_monitorxml">5. Increase the buffer size (maximum is 100), and import the layout from <code>/autoware_universe/control/control_performance_analysis/config/controller_monitor.xml</code><a class="headerlink" href="#5-increase-the-buffer-size-maximum-is-100-and-import-the-layout-from-autoware_universecontrolcontrol_performance_analysisconfigcontroller_monitorxml" title="Permanent link">#</a></h4>
+<h4 id="5-increase-the-buffer-size-maximum-is-100-and-import-the-layout-from-autoware_universecontrolautoware_control_performance_analysisconfigcontroller_monitorxml">5. Increase the buffer size (maximum is 100), and import the layout from <code>/autoware_universe/control/autoware_control_performance_analysis/config/controller_monitor.xml</code><a class="headerlink" href="#5-increase-the-buffer-size-maximum-is-100-and-import-the-layout-from-autoware_universecontrolautoware_control_performance_analysisconfigcontroller_monitorxml" title="Permanent link">#</a></h4>
 <ul>
 <li>After import the layout, please specify the topics that are listed below.</li>
 </ul>
@@ -14095,7 +14095,7 @@ and monitor the driving status of the vehicle.</p>
 </ul>
 <p><img alt="Plot XY Curve" src="images/evaluating-controller-performance/plot-xy.png"></p>
 <ul>
-<li>If you see too much noised curve in plots, you can adjust the <code>odom_interval</code> and <code>low_pass_filter_gain</code> from <a href="https://github.com/autowarefoundation/autoware_universe/blob/main/control/control_performance_analysis/config/control_performance_analysis.param.yaml">here</a> to avoid noised data.</li>
+<li>If you see too much noised curve in plots, you can adjust the <code>odom_interval</code> and <code>low_pass_filter_gain</code> from <a href="https://github.com/autowarefoundation/autoware_universe/blob/main/control/autoware_control_performance_analysis/config/control_performance_analysis.param.yaml">here</a> to avoid noised data.</li>
 </ul>
 <!-- prettier-ignore --></div>
 

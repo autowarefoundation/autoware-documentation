@@ -1,10 +1,5 @@
 [
   {
-    "version": "main",
-    "title": "main",
-    "aliases": []
-  },
-  {
     "version": "pr-771",
     "title": "pr-771",
     "aliases": []
@@ -15,13 +10,18 @@
     "aliases": []
   },
   {
-    "version": "1.5.0",
-    "title": "1.5.0",
+    "version": "main",
+    "title": "main",
     "aliases": []
   },
   {
     "version": "1.6.0",
     "title": "1.6.0",
+    "aliases": []
+  },
+  {
+    "version": "1.5.0",
+    "title": "1.5.0",
     "aliases": []
   }
 ]

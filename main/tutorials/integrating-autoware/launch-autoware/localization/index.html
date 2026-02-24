@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -14009,14 +14009,14 @@ it will override the value on lower-level launches.</p>
 </div>
 <h2 id="tier4_localization_componentlaunchxml">tier4_localization_component.launch.xml<a class="headerlink" href="#tier4_localization_componentlaunchxml" title="Permanent link">#</a></h2>
 <p>The <code>tier4_localization_component.launch.xml</code> launch file is the main localization component launch at the <code>autoware_launch</code> package.
-This launch file calls <code>localization.launch.xml</code> at <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/launch/tier4_localization_launch">tier4_localization_launch</a> package from <code>autoware_universe</code> repository.
+This launch file calls <code>localization.launch.xml</code> at <a href="https://github.com/autowarefoundation/autoware_launch/tree/main/tier4_universe_launch/tier4_localization_launch">tier4_localization_launch</a> package from <code>autoware_universe</code> repository.
 We can modify localization launch arguments at tier4_localization_component.launch.xml.</p>
 <p>The current localization launcher implemented by TIER IV supports multiple localization methods, both pose estimators and twist estimators.
 <code>tier4_localization_component.launch.xml</code> has two arguments to select which estimators to launch:</p>
 <ul>
 <li>
 <p><strong><code>pose_source:</code></strong> This argument specifies the pose_estimator, currently supporting <code>ndt</code> (default), <code>yabloc</code>, <code>artag</code> and <code>eagleye</code> for localization.
-  By default, Autoware launches <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/localization/autoware_ndt_scan_matcher">ndt_scan_matcher</a> for pose estimator.
+  By default, Autoware launches <a href="https://github.com/autowarefoundation/autoware_core/tree/main/localization/autoware_ndt_scan_matcher">ndt_scan_matcher</a> for pose estimator.
   You can use YabLoc as a camera-based localization method.
   For more details on YabLoc,
   please refer to the <a href="https://github.com/autowarefoundation/autoware_universe/blob/main/localization/yabloc/README.md">README of YabLoc</a> in autoware_universe.
@@ -14036,7 +14036,7 @@ you need to update <code>tier4_localization_component.launch.xml</code> like:</p
 <li>
 <p><strong><code>twist_source:</code></strong> This argument specifies the twist_estimator, currently supporting <code>gyro_odom</code> (default), and <code>eagleye</code>.
   By default,
-  Autoware launches <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/localization/autoware_gyro_odometer">gyro_odometer</a> for twist estimator.
+  Autoware launches <a href="https://github.com/autowarefoundation/autoware_core/tree/main/localization/autoware_gyro_odometer">gyro_odometer</a> for twist estimator.
   Also, you can use eagleye for the twist source, please refer to the <a href="eagleye/">Eagleye</a>.
   If you want to change your twist source to eagleye, you can update <code>tier4_localization_component.launch.xml</code> like:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="twist_source" default="gyro_odom" description="select twist_estimator. gyro_odom, eagleye"/&gt;</span>
@@ -14066,7 +14066,7 @@ you can add this argument on <code>tier4_localization_component.launch.xml</code
 <div class="highlight"><pre><span></span><code><span class="gi">+ &lt;arg name="input_vehicle_twist_with_covariance_topic" value="&lt;YOUR-VEHICLE-TWIST-TOPIC-NAME&gt;"/&gt;</span>
 </code></pre></div>
 <p><strong>Note:</strong> Gyro odometer input topic provided from velocity converter package. This package will be launched at sensor_kit. For more information,
-please check <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_vehicle_velocity_converter">velocity converter package</a>.</p>
+please check <a href="https://github.com/autowarefoundation/autoware_core/tree/main/sensing/autoware_vehicle_velocity_converter">velocity converter package</a>.</p>
 <h2 id="note-when-using-non-ndt-pose-estimator">Note when using non NDT pose estimator<a class="headerlink" href="#note-when-using-non-ndt-pose-estimator" title="Permanent link">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -14150,7 +14150,7 @@
 <h3 id="point-cloud-map">Point Cloud Map<a class="headerlink" href="#point-cloud-map" title="Permanent link">#</a></h3>
 <p>The point cloud map must be supplied as a file with the following requirements:</p>
 <ul>
-<li>The point cloud map must be projected on the same coordinate defined in <code>map_projection_loader</code> in order to be consistent with the lanelet2 map and other packages that converts between local and geodetic coordinates. For more information, please refer to <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/map/map_projection_loader/README.md">the readme of <code>map_projection_loader</code></a>.</li>
+<li>The point cloud map must be projected on the same coordinate defined in <code>map_projection_loader</code> in order to be consistent with the lanelet2 map and other packages that converts between local and geodetic coordinates. For more information, please refer to <a href="https://github.com/autowarefoundation/autoware_core/tree/main/map/autoware_map_projection_loader/README.md">the readme of <code>map_projection_loader</code></a>.</li>
 <li>It must be in the <a href="https://pointclouds.org/documentation/tutorials/pcd_file_format.html"><abbr title="Point Cloud Data">PCD</abbr> (Point Cloud Data) file format</a>, but can be a single <abbr title="Point Cloud Data">PCD</abbr> file or divided into multiple <abbr title="Point Cloud Data">PCD</abbr> files.</li>
 <li>Each point in the map must contain X, Y, and Z coordinates.</li>
 <li>An intensity or RGB value for each point may be optionally included.</li>
@@ -14158,7 +14158,7 @@
 <li>Its resolution should be at least 0.2 m to yield reliable localization results.</li>
 <li>It can be in either local or global coordinates, but must be in global coordinates (georeferenced) to use <abbr title="Global Navigation Satellite System">GNSS</abbr> data for localization.</li>
 </ul>
-<p>For more details on divided map format, please refer to <a href="https://github.com/autowarefoundation/autoware_universe/blob/main/map/autoware_map_loader/README.md">the readme of <code>map_loader</code> in Autoware Universe</a>.</p>
+<p>For more details on divided map format, please refer to <a href="https://github.com/autowarefoundation/autoware_core/blob/main/map/autoware_map_loader/README.md">the readme of <code>map_loader</code> in Autoware Universe</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Three global coordinate systems are currently supported by Autoware, including <a href="https://en.wikipedia.org/wiki/Military_Grid_Reference_System">Military Grid Reference System (MGRS)</a>, <a href="https://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system">Universal Transverse Mercator (UTM)</a>, and <a href="https://ja.wikipedia.org/wiki/%E5%B9%B3%E9%9D%A2%E7%9B%B4%E8%A7%92%E5%BA%A7%E6%A8%99%E7%B3%BB">Japan Rectangular Coordinate System</a>.
@@ -14185,7 +14185,7 @@ In a map with MGRS coordinate system, the X and Y coordinates of each point repr
 </ul>
 </li>
 </ul>
-<p>For further information, please refer to <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/map/map_projection_loader/README.md">the readme of <code>map_projection_loader</code> in Autoware Universe</a>.</p>
+<p>For further information, please refer to <a href="https://github.com/autowarefoundation/autoware_core/tree/main/map/autoware_map_projection_loader/README.md">the readme of <code>map_projection_loader</code> in Autoware Universe</a>.</p>
 <!-- prettier-ignore --></div>
 
 

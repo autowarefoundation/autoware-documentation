@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -14252,7 +14252,7 @@
 </li>
 </ul>
 <h2 id="json-schema">JSON Schema<a class="headerlink" href="#json-schema" title="Permanent link">#</a></h2>
-<p><a href="https://json-schema.org/understanding-json-schema/index.html">JSON Schema</a> is used the validate the parameter file(s) ensuring that it has the correct structure and content. Using JSON Schema for this purpose is considered best practice for cloud-native development. The schema template below shall be used as a starting point when defining the schema for a <abbr title="Robot Operating System">ROS</abbr> node.</p>
+<p><a href="https://json-schema.org/understanding-json-schema/about">JSON Schema</a> is used the validate the parameter file(s) ensuring that it has the correct structure and content. Using JSON Schema for this purpose is considered best practice for cloud-native development. The schema template below shall be used as a starting point when defining the schema for a <abbr title="Robot Operating System">ROS</abbr> node.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">"$schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://json-schema.org/draft-07/schema#"</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_TITLE"</span><span class="p">,</span>
@@ -14295,7 +14295,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>The schema file path is <code>INSERT_PATH_TO_PACKAGE/schema/</code> and the schema file name is <code>INSERT_NODE_NAME.schema.json</code>. To adapt the template to the <abbr title="Robot Operating System">ROS</abbr> node, replace each <code>INSERT_...</code> and add all parameters <code>1..N</code>.</p>
-<p>See example: <em>Image Projection Based Fusion - Pointpainting</em> <a href="https://github.com/autowarefoundation/autoware_universe/blob/main/universe/perception/autoware_image_projection_based_fusion/schema/pointpainting.schema.json">schema</a></p>
+<p>See example: <em>Image Projection Based Fusion - Pointpainting</em> <a href="https://github.com/autowarefoundation/autoware_universe/blob/main/perception/autoware_image_projection_based_fusion/schema/pointpainting.schema.json">schema</a></p>
 <h3 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">#</a></h3>
 <p>Parameters have several attributes, some are required and some optional. The optional attributes are highly encouraged when applicable, as they provide useful information about a parameter and can ensure the value of the parameter is within its bounds.</p>
 <h4 id="required">Required<a class="headerlink" href="#required" title="Permanent link">#</a></h4>

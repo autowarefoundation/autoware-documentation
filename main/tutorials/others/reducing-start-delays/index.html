@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -14163,7 +14163,7 @@ but it may produce a low initial throttle which leads to high start delays.</p>
 increase the initial acceleration output by Autoware,
 or modify the acceleration to throttle mapping.</p>
 <p>The initial acceleration output by Autoware can be tuned in the
-<a href="https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_smoother/"><code>motion_velocity_smoother</code></a>
+<a href="https://autowarefoundation.github.io/autoware_core/main/planning/autoware_velocity_smoother"><code>motion_velocity_smoother</code></a>
 with parameters <code>engage_velocity</code> and <code>engage_acceleration</code>.
 However, the <a href="https://autowarefoundation.github.io/autoware_universe/main/control/autoware_vehicle_cmd_gate/"><code>vehicle_cmd_gate</code></a>
 applies a filter on the control command to prevent too sudden changes in jerk and acceleration,

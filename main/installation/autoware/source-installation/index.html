@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -14198,7 +14198,7 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </
 <ol>
 <li>
 <p>Create the <code>src</code> directory and clone repositories into it.</p>
-<p>Autoware uses <a href="https://github.com/dirk-thomas/vcs2l">vcs2l</a> to construct workspaces.</p>
+<p>Autoware uses <a href="https://github.com/ros-infrastructure/vcs2l">vcs2l</a> to construct workspaces.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>autoware
 mkdir<span class="w"> </span>-p<span class="w"> </span>src
 vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware.repos
@@ -14272,7 +14272,7 @@ git<span class="w"> </span>pull<span class="w"> </span>&lt;remote&gt;<span class
    - Note that it doesn't pull from the remote.
  - <code>vcs pull</code> is similar to <code>git pull</code>.
    - Note that it doesn't switch branches.</p>
-<p>For more information, refer to the <a href="https://github.com/dirk-thomas/vcs2l">official documentation</a>.</p>
+<p>For more information, refer to the <a href="https://github.com/ros-infrastructure/vcs2l">official documentation</a>.</p>
 <p>It might be the case that dependencies imported via <code>vcs import --recursive</code> have been moved/removed.
  Vcs2l does not currently handle those cases, so if builds fail after <code>vcs import --recursive</code>, cleaning
  and re-importing all dependencies may be necessary:</p>

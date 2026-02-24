@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -14083,38 +14083,8 @@ Use this workflow as a reference when you contribute to Autoware.</p>
 <ul>
 <li>The unified style of descriptions by templates can make reviews efficient.</li>
 </ul>
-<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
-<p>There are two types of templates. Select one based on the following condition.</p>
-<ol>
-<li><a href="https://github.com/autowarefoundation/autoware/blob/main/.github/PULL_REQUEST_TEMPLATE/standard-change.md">Standard change</a>:<ul>
-<li>Complexity:<ul>
-<li>New features or significant updates.</li>
-<li>Requires deeper understanding of the codebase.</li>
-</ul>
-</li>
-<li>Impact:<ul>
-<li>Affects multiple parts of the system.</li>
-<li>Basically includes minor features, bug fixes and performance improvement.</li>
-<li>Needs testing before merging.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="https://github.com/autowarefoundation/autoware/blob/main/.github/PULL_REQUEST_TEMPLATE/small-change.md">Small change</a>:<ul>
-<li>Complexity:<ul>
-<li>Documentation, simple refactoring, or style adjustments.</li>
-<li>Easy to understand and review.</li>
-</ul>
-</li>
-<li>Impact:<ul>
-<li>Minimal effect on the system.</li>
-<li>Quicker merge with less testing needed.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h5 id="steps-to-use-an-appropriate-pull-request-template">Steps to use an appropriate pull request template<a class="headerlink" href="#steps-to-use-an-appropriate-pull-request-template" title="Permanent link">#</a></h5>
+<h4 id="steps-to-use-an-appropriate-pull-request-template">Steps to use an appropriate pull request template<a class="headerlink" href="#steps-to-use-an-appropriate-pull-request-template" title="Permanent link">#</a></h4>
+<p>Some repositories may have multiple pull request templates. Follow the following instructions to create a pull request using the appropriate template:</p>
 <ol>
 <li>Select the appropriate template, as shown in <a href="https://user-images.githubusercontent.com/31987104/184344710-2adee239-799f-4fdf-bfab-be76345bfac1.mp4">this video</a>.</li>
 <li>Read the selected template carefully and fill the required content.</li>
@@ -14128,7 +14098,7 @@ Use this workflow as a reference when you contribute to Autoware.</p>
 <ul>
 <li>Pull requests must be reviewed by appropriate reviewers to keep the quality of the codebase.</li>
 </ul>
-<h4 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">#</a></h4>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
 <ul>
 <li>For most <abbr title="Robot Operating System">ROS</abbr> packages, reviewers will be automatically assigned based on the <code>maintainer</code> information in <code>package.xml</code>.</li>
 <li>If no reviewer is assigned automatically, assign reviewers manually following the instructions in <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review">GitHub Docs</a>.<ul>
@@ -14143,7 +14113,7 @@ Use this workflow as a reference when you contribute to Autoware.</p>
 <ul>
 <li><a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a> can generate categorized changelogs, for example using <a href="https://github.com/orhun/git-cliff">git-cliff</a>.</li>
 </ul>
-<h4 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">#</a></h4>
+<h4 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code>feat(trajectory_follower): add an awesome feature
 </code></pre></div>
 <div class="admonition note">
@@ -14194,7 +14164,7 @@ Other types have the same meaning as the code repositories.</p>
 <li>It helps contributors find pull requests that are relevant to them.</li>
 <li>It makes the changelog clearer.</li>
 </ul>
-<h4 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">#</a></h4>
+<h4 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">#</a></h4>
 <p>For <abbr title="Robot Operating System">ROS</abbr> packages, adding the package name or component name is good.</p>
 <div class="highlight"><pre><span></span><code>feat(trajectory_follower): add an awesome feature
 refactor(planning, control): use common utils
@@ -14207,7 +14177,7 @@ refactor(planning, control): use common utils
 </ul>
 <h4 id="exception">Exception<a class="headerlink" href="#exception" title="Permanent link">#</a></h4>
 <p>It is acceptable if it is agreed with maintainers that there is no other way but to submit a big pull request.</p>
-<h4 id="example_4">Example<a class="headerlink" href="#example_4" title="Permanent link">#</a></h4>
+<h4 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">#</a></h4>
 <ul>
 <li>Avoid developing two features in one pull request.</li>
 <li>Avoid mixing different types (<code>feat</code>, <code>fix</code>, <code>refactor</code>, etc.) of changes in the same commit.</li>
@@ -14217,7 +14187,7 @@ refactor(planning, control): use common utils
 <ul>
 <li>It is the author's responsibility to care about their own pull request until it is merged.</li>
 </ul>
-<h4 id="example_5">Example<a class="headerlink" href="#example_5" title="Permanent link">#</a></h4>
+<h4 id="example_4">Example<a class="headerlink" href="#example_4" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code>@{some-of-developers} Would it be possible for you to review this PR?
 @autoware-maintainers friendly ping.
 </code></pre></div>

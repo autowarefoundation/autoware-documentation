@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -14183,7 +14183,7 @@ To use this framework, in <code>package.xml</code> add:</p>
 <li>Terminated with a standard <code>SIGTERM</code> signal.</li>
 </ol>
 <p>For the full API documentation,
-refer to the <a href="https://github.com/autowarefoundation/autoware_universe/blob/main/common/autoware_testing/design/autoware_testing-design.md">package design page</a>.</p>
+refer to the <a href="https://github.com/autowarefoundation/autoware_core/blob/main/testing/autoware_testing/design/autoware_testing-design.md">package design page</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This API is not suitable for all smoke test cases.
@@ -14194,12 +14194,12 @@ In such cases use the manual solution from the <a href="#integration-test-with-a
 <p>The simplest scenario is a single node.
 In this case, the integration test is commonly referred to as a component test.</p>
 <p>To add a component test to an existing node,
-you can follow the example of the <code>lanelet2_map_loader</code> in the <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/map/autoware_map_loader"><code>autoware_map_loader</code> package</a>
+you can follow the example of the <code>lanelet2_map_loader</code> in the <a href="https://github.com/autowarefoundation/autoware_core/tree/main/map/autoware_map_loader"><code>autoware_map_loader</code> package</a>
 (added in <a href="https://github.com/autowarefoundation/autoware_universe/pull/1056">this PR</a>).</p>
-<p>In <a href="https://github.com/autowarefoundation/autoware_universe/blob/main/map/autoware_map_loader/package.xml"><code>package.xml</code></a>, add:</p>
+<p>In <a href="https://github.com/autowarefoundation/autoware_core/blob/main/map/autoware_map_loader/package.xml"><code>package.xml</code></a>, add:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;test_depend&gt;</span>ros_testing<span class="nt">&lt;/test_depend&gt;</span>
 </code></pre></div>
-<p>In <a href="https://github.com/autowarefoundation/autoware_universe/blob/main/map/autoware_map_loader/CMakeLists.txt"><code>CMakeLists.txt</code></a>,
+<p>In <a href="https://github.com/autowarefoundation/autoware_core/blob/main/map/autoware_map_loader/CMakeLists.txt"><code>CMakeLists.txt</code></a>,
 add or modify the <code>BUILD_TESTING</code> section:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">if</span><span class="p">(</span><span class="s">BUILD_TESTING</span><span class="p">)</span>
 <span class="w">  </span><span class="nb">add_ros_test</span><span class="p">(</span>
@@ -14223,7 +14223,7 @@ add or modify the <code>BUILD_TESTING</code> section:</p>
 <p>To create a test,
 either read the <a href="https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example">launch_testing quick-start example</a>,
 or follow the steps below.</p>
-<p>Taking <a href="https://github.com/autowarefoundation/autoware_universe/blob/main/map/autoware_map_loader/test/lanelet2_map_loader_launch.test.py"><code>test/lanelet2_map_loader_launch.test.py</code></a> as an example,
+<p>Taking <a href="https://github.com/autowarefoundation/autoware_core/blob/main/map/autoware_map_loader/test/lanelet2_map_loader_launch.test.py"><code>test/lanelet2_map_loader_launch.test.py</code></a> as an example,
 first dependencies are imported:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
@@ -14236,7 +14236,7 @@ first dependencies are imported:</p>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 </code></pre></div>
 <p>Then a launch description is created to launch the node under test.
-Note that the <a href="https://github.com/autowarefoundation/autoware_universe/blob/main/map/autoware_map_loader/test/data/test_map.osm"><code>test_map.osm</code></a> file path is found and passed to the node,
+Note that the <a href="https://github.com/autowarefoundation/autoware_core/blob/main/map/autoware_map_loader/test/data/test_map.osm"><code>test_map.osm</code></a> file path is found and passed to the node,
 something that cannot be done with the <a href="#smoke-tests">smoke testing API</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">launch_test</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">generate_test_description</span><span class="p">():</span>
@@ -14288,7 +14288,7 @@ Here we ensure that the node was launched without error and exited cleanly.</p>
 <span class="go">source install/setup.bash</span>
 </code></pre></div>
 <p>Then either execute the component test manually:</p>
-<div class="highlight"><pre><span></span><code><span class="go">ros2 test src/universe/autoware_universe/map/autoware_map_loader/test/lanelet2_map_loader_launch.test.py</span>
+<div class="highlight"><pre><span></span><code><span class="go">ros2 test src/core/autoware_core/map/autoware_map_loader/test/lanelet2_map_loader_launch.test.py</span>
 </code></pre></div>
 <p>Or as part of testing the entire package:</p>
 <div class="highlight"><pre><span></span><code><span class="go">colcon test --packages-select autoware_map_loader</span>

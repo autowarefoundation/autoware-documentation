@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -14339,7 +14339,7 @@
 <tbody>
 <tr>
 <td>Route Planning</td>
-<td>Plan route from the ego vehicle position to the destination.<br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_mission_planner/">Mission Planner</a>, enabled by launching the <code>mission_planner</code> node.</td>
+<td>Plan route from the ego vehicle position to the destination.<br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_mission_planner_universe/">Mission Planner</a>, enabled by launching the <code>mission_planner</code> node.</td>
 <td>- Lanelet map (driving lanelets)</td>
 <td><img alt="route-planning" src="image/features-route-planning.drawio.svg"></td>
 <td></td>
@@ -14402,28 +14402,28 @@
 </tr>
 <tr>
 <td>Obstacle Stop</td>
-<td>Plan velocity to stop for an obstacle on the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/obstacle_stop_planner/">Obstacle Stop Planner</a>, <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_obstacle_cruise_planner/">Obstacle Cruise Planner</a>. <code>launch obstacle_stop_planner</code> and enable flag: <code>TODO</code>, <code>launch obstacle_cruise_planner</code> and enable flag: <code>TODO</code></td>
+<td>Plan velocity to stop for an obstacle on the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_core/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_stop_module/">Obstacle Stop Planner</a>, <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_cruise_module/">Obstacle Cruise Planner</a>. <code>launch obstacle_stop_planner</code> and enable flag: <code>TODO</code>, <code>launch obstacle_cruise_planner</code> and enable flag: <code>TODO</code></td>
 <td>- objects information</td>
 <td><img alt="obstacle-stop" src="image/features-obstacle-stop.drawio.svg"></td>
 <td><a href="https://youtu.be/d8IRW_xArcE">Demonstration Video</a> <br> <a href="https://www.youtube.com/watch?v=d8IRW_xArcE"><img alt="Demonstration Video" src="https://img.youtube.com/vi/d8IRW_xArcE/0.jpg"></a></td>
 </tr>
 <tr>
 <td>Obstacle Deceleration</td>
-<td>Plan velocity to decelerate for an obstacle located around the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/obstacle_stop_planner/">Obstacle Stop Planner</a>, <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_obstacle_cruise_planner/">Obstacle Cruise Planner</a>.</td>
+<td>Plan velocity to decelerate for an obstacle located around the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_core/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_stop_module/">Obstacle Stop Planner</a>, <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_cruise_module/">Obstacle Cruise Planner</a>.</td>
 <td>- objects information</td>
 <td><img alt="obstacle-decel" src="image/features-obstacle-decel.drawio.svg"></td>
 <td><a href="https://youtu.be/gvN1otgeaaw">Demonstration Video</a> <br> <a href="https://www.youtube.com/watch?v=gvN1otgeaaw"><img alt="Demonstration Video" src="https://img.youtube.com/vi/gvN1otgeaaw/0.jpg"></a></td>
 </tr>
 <tr>
 <td>Adaptive Cruise Control</td>
-<td>Plan velocity to follow the vehicle driving in front of the ego vehicle. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/obstacle_stop_planner/">Obstacle Stop Planner</a>, <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_obstacle_cruise_planner/">Obstacle Cruise Planner</a>.</td>
+<td>Plan velocity to follow the vehicle driving in front of the ego vehicle. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_core/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_stop_module/">Obstacle Stop Planner</a>, <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_cruise_module/">Obstacle Cruise Planner</a>.</td>
 <td>- objects information</td>
 <td><img alt="adaptive-cruise" src="image/features-adaptive-cruise.drawio.svg"></td>
 <td></td>
 </tr>
 <tr>
 <td>Decelerate for cut-in vehicles</td>
-<td>Plan velocity to avoid a risk for cutting-in vehicle to ego lane. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_obstacle_cruise_planner/">Obstacle Cruise Planner</a>.</td>
+<td>Plan velocity to avoid a risk for cutting-in vehicle to ego lane. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_cruise_module/">Obstacle Cruise Planner</a>.</td>
 <td>- objects information</td>
 <td><img alt="cut-in" src="image/features-cut-in.drawio.svg"></td>
 <td></td>
@@ -14437,7 +14437,7 @@
 </tr>
 <tr>
 <td>Curve Deceleration</td>
-<td>Plan velocity to decelerate the speed on a curve. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_velocity_smoother/">Motion Velocity Smoother</a>.</td>
+<td>Plan velocity to decelerate the speed on a curve. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_core/main/planning/autoware_velocity_smoother/">Motion Velocity Smoother</a>.</td>
 <td>- None</td>
 <td><img alt="decel-on-curve" src="image/features-decel-on-curve.drawio.svg"></td>
 <td></td>
@@ -14493,14 +14493,14 @@
 </tr>
 <tr>
 <td>Run-out Check</td>
-<td>Plan velocity to decelerate for the possibility of nearby objects running out into the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_run_out_module/">Run Out Module</a>.</td>
+<td>Plan velocity to decelerate for the possibility of nearby objects running out into the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_planner/autoware_motion_velocity_run_out_module/">Run Out Module</a>.</td>
 <td>- objects information</td>
 <td><img alt="run-out" src="image/features-run-out.drawio.svg"></td>
 <td><a href="https://youtu.be/9IDggldT2t0">Demonstration Video</a> <br> <a href="https://www.youtube.com/watch?v=9IDggldT2t0"><img alt="Demonstration Video" src="https://img.youtube.com/vi/9IDggldT2t0/0.jpg"></a></td>
 </tr>
 <tr>
 <td>Stop Line</td>
-<td>Plan velocity to stop at a stop line. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_stop_line_module/">Stop Line Module</a>.</td>
+<td>Plan velocity to stop at a stop line. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_core/main/planning/behavior_velocity_planner/autoware_behavior_velocity_stop_line_module/">Stop Line Module</a>.</td>
 <td>- Lanelet map (stop line)</td>
 <td><img alt="stop-line" src="image/features-stop-line.drawio.svg"></td>
 <td><a href="https://youtu.be/eej9jYt-GSE">Demonstration Video</a> <br> <a href="https://www.youtube.com/watch?v=eej9jYt-GSE"><img alt="Demonstration Video" src="https://img.youtube.com/vi/eej9jYt-GSE/0.jpg"></a></td>
@@ -14577,7 +14577,7 @@
 </tr>
 <tr>
 <td>Trajectory Validation</td>
-<td>Check the planned trajectory is safe. If it is unsafe, take appropriate action, such as modify the trajectory, stop sending the trajectory or report to the autonomous driving system. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_planning_validator/">Planning Validator</a>.</td>
+<td>Check the planned trajectory is safe. If it is unsafe, take appropriate action, such as modify the trajectory, stop sending the trajectory or report to the autonomous driving system. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/planning_validator/autoware_planning_validator/">Planning Validator</a>.</td>
 <td>- None</td>
 <td><img alt="trajectory-validation" src="image/features-trajectory-validation.drawio.svg"></td>
 <td></td>
@@ -14591,7 +14591,7 @@
 </tr>
 <tr>
 <td>Running Lane Optimization</td>
-<td>Optimize the centerline (reference path) of the map to make it smooth considering the vehicle kinematics. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_static_centerline_generator/">Static Centerline Optimizer</a>.</td>
+<td>Optimize the centerline (reference path) of the map to make it smooth considering the vehicle kinematics. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware_tools/main/planning/autoware_static_centerline_generator/">Static Centerline Optimizer</a>.</td>
 <td>- Lanelet map (driving lanes)</td>
 <td>WIP</td>
 <td></td>
@@ -14606,7 +14606,7 @@
 <p><img alt="reference-implementation" src="image/planning-diagram-tmp.drawio.svg"></p>
 <p>For more details, please refer to the design documents in each package.</p>
 <ul>
-<li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_mission_planner/"><em>mission_planner</em></a>: calculate route from start to goal based on the map information.</li>
+<li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_mission_planner_universe/"><em>mission_planner</em></a>: calculate route from start to goal based on the map information.</li>
 <li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_planner/"><em>behavior_path_planner</em></a>: calculates path and drivable area based on the traffic rules.<ul>
 <li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_planner#lane-following"><em>lane_following</em></a></li>
 <li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_lane_change_module/"><em>lane_change</em></a></li>
@@ -14616,32 +14616,32 @@
 <li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_side_shift_module/"><em>side_shift</em></a></li>
 </ul>
 </li>
-<li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_planner/"><em>behavior_velocity_planner</em></a>: calculates max speed based on the traffic rules.<ul>
+<li><a href="https://autowarefoundation.github.io/autoware_core/main/planning/behavior_velocity_planner/autoware_behavior_velocity_planner/"><em>behavior_velocity_planner</em></a>: calculates max speed based on the traffic rules.<ul>
 <li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_detection_area_module/"><em>detection_area</em></a></li>
 <li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_blind_spot_module/"><em>blind_spot</em></a></li>
 <li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_crosswalk_module/"><em>cross_walk</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_stop_line_module/"><em>stop_line</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware_core/main/planning/behavior_velocity_planner/autoware_behavior_velocity_stop_line_module/"><em>stop_line</em></a></li>
 <li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_traffic_light_module/"><em>traffic_light</em></a></li>
 <li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_intersection_module/"><em>intersection</em></a></li>
 <li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_no_stopping_area_module/"><em>no_stopping_area</em></a></li>
 <li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_virtual_traffic_light_module/"><em>virtual_traffic_light</em></a></li>
 <li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_occlusion_spot_module/"><em>occlusion_spot</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_run_out_module/"><em>run_out</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_planner/autoware_motion_velocity_run_out_module/"><em>run_out</em></a></li>
 </ul>
 </li>
 <li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_dynamic_obstacle_avoidance_module/"><em>obstacle_avoidance_planner</em></a>: calculate path shape under obstacle and drivable area constraints</li>
 <li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_surround_obstacle_checker/"><em>surround_obstacle_checker</em></a>: keeps the vehicle being stopped when there are obstacles around the ego-vehicle. It works only when the vehicle is stopped.</li>
-<li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/obstacle_stop_planner/"><em>obstacle_stop_planner</em></a>: When there are obstacles on or near the trajectory, it calculates the maximum velocity of the trajectory points depending on the situation: stopping, slowing down, or adaptive cruise (following the car).<ul>
-<li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/obstacle_stop_planner/#obstacle-stop-planner_1"><em>stop</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/obstacle_stop_planner/#slow-down-planner"><em>slow_down</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/obstacle_stop_planner/#adaptive-cruise-controller"><em>adaptive_cruise</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware_core/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_stop_module/"><em>obstacle_stop_planner</em></a>: When there are obstacles on or near the trajectory, it calculates the maximum velocity of the trajectory points depending on the situation: stopping, slowing down, or adaptive cruise (following the car).<ul>
+<li><a href="https://autowarefoundation.github.io/autoware_core/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_stop_module/"><em>stop</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_slow_down_module/"><em>slow_down</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_cruise_module/"><em>adaptive_cruise</em></a></li>
 </ul>
 </li>
 <li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_costmap_generator"><em>costmap_generator</em></a>: generates a costmap for path generation from dynamic objects and lane information.</li>
 <li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_freespace_planner/"><em>freespace_planner</em></a>: calculates trajectory considering the feasibility (e.g. curvature) for the freespace scene. Algorithms are described <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_freespace_planning_algorithms/">here</a>.</li>
 <li><em>scenario_selector</em> : chooses a trajectory according to the current scenario.</li>
 <li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_external_velocity_limit_selector/"><em>external_velocity_limit_selector</em></a>: takes an appropriate velocity limit from multiple candidates.</li>
-<li><a href="https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_planner/autoware_motion_velocity_planner_node/"><em>motion_velocity_smoother</em></a>: calculates final velocity considering velocity, acceleration, and jerk constraints.</li>
+<li><a href="https://autowarefoundation.github.io/autoware_core/main/planning/autoware_velocity_smoother/"><em>motion_velocity_smoother</em></a>: calculates final velocity considering velocity, acceleration, and jerk constraints.</li>
 </ul>
 <h3 id="important-information-in-the-current-implementation">Important information in the current implementation<a class="headerlink" href="#important-information-in-the-current-implementation" title="Permanent link">#</a></h3>
 <p>An important difference compared to the high-level design is the "introduction of the scenario layer" and the "clear separation of behavior and motion." These are introduced due to current performance and implementation challenges. Whether to define these as part of the high-level design or to improve them as part of the implementation is a matter of discussion.</p>
@@ -14654,7 +14654,7 @@
 <p>While it is possible to add module-level functionalities in the current implementation, a unified interface for all functionalities is not provided. Here's a brief explanation of the methods of extending at the module level in the current implementation.</p>
 <p><img alt="reference-implementation-add-new-modules" src="image/reference-implementation-add-new-modules.drawio.svg"></p>
 <h4 id="add-new-modules-in-behavior_velocity_planner-or-behavior_path_planner">Add new modules in behavior_velocity_planner or behavior_path_planner<a class="headerlink" href="#add-new-modules-in-behavior_velocity_planner-or-behavior_path_planner" title="Permanent link">#</a></h4>
-<p><abbr title="Robot Operating System">ROS</abbr> nodes such as <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_planner/">behavior_path_planner</a> and <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_planner/">behavior_velocity_planner</a> have a module interface available through plugins. By adding modules in accordance with the module interfaces defined in these <abbr title="Robot Operating System">ROS</abbr> nodes, dynamic loading/unloading of modules becomes possible. For specific methods of adding modules, please refer to the documentation of each package.</p>
+<p><abbr title="Robot Operating System">ROS</abbr> nodes such as <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_planner/">behavior_path_planner</a> and <a href="https://autowarefoundation.github.io/autoware_core/main/planning/behavior_velocity_planner/autoware_behavior_velocity_planner/">behavior_velocity_planner</a> have a module interface available through plugins. By adding modules in accordance with the module interfaces defined in these <abbr title="Robot Operating System">ROS</abbr> nodes, dynamic loading/unloading of modules becomes possible. For specific methods of adding modules, please refer to the documentation of each package.</p>
 <h4 id="add-a-new-ros-node-in-the-planning-component">Add a new ros node in the planning component<a class="headerlink" href="#add-a-new-ros-node-in-the-planning-component" title="Permanent link">#</a></h4>
 <p>When adding modules in Motion Planning, it is necessary to create the module as a <abbr title="Robot Operating System">ROS</abbr> Node and integrate it into the planning component. The current configuration involves adding information to the target trajectory calculated upstream, and the introduction of a <abbr title="Robot Operating System">ROS</abbr> Node in this process allows for the expansion of functionality.</p>
 <h4 id="add-or-replace-with-scenarios">Add or replace with scenarios<a class="headerlink" href="#add-or-replace-with-scenarios" title="Permanent link">#</a></h4>

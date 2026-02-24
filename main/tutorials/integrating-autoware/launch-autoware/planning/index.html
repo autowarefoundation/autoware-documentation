@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -13998,7 +13998,7 @@ it will override the value on lower-level launches.</p>
 </div>
 <h2 id="tier4_planning_componentlaunchxml">tier4_planning_component.launch.xml<a class="headerlink" href="#tier4_planning_componentlaunchxml" title="Permanent link">#</a></h2>
 <p>The <code>tier4_planning_component.launch.xml</code> launch file is the main planning component launch at the <code>autoware_launch</code> package.
-This launch file calls <code>planning.launch.xml</code> at <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/launch/tier4_planning_launch">tier4_planning_launch</a> package from <code>autoware_universe</code> repository.
+This launch file calls <code>planning.launch.xml</code> at <a href="https://github.com/autowarefoundation/autoware_launch/tree/main/tier4_universe_launch/tier4_planning_launch">tier4_planning_launch</a> package from <code>autoware_universe</code> repository.
 We can modify planning launch arguments at tier4_planning_component.launch.xml.
 Also,
 we can add any other necessary arguments
@@ -14010,7 +14010,7 @@ Here are some predefined planning launch arguments:</p>
 <p><strong><code>use_experimental_lane_change_function:</code></strong> This argument enables
   <code>enable_collision_check_at_prepare_phase</code>, <code>use_predicted_path_outside_lanelet</code>,
   and <code>use_all_predicted_path</code> options for Autoware for experimental lane changing
-  (for more information, please refer to <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/docs/behavior_path_planner_lane_change_design/">lane_change documentation</a>).
+  (for more information, please refer to <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_lane_change_module/">lane_change documentation</a>).
   The default value is True.
   To set it to False, make the following change in the <code>tier4_planning_component.launch.xml</code> file:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="use_experimental_lane_change_function" default="true"/&gt;</span>
@@ -14020,8 +14020,8 @@ Here are some predefined planning launch arguments:</p>
 </ul>
 <ul>
 <li>
-<p><strong><code>cruise_planner_type:</code></strong> There are two types of cruise planners in Autoware: <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/obstacle_stop_planner/">obstacle_stop_planner</a>
-  and <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/obstacle_cruise_planner/">obstacle_cruise_planner</a>. For specifications on these cruise planner types,
+<p><strong><code>cruise_planner_type:</code></strong> There are two types of cruise planners in Autoware: <a href="https://autowarefoundation.github.io/autoware_core/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_stop_module/">obstacle_stop_planner</a>
+  and <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_cruise_module/">obstacle_cruise_planner</a>. For specifications on these cruise planner types,
   please refer to the package documentation. The default cruise planner is <code>obstacle_stop_planner</code>.
   To change it to obstacle_cruise_planner, update the argument value in the <code>tier4_planning_component.launch.xml</code> file:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="cruise_planner_type" default="obstacle_stop_planner" description="options: obstacle_stop_planner, obstacle_cruise_planner, none"/&gt;</span>
@@ -14031,7 +14031,7 @@ Here are some predefined planning launch arguments:</p>
 </ul>
 <ul>
 <li>
-<p><strong><code>use_surround_obstacle_check:</code></strong> This argument enables the <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/surround_obstacle_checker/">surround_obstacle_checker</a>
+<p><strong><code>use_surround_obstacle_check:</code></strong> This argument enables the <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_surround_obstacle_checker/">surround_obstacle_checker</a>
   for Autoware. If you want to disable it, you can do in the
   <code>tier4_planning_component.launch.xml</code> file:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="use_surround_obstacle_check" default="true"/&gt;</span>
@@ -14042,7 +14042,7 @@ Here are some predefined planning launch arguments:</p>
 <ul>
 <li>
 <p><strong><code>velocity_smoother_type:</code></strong> This argument specifies the type of smoother
-  for the <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_smoother/">motion_velocity_smoother</a> package. Please consult the documentation
+  for the <a href="https://autowarefoundation.github.io/autoware_core/main/planning/autoware_velocity_smoother/">motion_velocity_smoother</a> package. Please consult the documentation
   for detailed information about available smoother types. For instance, if
   you wish to change your smoother type from JerkFiltered to L2, you can do
   in the tier4_planning_component.launch.xml file.:</p>

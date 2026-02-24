@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -14286,8 +14286,8 @@
 
     FilterC --&gt;|"Cloud XYZIRC"| SegGr["Ground Segmentation"]</code></pre>
 <h2 id="list-of-modules">List of modules<a class="headerlink" href="#list-of-modules" title="Permanent link">#</a></h2>
-<p>The modules used here are from <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/pointcloud_preprocessor">pointcloud_preprocessor package</a>.</p>
-<p>For details about the modules, see <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/pointcloud_preprocessor#inner-workings--algorithms">the following table</a>.</p>
+<p>The modules used here are from <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_pointcloud_preprocessor">pointcloud_preprocessor package</a>.</p>
+<p>For details about the modules, see <a href="https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_pointcloud_preprocessor#inner-workings--algorithms">the following table</a>.</p>
 <p>It is recommended that these modules are used in a single container as components. For details see <a href="https://docs.ros.org/en/rolling/Tutorials/Intermediate/Composition.html"><abbr title="Robot Operating System">ROS</abbr> 2 Composition</a></p>
 <h2 id="point-cloud-fields">Point cloud fields<a class="headerlink" href="#point-cloud-fields" title="Permanent link">#</a></h2>
 <p>The lidar driver is expected to output a point cloud with the <code>PointXYZIRCAEDT</code> point type.</p>
@@ -14394,7 +14394,7 @@ retroreflecting surfaces pop with reflected IR light compared to diffuse reflect
 <p>But in a point cloud with retroreflectors, the intensity points will be between 0 and 255.</p>
 <h4 id="intensity-mapping-for-other-lidar-brands">Intensity mapping for other lidar brands<a class="headerlink" href="#intensity-mapping-for-other-lidar-brands" title="Permanent link">#</a></h4>
 <h5 id="hesai-pandarxt16">Hesai PandarXT16<a class="headerlink" href="#hesai-pandarxt16" title="Permanent link">#</a></h5>
-<p><a href="https://www.oxts.com/wp-content/uploads/2021/01/Hesai-PandarXT16_User_Manual.pdf">Hesai Pandar XT16 User Manual</a></p>
+<p><a href="https://www.hesaitech.com/wp-content/uploads/2025/04/PandarXT-16_User_Manual_X02-en-250410.pdf">Hesai Pandar XT16 User Manual</a></p>
 <p>This lidar has 2 modes for reporting reflectivity:</p>
 <ul>
 <li>Linear mapping</li>
