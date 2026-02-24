@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
     
     
       
@@ -14067,11 +14067,11 @@
 <p>You can install it with <code>sudo apt install python3-vcs2l</code>.</p>
 <h3 id="configurations">Configurations<a class="headerlink" href="#configurations" title="Permanent link">#</a></h3>
 <p>Always first pull the <code>autoware.repos</code> since it holds the essential repositories.</p>
-<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware.repos
+<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware.repos
 </code></pre></div>
 <p>For most cases, this will be enough.</p>
 <p>If you want to use the nightly versions of the repositories, also pull the <code>autoware-nightly.repos</code> file. (It requires <code>autoware.repos</code> to be pulled first.)</p>
-<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>--recursive<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware-nightly.repos
+<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware-nightly.repos
 </code></pre></div>
 <p>If you want to use the other repositories such as scenario simulator or the tools, pull the corresponding <code>.repos</code> files.</p>
 <h3 id="managing-repositories">Managing repositories<a class="headerlink" href="#managing-repositories" title="Permanent link">#</a></h3>
