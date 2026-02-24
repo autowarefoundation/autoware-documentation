@@ -31,7 +31,7 @@ The following table provides a qualitative comparison of the advantages and disa
 | Shutter trigger       | **Supported** | Requires extra equipment | Requires extra equipment |
 | Plug and play         | No            | **Yes**                  | Product dependent        |
 | Data transfer latency | **Ultra-Low** | Low                      | Low                      |
-| Maximum bandwidth     | **6 Gbps**    | 5 Gbps @ USB3.0           | 1 Gbps                   |
+| Maximum bandwidth     | **6 Gbps**    | 5 Gbps @ USB3.0          | 1 Gbps                   |
 
 USB provides the most straightforward integration due to its native plug-and-play capabilities.
 GigE is optimal for applications requiring long-distance transmission (up to 100 m).
