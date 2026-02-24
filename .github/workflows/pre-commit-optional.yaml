@@ -1,23 +1,23 @@
-# This file is automatically synced from:
-# https://github.com/autowarefoundation/sync-file-templates
-# To make changes, update the source repository and follow the guidelines in its README.
-
 name: pre-commit-optional
 
 on:
   pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   pre-commit-optional:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
-          fetch-depth: 0
+          fetch-depth: ${{ github.event_name == 'pull_request' && 0 || 1 }}
 
       - name: Run pre-commit
         uses: autowarefoundation/autoware-github-actions/pre-commit@v1
         with:
           pre-commit-config: .pre-commit-config-optional.yaml
-          base-branch: origin/${{ github.base_ref }}
+          base-branch: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || '' }}
