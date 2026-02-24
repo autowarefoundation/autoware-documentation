@@ -37,4 +37,4 @@ RoboSense L4 sensor fusion solution system contents are listed below:
 | P6                      | -      | 4x Automotive Grade Solid-state Lidar | Optional | -             | -                     |
 
 Link to company website:  
-[https://www.robosense.ai/en/rslidar/RS-Fusion-P6](https://www.robosense.ai/en/rslidar/RS-Fusion-P6)
+[https://www.robosense.ai/en/news-show-1690](https://www.robosense.ai/en/news-show-1690)

@@ -68,7 +68,7 @@ Link to ROS 2 driver:
 [https://github.com/neil-rti/avt_vimba_camera](https://github.com/neil-rti/avt_vimba_camera)
 
 Link to company website:  
-[https://www.alliedvision.com/en/products/camera-series/mako-g](https://www.alliedvision.com/en/products/camera-series/mako-g)
+[https://www.alliedvision.com/en/products/area-scan-cameras/mako/mako/view/1051](https://www.alliedvision.com/en/products/area-scan-cameras/mako/mako/view/1051)
 
 ## **Neousys Technology Camera**
 

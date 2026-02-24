@@ -28,4 +28,4 @@ Autonomoustuff platform solutions which is used for autonomous development and t
 | Road Vehicles, Golf Carts & Trucks | Y                  | Y                  | Y             | -                     |
 
 Link to company website:  
-[https://autonomoustuff.com/platform](https://autonomoustuff.com/platform)
+[https://autonomoustuff.com/solutions](https://autonomoustuff.com/solutions)

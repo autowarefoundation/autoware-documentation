@@ -67,7 +67,7 @@ Link to ROS 2 drivers:
 [https://github.com/HesaiTechnology/HesaiLidar_General_ROS](https://github.com/HesaiTechnology/HesaiLidar_General_ROS)
 
 Link to company website:  
-[https://www.hesaitech.com/en/](https://www.hesaitech.com/en/)
+[https://www.hesaitech.com](https://www.hesaitech.com)
 
 ## **Leishen 3D LIDAR Sensors**
 

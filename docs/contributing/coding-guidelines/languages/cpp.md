@@ -9,7 +9,7 @@
 Follow the guidelines below if a rule is not defined on this page.
 
 1. <https://docs.ros.org/en/humble/Contributing/Code-Style-Language-Versions.html>
-2. <https://www.autosar.org/fileadmin/standards/adaptive/22-11/AUTOSAR_RS_CPP14Guidelines.pdf>
+2. <https://www.autosar.org/fileadmin/standards/R22-11/AP/AUTOSAR_RS_CPP14Guidelines.pdf>
 3. <https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines>
 
 Also, it is encouraged to apply Clang-Tidy to each file.
@@ -211,7 +211,7 @@ RosApi ros_api;
 
 #### Reference
 
-- [Eigen, C++11 and the auto keyword](https://eigen.tuxfamily.org/dox/TopicPitfalls.html)
+- [Eigen, C++11 and the auto keyword](https://libeigen.gitlab.io/eigen/docs-nightly/TopicPitfalls.html)
 
 ### Use RCLCPP\_\* (e.g. RCLCPP_INFO) macros instead of printf or std::cout for logging (required)
 

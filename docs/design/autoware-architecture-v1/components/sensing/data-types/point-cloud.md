@@ -27,9 +27,9 @@ graph TD
 
 ## List of modules
 
-The modules used here are from [pointcloud_preprocessor package](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/pointcloud_preprocessor).
+The modules used here are from [pointcloud_preprocessor package](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_pointcloud_preprocessor).
 
-For details about the modules, see [the following table](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/pointcloud_preprocessor#inner-workings--algorithms).
+For details about the modules, see [the following table](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_pointcloud_preprocessor#inner-workings--algorithms).
 
 It is recommended that these modules are used in a single container as components. For details see [ROS 2 Composition](https://docs.ros.org/en/rolling/Tutorials/Intermediate/Composition.html)
 
@@ -88,7 +88,7 @@ But in a point cloud with retroreflectors, the intensity points will be between 
 
 ##### Hesai PandarXT16
 
-[Hesai Pandar XT16 User Manual](https://www.oxts.com/wp-content/uploads/2021/01/Hesai-PandarXT16_User_Manual.pdf)
+[Hesai Pandar XT16 User Manual](https://www.hesaitech.com/wp-content/uploads/2025/04/PandarXT-16_User_Manual_X02-en-250410.pdf)
 
 This lidar has 2 modes for reporting reflectivity:
 

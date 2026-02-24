@@ -8,7 +8,7 @@
 
 ### Original Repository link
 
-[https://github.com/irapkaist/SC-LeGO-LOAM](https://github.com/irapkaist/SC-LeGO-LOAM)
+[https://github.com/gisbi-kim/SC-LeGO-LOAM](https://github.com/gisbi-kim/SC-LeGO-LOAM)
 
 ### Required Sensors
 

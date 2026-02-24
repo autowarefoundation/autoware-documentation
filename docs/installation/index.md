@@ -60,7 +60,7 @@ For installation types, see the subsections below. If any issues occur during in
 
 Autoware's Open AD Kit containers enable you to run and develop Autoware easily on your host machine, ensuring the same environment for development and deployment without installing dependencies.
 
-[Open AD Kit](https://autoware.org/open-ad-kit/) is the first [SOAFEE Blueprint](https://www.soafee.io/about/charter) for autonomous driving, offering extensible modular containerized workloads to simplify running Autoware's AD stack on distributed systems. Refer to the [Open AD Kit Documentation](https://autowarefoundation.github.io/openadkit/) for more details.
+[Open AD Kit](https://autoware.org/open-ad-kit/) is the first [SOAFEE Blueprint](https://www.soafee.io/charter/) for autonomous driving, offering extensible modular containerized workloads to simplify running Autoware's AD stack on distributed systems. Refer to the [Open AD Kit Documentation](https://autowarefoundation.github.io/openadkit/) for more details.
 
 <div style="text-align: center;" markdown="1">
 

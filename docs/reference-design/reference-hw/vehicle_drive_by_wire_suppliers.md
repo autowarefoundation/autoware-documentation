@@ -24,7 +24,7 @@ Autonomous Stuff Pacmod DBW Controllers which is used for autonomous driving and
 | Polaris GEM Series<br>Polaris eLXD MY 2016+<br>Polaris Ranger X900<br>International ProStar<br>Lexus RX-450h MY<br>Ford Ranger<br>Toyota Minivan<br>Ford Transit<br>Honda CR-V | Power distribution panel | Optional, Available | Y             | Y                     |
 
 Link to company website:  
-[https://autonomoustuff.com/platform/pacmod](https://autonomoustuff.com/platform/pacmod)
+[https://autonomoustuff.com/solutions/production-drive-by-wire](https://autonomoustuff.com/solutions/production-drive-by-wire)
 
   <!-- cspell: ignore Paravan -->
 
