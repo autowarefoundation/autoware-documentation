@@ -1,0 +1,62 @@
+name: github-release
+
+on:
+  push:
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+"
+
+permissions:
+  contents: write
+
+jobs:
+  github-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build docs site
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          pip install -r mkdocs-requirements.txt
+          mkdocs build
+
+      - name: Compress site
+        run: tar -czf autoware-docs-site.tar.gz site/
+
+      - name: Generate changelog
+        id: changelog
+        uses: autowarefoundation/autoware-github-actions/generate-changelog@v1
+        with:
+          git-cliff-args: --tag-pattern "^(\d+)\.(\d+)\.(\d+)$" --latest
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body: |
+            ${{ steps.changelog.outputs.changelog }}
+
+            ## Instructions
+
+            Download the `autoware-docs-site.tar.gz` artifact from below.
+
+            ```
+            tar -xzf autoware-docs-site.tar.gz
+            cd site
+            python3 -m http.server 8000
+            ```
+
+            Then navigate to http://localhost:8000 on your browser.
+          tag_name: ${{ github.ref_name }}
+          name: ${{ github.ref_name }}
+          files: autoware-docs-site.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
