@@ -94,13 +94,13 @@ Open AD Kit provides different deployment options for Autoware, so that you can 
 
    ```bash
    mkdir -p src
-   vcs import --recursive src < repositories/autoware.repos
+   vcs import src < repositories/autoware.repos
    ```
 
    If you are an active developer, you may also want to pull the nightly repositories, which contain the latest updates:
 
    ```bash
-   vcs import --recursive src < repositories/autoware-nightly.repos
+   vcs import src < repositories/autoware-nightly.repos
    ```
 
    > ⚠️ Note: The nightly repositories are unstable and may contain bugs. Use them with caution.
@@ -108,7 +108,7 @@ Open AD Kit provides different deployment options for Autoware, so that you can 
    Optionally, you may also download the extra repositories that contain drivers for specific hardware, but they are not necessary for building and running Autoware:
 
    ```bash
-   vcs import --recursive src < repositories/extra-packages.repos
+   vcs import src < repositories/extra-packages.repos
    ```
 
    > ⚠️ You might need to install the dependencies of the extra packages manually.
@@ -140,10 +140,10 @@ Open AD Kit provides different deployment options for Autoware, so that you can 
 ```bash
 cd autoware
 git pull
-vcs import --recursive src < repositories/autoware.repos
+vcs import src < repositories/autoware.repos
 
 # If you are using nightly repositories, also run the following command:
-vcs import --recursive src < repositories/autoware-nightly.repos
+vcs import src < repositories/autoware-nightly.repos
 
 vcs pull src
 # Make sure all ros-$ROS_DISTRO-* packages are upgraded to their latest version
@@ -152,15 +152,15 @@ rosdep update
 rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 ```
 
-It might be the case that dependencies imported via `vcs import --recursive` have been moved/removed.
-Vcs2l does not currently handle those cases, so if builds fail after `vcs import --recursive`, cleaning
+It might be the case that dependencies imported via `vcs import` have been moved/removed.
+Vcs2l does not currently handle those cases, so if builds fail after `vcs import`, cleaning
 and re-importing all dependencies may be necessary:
 
 ```bash
 rm -rf src/*
-vcs import --recursive src < repositories/autoware.repos
+vcs import src < repositories/autoware.repos
 # If you are using nightly repositories, import them as well.
-vcs import --recursive src < repositories/autoware-nightly.repos
+vcs import src < repositories/autoware-nightly.repos
 ```
 
 ### Using VS Code remote containers for development

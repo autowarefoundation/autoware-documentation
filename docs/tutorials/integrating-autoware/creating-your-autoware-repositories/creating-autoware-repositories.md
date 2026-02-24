@@ -153,10 +153,10 @@ Then, import all necessary repositories with vcs:
 
 ```bash
 cd <YOUR-AUTOWARE-DIR>
-vcs import --recursive src < repositories/autoware.repos
+vcs import src < repositories/autoware.repos
 ```
 
-After the running `vcs import --recursive` command,
+After the running `vcs import` command,
 all autoware repositories will be cloned in the `src` folder under the Autoware directory.
 
 Now, you can build your own repository with colcon build command:
