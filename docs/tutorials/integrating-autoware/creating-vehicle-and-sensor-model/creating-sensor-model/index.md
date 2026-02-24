@@ -29,7 +29,7 @@ following the directory structure below:
 If your forked Autoware meta-repository doesn't include `<YOUR-VEHICLE-NAME>_sensor_kit_launch` with the correct folder structure
 as shown above,
 please add your forked `<YOUR-VEHICLE-NAME>_sensor_kit_launch` repository to the autoware.repos file
-and run the `vcs import --recursive src < repositories/autoware.repos` command in your terminal
+and run the `vcs import src < repositories/autoware.repos` command in your terminal
 to import the newly included repositories at autoware.repos file.
 
 Now, we are ready to modify the following sensor model packages for our vehicle.

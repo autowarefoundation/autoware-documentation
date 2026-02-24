@@ -140,7 +140,7 @@ In addition to the causes listed above, there are two common misunderstandings a
    All of the repository versions in the `.repos` file must be specified in order to use a completely fixed version.
 
 2. You didn't update the workspace after changing the branch of `autowarefoundation/autoware`.
-   Changing the branch of `autowarefoundation/autoware` does not affect the files under `src/`. You have to run the `vcs import` (including the `--recursive` flag) command to update them.
+   Changing the branch of `autowarefoundation/autoware` does not affect the files under `src/`. You have to run the `vcs import` command to update them.
 
 ### Error when building python package
 
