@@ -52,7 +52,9 @@ Use this workflow as a reference when you contribute to Autoware.
 - The unified style of descriptions by templates can make reviews efficient.
 
 #### Steps to use an appropriate pull request template
+
 Some repositories may have multiple pull request templates. Follow the following instructions to create a pull request using the appropriate template:
+
 1. Select the appropriate template, as shown in [this video](https://user-images.githubusercontent.com/31987104/184344710-2adee239-799f-4fdf-bfab-be76345bfac1.mp4).
 2. Read the selected template carefully and fill the required content.
 3. Check the checkboxes during a review.
