@@ -9,7 +9,7 @@ and versioning other repositories.
 To accomplish this,
 the Autoware meta-repository includes the [`repositories/autoware.repos`](https://github.com/autowarefoundation/autoware/blob/main/repositories/autoware.repos) file
 for managing multiple repositories.
-We will use the [VCS](https://github.com/dirk-thomas/vcs2l) tool
+We will use the [VCS](https://github.com/ros-infrastructure/vcs2l) tool
 (Version Control System) to handle the .repos file.
 VCS provides us with the capability to import, export, and pull from multiple repositories.
 VCS will be used to import all the necessary repositories to build Autoware into our workspace.

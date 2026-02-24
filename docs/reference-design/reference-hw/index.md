@@ -4,7 +4,7 @@ This document is created to describe and give additional information of the sens
 
 All equipment listed in this document has available ROS 2 drivers and has been tested by one or more of the community members on field in autonomous vehicle and robotics applications.
 
-The listed sensors and systems are not sold, developed or given direct technical support by the Autoware community. Having said that any ROS 2 and Autoware related issue regarding the hardware usage could be asked using the community guidelines which found [here.](https://answers.ros.org/questions/ask/?tags=autoware)
+The listed sensors and systems are not sold, developed or given direct technical support by the Autoware community. Having said that any ROS 2 and Autoware related issue regarding the hardware usage could be asked using the community guidelines which found [here.](https://autowarefoundation.github.io/autoware-documentation/main/community/support/support-guidelines/)
 
 The documents consists of the sections listed below:
 

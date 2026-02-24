@@ -98,7 +98,7 @@ increase the initial acceleration output by Autoware,
 or modify the acceleration to throttle mapping.
 
 The initial acceleration output by Autoware can be tuned in the
-[`motion_velocity_smoother`](https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_smoother/)
+[`motion_velocity_smoother`](https://autowarefoundation.github.io/autoware_core/main/planning/autoware_velocity_smoother)
 with parameters `engage_velocity` and `engage_acceleration`.
 However, the [`vehicle_cmd_gate`](https://autowarefoundation.github.io/autoware_universe/main/control/autoware_vehicle_cmd_gate/)
 applies a filter on the control command to prevent too sudden changes in jerk and acceleration,

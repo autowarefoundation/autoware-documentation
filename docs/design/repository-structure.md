@@ -119,7 +119,7 @@ Here is an overview of the most important repositories:
 
 - Contains many useful tools for Autoware development.
 - These are not expected to run during self-driving. Although some tools are helpful for diagnostics and debugging.
-- Pulled by the [`repositories/tools.repos`](https://github.com/autowarefoundation/autoware/blob/main/repository/tools.repos).
+- Pulled by the [`repositories/tools.repos`](https://github.com/autowarefoundation/autoware/blob/main/repositories/tools.repos).
 
 ### `autoware_utils`
 

@@ -142,7 +142,7 @@ it could be negative value like the mirror dimension figure below.
 This file is a configuration file for the [simulator environment](https://autowarefoundation.github.io/autoware_universe/main/simulator/autoware_simple_planning_simulator/).
 Please update these parameters according to your vehicle specifications.
 For detailed information about variables,
-please check the [simple_planning_simulator](https://github.com/autowarefoundation/autoware_universe/tree/main/simulator/simple_planning_simulator) package.
+please check the [simple_planning_simulator](https://github.com/autowarefoundation/autoware_universe/tree/main/simulator/autoware_simple_planning_simulator) package.
 The file consists of these parameters:
 
 ```yaml

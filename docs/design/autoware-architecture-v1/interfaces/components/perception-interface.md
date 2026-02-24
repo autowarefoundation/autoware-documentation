@@ -64,7 +64,7 @@ current position of ego, used in traffic signals recognition. See [output of Loc
 
 ### Lanelet2 Map
 
-map of the environment. See [outputs of Map](map.md/#outputs).
+map of the environment. See [outputs of Map](./map.md#outputs).
 
 ## Output
 

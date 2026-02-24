@@ -15,7 +15,7 @@ Link to ROS 2 driver:
 [https://github.com/swri-robotics/novatel_gps_driver/tree/dashing-devel](https://github.com/swri-robotics/novatel_gps_driver/tree/dashing-devel)
 
 Link to company website:  
-[https://hexagonpositioning.com/](https://hexagonpositioning.com/)
+[https://novatel.com/products/gnss-inertial-navigation-systems](https://novatel.com/products/gnss-inertial-navigation-systems)
 
 ## **XSens GNSS/INS & IMU Sensors**
 
