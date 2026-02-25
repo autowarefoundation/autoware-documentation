@@ -21,9 +21,10 @@
 2. Create workspace and clone repository into it.
 
    ```bash
-   mkdir -p $HOME/autoware_core_workspace/src
-   cd $HOME/autoware_core_workspace/src
-   git clone https://github.com/autowarefoundation/autoware_core.git
+   git clone https://github.com/autowarefoundation/autoware.git $HOME/autoware_core_workspace
+   cd $HOME/autoware_core_workspace
+   mkdir -p src
+   vcs import src < repositories/core.repos
    ```
 
 3. Install dependent ROS packages.
