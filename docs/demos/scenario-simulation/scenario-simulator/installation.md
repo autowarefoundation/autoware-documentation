@@ -17,7 +17,7 @@ This document contains step-by-step instruction on how to build [AWF Autoware Co
 2. Import Simulator dependencies:
 
    ```bash
-   vcs import src < simulator.repos
+   vcs import src < repositories/simulator.repos
    ```
 
 3. Install dependent ROS packages:

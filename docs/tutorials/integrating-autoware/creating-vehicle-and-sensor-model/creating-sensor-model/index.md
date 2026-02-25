@@ -29,7 +29,7 @@ following the directory structure below:
 If your forked Autoware meta-repository doesn't include `<YOUR-VEHICLE-NAME>_sensor_kit_launch` with the correct folder structure
 as shown above,
 please add your forked `<YOUR-VEHICLE-NAME>_sensor_kit_launch` repository to the autoware.repos file
-and run the vcs import src < autoware.repos command in your terminal
+and run the `vcs import src < repositories/autoware.repos` command in your terminal
 to import the newly included repositories at autoware.repos file.
 
 Now, we are ready to modify the following sensor model packages for our vehicle.
@@ -558,7 +558,7 @@ you can launch the camera and 2D detection pipeline separately.
 For example,
 you can clone your camera driver
 at `src/sensor_component/external` folder
-(please don't forget adding this driver to `autoware.repos` file):
+(please don't forget adding this driver to `repositories/autoware.repos` file):
 
 ```diff
 <YOUR-AUTOWARE-DIR>
@@ -915,11 +915,11 @@ We will set up the GNSS/INS sensor launches at `gnss.launch.xml`.
 The default GNSS sensor options at [`sample_sensor_kit_launch`](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_launch/launch/gnss.launch.xml) for [u-blox](https://www.u-blox.com/en/)
 and [septentrio](https://www.septentrio.com/en) is included in `gnss.launch.xml`,
 so If we use other sensors as GNSS/INS receiver, we need to add it here.
-Moreover, [gnss_poser](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_gnss_poser) package launches here,
+Moreover, [gnss_poser](https://github.com/autowarefoundation/autoware_core/tree/main/sensing/autoware_gnss_poser) package launches here,
 we will use this package for the pose source of our vehicle at localization initialization but remember,
 your sensor_driver must provide [autoware gnss orientation message](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_sensing_msgs/msg/GnssInsOrientationStamped.msg) for this node.
 If you are ready with your GNSS/INS driver,
-you must set `navsatfix_topic_name` and `orientation_topic_name` variables at this launch file for [gnss_poser](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_gnss_poser) arguments.
+you must set `navsatfix_topic_name` and `orientation_topic_name` variables at this launch file for [gnss_poser](https://github.com/autowarefoundation/autoware_core/tree/main/sensing/autoware_gnss_poser) arguments.
 For Example, necessary modifications for <YOUR-GNSS-SENSOR> should be like this:
 
 ```diff

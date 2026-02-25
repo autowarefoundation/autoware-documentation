@@ -26,8 +26,8 @@ following the directory structure below:
 
 If your forked Autoware meta-repository doesn't include `<YOUR-VEHICLE-NAME>_vehicle_launch` with the correct folder structure
 as shown above,
-please add your forked `<YOUR-VEHICLE-NAME>_vehicle_launch` repository to the autoware.repos file
-and run the vcs import src < autoware.repos command in your terminal
+please add your forked `<YOUR-VEHICLE-NAME>_vehicle_launch` repository to the `repositories/autoware.repos` file
+and run the `vcs import src < repositories/autoware.repos` command in your terminal
 to import the newly included repositories at autoware.repos file.
 
 Now, we are ready to modify the following vehicle model packages for our vehicle.
@@ -105,7 +105,7 @@ Now, we will modify these files according to our vehicle design.
 ### mirror.param.yaml
 
 This file describes your vehicle mirror dimension for
-[CropBox filter](https://autowarefoundation.github.io/autoware_universe/main/sensing/pointcloud_preprocessor/docs/crop-box-filter/) of [PointCloudPreprocessor](../../../../design/autoware-architecture-v1/components/sensing/data-types/point-cloud.md).
+[CropBox filter](https://autowarefoundation.github.io/autoware_universe/main/sensing/autoware_pointcloud_preprocessor/docs/crop-box-filter/) of [PointCloudPreprocessor](../../../../design/autoware-architecture-v1/components/sensing/data-types/point-cloud.md).
 This is important for cropping mirrors from your lidar's point cloud.
 
 The `mirror.param.yaml` consist of the following parameters:
@@ -139,10 +139,10 @@ it could be negative value like the mirror dimension figure below.
 
 ### simulator_model.param.yaml
 
-This file is a configuration file for the [simulator environment](https://autowarefoundation.github.io/autoware_universe/main/simulator/simple_planning_simulator/).
+This file is a configuration file for the [simulator environment](https://autowarefoundation.github.io/autoware_universe/main/simulator/autoware_simple_planning_simulator/).
 Please update these parameters according to your vehicle specifications.
 For detailed information about variables,
-please check the [simple_planning_simulator](https://github.com/autowarefoundation/autoware_universe/tree/main/simulator/simple_planning_simulator) package.
+please check the [simple_planning_simulator](https://github.com/autowarefoundation/autoware_universe/tree/main/simulator/autoware_simple_planning_simulator) package.
 The file consists of these parameters:
 
 ```yaml

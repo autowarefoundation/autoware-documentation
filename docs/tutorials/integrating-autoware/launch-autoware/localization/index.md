@@ -29,14 +29,14 @@ This diagram describes some of the Autoware localization launch files flow at `a
 ## tier4_localization_component.launch.xml
 
 The `tier4_localization_component.launch.xml` launch file is the main localization component launch at the `autoware_launch` package.
-This launch file calls `localization.launch.xml` at [tier4_localization_launch](https://github.com/autowarefoundation/autoware_universe/tree/main/launch/tier4_localization_launch) package from `autoware_universe` repository.
+This launch file calls `localization.launch.xml` at [tier4_localization_launch](https://github.com/autowarefoundation/autoware_launch/tree/main/tier4_universe_launch/tier4_localization_launch) package from `autoware_universe` repository.
 We can modify localization launch arguments at tier4_localization_component.launch.xml.
 
 The current localization launcher implemented by TIER IV supports multiple localization methods, both pose estimators and twist estimators.
 `tier4_localization_component.launch.xml` has two arguments to select which estimators to launch:
 
 - **`pose_source:`** This argument specifies the pose_estimator, currently supporting `ndt` (default), `yabloc`, `artag` and `eagleye` for localization.
-  By default, Autoware launches [ndt_scan_matcher](https://github.com/autowarefoundation/autoware_universe/tree/main/localization/autoware_ndt_scan_matcher) for pose estimator.
+  By default, Autoware launches [ndt_scan_matcher](https://github.com/autowarefoundation/autoware_core/tree/main/localization/autoware_ndt_scan_matcher) for pose estimator.
   You can use YabLoc as a camera-based localization method.
   For more details on YabLoc,
   please refer to the [README of YabLoc](https://github.com/autowarefoundation/autoware_universe/blob/main/localization/yabloc/README.md) in autoware_universe.
@@ -59,7 +59,7 @@ The current localization launcher implemented by TIER IV supports multiple local
 
 - **`twist_source:`** This argument specifies the twist_estimator, currently supporting `gyro_odom` (default), and `eagleye`.
   By default,
-  Autoware launches [gyro_odometer](https://github.com/autowarefoundation/autoware_universe/tree/main/localization/autoware_gyro_odometer) for twist estimator.
+  Autoware launches [gyro_odometer](https://github.com/autowarefoundation/autoware_core/tree/main/localization/autoware_gyro_odometer) for twist estimator.
   Also, you can use eagleye for the twist source, please refer to the [Eagleye](./eagleye/index.md).
   If you want to change your twist source to eagleye, you can update `tier4_localization_component.launch.xml` like:
 
@@ -95,7 +95,7 @@ you can add this argument on `tier4_localization_component.launch.xml` launch fi
 ```
 
 **Note:** Gyro odometer input topic provided from velocity converter package. This package will be launched at sensor_kit. For more information,
-please check [velocity converter package](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_vehicle_velocity_converter).
+please check [velocity converter package](https://github.com/autowarefoundation/autoware_core/tree/main/sensing/autoware_vehicle_velocity_converter).
 
 ## Note when using non NDT pose estimator
 

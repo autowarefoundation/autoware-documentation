@@ -102,7 +102,7 @@ Autoware has the following two types of parameter files for ROS packages:
 
 ## JSON Schema
 
-[JSON Schema](https://json-schema.org/understanding-json-schema/index.html) is used the validate the parameter file(s) ensuring that it has the correct structure and content. Using JSON Schema for this purpose is considered best practice for cloud-native development. The schema template below shall be used as a starting point when defining the schema for a ROS node.
+[JSON Schema](https://json-schema.org/understanding-json-schema/about) is used the validate the parameter file(s) ensuring that it has the correct structure and content. Using JSON Schema for this purpose is considered best practice for cloud-native development. The schema template below shall be used as a starting point when defining the schema for a ROS node.
 
 ```json
 {
@@ -149,7 +149,7 @@ Autoware has the following two types of parameter files for ROS packages:
 
 The schema file path is `INSERT_PATH_TO_PACKAGE/schema/` and the schema file name is `INSERT_NODE_NAME.schema.json`. To adapt the template to the ROS node, replace each `INSERT_...` and add all parameters `1..N`.
 
-See example: _Image Projection Based Fusion - Pointpainting_ [schema](https://github.com/autowarefoundation/autoware_universe/blob/main/universe/perception/autoware_image_projection_based_fusion/schema/pointpainting.schema.json)
+See example: _Image Projection Based Fusion - Pointpainting_ [schema](https://github.com/autowarefoundation/autoware_universe/blob/main/perception/autoware_image_projection_based_fusion/schema/pointpainting.schema.json)
 
 ### Attributes
 

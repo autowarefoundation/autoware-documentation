@@ -85,4 +85,4 @@ This creates a natural pipeline from innovation → standardization → producti
 
 !!! info
 
-    Find more details in [🔗 Repository Structure](../versioning_and_repositories/repository-structure.md) documentation.
+    Find more details in [🔗 Repository Structure](../repository-structure.md) documentation.

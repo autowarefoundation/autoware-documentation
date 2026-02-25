@@ -5,7 +5,7 @@
 Pointcloud map used in Autoware should be downsampled with a voxel size of around 0.1 to 0.2 meters to minimize the computational costs and memory bandwidth load.
 Also, you may consider using dynamic map loading with partial loading if your map is still too large to handle as a single file
 (~2 GB in PCD size).
-Please check [map_loader package](https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_loader) for more information.
+Please check [map_loader package](https://github.com/autowarefoundation/autoware_core/tree/main/map/autoware_map_loader) for more information.
 
 At tutorial_vehicle implementation we will use the whole map,
 so we will downsample it with using [CloudCompare](https://www.cloudcompare.org/main.html).

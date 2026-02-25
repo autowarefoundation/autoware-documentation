@@ -39,5 +39,5 @@ Two spider/radar charts are provided for each project to provide high-level over
 
 ### Racing vehicles 🏎️
 
-- [Go-Kart](https://autowarefoundation.github.io/LSA-reference-design-docs/main/other-example-designs/GoKart/)
-- [F1Tenth](https://autowarefoundation.github.io/LSA-reference-design-docs/main/other-example-designs/F1Tenth/)
+- [Go-Kart](https://autowarefoundation.github.io/LSA-reference-design-docs/main/get-started/GoKart/)
+- [F1Tenth](https://autowarefoundation.github.io/LSA-reference-design-docs/main/get-started/RoboRacer/)

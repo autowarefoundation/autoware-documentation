@@ -29,7 +29,7 @@ This diagram describes some of the Autoware perception launch files flow at `aut
 ## tier4_perception_component.launch.xml
 
 The `tier4_perception_component.launch.xml` launch file is the main perception component launch at the `autoware_launch` package.
-This launch file calls `perception.launch.xml` at [tier4_perception_launch](https://github.com/autowarefoundation/autoware_universe/tree/main/launch/tier4_perception_launch) package from `autoware_universe` repository.
+This launch file calls `perception.launch.xml` at [tier4_perception_launch](https://github.com/autowarefoundation/autoware_launch/tree/main/tier4_universe_launch/tier4_perception_launch) package from `autoware_universe` repository.
 We can modify perception launch arguments at tier4_perception_component.launch.xml.
 Also,
 we can add any other necessary arguments
@@ -82,7 +82,7 @@ Here are some predefined perception launch arguments:
 
 The predefined `tier4_perception_component.launch.xml` arguments explained above,
 but there is the lot of perception arguments
-included in `perception.launch.xml` launch file at [tier4_perception_launch](https://github.com/autowarefoundation/autoware_universe/tree/main/launch/tier4_perception_launch).
+included in `perception.launch.xml` launch file at [tier4_perception_launch](https://github.com/autowarefoundation/autoware_launch/tree/main/tier4_universe_launch/tier4_perception_launch).
 Since we didn't fork `autoware_universe` repository,
 we can add the necessary launch argument to tier4_perception_component.launch.xml file.
 Please follow the guidelines for some examples.

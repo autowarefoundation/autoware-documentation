@@ -21,7 +21,7 @@ If you want to look at other calibration packages and methods, you can check out
 
 #### Intrinsic Calibration
 
-- Navigation2 provides a [good tutorial for camera internal calibration](https://navigation.ros.org/tutorials/docs/camera_calibration.html).
+- Navigation2 provides a [good tutorial for camera internal calibration](https://docs.nav2.org/tutorials/docs/camera_calibration.html).
 - [AutoCore](https://autocore.ai/) provides a [light-weight tool](https://github.com/autocore-ai/calibration_tools/tree/main/camera_intrinsic_calib).
 
 #### Camera calibration tools provided by TIER IV

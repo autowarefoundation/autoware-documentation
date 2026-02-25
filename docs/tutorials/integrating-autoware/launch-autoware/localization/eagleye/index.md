@@ -9,7 +9,7 @@ Eagleye is an open-source GNSS/IMU-based localizer initially developed by [MAP I
 
 ### Dependencies
 
-The below packages are automatically installed during the setup of Autoware as they are listed in [autoware.repos](https://github.com/autowarefoundation/autoware/blob/main/autoware.repos).
+The below packages are automatically installed during the setup of Autoware as they are listed in [repositories/autoware.repos](https://github.com/autowarefoundation/autoware/blob/main/repositories/autoware.repos).
 
 1. [Eagleye](https://github.com/MapIV/eagleye.git) (autoware-main branch)
 2. [RTKLIB ROS Bridge](https://github.com/MapIV/rtklib_ros_bridge.git) (ros2-v0.1.0 branch)
@@ -52,10 +52,10 @@ Your GNSS ROS driver must publish the following messages:
   <!-- cspell: ignore ublox -->
   Eagleye has been tested with the following example GNSS ROS drivers: ublox_gps and septentrio_gnss_driver. The settings needed for each of these drivers are as follows:
 
-| GNSS ROS drivers                                                                              | modification                                                                                                                                                                     |
-| --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [ublox_gps](https://github.com/KumarRobotics/ublox/tree/ros2/ublox_gps)                       | No additional settings are required. It publishes `sensor_msgs/msg/NavSatFix` and `geometry_msgs/msg/TwistWithCovarianceStamped` required by Eagleye with default settings.      |
-| [septentrio_gnss_driver](https://github.com/septentrio-gnss/septentrio_gnss_driver/tree/ros2) | Set `publish.navsatfix` and `publish.twist` in the config file [`gnss.yaml`](https://github.com/septentrio-gnss/septentrio_gnss_driver/blob/ros2/config/gnss.yaml#L90) to `true` |
+| GNSS ROS drivers                                                                     | modification                                                                                                                                                                   |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [ublox_gps](https://github.com/KumarRobotics/ublox/tree/ros2/ublox_gps)              | No additional settings are required. It publishes `sensor_msgs/msg/NavSatFix` and `geometry_msgs/msg/TwistWithCovarianceStamped` required by Eagleye with default settings.    |
+| [septentrio_gnss_driver](https://github.com/septentrio-gnss/septentrio_gnss_driver/) | Set `publish.navsatfix` and `publish.twist` in the config file [`gnss.yaml`](https://github.com/septentrio-gnss/septentrio_gnss_driver/blob/master/config/gnss.yaml) to `true` |
 
 ## Parameter Modifications for Integration into Your Vehicle
 

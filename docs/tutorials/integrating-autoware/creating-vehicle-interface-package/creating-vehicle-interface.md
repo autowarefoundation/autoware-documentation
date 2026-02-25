@@ -247,7 +247,7 @@ There are some tips that may help you.
           └─ my_vehicle_name_launch/
   ```
 
-- If you are using a vehicle interface and launch package from a open git repository, or created your own as a git repository, it is highly recommended to add those repositories to your `autoware.repos` file which is located to directly under your autoware folder like the example below. You can specify the branch or commit hash by the version tag.
+- If you are using a vehicle interface and launch package from a open git repository, or created your own as a git repository, it is highly recommended to add those repositories to your `repositories/autoware.repos` file which is located to directly under your autoware folder like the example below. You can specify the branch or commit hash by the version tag.
 
   ```yaml title="autoware.repos"
   # vehicle (this section should be somewhere in autoware.repos and add the below)

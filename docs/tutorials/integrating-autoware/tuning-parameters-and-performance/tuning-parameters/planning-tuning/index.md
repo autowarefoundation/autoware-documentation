@@ -93,7 +93,7 @@ within lane constraints, requiring access to lane structure information to ensur
 with traffic rules. For example, it triggers indicator signals when the vehicle crosses a lane.
 The key distinction between motion and behavior modules in the planning stack is their consideration
 of traffic rules.
-Please refer to the [`Avoidance Module` page](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/docs/behavior_path_planner_avoidance_design/) for more information about the module's capabilities.
+Please refer to the [`Avoidance Module` page](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/docs/behavior_path_planner_avoidance_design/) for more information about the module's capabilities.
 
 We will modify and update certain avoidance rules and margin parameters
 to handle with the specific conditions of our YTU campus environment
@@ -251,9 +251,9 @@ due to the short vehicle width, the trajectory is also short.
 To improve the detection range of obstacle stop planner,
 we will increase the lateral margin for detection area.
 For more information on the parameters and inner working algorithms of the obstacle stop planner,
-please refer to the [documentation page](https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_stop_planner/).
+please refer to the [documentation page](https://autowarefoundation.github.io/autoware_core/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_stop_module/).
 
-!!! note "[`obstacle_stop_planner.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/lane_driving/motion_planning/obstacle_stop_planner/obstacle_stop_planner.param.yaml) parameter file:"
+!!! note "[`obstacle_stop_planner.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/lane_driving/motion_planning/motion_velocity_planner/obstacle_stop.param.yaml) parameter file:"
 
     ```diff
       detection_area:

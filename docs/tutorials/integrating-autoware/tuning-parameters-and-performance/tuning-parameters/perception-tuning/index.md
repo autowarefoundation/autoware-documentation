@@ -30,9 +30,9 @@ in this specific environment.
 
 After that,
 we need
-to run the [TensorRT YOLO node](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/tensorrt_yolo) for our camera topics
+to run the [TensorRT YOLO node](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_tensorrt_yolox) for our camera topics
 if it hasn't been launched on your sensor model.
-You can launch the tensorrt_yolo nodes by uncommenting the following lines in the [`camera_lidar_fusion_based_detection.launch.xml`](https://github.com/autowarefoundation/autoware.universe/blob/main/launch/tier4_perception_launch/launch/object_recognition/detection/camera_lidar_fusion_based_detection.launch.xml)
+You can launch the tensorrt_yolo nodes by uncommenting the following lines in the [`camera_lidar_fusion_based_detection.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/main/tier4_universe_launch/tier4_perception_launch/launch/object_recognition/detection/detector/camera_lidar_detector.launch.xml)
 file:
 
 !!! note "Please adjust the following lines in the `camera_lidar_fusion_based_detection.launch.xml` file based on the number of your cameras (image_number)"
@@ -45,7 +45,7 @@ file:
     ...
     ```
 
-- Also, you need to update the roi_sync.param.yaml parameter file according to your camera number.
+- Also, you need to update the fusion_common.param.yaml parameter file according to your camera number.
   Firstly,
   please refer to the roi_cluster_fusion documentation for more information about this package.
   Then, you will update your camera offsets.
@@ -55,7 +55,7 @@ file:
   you can set these camera offsets to "0" as the initial value.
   Please be careful with the offset array size; it must be equal to your camera count.
 
-!!! note "[roi_sync.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/object_recognition/detection/image_projection_based_fusion/roi_sync.param.yaml) parameter file:"
+!!! note "[fusion_common.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/object_recognition/detection/image_projection_based_fusion/fusion_common.param.yaml) parameter file:"
 
     ```diff
     - input_offset_ms: [61.67, 111.67, 45.0, 28.33, 78.33, 95.0] # 6 cameras
@@ -104,7 +104,7 @@ points on the high-slope roads with default configurations.
 - There are three different ground segmentation algorithms included in Autoware:
   `ray_ground_filter`, `scan_ground_filter`, and `ransac_ground_filter`.
   The default method is the `scan_ground_filter`.
-  Please refer to the [`ground_segmentation` package documentation](https://autowarefoundation.github.io/autoware.universe/main/perception/ground_segmentation/)
+  Please refer to the [`ground_segmentation` package documentation](https://autowarefoundation.github.io/autoware_universe/main/perception/autoware_ground_segmentation/)
   for more information about these methods and their parameter definitions.
 
 - Firstly,
@@ -157,13 +157,13 @@ the false positive points will disappear from the same location.
   These examples are provided for high slopes and rough road conditions.
   If you have better conditions,
   you can adjust your parameters
-  by referring to the [`ground_segmentation` package documentation page](https://autowarefoundation.github.io/autoware.universe/main/perception/ground_segmentation/).
+  by referring to the [`ground_segmentation` package documentation page](https://autowarefoundation.github.io/autoware_universe/main/perception/autoware_ground_segmentation/).
 
 ### Tuning euclidean clustering
 
 - The `euclidean_clustering` package applies Euclidean clustering methods
   to cluster points into smaller parts for classifying objects.
-  Please refer to [`euclidean_clustering` package documentation](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/euclidean_cluster) for more information.
+  Please refer to [`euclidean_clustering` package documentation](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_euclidean_cluster) for more information.
   This package is used in the detection pipeline of Autoware architecture.
   There are two different euclidean clustering methods included in this package:
   `euclidean_cluster` and `voxel_grid_based_euclidean_cluster`.
@@ -244,4 +244,4 @@ the false positive points will disappear from the same location.
 
 If you want to use an object filter after fine-tuning clusters for unknown objects,
 you can utilize either the lanelet filter or the position filter for unknown objects.
-Please refer to the documentation of the [`detected_object_validation` package page](https://autowarefoundation.github.io/autoware.universe/main/perception/detected_object_validation/) for further information.
+Please refer to the documentation of the [`detected_object_validation` package page](https://autowarefoundation.github.io/autoware_universe/main/perception/autoware_detected_object_validation/) for further information.

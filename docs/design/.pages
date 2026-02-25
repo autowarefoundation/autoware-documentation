@@ -1,6 +1,8 @@
 nav:
   - Concepts: autoware-concepts
+  - autoware-system-capabilities.md
   - Architecture 1.0: autoware-architecture-v1
   - Architecture 2.0: autoware-architecture-v2
-  - Versioning & Repositories: versioning_and_repositories
-  - autoware-system-capabilities.md
+  - repository-structure.md
+  - Repos files: repos-files.md
+  - Versioning & release process: versioning-and-release.md
