@@ -1,5 +1,10 @@
 [
   {
+    "version": "main",
+    "title": "main",
+    "aliases": []
+  },
+  {
     "version": "pr-776",
     "title": "pr-776",
     "aliases": []
@@ -20,18 +25,8 @@
     "aliases": []
   },
   {
-    "version": "main",
-    "title": "main",
-    "aliases": []
-  },
-  {
-    "version": "1.7.1",
-    "title": "1.7.1",
-    "aliases": []
-  },
-  {
-    "version": "1.7.0",
-    "title": "1.7.0",
+    "version": "1.5.0",
+    "title": "1.5.0",
     "aliases": []
   },
   {
@@ -40,8 +35,13 @@
     "aliases": []
   },
   {
-    "version": "1.5.0",
-    "title": "1.5.0",
+    "version": "1.7.0",
+    "title": "1.7.0",
+    "aliases": []
+  },
+  {
+    "version": "1.7.1",
+    "title": "1.7.1",
     "aliases": []
   }
 ]
