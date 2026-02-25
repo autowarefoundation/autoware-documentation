@@ -4,6 +4,9 @@
 # Python
 *.pyc
 
+# Python virtual environment
+/.venv/
+
 # Vim
 *.swp
 *.swo
