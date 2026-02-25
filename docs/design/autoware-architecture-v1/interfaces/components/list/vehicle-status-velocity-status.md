@@ -36,7 +36,7 @@ This interface is required.
 
 ## Limitations
 
-None.
+T.B.C.
 
 ## Use Cases
 
