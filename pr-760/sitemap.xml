@@ -273,6 +273,18 @@
          <lastmod>2026-02-25</lastmod>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-760/design/repos-files/</loc>
+         <lastmod>2026-02-25</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-760/design/repository-structure/</loc>
+         <lastmod>2026-02-25</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-760/design/versioning-and-release/</loc>
+         <lastmod>2026-02-25</lastmod>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-760/design/autoware-architecture-v1/</loc>
          <lastmod>2026-02-25</lastmod>
     </url>
@@ -1225,22 +1237,6 @@
          <lastmod>2026-02-25</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-760/design/versioning_and_repositories/</loc>
-         <lastmod>2026-02-25</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-760/design/versioning_and_repositories/release-process/</loc>
-         <lastmod>2026-02-25</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-760/design/versioning_and_repositories/repository-structure/</loc>
-         <lastmod>2026-02-25</lastmod>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-760/design/versioning_and_repositories/versioning-system/</loc>
-         <lastmod>2026-02-25</lastmod>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-760/home/</loc>
          <lastmod>2026-02-25</lastmod>
     </url>
@@ -1249,7 +1245,19 @@
          <lastmod>2026-02-25</lastmod>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-760/home/roadmap/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-760/home/roadmap/multi-year-roadmap/</loc>
+         <lastmod>2026-02-25</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-760/home/roadmap/timelines/carla-simulator-support/</loc>
+         <lastmod>2026-02-25</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-760/home/roadmap/timelines/humble-jazzy/</loc>
+         <lastmod>2026-02-25</lastmod>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-760/home/roadmap/timelines/point-types/</loc>
          <lastmod>2026-02-25</lastmod>
     </url>
     <url>
