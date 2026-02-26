@@ -24,22 +24,29 @@
    git clone https://github.com/autowarefoundation/autoware.git $HOME/autoware_core_workspace
    cd $HOME/autoware_core_workspace
    mkdir -p src
-   vcs import src < repositories/core.repos
+   vcs import src < repositories/autoware.repos
    ```
 
-3. Install dependent ROS packages.
+3. This step is optional. If you want the latest branch, switch to the nightly.
+
+   ```bash
+   cd $HOME/autoware_core_workspace
+   vcs import src < repositories/autoware-nightly.repos
+   ```
+
+4. Install dependent ROS packages.
 
    ```bash
    cd $HOME/autoware_core_workspace
    sudo apt update && sudo apt -y upgrade
    rosdep update
-   rosdep install -y --from-paths src --ignore-src --rosdistro humble
+   rosdep install -y --from-paths src/core --ignore-src --rosdistro humble
    ```
 
-4. Build the workspace.
+5. Build the workspace.
 
    ```bash
    cd $HOME/autoware_core_workspace
    source /opt/ros/humble/setup.bash
-   colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+   colcon build --symlink-install --base-paths src/core --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
