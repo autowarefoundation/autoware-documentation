@@ -59,51 +59,15 @@ If you have not yet installed Autoware, please refer to the [Installation](../..
 
 ## Launch Autoware for source installation
 
-- Same as "Launch Autoware for Debian Package installation" section except:
-  - In step 4, source `$HOME/autoware_core_workspace/install/setup.bash` instead of `/opt/ros/humble/setup.bash`.
+```bash
+cd $HOME/autoware_core_workspace
+source install/setup.bash
+ros2 launch autoware_core autoware_core.launch.xml use_sim_time:=true map_path:=$HOME/Downloads/Shinjuku-Map/map vehicle_model:=autoware_sample_vehicle sensor_model:=autoware_awsim_sensor_kit
+```
 
 ## Launch Autoware for Debian Package installation
 
-1. Create launch workspace and clone repository into it.
-
-   ```bash
-   mkdir -p $HOME/autoware_launch_workspace/tmp
-   cd $HOME/autoware_launch_workspace/tmp
-   git clone https://github.com/autowarefoundation/autoware_launch.git
-   git clone https://github.com/tier4/sensor_component_description.git
-   ```
-
-2. Remove unnecessary packages.
-
-   ```bash
-   cd $HOME/autoware_launch_workspace
-   mkdir -p src
-   colcon list --paths-only --packages-up-to sample_vehicle_description awsim_sensor_kit_description | xargs -I{} mv {} src
-   rm -rf tmp
-   ```
-
-3. Install dependent ROS packages.
-
-   ```bash
-   cd $HOME/autoware_launch_workspace
-   sudo apt update
-   sudo apt -y install ros-humble-topic-tools
-   rosdep update
-   rosdep install -y --from-paths src --ignore-src --rosdistro humble
-   ```
-
-4. Build the workspace.
-
-   ```bash
-   cd $HOME/autoware_launch_workspace
-   source /opt/ros/humble/setup.bash
-   colcon build --symlink-install
-   ```
-
-5. Launch Autoware.
-
-   ```bash
-   cd $HOME/autoware_launch_workspace
-   source install/setup.bash
-   ros2 launch autoware_core autoware_core.launch.xml use_sim_time:=true map_path:=$HOME/Downloads/Shinjuku-Map/map vehicle_model:=sample_vehicle sensor_model:=awsim_sensor_kit
-   ```
+```bash
+source /opt/ros/humble/setup.bash
+ros2 launch autoware_core autoware_core.launch.xml use_sim_time:=true map_path:=$HOME/Downloads/Shinjuku-Map/map vehicle_model:=autoware_sample_vehicle sensor_model:=autoware_awsim_sensor_kit
+```
