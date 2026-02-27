@@ -202,7 +202,7 @@ To specify the platform, use the `--platform` option:
 
 #### Using Docker images other than `latest`
 
-There are also images versioned based on the `date` or `release tag`.
+There are also images versioned based on the `date` or `release tag`.  
 Use them when you need a fixed version of the image.
 
 The list of versions can be found [here](https://github.com/autowarefoundation/autoware/packages).
