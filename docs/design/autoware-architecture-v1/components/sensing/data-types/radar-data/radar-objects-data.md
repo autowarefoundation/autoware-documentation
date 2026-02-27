@@ -37,7 +37,7 @@ In detail, please see [Device driver for radars](reference-implementations/devic
 
 ### Noise filter
 
-- [radar_tracks_noise_filter](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/radar_tracks_noise_filter)
+- [radar_tracks_noise_filter](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_radar_tracks_noise_filter)
 
 Radar can detect x-axis velocity as doppler velocity, but cannot detect y-axis velocity. Some radar can estimate y-axis velocity inside the device, but it sometimes lack precision. This package treats these objects as noise by y-axis threshold filter.
 

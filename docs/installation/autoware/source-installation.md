@@ -68,7 +68,7 @@ sudo apt-get -y install git
 
 1. Create the `src` directory and clone repositories into it.
 
-   Autoware uses [vcs2l](https://github.com/dirk-thomas/vcs2l) to construct workspaces.
+   Autoware uses [vcs2l](https://github.com/ros-infrastructure/vcs2l) to construct workspaces.
 
    ```bash
    cd autoware
@@ -158,7 +158,7 @@ sudo apt-get -y install git
    - `vcs pull` is similar to `git pull`.
      - Note that it doesn't switch branches.
 
-   For more information, refer to the [official documentation](https://github.com/dirk-thomas/vcs2l).
+   For more information, refer to the [official documentation](https://github.com/ros-infrastructure/vcs2l).
 
    It might be the case that dependencies imported via `vcs import` have been moved/removed.
    Vcs2l does not currently handle those cases, so if builds fail after `vcs import`, cleaning

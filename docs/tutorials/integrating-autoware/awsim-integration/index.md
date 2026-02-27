@@ -11,7 +11,7 @@ users to test and refine their autonomous systems before deployment on actual ve
 
 To add your environment and vehicle to the AWSIM simulation,
 you need to set up the [Unity](https://unity.com/) environment on your computer.
-Please follow the steps on the [`Setup Unity Project`](https://tier4.github.io/AWSIM/GettingStarted/SetupUnityProject/)
+Please follow the steps on the [`Setup Unity Project`](https://tier4.github.io/AWSIM/DeveloperGuide/SetupUnityProject/)
 documentation page
 to set up the Unity environment on your computer.
 

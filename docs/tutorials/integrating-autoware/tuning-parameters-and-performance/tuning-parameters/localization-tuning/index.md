@@ -30,7 +30,7 @@ ensuring optimal performance in the specific conditions of the YTU campus.
   may prove insufficient for aligning point clouds.
   The default NDT input point cloud parameters are shown below:
 
-!!! note "The default [crop_box_filter_measurement_range.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/localization/crop_box_filter_measurement_range.param.yaml) file for localization util."
+!!! note "The default [crop_box_filter_measurement_range.param.yaml](https://github.com/autowarefoundation/autoware_launch/tree/main/autoware_launch/config/localization/ndt_scan_matcher/pointcloud_preprocessor/crop_box_filter_measurement_range.param.yaml) file for localization util."
 
     ```yaml
     /**:
@@ -63,7 +63,7 @@ ensuring optimal performance in the specific conditions of the YTU campus.
   please bear in mind that since this alteration enlarges the size of the NDT input point cloud,
   it will require additional resources on your processor.
 
-!!! note "[`crop_box_filter_measurement_range.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/localization/crop_box_filter_measurement_range.param.yaml) parameter file:"
+!!! note "[`crop_box_filter_measurement_range.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/localization/ndt_scan_matcher/pointcloud_preprocessor/crop_box_filter_measurement_range.param.yaml) parameter file:"
 
     ```diff
     /**:
@@ -102,7 +102,7 @@ ensuring optimal performance in the specific conditions of the YTU campus.
   reducing the voxel size can enhance localization accuracy.
   However, please be aware that this will demand more computational power.
 
-!!! note " The default [voxel_grid_filter.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/localization/voxel_grid_filter.param.yaml) file for localization util."
+!!! note " The default [voxel_grid_filter.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/localization/ndt_scan_matcher/pointcloud_preprocessor/voxel_grid_filter.param.yaml) file for localization util."
 
     ```yaml
     /**:
@@ -126,7 +126,7 @@ ensuring optimal performance in the specific conditions of the YTU campus.
   so we will reduce the voxel size to improve localization accuracy.
   Feel free to experiment with tuning the voxel size for your own computer setup.
 
-!!! note "[voxel_grid_filter.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/localization/voxel_grid_filter.param.yaml) parameter file:"
+!!! note "[voxel_grid_filter.param.yaml](https://github.com/autowarefoundation/autoware_launch/tree/main/autoware_launch/config/localization/ndt_scan_matcher/pointcloud_preprocessor/voxel_grid_filter.param.yaml) parameter file:"
 
     ```diff
 

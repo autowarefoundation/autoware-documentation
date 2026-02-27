@@ -50,7 +50,7 @@ These files reside under [autoware/repositories](https://github.com/autowarefoun
 
 ### Prerequisites
 
-Autoware uses [vcs2l](https://github.com/dirk-thomas/vcs2l) to construct workspaces.
+Autoware uses [vcs2l](https://github.com/ros-infrastructure/vcs2l) to construct workspaces.
 
 You can install it with `sudo apt install python3-vcs2l`.
 

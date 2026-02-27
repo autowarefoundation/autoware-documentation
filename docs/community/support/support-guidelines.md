@@ -33,7 +33,7 @@ Before creating a new issue or question, check if someone else has already repor
 
 - **[Issues](https://github.com/autowarefoundation/autoware/issues)**
 
-  Note that Autoware has multiple repositories listed in [autoware.repos](https://github.com/autowarefoundation/autoware/blob/main/autoware.repos).
+  Note that Autoware has multiple repositories listed in [autoware.repos](https://github.com/autowarefoundation/autoware/blob/main/repositories/autoware.repos).
   It is recommended to search across all repositories.
 
 - **[Questions](https://github.com/autowarefoundation/autoware/discussions/categories/q-a)**
@@ -143,7 +143,7 @@ Note that it is not the right place to get help for your issues.
 
 ## ROS Discourse
 
-If you want to widely discuss a topic with the general Autoware and ROS community or ask a question not related to Autoware's bugs, post to [the Autoware category on ROS Discourse](https://discourse.ros.org/c/autoware).
+If you want to widely discuss a topic with the general ROS community, post to [the Autoware category on ROS Discourse](https://discourse.ros.org).
 
 !!! warning
 

@@ -915,11 +915,11 @@ We will set up the GNSS/INS sensor launches at `gnss.launch.xml`.
 The default GNSS sensor options at [`sample_sensor_kit_launch`](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_launch/launch/gnss.launch.xml) for [u-blox](https://www.u-blox.com/en/)
 and [septentrio](https://www.septentrio.com/en) is included in `gnss.launch.xml`,
 so If we use other sensors as GNSS/INS receiver, we need to add it here.
-Moreover, [gnss_poser](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_gnss_poser) package launches here,
+Moreover, [gnss_poser](https://github.com/autowarefoundation/autoware_core/tree/main/sensing/autoware_gnss_poser) package launches here,
 we will use this package for the pose source of our vehicle at localization initialization but remember,
 your sensor_driver must provide [autoware gnss orientation message](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_sensing_msgs/msg/GnssInsOrientationStamped.msg) for this node.
 If you are ready with your GNSS/INS driver,
-you must set `navsatfix_topic_name` and `orientation_topic_name` variables at this launch file for [gnss_poser](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_gnss_poser) arguments.
+you must set `navsatfix_topic_name` and `orientation_topic_name` variables at this launch file for [gnss_poser](https://github.com/autowarefoundation/autoware_core/tree/main/sensing/autoware_gnss_poser) arguments.
 For Example, necessary modifications for <YOUR-GNSS-SENSOR> should be like this:
 
 ```diff
@@ -952,7 +952,7 @@ Also, you can remove dependencies and unused sensor launch files at `gnss.launch
 For example,
 we will use [Clap B7 sensor](https://en.unicorecomm.com/assets/upload/file/CLAP-B7_Product_Brief_En.pdf) as a GNSS/INS and IMU sensor,
 and we will use [nrtip_client_ros](https://github.com/Robeff-Technology/ntrip_client) for RTK.
-Also, we will add these packages to [autoware.repos](https://github.com/leo-drive/autoware.tutorial_vehicle/blob/main/repositories/autoware.repos) file.
+Also, we will add these packages to [autoware.repos](https://github.com/leo-drive/autoware.tutorial_vehicle/blob/main/autoware.repos) file.
 
 ```diff
 + sensor_component/external/clap_b7_driver:

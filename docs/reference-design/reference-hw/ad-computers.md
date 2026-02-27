@@ -41,7 +41,7 @@ NXP solutions which is used for autonomous driving and tested by one or more com
 | ----------------------- | --------------------- | -------------------------- | ----------------------------------------------- | ------------- | --------------------- |
 | BLUEBOX 3.0             | 16 x Arm® Cortex®-A72 | Dual RTX 8000 or RTX A6000 | 16 GB RAM CAN, FlexRay, USB, Ethernet, DIO, SSD | ASIL-D        | -                     |
 
-Link to company website is [here.](https://www.nxp.com/design/designs/bluebox-3-0-automotive-high-performance-compute-ahpc-development-platform:BlueBox)
+Link to company website is [here.](https://www.nxp.com/design/design-center/development-boards-and-designs/BlueBox)
 
 ## **Neousys In-Vehicle Computers**
 
