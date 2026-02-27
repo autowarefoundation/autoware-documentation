@@ -1,9 +1,11 @@
 # Reference design
 
-Autoware has been developed and deployed in several autonomous vehicle projects. These projects range from prototypes, research platforms, education platforms, racing vehicles, commercial vehicles and utility vehicles.
-The pages in this section elaborate their designs, including hardware and software, for these projects.
+Autoware has been developed and deployed in several autonomous vehicle projects. These projects range from prototypes, research platforms, education platforms, racing vehicles, commercial vehicles and utility vehicles. The pages in this section elaborate their designs, including hardware and software, for these projects.
 
-Two spider/radar charts are provided for each project to provide high-level overview of the design and technologies used in each project. The metrics for the chart are defined on the [Metrics Page](metrics.md).
+The get started page provides the decision trees to find the reference design guideline that meet your needs. One can select the guideline according to the technology maturity, environment, budget, etc. You can start the proess [here](./get-started/find-your-reference-design.md).
+
+Below are the lists of the design guidelines. 
+
 
 ## Main documentation links
 
@@ -27,15 +29,20 @@ Two spider/radar charts are provided for each project to provide high-level over
 
 </div>
 
-## Reference hardware
-
-[:fa-cl-s fa-circle-arrow-right: Reference Hardware Section](reference-hw/index.md){ .md-button }
-
 ## Other reference designs
+
+Two spider/radar charts are provided for each project to provide high-level overview of the design and technologies used in each project. The metrics for the chart are defined on the [Metrics Page](metrics.md).
 
 ### Buses 🚌
 
 - [ITRI Bus](itri-bus/index.md)
+
+
+
+## Reference hardware
+
+[:fa-cl-s fa-circle-arrow-right: Reference Hardware Section](reference-hw/index.md){ .md-button }
+
 
 ### Racing vehicles 🏎️
 
