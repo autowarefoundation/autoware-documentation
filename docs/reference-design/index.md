@@ -35,15 +35,21 @@ Below are the lists of the design guidelines.
 
   [:octicons-arrow-right-24: Link to the docs](https://autowarefoundation.github.io/LSA-reference-design-docs/main/docs/get-started/RoboRacer)
 
+
+- **GoKart** Reference Design Documentation
+
+  ***
+
+  A design guideline for building TRL-6 low-speed autonomous racing platforms using Autoware. GoKart can be used for racing and education purpose. The simplest use case is to avoid colliding into the obstacle on a racing track. Meanwhile, one can also develop the SLAM algorithm to build the map on the fly and finishes the loop in short time.
+
+  [:octicons-arrow-right-24: Link to the docs](https://autowarefoundation.github.io/LSA-reference-design-docs/main/get-started/GoKart/)
+
+</div>
+
 </div>
 
 ### Buses 🚌
 - [ITRI Bus](itri-bus/index.md)
-
-### Racing vehicles 🏎️
-- [Go-Kart](https://autowarefoundation.github.io/LSA-reference-design-docs/main/get-started/GoKart/)
-- [F1Tenth](https://autowarefoundation.github.io/LSA-reference-design-docs/main/get-started/RoboRacer/)
-
 
 ## Reference hardware
 
