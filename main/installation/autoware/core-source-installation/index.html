@@ -13966,9 +13966,16 @@ sudo<span class="w"> </span>rosdep<span class="w"> </span>init
 </li>
 <li>
 <p>Create workspace and clone repository into it.</p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$HOME</span>/autoware_core_workspace/src
-<span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/autoware_core_workspace/src
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/autowarefoundation/autoware_core.git
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/autowarefoundation/autoware.git<span class="w"> </span><span class="nv">$HOME</span>/autoware_core_workspace
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/autoware_core_workspace
+mkdir<span class="w"> </span>-p<span class="w"> </span>src
+vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware.repos
+</code></pre></div>
+</li>
+<li>
+<p>This step is optional. If you want the latest branch, switch to the nightly.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/autoware_core_workspace
+vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware-nightly.repos
 </code></pre></div>
 </li>
 <li>
@@ -13976,14 +13983,14 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/autow
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/autoware_core_workspace
 sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>-y<span class="w"> </span>upgrade
 rosdep<span class="w"> </span>update
-rosdep<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>--rosdistro<span class="w"> </span>humble
+rosdep<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--from-paths<span class="w"> </span>src/core<span class="w"> </span>--ignore-src<span class="w"> </span>--rosdistro<span class="w"> </span>humble
 </code></pre></div>
 </li>
 <li>
 <p>Build the workspace.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/autoware_core_workspace
 <span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
-colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--base-paths<span class="w"> </span>src/core<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </code></pre></div>
 </li>
 </ol>

@@ -14053,56 +14053,36 @@ ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </s
 </li>
 </ol>
 <h2 id="launch-autoware-for-docker-installation">Launch Autoware for Docker installation<a class="headerlink" href="#launch-autoware-for-docker-installation" title="Permanent link">#</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Under Construction. It cannot be executed because the description package has not been released yet,</p>
-</div>
-<h2 id="launch-autoware-for-source-installation">Launch Autoware for source installation<a class="headerlink" href="#launch-autoware-for-source-installation" title="Permanent link">#</a></h2>
-<ul>
-<li>Same as "Launch Autoware for Debian Package installation" section except:<ul>
-<li>In step 4, source <code>$HOME/autoware_core_workspace/install/setup.bash</code> instead of <code>/opt/ros/humble/setup.bash</code>.</li>
-</ul>
+<ol>
+<li>
+<p>Run the following command.</p>
+<div class="highlight"><pre><span></span><code>xhost<span class="w"> </span>+local:
+docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>--net<span class="w"> </span>host<span class="w"> </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span>-v<span class="w"> </span><span class="nv">$HOME</span>/Downloads/Shinjuku-Map/map:/autoware/map<span class="w"> </span>ghcr.io/autowarefoundation/autoware:core
+</code></pre></div>
 </li>
-</ul>
+<li>
+<p>Run the following command in the docker container.</p>
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-topic-tools
+ros2<span class="w"> </span>launch<span class="w"> </span>autoware_core<span class="w"> </span>autoware_core.launch.xml<span class="w"> </span>use_sim_time:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>map_path:<span class="o">=</span>/autoware/map<span class="w"> </span>vehicle_model:<span class="o">=</span>autoware_sample_vehicle<span class="w"> </span>sensor_model:<span class="o">=</span>autoware_awsim_sensor_kit
+</code></pre></div>
+</li>
+</ol>
+<h2 id="launch-autoware-for-source-installation">Launch Autoware for source installation<a class="headerlink" href="#launch-autoware-for-source-installation" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>Run the following command.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/autoware_core_workspace
+<span class="nb">source</span><span class="w"> </span>install/setup.bash
+ros2<span class="w"> </span>launch<span class="w"> </span>autoware_core<span class="w"> </span>autoware_core.launch.xml<span class="w"> </span>use_sim_time:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/Downloads/Shinjuku-Map/map<span class="w"> </span>vehicle_model:<span class="o">=</span>autoware_sample_vehicle<span class="w"> </span>sensor_model:<span class="o">=</span>autoware_awsim_sensor_kit
+</code></pre></div>
+</li>
+</ol>
 <h2 id="launch-autoware-for-debian-package-installation">Launch Autoware for Debian Package installation<a class="headerlink" href="#launch-autoware-for-debian-package-installation" title="Permanent link">#</a></h2>
 <ol>
 <li>
-<p>Create launch workspace and clone repository into it.</p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$HOME</span>/autoware_launch_workspace/tmp
-<span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/autoware_launch_workspace/tmp
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/autowarefoundation/autoware_launch.git
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tier4/sensor_component_description.git
-</code></pre></div>
-</li>
-<li>
-<p>Remove unnecessary packages.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/autoware_launch_workspace
-mkdir<span class="w"> </span>-p<span class="w"> </span>src
-colcon<span class="w"> </span>list<span class="w"> </span>--paths-only<span class="w"> </span>--packages-up-to<span class="w"> </span>sample_vehicle_description<span class="w"> </span>awsim_sensor_kit_description<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-I<span class="o">{}</span><span class="w"> </span>mv<span class="w"> </span><span class="o">{}</span><span class="w"> </span>src
-rm<span class="w"> </span>-rf<span class="w"> </span>tmp
-</code></pre></div>
-</li>
-<li>
-<p>Install dependent <abbr title="Robot Operating System">ROS</abbr> packages.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/autoware_launch_workspace
-sudo<span class="w"> </span>apt<span class="w"> </span>update
-sudo<span class="w"> </span>apt<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>ros-humble-topic-tools
-rosdep<span class="w"> </span>update
-rosdep<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>--rosdistro<span class="w"> </span>humble
-</code></pre></div>
-</li>
-<li>
-<p>Build the workspace.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/autoware_launch_workspace
-<span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
-colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
-</code></pre></div>
-</li>
-<li>
-<p>Launch Autoware.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/autoware_launch_workspace
-<span class="nb">source</span><span class="w"> </span>install/setup.bash
-ros2<span class="w"> </span>launch<span class="w"> </span>autoware_core<span class="w"> </span>autoware_core.launch.xml<span class="w"> </span>use_sim_time:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/Downloads/Shinjuku-Map/map<span class="w"> </span>vehicle_model:<span class="o">=</span>sample_vehicle<span class="w"> </span>sensor_model:<span class="o">=</span>awsim_sensor_kit
+<p>Run the following command.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+ros2<span class="w"> </span>launch<span class="w"> </span>autoware_core<span class="w"> </span>autoware_core.launch.xml<span class="w"> </span>use_sim_time:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/Downloads/Shinjuku-Map/map<span class="w"> </span>vehicle_model:<span class="o">=</span>autoware_sample_vehicle<span class="w"> </span>sensor_model:<span class="o">=</span>autoware_awsim_sensor_kit
 </code></pre></div>
 </li>
 </ol>
