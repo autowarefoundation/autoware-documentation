@@ -59,7 +59,7 @@ For more launch options, you can append a custom launch command instead of using
 Here is an example of running the runtime container with a custom launch command:
 
 ```bash
-./docker/run.sh --map-path ~/autoware_map/sample-map-rosbag --data-path ~/autoware_data ros2 launch autoware_launch planning_simulator.launch.xml map_path:=/autoware_map vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+./docker/run.sh --map-path ~/autoware_map/sample-map-rosbag --data-path ~/autoware_data ros2 launch autoware_launch planning_simulator.launch.xml map_path:=/autoware_map vehicle_model:=autoware_sample_vehicle sensor_model:=autoware_sample_sensor_kit
 ```
 
 !!! info
@@ -202,7 +202,7 @@ To specify the platform, use the `--platform` option:
 
 #### Using Docker images other than `latest`
 
-There are also images versioned based on the `date` or `release tag`.  
+There are also images versioned based on the `date` or `release tag`.
 Use them when you need a fixed version of the image.
 
 The list of versions can be found [here](https://github.com/autowarefoundation/autoware/packages).

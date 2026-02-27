@@ -24,9 +24,9 @@ The data contains data from the following sensors:
 
 You can find the data collected for testing and mapping in this [İstanbul Open Dataset](../../../datasets/index.md#istanbul-open-dataset).
 
-> <span style="color:green">**NOTE !**</span> </br>  
+> <span style="color:green">**NOTE !**</span> </br>
 > Since there was no velocity source coming from the vehicle during all these tests, the twist message coming from GNSS/INS was given to ekf_localizer as the linear&angular velocity source. </br>
-> In order to understand whether this increases the error in cases where the GNSS/INS error increases in the tunnel and how it affects the system, localization in the tunnel was tested by giving only the pose from the NDT, without giving this velocity to ekf_localizer. </br>  
+> In order to understand whether this increases the error in cases where the GNSS/INS error increases in the tunnel and how it affects the system, localization in the tunnel was tested by giving only the pose from the NDT, without giving this velocity to ekf_localizer. </br>
 > The video of this test is [here](https://youtu.be/6On130bjQUY?si=vumtij7a66WBIV3z). </br>
 > As seen in the video, when velocity is not given, localization in the tunnel deteriorates more quickly.
 > It is also predicted that if the IMU Twist message combined (/localization/twist_estimator/twist_with_covariance) with the linear velocity from the vehicle is given instead of the GNSS/INS Twist message, the performance in the tunnel will increase. However, this test cannot be done with the current data.
@@ -54,7 +54,7 @@ mkdir ~/autoware_ista_map
 gdown --id 1WPWmFCjV7eQee4kyBpmGNlX7awerCPxc -O ~/autoware_ista_map/
 ```
 
-> <span style="color:green">**NOTE !**</span></br>  
+> <span style="color:green">**NOTE !**</span></br>
 > You also need to add `lanelet2_map.osm` file to autoware_ista_map folder. Since no lanelet file is created for this map at the
 > moment, you can run any `lanelet2_map.osm` file by placing it in this folder.
 
@@ -107,7 +107,7 @@ colcon build --symlink-install --packages-select sample_sensor_kit_launch autowa
 
 ```bash
 source ~/autoware/install/setup.bash
-ros2 launch autoware_launch logging_simulator.launch.xml map_path:=~/autoware_ista_map/ vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+ros2 launch autoware_launch logging_simulator.launch.xml map_path:=~/autoware_ista_map/ vehicle_model:=autoware_sample_vehicle sensor_model:=autoware_sample_sensor_kit
 ```
 
 ##### Run Rosbag
@@ -132,7 +132,7 @@ mkdir ~/autoware_ista_map
 gdown --id 1WPWmFCjV7eQee4kyBpmGNlX7awerCPxc -O ~/autoware_ista_map/
 ```
 
-> <span style="color:green">**NOTE !**</span></br>  
+> <span style="color:green">**NOTE !**</span></br>
 > You also need to add `lanelet2_map.osm` file to autoware_ista_map folder. Since no lanelet file is created for this map at the
 > moment, you can run any `lanelet2_map.osm` file by placing it in this folder.
 
