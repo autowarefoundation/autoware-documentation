@@ -7,7 +7,7 @@ The get started page provides the decision trees to find the reference design gu
 Below are the lists of the design guidelines. 
 
 
-## Main documentation links
+## Main documentation
 
 <div class="grid cards" markdown>
 
@@ -27,6 +27,19 @@ Below are the lists of the design guidelines.
 
   [:octicons-arrow-right-24: Link to the docs](https://autowarefoundation.github.io/LSA-reference-design-docs/main/)
 
+- **Off-Road Autonomy** Reference Design Documentation
+
+  ***
+  (Up coming in Q1/Q2 2026)
+
+  [:octicons-arrow-right-24: Link to the docs]()
+
+</div>
+
+## Racing Robots
+
+<div class="grid cards" markdown>
+ 
 - **RoboRacer** Reference Design Documentation
 
   ***
@@ -43,8 +56,6 @@ Below are the lists of the design guidelines.
   A design guideline for building TRL-6 low-speed autonomous racing platforms using Autoware. GoKart can be used for racing and education purpose. The simplest use case is to avoid colliding into the obstacle on a racing track. Meanwhile, one can also develop the SLAM algorithm to build the map on the fly and finishes the loop in short time.
 
   [:octicons-arrow-right-24: Link to the docs](https://autowarefoundation.github.io/LSA-reference-design-docs/main/get-started/GoKart/)
-
-</div>
 
 </div>
 
