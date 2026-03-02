@@ -21,8 +21,8 @@
      architecture_type:=awf/universe/20250130 \
      record:=false \
      scenario:='$(find-pkg-share scenario_test_runner)/scenario/sample.yaml' \
-     sensor_model:=sample_sensor_kit \
-     vehicle_model:=sample_vehicle \
+     sensor_model:=autoware_sample_sensor_kit \
+     vehicle_model:=autoware_sample_vehicle \
      use_custom_centerline:=true \
      rviz_config:=$(ros2 pkg prefix autoware_launch)/share/autoware_launch/rviz/scenario_simulator.rviz
    ```

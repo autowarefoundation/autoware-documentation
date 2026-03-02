@@ -162,8 +162,8 @@ define a dummy file for this field.
 ros2 launch scenario_test_runner scenario_test_runner.launch.py \
 record:=false \
 scenario:='/path/to/scenario/sample.yaml' \
-sensor_model:=sample_sensor_kit \
-vehicle_model:=sample_vehicle \
+sensor_model:=autoware_sample_sensor_kit \
+vehicle_model:=autoware_sample_vehicle \
 use_custom_centerline:=true \
 rviz_config:=$(ros2 pkg prefix autoware_launch)/share/autoware_launch/rviz/scenario_simulator.rviz
 ```
