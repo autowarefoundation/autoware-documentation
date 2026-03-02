@@ -14118,7 +14118,7 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<spa
 </code></pre></div>
 <h5 id="launch-autoware">Launch Autoware<a class="headerlink" href="#launch-autoware" title="Permanent link">#</a></h5>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/autoware/install/setup.bash
-ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>logging_simulator.launch.xml<span class="w"> </span>map_path:<span class="o">=</span>~/autoware_ista_map/<span class="w"> </span>vehicle_model:<span class="o">=</span>sample_vehicle<span class="w"> </span>sensor_model:<span class="o">=</span>sample_sensor_kit
+ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>logging_simulator.launch.xml<span class="w"> </span>map_path:<span class="o">=</span>~/autoware_ista_map/<span class="w"> </span>vehicle_model:<span class="o">=</span>autoware_sample_vehicle<span class="w"> </span>sensor_model:<span class="o">=</span>autoware_sample_sensor_kit
 </code></pre></div>
 <h5 id="run-rosbag">Run Rosbag<a class="headerlink" href="#run-rosbag" title="Permanent link">#</a></h5>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/autoware/install/setup.bash
@@ -14135,7 +14135,7 @@ ros2<span class="w"> </span>bag<span class="w"> </span>play<span class="w"> </sp
 gdown<span class="w"> </span>--id<span class="w"> </span>1WPWmFCjV7eQee4kyBpmGNlX7awerCPxc<span class="w"> </span>-O<span class="w"> </span>~/autoware_ista_map/
 </code></pre></div>
 <blockquote>
-<p><span style="color:green"><strong>NOTE !</strong></span><br>
+<p><span style="color:green"><strong>NOTE !</strong></span>
 You also need to add <code>lanelet2_map.osm</code> file to autoware_ista_map folder. Since no lanelet file is created for this map at the
 moment, you can run any <code>lanelet2_map.osm</code> file by placing it in this folder.</p>
 </blockquote>
