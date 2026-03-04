@@ -19,9 +19,15 @@ timeout: ---
 
 ## Errors
 
+Load failure: If the map fails to load because it doesn't exist, is in the wrong format, etc., a failure response is returned and a diagnostic error is reported.
+
 ## Support
 
+This interface may not be provided if entire map loading interface is provided.
+
 ## Limitations
+
+Large data: If large maps are used, DDS configuration may be required. [See this page for details.](https://autowarefoundation.github.io/autoware-documentation/main/installation/additional-settings-for-developers/network-configuration/dds-settings/)
 
 ## Use Cases
 
