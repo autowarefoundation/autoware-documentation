@@ -107,7 +107,7 @@ colcon build --symlink-install --packages-select sample_sensor_kit_launch autowa
 
 ```bash
 source ~/autoware/install/setup.bash
-ros2 launch autoware_launch logging_simulator.launch.xml map_path:=~/autoware_ista_map/ vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+ros2 launch autoware_launch logging_simulator.launch.xml map_path:=~/autoware_ista_map/ vehicle_model:=autoware_sample_vehicle sensor_model:=autoware_sample_sensor_kit
 ```
 
 ##### Run Rosbag
@@ -132,7 +132,7 @@ mkdir ~/autoware_ista_map
 gdown --id 1WPWmFCjV7eQee4kyBpmGNlX7awerCPxc -O ~/autoware_ista_map/
 ```
 
-> <span style="color:green">**NOTE !**</span></br>  
+> <span style="color:green">**NOTE !**</span></br>
 > You also need to add `lanelet2_map.osm` file to autoware_ista_map folder. Since no lanelet file is created for this map at the
 > moment, you can run any `lanelet2_map.osm` file by placing it in this folder.
 

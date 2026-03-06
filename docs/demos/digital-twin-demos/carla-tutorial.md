@@ -29,7 +29,7 @@ TensorRT-optimized Vectorized Autonomous Driving ([VAD](https://github.com/hustv
      ```bash
      ros2 launch autoware_launch e2e_simulator.launch.xml \
        map_path:=$HOME/autoware_map/Town01 \
-       vehicle_model:=sample_vehicle \
+       vehicle_model:=autoware_sample_vehicle \
        sensor_model:=carla_sensor_kit \
        simulator_type:=carla \
        use_e2e_planning:=true \
