@@ -1,3 +1,4 @@
 nav:
   - index.md
   - performance-troubleshooting.md
+  - runtime-troubleshooting.md

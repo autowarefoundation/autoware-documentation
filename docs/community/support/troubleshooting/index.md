@@ -177,6 +177,10 @@ docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:latest
 
 ## Runtime issues
 
+### CycloneDDS: Failed to find a free participant index (ROS 2 Jazzy)
+
+When using ROS 2 Jazzy with CycloneDDS, you may see "Failed to find a free participant index for domain 0" and nodes failing to start. See [Runtime Troubleshooting: CycloneDDS failed to find a free participant index](runtime-troubleshooting.md#cyclonedds-failed-to-find-a-free-participant-index) for the cause and how to fix it.
+
 ### Performance related issues
 
 Symptoms:
