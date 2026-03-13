@@ -1,11 +1,12 @@
 # Reference design
 
-Autoware has been developed and deployed in several autonomous vehicle projects. These projects range from prototypes, research platforms, education platforms, racing vehicles, commercial vehicles and utility vehicles.
-The pages in this section elaborate their designs, including hardware and software, for these projects.
+Autoware has been developed and deployed in several autonomous vehicle projects. These projects range from prototypes, research platforms, education platforms, racing vehicles, commercial vehicles and utility vehicles. The pages in this section elaborate their designs, including hardware and software, for these projects.
 
-Two spider/radar charts are provided for each project to provide high-level overview of the design and technologies used in each project. The metrics for the chart are defined on the [Metrics Page](metrics.md).
+The get started page provides the decision trees to find the reference design guideline that meet your needs. One can select the guideline according to the technology maturity, environment, budget, etc. You can start the proess [here](./get-started/find-your-reference-design.md).
 
-## Main documentation links
+Below are the lists of the design guidelines.
+
+## Main documentation
 
 <div class="grid cards" markdown>
 
@@ -25,19 +26,42 @@ Two spider/radar charts are provided for each project to provide high-level over
 
   [:octicons-arrow-right-24: Link to the docs](https://autowarefoundation.github.io/LSA-reference-design-docs/main/)
 
+- **Off-Road Autonomy** Reference Design Documentation
+
+  ***
+
+  (Up coming in Q1/Q2 2026)
+
+  [:octicons-arrow-right-24: Link to the docs]()
+
 </div>
 
-## Reference hardware
+## Racing Robots
 
-[:fa-cl-s fa-circle-arrow-right: Reference Hardware Section](reference-hw/index.md){ .md-button }
+<div class="grid cards" markdown>
 
-## Other reference designs
+- **RoboRacer** Reference Design Documentation
+
+  ***
+
+  A design guideline for building TRL-6 low-speed autonomous racing platforms using Autoware. RoboRacer can be used for racing and education purpose. The simplest use case is to avoid colliding into the obstacle on a racing track. Meanwhile, one can also develop the SLAM algorithm to build the map on the fly and finishes the loop in short time.
+
+  [:octicons-arrow-right-24: Link to the docs](https://autowarefoundation.github.io/LSA-reference-design-docs/main/docs/get-started/RoboRacer)
+
+- **GoKart** Reference Design Documentation
+
+  ***
+
+  A design guideline for building TRL-6 low-speed autonomous racing platforms using Autoware. GoKart can be used for racing and education purpose. The simplest use case is to avoid colliding into the obstacle on a racing track. Meanwhile, one can also develop the SLAM algorithm to build the map on the fly and finishes the loop in short time.
+
+  [:octicons-arrow-right-24: Link to the docs](https://autowarefoundation.github.io/LSA-reference-design-docs/main/get-started/GoKart/)
+
+</div>
 
 ### Buses 🚌
 
 - [ITRI Bus](itri-bus/index.md)
 
-### Racing vehicles 🏎️
+## Reference hardware
 
-- [Go-Kart](https://autowarefoundation.github.io/LSA-reference-design-docs/main/get-started/GoKart/)
-- [F1Tenth](https://autowarefoundation.github.io/LSA-reference-design-docs/main/get-started/RoboRacer/)
+[:fa-cl-s fa-circle-arrow-right: Reference Hardware Section](reference-hw/index.md){ .md-button }
