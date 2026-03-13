@@ -53,7 +53,7 @@ Autonomous Go-Kart is a one-third scale autonomous go-kart autonomous vehicle fo
 
 ### Chassis
 
-- TopKart: [link to purchase]()
+- TopKart: [link to purchase](https://go-kart-upenn.readthedocs.io/en/latest/Bom.html)
 
 ### Sensors
 
