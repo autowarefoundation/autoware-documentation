@@ -74,6 +74,9 @@ Save the following file as `~/cyclonedds.xml`.
       <AllowMulticast>default</AllowMulticast>
       <MaxMessageSize>65500B</MaxMessageSize>
     </General>
+    <Discovery>
+      <ParticipantIndex>none</ParticipantIndex>
+    </Discovery>
     <Internal>
       <SocketReceiveBufferSize min="10MB"/>
       <Watermarks>
@@ -83,6 +86,10 @@ Save the following file as `~/cyclonedds.xml`.
   </Domain>
 </CycloneDDS>
 ```
+
+!!! note "When using CycloneDDS on ROS 2 Jazzy (Ubuntu 24.04)"
+
+    On ROS 2 Jazzy, the default maximum Participant Index in rmw_cyclonedds_cpp is limited to around 32, which can cause a "Failed to find a free participant index for domain 0" error when running many nodes (e.g. planning simulator). Adding the `<Discovery>` section above with `ParticipantIndex` set to `none` avoids this error. For more details, see [Runtime Troubleshooting: CycloneDDS failed to find a free participant index](../../../community/support/troubleshooting/runtime-troubleshooting.md#cyclonedds-failed-to-find-a-free-participant-index).
 
 Then add the following lines to your `~/.bashrc` file.
 
