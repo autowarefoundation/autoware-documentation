@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
     
     
       
@@ -13749,6 +13749,8 @@
       
         
       
+        
+      
     
     
     
@@ -13818,6 +13820,34 @@
     
   
     Performance Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../community/support/troubleshooting/runtime-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runtime Troubleshooting
   
 
     
@@ -14212,6 +14242,9 @@ net.ipv4.ipfrag_high_thresh<span class="o">=</span><span class="m">134217728</sp
 <span class="w">      </span><span class="nt">&lt;AllowMulticast&gt;</span>default<span class="nt">&lt;/AllowMulticast&gt;</span>
 <span class="w">      </span><span class="nt">&lt;MaxMessageSize&gt;</span>65500B<span class="nt">&lt;/MaxMessageSize&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/General&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Discovery&gt;</span>
+<span class="w">      </span><span class="nt">&lt;ParticipantIndex&gt;</span>none<span class="nt">&lt;/ParticipantIndex&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Discovery&gt;</span>
 <span class="w">    </span><span class="nt">&lt;Internal&gt;</span>
 <span class="w">      </span><span class="nt">&lt;SocketReceiveBufferSize</span><span class="w"> </span><span class="na">min=</span><span class="s">"10MB"</span><span class="nt">/&gt;</span>
 <span class="w">      </span><span class="nt">&lt;Watermarks&gt;</span>
@@ -14221,6 +14254,10 @@ net.ipv4.ipfrag_high_thresh<span class="o">=</span><span class="m">134217728</sp
 <span class="w">  </span><span class="nt">&lt;/Domain&gt;</span>
 <span class="nt">&lt;/CycloneDDS&gt;</span>
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">When using CycloneDDS on <abbr title="Robot Operating System">ROS</abbr> 2 Jazzy (Ubuntu 24.04)</p>
+<p>On <abbr title="Robot Operating System">ROS</abbr> 2 Jazzy, the default maximum Participant Index in rmw_cyclonedds_cpp is limited to around 32, which can cause a "Failed to find a free participant index for domain 0" error when running many nodes (e.g. planning simulator). Adding the <code>&lt;Discovery&gt;</code> section above with <code>ParticipantIndex</code> set to <code>none</code> avoids this error. For more details, see <a href="../../../../community/support/troubleshooting/runtime-troubleshooting/#cyclonedds-failed-to-find-a-free-participant-index">Runtime Troubleshooting: CycloneDDS failed to find a free participant index</a>.</p>
+</div>
 <p>Then add the following lines to your <code>~/.bashrc</code> file.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">RMW_IMPLEMENTATION</span><span class="o">=</span>rmw_cyclonedds_cpp
 

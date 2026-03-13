@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
     
     
       
@@ -13609,6 +13609,8 @@
       
         
       
+        
+      
     
     
     
@@ -13678,6 +13680,34 @@
     
   
     Performance Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="runtime-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runtime Troubleshooting
   
 
     
@@ -13952,6 +13982,17 @@
   
     <nav class="md-nav" aria-label="Runtime issues">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cyclonedds-failed-to-find-a-free-participant-index-ros-2-jazzy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CycloneDDS: Failed to find a free participant index (ROS 2 Jazzy)
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#performance-related-issues" class="md-nav__link">
@@ -14232,6 +14273,8 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>ghcr.io/autowarefoundation/autoware-universe:latest
 </code></pre></div>
 <h2 id="runtime-issues">Runtime issues<a class="headerlink" href="#runtime-issues" title="Permanent link">#</a></h2>
+<h3 id="cyclonedds-failed-to-find-a-free-participant-index-ros-2-jazzy">CycloneDDS: Failed to find a free participant index (<abbr title="Robot Operating System">ROS</abbr> 2 Jazzy)<a class="headerlink" href="#cyclonedds-failed-to-find-a-free-participant-index-ros-2-jazzy" title="Permanent link">#</a></h3>
+<p>When using <abbr title="Robot Operating System">ROS</abbr> 2 Jazzy with CycloneDDS, you may see "Failed to find a free participant index for domain 0" and nodes failing to start. See <a href="runtime-troubleshooting/#cyclonedds-failed-to-find-a-free-participant-index">Runtime Troubleshooting: CycloneDDS failed to find a free participant index</a> for the cause and how to fix it.</p>
 <h3 id="performance-related-issues">Performance related issues<a class="headerlink" href="#performance-related-issues" title="Permanent link">#</a></h3>
 <p>Symptoms:</p>
 <ul>
