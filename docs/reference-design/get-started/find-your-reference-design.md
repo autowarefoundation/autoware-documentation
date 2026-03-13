@@ -31,7 +31,7 @@ flowchart TD
 
 | Configuration                                                                                                                | Best For                           | Environment          | Localization | Key Feature               |
 | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | -------------------- | ------------ | ------------------------- |
-| [KingWayTek Micro LSV]()                                                                                                     | Mixed traffic flows and low budget | Paved, GPS available | RTK GNSS     | Balanced cost/capability  |
+| [KingWayTek Micro LSV](https://github.com/autowarefoundation/LSA-reference-design-docs/blob/main/docs/get-started/KWT_LSV/Kingway_LSV_introduction_ENG_0729AWF_v1.pdf)                                                                                                     | Mixed traffic flows and low budget | Paved, GPS available | RTK GNSS     | Balanced cost/capability  |
 | [Bus](../../itri-bus/)                                                                                                       | Shuttle Services for fixed route   | Paved, GPS available | RTK GNSS     | Comfortable and safe ride |
 | [RoboTaxi](https://chishengshih.github.io/autoware-documentation/latest/reference-design/LeoTaxi/ReferenceDesignforLeoTaxi/) | Point-to-Point On-Demand Services  | Paved, GPS available | RTK GNSS     | Comfortable and safe ride |
 
@@ -43,7 +43,7 @@ These are conceptual configurations optimized for different deployment scenarios
 | ------------------------------------------------------------------------------------ | ---------------------------------- | ---------------------- | ------------ | ------------------------------------ |
 | [LSA](https://autowarefoundation.github.io/LSA-reference-design-docs/main/)          | Mixed traffic flows and low budget | Paved, GPS available   | RTK GNSS     | Balanced cost/capability             |
 | [PoV](https://autowarefoundation.github.io/autoware.pov-reference-design-docs/main/) | Highway                            | Paved, GPS available   | RTK GNSS     | End-to-End Machine Learning Pipeline |
-| [Off-road]()                                                                         | Racing, education, and research    | Unpaved, GPS available | Single GNSS  | No map and AI-enabled                |
-| [Truck]()                                                                            | Heavy duty vehicles                | Outdoor                | RTK GNSS     |                                      |
-| [Racier](../RoboRacer/)                                                              | Racing and Education               | Indoor tracks          | No           | Racing robots using Autoware         |
+| [(TBA)Off-road]()                                                                         | Racing, education, and research    | Unpaved, GPS available | Single GNSS  | No map and AI-enabled                |
+| [(TBA)Truck]()                                                                            | Heavy duty vehicles                | Outdoor                | RTK GNSS     |                                      |
+| [RoboRacer](../RoboRacer/)                                                              | Racing and Education               | Indoor tracks          | No           | Racing robots using Autoware         |
 | [Go-Kart](../GoKart/)                                                                | Racing and Development             | Outdoor                | RTK GNSS     | EV Go-Kart using Autoware            |
