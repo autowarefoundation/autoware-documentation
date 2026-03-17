@@ -14077,8 +14077,13 @@ If you have not yet installed Autoware, please refer to the <a href="../../../in
 <li>
 <p>Start autonomous driving.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span><span class="nv">$HOME</span>/autoware_launch_workspace/install/setup.bash
-ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/system/operation_mode/state<span class="w"> </span>autoware_adapi_v1_msgs/msg/OperationModeState<span class="w"> </span><span class="s2">"{mode: 2, is_autoware_control_enabled: true, is_autonomous_mode_available: true}"</span><span class="w"> </span>--once
-ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/control/command/gear_cmd<span class="w"> </span>autoware_vehicle_msgs/msg/GearCommand<span class="w"> </span><span class="s2">"command: 2"</span><span class="w"> </span>--once
+
+ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/system/operation_mode/state<span class="w"> </span>autoware_adapi_v1_msgs/msg/OperationModeState<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">"{mode: 2, is_autoware_control_enabled: true, is_autonomous_mode_available: true}"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--once<span class="w"> </span>--qos-durability<span class="w"> </span>transient_local
+
+ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/control/command/gear_cmd<span class="w"> </span>autoware_vehicle_msgs/msg/GearCommand<span class="w"> </span><span class="s2">"command: 2"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--once<span class="w"> </span>--qos-durability<span class="w"> </span>transient_local
 </code></pre></div>
 </li>
 </ol>
