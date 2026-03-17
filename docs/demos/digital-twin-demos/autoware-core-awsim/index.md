@@ -47,8 +47,13 @@ If you have not yet installed Autoware, please refer to the [Installation](../..
 
    ```bash
    source $HOME/autoware_launch_workspace/install/setup.bash
-   ros2 topic pub /system/operation_mode/state autoware_adapi_v1_msgs/msg/OperationModeState "{mode: 2, is_autoware_control_enabled: true, is_autonomous_mode_available: true}" --once
-   ros2 topic pub /control/command/gear_cmd autoware_vehicle_msgs/msg/GearCommand "command: 2" --once
+
+   ros2 topic pub /system/operation_mode/state autoware_adapi_v1_msgs/msg/OperationModeState \
+     "{mode: 2, is_autoware_control_enabled: true, is_autonomous_mode_available: true}" \
+     --once --qos-durability transient_local
+
+   ros2 topic pub /control/command/gear_cmd autoware_vehicle_msgs/msg/GearCommand "command: 2" \
+     --once --qos-durability transient_local
    ```
 
 ## Launch Autoware for Docker installation
