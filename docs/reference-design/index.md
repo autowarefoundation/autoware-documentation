@@ -32,7 +32,6 @@ Below are the lists of the design guidelines.
 
   (Up coming in Q1/Q2 2026)
 
-  [:octicons-arrow-right-24: Link to the docs]()
 
 </div>
 
