@@ -60,7 +60,7 @@ One is interested in building your autonomous racing cars or low-cost platforms 
 
 RoboRacer can be used for racing and education purpose. The simplest use case is to avoid colliding into the obstacle on a racing track. Meanwhile, one can also develop the SLAM algorithm to build the map on the fly and finishes the loop in short time.
 
-![RoboRacer NX](images/f1tenth_NX.png)
+![RoboRacer NX](https://raw.githubusercontent.com/f1tenth/f1tenth_doc/94efb99a2df0fdf29954501f02c8de6c50ae20f9/img/f1tenth_NX.png)
 
 # Hardware Configuration
 
@@ -84,7 +84,7 @@ RoboRacer can be used for racing and education purpose. The simplest use case is
 - USB Hub (4 ports)
 - (DEPRECATED) NVIDIA Jetson TX2
 
-![RoboRacer](images/together_NX.png)
+![RoboRacer](https://raw.githubusercontent.com/f1tenth/f1tenth_doc/94efb99a2df0fdf29954501f02c8de6c50ae20f9/getting_started/build_car/img/together/together_NX_00.JPG)
 
 # Software Configuration
 

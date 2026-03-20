@@ -47,7 +47,7 @@ One is interested in building your small size autonomous vehicles and looks for 
 
 Autonomous Go-Kart is a one-third scale autonomous go-kart autonomous vehicle for development and prototyping purpose. It can be used for developing and testing software components in Autoware.
 
-![System Architecture](images/avev_gokart.png)
+![System Architecture](https://raw.githubusercontent.com/mlab-upenn/Go-Kart/45e3f067209b3805c7d544e4d88beb27d8ee5934/docs/source/avev_gokart.png)
 
 ## Hardware Configuration
 
@@ -67,4 +67,4 @@ Autonomous Go-Kart is a one-third scale autonomous go-kart autonomous vehicle fo
 
 ## Software Configuration
 
-![GoKart-ComputeSensing.png](images/GoKart-ComputeSensing.png)
+![GoKart-ComputeSensing.png](https://github.com/mlab-upenn/Go-Kart/blob/45e3f067209b3805c7d544e4d88beb27d8ee5934/docs/source/Build-the-Kart/imgs/Software/compute.png?raw=true)
