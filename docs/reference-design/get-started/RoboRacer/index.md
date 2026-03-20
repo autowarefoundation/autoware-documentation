@@ -2,27 +2,27 @@
 
 This document elaborates the hardware and software configurations for using Autoware for autonomous driving. Hence, it will serve as a guideline to select hardware and software components to build autonomous vehicles. However, this document is NOT prepared as neither step-by-step instructions nor Q&A books, which will be provided as a reference link if available.
 
-# Design Overview
+## Design Overview
 
 ![Radar Chart for RoboRacer Design](images/RadarChart-F1Tenth.png)
 
-# Who should read
+## Who should read
 
 One is interested in building your autonomous racing cars or low-cost platforms to learn Autoware, and looks for the place to start with.
 
-# References and Resources
+## References and Resources
 
 - Complete RoboRacer documents: [link](https://roboracer.ai/)
 - RoboRacer Learn: [link](https://roboracer.ai/learn)
 
-# Contributors [complete list](https://roboracer.ai/)
+## Contributors [complete list](https://roboracer.ai/)
 
-## RoboRacer Core Developers
+### RoboRacer Core Developers
 
 - Hongrui (Billy) Zheng
 - Johannes Betz
 
-## Contributors
+### Contributors
 
 - Matthew O'Kelly
 - Kim Luong
@@ -32,44 +32,44 @@ One is interested in building your autonomous racing cars or low-cost platforms 
 - RoboRacer UCSD and Jack Silberman
 - Jim Benson
 
-# Community Outreach
+### Community Outreach
 
 - Rahul Mangharam
 - RoboRacer Clemson and Venkat Krovi
 - Jaroslav Klapálek
 
-# Targeted Use Cases
+## Targeted Use Cases
 
 | Use Cases: |             Education             |              Racing               |                 PoC                 |             Open AD Kit             |   Commercial Services/Production    |
 | :--------: | :-------------------------------: | :-------------------------------: | :---------------------------------: | :---------------------------------: | :---------------------------------: |
 | RoboRacer  | <input type="checkbox" checked /> | <input type="checkbox" checked /> | <input type="checkbox" disabled  /> | <input type="checkbox" disabled  /> | <input type="checkbox" disabled  /> |
 
-# ODD
+## ODD
 
 |    ODD    |                Cargo                |                Bus                 |              RoboTaxi               |     Low Speed (Utility) Vehicle     |           Delivery Robot            |
 | :-------: | :---------------------------------: | :--------------------------------: | :---------------------------------: | :---------------------------------: | :---------------------------------: |
 | RoboRacer | <input type="checkbox" disabled  /> | <input type="checkbox" disabled /> | <input type="checkbox" disabled  /> | <input type="checkbox" disabled  /> | <input type="checkbox" disabled  /> |
 
-# Automation Level
+## Automation Level
 
 | Automation Level |                 0                  |                 1                  |                 2                 |                  3                  |                  4                  |                  5                  |
 | :--------------: | :--------------------------------: | :--------------------------------: | :-------------------------------: | :---------------------------------: | :---------------------------------: | :---------------------------------: |
 |    RoboRacer     | <input type="checkbox" checked  /> | <input type="checkbox" checked  /> | <input type="checkbox" checked /> | <input type="checkbox" disabled  /> | <input type="checkbox" disabled  /> | <input type="checkbox" disabled  /> |
 
-# System Architecture
+## System Architecture
 
 RoboRacer can be used for racing and education purpose. The simplest use case is to avoid colliding into the obstacle on a racing track. Meanwhile, one can also develop the SLAM algorithm to build the map on the fly and finishes the loop in short time.
 
 ![RoboRacer NX](https://raw.githubusercontent.com/f1tenth/f1tenth_doc/94efb99a2df0fdf29954501f02c8de6c50ae20f9/img/f1tenth_NX.png)
 
-# Hardware Configuration
+## Hardware Configuration
 
-## Chassis
+### Chassis
 
 - Traxxas Slash 4x4 Premium: [link to purchase](https://www.amainhobbies.com/traxxas-slash-4x4-ultimate-rtr-4wd-short-course-truck-orange-tra68077-4-orng/p858530)
 - VESC Speed Controllers: # VESC 6 MK III
 
-## Sensors
+### Sensors
 
 - Lidar: choose one
   - Hokuyo UTM-30LX
@@ -78,7 +78,7 @@ RoboRacer can be used for racing and education purpose. The simplest use case is
   - ZED 2
   - Intel Real Sense
 
-## Computing Platforms
+### Computing Platforms
 
 - NVIDIA Jetson Xavier NX
 - USB Hub (4 ports)
@@ -86,7 +86,7 @@ RoboRacer can be used for racing and education purpose. The simplest use case is
 
 ![RoboRacer](https://raw.githubusercontent.com/f1tenth/f1tenth_doc/94efb99a2df0fdf29954501f02c8de6c50ae20f9/getting_started/build_car/img/together/together_NX_00.JPG)
 
-# Software Configuration
+## Software Configuration
 
 - Software on the car:
   - Operating System: Linux 20.04
