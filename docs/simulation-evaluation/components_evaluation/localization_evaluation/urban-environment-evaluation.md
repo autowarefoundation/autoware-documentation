@@ -107,7 +107,7 @@ colcon build --symlink-install --packages-select sample_sensor_kit_launch autowa
 
 ```bash
 source ~/autoware/install/setup.bash
-ros2 launch autoware_launch logging_simulator.launch.xml map_path:=~/autoware_ista_map/ vehicle_model:=autoware_sample_vehicle sensor_model:=autoware_sample_sensor_kit
+ros2 launch autoware_launch logging_simulator.launch.xml map_path:=~/autoware_ista_map/ vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
 ```
 
 ##### Run Rosbag

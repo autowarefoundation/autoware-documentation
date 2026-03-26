@@ -18,7 +18,7 @@ Note that you need to specify the `map_path` and `pointcloud_map_file` arguments
 source ~/autoware/install/setup.bash
 ros2 launch autoware_launch logging_simulator.launch.xml \
   map_path:=$HOME/autoware_map/sample-map-rosbag pointcloud_map_file:=pointcloud_map \
-  vehicle_model:=autoware_sample_vehicle_split sensor_model:=autoware_sample_sensor_kit
+  vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
 ```
 
 For playing rosbag to simulate Autoware, please refer to the instruction in [the demo for rosbag replay simulation](../../demos/rosbag-replay-simulation.md).
