@@ -1397,41 +1397,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#avoid-the-guardcondition-use-after-free-issue-with-zenoh" class="md-nav__link">
+  <a href="#launch-autoware-with-zenoh" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Avoid the GuardCondition Use-After-Free Issue with Zenoh
+        Launch Autoware with Zenoh
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Avoid the GuardCondition Use-After-Free Issue with Zenoh">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#option-1-use-the-patched-package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Option 1: Use the Patched Package
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#option-2-manually-patch-the-launch-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Option 2: Manually Patch the Launch File
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -14009,41 +13981,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#avoid-the-guardcondition-use-after-free-issue-with-zenoh" class="md-nav__link">
+  <a href="#launch-autoware-with-zenoh" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Avoid the GuardCondition Use-After-Free Issue with Zenoh
+        Launch Autoware with Zenoh
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Avoid the GuardCondition Use-After-Free Issue with Zenoh">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#option-1-use-the-patched-package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Option 1: Use the Patched Package
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#option-2-manually-patch-the-launch-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Option 2: Manually Patch the Launch File
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -14171,12 +14115,12 @@
 <li><strong>Reduced Discovery Overhead</strong>: Zenoh significantly reduces discovery packet overhead, a known issue with DDS in wireless environments.</li>
 <li><strong>Superior Performance</strong>: <a href="https://zenoh.io/blog/2023-03-21-zenoh-vs-mqtt-kafka-dds/">A study</a> has shown that Zenoh generally outperforms other protocols such as DDS, MQTT, and Kafka.</li>
 </ul>
-<p>The following sections provide a step-by-step tutorial for running Autoware with Zenoh. Please note that a workaround patch is currently required to enable Zenoh in Autoware. This patch may not be compatible with the Autoware main branch.</p>
+<p>The following sections provide a step-by-step tutorial for running Autoware with Zenoh. We recommend using <strong><abbr title="Robot Operating System">ROS</abbr> 2 Jazzy</strong>, supported since Autoware 1.7.1, as it includes a fix for the GuardCondition use-after-free issue and eliminates the need for any workaround patches.</p>
 <h2 id="install-rmw_zenoh">Install rmw_zenoh<a class="headerlink" href="#install-rmw_zenoh" title="Permanent link">#</a></h2>
 <ol>
 <li>
 <p>Install rmw_zenoh</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-rmw-zenoh-cpp
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-jazzy-rmw-zenoh-cpp
 </code></pre></div>
 </li>
 <li>
@@ -14192,92 +14136,16 @@
 </li>
 </ol>
 <p>For more details, see the <a href="https://github.com/ros2/rmw_zenoh">rmw_zenoh repository</a>.</p>
-<h2 id="avoid-the-guardcondition-use-after-free-issue-with-zenoh">Avoid the GuardCondition Use-After-Free Issue with Zenoh<a class="headerlink" href="#avoid-the-guardcondition-use-after-free-issue-with-zenoh" title="Permanent link">#</a></h2>
-<p>When running Autoware with Zenoh, a modification to <code>behavior_planning.launch.xml</code> is required to avoid a GuardCondition use-after-free issue in <abbr title="Robot Operating System">ROS</abbr> 2 Humble’s multi-threaded executor. This issue is fixed in <abbr title="Robot Operating System">ROS</abbr> 2 Rolling (2025.04+) but not backported.</p>
-<p>There are two options to avoid this issue:</p>
-<h3 id="option-1-use-the-patched-package">Option 1: Use the Patched Package<a class="headerlink" href="#option-1-use-the-patched-package" title="Permanent link">#</a></h3>
-<p>You can use our patched <code>tier4_planning_launch</code> package directly.
-This package already runs <code>behavior_path_planner</code> in a single-threaded node container, so no manual modification is needed.</p>
+<h2 id="launch-autoware-with-zenoh">Launch Autoware with Zenoh<a class="headerlink" href="#launch-autoware-with-zenoh" title="Permanent link">#</a></h2>
 <ol>
 <li>
-<p>Clone <code>evshary/tier4_planning_launch</code> and move to the directory:</p>
-<ul>
-<li>Note that the version should match the one in autoware_universe.</li>
-</ul>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/tier4_planning_launch_ws/src
-<span class="nb">cd</span><span class="w"> </span>~/tier4_planning_launch_ws/src
-<span class="c1"># Switch to the version you are using in autoware_universe, for example, 0.45.0.</span>
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/evshary/tier4_planning_launch.git<span class="w"> </span>-b<span class="w"> </span><span class="m">0</span>.45.0
-</code></pre></div>
-</li>
-<li>
-<p>Build the workspace:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>&lt;YOUR-AUTOWARE-DIR&gt;/install/setup.bash
-<span class="nb">cd</span><span class="w"> </span>~/tier4_planning_launch_ws
-colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
-</code></pre></div>
-</li>
-<li>
-<p>Launch Autoware with Zenoh:</p>
 <p>Start the Zenoh router:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># terminal 1</span>
 ros2<span class="w"> </span>run<span class="w"> </span>rmw_zenoh_cpp<span class="w"> </span>rmw_zenohd
 </code></pre></div>
-<p>Launch Autoware with the <code>tier4_planning_launch</code> overlay applied:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># terminal 2</span>
-<span class="nb">source</span><span class="w"> </span>~/tier4_planning_launch_ws/install/setup.bash
-ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>...
-</code></pre></div>
-</li>
-</ol>
-<h3 id="option-2-manually-patch-the-launch-file">Option 2: Manually Patch the Launch File<a class="headerlink" href="#option-2-manually-patch-the-launch-file" title="Permanent link">#</a></h3>
-<p>If you are using a version of Autoware that is not compatible with our <code>tier4_planning_launch</code>, you need to manually patch <code>behavior_planning.launch.xml</code> to run <code>autoware_behavior_path_planner</code> in a separate single-threaded container.</p>
-<ol>
-<li>
-<p>Open the launch file:</p>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>&lt;YOUR-AUTOWARE-DIR&gt;/src/universe/autoware_universe/launch/tier4_planning_launch/launch/scenario_planning/lane_driving/behavior_planning/behavior_planning.launch.xml
-</code></pre></div>
 </li>
 <li>
-<p>Find the block for <code>autoware_behavior_path_planner</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;load_composable_node</span><span class="w"> </span><span class="na">target=</span><span class="s">"/planning/scenario_planning/lane_driving/behavior_planning/behavior_planning_container"</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;composable_node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">"autoware_behavior_path_planner"</span>
-<span class="w">                  </span><span class="na">plugin=</span><span class="s">"autoware::behavior_path_planner::BehaviorPathPlannerNode"</span>
-<span class="w">                  </span><span class="na">name=</span><span class="s">"behavior_path_planner"</span>
-<span class="w">                  </span><span class="na">namespace=</span><span class="s">""</span><span class="nt">&gt;</span>
-<span class="w">    </span>...
-<span class="w">  </span><span class="nt">&lt;/composable_node&gt;</span>
-<span class="nt">&lt;/load_composable_node&gt;</span>
-</code></pre></div>
-</li>
-<li>
-<p>Modify opening and closing tags and add the <code>thread_num</code> param to ensure single-threaded execution:</p>
-<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- &lt;load_composable_node target="/planning/scenario_planning/lane_driving/behavior_planning/behavior_planning_container"&gt; --&gt;</span>
-<span class="nt">&lt;node_container</span><span class="w"> </span><span class="na">pkg=</span><span class="s">"rclcpp_components"</span><span class="w"> </span><span class="na">exec=</span><span class="s">"$(var container_type)"</span><span class="w"> </span><span class="na">name=</span><span class="s">"behavior_planning_container2"</span><span class="w"> </span><span class="na">namespace=</span><span class="s">""</span><span class="w"> </span><span class="na">args=</span><span class="s">""</span><span class="w"> </span><span class="na">output=</span><span class="s">"both"</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;composable_node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">"autoware_behavior_path_planner"</span>
-<span class="w">                  </span><span class="na">plugin=</span><span class="s">"autoware::behavior_path_planner::BehaviorPathPlannerNode"</span>
-<span class="w">                  </span><span class="na">name=</span><span class="s">"behavior_path_planner"</span>
-<span class="w">                  </span><span class="na">namespace=</span><span class="s">""</span><span class="nt">&gt;</span>
-<span class="w">    </span>...
-<span class="w">  </span><span class="nt">&lt;/composable_node&gt;</span>
-<span class="w">  </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">"thread_num"</span><span class="w"> </span><span class="na">value=</span><span class="s">"1"</span><span class="nt">/&gt;</span>
-<span class="cm">&lt;!-- &lt;/load_composable_node&gt; --&gt;</span>
-<span class="nt">&lt;/node_container&gt;</span>
-</code></pre></div>
-</li>
-<li>
-<p>Rebuild your workspace (if necessary):</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
-colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
-</code></pre></div>
-</li>
-<li>
-<p>Launch modified Autoware with rmw_zenoh</p>
-<p>Start the Zenoh router</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># terminal 1</span>
-ros2<span class="w"> </span>run<span class="w"> </span>rmw_zenoh_cpp<span class="w"> </span>rmw_zenohd
-</code></pre></div>
-<p>Launch modified Autoware</p>
+<p>Launch Autoware:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># terminal 2</span>
 <span class="nb">source</span><span class="w"> </span>&lt;YOUR-AUTOWARE-DIR&gt;/install/setup.bash
 ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>...
