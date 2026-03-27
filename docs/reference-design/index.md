@@ -2,7 +2,7 @@
 
 Autoware has been developed and deployed in several autonomous vehicle projects. These projects range from prototypes, research platforms, education platforms, racing vehicles, commercial vehicles and utility vehicles. The pages in this section elaborate their designs, including hardware and software, for these projects.
 
-The get started page provides the decision trees to find the reference design guideline that meet your needs. One can select the guideline according to the technology maturity, environment, budget, etc. You can start the proess [here](./get-started/find-your-reference-design.md).
+The get started page provides the decision trees to find the reference design guideline that meet your needs. One can select the guideline according to the technology maturity, environment, budget, etc. You can start the process [here](./get-started/find-your-reference-design.md).
 
 Below are the lists of the design guidelines.
 
