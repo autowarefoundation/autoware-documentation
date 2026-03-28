@@ -50,7 +50,7 @@ When installing CUDA, errors may occur because of version conflicts. To resolve 
 
 !!! warning
 
-    Note that some components in Autoware Universe require CUDA, and only the CUDA version in the [env file](https://github.com/autowarefoundation/autoware/blob/main/amd64.env) is supported at this time.
+    Note that some components in Autoware Universe require CUDA, and only the CUDA version in the [cuda role defaults](https://github.com/autowarefoundation/autoware/blob/main/ansible/roles/cuda/defaults/main.yaml) is supported at this time.
     Autoware may work with other CUDA versions, but those versions are not supported and functionality is not guaranteed.
 
 ## Build issues
