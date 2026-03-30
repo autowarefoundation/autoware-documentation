@@ -53,7 +53,7 @@
 
    ```sh
    source ~/autoware/install/setup.bash
-   ros2 launch autoware_launch logging_simulator.launch.xml map_path:=$HOME/autoware_map/sample-map-rosbag vehicle_model:=autoware_sample_vehicle sensor_model:=autoware_sample_sensor_kit
+   ros2 launch autoware_launch logging_simulator.launch.xml map_path:=$HOME/autoware_map/sample-map-rosbag vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
    ```
 
    Note that you cannot use `~` instead of `$HOME` here.
