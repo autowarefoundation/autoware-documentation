@@ -44,7 +44,7 @@ Below are the lists of the design guidelines.
 
   A design guideline for building TRL-6 low-speed autonomous racing platforms using Autoware. RoboRacer can be used for racing and education purpose. The simplest use case is to avoid colliding into the obstacle on a racing track. Meanwhile, one can also develop the SLAM algorithm to build the map on the fly and finishes the loop in short time.
 
-  [:octicons-arrow-right-24: Link to the docs](https://autowarefoundation.github.io/LSA-reference-design-docs/main/docs/get-started/RoboRacer)
+  [:octicons-arrow-right-24: Link to the docs](https://autowarefoundation.github.io/LSA-reference-design-docs/main/get-started/RoboRacer)
 
 - **GoKart** Reference Design Documentation
 
