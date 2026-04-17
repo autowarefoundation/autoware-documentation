@@ -10,6 +10,63 @@ The accepted formats are:
 - `.srv`
 - `.action`
 
+The prototype files are expected to comply with following style.
+
+```text
+#
+# <File description>
+#
+
+# <Field description> (optional or reserved)
+# e.g. <Example value>
+type field
+
+
+```
+
+On top of the message, briefly explain what the message contains and/or what it is used for. For an example, see [sensor_msgs/msg/Imu.msg](https://github.com/ros2/common_interfaces/blob/master/sensor_msgs/msg/Imu.msg#L1-L13).
+
+!!! success ""
+
+    Even though it is not strictly checked, try not to pass 100 characters in a line.
+
+_Example:_
+
+```text
+# Number of times the vehicle performed an emergency brake
+# e.g. 10
+uint32 count_emergency_brake
+
+# Seconds passed since the last emergency brake (reserved)
+# e.g. 100
+uint64 duration
+
+# Speed limit on a specific lane (optional)
+# If the value is 0.0, the lane has no specific speed limit, so common speed limit in the contry is applied
+# e.g. 30.0
+# default: 0.0
+float limit_kmph
+```
+
+If a specific field is not always required, it is expected be noted as`optional` or `reserved`.
+
+- An `optional` field may not contain valid value, so the subscriber/client must check if it is valid or not. For such field, default value should be provided.
+- A `reserved` field is reserved for future usages. The publisher/server side has no responsibility on the content.
+
+The user can learn about the message information by calling
+
+```bash
+ros2 interface show <message> --all-comments
+```
+
+Each README.md in the repository should only provide extra illustrative descriptions and external resources. In `.msg` files, refer to the URL of README along with the corresponding anchor.
+
+_Example:_
+
+```text
+# please refer to https://github.com/autowarefoundation/autoware_msgs/blob/main/README.md#format for the illustrative description of this field
+```
+
 ## Naming
 
 !!! warning ""
@@ -118,32 +175,6 @@ uint8 PRISM=5
 
 # The type of the shape
 uint8 type
-```
-
-## Comments
-
-On top of the message, briefly explain what the message contains and/or what it is used for. For an example, see [sensor_msgs/msg/Imu.msg](https://github.com/ros2/common_interfaces/blob/master/sensor_msgs/msg/Imu.msg#L1-L13).
-
-!!! tip ""
-
-    If necessary, add line comments before the fields that explain the context and/or meaning.
-
-!!! tip ""
-
-    For simple fields like `x, y, z, w` you might not need to add comments.
-
-!!! success ""
-
-    Even though it is not strictly checked, try not to pass 100 characters in a line.
-
-_Example:_
-
-```text
-# Number of times the vehicle performed an emergency brake
-uint32 count_emergency_brake
-
-# Seconds passed since the last emergency brake
-uint64 duration
 ```
 
 ## Example usages
