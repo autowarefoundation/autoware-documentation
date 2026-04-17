@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -12637,17 +12637,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#comments" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Comments
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#example-usages" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14114,17 +14103,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#comments" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Comments
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#example-usages" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14231,6 +14209,46 @@
 <li><code>.srv</code></li>
 <li><code>.action</code></li>
 </ul>
+<p>The prototype files are expected to comply with following style.</p>
+<div class="highlight"><pre><span></span><code>#
+# &lt;File description&gt;
+#
+
+# &lt;Field description&gt; (optional or reserved)
+# e.g. &lt;Example value&gt;
+type field
+</code></pre></div>
+<p>On top of the message, briefly explain what the message contains and/or what it is used for. For an example, see <a href="https://github.com/ros2/common_interfaces/blob/master/sensor_msgs/msg/Imu.msg#L1-L13">sensor_msgs/msg/Imu.msg</a>.</p>
+<div class="admonition success">
+<p>Even though it is not strictly checked, try not to pass 100 characters in a line.</p>
+</div>
+<p><em>Example:</em></p>
+<div class="highlight"><pre><span></span><code># Number of times the vehicle performed an emergency brake
+# e.g. 10
+uint32 count_emergency_brake
+
+# Seconds passed since the last emergency brake (reserved)
+# e.g. 100
+uint64 duration
+
+# Speed limit on a specific lane (optional)
+# If the value is 0.0, the lane has no specific speed limit, so common speed limit in the contry is applied
+# e.g. 30.0
+# default: 0.0
+float limit_kmph
+</code></pre></div>
+<p>If a specific field is not always required, it is expected be noted as<code>optional</code> or <code>reserved</code>.</p>
+<ul>
+<li>An <code>optional</code> field may not contain valid value, so the subscriber/client must check if it is valid or not. For such field, default value should be provided.</li>
+<li>A <code>reserved</code> field is reserved for future usages. The publisher/server side has no responsibility on the content.</li>
+</ul>
+<p>The user can learn about the message information by calling</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>&lt;message&gt;<span class="w"> </span>--all-comments
+</code></pre></div>
+<p>Each README.md in the repository should only provide extra illustrative descriptions and external resources. In <code>.msg</code> files, refer to the URL of README along with the corresponding anchor.</p>
+<p><em>Example:</em></p>
+<div class="highlight"><pre><span></span><code># please refer to https://github.com/autowarefoundation/autoware_msgs/blob/main/README.md#format for the illustrative description of this field
+</code></pre></div>
 <h2 id="naming">Naming<a class="headerlink" href="#naming" title="Permanent link">#</a></h2>
 <div class="admonition warning">
 <p>Under Construction</p>
@@ -14450,24 +14468,6 @@ uint8 PRISM=5
 
 # The type of the shape
 uint8 type
-</code></pre></div>
-<h2 id="comments">Comments<a class="headerlink" href="#comments" title="Permanent link">#</a></h2>
-<p>On top of the message, briefly explain what the message contains and/or what it is used for. For an example, see <a href="https://github.com/ros2/common_interfaces/blob/master/sensor_msgs/msg/Imu.msg#L1-L13">sensor_msgs/msg/Imu.msg</a>.</p>
-<div class="admonition tip">
-<p>If necessary, add line comments before the fields that explain the context and/or meaning.</p>
-</div>
-<div class="admonition tip">
-<p>For simple fields like <code>x, y, z, w</code> you might not need to add comments.</p>
-</div>
-<div class="admonition success">
-<p>Even though it is not strictly checked, try not to pass 100 characters in a line.</p>
-</div>
-<p><em>Example:</em></p>
-<div class="highlight"><pre><span></span><code># Number of times the vehicle performed an emergency brake
-uint32 count_emergency_brake
-
-# Seconds passed since the last emergency brake
-uint64 duration
 </code></pre></div>
 <h2 id="example-usages">Example usages<a class="headerlink" href="#example-usages" title="Permanent link">#</a></h2>
 <ul>
