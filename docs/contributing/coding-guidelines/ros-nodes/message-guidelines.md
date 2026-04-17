@@ -59,7 +59,6 @@ If a specific field is not always required, it is expected be noted as `optional
 - Basically, all field should be `required` and contain valid value.
 - An `optional` field may not contain valid value, so the subscriber/client must check if it is valid or not. For such field, default value should be provided.
 
-
 The user can learn about the message information by calling
 
 ```bash
@@ -171,9 +170,7 @@ It is possible to define integers constants and assign them to a non-constant in
 
     Assign a different value to each element of a constant.
 
-
 _Example:_
-
 
 ```text
 # Classification of error states in Autoware Localization
@@ -191,11 +188,9 @@ uint16 ERROR_ESTIMATION = 4
 uint16 type
 ```
 
-
 !!! tip ""
 
     The constants are expected to be mutually exclusive and collectively exhaustive in the domain. It leads to clear and less confusing modelling.
-
 
 ## Example usages
 
