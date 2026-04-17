@@ -50,8 +50,8 @@ float limit_kmph
 
 If a specific field is not always required, it is expected be noted as`optional` or `reserved`.
 
-- An `optional` field may not contain valid value, so the susbcriber/client must check if it is valid or not. For such field, default value should be provided.
-- A `reserved` field is reserved for future usages. The publisher/server side has no resonsibility on the content.
+- An `optional` field may not contain valid value, so the subscriber/client must check if it is valid or not. For such field, default value should be provided.
+- A `reserved` field is reserved for future usages. The publisher/server side has no responsibility on the content.
 
 The user can learn about the message information by calling
 
