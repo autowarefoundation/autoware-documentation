@@ -53,13 +53,11 @@ If a specific field is not always required, it is expected be noted as`optional`
 - An `optional` field may not contain valid value, so the susbcriber/client must check if it is valid or not. For such field, default value should be provided.
 - A `reserved` field is reserved for future usages. The publisher/server side has no resonsibility on the content.
 
-
 The user can learn about the message information by calling
 
 ```bash
 ros2 interface show <message> --all-comments
 ```
-
 
 Each README.md in the repository should only provide extra illustrative descriptions and external resources. In `.msg` files, refer to the URL of README along with the corresponding anchor.
 
