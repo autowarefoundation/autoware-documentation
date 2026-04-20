@@ -14214,33 +14214,37 @@
 # &lt;File description&gt;
 #
 
-# &lt;Field description&gt; (optional or reserved)
+# &lt;Field description&gt; (required or optional)
 # e.g. &lt;Example value&gt;
 type field
+
+
+# &lt;Constants description&gt;
+# &lt;Item1 description&gt;
+uint16 CONSTANT_ITEM1 = 0
+# &lt;Item2 description&gt;
+uint16 CONSTANT_ITEM2 = 0
 </code></pre></div>
 <p>On top of the message, briefly explain what the message contains and/or what it is used for. For an example, see <a href="https://github.com/ros2/common_interfaces/blob/master/sensor_msgs/msg/Imu.msg#L1-L13">sensor_msgs/msg/Imu.msg</a>.</p>
 <div class="admonition success">
 <p>Even though it is not strictly checked, try not to pass 100 characters in a line.</p>
 </div>
 <p><em>Example:</em></p>
-<div class="highlight"><pre><span></span><code># Number of times the vehicle performed an emergency brake
+<div class="highlight"><pre><span></span><code># Number of times the vehicle performed an emergency brake (required)
 # e.g. 10
 uint32 count_emergency_brake
 
-# Seconds passed since the last emergency brake (reserved)
-# e.g. 100
-uint64 duration
 
 # Speed limit on a specific lane (optional)
-# If the value is 0.0, the lane has no specific speed limit, so common speed limit in the contry is applied
+# If the value is 0.0, the lane has no specific speed limit, so common speed limit in the country is applied
 # e.g. 30.0
 # default: 0.0
 float limit_kmph
 </code></pre></div>
-<p>If a specific field is not always required, it is expected be noted as<code>optional</code> or <code>reserved</code>.</p>
+<p>If a specific field is not always required, it is expected be noted as <code>optional</code>.</p>
 <ul>
+<li>Basically, all field should be <code>required</code> and contain valid value.</li>
 <li>An <code>optional</code> field may not contain valid value, so the subscriber/client must check if it is valid or not. For such field, default value should be provided.</li>
-<li>A <code>reserved</code> field is reserved for future usages. The publisher/server side has no responsibility on the content.</li>
 </ul>
 <p>The user can learn about the message information by calling</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>&lt;message&gt;<span class="w"> </span>--all-comments
@@ -14459,16 +14463,24 @@ float limit_kmph
 <div class="admonition success">
 <p>Assign a different value to each element of a constant.</p>
 </div>
-<p>Example from <a href="https://github.com/ros2/common_interfaces/blob/f3cb4848560e91596e7688e8ac1816828fa460cb/shape_msgs/msg/SolidPrimitive.msg#L4-L11">shape_msgs/msg/SolidPrimitive.msg</a></p>
-<div class="highlight"><pre><span></span><code>uint8 BOX=1
-uint8 SPHERE=2
-uint8 CYLINDER=3
-uint8 CONE=4
-uint8 PRISM=5
+<p><em>Example:</em></p>
+<div class="highlight"><pre><span></span><code># Classification of error states in Autoware Localization
+# Initialization rejected due to unsafe conditions
+uint16 ERROR_UNSAFE = 1
+# GNSS-based initialization not supported
+uint16 ERROR_GNSS_SUPPORT = 2
+# GNSS initialization failed
+uint16 ERROR_GNSS = 3
+# Pose estimation failed
+uint16 ERROR_ESTIMATION = 4
 
-# The type of the shape
-uint8 type
+# The type of state (required)
+# e.g. 1(ERROR_UNSAFE)
+uint16 type
 </code></pre></div>
+<div class="admonition tip">
+<p>The constants are expected to be mutually exclusive and collectively exhaustive in the domain. It leads to clear and less confusing modelling.</p>
+</div>
 <h2 id="example-usages">Example usages<a class="headerlink" href="#example-usages" title="Permanent link">#</a></h2>
 <ul>
 <li>Don't use unit suffixes for default types:<ul>
