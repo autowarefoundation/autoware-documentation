@@ -17,9 +17,16 @@ The prototype files are expected to comply with following style.
 # <File description>
 #
 
-# <Field description> (optional or reserved)
+# <Field description> (required or optional)
 # e.g. <Example value>
 type field
+
+
+# <Constants description>
+# <Item1 description>
+uint16 CONSTANT_ITEM1 = 0
+# <Item2 description>
+uint16 CONSTANT_ITEM2 = 0
 
 
 ```
@@ -33,25 +40,24 @@ On top of the message, briefly explain what the message contains and/or what it 
 _Example:_
 
 ```text
-# Number of times the vehicle performed an emergency brake
+# Number of times the vehicle performed an emergency brake (required)
 # e.g. 10
 uint32 count_emergency_brake
 
-# Seconds passed since the last emergency brake (reserved)
-# e.g. 100
-uint64 duration
 
 # Speed limit on a specific lane (optional)
-# If the value is 0.0, the lane has no specific speed limit, so common speed limit in the contry is applied
+# If the value is 0.0, the lane has no specific speed limit, so common speed limit in the country is applied
 # e.g. 30.0
 # default: 0.0
 float limit_kmph
+
+
 ```
 
-If a specific field is not always required, it is expected be noted as`optional` or `reserved`.
+If a specific field is not always required, it is expected be noted as `optional`.
 
+- Basically, all field should be `required` and contain valid value.
 - An `optional` field may not contain valid value, so the subscriber/client must check if it is valid or not. For such field, default value should be provided.
-- A `reserved` field is reserved for future usages. The publisher/server side has no responsibility on the content.
 
 The user can learn about the message information by calling
 
@@ -164,18 +170,27 @@ It is possible to define integers constants and assign them to a non-constant in
 
     Assign a different value to each element of a constant.
 
-Example from [shape_msgs/msg/SolidPrimitive.msg](https://github.com/ros2/common_interfaces/blob/f3cb4848560e91596e7688e8ac1816828fa460cb/shape_msgs/msg/SolidPrimitive.msg#L4-L11)
+_Example:_
 
 ```text
-uint8 BOX=1
-uint8 SPHERE=2
-uint8 CYLINDER=3
-uint8 CONE=4
-uint8 PRISM=5
+# Classification of error states in Autoware Localization
+# Initialization rejected due to unsafe conditions
+uint16 ERROR_UNSAFE = 1
+# GNSS-based initialization not supported
+uint16 ERROR_GNSS_SUPPORT = 2
+# GNSS initialization failed
+uint16 ERROR_GNSS = 3
+# Pose estimation failed
+uint16 ERROR_ESTIMATION = 4
 
-# The type of the shape
-uint8 type
+# The type of state (required)
+# e.g. 1(ERROR_UNSAFE)
+uint16 type
 ```
+
+!!! tip ""
+
+    The constants are expected to be mutually exclusive and collectively exhaustive in the domain. It leads to clear and less confusing modelling.
 
 ## Example usages
 
