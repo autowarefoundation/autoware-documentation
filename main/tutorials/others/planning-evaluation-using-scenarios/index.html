@@ -14488,11 +14488,13 @@ vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </s
 </code></pre></div>
 <ul>
 <li>If you are installing Autoware for the first time, you can automatically install the dependencies by using the
-  provided Ansible script. Please refer to
+  provided Ansible playbook. Please refer to
   the <a href="../../../installation/autoware/source-installation/">Autoware source installation page</a>
   for more information.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>./setup-dev-env.sh
+<div class="highlight"><pre><span></span><code>bash<span class="w"> </span>ansible/scripts/install-ansible.sh
+ansible-galaxy<span class="w"> </span>collection<span class="w"> </span>install<span class="w"> </span>-f<span class="w"> </span>-r<span class="w"> </span>ansible-galaxy-requirements.yaml
+ansible-playbook<span class="w"> </span>autoware.dev_env.install_dev_env
 </code></pre></div>
 <ul>
 <li>Install dependent <abbr title="Robot Operating System">ROS</abbr> packages.</li>

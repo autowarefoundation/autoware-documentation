@@ -14254,14 +14254,16 @@
 </code></pre></div>
 </li>
 <li>
-<p>The <a href="https://github.com/autowarefoundation/autoware/blob/main/setup-dev-env.sh">setup script</a> will install all required dependencies with:</p>
-<div class="highlight"><pre><span></span><code>./setup-dev-env.sh<span class="w"> </span>-y<span class="w"> </span>docker
+<p>Install Ansible and run the Docker setup playbook:</p>
+<div class="highlight"><pre><span></span><code>bash<span class="w"> </span>ansible/scripts/install-ansible.sh
+ansible-galaxy<span class="w"> </span>collection<span class="w"> </span>install<span class="w"> </span>-f<span class="w"> </span>-r<span class="w"> </span>ansible-galaxy-requirements.yaml
+ansible-playbook<span class="w"> </span>autoware.dev_env.install_docker
 </code></pre></div>
 <p>To install without <strong>NVIDIA <abbr title="Graphics Processing Unit">GPU</abbr></strong> support:</p>
-<div class="highlight"><pre><span></span><code>./setup-dev-env.sh<span class="w"> </span>-y<span class="w"> </span>--no-nvidia<span class="w"> </span>docker
+<div class="highlight"><pre><span></span><code>ansible-playbook<span class="w"> </span>autoware.dev_env.install_docker<span class="w"> </span>--skip-tags<span class="w"> </span>nvidia
 </code></pre></div>
 <p>To download only the artifacts:</p>
-<div class="highlight"><pre><span></span><code>./setup-dev-env.sh<span class="w"> </span>-y<span class="w"> </span>download_artifacts
+<div class="highlight"><pre><span></span><code>ansible-playbook<span class="w"> </span>autoware.dev_env.install_dev_env<span class="w"> </span>--tags<span class="w"> </span>artifacts
 </code></pre></div>
 </li>
 </ol>

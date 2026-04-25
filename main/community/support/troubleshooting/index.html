@@ -14133,7 +14133,7 @@
 <p>When installing CUDA, errors may occur because of version conflicts. To resolve these types of errors, try one of the following methods:</p>
 <ul>
 <li>
-<p>Unhold all CUDA-related libraries and rerun the setup script.</p>
+<p>Unhold all CUDA-related libraries and rerun the playbook.</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-mark<span class="w"> </span>unhold<span class="w">  </span><span class="se">\</span>
 <span class="w">  </span><span class="s2">"cuda*"</span><span class="w">             </span><span class="se">\</span>
 <span class="w">  </span><span class="s2">"libcudnn*"</span><span class="w">         </span><span class="se">\</span>
@@ -14143,13 +14143,13 @@
 <span class="w">  </span><span class="s2">"tensorrt*"</span><span class="w">         </span><span class="se">\</span>
 <span class="w">  </span><span class="s2">"nvidia*"</span>
 
-./setup-dev-env.sh
+ansible-playbook<span class="w"> </span>autoware.dev_env.install_dev_env
 </code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
-<p>Uninstall all CUDA-related libraries and rerun the setup script.</p>
+<p>Uninstall all CUDA-related libraries and rerun the playbook.</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>purge<span class="w">        </span><span class="se">\</span>
 <span class="w">  </span><span class="s2">"cuda*"</span><span class="w">             </span><span class="se">\</span>
 <span class="w">  </span><span class="s2">"libcudnn*"</span><span class="w">         </span><span class="se">\</span>
@@ -14161,7 +14161,7 @@
 
 sudo<span class="w"> </span>apt<span class="w"> </span>autoremove
 
-./setup-dev-env.sh
+ansible-playbook<span class="w"> </span>autoware.dev_env.install_dev_env
 </code></pre></div>
 </li>
 </ul>
@@ -14171,8 +14171,8 @@ sudo<span class="w"> </span>apt<span class="w"> </span>autoremove
 </div>
 <ul>
 <li>
-<p>Run the setup script without installing CUDA-related libraries.</p>
-<div class="highlight"><pre><span></span><code>./setup-dev-env.sh<span class="w"> </span>--no-nvidia
+<p>Run the playbook without installing CUDA-related libraries.</p>
+<div class="highlight"><pre><span></span><code>ansible-playbook<span class="w"> </span>autoware.dev_env.install_dev_env<span class="w"> </span>--skip-tags<span class="w"> </span>nvidia
 </code></pre></div>
 </li>
 </ul>
