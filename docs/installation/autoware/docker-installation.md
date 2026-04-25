@@ -22,22 +22,24 @@ Open AD Kit offers two types of Docker image to let you get started with Autowar
    cd autoware
    ```
 
-2. The [setup script](https://github.com/autowarefoundation/autoware/blob/main/setup-dev-env.sh) will install all required dependencies with:
+2. Install Ansible and run the Docker setup playbook:
 
    ```bash
-   ./setup-dev-env.sh -y docker
+   bash ansible/scripts/install-ansible.sh
+   ansible-galaxy collection install -f -r ansible-galaxy-requirements.yaml
+   ansible-playbook autoware.dev_env.install_docker
    ```
 
    To install without **NVIDIA GPU** support:
 
    ```bash
-   ./setup-dev-env.sh -y --no-nvidia docker
+   ansible-playbook autoware.dev_env.install_docker --skip-tags nvidia
    ```
 
    To download only the artifacts:
 
    ```bash
-   ./setup-dev-env.sh -y download_artifacts
+   ansible-playbook autoware.dev_env.install_dev_env --tags artifacts
    ```
 
 !!! info

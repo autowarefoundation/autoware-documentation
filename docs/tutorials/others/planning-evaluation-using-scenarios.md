@@ -106,12 +106,14 @@ vcs import src < repositories/simulator.repos
 ```
 
 - If you are installing Autoware for the first time, you can automatically install the dependencies by using the
-  provided Ansible script. Please refer to
+  provided Ansible playbook. Please refer to
   the [Autoware source installation page](../../installation/autoware/source-installation.md)
   for more information.
 
 ```bash
-./setup-dev-env.sh
+bash ansible/scripts/install-ansible.sh
+ansible-galaxy collection install -f -r ansible-galaxy-requirements.yaml
+ansible-playbook autoware.dev_env.install_dev_env
 ```
 
 - Install dependent ROS packages.
