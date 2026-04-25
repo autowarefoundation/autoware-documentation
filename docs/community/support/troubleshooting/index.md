@@ -6,7 +6,7 @@
 
 When installing CUDA, errors may occur because of version conflicts. To resolve these types of errors, try one of the following methods:
 
-- Unhold all CUDA-related libraries and rerun the setup script.
+- Unhold all CUDA-related libraries and rerun the playbook.
 
   ```bash
   sudo apt-mark unhold  \
@@ -18,10 +18,10 @@ When installing CUDA, errors may occur because of version conflicts. To resolve 
     "tensorrt*"         \
     "nvidia*"
 
-  ./setup-dev-env.sh
+  ansible-playbook autoware.dev_env.install_dev_env
   ```
 
-- Uninstall all CUDA-related libraries and rerun the setup script.
+- Uninstall all CUDA-related libraries and rerun the playbook.
 
   ```bash
   sudo apt purge        \
@@ -35,17 +35,17 @@ When installing CUDA, errors may occur because of version conflicts. To resolve 
 
   sudo apt autoremove
 
-  ./setup-dev-env.sh
+  ansible-playbook autoware.dev_env.install_dev_env
   ```
 
 !!! warning
 
     Note that this may break your system and run carefully.
 
-- Run the setup script without installing CUDA-related libraries.
+- Run the playbook without installing CUDA-related libraries.
 
   ```bash
-  ./setup-dev-env.sh --no-nvidia
+  ansible-playbook autoware.dev_env.install_dev_env --skip-tags nvidia
   ```
 
 !!! warning

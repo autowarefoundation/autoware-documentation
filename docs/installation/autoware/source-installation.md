@@ -27,10 +27,18 @@ sudo apt-get -y install git
    cd autoware
    ```
 
-2. If you are installing Autoware for the first time, you can automatically install the dependencies by using the provided Ansible script.
+2. If you are installing Autoware for the first time, you can automatically install the dependencies by using the provided Ansible playbook.
 
    ```bash
-   ./setup-dev-env.sh
+   bash ansible/scripts/install-ansible.sh
+   ansible-galaxy collection install -f -r ansible-galaxy-requirements.yaml
+   ansible-playbook autoware.dev_env.install_dev_env
+   ```
+
+   To install without **NVIDIA GPU** support:
+
+   ```bash
+   ansible-playbook autoware.dev_env.install_dev_env --skip-tags nvidia
    ```
 
    If you encounter any build issues, please consult the [Troubleshooting](../../community/support/troubleshooting/index.md#build-issues) section for assistance.
