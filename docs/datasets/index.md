@@ -148,9 +148,6 @@ sudo ./aws/install
 ```
 
 ```console
-mkdir -p ~/autoware_data/recordings/bags
-cd ~/autoware_data/recordings/bags
-
 # This will download the entire dataset to the current directory.
 # (About 10.9GB of data)
 $ aws s3 sync s3://autoware-files/recordings/bags/2022-08-22_leo_drive_isuzu_bags/ ./2022-08-22_leo_drive_isuzu_bags  --no-sign-request
