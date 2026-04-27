@@ -14163,16 +14163,18 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<spa
 </code></pre></div>
 <p>Also make sure to source Autoware Universe workspace too.</p>
 <h4 id="download-instructions">Download instructions<a class="headerlink" href="#download-instructions" title="Permanent link">#</a></h4>
-<div class="highlight"><pre><span></span><code><span class="gp"># </span>Install<span class="w"> </span>awscli
-<span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>awscli<span class="w"> </span>-y
-
-<span class="gp"># </span>This<span class="w"> </span>will<span class="w"> </span>download<span class="w"> </span>the<span class="w"> </span>entire<span class="w"> </span>dataset<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>directory.
+<p>Follow <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">the official AWS Command Line Interface (AWS CLI) installation guide</a> to install AWS CLI on your machine:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span><span class="s2">"https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"</span><span class="w"> </span>-o<span class="w"> </span><span class="s2">"awscliv2.zip"</span>
+unzip<span class="w"> </span>awscliv2.zip
+sudo<span class="w"> </span>./aws/install
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>This<span class="w"> </span>will<span class="w"> </span>download<span class="w"> </span>the<span class="w"> </span>entire<span class="w"> </span>dataset<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>directory.
 <span class="gp"># </span><span class="o">(</span>About<span class="w"> </span><span class="m">10</span>.9GB<span class="w"> </span>of<span class="w"> </span>data<span class="o">)</span>
-<span class="gp">$ </span>aws<span class="w"> </span>s3<span class="w"> </span>sync<span class="w"> </span>s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/<span class="w"> </span>./2022-08-22_leo_drive_isuzu_bags<span class="w">  </span>--no-sign-request
+<span class="gp">$ </span>aws<span class="w"> </span>s3<span class="w"> </span>sync<span class="w"> </span>s3://autoware-files/recordings/bags/2022-08-22_leo_drive_isuzu_bags/<span class="w"> </span>./2022-08-22_leo_drive_isuzu_bags<span class="w">  </span>--no-sign-request
 
 <span class="gp"># </span>Optionally,
 <span class="gp"># </span>If<span class="w"> </span>you<span class="w"> </span>instead<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>download<span class="w"> </span>a<span class="w"> </span>single<span class="w"> </span>bag<span class="w"> </span>file,<span class="w"> </span>you<span class="w"> </span>can<span class="w"> </span>get<span class="w"> </span>a<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>available<span class="w"> </span>files<span class="w"> </span>with<span class="w"> </span>following:
-<span class="gp">$ </span>aws<span class="w"> </span>s3<span class="w"> </span>ls<span class="w"> </span>s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/<span class="w"> </span>--no-sign-request
+<span class="gp">$ </span>aws<span class="w"> </span>s3<span class="w"> </span>ls<span class="w"> </span>s3://autoware-files/recordings/bags/2022-08-22_leo_drive_isuzu_bags/<span class="w"> </span>--no-sign-request
 <span class="go">   PRE all-sensors-bag1_compressed/</span>
 <span class="go">   PRE all-sensors-bag2_compressed/</span>
 <span class="go">   PRE all-sensors-bag3_compressed/</span>
@@ -14183,12 +14185,12 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<spa
 <span class="go">   PRE driving_30_kmh_2022_06_10-15_47_42_compressed/</span>
 
 <span class="gp"># </span>Then<span class="w"> </span>you<span class="w"> </span>can<span class="w"> </span>download<span class="w"> </span>a<span class="w"> </span>single<span class="w"> </span>bag<span class="w"> </span>file<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>following:
-<span class="go">aws s3 sync s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/all-sensors-bag1_compressed/ ./all-sensors-bag1_compressed  --no-sign-request</span>
+<span class="go">aws s3 sync s3://autoware-files/recordings/bags/2022-08-22_leo_drive_isuzu_bags/all-sensors-bag1_compressed/ ./all-sensors-bag1_compressed  --no-sign-request</span>
 </code></pre></div>
 <h3 id="autocoreai-lidar-ros-2-bag-file-and-pcap">AutoCore.ai - lidar <abbr title="Robot Operating System">ROS</abbr> 2 bag file and pcap<a class="headerlink" href="#autocoreai-lidar-ros-2-bag-file-and-pcap" title="Permanent link">#</a></h3>
 <p>This dataset contains pcap files and ros2 bag files from Ouster OS1-64 Lidar.
 The pcap file and ros2 bag file is recorded in the same time with slight difference in duration.</p>
-<p><a href="https://autoware-files.s3.us-west-2.amazonaws.com/collected_data/2022-04-14_autocore-lidar-bag-pcap/Lidar_Data_220414_bag_pcap.zip">Click here to download (~553MB)</a></p>
+<p><a href="https://autoware-files.s3.us-west-2.amazonaws.com/recordings/bags/Lidar_Data_220414_bag_pcap.zip">Click here to download (~553MB)</a></p>
 <p><a href="https://github.com/autowarefoundation/autoware_universe/issues/562#issuecomment-1102662448">Reference Issue</a></p>
 <!-- prettier-ignore --></div>
 
