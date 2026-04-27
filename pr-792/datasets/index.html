@@ -14168,10 +14168,7 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<spa
 unzip<span class="w"> </span>awscliv2.zip
 sudo<span class="w"> </span>./aws/install
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="go">mkdir -p ~/autoware_data/recordings/bags</span>
-<span class="go">cd ~/autoware_data/recordings/bags</span>
-
-<span class="gp"># </span>This<span class="w"> </span>will<span class="w"> </span>download<span class="w"> </span>the<span class="w"> </span>entire<span class="w"> </span>dataset<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>directory.
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>This<span class="w"> </span>will<span class="w"> </span>download<span class="w"> </span>the<span class="w"> </span>entire<span class="w"> </span>dataset<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>directory.
 <span class="gp"># </span><span class="o">(</span>About<span class="w"> </span><span class="m">10</span>.9GB<span class="w"> </span>of<span class="w"> </span>data<span class="o">)</span>
 <span class="gp">$ </span>aws<span class="w"> </span>s3<span class="w"> </span>sync<span class="w"> </span>s3://autoware-files/recordings/bags/2022-08-22_leo_drive_isuzu_bags/<span class="w"> </span>./2022-08-22_leo_drive_isuzu_bags<span class="w">  </span>--no-sign-request
 
