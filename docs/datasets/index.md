@@ -139,17 +139,25 @@ Also make sure to source Autoware Universe workspace too.
 
 #### Download instructions
 
+Follow [the official AWS Command Line Interface (AWS CLI) installation guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) to install AWS CLI on your machine:
+
+```bash
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
+
 ```console
-# Install awscli
-$ sudo apt update && sudo apt install awscli -y
+mkdir -p ~/autoware_data/recordings/bags
+cd ~/autoware_data/recordings/bags
 
 # This will download the entire dataset to the current directory.
 # (About 10.9GB of data)
-$ aws s3 sync s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/ ./2022-08-22_leo_drive_isuzu_bags  --no-sign-request
+$ aws s3 sync s3://autoware-files/recordings/bags/2022-08-22_leo_drive_isuzu_bags/ ./2022-08-22_leo_drive_isuzu_bags  --no-sign-request
 
 # Optionally,
 # If you instead want to download a single bag file, you can get a list of the available files with following:
-$ aws s3 ls s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/ --no-sign-request
+$ aws s3 ls s3://autoware-files/recordings/bags/2022-08-22_leo_drive_isuzu_bags/ --no-sign-request
    PRE all-sensors-bag1_compressed/
    PRE all-sensors-bag2_compressed/
    PRE all-sensors-bag3_compressed/
@@ -160,7 +168,7 @@ $ aws s3 ls s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/ 
    PRE driving_30_kmh_2022_06_10-15_47_42_compressed/
 
 # Then you can download a single bag file with the following:
-aws s3 sync s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/all-sensors-bag1_compressed/ ./all-sensors-bag1_compressed  --no-sign-request
+aws s3 sync s3://autoware-files/recordings/bags/2022-08-22_leo_drive_isuzu_bags/all-sensors-bag1_compressed/ ./all-sensors-bag1_compressed  --no-sign-request
 ```
 
 ### AutoCore.ai - lidar ROS 2 bag file and pcap
@@ -168,6 +176,6 @@ aws s3 sync s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/a
 This dataset contains pcap files and ros2 bag files from Ouster OS1-64 Lidar.
 The pcap file and ros2 bag file is recorded in the same time with slight difference in duration.
 
-[Click here to download (~553MB)](https://autoware-files.s3.us-west-2.amazonaws.com/collected_data/2022-04-14_autocore-lidar-bag-pcap/Lidar_Data_220414_bag_pcap.zip)
+[Click here to download (~553MB)](https://autoware-files.s3.us-west-2.amazonaws.com/recordings/bags/Lidar_Data_220414_bag_pcap.zip)
 
 [Reference Issue](https://github.com/autowarefoundation/autoware_universe/issues/562#issuecomment-1102662448)
