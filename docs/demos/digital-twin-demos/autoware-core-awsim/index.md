@@ -68,7 +68,6 @@ If you have not yet installed Autoware, please refer to the [Installation](../..
 2. Run the following command in the docker container.
 
    ```bash
-   apt update && apt install ros-humble-topic-tools
    ros2 launch autoware_core autoware_core.launch.xml use_sim_time:=true map_path:=/home/aw/autoware_map vehicle_model:=autoware_sample_vehicle sensor_model:=autoware_awsim_sensor_kit
    ```
 
