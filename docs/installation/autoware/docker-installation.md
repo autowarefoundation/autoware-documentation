@@ -89,7 +89,7 @@ Open AD Kit provides different deployment options for Autoware, so that you can 
 
 ## Development
 
-For developing against Autoware (rather than just running it), the [`docker/examples/basic/`](https://github.com/autowarefoundation/autoware/tree/main/docker/examples/basic) folder ships three Compose files — each a "drop me into a shell" container built on the `universe-devel-*` images, with `~/autoware_map`, `~/autoware_data`, and the autoware source tree mounted. Pick the flavor that matches your host:
+For developing against Autoware (rather than just running it), the [`docker/examples/basic/`](https://github.com/autowarefoundation/autoware/tree/main/docker/examples/basic) folder ships three Compose files — each a "drop me into a shell" container built on the `universe-devel-*` images, with `~/autoware_data` (containing `maps/` and `ml_models/`) and the autoware source tree mounted. Pick the flavor that matches your host:
 
 | Host GPU / driver            | Compose file                                |
 | ---------------------------- | ------------------------------------------- |

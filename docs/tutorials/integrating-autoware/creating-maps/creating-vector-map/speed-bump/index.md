@@ -61,7 +61,7 @@ ros2 launch autoware_launch planning_simulator.launch.xml map_path:=<YOUR-MAP-FO
 Example for tutorial_vehicle:
 
 ```bash
-ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/Files/autoware_map/tutorial_map/ vehicle_model:=tutorial_vehicle sensor_model:=tutorial_vehicle_sensor_kit vehicle_id:=tutorial_vehicle
+ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware_data/maps/tutorial_map/ vehicle_model:=tutorial_vehicle sensor_model:=tutorial_vehicle_sensor_kit vehicle_id:=tutorial_vehicle
 ```
 
 1. Click `2D Pose Estimate` button on rviz or press `P` and give a pose for initialization.

@@ -222,7 +222,7 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --package
 Finally, you are done implementing your vehicle interface module! Be careful that you need to launch Autoware with the proper `vehicle_model` option like the example below. This example is launching planning simulator.
 
 ```bash
-ros2 launch autoware_launch planning.launch.xml map_path:=$HOME/autoware_map/sample-map-planning vehicle_model:=<YOUR-VEHICLE-NAME> sensor_model:=<YOUR-VEHICLE-NAME>_sensor_kit
+ros2 launch autoware_launch planning.launch.xml map_path:=$HOME/autoware_data/maps/sample-map-planning vehicle_model:=<YOUR-VEHICLE-NAME> sensor_model:=<YOUR-VEHICLE-NAME>_sensor_kit
 ```
 
 ### Tips

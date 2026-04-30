@@ -4,11 +4,12 @@ Divided pointcloud map is necessary when handling large pointcloud map, in which
 
 ## Tutorial
 
-Download the [sample-map-rosbag_split](https://docs.google.com/uc?export=download&id=11tLC9T4MS8fnZ9Wo0D8-Ext7hEDl2YJ4) and locate the map under `$HOME/autoware_map/`.
+Download the [sample-map-rosbag_split](https://docs.google.com/uc?export=download&id=11tLC9T4MS8fnZ9Wo0D8-Ext7hEDl2YJ4) and locate the map under `$HOME/autoware_data/maps/`.
 
 ```bash
-gdown -O ~/autoware_map/ 'https://docs.google.com/uc?export=download&id=11tLC9T4MS8fnZ9Wo0D8-Ext7hEDl2YJ4'
-unzip -d ~/autoware_map/ ~/autoware_map/sample-rosbag_split.zip
+mkdir -p ~/autoware_data/maps
+gdown -O ~/autoware_data/maps/ 'https://docs.google.com/uc?export=download&id=11tLC9T4MS8fnZ9Wo0D8-Ext7hEDl2YJ4'
+unzip -d ~/autoware_data/maps/ ~/autoware_data/maps/sample-rosbag_split.zip
 ```
 
 Then, you may launch logging_simulator with the following command to load the divided map.
@@ -17,7 +18,7 @@ Note that you need to specify the `map_path` and `pointcloud_map_file` arguments
 ```bash
 source ~/autoware/install/setup.bash
 ros2 launch autoware_launch logging_simulator.launch.xml \
-  map_path:=$HOME/autoware_map/sample-map-rosbag pointcloud_map_file:=pointcloud_map \
+  map_path:=$HOME/autoware_data/maps/sample-map-rosbag pointcloud_map_file:=pointcloud_map \
   vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
 ```
 

@@ -2,26 +2,44 @@
 
 ## Preparation
 
-1. Download and unpack a sample map.
-   - You can also download [the map](https://drive.google.com/file/d/1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI/view?usp=sharing) manually.
+1. Download and unpack the sample map and rosbag.
+
+   The recommended way is to use the [`demo_artifacts`](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/demo_artifacts) ansible role, which fetches and extracts both the sample map and the sample rosbag into the standard layout under `~/autoware_data/`:
 
    ```bash
-   gdown -O ~/autoware_map/ 'https://docs.google.com/uc?export=download&id=1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI'
-   unzip -d ~/autoware_map/ ~/autoware_map/sample-map-rosbag.zip
+   ansible-galaxy collection install -f -r "ansible-galaxy-requirements.yaml"
+   ansible-playbook autoware.dev_env.install_dev_env --tags demo_artifacts --ask-become-pass
    ```
 
-2. Download the sample rosbag files.
-   - You can also download [the rosbag files](https://drive.google.com/file/d/1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP/view?usp=sharing) manually.
+   After running the role:
+
+   - sample map → `~/autoware_data/maps/demos/sample-map-rosbag/`
+   - sample rosbag → `~/autoware_data/recordings/bags/demos/sample-rosbag/`
+
+   ??? note "Manual download"
+
+       If you cannot run ansible, download and unpack the assets manually.
+
+       Sample map ([direct download](https://drive.google.com/file/d/1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI/view?usp=sharing)):
+
+       ```bash
+       mkdir -p ~/autoware_data/maps/demos
+       gdown -O ~/autoware_data/maps/demos/ 'https://docs.google.com/uc?export=download&id=1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI'
+       unzip -d ~/autoware_data/maps/demos/ ~/autoware_data/maps/demos/sample-map-rosbag.zip
+       ```
+
+       Sample rosbag ([direct download](https://drive.google.com/file/d/1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP/view?usp=sharing)):
+
+       ```bash
+       mkdir -p ~/autoware_data/recordings/bags/demos
+       gdown -O ~/autoware_data/recordings/bags/demos/ 'https://docs.google.com/uc?export=download&id=1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP'
+       unzip -d ~/autoware_data/recordings/bags/demos/ ~/autoware_data/recordings/bags/demos/sample-rosbag.zip
+       ```
+
+2. Check if you have `~/autoware_data/ml_models` folder and files in it.
 
    ```bash
-   gdown -O ~/autoware_map/ 'https://docs.google.com/uc?export=download&id=1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP'
-   unzip -d ~/autoware_map/ ~/autoware_map/sample-rosbag.zip
-   ```
-
-3. Check if you have `~/autoware_data` folder and files in it.
-
-   ```bash
-   $ cd ~/autoware_data
+   $ cd ~/autoware_data/ml_models
    $ ls -C -w 30
    image_projection_based_fusion
    lidar_apollo_instance_segmentation
@@ -53,7 +71,7 @@
 
    ```sh
    source ~/autoware/install/setup.bash
-   ros2 launch autoware_launch logging_simulator.launch.xml map_path:=$HOME/autoware_map/sample-map-rosbag vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+   ros2 launch autoware_launch logging_simulator.launch.xml map_path:=$HOME/autoware_data/maps/demos/sample-map-rosbag vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
    ```
 
    Note that you cannot use `~` instead of `$HOME` here.
@@ -66,7 +84,7 @@
 
    ```sh
    source ~/autoware/install/setup.bash
-   ros2 bag play ~/autoware_map/sample-rosbag/ -r 0.2 -s sqlite3
+   ros2 bag play ~/autoware_data/recordings/bags/demos/sample-rosbag/ -r 0.2 -s sqlite3
    ```
 
    > ⚠️ Due to the discrepancy between the timestamp in the `rosbag` and the current system timestamp, Autoware may generate warning messages in the terminal alerting to this mismatch. This is normal behavior.

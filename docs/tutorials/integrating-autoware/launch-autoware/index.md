@@ -133,17 +133,17 @@ you will need to update these map file name arguments:
 
 ### Perception
 
-You can define your `autoware_data` path here.
+You can define your `autoware_data/ml_models` path here.
 Autoware gets yabloc_pose_initializer,
 image_projection_based_fusion,
-lidar_apollo_instance_segmentation etc. models file with `autoware_data` path.
+lidar_apollo_instance_segmentation etc. models file with `data_path`.
 If you use ansible for autoware installation,
-the necessary artifacts will be downloaded at `autoware_data` folder on your `$HOME` directory.
+the necessary artifacts will be downloaded at the `autoware_data/ml_models` folder on your `$HOME` directory.
 If you want to download artifacts manually,
 please check ansible [`artifacts`](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts) page for information.
 
 ```diff
-- <arg name="data_path" default="$(env HOME)/autoware_data" description="packages data and artifacts directory path"/>
+- <arg name="data_path" default="$(env HOME)/autoware_data/ml_models" description="packages data and artifacts directory path"/>
 + <arg name="data_path" default="<YOUR-AUTOWARE-DATA-PATH>" description="packages data and artifacts directory path"/>
 ```
 
