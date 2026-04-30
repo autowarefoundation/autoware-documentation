@@ -14072,29 +14072,27 @@
 <div class="highlight"><pre><span></span><code>ansible-galaxy<span class="w"> </span>collection<span class="w"> </span>install<span class="w"> </span>-f<span class="w"> </span>-r<span class="w"> </span><span class="s2">"ansible-galaxy-requirements.yaml"</span>
 ansible-playbook<span class="w"> </span>autoware.dev_env.install_dev_env<span class="w"> </span>--tags<span class="w"> </span>demo_artifacts<span class="w"> </span>--ask-become-pass
 </code></pre></div>
-<p>After running the role:</p>
-<ul>
-<li>sample map → <code>~/autoware_data/maps/demos/sample-map-rosbag/</code></li>
-<li>sample rosbag → <code>~/autoware_data/recordings/bags/demos/sample-rosbag/</code></li>
-</ul>
+<p>After running the role:
+  - sample map → <code>~/autoware_data/maps/demos/sample-map-rosbag/</code>
+  - sample rosbag → <code>~/autoware_data/recordings/bags/demos/sample-rosbag/</code></p>
 <p>??? note "Manual download"</p>
-<div class="codehilite"><pre><span></span><code> If you cannot run ansible, download and unpack the assets manually.
+<div class="codehilite"><pre><span></span><code>  If you cannot run ansible, download and unpack the assets manually.
 
- Sample map ([direct download](https://drive.google.com/file/d/1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI/view?usp=sharing)):
+  Sample map ([direct download](https://drive.google.com/file/d/1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI/view?usp=sharing)):
 
- ```bash
- mkdir -p ~/autoware_data/maps/demos
- gdown -O ~/autoware_data/maps/demos/ 'https://docs.google.com/uc?export=download&amp;id=1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI'
- unzip -d ~/autoware_data/maps/demos/ ~/autoware_data/maps/demos/sample-map-rosbag.zip
- ```
+  ```bash
+  mkdir -p ~/autoware_data/maps/demos
+  gdown -O ~/autoware_data/maps/demos/ 'https://docs.google.com/uc?export=download&amp;id=1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI'
+  unzip -d ~/autoware_data/maps/demos/ ~/autoware_data/maps/demos/sample-map-rosbag.zip
+  ```
 
- Sample rosbag ([direct download](https://drive.google.com/file/d/1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP/view?usp=sharing)):
+  Sample rosbag ([direct download](https://drive.google.com/file/d/1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP/view?usp=sharing)):
 
- ```bash
- mkdir -p ~/autoware_data/recordings/bags/demos
- gdown -O ~/autoware_data/recordings/bags/demos/ 'https://docs.google.com/uc?export=download&amp;id=1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP'
- unzip -d ~/autoware_data/recordings/bags/demos/ ~/autoware_data/recordings/bags/demos/sample-rosbag.zip
- ```
+  ```bash
+  mkdir -p ~/autoware_data/recordings/bags/demos
+  gdown -O ~/autoware_data/recordings/bags/demos/ 'https://docs.google.com/uc?export=download&amp;id=1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP'
+  unzip -d ~/autoware_data/recordings/bags/demos/ ~/autoware_data/recordings/bags/demos/sample-rosbag.zip
+  ```
 </code></pre></div>
 
 </li>
