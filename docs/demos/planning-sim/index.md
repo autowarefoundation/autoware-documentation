@@ -4,23 +4,23 @@
 
 ### Download the sample map
 
-```bash
-gdown -O ~/autoware_map/ 'https://docs.google.com/uc?export=download&id=1499_nsbUbIeturZaDj7jhUownh5fvXHd'
-unzip -d ~/autoware_map ~/autoware_map/sample-map-planning.zip
-```
+Use the [`demo_artifacts`](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/demo_artifacts) ansible role to download and extract the sample map into `~/autoware_data/maps/sample-map-planning/`:
 
-- You can also download [the map](https://drive.google.com/file/d/1499_nsbUbIeturZaDj7jhUownh5fvXHd/view?usp=sharing) manually.
+```bash
+ansible-galaxy collection install -f -r "ansible-galaxy-requirements.yaml"
+ansible-playbook autoware.dev_env.install_dev_env --tags demo_artifacts --ask-become-pass
+```
 
 !!! info
 
     Sample map: Copyright 2020 TIER IV, Inc.
 
-### Make sure the artifacts are downloaded
+### Make sure the ML model artifacts are downloaded
 
-Check if you have `~/autoware_data` folder and files in it.
+Check if you have `~/autoware_data/ml_models` folder and files in it.
 
 ```bash
-$ cd ~/autoware_data
+$ cd ~/autoware_data/ml_models
 $ ls -C -w 30
 image_projection_based_fusion
 lidar_apollo_instance_segmentation
@@ -39,7 +39,7 @@ If not, please, follow [Manual downloading of artifacts](https://github.com/auto
 
 ```bash
 source ~/autoware/install/setup.bash
-ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware_map/sample-map-planning vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware_data/maps/sample-map-planning vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
 ```
 
 !!! warning

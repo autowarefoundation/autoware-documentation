@@ -22,13 +22,13 @@ TensorRT-optimized Vectorized Autonomous Driving ([VAD](https://github.com/hustv
 - Usage (CARLA E2E mode):
   1. Build the package and deps: `colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-up-to autoware_tensorrt_vad`.
   2. Prepare CARLA following `autoware_carla_interface` (use `carla_sensor_kit` so camera topics match the VAD training order: FRONT, BACK, FRONT_LEFT, BACK_LEFT, FRONT_RIGHT, BACK_RIGHT).
-  3. Ensure VAD models are downloaded (default to `~/autoware_data/vad` via the Autoware setup script).
+  3. Ensure VAD models are downloaded (default to `~/autoware_data/ml_models/vad` via the Autoware setup script).
   4. Start CARLA server (example headless/GPU-friendly): `./CarlaUE4.sh -prefernvidia -quality-level=Low -RenderOffScreen`.
   5. Launch Autoware in E2E mode:
 
      ```bash
      ros2 launch autoware_launch e2e_simulator.launch.xml \
-       map_path:=$HOME/autoware_map/Town01 \
+       map_path:=$HOME/autoware_data/maps/Town01 \
        vehicle_model:=sample_vehicle \
        sensor_model:=carla_sensor_kit \
        simulator_type:=carla \
