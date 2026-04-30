@@ -4,7 +4,7 @@
 
 ### Download the sample map and rosbag
 
-The recommended way is to use the [`demo_artifacts`](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/demo_artifacts) ansible role, which fetches and extracts both the sample map and the sample rosbag into the standard layout under `~/autoware_data/`:
+Use the [`demo_artifacts`](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/demo_artifacts) ansible role to download and extract both the sample map and the sample rosbag:
 
 ```bash
 ansible-galaxy collection install -f -r "ansible-galaxy-requirements.yaml"
@@ -15,26 +15,6 @@ After running the role:
 
 - sample map → `~/autoware_data/maps/demos/sample-map-rosbag/`
 - sample rosbag → `~/autoware_data/recordings/bags/demos/sample-rosbag/`
-
-??? note "Manual download"
-
-    If you cannot run ansible, download and unpack the assets manually.
-
-    Sample map ([direct download](https://drive.google.com/file/d/1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI/view?usp=sharing)):
-
-    ```bash
-    mkdir -p ~/autoware_data/maps/demos
-    gdown -O ~/autoware_data/maps/demos/ 'https://docs.google.com/uc?export=download&id=1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI'
-    unzip -d ~/autoware_data/maps/demos/ ~/autoware_data/maps/demos/sample-map-rosbag.zip
-    ```
-
-    Sample rosbag ([direct download](https://drive.google.com/file/d/1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP/view?usp=sharing)):
-
-    ```bash
-    mkdir -p ~/autoware_data/recordings/bags/demos
-    gdown -O ~/autoware_data/recordings/bags/demos/ 'https://docs.google.com/uc?export=download&id=1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP'
-    unzip -d ~/autoware_data/recordings/bags/demos/ ~/autoware_data/recordings/bags/demos/sample-rosbag.zip
-    ```
 
 ### Make sure the ML model artifacts are downloaded
 

@@ -4,26 +4,12 @@
 
 ### Download the sample map
 
-The recommended way is to use the [`demo_artifacts`](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/demo_artifacts) ansible role, which downloads and extracts the sample map (and the rosbag-replay demo assets) into the standard layout under `~/autoware_data/`:
+Use the [`demo_artifacts`](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/demo_artifacts) ansible role to download and extract the sample map into `~/autoware_data/maps/demos/sample-map-planning/`:
 
 ```bash
 ansible-galaxy collection install -f -r "ansible-galaxy-requirements.yaml"
 ansible-playbook autoware.dev_env.install_dev_env --tags demo_artifacts --ask-become-pass
 ```
-
-After running the role, the sample map is available at `~/autoware_data/maps/demos/sample-map-planning/`.
-
-??? note "Manual download"
-
-    If you cannot run ansible, download and unpack the map manually:
-
-    ```bash
-    mkdir -p ~/autoware_data/maps/demos
-    gdown -O ~/autoware_data/maps/demos/ 'https://docs.google.com/uc?export=download&id=1499_nsbUbIeturZaDj7jhUownh5fvXHd'
-    unzip -d ~/autoware_data/maps/demos ~/autoware_data/maps/demos/sample-map-planning.zip
-    ```
-
-    You can also download [the map](https://drive.google.com/file/d/1499_nsbUbIeturZaDj7jhUownh5fvXHd/view?usp=sharing) manually from the browser.
 
 !!! info
 
