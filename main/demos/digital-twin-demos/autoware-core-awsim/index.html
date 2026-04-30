@@ -979,7 +979,7 @@
   <span class="md-ellipsis">
     
   
-    Open AD Kit: Containerized workloads for Autoware
+    Docker installation
   
 
     
@@ -14092,13 +14092,12 @@ ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </s
 <li>
 <p>Run the following command.</p>
 <div class="highlight"><pre><span></span><code>xhost<span class="w"> </span>+local:
-docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>--net<span class="w"> </span>host<span class="w"> </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span>-v<span class="w"> </span><span class="nv">$HOME</span>/Downloads/Shinjuku-Map/map:/autoware/map<span class="w"> </span>ghcr.io/autowarefoundation/autoware:core
+docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>--net<span class="w"> </span>host<span class="w"> </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span>-v<span class="w"> </span><span class="nv">$HOME</span>/Downloads/Shinjuku-Map/map:/home/aw/autoware_map<span class="w"> </span>ghcr.io/autowarefoundation/autoware:core-humble
 </code></pre></div>
 </li>
 <li>
 <p>Run the following command in the docker container.</p>
-<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-topic-tools
-ros2<span class="w"> </span>launch<span class="w"> </span>autoware_core<span class="w"> </span>autoware_core.launch.xml<span class="w"> </span>use_sim_time:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>map_path:<span class="o">=</span>/autoware/map<span class="w"> </span>vehicle_model:<span class="o">=</span>autoware_sample_vehicle<span class="w"> </span>sensor_model:<span class="o">=</span>autoware_awsim_sensor_kit
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_core<span class="w"> </span>autoware_core.launch.xml<span class="w"> </span>use_sim_time:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>map_path:<span class="o">=</span>/home/aw/autoware_map<span class="w"> </span>vehicle_model:<span class="o">=</span>autoware_sample_vehicle<span class="w"> </span>sensor_model:<span class="o">=</span>autoware_awsim_sensor_kit
 </code></pre></div>
 </li>
 </ol>

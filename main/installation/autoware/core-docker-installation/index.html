@@ -989,7 +989,7 @@
   <span class="md-ellipsis">
     
   
-    Open AD Kit: Containerized workloads for Autoware
+    Docker installation
   
 
     
@@ -13998,18 +13998,19 @@
 </thead>
 <tbody>
 <tr>
-<td>ghcr.io/autowarefoundation/autoware:core</td>
+<td>ghcr.io/autowarefoundation/autoware:core-jazzy</td>
 <td>This is a runtime image that contains only the executables.</td>
 </tr>
 <tr>
-<td>ghcr.io/autowarefoundation/autoware:core-devel</td>
+<td>ghcr.io/autowarefoundation/autoware:core-devel-jazzy</td>
 <td>This is a develop image that contains source code and build dependencies.</td>
 </tr>
 </tbody>
 </table>
+<p>Replace <code>jazzy</code> with <code>humble</code> for <abbr title="Robot Operating System">ROS</abbr> 2 Humble. Tag scheme: <code>&lt;stage&gt;-&lt;ros_distro&gt;[-&lt;date&gt;|-&lt;version&gt;]</code>. The full image catalog and tag list lives in <a href="https://github.com/autowarefoundation/autoware/blob/main/docker/README.md"><code>autoware/docker/README.md</code></a>.</p>
 <h2 id="how-to-set-up">How to set up<a class="headerlink" href="#how-to-set-up" title="Permanent link">#</a></h2>
-<p>Pull the Docker image you want to use. The following command is for autoware:core.</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/autowarefoundation/autoware:core
+<p>Pull the Docker image you want to use. The following command is for <code>core-jazzy</code>:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/autowarefoundation/autoware:core-jazzy
 </code></pre></div>
 <!-- prettier-ignore --></div>
 
