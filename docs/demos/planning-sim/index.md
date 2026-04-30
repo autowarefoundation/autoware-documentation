@@ -4,7 +4,7 @@
 
 ### Download the sample map
 
-Use the [`demo_artifacts`](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/demo_artifacts) ansible role to download and extract the sample map into `~/autoware_data/maps/demos/sample-map-planning/`:
+Use the [`demo_artifacts`](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/demo_artifacts) ansible role to download and extract the sample map into `~/autoware_data/maps/sample-map-planning/`:
 
 ```bash
 ansible-galaxy collection install -f -r "ansible-galaxy-requirements.yaml"
@@ -39,7 +39,7 @@ If not, please, follow [Manual downloading of artifacts](https://github.com/auto
 
 ```bash
 source ~/autoware/install/setup.bash
-ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware_data/maps/demos/sample-map-planning vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware_data/maps/sample-map-planning vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
 ```
 
 !!! warning

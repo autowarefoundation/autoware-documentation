@@ -13,8 +13,8 @@ ansible-playbook autoware.dev_env.install_dev_env --tags demo_artifacts --ask-be
 
 After running the role:
 
-- sample map → `~/autoware_data/maps/demos/sample-map-rosbag/`
-- sample rosbag → `~/autoware_data/recordings/bags/demos/sample-rosbag/`
+- sample map → `~/autoware_data/maps/sample-map-rosbag/`
+- sample rosbag → `~/autoware_data/recordings/bags/sample-rosbag/`
 
 ### Make sure the ML model artifacts are downloaded
 
@@ -53,7 +53,7 @@ If not, please, follow [Manual downloading of artifacts](https://github.com/auto
 
    ```sh
    source ~/autoware/install/setup.bash
-   ros2 launch autoware_launch logging_simulator.launch.xml map_path:=$HOME/autoware_data/maps/demos/sample-map-rosbag vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+   ros2 launch autoware_launch logging_simulator.launch.xml map_path:=$HOME/autoware_data/maps/sample-map-rosbag vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
    ```
 
    Note that you cannot use `~` instead of `$HOME` here.
@@ -66,7 +66,7 @@ If not, please, follow [Manual downloading of artifacts](https://github.com/auto
 
    ```sh
    source ~/autoware/install/setup.bash
-   ros2 bag play ~/autoware_data/recordings/bags/demos/sample-rosbag/ -r 0.2 -s sqlite3
+   ros2 bag play ~/autoware_data/recordings/bags/sample-rosbag/ -r 0.2 -s sqlite3
    ```
 
    > ⚠️ Due to the discrepancy between the timestamp in the `rosbag` and the current system timestamp, Autoware may generate warning messages in the terminal alerting to this mismatch. This is normal behavior.
