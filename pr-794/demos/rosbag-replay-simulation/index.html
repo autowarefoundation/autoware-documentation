@@ -2168,6 +2168,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Preparation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-the-sample-map-and-rosbag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Download the sample map and rosbag
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-sure-the-ml-model-artifacts-are-downloaded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Make sure the ML model artifacts are downloaded
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -13985,6 +14013,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Preparation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-the-sample-map-and-rosbag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Download the sample map and rosbag
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-sure-the-ml-model-artifacts-are-downloaded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Make sure the ML model artifacts are downloaded
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -14065,38 +14121,31 @@
 
 <div><h1 id="rosbag-replay-simulation">Rosbag replay simulation<a class="headerlink" href="#rosbag-replay-simulation" title="Permanent link">#</a></h1>
 <h2 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">#</a></h2>
-<ol>
-<li>
-<p>Download and unpack the sample map and rosbag.</p>
+<h3 id="download-the-sample-map-and-rosbag">Download the sample map and rosbag<a class="headerlink" href="#download-the-sample-map-and-rosbag" title="Permanent link">#</a></h3>
 <p>The recommended way is to use the <a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/demo_artifacts"><code>demo_artifacts</code></a> ansible role, which fetches and extracts both the sample map and the sample rosbag into the standard layout under <code>~/autoware_data/</code>:</p>
 <div class="highlight"><pre><span></span><code>ansible-galaxy<span class="w"> </span>collection<span class="w"> </span>install<span class="w"> </span>-f<span class="w"> </span>-r<span class="w"> </span><span class="s2">"ansible-galaxy-requirements.yaml"</span>
 ansible-playbook<span class="w"> </span>autoware.dev_env.install_dev_env<span class="w"> </span>--tags<span class="w"> </span>demo_artifacts<span class="w"> </span>--ask-become-pass
 </code></pre></div>
-<p>After running the role:
-  - sample map → <code>~/autoware_data/maps/demos/sample-map-rosbag/</code>
-  - sample rosbag → <code>~/autoware_data/recordings/bags/demos/sample-rosbag/</code></p>
-<p>??? note "Manual download"</p>
-<div class="codehilite"><pre><span></span><code>  If you cannot run ansible, download and unpack the assets manually.
-
-  Sample map ([direct download](https://drive.google.com/file/d/1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI/view?usp=sharing)):
-
-  ```bash
-  mkdir -p ~/autoware_data/maps/demos
-  gdown -O ~/autoware_data/maps/demos/ 'https://docs.google.com/uc?export=download&amp;id=1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI'
-  unzip -d ~/autoware_data/maps/demos/ ~/autoware_data/maps/demos/sample-map-rosbag.zip
-  ```
-
-  Sample rosbag ([direct download](https://drive.google.com/file/d/1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP/view?usp=sharing)):
-
-  ```bash
-  mkdir -p ~/autoware_data/recordings/bags/demos
-  gdown -O ~/autoware_data/recordings/bags/demos/ 'https://docs.google.com/uc?export=download&amp;id=1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP'
-  unzip -d ~/autoware_data/recordings/bags/demos/ ~/autoware_data/recordings/bags/demos/sample-rosbag.zip
-  ```
+<p>After running the role:</p>
+<ul>
+<li>sample map → <code>~/autoware_data/maps/demos/sample-map-rosbag/</code></li>
+<li>sample rosbag → <code>~/autoware_data/recordings/bags/demos/sample-rosbag/</code></li>
+</ul>
+<details class="note">
+<summary>Manual download</summary>
+<p>If you cannot run ansible, download and unpack the assets manually.</p>
+<p>Sample map (<a href="https://drive.google.com/file/d/1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI/view?usp=sharing">direct download</a>):</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/autoware_data/maps/demos
+gdown<span class="w"> </span>-O<span class="w"> </span>~/autoware_data/maps/demos/<span class="w"> </span><span class="s1">'https://docs.google.com/uc?export=download&amp;id=1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI'</span>
+unzip<span class="w"> </span>-d<span class="w"> </span>~/autoware_data/maps/demos/<span class="w"> </span>~/autoware_data/maps/demos/sample-map-rosbag.zip
 </code></pre></div>
-
-</li>
-<li>
+<p>Sample rosbag (<a href="https://drive.google.com/file/d/1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP/view?usp=sharing">direct download</a>):</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/autoware_data/recordings/bags/demos
+gdown<span class="w"> </span>-O<span class="w"> </span>~/autoware_data/recordings/bags/demos/<span class="w"> </span><span class="s1">'https://docs.google.com/uc?export=download&amp;id=1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP'</span>
+unzip<span class="w"> </span>-d<span class="w"> </span>~/autoware_data/recordings/bags/demos/<span class="w"> </span>~/autoware_data/recordings/bags/demos/sample-rosbag.zip
+</code></pre></div>
+</details>
+<h3 id="make-sure-the-ml-model-artifacts-are-downloaded">Make sure the ML model artifacts are downloaded<a class="headerlink" href="#make-sure-the-ml-model-artifacts-are-downloaded" title="Permanent link">#</a></h3>
 <p>Check if you have <code>~/autoware_data/ml_models</code> folder and files in it.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/autoware_data/ml_models
 $<span class="w"> </span>ls<span class="w"> </span>-C<span class="w"> </span>-w<span class="w"> </span><span class="m">30</span>
@@ -14111,8 +14160,6 @@ traffic_light_ssd_fine_detector
 yabloc_pose_initializer
 </code></pre></div>
 <p>If not, please, follow <a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts">Manual downloading of artifacts</a>.</p>
-</li>
-</ol>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <ul>
