@@ -1,13 +1,28 @@
-# Open AD Kit: Containerized workloads for Autoware
+# Docker installation
 
-Open AD Kit offers two types of Docker image to let you get started with Autoware quickly: `devel` and `runtime`.
+Autoware publishes prebuilt multi-arch (amd64, arm64) Docker images on GHCR. There are runtime images for trying things out, devel images for building locally, and CUDA variants for GPU workloads.
 
-1. The `devel` image enables you to develop Autoware without setting up the local development environment.
-2. The `runtime` image contains only runtime executables and enables you to try out Autoware quickly.
+The full image catalog — twelve images organized as a build graph — is documented in the canonical Docker reference next to the Dockerfiles in the `autoware` repository. Bookmark these sections, since they track the implementation:
+
+- [`docker/README.md` → Image Graph](https://github.com/autowarefoundation/autoware/blob/main/docker/README.md#image-graph) — visual diagram of how the images depend on each other.
+- [`docker/README.md` → Images](https://github.com/autowarefoundation/autoware/blob/main/docker/README.md#images) — table describing each image and when to use it.
+- [`docker/README.md` → Pull from GHCR](https://github.com/autowarefoundation/autoware/blob/main/docker/README.md#pull-from-ghcr) — tag pattern (`<stage>-<ros_distro>[-<date>|-<version>]`) and `docker pull` examples for every variant.
+
+The two images most users will care about:
+
+- `ghcr.io/autowarefoundation/autoware:universe-cuda-jazzy` — full Autoware runtime with NVIDIA CUDA, cuDNN, and TensorRT bundled.
+- `ghcr.io/autowarefoundation/autoware:universe-jazzy` — full Autoware runtime, no GPU.
+
+Replace `jazzy` with `humble` for ROS 2 Humble.
+
+For the broader containerized-deployment story (deployment patterns, integrations, edge use cases), see Open AD Kit:
+
+- <https://github.com/autowarefoundation/openadkit>
+- <https://autowarefoundation.github.io/openadkit/>
 
 !!! info
 
-    Before proceeding, confirm and agree with the [NVIDIA Deep Learning Container license](https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license). By pulling and using the Autoware Open AD Kit images, you accept the terms and conditions of the license.
+    Before proceeding, confirm and agree with the [NVIDIA Deep Learning Container license](https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license). By pulling and using Autoware's CUDA images, you accept the terms and conditions of the license.
 
 ## Prerequisites
 
@@ -50,23 +65,15 @@ Open AD Kit offers two types of Docker image to let you get started with Autowar
 
 ### Launching the runtime container
 
-You can use `run.sh` to run the Autoware runtime container with the map and data (artifacts) paths:
+The runtime image runs `ros2 launch autoware_launch autoware.launch.xml` on container start. The canonical `docker run` invocation — with map and data volumes, X11 forwarding, CUDA passthrough, and a flag-by-flag rationale table — is in [`docker/README.md` → Usage](https://github.com/autowarefoundation/autoware/blob/main/docker/README.md#usage). The same section covers the no-GPU variant (drop the NVIDIA-related flags) and how to override the default CycloneDDS config when you need ROS 2 nodes to reach across hosts.
 
-```bash
-./docker/run.sh --map-path path_to_map --data-path path_to_data
-```
+### Pre-configured demo scenarios
 
-For more launch options, you can append a custom launch command instead of using the default launch command which is `ros2 launch autoware_launch autoware.launch.xml`.
+Rather than crafting your own `docker run` command, the [`docker/examples/demos/`](https://github.com/autowarefoundation/autoware/tree/main/docker/examples/demos) folder ships ready-to-run Compose stacks. Each demo has its own README with prerequisites and run commands:
 
-Here is an example of running the runtime container with a custom launch command:
-
-```bash
-./docker/run.sh --map-path ~/autoware_map/sample-map-rosbag --data-path ~/autoware_data ros2 launch autoware_launch planning_simulator.launch.xml map_path:=/autoware_map vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
-```
-
-!!! info
-
-    Use `--no-nvidia` to run without NVIDIA GPU support, and `--headless` to run without display (no RViz visualization).
+- [**planning-simulator**](https://github.com/autowarefoundation/autoware/tree/main/docker/examples/demos/planning-simulator) — Planning simulator with the sample map, vehicle, and sensor kit. Three rendering paths via Compose overlays: software rendering by default, `docker-compose.dri.yaml` for Intel/AMD/Nouveau hosts, `docker-compose.nvidia.yaml` for NVIDIA proprietary.
+- [**awsim**](https://github.com/autowarefoundation/autoware/tree/main/docker/examples/demos/awsim) — Bridges Autoware to the [AWSIM](https://tier4.github.io/AWSIM/) Unity simulator over `network_mode: host` and launches `e2e_simulator.launch.xml`. Requires NVIDIA + the Container Toolkit.
+- [**scenario-simulator**](https://github.com/autowarefoundation/autoware/tree/main/docker/examples/demos/scenario-simulator) — Runs a `scenario_simulator_v2` scenario against a live Autoware planning stack as two services that share a generated CycloneDDS config.
 
 ### Running Autoware tutorials
 
@@ -82,13 +89,24 @@ Open AD Kit provides different deployment options for Autoware, so that you can 
 
 ## Development
 
+For developing against Autoware (rather than just running it), the [`docker/examples/basic/`](https://github.com/autowarefoundation/autoware/tree/main/docker/examples/basic) folder ships three Compose files — each a "drop me into a shell" container built on the `universe-devel-*` images, with `~/autoware_map`, `~/autoware_data`, and the autoware source tree mounted. Pick the flavor that matches your host:
+
+| Host GPU / driver            | Compose file                                |
+| ---------------------------- | ------------------------------------------- |
+| NVIDIA + proprietary driver  | `dev-nvidia.compose.yaml` (recommended)     |
+| NVIDIA + Nouveau open driver | `dev-dri.compose.yaml`                      |
+| Intel / AMD                  | `dev-dri.compose.yaml`                      |
+| No GPU / headless            | `dev-cpu.compose.yaml` (software rendering) |
+
+From the autoware repo root:
+
 ```bash
-./docker/run.sh --devel
+xhost +local:docker
+HOST_UID=$(id -u) HOST_GID=$(id -g) \
+  docker compose -f docker/examples/basic/dev-nvidia.compose.yaml run --rm autoware
 ```
 
-!!! info
-
-    By default workspace mounted on the container will be current directory(pwd), you can change the workspace path by `--workspace path_to_workspace`. For development environments without NVIDIA GPU support use `--no-nvidia`.
+[`docker/examples/basic/README.md`](https://github.com/autowarefoundation/autoware/blob/main/docker/examples/basic/README.md) goes deeper: how to verify you actually got hardware acceleration (`glxinfo -B`), why `dev-dri` silently falls back to software rendering on NVIDIA proprietary, and how to attach a second terminal to a running dev container.
 
 ### How to set up a workspace
 
@@ -172,39 +190,18 @@ Using the [Visual Studio Code](https://code.visualstudio.com/) with the [Remote 
 Get the Visual Studio Code's [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
 And reopen the workspace in the container by selecting `Remote-Containers: Reopen in Container` from the Command Palette (`F1`).
 
-You can choose Autoware or Autoware-cuda image to develop with or without CUDA support.
+You can choose the `universe-devel-jazzy` or `universe-devel-cuda-jazzy` image to develop without or with CUDA support.
 
 ### Building Docker images from scratch
 
-If you want to build these images locally for development purposes, run the following command:
+The build pipeline uses [`docker buildx bake`](https://docs.docker.com/build/bake/) driven by [`docker/docker-bake.hcl`](https://github.com/autowarefoundation/autoware/blob/main/docker/docker-bake.hcl). Building any target beyond `base` requires the autoware source repositories checked out under `src/`:
 
 ```bash
 cd autoware/
-./docker/build.sh
+vcs import src < repositories/autoware.repos
+docker buildx bake -f docker/docker-bake.hcl
 ```
 
-To build without CUDA, use the `--no-cuda` option:
+That builds the default targets (`universe` and `universe-cuda`); dependencies in the [image graph](https://github.com/autowarefoundation/autoware/blob/main/docker/README.md#image-graph) are resolved automatically. To target a specific stage (e.g. `core-devel`, `base-cuda-runtime`), pass it as an argument; to build for ROS 2 Humble, prefix with `ROS_DISTRO=humble`. See [`docker/README.md` → Build locally](https://github.com/autowarefoundation/autoware/blob/main/docker/README.md#build-locally) for the full target list and multi-arch flow.
 
-```bash
-./docker/build.sh --no-cuda
-```
-
-To build only development image, use the `--devel-only` option:
-
-```bash
-./docker/build.sh --devel-only
-```
-
-To specify the platform, use the `--platform` option:
-
-```bash
-./docker/build.sh --platform linux/amd64
-./docker/build.sh --platform linux/arm64
-```
-
-#### Using Docker images other than `latest`
-
-There are also images versioned based on the `date` or `release tag`.  
-Use them when you need a fixed version of the image.
-
-The list of versions can be found [here](https://github.com/autowarefoundation/autoware/packages).
+Pinned date- and release-tagged versions of every image are published on [GHCR](https://github.com/autowarefoundation/autoware/pkgs/container/autoware) — use them when you need a fixed version of the image.

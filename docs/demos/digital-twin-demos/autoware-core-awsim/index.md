@@ -62,14 +62,13 @@ If you have not yet installed Autoware, please refer to the [Installation](../..
 
    ```bash
    xhost +local:
-   docker run --rm -it --net host -e DISPLAY=$DISPLAY -v $HOME/Downloads/Shinjuku-Map/map:/autoware/map ghcr.io/autowarefoundation/autoware:core
+   docker run --rm -it --net host -e DISPLAY=$DISPLAY -v $HOME/Downloads/Shinjuku-Map/map:/home/aw/autoware_map ghcr.io/autowarefoundation/autoware:core-humble
    ```
 
 2. Run the following command in the docker container.
 
    ```bash
-   apt update && apt install ros-humble-topic-tools
-   ros2 launch autoware_core autoware_core.launch.xml use_sim_time:=true map_path:=/autoware/map vehicle_model:=autoware_sample_vehicle sensor_model:=autoware_awsim_sensor_kit
+   ros2 launch autoware_core autoware_core.launch.xml use_sim_time:=true map_path:=/home/aw/autoware_map vehicle_model:=autoware_sample_vehicle sensor_model:=autoware_awsim_sensor_kit
    ```
 
 ## Launch Autoware for source installation

@@ -172,7 +172,7 @@ docker run --rm -it ubuntu:latest
 Next, confirm that you are able to access the base Autoware image that is stored on the GitHub Packages website
 
 ```bash
-docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:latest
+docker run --rm -it ghcr.io/autowarefoundation/autoware:universe-jazzy
 ```
 
 ## Runtime issues
