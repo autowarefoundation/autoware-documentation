@@ -14149,12 +14149,12 @@ It is integrated in autoware_universe and actively maintained to stay compatible
 <li>Usage (CARLA E2E mode):<ol>
 <li>Build the package and deps: <code>colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-up-to autoware_tensorrt_vad</code>.</li>
 <li>Prepare CARLA following <code>autoware_carla_interface</code> (use <code>carla_sensor_kit</code> so camera topics match the VAD training order: FRONT, BACK, FRONT_LEFT, BACK_LEFT, FRONT_RIGHT, BACK_RIGHT).</li>
-<li>Ensure VAD models are downloaded (default to <code>~/autoware_data/vad</code> via the Autoware setup script).</li>
+<li>Ensure VAD models are downloaded (default to <code>~/autoware_data/ml_models/vad</code> via the Autoware setup script).</li>
 <li>Start CARLA server (example headless/<abbr title="Graphics Processing Unit">GPU</abbr>-friendly): <code>./CarlaUE4.sh -prefernvidia -quality-level=Low -RenderOffScreen</code>.</li>
 <li>
 <p>Launch Autoware in E2E mode:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>e2e_simulator.launch.xml<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/autoware_map/Town01<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/autoware_data/maps/Town01<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>vehicle_model:<span class="o">=</span>sample_vehicle<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>sensor_model:<span class="o">=</span>carla_sensor_kit<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>simulator_type:<span class="o">=</span>carla<span class="w"> </span><span class="se">\</span>

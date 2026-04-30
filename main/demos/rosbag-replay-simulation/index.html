@@ -2168,6 +2168,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Preparation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-the-sample-map-and-rosbag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Download the sample map and rosbag
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-sure-the-ml-model-artifacts-are-downloaded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Make sure the ML model artifacts are downloaded
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -13985,6 +14013,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Preparation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-the-sample-map-and-rosbag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Download the sample map and rosbag
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-sure-the-ml-model-artifacts-are-downloaded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Make sure the ML model artifacts are downloaded
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -14065,28 +14121,19 @@
 
 <div><h1 id="rosbag-replay-simulation">Rosbag replay simulation<a class="headerlink" href="#rosbag-replay-simulation" title="Permanent link">#</a></h1>
 <h2 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">#</a></h2>
-<ol>
-<li>
-<p>Download and unpack a sample map.</p>
-<ul>
-<li>You can also download <a href="https://drive.google.com/file/d/1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI/view?usp=sharing">the map</a> manually.</li>
-</ul>
-<div class="highlight"><pre><span></span><code>gdown<span class="w"> </span>-O<span class="w"> </span>~/autoware_map/<span class="w"> </span><span class="s1">'https://docs.google.com/uc?export=download&amp;id=1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI'</span>
-unzip<span class="w"> </span>-d<span class="w"> </span>~/autoware_map/<span class="w"> </span>~/autoware_map/sample-map-rosbag.zip
+<h3 id="download-the-sample-map-and-rosbag">Download the sample map and rosbag<a class="headerlink" href="#download-the-sample-map-and-rosbag" title="Permanent link">#</a></h3>
+<p>Use the <a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/demo_artifacts"><code>demo_artifacts</code></a> ansible role to download and extract both the sample map and the sample rosbag:</p>
+<div class="highlight"><pre><span></span><code>ansible-galaxy<span class="w"> </span>collection<span class="w"> </span>install<span class="w"> </span>-f<span class="w"> </span>-r<span class="w"> </span><span class="s2">"ansible-galaxy-requirements.yaml"</span>
+ansible-playbook<span class="w"> </span>autoware.dev_env.install_dev_env<span class="w"> </span>--tags<span class="w"> </span>demo_artifacts<span class="w"> </span>--ask-become-pass
 </code></pre></div>
-</li>
-<li>
-<p>Download the sample rosbag files.</p>
+<p>After running the role:</p>
 <ul>
-<li>You can also download <a href="https://drive.google.com/file/d/1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP/view?usp=sharing">the rosbag files</a> manually.</li>
+<li>sample map → <code>~/autoware_data/maps/sample-map-rosbag/</code></li>
+<li>sample rosbag → <code>~/autoware_data/recordings/bags/sample-rosbag/</code></li>
 </ul>
-<div class="highlight"><pre><span></span><code>gdown<span class="w"> </span>-O<span class="w"> </span>~/autoware_map/<span class="w"> </span><span class="s1">'https://docs.google.com/uc?export=download&amp;id=1sU5wbxlXAfHIksuHjP3PyI2UVED8lZkP'</span>
-unzip<span class="w"> </span>-d<span class="w"> </span>~/autoware_map/<span class="w"> </span>~/autoware_map/sample-rosbag.zip
-</code></pre></div>
-</li>
-<li>
-<p>Check if you have <code>~/autoware_data</code> folder and files in it.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/autoware_data
+<h3 id="make-sure-the-ml-model-artifacts-are-downloaded">Make sure the ML model artifacts are downloaded<a class="headerlink" href="#make-sure-the-ml-model-artifacts-are-downloaded" title="Permanent link">#</a></h3>
+<p>Check if you have <code>~/autoware_data/ml_models</code> folder and files in it.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/autoware_data/ml_models
 $<span class="w"> </span>ls<span class="w"> </span>-C<span class="w"> </span>-w<span class="w"> </span><span class="m">30</span>
 image_projection_based_fusion
 lidar_apollo_instance_segmentation
@@ -14099,8 +14146,6 @@ traffic_light_ssd_fine_detector
 yabloc_pose_initializer
 </code></pre></div>
 <p>If not, please, follow <a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts">Manual downloading of artifacts</a>.</p>
-</li>
-</ol>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <ul>
@@ -14121,7 +14166,7 @@ yabloc_pose_initializer
 <li>
 <p>Launch Autoware.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/autoware/install/setup.bash
-ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>logging_simulator.launch.xml<span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/autoware_map/sample-map-rosbag<span class="w"> </span>vehicle_model:<span class="o">=</span>sample_vehicle<span class="w"> </span>sensor_model:<span class="o">=</span>sample_sensor_kit
+ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>logging_simulator.launch.xml<span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/autoware_data/maps/sample-map-rosbag<span class="w"> </span>vehicle_model:<span class="o">=</span>sample_vehicle<span class="w"> </span>sensor_model:<span class="o">=</span>sample_sensor_kit
 </code></pre></div>
 <p>Note that you cannot use <code>~</code> instead of <code>$HOME</code> here.</p>
 <p><img alt="after-autoware-launch" src="../images/rosbag-replay/after-autoware-launch.png"></p>
@@ -14132,7 +14177,7 @@ ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span c
 <li>
 <p>Play the sample rosbag file.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/autoware/install/setup.bash
-ros2<span class="w"> </span>bag<span class="w"> </span>play<span class="w"> </span>~/autoware_map/sample-rosbag/<span class="w"> </span>-r<span class="w"> </span><span class="m">0</span>.2<span class="w"> </span>-s<span class="w"> </span>sqlite3
+ros2<span class="w"> </span>bag<span class="w"> </span>play<span class="w"> </span>~/autoware_data/recordings/bags/sample-rosbag/<span class="w"> </span>-r<span class="w"> </span><span class="m">0</span>.2<span class="w"> </span>-s<span class="w"> </span>sqlite3
 </code></pre></div>
 <blockquote>
 <p>⚠️ Due to the discrepancy between the timestamp in the <code>rosbag</code> and the current system timestamp, Autoware may generate warning messages in the terminal alerting to this mismatch. This is normal behavior.</p>

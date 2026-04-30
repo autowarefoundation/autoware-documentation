@@ -14449,7 +14449,7 @@ or you can just build the entire Autoware if you have done other things.</p>
 </code></pre></div>
 <h3 id="5-when-you-launch-autoware">5. When you launch Autoware<a class="headerlink" href="#5-when-you-launch-autoware" title="Permanent link">#</a></h3>
 <p>Finally, you are done implementing your vehicle interface module! Be careful that you need to launch Autoware with the proper <code>vehicle_model</code> option like the example below. This example is launching planning simulator.</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>planning.launch.xml<span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/autoware_map/sample-map-planning<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;_sensor_kit
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>planning.launch.xml<span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/autoware_data/maps/sample-map-planning<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;_sensor_kit
 </code></pre></div>
 <h3 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">#</a></h3>
 <p>There are some tips that may help you.</p>

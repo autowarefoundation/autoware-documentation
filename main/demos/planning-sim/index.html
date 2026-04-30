@@ -13894,10 +13894,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#make-sure-the-artifacts-are-downloaded" class="md-nav__link">
+  <a href="#make-sure-the-ml-model-artifacts-are-downloaded" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Make sure the artifacts are downloaded
+        Make sure the ML model artifacts are downloaded
       
     </span>
   </a>
@@ -14036,19 +14036,17 @@
 <div><h1 id="planning-simulation">Planning simulation<a class="headerlink" href="#planning-simulation" title="Permanent link">#</a></h1>
 <h2 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">#</a></h2>
 <h3 id="download-the-sample-map">Download the sample map<a class="headerlink" href="#download-the-sample-map" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code>gdown<span class="w"> </span>-O<span class="w"> </span>~/autoware_map/<span class="w"> </span><span class="s1">'https://docs.google.com/uc?export=download&amp;id=1499_nsbUbIeturZaDj7jhUownh5fvXHd'</span>
-unzip<span class="w"> </span>-d<span class="w"> </span>~/autoware_map<span class="w"> </span>~/autoware_map/sample-map-planning.zip
+<p>Use the <a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/demo_artifacts"><code>demo_artifacts</code></a> ansible role to download and extract the sample map into <code>~/autoware_data/maps/sample-map-planning/</code>:</p>
+<div class="highlight"><pre><span></span><code>ansible-galaxy<span class="w"> </span>collection<span class="w"> </span>install<span class="w"> </span>-f<span class="w"> </span>-r<span class="w"> </span><span class="s2">"ansible-galaxy-requirements.yaml"</span>
+ansible-playbook<span class="w"> </span>autoware.dev_env.install_dev_env<span class="w"> </span>--tags<span class="w"> </span>demo_artifacts<span class="w"> </span>--ask-become-pass
 </code></pre></div>
-<ul>
-<li>You can also download <a href="https://drive.google.com/file/d/1499_nsbUbIeturZaDj7jhUownh5fvXHd/view?usp=sharing">the map</a> manually.</li>
-</ul>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Sample map: Copyright 2020 TIER IV, Inc.</p>
 </div>
-<h3 id="make-sure-the-artifacts-are-downloaded">Make sure the artifacts are downloaded<a class="headerlink" href="#make-sure-the-artifacts-are-downloaded" title="Permanent link">#</a></h3>
-<p>Check if you have <code>~/autoware_data</code> folder and files in it.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/autoware_data
+<h3 id="make-sure-the-ml-model-artifacts-are-downloaded">Make sure the ML model artifacts are downloaded<a class="headerlink" href="#make-sure-the-ml-model-artifacts-are-downloaded" title="Permanent link">#</a></h3>
+<p>Check if you have <code>~/autoware_data/ml_models</code> folder and files in it.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/autoware_data/ml_models
 $<span class="w"> </span>ls<span class="w"> </span>-C<span class="w"> </span>-w<span class="w"> </span><span class="m">30</span>
 image_projection_based_fusion
 lidar_apollo_instance_segmentation
@@ -14063,7 +14061,7 @@ yabloc_pose_initializer
 <p>If not, please, follow <a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts">Manual downloading of artifacts</a>.</p>
 <h2 id="launch-autoware-planning-simulator">Launch Autoware Planning Simulator<a class="headerlink" href="#launch-autoware-planning-simulator" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/autoware/install/setup.bash
-ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>planning_simulator.launch.xml<span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/autoware_map/sample-map-planning<span class="w"> </span>vehicle_model:<span class="o">=</span>sample_vehicle<span class="w"> </span>sensor_model:<span class="o">=</span>sample_sensor_kit
+ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>planning_simulator.launch.xml<span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/autoware_data/maps/sample-map-planning<span class="w"> </span>vehicle_model:<span class="o">=</span>sample_vehicle<span class="w"> </span>sensor_model:<span class="o">=</span>sample_sensor_kit
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>

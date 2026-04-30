@@ -14187,15 +14187,15 @@ you will need to update these map file name arguments:</p>
 <span class="gi">+ &lt;arg name="pointcloud_map_file" default="&lt;YOUR-POINTCLOUD-MAP-FILE-NAME&gt;" description="pointcloud map file name"/&gt;</span>
 </code></pre></div>
 <h3 id="perception">Perception<a class="headerlink" href="#perception" title="Permanent link">#</a></h3>
-<p>You can define your <code>autoware_data</code> path here.
+<p>You can define your <code>autoware_data/ml_models</code> path here.
 Autoware gets yabloc_pose_initializer,
 image_projection_based_fusion,
-lidar_apollo_instance_segmentation etc. models file with <code>autoware_data</code> path.
+lidar_apollo_instance_segmentation etc. models file with <code>data_path</code>.
 If you use ansible for autoware installation,
-the necessary artifacts will be downloaded at <code>autoware_data</code> folder on your <code>$HOME</code> directory.
+the necessary artifacts will be downloaded at the <code>autoware_data/ml_models</code> folder on your <code>$HOME</code> directory.
 If you want to download artifacts manually,
 please check ansible <a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts"><code>artifacts</code></a> page for information.</p>
-<div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="data_path" default="$(env HOME)/autoware_data" description="packages data and artifacts directory path"/&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="data_path" default="$(env HOME)/autoware_data/ml_models" description="packages data and artifacts directory path"/&gt;</span>
 <span class="gi">+ &lt;arg name="data_path" default="&lt;YOUR-AUTOWARE-DATA-PATH&gt;" description="packages data and artifacts directory path"/&gt;</span>
 </code></pre></div>
 <p>Also, you can change your perception method here.

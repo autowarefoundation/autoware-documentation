@@ -14323,7 +14323,7 @@ ansible-playbook<span class="w"> </span>autoware.dev_env.install_docker
 <h2 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">#</a></h2>
 <p>Open AD Kit provides different deployment options for Autoware, so that you can deploy Autoware on different platforms and scenarios easily. Refer to the <a href="https://autowarefoundation.github.io/openadkit/">Open AD Kit Documentation</a> for more details.</p>
 <h2 id="development">Development<a class="headerlink" href="#development" title="Permanent link">#</a></h2>
-<p>For developing against Autoware (rather than just running it), the <a href="https://github.com/autowarefoundation/autoware/tree/main/docker/examples/basic"><code>docker/examples/basic/</code></a> folder ships three Compose files — each a "drop me into a shell" container built on the <code>universe-devel-*</code> images, with <code>~/autoware_map</code>, <code>~/autoware_data</code>, and the autoware source tree mounted. Pick the flavor that matches your host:</p>
+<p>For developing against Autoware (rather than just running it), the <a href="https://github.com/autowarefoundation/autoware/tree/main/docker/examples/basic"><code>docker/examples/basic/</code></a> folder ships three Compose files — each a "drop me into a shell" container built on the <code>universe-devel-*</code> images, with <code>~/autoware_data</code> (containing <code>maps/</code> and <code>ml_models/</code>) and the autoware source tree mounted. Pick the flavor that matches your host:</p>
 <table>
 <thead>
 <tr>
