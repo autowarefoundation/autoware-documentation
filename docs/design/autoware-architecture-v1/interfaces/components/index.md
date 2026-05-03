@@ -13,6 +13,10 @@ See [here](../index.md) for an overview.
 
 ## Interfaces
 
+- [/localization/initialize](./list/localization-initialize.md)
+- [/localization/initialization_state](./list/localization-initialization_state.md)
+- [/localization/kinematic_state](./list/localization-kinematic_state.md)
+- [/localization/acceleration](./list/localization-acceleration.md)
 - [/control/control_mode_request](./list/control-control-mode-request.md)
 - [/control/command/control_cmd](./list/control-command-control-cmd.md)
 - [/control/command/gear_cmd](./list/control-command-gear-cmd.md)
