@@ -14266,6 +14266,7 @@
 <li><code>ghcr.io/autowarefoundation/autoware:universe-jazzy</code> — full Autoware runtime, no <abbr title="Graphics Processing Unit">GPU</abbr>.</li>
 </ul>
 <p>Replace <code>jazzy</code> with <code>humble</code> for <abbr title="Robot Operating System">ROS</abbr> 2 Humble.</p>
+<p>These tags track the latest build. For a stable release, append the version to the tag — for example, <code>ghcr.io/autowarefoundation/autoware:universe-jazzy-1.8.0</code> for the <code>1.8.0</code> release on <abbr title="Robot Operating System">ROS</abbr> 2 Jazzy.</p>
 <p>For the broader containerized-deployment story (deployment patterns, integrations, edge use cases), see Open AD Kit:</p>
 <ul>
 <li><a href="https://github.com/autowarefoundation/openadkit">https://github.com/autowarefoundation/openadkit</a></li>
@@ -14287,6 +14288,10 @@
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/autowarefoundation/autoware.git
 <span class="nb">cd</span><span class="w"> </span>autoware
 </code></pre></div>
+<p>By default, this checks out the <code>main</code> branch, which contains the latest in-development changes. If you want to use a stable release, check out the corresponding release tag (compatible with both <abbr title="Robot Operating System">ROS</abbr> 2 Humble and Jazzy):</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span><span class="m">1</span>.8.0
+</code></pre></div>
+<p>The list of available tags can be found on the <a href="https://github.com/autowarefoundation/autoware/releases">autoware releases page</a>.</p>
 </li>
 <li>
 <p>Install Ansible and run the Docker setup playbook:</p>

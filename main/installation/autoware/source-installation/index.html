@@ -14185,6 +14185,10 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/autowarefoundation/autoware.git
 <span class="nb">cd</span><span class="w"> </span>autoware
 </code></pre></div>
+<p>By default, this checks out the <code>main</code> branch, which contains the latest in-development changes. If you want to use a stable release, check out the corresponding release tag. For example, to use the <code>1.8.0</code> release (compatible with both <abbr title="Robot Operating System">ROS</abbr> 2 Humble and Jazzy):</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span><span class="m">1</span>.8.0
+</code></pre></div>
+<p>The list of available tags can be found on the <a href="https://github.com/autowarefoundation/autoware/releases">autoware releases page</a>.</p>
 </li>
 <li>
 <p>If you are installing Autoware for the first time, you can automatically install the dependencies by using the provided Ansible playbook.</p>
