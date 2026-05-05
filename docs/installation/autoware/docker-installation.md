@@ -15,6 +15,8 @@ The two images most users will care about:
 
 Replace `jazzy` with `humble` for ROS 2 Humble.
 
+These tags track the latest build. For a stable release, append the version to the tag — for example, `ghcr.io/autowarefoundation/autoware:universe-jazzy-1.8.0` for the `1.8.0` release on ROS 2 Jazzy.
+
 For the broader containerized-deployment story (deployment patterns, integrations, edge use cases), see Open AD Kit:
 
 - <https://github.com/autowarefoundation/openadkit>
@@ -36,6 +38,14 @@ For the broader containerized-deployment story (deployment patterns, integration
    git clone https://github.com/autowarefoundation/autoware.git
    cd autoware
    ```
+
+   By default, this checks out the `main` branch, which contains the latest in-development changes. If you want to use a stable release, check out the corresponding release tag (compatible with both ROS 2 Humble and Jazzy):
+
+   ```bash
+   git checkout 1.8.0
+   ```
+
+   The list of available tags can be found on the [autoware releases page](https://github.com/autowarefoundation/autoware/releases).
 
 2. Install Ansible and run the Docker setup playbook:
 
