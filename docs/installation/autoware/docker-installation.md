@@ -82,7 +82,7 @@ The runtime image runs `ros2 launch autoware_launch autoware.launch.xml` on cont
 Rather than crafting your own `docker run` command, the [`docker/examples/demos/`](https://github.com/autowarefoundation/autoware/tree/main/docker/examples/demos) folder ships ready-to-run Compose stacks. Each demo has its own README with prerequisites and run commands:
 
 - [**planning-simulator**](https://github.com/autowarefoundation/autoware/tree/main/docker/examples/demos/planning-simulator) — Planning simulator with the sample map, vehicle, and sensor kit. Three rendering paths via Compose overlays: software rendering by default, `docker-compose.dri.yaml` for Intel/AMD/Nouveau hosts, `docker-compose.nvidia.yaml` for NVIDIA proprietary.
-- [**awsim**](https://github.com/autowarefoundation/autoware/tree/main/docker/examples/demos/awsim) — Bridges Autoware to the [AWSIM](https://tier4.github.io/AWSIM/) Unity simulator over `network_mode: host` and launches `e2e_simulator.launch.xml`. Requires NVIDIA + the Container Toolkit.
+- [**awsim**](https://github.com/autowarefoundation/autoware/tree/main/docker/examples/demos/awsim) — Bridges Autoware to the [AWSIM](https://autowarefoundation.github.io/AWSIM/) Unity simulator over `network_mode: host` and launches `e2e_simulator.launch.xml`. Requires NVIDIA + the Container Toolkit.
 - [**scenario-simulator**](https://github.com/autowarefoundation/autoware/tree/main/docker/examples/demos/scenario-simulator) — Runs a `scenario_simulator_v2` scenario against a live Autoware planning stack as two services that share a generated CycloneDDS config.
 
 ### Running Autoware tutorials

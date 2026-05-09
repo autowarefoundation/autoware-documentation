@@ -4,7 +4,7 @@
 
    ```bash
    mkdir -p ~/autoware_data/maps
-   gdown -O ~/autoware_data/maps/ 'https://github.com/tier4/AWSIM/releases/download/v1.1.0/nishishinjuku_autoware_map.zip'
+   gdown -O ~/autoware_data/maps/ 'https://github.com/autowarefoundation/AWSIM/releases/download/v1.1.0/nishishinjuku_autoware_map.zip'
    unzip -d ~/autoware_data/maps ~/autoware_data/maps/nishishinjuku_autoware_map.zip
    ```
 
