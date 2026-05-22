@@ -1,6 +1,6 @@
 # AWSIM simulator
 
-[AWSIM](https://github.com/autowarefoundationAWSIM) is a simulator for Autoware development and testing, initially developed by TIER IV and still actively maintained.
+[AWSIM](https://github.com/autowarefoundation/AWSIM) is a simulator for Autoware development and testing, initially developed by TIER IV and still actively maintained.
 
 To get started with AWSIM, please follow the [instructions](https://autowarefoundation.github.io/AWSIM/GettingStarted/QuickStartDemo/).
 
