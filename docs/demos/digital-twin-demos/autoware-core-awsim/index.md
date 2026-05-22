@@ -7,7 +7,7 @@ If you have not yet installed Autoware, please refer to the [Installation](../..
 
 ## Download AWSIM
 
-1. Download following files from [this page](https://tier4.github.io/AWSIM/Downloads/).
+1. Download following files from [this page](https://autowarefoundation.github.io/AWSIM/Downloads/).
    - AWSIM-Demo.zip
    - Shinjuku-Map.zip
 
