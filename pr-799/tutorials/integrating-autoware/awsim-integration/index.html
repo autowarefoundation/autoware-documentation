@@ -14016,14 +14016,14 @@
 
 <div><h1 id="how-to-integrate-your-vehicle-in-awsim-environment">How to integrate your vehicle in AWSIM environment<a class="headerlink" href="#how-to-integrate-your-vehicle-in-awsim-environment" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p><a href="https://github.com/tier4/AWSIM">AWSIM</a> is an open-source simulator designed by TIER IV for
+<p><a href="https://github.com/autowarefoundation/AWSIM">AWSIM</a> is an open-source simulator designed by TIER IV for
 training and evaluating autonomous driving systems.
 It provides a realistic virtual environment for simulating various real-world scenarios, enabling
 users to test and refine their autonomous systems before deployment on actual vehicles.</p>
 <h2 id="setup-unity-project">Setup Unity Project<a class="headerlink" href="#setup-unity-project" title="Permanent link">#</a></h2>
 <p>To add your environment and vehicle to the AWSIM simulation,
 you need to set up the <a href="https://unity.com/">Unity</a> environment on your computer.
-Please follow the steps on the <a href="https://tier4.github.io/AWSIM/DeveloperGuide/SetupUnityProject/"><code>Setup Unity Project</code></a>
+Please follow the steps on the <a href="https://autowarefoundation.github.io/AWSIM/DeveloperGuide/SetupUnityProject/"><code>Setup Unity Project</code></a>
 documentation page
 to set up the Unity environment on your computer.</p>
 <figure>
@@ -14036,7 +14036,7 @@ to set up the Unity environment on your computer.</p>
 <h2 id="new-vehicle-integration">New Vehicle Integration<a class="headerlink" href="#new-vehicle-integration" title="Permanent link">#</a></h2>
 <p>To incorporate your vehicle into the AWSIM environment,
 you'll need a 3D model file (.dae, .fbx) of your vehicle.
-Please refer to the steps on the <a href="https://tier4.github.io/AWSIM/Components/Vehicle/AddNewVehicle/AddAVehicle/"><code>Add New Vehicle
+Please refer to the steps on the <a href="https://autowarefoundation.github.io/AWSIM/DeveloperGuide/Layer/Entity/Vehicle/AccelVehicle/"><code>Accel Vehicle
 documentation page</code></a> to add your own vehicle to the AWSIM
 project environment. During these steps, you'll configure
 your sensor <abbr title="Universal Robotic Description Format">URDF</abbr> design on your vehicle.
@@ -14054,8 +14054,8 @@ but it's recommended to adhere to the .fbx file format.
 Materials and textures should be stored in separate directories
 for seamless integration with Unity. This format facilitates material
 importation and replacement during import.
-Please refer to the steps on the
-<a href="https://tier4.github.io/AWSIM/Components/Environment/AddNewEnvironment/AddEnvironment/"><code>Add Environment documentation page</code></a>
+Please refer to the
+<a href="https://autowarefoundation.github.io/AWSIM/DeveloperGuide/Architecture/#scene-class"><code>Scene Class documentation</code></a>
 to add your custom environment to the AWSIM project environment.</p>
 <figure>
 <p><img align="center" alt="tutorial-vehicle-awsim-environment" src="images/tutorial-vehicle-environment.png">
@@ -14068,7 +14068,7 @@ to add your custom environment to the AWSIM project environment.</p>
 <p>Additionally, you can incorporate traffic and NPCs,
 generate point cloud maps using lanelet2 maps, and
 perform other tasks by following the relevant
-documentation steps provided in the <a href="https://tier4.github.io/AWSIM/"><code>AWSIM documentation</code></a>.</p>
+documentation steps provided in the <a href="https://autowarefoundation.github.io/AWSIM/"><code>AWSIM documentation</code></a>.</p>
 <!-- prettier-ignore --></div>
 
 
