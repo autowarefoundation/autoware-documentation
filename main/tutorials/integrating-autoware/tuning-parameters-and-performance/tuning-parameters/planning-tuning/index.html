@@ -14144,7 +14144,7 @@ within lane constraints, requiring access to lane structure information to ensur
 with traffic rules. For example, it triggers indicator signals when the vehicle crosses a lane.
 The key distinction between motion and behavior modules in the planning stack is their consideration
 of traffic rules.
-Please refer to the <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/docs/behavior_path_planner_avoidance_design/"><code>Avoidance Module</code> page</a> for more information about the module's capabilities.</p>
+Please refer to the <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_static_obstacle_avoidance_module/"><code>Avoidance Module</code> page</a> for more information about the module's capabilities.</p>
 <p>We will modify and update certain avoidance rules and margin parameters
 to handle with the specific conditions of our YTU campus environment
 and the capabilities of our vehicle.</p>
@@ -14157,17 +14157,19 @@ and the capabilities of our vehicle.</p>
 <p><img align="center" alt="avoidance-opposite-lane" src="images/avoidance-opposite-lane.png">
   </p>
 <figcaption>
-    When the opposite_lane parameter is set to true,
+    When `use_lane_type` is set to `opposite_direction_lane`,
 the path can be shifted to the opposite lane if the ego vehicle cannot fit in the current lane.
   </figcaption>
 </figure>
 <ul>
-<li>To disable the use of the opposite lanelet in the avoidance, we will modify the value in the <code>avoidance.param.yaml</code> file:</li>
+<li>To disable the use of the opposite lanelet in the avoidance, we will set <code>use_lane_type</code>
+  to <code>same_direction_lane</code> in the <code>static_obstacle_avoidance.param.yaml</code> file:</li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/avoidance/avoidance.param.yaml"><code>avoidance.param.yaml</code></a> parameter file:</p>
-<div class="highlight"><pre><span></span><code><span class="gd">- use_opposite_lane: true</span>
-<span class="gi">+ use_opposite_lane: false</span>
+<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/autoware_behavior_path_static_obstacle_avoidance_module/static_obstacle_avoidance.param.yaml"><code>static_obstacle_avoidance.param.yaml</code></a> parameter file:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span> avoidance:
+<span class="gd">-   use_lane_type: "opposite_direction_lane"</span>
+<span class="gi">+   use_lane_type: "same_direction_lane"</span>
 </code></pre></div>
 </div>
 <p>Now, we expect the avoidance module not to utilize the opposite lane in our area.
@@ -14177,31 +14179,33 @@ as depicted in the image below:</p>
 <p><img align="center" alt="avoidance-current-lane" src="images/avoidance-current-lane.png">
   </p>
 <figcaption>
-    When the opposite_lane parameter is set to false,
+    When `use_lane_type` is set to `same_direction_lane`,
 the path cannot be shifted to the opposite lane, even if the ego vehicle cannot fit in the current lane.
   </figcaption>
 </figure>
 <p>Since we disabled the use of opposite lanelets for the Avoidance module,
 there may be instances where we cannot avoid objects due to the shifted path
-(<code>safety_buffer_lateral</code> + <code>avoid_margin_lateral</code>) not fitting within the available lanelet.
-As a small vehicle, we will reduce the <code>avoid_margin_lateral</code> parameter to decrease the distance
+not fitting within the available lanelet.
+As a small vehicle, we will reduce the <code>soft_margin</code> parameter to decrease the distance
 between objects and the ego vehicle.
 You can adjust these changes to any target object according to your preference.
 For more information on these parameters, please refer to
-the <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/docs/behavior_path_planner_avoidance_design/">avoidance module documentation</a>.</p>
+the <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_static_obstacle_avoidance_module/">avoidance module documentation</a>.</p>
 <div class="admonition note">
-<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/avoidance/avoidance.param.yaml"><code>avoidance.param.yaml</code></a> parameter file:</p>
-<div class="highlight"><pre><span></span><code>...
-<span class="gd">-   avoid_margin_lateral: 1.0                    # [m]</span>
-<span class="gi">+   avoid_margin_lateral: 0.5                    # [m]</span>
-...
+<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/autoware_behavior_path_static_obstacle_avoidance_module/static_obstacle_avoidance.param.yaml"><code>static_obstacle_avoidance.param.yaml</code></a> parameter file:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span> avoidance:
+<span class="w"> </span>   target_object:
+<span class="w"> </span>     car:
+<span class="w"> </span>       lateral_margin:
+<span class="gd">-         soft_margin: 0.5                            # [m]</span>
+<span class="gi">+         soft_margin: 0.3                            # [m]</span>
 </code></pre></div>
 </div>
 <figure>
 <p><img align="center" alt="avoidance-current-lane" src="images/avoidance-lateral-margin.png">
   </p>
 <figcaption>
-    The Avoidance module's behavior changes when the avoid_margin value is decreased,
+    The Avoidance module's behavior changes when the `soft_margin` value is decreased,
 such that the shifted path fits within the lanelet.
   </figcaption>
 </figure>
@@ -14210,49 +14214,51 @@ such that the shifted path fits within the lanelet.
   In the YTU campus environment, as mentioned earlier, there are many
   pedestrians, and we do not want to perform avoidance maneuvers for them.
   Therefore, we will disable the avoidance maneuver for pedestrians by
-  modifying the target value in the <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/avoidance/avoidance.param.yaml"><code>avoidance.param.yaml</code> file</a>.
+  modifying the target value in the <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/autoware_behavior_path_static_obstacle_avoidance_module/static_obstacle_avoidance.param.yaml"><code>static_obstacle_avoidance.param.yaml</code> file</a>.
   You can disable any target object according to your preference.</li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/avoidance/avoidance.param.yaml"><code>avoidance.param.yaml</code></a> parameter file:</p>
-<div class="highlight"><pre><span></span><code><span class="w"> </span> ...
-<span class="w"> </span>       pedestrian:
-<span class="gd">-         is_target: true</span>
-<span class="gi">+         is_target: false</span>
-<span class="w"> </span> ...
+<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/autoware_behavior_path_static_obstacle_avoidance_module/static_obstacle_avoidance.param.yaml"><code>static_obstacle_avoidance.param.yaml</code></a> parameter file:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span> avoidance:
+<span class="w"> </span>   target_filtering:
+<span class="w"> </span>     target_type:
+<span class="gd">-       pedestrian: true</span>
+<span class="gi">+       pedestrian: false</span>
 </code></pre></div>
 </div>
 <h3 id="motion-planning-tuning">Motion Planning Tuning<a class="headerlink" href="#motion-planning-tuning" title="Permanent link">#</a></h3>
-<h4 id="obstacle-avoidance-planner">Obstacle avoidance planner<a class="headerlink" href="#obstacle-avoidance-planner" title="Permanent link">#</a></h4>
-<p>The obstacle avoidance planner generates a kinematically feasible
+<h4 id="path-optimizer">Path optimizer<a class="headerlink" href="#path-optimizer" title="Permanent link">#</a></h4>
+<p>The path optimizer generates a kinematically feasible
 and collision-free trajectory based on the input path and drivable area.
 It updates the trajectory's position and orientation but retains the velocity from the input path.
-Please refer to the <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_avoidance_planner/">Obstacle Avoidance Planner</a>
-and <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_avoidance_planner/docs/mpt/">Model Predictive Trajectory (MPT)</a>
+Please refer to the <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_path_optimizer/">Path Optimizer</a>
+and <a href="https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_path_optimizer/docs/mpt/">Model Predictive Trajectory (MPT)</a>
 documentation page for more information about this package.</p>
 <ul>
 <li>The YTU Campus environment features numerous U-turns, narrow roads, and roundabouts.
   Given our vehicle's maximum steering angle is insufficient for these conditions,
   we must consider our steering angle limit (defined in the vehicle_info.param.yaml)
   to navigate these road types without exceeding road boundaries.
-  Therefore, we will enable the steer_limit_constraint parameter for the obstacle avoidance planner:</li>
+  Therefore, we will enable the steer_limit_constraint parameter for the path optimizer:</li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware.universe/blob/main/planning/obstacle_avoidance_planner/config/obstacle_avoidance_planner.param.yaml"><code>obstacle_avoidance_planner.param.yaml</code></a> parameter file:</p>
-<div class="highlight"><pre><span></span><code><span class="gd">- steer_limit_constraint: false</span>
-<span class="gi">+ steer_limit_constraint: true</span>
+<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware_universe/blob/main/planning/autoware_path_optimizer/config/path_optimizer.param.yaml"><code>path_optimizer.param.yaml</code></a> parameter file:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span> mpt:
+<span class="w"> </span>   option:
+<span class="gd">-     steer_limit_constraint: false</span>
+<span class="gi">+     steer_limit_constraint: true</span>
 </code></pre></div>
 </div>
 <ul>
 <li>Additionally, we will modify our mechanism for checking outside the drivable area.
-  By default, the obstacle avoidance planner checks the four corner points of the MPT footprint.
+  By default, the path optimizer checks the four corner points of the MPT footprint.
   However, this may lead to incorrect information in some situations, as shown in the following image.</li>
 </ul>
 <figure>
 <p><img align="center" alt="obstacle-avoidance-check" src="images/obstacle-avoidance-planner.svg">
   </p>
 <figcaption>
-The obstacle avoidance planner's default method for checking the drivable area is
+    The path optimizer's default method for checking the drivable area is
 to check the four corner points of the MPT footprint.
 This may not be sufficient to detect if the footprint extends beyond the lane boundaries.
   </figcaption>
@@ -14263,9 +14269,10 @@ This may not be sufficient to detect if the footprint extends beyond the lane bo
   to consider the footprint as a polygon and check if it exceeds the Lanelet2 boundaries.</li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware.universe/blob/main/planning/obstacle_avoidance_planner/config/obstacle_avoidance_planner.param.yaml"><code>obstacle_avoidance_planner.param.yaml</code></a> parameter file:</p>
-<div class="highlight"><pre><span></span><code><span class="gd">-    use_footprint_polygon_for_outside_drivable_area_check: false # If false, only the footprint's corner points are considered.</span>
-<span class="gi">+    use_footprint_polygon_for_outside_drivable_area_check: true # If false, only the footprint's corner points are considered.</span>
+<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware_universe/blob/main/planning/autoware_path_optimizer/config/path_optimizer.param.yaml"><code>path_optimizer.param.yaml</code></a> parameter file:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span> option:
+<span class="gd">-   use_footprint_polygon_for_outside_drivable_area_check: false # If false, only the footprint's corner points are considered.</span>
+<span class="gi">+   use_footprint_polygon_for_outside_drivable_area_check: true # If false, only the footprint's corner points are considered.</span>
 </code></pre></div>
 </div>
 <h4 id="obstacle-stop-planner">Obstacle stop planner<a class="headerlink" href="#obstacle-stop-planner" title="Permanent link">#</a></h4>
