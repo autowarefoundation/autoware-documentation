@@ -23,14 +23,23 @@ Check if you have `~/autoware_data/ml_models` folder and files in it.
 ```bash
 $ cd ~/autoware_data/ml_models
 $ ls -C -w 30
+bevfusion
+calibration_status_classifier
+camera_streampetr
+diffusion_planner
 image_projection_based_fusion
 lidar_apollo_instance_segmentation
 lidar_centerpoint
-tensorrt_yolo
+lidar_frnet
+lidar_transfusion
+ptv3
+simpl_prediction
+tensorrt_bevdet
+tensorrt_rtmdet
 tensorrt_yolox
 traffic_light_classifier
 traffic_light_fine_detector
-traffic_light_ssd_fine_detector
+vad
 yabloc_pose_initializer
 ```
 
