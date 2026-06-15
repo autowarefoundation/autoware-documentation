@@ -82,6 +82,7 @@ Universe acts as a **sandbox for experimentation**, allowing new ideas, algorith
 
 Promising packages from Autoware Universe may be **adopted into Autoware Core** when they demonstrate sufficient maturity, stability, and usefulness.
 This creates a natural pipeline from innovation → standardization → production.
+The specific requirements a package must meet are defined in [What belongs in Autoware Core](core-package-inclusion-criteria.md).
 
 !!! info
 
