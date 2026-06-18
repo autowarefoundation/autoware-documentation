@@ -52,7 +52,6 @@ In addition, `command_mode_status` and `command_mode_availability` are shared be
 
 ![ECU switching architecture](image/ecu-switching-architecture.drawio.svg)
 
-
 ## Details of Added Elements
 
 ### `redundancy_switcher_interface` (Added Node)

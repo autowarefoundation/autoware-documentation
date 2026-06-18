@@ -53,32 +53,32 @@ Requirements expected from the switching function are defined in [Requirements f
 The following requirements must be satisfied by the external switching function to enable redundant operation in Autoware.
 These are external requirements; Autoware functional requirements are defined assuming they are met.
 
-| ID | Requirement | Notes |
-|----|-------------|-------|
-| EXT-01 | Switching behavior shall be deterministic | The same input shall always produce the same switching result |
-| EXT-02 | Switching shall complete within a bounded time | A timeout upper bound must be defined |
-| EXT-03 | A single ECU or network fault shall not cause failure of the switching function itself | Single faults must be contained and not propagated into the switching function |
-| EXT-04 | Current switching state (Active/Standby assignment) shall be shared with both Main and Sub ECUs | ECU-side logic must be able to identify current role |
-| EXT-05 | Switching requests from ECU side shall be accepted | ECU-originated switching triggers must be supported |
-| EXT-06 | Exactly one ECU shall be Active at any time | Avoiding simultaneous output (split-brain) is the switching function’s responsibility |
+| ID     | Requirement                                                                                     | Notes                                                                                 |
+| ------ | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| EXT-01 | Switching behavior shall be deterministic                                                       | The same input shall always produce the same switching result                         |
+| EXT-02 | Switching shall complete within a bounded time                                                  | A timeout upper bound must be defined                                                 |
+| EXT-03 | A single ECU or network fault shall not cause failure of the switching function itself          | Single faults must be contained and not propagated into the switching function        |
+| EXT-04 | Current switching state (Active/Standby assignment) shall be shared with both Main and Sub ECUs | ECU-side logic must be able to identify current role                                  |
+| EXT-05 | Switching requests from ECU side shall be accepted                                              | ECU-originated switching triggers must be supported                                   |
+| EXT-06 | Exactly one ECU shall be Active at any time                                                     | Avoiding simultaneous output (split-brain) is the switching function’s responsibility |
 
 ### Functional Requirements for Autoware
 
 Assuming EXT requirements are satisfied, Autoware shall fulfill the following:
 
-| ID | Requirement | Notes |
-|----|-------------|-------|
-| FR-01 | Autoware shall provide ECU identity and heartbeat information to the switching function | Required for ECU identification by the switching function |
-| FR-02 | Main and Sub internal systems shall report local health information to the switching function and support switching-necessity judgment | Includes process status, communication status, and freshness of critical topics |
-| FR-03 | Main and Sub ECUs shall detect and recognize abnormalities of the switching function (for example communication loss or functional outage) | Reduces risk of the switching function becoming an undetected SPOF |
-| FR-04 | The architecture shall allow Sub ECU to become Active when Main ECU hardware fails | Covers hardware faults in addition to software faults |
-| FR-05 | ECU switching results (Active side changes) shall be reflected in Autoware vehicle behavior selection (modes, MRM, etc.) | Ensures post-switch behavior continuity |
-| FR-06 | Sub ECU shall continue to provide a minimum AD API capability even after ECU switching | Minimizes impact on external applications |
+| ID    | Requirement                                                                                                                                | Notes                                                                           |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| FR-01 | Autoware shall provide ECU identity and heartbeat information to the switching function                                                    | Required for ECU identification by the switching function                       |
+| FR-02 | Main and Sub internal systems shall report local health information to the switching function and support switching-necessity judgment     | Includes process status, communication status, and freshness of critical topics |
+| FR-03 | Main and Sub ECUs shall detect and recognize abnormalities of the switching function (for example communication loss or functional outage) | Reduces risk of the switching function becoming an undetected SPOF              |
+| FR-04 | The architecture shall allow Sub ECU to become Active when Main ECU hardware fails                                                         | Covers hardware faults in addition to software faults                           |
+| FR-05 | ECU switching results (Active side changes) shall be reflected in Autoware vehicle behavior selection (modes, MRM, etc.)                   | Ensures post-switch behavior continuity                                         |
+| FR-06 | Sub ECU shall continue to provide a minimum AD API capability even after ECU switching                                                     | Minimizes impact on external applications                                       |
 
 ### Non-Functional Requirements
 
-| ID | Requirement | Notes |
-|----|-------------|-------|
+| ID     | Requirement                                                                    | Notes                                      |
+| ------ | ------------------------------------------------------------------------------ | ------------------------------------------ |
 | NFR-01 | Switching-related events and decision data shall be recorded as auditable logs | Required for safety analysis and debugging |
 
 ## Detailed Design Pages

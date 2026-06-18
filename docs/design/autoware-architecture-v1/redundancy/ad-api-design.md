@@ -31,12 +31,12 @@ To achieve this, the design introduces:
 ### Existing Elements (from the Single-ECU Configuration)
 
 - `command_mode_decider`
-	- Receives services such as `change_operation_mode` and `change_autoware_control`
-	- For node-level responsibilities, see [switching-connection-design.md](switching-connection-design.md)
+  - Receives services such as `change_operation_mode` and `change_autoware_control`
+  - For node-level responsibilities, see [switching-connection-design.md](switching-connection-design.md)
 - `aggregator` diagnostic latch behavior
-	- Once diagnostics become `diag ERROR`, the state is latched
-	- Even if diagnostics later return to `diag OK`, the latch is not cleared automatically
-	- Latch release requires an explicit service call after human safety confirmation
+  - Once diagnostics become `diag ERROR`, the state is latched
+  - Even if diagnostics later return to `diag OK`, the latch is not cleared automatically
+  - Latch release requires an explicit service call after human safety confirmation
 
 ### Added Elements (for Redundant Configuration)
 
@@ -73,10 +73,10 @@ For example, in a configuration where `ekf_localizer` is deployed on Sub ECU, a 
 MRM recovery involves both redundant-system resets and existing-system resets:
 
 - ECU switching-function reset
-	- When resuming autonomous driving by returning Main ECU to Active after a Main→Sub switch
-	- When initializing the internal state of the ECU switching function itself
+  - When resuming autonomous driving by returning Main ECU to Active after a Main→Sub switch
+  - When initializing the internal state of the ECU switching function itself
 - `aggregator` diagnostic latch release
-	- To avoid unintended automatic resume and require explicit operator judgment after safety confirmation
+  - To avoid unintended automatic resume and require explicit operator judgment after safety confirmation
 
 ### API Unification
 
