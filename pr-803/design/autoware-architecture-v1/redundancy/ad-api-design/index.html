@@ -14546,17 +14546,13 @@ From the API perspective, recovery from MRM state back to autonomous operation s
 <h2 id="existing-vs-added-elements">Existing vs Added Elements<a class="headerlink" href="#existing-vs-added-elements" title="Permanent link">#</a></h2>
 <h3 id="existing-elements-from-the-single-ecu-configuration">Existing Elements (from the Single-<abbr title="Electronic Control Unit">ECU</abbr> Configuration)<a class="headerlink" href="#existing-elements-from-the-single-ecu-configuration" title="Permanent link">#</a></h3>
 <ul>
-<li><code>command_mode_decider</code><ul>
-<li>Receives services such as <code>change_operation_mode</code> and <code>change_autoware_control</code></li>
-<li>For node-level responsibilities, see <a href="../switching-connection-design/">switching-connection-design.md</a></li>
-</ul>
-</li>
-<li><code>aggregator</code> diagnostic latch behavior<ul>
-<li>Once diagnostics become <code>diag ERROR</code>, the state is latched</li>
-<li>Even if diagnostics later return to <code>diag OK</code>, the latch is not cleared automatically</li>
-<li>Latch release requires an explicit service call after human safety confirmation</li>
-</ul>
-</li>
+<li><code>command_mode_decider</code>
+    - Receives services such as <code>change_operation_mode</code> and <code>change_autoware_control</code>
+    - For node-level responsibilities, see <a href="../switching-connection-design/">switching-connection-design.md</a></li>
+<li><code>aggregator</code> diagnostic latch behavior
+    - Once diagnostics become <code>diag ERROR</code>, the state is latched
+    - Even if diagnostics later return to <code>diag OK</code>, the latch is not cleared automatically
+    - Latch release requires an explicit service call after human safety confirmation</li>
 </ul>
 <h3 id="added-elements-for-redundant-configuration">Added Elements (for Redundant Configuration)<a class="headerlink" href="#added-elements-for-redundant-configuration" title="Permanent link">#</a></h3>
 <ul>
@@ -14583,15 +14579,11 @@ For example, in a configuration where <code>ekf_localizer</code> is deployed on 
 <h3 id="background">Background<a class="headerlink" href="#background" title="Permanent link">#</a></h3>
 <p>MRM recovery involves both redundant-system resets and existing-system resets:</p>
 <ul>
-<li><abbr title="Electronic Control Unit">ECU</abbr> switching-function reset<ul>
-<li>When resuming autonomous driving by returning Main <abbr title="Electronic Control Unit">ECU</abbr> to Active after a Main→Sub switch</li>
-<li>When initializing the internal state of the <abbr title="Electronic Control Unit">ECU</abbr> switching function itself</li>
-</ul>
-</li>
-<li><code>aggregator</code> diagnostic latch release<ul>
-<li>To avoid unintended automatic resume and require explicit operator judgment after safety confirmation</li>
-</ul>
-</li>
+<li><abbr title="Electronic Control Unit">ECU</abbr> switching-function reset
+    - When resuming autonomous driving by returning Main <abbr title="Electronic Control Unit">ECU</abbr> to Active after a Main→Sub switch
+    - When initializing the internal state of the <abbr title="Electronic Control Unit">ECU</abbr> switching function itself</li>
+<li><code>aggregator</code> diagnostic latch release
+    - To avoid unintended automatic resume and require explicit operator judgment after safety confirmation</li>
 </ul>
 <h3 id="api-unification">API Unification<a class="headerlink" href="#api-unification" title="Permanent link">#</a></h3>
 <p>These internal reset paths are hidden behind a single external request: <code>/system/mrm/reset</code>.
