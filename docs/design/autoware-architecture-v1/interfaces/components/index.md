@@ -13,6 +13,12 @@ See [here](../index.md) for an overview.
 
 ## Interfaces
 
+- [/planning/set_lanelet_route](./list/planning-set_lanelet_route.md)
+- [/planning/set_waypoint_route](./list/planning-set_waypoint_route.md)
+- [/planning/clear_route](./list/planning-clear_route.md)
+- [/planning/trajectory](./list/planning-trajectory.md)
+- [/planning/turn_indicators_cmd](./list/planning-turn_indicators_cmd.md)
+- [/planning/hazard_lights_cmd](./list/planning-hazard_lights_cmd.md)
 - [/control/control_mode_request](./list/control-control-mode-request.md)
 - [/control/command/control_cmd](./list/control-command-control-cmd.md)
 - [/control/command/gear_cmd](./list/control-command-gear-cmd.md)
