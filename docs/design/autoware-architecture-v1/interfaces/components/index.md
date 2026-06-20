@@ -13,6 +13,10 @@ See [here](../index.md) for an overview.
 
 ## Interfaces
 
+- [/perception/object_recognition/objects](./list/perception-object_recognition-objects.md)
+- [/perception/obstacle_segmentation/pointcloud](./list/perception-obstacle_segmentation-pointcloud.md)
+- [/perception/occupancy_grid_map/map](./list/perception-occupancy_grid_map-map.md)
+- [/perception/traffic_light_recognition/traffic_signals](./list/perception-traffic_light_recognition-traffic_signals.md)
 - [/control/control_mode_request](./list/control-control-mode-request.md)
 - [/control/command/control_cmd](./list/control-command-control-cmd.md)
 - [/control/command/gear_cmd](./list/control-command-gear-cmd.md)
