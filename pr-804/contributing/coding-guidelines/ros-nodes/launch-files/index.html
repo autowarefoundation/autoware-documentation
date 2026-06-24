@@ -14196,7 +14196,7 @@
 <p>Autoware use <abbr title="Robot Operating System">ROS</abbr> 2 launch system to startup the software. Please see the <a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html">official documentation</a> to get a basic understanding about <abbr title="Robot Operating System">ROS</abbr> 2 Launch system if you are not familiar with it.</p>
 <h2 id="guideline">Guideline<a class="headerlink" href="#guideline" title="Permanent link">#</a></h2>
 <h3 id="the-organization-of-launch-files-in-autoware">The organization of launch files in Autoware<a class="headerlink" href="#the-organization-of-launch-files-in-autoware" title="Permanent link">#</a></h3>
-<p>Roughly speaking, Autoware distinguishes the reusable node implementations and their example integration - configurations, pipelines, system topologies.</p>
+<p>Autoware distinguishes the reusable node implementations and their example integration including system-specific configurations, pipelines, system topologies.</p>
 <ul>
 <li>reusable node implementations can be found in <a href="https://github.com/autowarefoundation/autoware_core"><code>autoware_core</code></a> and <a href="https://github.com/autowarefoundation/autoware_universe"><code>autoware_universe</code></a><ul>
 <li><code>autoware_core</code> repository itself provides a minimal integration in the package named <code>autoware_core</code>.</li>
@@ -14207,11 +14207,11 @@
 </ul>
 </li>
 </ul>
-<p>The package <code>autoware_launch</code> itself provides the general entrance to call other modularized launch files and start the Autoware nodes.</p>
+<p>The package <code>autoware_launch</code> itself provides the general entrypoint to call other modularized launch files and start the Autoware nodes.</p>
 <ul>
 <li>
 <p>The <code>autoware.launch.xml</code> is the basic launch file for road driving scenarios.</p>
-<p>As can be seen from the content, the entire launch file is divided into several different modules, including <em>Vehicle</em>, <em>System</em>, <em>Map</em>, <em>Sensing</em>, <em>Localization</em>, <em>Perception</em>, <em>Planning</em>, <em>Control</em>, etc. By setting the <code>launch_*</code> argument to either <code>true</code> or <code>false</code> , you can specify which modules should be loaded.</p>
+<p>This launch file loads other launch files for several different modules, including <em>Vehicle</em>, <em>System</em>, <em>Map</em>, <em>Sensing</em>, <em>Localization</em>, <em>Perception</em>, <em>Planning</em>, <em>Control</em>, etc. By setting the <code>launch_*</code> argument to either <code>true</code> or <code>false</code> , the users can selectively load a subset of the system.</p>
 </li>
 </ul>
 <ul>
