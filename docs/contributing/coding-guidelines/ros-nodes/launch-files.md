@@ -8,18 +8,18 @@ Autoware use ROS 2 launch system to startup the software. Please see the [offici
 
 ### The organization of launch files in Autoware
 
-Roughly speaking, Autoware distinguishes the reusable node implementations and their example integration - configurations, pipelines, system topologies.
+Autoware distinguishes the reusable node implementations and their example integration including system-specific configurations, pipelines, system topologies.
 
 - reusable node implementations can be found in [`autoware_core`](https://github.com/autowarefoundation/autoware_core) and [`autoware_universe`](https://github.com/autowarefoundation/autoware_universe)
   - `autoware_core` repository itself provides a minimal integration in the package named `autoware_core`.
 - an integrated system example orchestrated from these nodes can be found in [`autoware_launch`](https://github.com/autowarefoundation/autoware_launch).
   - There are many possible ways to construct a full autonomous
 
-The package `autoware_launch` itself provides the general entrance to call other modularized launch files and start the Autoware nodes.
+The package `autoware_launch` itself provides the general entrypoint to call other modularized launch files and start the Autoware nodes.
 
 - The `autoware.launch.xml` is the basic launch file for road driving scenarios.
 
-  As can be seen from the content, the entire launch file is divided into several different modules, including _Vehicle_, _System_, _Map_, _Sensing_, _Localization_, _Perception_, _Planning_, _Control_, etc. By setting the `launch_*` argument to either `true` or `false` , you can specify which modules should be loaded.
+  This launch file loads other launch files for different modules, including _Vehicle_, _System_, _Map_, _Sensing_, _Localization_, _Perception_, _Planning_, _Control_, etc. By setting the `launch_*` argument to either `true` or `false` , the users can selectively load a subset of the system.
 
 - The `logging_simulator.launch.xml` is often used together with the recorded ROS bag to debug if the target module (e.g, _Sensing_, _Localization_ or _Perception_) functions normally.
 
