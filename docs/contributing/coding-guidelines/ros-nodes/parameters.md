@@ -11,7 +11,7 @@ Find more information on parameters from the official ROS documentation:
 
 A ROS package which uses the [declare_parameter(...)](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb) function should:
 
-- use the [declare_parameter(...)](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb) without a default value
+- use the [declare_parameter(...)](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb), without a default value
 - create a parameter file
 - create a schema file
 
@@ -77,7 +77,7 @@ To adapt the template to the ROS node, replace each `INSERT_PARAMETER_..._NAME` 
 Autoware has the following two types of parameter files for ROS packages:
 
 - **Node parameter file**
-  - Node parameter files store the default parameters provided for each package in Autoware.
+  - Node parameter files store the typical parameters provided for each package in Autoware.
     - For example, [the parameter of `behavior_path_planner`](https://github.com/autowarefoundation/autoware_universe/tree/245242cee866de2d113e89c562353c5fc17f1f98/planning/behavior_path_planner/config)
   - All nodes in Autoware must have a parameter file if ROS parameters are declared in the node.
   - For `FOO_package`, the parameter is expected to be stored in `FOO_package/config`.
@@ -95,10 +95,80 @@ Autoware has the following two types of parameter files for ROS packages:
 ```
 
 - **Launch parameter file**
-  - When a user creates a launch package for the user's vehicle, the user should copy node parameter files for the nodes that are called in the launch file as "launch parameter files".
-  - Launch parameter files are then customized specifically for user's vehicle.
+  - When a user creates a launch package for the user's vehicle, the user should copy node parameter files for the nodes that are used in the launch file as "launch parameter files".
+  - Launch parameter files are then customized specifically for the user's vehicle.
     - For example, [the customized parameter of `behavior_path_planner` stored under `autoware_launch`](https://github.com/autowarefoundation/autoware_launch/tree/5fa613b9d80bf4f0db77efde03a43f7ede6bac86/autoware_launch/config)
-  - The examples for launch parameter files are stored under `autoware_launch`.
+  - Launch parameter files are stored under the `autoware_launch` package.
+
+### sync-params
+
+Despite being unused in `autoware_launch`, node parameter files must be updated after adding or removing parameters in the node implementations. Each node parameter file serves as the master file for the corresponding launch parameter file.
+
+In most cases, updating launch parameter files are automated by [sync-params](https://github.com/autowarefoundation/autoware_launch/actions/workflows/sync-params.yaml) workflow, given that the corresponding node parameter files have been properly updated.
+
+A launch parameter file managed by sync-params workflow has a sync-params comment header starting with `# This file is managed by sync-params workflow`.
+By default, a launch parameter file is identical to its corresponding node parameter file, except for the header.
+
+#### Adding or removing parameters with sync-params workflow
+
+In general, you should not create a PR for `autoware_launch` when you simply added or removed some node parameters. In such cases, follow these steps:
+
+1. Merge the node PR containing the node parameter file update **first**.
+2. Run sync-params workflow with the desired category. To see the available categories, see [the sync-param configuration file](https://github.com/autowarefoundation/autoware_launch/blob/main/.github/sync-params.yaml).
+3. A PR for the workflow will be created, or the existing PR will be updated if one already exists. The PR is labeled [`tag:sync-params`](https://github.com/autowarefoundation/autoware_launch/pulls?q=is%3Aopen+is%3Apr+label%3Atag%3Async-params) label.
+
+#### Overriding parameters with sync-params workflow
+
+Some of the fields should be different from the corresponding node parameter file. Such fields may be marked with `# {OVERRIDE}` or `# {OVERRIDE: <reason>}` comment marker to keep the value different from the upstream node parameter file.
+
+If you naively try to modify the parameter in the launch parameter file as in the next example, the next sync-params workflow run will try to revert the parameter to `foo: 42`, matching to the node parameter file.
+
+```patch
+ # NG
+-foo: 42
++foo: 40
+```
+
+To make the change persist, open a PR that updates the launch parameter file as following:
+
+```patch
+ # OK
+-foo: 42
++foo: 40 # {OVERRIDE}
+```
+
+If there is already a comment on the line, place the marker before the existing comment:
+
+```patch
+ # OK
+-bar: [1, 2, 3, 4] # existing comment
++bar: [5, 6, 7, 8] # {OVERRIDE} existing comment
+```
+
+**Tip**: make the node parameter file as identical as possible to the intended launch parameter file, so that the override can be minimized.
+
+#### Updating sync-params configurations
+
+To add a new pair of a node parameter file and a launch parameter file, update [the sync-param configuration file](https://github.com/autowarefoundation/autoware_launch/blob/main/.github/sync-params.yaml), following the next example.
+
+```yaml
+perception: # category
+  - repository: autowarefoundation/autoware_universe # the source repository
+    ref: main
+    files:
+      - # node parameter file path in the source repository
+        source: perception/autoware_image_object_locator/config/bbox_object_locator.param.yaml
+        # List of launch parameter file paths in autoware_launch repository
+        variants:
+          - path: autoware_launch/config/perception/object_recognition/detection/camera_vru_detection/near_range_camera_vru_detector.param.yaml
+```
+
+And then run `python .github/scripts/sync_params.py perception` (replace `perception` with your category) locally, which is the script that sync-params workflow uses under the hood.
+Files in the same category might be updated as well, but commit only the file that you have just added and discard anything else. Other files should be addressed with the autogenerated sync-params PR.
+
+To remove a pair, simply remove the launch parameter file entry from the sync-param config file, and remove the sync-params comment header.
+
+To specify the new upstream, in cases such as when the node package has been moved to a different repository, remove the old pair, and then re-add the launch parameter file with the new upstream.
 
 ## JSON Schema
 
