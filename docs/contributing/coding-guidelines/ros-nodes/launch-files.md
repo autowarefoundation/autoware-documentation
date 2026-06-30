@@ -13,7 +13,7 @@ Autoware distinguishes between the reusable node implementations and their examp
 - reusable node implementations can be found in [`autoware_core`](https://github.com/autowarefoundation/autoware_core) and [`autoware_universe`](https://github.com/autowarefoundation/autoware_universe)
   - `autoware_core` repository itself provides a minimal integration in the package named `autoware_core`.
 - an integrated system example orchestrated from these nodes can be found in [`autoware_launch`](https://github.com/autowarefoundation/autoware_launch).
-  - There are many possible ways to construct a full autonomous driving system, so `autoware_launch` provides one reference integration.
+  - There are many possible ways to construct a full autonomous driving system, and `autoware_launch` provides one, highly configurable reference integration.
 
 The package `autoware_launch` itself provides the general entrypoint to call other modularized launch files and start the Autoware nodes.
 
