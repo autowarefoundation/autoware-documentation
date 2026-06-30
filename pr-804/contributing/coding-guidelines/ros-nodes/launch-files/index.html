@@ -14196,14 +14196,14 @@
 <p>Autoware use <abbr title="Robot Operating System">ROS</abbr> 2 launch system to startup the software. Please see the <a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html">official documentation</a> to get a basic understanding about <abbr title="Robot Operating System">ROS</abbr> 2 Launch system if you are not familiar with it.</p>
 <h2 id="guideline">Guideline<a class="headerlink" href="#guideline" title="Permanent link">#</a></h2>
 <h3 id="the-organization-of-launch-files-in-autoware">The organization of launch files in Autoware<a class="headerlink" href="#the-organization-of-launch-files-in-autoware" title="Permanent link">#</a></h3>
-<p>Autoware distinguishes the reusable node implementations and their example integration including system-specific configurations, pipelines, system topologies.</p>
+<p>Autoware distinguishes between the reusable node implementations and their example integration, including system-specific configurations, pipelines, and system topologies.</p>
 <ul>
 <li>reusable node implementations can be found in <a href="https://github.com/autowarefoundation/autoware_core"><code>autoware_core</code></a> and <a href="https://github.com/autowarefoundation/autoware_universe"><code>autoware_universe</code></a><ul>
 <li><code>autoware_core</code> repository itself provides a minimal integration in the package named <code>autoware_core</code>.</li>
 </ul>
 </li>
 <li>an integrated system example orchestrated from these nodes can be found in <a href="https://github.com/autowarefoundation/autoware_launch"><code>autoware_launch</code></a>.<ul>
-<li>There are many possible ways to construct a full autonomous</li>
+<li>There are many possible ways to construct a full autonomous driving system, so <code>autoware_launch</code> provides one reference integration.</li>
 </ul>
 </li>
 </ul>
@@ -14255,7 +14255,7 @@ For example, if you want to use ICP instead of NDT as the pointcloud registratio
 In such case, we can reuse the official <code>autoware_universe</code> and fork only <code>autoware_launch</code> to customize the parameters or the pipelines.</p>
 <p>Taking the localization module as an example, in the <code>autoware_launch</code> repository:</p>
 <ol>
-<li>all the launch parameter files for localization component is listed in the files under <code>autoware_launch/config/localization</code>.</li>
+<li>all the launch parameter files for the localization component are listed in the files under <code>autoware_launch/config/localization</code>.</li>
 <li>the launch parameter file paths are set in the <code>autoware_launch/launch/components/tier4_localization_component.launch.xml</code>.</li>
 <li>in <code>tier4_universe_launch/tier4_localization_launch/launch</code>, the launch files loads the launch parameter files if the argument is given in the parameter configuration file. You can still use the default parameters in each packages to launch <code>tier4_localization_launch</code>.</li>
 </ol>
