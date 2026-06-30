@@ -8,12 +8,12 @@ Autoware use ROS 2 launch system to startup the software. Please see the [offici
 
 ### The organization of launch files in Autoware
 
-Autoware distinguishes the reusable node implementations and their example integration including system-specific configurations, pipelines, system topologies.
+Autoware distinguishes between the reusable node implementations and their example integration, including system-specific configurations, pipelines, and system topologies.
 
 - reusable node implementations can be found in [`autoware_core`](https://github.com/autowarefoundation/autoware_core) and [`autoware_universe`](https://github.com/autowarefoundation/autoware_universe)
   - `autoware_core` repository itself provides a minimal integration in the package named `autoware_core`.
 - an integrated system example orchestrated from these nodes can be found in [`autoware_launch`](https://github.com/autowarefoundation/autoware_launch).
-  - There are many possible ways to construct a full autonomous
+  - There are many possible ways to construct a full autonomous driving system, so `autoware_launch` provides one reference integration.
 
 The package `autoware_launch` itself provides the general entrypoint to call other modularized launch files and start the Autoware nodes.
 
@@ -69,7 +69,7 @@ In such case, we can reuse the official `autoware_universe` and fork only `autow
 
 Taking the localization module as an example, in the `autoware_launch` repository:
 
-1. all the launch parameter files for localization component is listed in the files under `autoware_launch/config/localization`.
+1. all the launch parameter files for the localization component are listed in the files under `autoware_launch/config/localization`.
 2. the launch parameter file paths are set in the `autoware_launch/launch/components/tier4_localization_component.launch.xml`.
 3. in `tier4_universe_launch/tier4_localization_launch/launch`, the launch files loads the launch parameter files if the argument is given in the parameter configuration file. You can still use the default parameters in each packages to launch `tier4_localization_launch`.
 
