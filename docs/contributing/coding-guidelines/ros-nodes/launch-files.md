@@ -64,7 +64,7 @@ In order to automatically load the newly added package (in `autoware_core` or `a
 Another purpose of introducing the `autoware_launch` repository is to facilitate the parameter and system topology management of Autoware.
 
 Suppose that we want to integrate Autoware based on `autoware_launch` to a specific vehicle, and that we are only interested in different parameters and possibly different node configurations, without rewriting the existing node implementations.
-In such case, we can reuse the official `autoware_universe` and fork only `autoware_launch` to customize the parameters or the pipelines.
+In such case, we can **fork only `autoware_launch`** to customize the parameters or the pipelines, without modifying the official `autoware_universe`.
 
 Taking the localization module as an example, in the `autoware_launch` repository:
 
