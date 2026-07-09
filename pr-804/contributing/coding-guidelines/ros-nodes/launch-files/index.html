@@ -14198,11 +14198,11 @@
 <h3 id="the-organization-of-launch-files-in-autoware">The organization of launch files in Autoware<a class="headerlink" href="#the-organization-of-launch-files-in-autoware" title="Permanent link">#</a></h3>
 <p>Autoware distinguishes between the reusable node implementations and their example integration, including system-specific configurations, pipelines, and system topologies.</p>
 <ul>
-<li>reusable node implementations can be found in <a href="https://github.com/autowarefoundation/autoware_core"><code>autoware_core</code></a> and <a href="https://github.com/autowarefoundation/autoware_universe"><code>autoware_universe</code></a><ul>
+<li>Reusable node implementations can be found in <a href="https://github.com/autowarefoundation/autoware_core"><code>autoware_core</code></a> and <a href="https://github.com/autowarefoundation/autoware_universe"><code>autoware_universe</code></a><ul>
 <li><code>autoware_core</code> repository itself provides a minimal integration in the package named <code>autoware_core</code>.</li>
 </ul>
 </li>
-<li>an integrated system example orchestrated from these nodes can be found in <a href="https://github.com/autowarefoundation/autoware_launch"><code>autoware_launch</code></a>.<ul>
+<li>An integrated system example orchestrated from these nodes can be found in <a href="https://github.com/autowarefoundation/autoware_launch"><code>autoware_launch</code></a>.<ul>
 <li>There are many possible ways to construct a full autonomous driving system, and <code>autoware_launch</code> provides one, highly configurable reference integration.</li>
 </ul>
 </li>
@@ -14247,12 +14247,11 @@ A33--&gt;A43[twist2accel.launch.xml]</code></pre>
 <h3 id="add-a-new-package-in-autoware">Add a new package in Autoware<a class="headerlink" href="#add-a-new-package-in-autoware" title="Permanent link">#</a></h3>
 <p>If a newly created package has executable node, we expect example launch files and configurations within the package, just like the recommended structure shown in the previous <a href="../directory-structure/">directory structure</a> page.</p>
 <h3 id="integrate-a-new-package-in-autoware_launch">Integrate a new package in <code>autoware_launch</code><a class="headerlink" href="#integrate-a-new-package-in-autoware_launch" title="Permanent link">#</a></h3>
-<p>In order to automatically load the newly added package (in <code>autoware_core</code> or <code>autoware_universe</code>) when starting Autoware, you need to make some necessary changes to the corresponding launch file.
-For example, if you want to use ICP instead of NDT as the pointcloud registration algorithm, you can go to <code>autoware_launch</code> repository and modify the <code>tier4_universe_launch/tier4_localization_launch/launch/pose_twist_estimator/pose_twist_estimator.launch.xml</code> file to load the newly added ICP package.</p>
+<p>In order to automatically load the newly added package (in <code>autoware_core</code> or <code>autoware_universe</code>) when starting Autoware, you need to make some necessary changes to the corresponding launch file.</p>
 <h2 id="parameter-and-system-topology-management">Parameter and system topology management<a class="headerlink" href="#parameter-and-system-topology-management" title="Permanent link">#</a></h2>
 <p>Another purpose of introducing the <code>autoware_launch</code> repository is to facilitate the parameter and system topology management of Autoware.</p>
 <p>Suppose that we want to integrate Autoware based on <code>autoware_launch</code> to a specific vehicle, and that we are only interested in different parameters and possibly different node configurations, without rewriting the existing node implementations.
-In such case, we can reuse the official <code>autoware_universe</code> and fork only <code>autoware_launch</code> to customize the parameters or the pipelines.</p>
+In such case, we can <strong>fork only <code>autoware_launch</code></strong> to customize the parameters or the pipelines, without modifying the official <code>autoware_universe</code>.</p>
 <p>Taking the localization module as an example, in the <code>autoware_launch</code> repository:</p>
 <ol>
 <li>all the launch parameter files for the localization component are listed in the files under <code>autoware_launch/config/localization</code>.</li>
