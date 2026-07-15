@@ -2,7 +2,8 @@
   max-width: 1920px;
 }
 
-.aw-badge-new {
+.aw-badge-new,
+.md-status--new::after {
   display: inline-block;
   margin-left: 0.4em;
   padding: 0.15em 0.5em;
@@ -14,6 +15,16 @@
   color: #fff;
   background: #ff5252;
   animation: aw-badge-pulse 2s ease-in-out infinite;
+}
+
+/* Turn Material's page-status nav icon into the same NEW pill. */
+.md-status--new::after {
+  content: "NEW";
+  -webkit-mask: none;
+  mask: none;
+  width: auto;
+  height: auto;
+  line-height: 1.4;
 }
 
 @keyframes aw-badge-pulse {

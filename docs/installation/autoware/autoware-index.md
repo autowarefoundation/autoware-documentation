@@ -1,3 +1,7 @@
+---
+status: new
+---
+
 # Autoware Index
 
 The [Autoware Index](https://autowarefoundation.github.io/autoware-index/) is a registry of community ROS 2 packages that extend Autoware.

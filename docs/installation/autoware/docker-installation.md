@@ -145,7 +145,7 @@ HOST_UID=$(id -u) HOST_GID=$(id -g) \
    >
    > ➡️ Check the readme of the extra packages for more information.
 
-2. Add community packages to your workspace. _(optional)_
+2. Add community packages to your workspace. _(optional)_ <span class="aw-badge-new">NEW</span>
 
    The [Autoware Index](autoware-index.md) is a registry of community packages that extend Autoware, each built and tested against the latest Autoware release.
    Pick packages on its [browse site](https://autowarefoundation.github.io/autoware-index/) or with `aw-index-cli` to generate `repositories/autoware-index.repos`, then import it the same way:
