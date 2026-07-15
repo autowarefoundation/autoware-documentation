@@ -110,6 +110,8 @@ sudo apt-get -y install git
    >
    > ➡️ Check the readme of the extra packages for more information.
 
+   You can also add community-maintained packages to your workspace through the [Autoware Index](autoware-index.md).
+
 2. Install dependent ROS packages.
 
    Autoware requires some ROS 2 packages in addition to the core components.

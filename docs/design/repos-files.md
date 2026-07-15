@@ -44,6 +44,12 @@ These files reside under [autoware/repositories](https://github.com/autowarefoun
 
   Holds optional repositories. Right now holds the references to [tier4/pacmod_interface](https://github.com/tier4/pacmod_interface.git) and [tier4/tamagawa_imu_driver](https://github.com/tier4/tamagawa_imu_driver.git).
 
+- `autoware-index.repos`
+
+  ***
+
+  Generated locally from the [Autoware Index](../installation/autoware/autoware-index.md) registry of community packages. It is user-specific and not tracked by git.
+
 </div>
 
 ## How to use `.repos` files
