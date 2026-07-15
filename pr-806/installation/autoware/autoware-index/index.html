@@ -25,7 +25,7 @@
     
     
       
-        <title>Autoware Index - Autoware Documentation</title>
+        <title>Autoware Index (community packages) - Autoware Documentation</title>
       
     
     
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Autoware Index
+              Autoware Index (community packages)
             
           </span>
         </div>
@@ -1056,7 +1056,7 @@
   <span class="md-ellipsis">
     
   
-    Autoware Index
+    Autoware Index (community packages)
   
 
     
@@ -1074,7 +1074,7 @@
   <span class="md-ellipsis">
     
   
-    Autoware Index
+    Autoware Index (community packages)
   
 
     
@@ -14176,6 +14176,11 @@
 <div><h1 id="autoware-index">Autoware Index<a class="headerlink" href="#autoware-index" title="Permanent link">#</a></h1>
 <p>The <a href="https://autowarefoundation.github.io/autoware-index/">Autoware Index</a> is a registry of community <abbr title="Robot Operating System">ROS</abbr> 2 packages that extend Autoware.
 It records which packages exist, where their source lives, and whether each one builds and passes tests against the latest Autoware release.</p>
+<div style="text-align: center;">
+<p><a class="md-button" href="https://autowarefoundation.github.io/autoware-index/" style="margin: 5px"><i class="fa-solid fa-magnifying-glass"></i> Browse Packages</a>
+<a class="md-button" href="https://autowarefoundation.github.io/autoware-index/register.html" style="margin: 5px"><i class="fa-solid fa-circle-plus"></i> Register Your Packages</a></p>
+</div>
+<p><a href="https://autowarefoundation.github.io/autoware-index/"><img alt="The Autoware Index browse site" src="../images/autoware-index/browse-site.png"></a></p>
 <p>A regular <a href="../source-installation/">source installation</a> does not require the Autoware Index.
 Use it when you want community or extra packages that are not part of the default workspace:
 you select packages from the registry, generate a <code>.repos</code> file from your selection, and import it with <code>vcs import</code> like any other <a href="../../../design/repos-files/">repos file</a>.</p>
@@ -14202,10 +14207,11 @@ aw-index-cli<span class="w"> </span>compose<span class="w"> </span>--rosdistro<s
 <div class="highlight"><pre><span></span><code><span class="c1"># Pull in a whole repository entry by its registry key.</span>
 aw-index-cli<span class="w"> </span>compose<span class="w"> </span>--rosdistro<span class="w"> </span>jazzy<span class="w"> </span>--repository<span class="w"> </span>&lt;repository_name&gt;
 
-<span class="c1"># Select by tags (filters are ANDed).</span>
+<span class="c1"># Select by tags. A package matches if it carries any of the listed tags.</span>
 aw-index-cli<span class="w"> </span>compose<span class="w"> </span>--rosdistro<span class="w"> </span>jazzy<span class="w"> </span>--tags<span class="w"> </span>sensing<span class="w"> </span>perception
 </code></pre></div>
-<p>Use the <code>--rosdistro</code> value that matches your <abbr title="Robot Operating System">ROS</abbr> 2 distribution.
+<p>When combined, the <code>--packages</code>, <code>--repository</code>, and <code>--tags</code> filters are ANDed.
+ Use the <code>--rosdistro</code> value that matches your <abbr title="Robot Operating System">ROS</abbr> 2 distribution.
  The available distributions are listed in the <a href="https://github.com/autowarefoundation/autoware-index/tree/main/distributions">autoware-index</a> repository.</p>
 </li>
 <li>
