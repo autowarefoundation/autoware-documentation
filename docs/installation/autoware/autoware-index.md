@@ -3,6 +3,15 @@
 The [Autoware Index](https://autowarefoundation.github.io/autoware-index/) is a registry of community ROS 2 packages that extend Autoware.
 It records which packages exist, where their source lives, and whether each one builds and passes tests against the latest Autoware release.
 
+<div style="text-align: center;" markdown="1">
+
+[:fa-cl-s fa-magnifying-glass: Browse Packages](https://autowarefoundation.github.io/autoware-index/){ .md-button style="margin: 5px" }
+[:fa-cl-s fa-circle-plus: Register Your Packages](https://autowarefoundation.github.io/autoware-index/register.html){ .md-button style="margin: 5px" }
+
+</div>
+
+[![The Autoware Index browse site](images/autoware-index/browse-site.png)](https://autowarefoundation.github.io/autoware-index/)
+
 A regular [source installation](source-installation.md) does not require the Autoware Index.
 Use it when you want community or extra packages that are not part of the default workspace:
 you select packages from the registry, generate a `.repos` file from your selection, and import it with `vcs import` like any other [repos file](../../design/repos-files.md).
@@ -35,10 +44,11 @@ There are two ways to generate the file:
    # Pull in a whole repository entry by its registry key.
    aw-index-cli compose --rosdistro jazzy --repository <repository_name>
 
-   # Select by tags (filters are ANDed).
+   # Select by tags. A package matches if it carries any of the listed tags.
    aw-index-cli compose --rosdistro jazzy --tags sensing perception
    ```
 
+   When combined, the `--packages`, `--repository`, and `--tags` filters are ANDed.
    Use the `--rosdistro` value that matches your ROS 2 distribution.
    The available distributions are listed in the [autoware-index](https://github.com/autowarefoundation/autoware-index/tree/main/distributions) repository.
 

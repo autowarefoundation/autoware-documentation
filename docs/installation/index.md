@@ -93,6 +93,17 @@ If you have an environment where ROS is set up, Autoware packages can be easily 
 
 </div>
 
+## Extending Autoware with community packages
+
+The [Autoware Index](autoware/autoware-index.md) is a registry of community ROS 2 packages that extend Autoware.
+Once you have a source workspace set up, you can pull additional packages from the index with a generated `.repos` file.
+
+<div style="text-align: center;" markdown="1">
+
+[:fa-cl-s fa-cubes: Autoware Index (Community Packages)](autoware/autoware-index.md){ .md-button style="margin: 5px" }
+
+</div>
+
 ## Installing related tools
 
 Some other tools are required depending on the evaluation you want to do.

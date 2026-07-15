@@ -145,7 +145,18 @@ HOST_UID=$(id -u) HOST_GID=$(id -g) \
    >
    > ➡️ Check the readme of the extra packages for more information.
 
-2. Update dependent ROS packages.
+2. Add community packages to your workspace. _(optional)_
+
+   The [Autoware Index](autoware-index.md) is a registry of community packages that extend Autoware, each built and tested against the latest Autoware release.
+   Pick packages on its [browse site](https://autowarefoundation.github.io/autoware-index/) or with `aw-index-cli` to generate `repositories/autoware-index.repos`, then import it the same way:
+
+   ```bash
+   vcs import src < repositories/autoware-index.repos
+   ```
+
+   > ➡️ See the [Autoware Index](autoware-index.md) page for the full guide.
+
+3. Update dependent ROS packages.
 
    The dependencies of Autoware may have changed after the Docker image was created.
    In that case, you need to run the following commands to update the dependencies.
@@ -157,7 +168,7 @@ HOST_UID=$(id -u) HOST_GID=$(id -g) \
    rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 
-3. Build the workspace.
+4. Build the workspace.
 
    ```bash
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
