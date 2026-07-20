@@ -6,6 +6,14 @@ Divided pointcloud map is necessary when handling large pointcloud map, in which
 
 Download the [sample-map-rosbag_split](https://docs.google.com/uc?export=download&id=11tLC9T4MS8fnZ9Wo0D8-Ext7hEDl2YJ4) and locate the map under `$HOME/autoware_data/maps/`.
 
+If the `gdown` command is not available, install it first:
+
+```bash
+sudo apt-get -y install pipx
+python3 -m pipx ensurepath
+pipx install gdown
+```
+
 ```bash
 mkdir -p ~/autoware_data/maps
 gdown -O ~/autoware_data/maps/ 'https://docs.google.com/uc?export=download&id=11tLC9T4MS8fnZ9Wo0D8-Ext7hEDl2YJ4'

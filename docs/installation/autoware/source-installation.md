@@ -66,7 +66,6 @@ sudo apt-get -y install git
     - [Install Ansible](https://github.com/autowarefoundation/autoware/tree/main/ansible#ansible-installation)
     - [Install Build Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/build_tools#manual-installation)
     - [Install Dev Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/dev_tools#manual-installation)
-    - [Install gdown](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/gdown#manual-installation)
     - [Install geographiclib](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/geographiclib#manual-installation)
     - [Install the RMW Implementation](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rmw_implementation#manual-installation)
     - [Install ROS 2](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2#manual-installation)
