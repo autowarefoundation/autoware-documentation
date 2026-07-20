@@ -2,6 +2,7 @@ nav:
   - index.md
   - open-source-philosophy.md
   - license.md
+  - ai-contribution-policy.md
   - coding-guidelines
   - testing-guidelines
   - documentation-guidelines

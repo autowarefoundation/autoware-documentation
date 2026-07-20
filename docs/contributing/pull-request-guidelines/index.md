@@ -19,6 +19,7 @@ Use this workflow as a reference when you contribute to Autoware.
    - Follow the [Testing guidelines](../testing-guidelines/index.md) guidelines when you write tests.
    - Follow the [Documentation guidelines](../documentation-guidelines/index.md) guidelines when you write documentation.
    - Follow the [commit guidelines](commit-guidelines.md) when you commit your changes.
+   - Follow the [AI contribution policy](../ai-contribution-policy.md) if you use AI tools to help write your changes.
 4. Test the code.
    - It is recommended that you summarize the test results, because you will need to explain the test results in the later review process.
    - If you are not sure what tests should be done, discuss them with maintainers.
