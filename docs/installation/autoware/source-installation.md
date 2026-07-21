@@ -110,7 +110,18 @@ sudo apt-get -y install git
    >
    > ➡️ Check the readme of the extra packages for more information.
 
-2. Install dependent ROS packages.
+2. Add community packages to your workspace. _(optional)_ <span class="aw-badge-new">NEW</span>
+
+   The [Autoware Index](autoware-index.md) is a registry of community packages that extend Autoware, each built and tested against the latest Autoware release.
+   Pick packages on its [browse site](https://autowarefoundation.github.io/autoware-index/) or with `aw-index-cli` to generate `repositories/autoware-index.repos`, then import it the same way:
+
+   ```bash
+   vcs import src < repositories/autoware-index.repos
+   ```
+
+   > ➡️ See the [Autoware Index](autoware-index.md) page for the full guide.
+
+3. Install dependent ROS packages.
 
    Autoware requires some ROS 2 packages in addition to the core components.
    The tool `rosdep` allows an automatic search and installation of such dependencies.
@@ -124,9 +135,9 @@ sudo apt-get -y install git
    rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
    ```
 
-3. [Install and set up ccache to speed up consecutive builds](../../tutorials/others/advanced-usage-of-colcon.md#using-ccache-to-speed-up-recompilation). _(optional but highly recommended)_
+4. [Install and set up ccache to speed up consecutive builds](../../tutorials/others/advanced-usage-of-colcon.md#using-ccache-to-speed-up-recompilation). _(optional but highly recommended)_
 
-4. Build the workspace.
+5. Build the workspace.
 
    Autoware uses [colcon](https://github.com/colcon) to build workspaces.
    For more advanced options, refer to the [documentation](https://colcon.readthedocs.io/).
@@ -137,9 +148,9 @@ sudo apt-get -y install git
 
    If there is any build issue, refer to [Troubleshooting](../../community/support/troubleshooting/index.md#build-issues).
 
-5. Follow the steps in [Network Configuration](../../installation/additional-settings-for-developers/network-configuration/index.md) before running Autoware.
+6. Follow the steps in [Network Configuration](../../installation/additional-settings-for-developers/network-configuration/index.md) before running Autoware.
 
-6. Apply the settings recommended in [Console settings for ROS 2](../../installation/additional-settings-for-developers/console-settings.md) for a better development experience. _(optional)_
+7. Apply the settings recommended in [Console settings for ROS 2](../../installation/additional-settings-for-developers/console-settings.md) for a better development experience. _(optional)_
 
 ## How to update a workspace
 

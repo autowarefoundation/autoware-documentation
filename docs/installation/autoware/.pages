@@ -1,3 +1,4 @@
 nav:
   - docker-installation.md
   - source-installation.md
+  - Autoware Index (community packages): autoware-index.md

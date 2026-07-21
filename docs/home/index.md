@@ -32,6 +32,14 @@
 
 <div style="text-align: center;" markdown="1">
 
+[:fa-cl-s fa-cubes: Autoware Index (Community Packages) <span class="aw-badge-new">NEW</span>](../installation/autoware/autoware-index.md){ .md-button .md-button--primary style="margin: 5px" }
+
+</div>
+
+---
+
+<div style="text-align: center;" markdown="1">
+
 [:fa-cl-s fa-gem: Autoware Core Documentation](https://autowarefoundation.github.io/autoware_core/main/){ .md-button style="margin: 5px" }
 [:fa-cl-s fa-star: Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/){ .md-button style="margin: 5px" }
 [:fa-cl-s fa-screwdriver-wrench: Autoware Tools Documentation](https://autowarefoundation.github.io/autoware_tools/main/){ .md-button style="margin: 5px" }
