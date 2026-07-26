@@ -40,7 +40,7 @@ Every rule below is required and enforced by humans, not automation.
     5. [Respond to reviews yourself](#respond-to-reviews-yourself): your words carry the conversation.
     6. [Do not let agents post unattended](#do-not-let-agents-post-unattended): a human reviews every item before it is posted.
     7. [Generate artifacts that humans can maintain](#generate-artifacts-that-humans-can-maintain): apply the maintainer test.
-    8. [Keep it concise](#keep-it-concise): trim generated noise before submitting.
+    8. [Keep it simple and concise](#keep-it-simple-and-concise): make it as simple as possible, then trim the noise.
     9. [Do not mass-produce pull requests](#do-not-mass-produce-pull-requests): open only what you can shepherd.
 
 Each rule opens with the reason it exists, followed by what you must do.
@@ -123,12 +123,13 @@ A contribution that can only be verified by running another AI over it cannot be
     - Instead of a dense regex that takes a tool to decode: several simple matching steps, covered by a test.
     - Instead of a custom parser hacked together with `grep`: a standard library or the tooling the repository already has.
 
-### Keep it concise
+### Keep it simple and concise
 
-AI tools tend to produce noisy output: over-commented code, restated-obvious docstrings, bloated descriptions and over-formal replies.
+AI tools tend to produce noisy output: over-commented code, restated-obvious docstrings, bloated pull request descriptions, long documents and over-formal replies.
 Noise hides the signal a reviewer is looking for, and stale comments mislead future maintainers.
 
-- **Trim before submitting.** Iterate until the code, comments, commit messages, descriptions and replies say only what the reader needs.
+- **Make it as simple as possible**, in code, in pull request descriptions and in documents.
+- **Trim before submitting.** Iterate until the code, comments, commit messages, descriptions, documents and replies say only what the reader needs.
 - **Comments should state what the code cannot**: constraints, invariants and non-obvious reasoning. Delete comments that narrate the code or the generation process.
 - **Reviewers may reject generated noise**, in the spirit of the [Git project's rule](https://git-scm.com/docs/SubmittingPatches#ai): "anything that looks AI generated, that sounds overly formal or bloated, that looks like AI slop, that looks good on the surface but makes no sense [...]".
 
