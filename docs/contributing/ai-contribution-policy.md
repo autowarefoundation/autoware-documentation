@@ -41,7 +41,8 @@ Every rule below is required and enforced by humans, not automation.
     6. [Do not let agents post unattended](#do-not-let-agents-post-unattended): a human reviews every item before it is posted.
     7. [Generate artifacts that humans can maintain](#generate-artifacts-that-humans-can-maintain): apply the maintainer test.
     8. [Keep it simple and concise](#keep-it-simple-and-concise): make it as simple as possible, then trim the noise.
-    9. [Do not mass-produce pull requests](#do-not-mass-produce-pull-requests): open only what you can shepherd.
+    9. [Keep a pull request small enough to review](#keep-a-pull-request-small-enough-to-review): keep it to a size a human reviewer can follow.
+    10. [Do not mass-produce pull requests](#do-not-mass-produce-pull-requests): open only what you can shepherd.
 
 Each rule opens with the reason it exists, followed by what you must do.
 
@@ -132,6 +133,14 @@ Noise hides the signal a reviewer is looking for, and stale comments mislead fut
 - **Trim before submitting.** Iterate until the code, comments, commit messages, descriptions, documents and replies say only what the reader needs.
 - **Comments should state what the code cannot**: constraints, invariants and non-obvious reasoning. Delete comments that narrate the code or the generation process.
 - **Reviewers may reject generated noise**, in the spirit of the [Git project's rule](https://git-scm.com/docs/SubmittingPatches#ai): "anything that looks AI generated, that sounds overly formal or bloated, that looks like AI slop, that looks good on the surface but makes no sense [...]".
+
+### Keep a pull request small enough to review
+
+A pull request is a medium for human-to-human communication and consensus building, not only a way to deliver a change.
+Producing a large change used to be slow enough to limit itself; that limit is gone, while the cost of reading one is not.
+
+- **Keep each pull request to a size a human reviewer can understand, evaluate and discuss**, as the [rule on keeping a pull request small](pull-request-guidelines/index.md#keep-a-pull-request-small-advisory-non-automated) already asks, unless you have agreed with the maintainers of the affected repositories that there is no other way.
+- **Do not submit a large pull request simply because AI made it easy to produce.** Scope the work before you generate it, rather than opening whatever a single run produced.
 
 ### Do not mass-produce pull requests
 
