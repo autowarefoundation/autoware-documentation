@@ -143,7 +143,7 @@ AI makes it cheap to produce many pull requests at once; the review capacity of 
 ## Enforcement
 
 - **Non-compliant contributions may be closed without detailed review**, with a reference to this page.
-- **Extractive contributions may be deprioritized.** Reviewers may mark a contribution as [extractive](https://llvm.org/docs/AIToolPolicy.html#extractive-contributions) and pause its review until the author reduces its scope or increases its utility.
+- **Extractive contributions may lose priority.** Reviewers may mark a contribution as [extractive](https://llvm.org/docs/AIToolPolicy.html#extractive-contributions) and pause its review until the author reduces its scope or increases its utility.
 - **Unexplained means non-compliant.** A contribution that appears to be unreviewed AI output, whose author cannot explain it when asked, is treated as non-compliant.
 - **Honest mistakes are met with a pointer to this policy.** Repeated or bad-faith violations may result in being blocked from contributing to Autoware Foundation repositories.
 - **Maintainers are not exempt.** This policy binds contributors with elevated permissions as much as anyone else; violations by maintainers are escalated to the Technical Steering Committee.
