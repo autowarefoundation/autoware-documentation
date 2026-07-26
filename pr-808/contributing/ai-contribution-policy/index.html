@@ -920,6 +920,8 @@
       
         
       
+        
+      
     
     
     
@@ -1013,6 +1015,41 @@
     
   </span>
   
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/autoware/autoware-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autoware Index (community packages)
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--new"></span>
+  
+
   
 
       </a>
@@ -12097,10 +12134,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#keep-it-concise" class="md-nav__link">
+  <a href="#keep-it-simple-and-concise" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Keep it concise
+        Keep it simple and concise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keep-a-pull-request-small-enough-to-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep a pull request small enough to review
       
     </span>
   </a>
@@ -14247,10 +14295,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#keep-it-concise" class="md-nav__link">
+  <a href="#keep-it-simple-and-concise" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Keep it concise
+        Keep it simple and concise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keep-a-pull-request-small-enough-to-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep a pull request small enough to review
       
     </span>
   </a>
@@ -14365,7 +14424,8 @@ Every rule below is, at its core, a defense against them.</p>
 <li><a href="#respond-to-reviews-yourself">Respond to reviews yourself</a>: your words carry the conversation.</li>
 <li><a href="#do-not-let-agents-post-unattended">Do not let agents post unattended</a>: a human reviews every item before it is posted.</li>
 <li><a href="#generate-artifacts-that-humans-can-maintain">Generate artifacts that humans can maintain</a>: apply the maintainer test.</li>
-<li><a href="#keep-it-concise">Keep it concise</a>: trim generated noise before submitting.</li>
+<li><a href="#keep-it-simple-and-concise">Keep it simple and concise</a>: make it as simple as possible, then trim the noise.</li>
+<li><a href="#keep-a-pull-request-small-enough-to-review">Keep a pull request small enough to review</a>: keep it to a size a human reviewer can follow.</li>
 <li><a href="#do-not-mass-produce-pull-requests">Do not mass-produce pull requests</a>: open only what you can shepherd.</li>
 </ol>
 </div>
@@ -14444,13 +14504,21 @@ A contribution that can only be verified by running another AI over it cannot be
 <li>Instead of a custom parser hacked together with <code>grep</code>: a standard library or the tooling the repository already has.</li>
 </ul>
 </div>
-<h3 id="keep-it-concise">Keep it concise<a class="headerlink" href="#keep-it-concise" title="Permanent link">#</a></h3>
-<p>AI tools tend to produce noisy output: over-commented code, restated-obvious docstrings, bloated descriptions and over-formal replies.
+<h3 id="keep-it-simple-and-concise">Keep it simple and concise<a class="headerlink" href="#keep-it-simple-and-concise" title="Permanent link">#</a></h3>
+<p>AI tools tend to produce noisy output: over-commented code, restated-obvious docstrings, bloated pull request descriptions, long documents and over-formal replies.
 Noise hides the signal a reviewer is looking for, and stale comments mislead future maintainers.</p>
 <ul>
-<li><strong>Trim before submitting.</strong> Iterate until the code, comments, commit messages, descriptions and replies say only what the reader needs.</li>
+<li><strong>Make it as simple as possible.</strong> Length is not a sign of effort: prefer the simplest version that does the job, in code, in pull request descriptions and in documents.</li>
+<li><strong>Trim before submitting.</strong> Iterate until the code, comments, commit messages, descriptions, documents and replies say only what the reader needs.</li>
 <li><strong>Comments should state what the code cannot</strong>: constraints, invariants and non-obvious reasoning. Delete comments that narrate the code or the generation process.</li>
 <li><strong>Reviewers may reject generated noise</strong>, in the spirit of the <a href="https://git-scm.com/docs/SubmittingPatches#ai">Git project's rule</a>: "anything that looks AI generated, that sounds overly formal or bloated, that looks like AI slop, that looks good on the surface but makes no sense [...]".</li>
+</ul>
+<h3 id="keep-a-pull-request-small-enough-to-review">Keep a pull request small enough to review<a class="headerlink" href="#keep-a-pull-request-small-enough-to-review" title="Permanent link">#</a></h3>
+<p>A pull request is a medium for human-to-human communication and consensus building, not only a way to deliver a change.
+Producing a large change used to be slow enough to limit itself; that limit is gone, while the cost of reading one is not.</p>
+<ul>
+<li><strong>Keep each pull request to a size a human reviewer can understand, evaluate and discuss</strong>, as the <a href="../pull-request-guidelines/#keep-a-pull-request-small-advisory-non-automated">rule on keeping a pull request small</a> already asks, unless you have agreed with the maintainers of the affected repositories that there is no other way.</li>
+<li><strong>Do not submit a large pull request simply because AI made it easy to produce.</strong> Scope the work before you generate it, rather than opening whatever a single run produced.</li>
 </ul>
 <h3 id="do-not-mass-produce-pull-requests">Do not mass-produce pull requests<a class="headerlink" href="#do-not-mass-produce-pull-requests" title="Permanent link">#</a></h3>
 <p>Every open pull request is a claim on reviewer attention and a commitment of your own attention until it is merged.
@@ -14462,7 +14530,7 @@ AI makes it cheap to produce many pull requests at once; the review capacity of 
 <h2 id="enforcement">Enforcement<a class="headerlink" href="#enforcement" title="Permanent link">#</a></h2>
 <ul>
 <li><strong>Non-compliant contributions may be closed without detailed review</strong>, with a reference to this page.</li>
-<li><strong>Extractive contributions may be deprioritized.</strong> Reviewers may mark a contribution as <a href="https://llvm.org/docs/AIToolPolicy.html#extractive-contributions">extractive</a> and pause its review until the author reduces its scope or increases its utility.</li>
+<li><strong>Extractive contributions may lose priority.</strong> Reviewers may mark a contribution as <a href="https://llvm.org/docs/AIToolPolicy.html#extractive-contributions">extractive</a> and pause its review until the author reduces its scope or increases its utility.</li>
 <li><strong>Unexplained means non-compliant.</strong> A contribution that appears to be unreviewed AI output, whose author cannot explain it when asked, is treated as non-compliant.</li>
 <li><strong>Honest mistakes are met with a pointer to this policy.</strong> Repeated or bad-faith violations may result in being blocked from contributing to Autoware Foundation repositories.</li>
 <li><strong>Maintainers are not exempt.</strong> This policy binds contributors with elevated permissions as much as anyone else; violations by maintainers are escalated to the Technical Steering Committee.</li>

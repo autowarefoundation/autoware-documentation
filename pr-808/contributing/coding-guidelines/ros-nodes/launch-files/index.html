@@ -920,6 +920,8 @@
       
         
       
+        
+      
     
     
     
@@ -1013,6 +1015,41 @@
     
   </span>
   
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/autoware/autoware-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autoware Index (community packages)
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--new"></span>
+  
+
   
 
       </a>
@@ -12635,16 +12672,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#integrate-a-new-package-in-autoware_launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrate a new package in autoware_launch
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#parameter-management" class="md-nav__link">
+  <a href="#parameter-and-system-topology-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Parameter management
+        Parameter and system topology management
       
     </span>
   </a>
@@ -14096,16 +14144,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#integrate-a-new-package-in-autoware_launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrate a new package in autoware_launch
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#parameter-management" class="md-nav__link">
+  <a href="#parameter-and-system-topology-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Parameter management
+        Parameter and system topology management
       
     </span>
   </a>
@@ -14204,15 +14263,22 @@
 <p>Autoware use <abbr title="Robot Operating System">ROS</abbr> 2 launch system to startup the software. Please see the <a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html">official documentation</a> to get a basic understanding about <abbr title="Robot Operating System">ROS</abbr> 2 Launch system if you are not familiar with it.</p>
 <h2 id="guideline">Guideline<a class="headerlink" href="#guideline" title="Permanent link">#</a></h2>
 <h3 id="the-organization-of-launch-files-in-autoware">The organization of launch files in Autoware<a class="headerlink" href="#the-organization-of-launch-files-in-autoware" title="Permanent link">#</a></h3>
-<p>Autoware mainly has two repositories related to launch file organization: the <a href="https://github.com/autowarefoundation/autoware_universe">autoware_universe</a> and the <a href="https://github.com/autowarefoundation/autoware_launch">autoware_launch</a>.</p>
-<h4 id="autoware_universe">autoware_universe<a class="headerlink" href="#autoware_universe" title="Permanent link">#</a></h4>
-<p>the <code>autoware_universe</code> contains the code of the main Autoware modules, and its <code>launch</code> directory is responsible for launching the nodes of each module. Autoware software stack is organized based on the <a href="../../../../design/autoware-architecture-v1/#high-level-architecture-design">architecture</a>, so you may find that we try to match the launch structure similar to the architecture (splitting of files, namespace). For example, the <code>tier4_map_launch</code> subdirectory corresponds to the map module, so do the other <code>tier4_*_launch</code> subdirectories.</p>
-<h4 id="autoware_launch">autoware_launch<a class="headerlink" href="#autoware_launch" title="Permanent link">#</a></h4>
-<p>The <code>autoware_launch</code> is a repository referring to <code>autoware_universe</code>. The mainly purpose of introducing this repository is to provide the general entrance to start the Autoware software stacks, i.e, calling the launch file of each module.</p>
+<p>Autoware distinguishes between the reusable node implementations and their example integration, including system-specific configurations, pipelines, and system topologies.</p>
+<ul>
+<li>Reusable node implementations can be found in <a href="https://github.com/autowarefoundation/autoware_core"><code>autoware_core</code></a> and <a href="https://github.com/autowarefoundation/autoware_universe"><code>autoware_universe</code></a><ul>
+<li><code>autoware_core</code> repository itself provides a minimal integration in the package named <code>autoware_core</code>.</li>
+</ul>
+</li>
+<li>An integrated system example orchestrated from these nodes can be found in <a href="https://github.com/autowarefoundation/autoware_launch"><code>autoware_launch</code></a>.<ul>
+<li>There are many possible ways to construct a full autonomous driving system, and <code>autoware_launch</code> provides one, highly configurable reference integration.</li>
+</ul>
+</li>
+</ul>
+<p>The package <code>autoware_launch</code> itself provides the general entrypoint to call other modularized launch files and start the Autoware nodes.</p>
 <ul>
 <li>
 <p>The <code>autoware.launch.xml</code> is the basic launch file for road driving scenarios.</p>
-<p>As can be seen from the content, the entire launch file is divided into several different modules, including <em>Vehicle</em>, <em>System</em>, <em>Map</em>, <em>Sensing</em>, <em>Localization</em>, <em>Perception</em>, <em>Planning</em>, <em>Control</em>, etc. By setting the <code>launch_*</code> argument equals to <code>true</code> or <code>false</code> , we can determine which modules to be loaded.</p>
+<p>This launch file loads other launch files for different modules, including <em>Vehicle</em>, <em>System</em>, <em>Map</em>, <em>Sensing</em>, <em>Localization</em>, <em>Perception</em>, <em>Planning</em>, <em>Control</em>, etc. By setting the <code>launch_*</code> argument to either <code>true</code> or <code>false</code> , the users can selectively load a subset of the system.</p>
 </li>
 </ul>
 <ul>
@@ -14246,15 +14312,20 @@ A33--&gt;A41[stop_filter.launch.xml]
 A33--&gt;A42[ekf_localizer.launch.xml]
 A33--&gt;A43[twist2accel.launch.xml]</code></pre>
 <h3 id="add-a-new-package-in-autoware">Add a new package in Autoware<a class="headerlink" href="#add-a-new-package-in-autoware" title="Permanent link">#</a></h3>
-<p>If a newly created package has executable node, we expect sample launch file and configuration within the package, just like the recommended structure shown in the previous <a href="../directory-structure/">directory structure</a> page.</p>
-<p>In order to automatically load the newly added package when starting Autoware, you need to make some necessary changes to the corresponding launch file. For example, if using ICP instead of NDT as the pointcloud registration algorithm, you can modify the <code>autoware_universe/launch/tier4_localization_launch/launch/pose_estimator/pose_estimator.launch.xml</code> file to load the newly added ICP package.</p>
-<h2 id="parameter-management">Parameter management<a class="headerlink" href="#parameter-management" title="Permanent link">#</a></h2>
-<p>Another purpose of introducing the <code>autoware_launch</code> repository is to facilitate the parameter management of Autoware. Thinking about this situation: if we want to integrate Autoware to a specific vehicle and modify parameters, we have to fork <code>autoware_universe</code> which also has a lot of code other than parameters and is frequently updated by developers. By integrating these parameters in <code>autoware_launch</code>, we can customize the Autoware parameters just by forking <code>autoware_launch</code> repository. Taking the localization module as an examples:</p>
+<p>If a newly created package has executable node, we expect example launch files and configurations within the package, just like the recommended structure shown in the previous <a href="../directory-structure/">directory structure</a> page.</p>
+<h3 id="integrate-a-new-package-in-autoware_launch">Integrate a new package in <code>autoware_launch</code><a class="headerlink" href="#integrate-a-new-package-in-autoware_launch" title="Permanent link">#</a></h3>
+<p>In order to automatically load the newly added package (in <code>autoware_core</code> or <code>autoware_universe</code>) when starting Autoware, you need to make some necessary changes to the corresponding launch file.</p>
+<h2 id="parameter-and-system-topology-management">Parameter and system topology management<a class="headerlink" href="#parameter-and-system-topology-management" title="Permanent link">#</a></h2>
+<p>Another purpose of introducing the <code>autoware_launch</code> repository is to facilitate the parameter and system topology management of Autoware.</p>
+<p>Suppose that we want to integrate Autoware based on <code>autoware_launch</code> to a specific vehicle, and that we are only interested in different parameters and possibly different node configurations, without rewriting the existing node implementations.
+In such case, we can <strong>fork only <code>autoware_launch</code></strong> to customize the parameters or the pipelines, without modifying the official <code>autoware_universe</code>.</p>
+<p>Taking the localization module as an example, in the <code>autoware_launch</code> repository:</p>
 <ol>
-<li>all the “launch parameters” for localization component is listed in the files under <code>autoware_launch/autoware_launch/config/localization</code>.</li>
-<li>the "launch parameters" file paths are set in the <code>autoware_launch/autoware_launch/launch/components/tier4_localization_component.launch.xml</code> file.</li>
-<li>in <code>autoware_universe/launch/tier4_localization_launch/launch</code>, the launch files loads the “launch parameters” if the argument is given in the parameter configuration file. You can still use the default parameters in each packages to launch <code>tier4_localization_launch</code> within <code>autoware_universe</code>.</li>
+<li>all the launch parameter files for the localization component are listed in the files under <code>autoware_launch/config/localization</code>.</li>
+<li>the launch parameter file paths are set in the <code>autoware_launch/launch/components/tier4_localization_component.launch.xml</code>.</li>
+<li>in <code>tier4_universe_launch/tier4_localization_launch/launch</code>, the launch files loads the launch parameter files if the argument is given in the parameter configuration file. You can still use the default parameters in each packages to launch <code>tier4_localization_launch</code>.</li>
 </ol>
+<p>See <a href="../parameters/#sync-params">sync-params</a> to learn how these launch parameter files can be updated.</p>
 <!-- prettier-ignore --></div>
 
 

@@ -14,7 +14,7 @@
         <link rel="prev" href="../docker-installation/">
       
       
-        <link rel="next" href="../../related-tools/">
+        <link rel="next" href="../autoware-index/">
       
       
         
@@ -927,6 +927,8 @@
       
         
       
+        
+      
     
     
     
@@ -1156,6 +1158,41 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autoware-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autoware Index (community packages)
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--new"></span>
+  
+
+  
+
+      </a>
     </li>
   
 
@@ -14322,6 +14359,16 @@ vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </s
 </blockquote>
 </li>
 <li>
+<p>Add community packages to your workspace. <em>(optional)</em> <span class="aw-badge-new">NEW</span></p>
+<p>The <a href="../autoware-index/">Autoware Index</a> is a registry of community packages that extend Autoware, each built and tested against the latest Autoware release.
+ Pick packages on its <a href="https://autowarefoundation.github.io/autoware-index/">browse site</a> or with <code>aw-index-cli</code> to generate <code>repositories/autoware-index.repos</code>, then import it the same way:</p>
+<div class="highlight"><pre><span></span><code>vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware-index.repos
+</code></pre></div>
+<blockquote>
+<p>➡️ See the <a href="../autoware-index/">Autoware Index</a> page for the full guide.</p>
+</blockquote>
+</li>
+<li>
 <p>Install dependent <abbr title="Robot Operating System">ROS</abbr> packages.</p>
 <p>Autoware requires some <abbr title="Robot Operating System">ROS</abbr> 2 packages in addition to the core components.
  The tool <code>rosdep</code> allows an automatic search and installation of such dependencies.
@@ -14488,13 +14535,13 @@ rosdep<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> 
         
         
           
-          <a href="../../related-tools/" class="md-footer__link md-footer__link--next" aria-label="Next: Installation of related tools">
+          <a href="../autoware-index/" class="md-footer__link md-footer__link--next" aria-label="Next: Autoware Index (community packages)">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Installation of related tools
+                Autoware Index (community packages)
               </div>
             </div>
             <div class="md-footer__button md-icon">
