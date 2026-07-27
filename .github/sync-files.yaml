@@ -8,7 +8,6 @@
     - source: .github/ISSUE_TEMPLATE/config.yml
     - source: .github/ISSUE_TEMPLATE/task.yaml
     - source: .github/dependabot.yaml
-    - source: .github/pull_request_template.md
     - source: .github/stale.yml
     - source: .github/workflows/comment-on-pr.yaml
     - source: .github/workflows/semantic-pull-request.yaml
@@ -36,10 +35,3 @@
     - source: .prettierrc.yaml
     - source: .yamllint.yaml
     - source: setup.cfg
-
-- repository: autowarefoundation/autoware-documentation
-  files:
-    - source: mkdocs-base.yaml
-      dest: mkdocs.yaml
-      pre-commands: |
-        sd "  - macros" "  - macros:\n      include_yaml:\n        - autoware_interfaces: yaml/autoware-interfaces.yaml" {source}
