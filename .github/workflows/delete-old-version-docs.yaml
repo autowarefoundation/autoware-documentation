@@ -7,7 +7,7 @@ on:
         description: How many of the newest minor release lines to keep
         type: string
         required: false
-        default: "3"
+        default: "999"
       dry-run:
         description: Report what would be deleted without deleting it
         type: boolean
