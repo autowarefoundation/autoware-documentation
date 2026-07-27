@@ -15,7 +15,6 @@ Note that the initial focus of this architecture design was solely on driving ca
 - Fail safe
 - Human Machine Interface
 - Real-time processing
-- Redundant system
 - State monitoring system
 
 ## High-level architecture design
@@ -31,6 +30,10 @@ Autoware's architecture consists of the following seven stacks. Each linked page
 - [Planning design](components/planning/index.md)
 - [Control design](components/control/index.md)
 - [Vehicle Interface design](components/vehicle/index.md)
+
+Related system-level design:
+
+- [ECU redundancy design](redundancy/index.md)
 
 ## Node diagram
 
