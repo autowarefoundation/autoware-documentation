@@ -5,7 +5,6 @@
 # https://pre-commit.ci/#configuration
 ci:
   autofix_commit_msg: "style(pre-commit): autofix"
-  # we already have our own daily update mechanism, we set this to quarterly
   autoupdate_schedule: quarterly
   autoupdate_commit_msg: "ci(pre-commit): quarterly autoupdate"
 
@@ -26,7 +25,7 @@ repos:
         args: [--markdown-linebreak-ext=md]
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.46.0
+    rev: v0.49.0
     hooks:
       - id: markdownlint
         args: [-c, .markdownlint.yaml, --fix]
@@ -35,14 +34,15 @@ repos:
     rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
+        args: [--no-error-on-unmatched-pattern]
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.37.1
+    rev: v1.38.0
     hooks:
       - id: yamllint
 
   - repo: https://github.com/tier4/pre-commit-hooks-ros
-    rev: v0.10.0
+    rev: v0.10.3
     hooks:
       - id: flake8-ros
       - id: prettier-xacro
@@ -57,25 +57,25 @@ repos:
       - id: shellcheck
 
   - repo: https://github.com/scop/pre-commit-shfmt
-    rev: v3.12.0-2
+    rev: v3.13.1-1
     hooks:
       - id: shfmt
         args: [-w, -s, -i=4]
 
   - repo: https://github.com/pycqa/isort
-    rev: 7.0.0
+    rev: 9.0.0a3
     hooks:
       - id: isort
         args: [--profile=black, --line-length=100]
 
-  - repo: https://github.com/psf/black
-    rev: 25.11.0
+  - repo: https://github.com/psf/black-pre-commit-mirror
+    rev: 26.5.1
     hooks:
       - id: black
         args: [--line-length=100]
 
   - repo: https://github.com/pre-commit/mirrors-clang-format
-    rev: v21.1.6
+    rev: v22.1.5
     hooks:
       - id: clang-format
         types_or: [c++, c, cuda]
@@ -88,7 +88,7 @@ repos:
         exclude: .cu
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.35.0
+    rev: 0.37.4
     hooks:
       - id: check-metaschema
         files: ^.+/schema/.*schema\.json$
@@ -102,6 +102,17 @@ repos:
         language: node
         files: .svg$
         additional_dependencies: [prettier@2.7.1, "@prettier/plugin-xml@2.2.0"]
+
+  - repo: https://github.com/autowarefoundation/autoware_system_designer
+    rev: v0.4.1
+    hooks:
+      - id: lint-system-design-format
+        args: [--format=github-actions]
+
+  - repo: https://github.com/autowarefoundation/autoware-spell-check-dict
+    rev: e9d756af3ac14bacd5c9cea188d47b39d3160f53
+    hooks:
+      - id: format-cspell-json
 
   - repo: https://github.com/AleksaC/hadolint-py
     rev: v2.14.0
