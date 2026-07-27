@@ -45,6 +45,14 @@ If you test with raw data, you need to follow these `Test With Raw Data` instruc
 
 ##### Installation
 
+If the `gdown` command is not available, install it first:
+
+```bash
+sudo apt-get -y install pipx
+python3 -m pipx ensurepath
+pipx install gdown
+```
+
 1.) Download and unpack a test map files.
 
 - You can also download [the map](https://drive.google.com/file/d/1WPWmFCjV7eQee4kyBpmGNlX7awerCPxc/view?usp=drive_link) manually.
@@ -122,6 +130,14 @@ ros2 bag play ~/autoware_ista_data/rosbag2_2024_09_11-17_53_54_0.db3
 If you only want to see the localization performance, follow the `Localization Test Only` instructions. For those who only want to perform localization tests, a second test bag file and a separate launch file have been created for this test. You can perform this test by following the instructions below.
 
 ##### Installation
+
+If the `gdown` command is not available, install it first:
+
+```bash
+sudo apt-get -y install pipx
+python3 -m pipx ensurepath
+pipx install gdown
+```
 
 1.) Download and unpack a test map files.
 
