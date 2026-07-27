@@ -37,6 +37,10 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
+          # This job builds fork code in a trusted context, so it only runs
+          # after a maintainer adds the tag:deploy-docs label. Review the diff,
+          # including main.py and mkdocs-requirements.txt, before labeling.
+          allow-unsafe-pr-checkout: true
 
       - name: Deploy docs
         uses: autowarefoundation/autoware-github-actions/deploy-docs@v1
