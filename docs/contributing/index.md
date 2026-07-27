@@ -99,3 +99,5 @@ Examples of large changes include:
 - Adding a new documentation page or section
 
 For more information on how to submit a good pull request, have a read of the [pull request guidelines](pull-request-guidelines/index.md) and don't forget to review the required [license notations](license.md)!
+
+If you use AI tools to help create your contributions, follow the [AI contribution policy](ai-contribution-policy.md).
