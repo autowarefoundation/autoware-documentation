@@ -27,6 +27,10 @@ Only releases are ever deleted. The default branch stays forever, and the pull r
 branch previews are cleaned up by the `delete-closed-pr-docs` and `delete-removed-branch-docs`
 workflows.
 
+The addresses of a deleted release are answered by the 404 page that the `publish-404-page`
+workflow keeps on the `gh-pages` branch. It points readers at the current documentation, and at
+the releases page, where the documentation of every release is attached as an archive.
+
 ## What is ordered
 
 mike rewrites `versions.json` in its own order every time it deploys or deletes, which puts the
