@@ -1,0 +1,82 @@
+name: delete-old-version-docs
+
+on:
+  workflow_call:
+    inputs:
+      keep-lines:
+        description: How many of the newest minor release lines to keep
+        type: string
+        required: false
+        default: "3"
+      dry-run:
+        description: Report what would be deleted without deleting it
+        type: boolean
+        required: false
+        default: false
+    secrets:
+      token:
+        description: GitHub token
+        required: true
+  workflow_dispatch:
+    inputs:
+      keep-lines:
+        description: How many of the newest minor release lines to keep
+        type: string
+        required: false
+        default: "3"
+      dry-run:
+        description: Report what would be deleted without deleting it
+        type: boolean
+        required: false
+        default: true
+
+env:
+  # Selects and deletes the outdated releases. See its unit tests for what it keeps.
+  SCRIPT: tools/gh-pages-versions/delete_old_version_docs.py
+
+jobs:
+  delete-old-version-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: 3.12
+
+      - name: Install MkDocs requirements
+        run: pip3 install -r mkdocs-requirements.txt
+
+      - name: Report what would be deleted
+        if: ${{ inputs.dry-run }}
+        run: python3 "$SCRIPT" --keep-lines "$KEEP_LINES" --dry-run
+        env:
+          KEEP_LINES: ${{ inputs.keep-lines }}
+
+      - name: Set git config
+        if: ${{ !inputs.dry-run }}
+        uses: autowarefoundation/autoware-github-actions/set-git-config@v1
+        with:
+          token: ${{ github.event_name == 'workflow_dispatch' && secrets.GITHUB_TOKEN || secrets.token }}
+
+      - name: Delete outdated release docs
+        if: ${{ !inputs.dry-run }}
+        run: python3 "$SCRIPT" --keep-lines "$KEEP_LINES"
+        env:
+          KEEP_LINES: ${{ inputs.keep-lines }}
+
+  reorder-versions-json:
+    # Only for manual runs that deleted something. A dry run must not write to
+    # gh-pages, and when deploy-docs calls this workflow, that workflow reorders
+    # versions.json itself once the deployment is done.
+    if: ${{ github.event_name == 'workflow_dispatch' && !inputs.dry-run }}
+    needs:
+      - delete-old-version-docs
+    uses: ./.github/workflows/reorder-versions.yaml
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
