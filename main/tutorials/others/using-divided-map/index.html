@@ -14136,6 +14136,11 @@
 <p>Divided pointcloud map is necessary when handling large pointcloud map, in which case Autoware may not be capable of sending the whole map via <abbr title="Robot Operating System">ROS</abbr> 2 topic or loading the whole map into memory. By using the pre-divided map, Autoware will dynamically load the pointcloud map according to the vehicle's position.</p>
 <h2 id="tutorial">Tutorial<a class="headerlink" href="#tutorial" title="Permanent link">#</a></h2>
 <p>Download the <a href="https://docs.google.com/uc?export=download&amp;id=11tLC9T4MS8fnZ9Wo0D8-Ext7hEDl2YJ4">sample-map-rosbag_split</a> and locate the map under <code>$HOME/autoware_data/maps/</code>.</p>
+<p>If the <code>gdown</code> command is not available, install it first:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>pipx
+python3<span class="w"> </span>-m<span class="w"> </span>pipx<span class="w"> </span>ensurepath
+pipx<span class="w"> </span>install<span class="w"> </span>gdown
+</code></pre></div>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/autoware_data/maps
 gdown<span class="w"> </span>-O<span class="w"> </span>~/autoware_data/maps/<span class="w"> </span><span class="s1">'https://docs.google.com/uc?export=download&amp;id=11tLC9T4MS8fnZ9Wo0D8-Ext7hEDl2YJ4'</span>
 unzip<span class="w"> </span>-d<span class="w"> </span>~/autoware_data/maps/<span class="w"> </span>~/autoware_data/maps/sample-rosbag_split.zip

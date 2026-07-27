@@ -14206,6 +14206,11 @@ It is also predicted that if the <abbr title="Inertial Measurement Unit">IMU</ab
 <h4 id="test-with-raw-data">Test With Raw Data<a class="headerlink" href="#test-with-raw-data" title="Permanent link">#</a></h4>
 <p>If you test with raw data, you need to follow these <code>Test With Raw Data</code> instructions. Since you need to repeat all preprocessing operations on the input data in this test, you need to test by switching to the test branches in the sensor kit and individual params repos. You can perform these steps by following the instructions below.</p>
 <h5 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h5>
+<p>If the <code>gdown</code> command is not available, install it first:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>pipx
+python3<span class="w"> </span>-m<span class="w"> </span>pipx<span class="w"> </span>ensurepath
+pipx<span class="w"> </span>install<span class="w"> </span>gdown
+</code></pre></div>
 <p>1.) Download and unpack a test map files.</p>
 <ul>
 <li>You can also download <a href="https://drive.google.com/file/d/1WPWmFCjV7eQee4kyBpmGNlX7awerCPxc/view?usp=drive_link">the map</a> manually.</li>
@@ -14259,6 +14264,11 @@ ros2<span class="w"> </span>bag<span class="w"> </span>play<span class="w"> </sp
 <h4 id="localization-test-only">Localization Test Only<a class="headerlink" href="#localization-test-only" title="Permanent link">#</a></h4>
 <p>If you only want to see the localization performance, follow the <code>Localization Test Only</code> instructions. For those who only want to perform localization tests, a second test bag file and a separate launch file have been created for this test. You can perform this test by following the instructions below.</p>
 <h5 id="installation_1">Installation<a class="headerlink" href="#installation_1" title="Permanent link">#</a></h5>
+<p>If the <code>gdown</code> command is not available, install it first:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>pipx
+python3<span class="w"> </span>-m<span class="w"> </span>pipx<span class="w"> </span>ensurepath
+pipx<span class="w"> </span>install<span class="w"> </span>gdown
+</code></pre></div>
 <p>1.) Download and unpack a test map files.</p>
 <ul>
 <li>You can also download <a href="https://drive.google.com/file/d/1WPWmFCjV7eQee4kyBpmGNlX7awerCPxc/view?usp=drive_link">the map</a> manually.</li>
