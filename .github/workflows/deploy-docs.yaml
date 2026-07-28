@@ -81,17 +81,29 @@ jobs:
           latest: false
           mkdocs-requirements-txt: mkdocs-requirements.txt
 
+  delete-old-version-docs:
+    if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') }}
+    needs: deploy-docs-push
+    uses: ./.github/workflows/delete-old-version-docs.yaml
+    with:
+      # keep-lines is left at the default of the called workflow.
+      dry-run: false
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
+
   reorder-versions-json:
     needs:
       - deploy-docs-pr
       - deploy-docs-push
       - deploy-docs-workflow-dispatch
+      - delete-old-version-docs
     if: |
       always() &&
       (
         needs.deploy-docs-pr.result == 'success' ||
         needs.deploy-docs-push.result == 'success' ||
-        needs.deploy-docs-workflow-dispatch.result == 'success'
+        needs.deploy-docs-workflow-dispatch.result == 'success' ||
+        needs.delete-old-version-docs.result == 'success'
       )
     uses: ./.github/workflows/reorder-versions.yaml
     secrets:

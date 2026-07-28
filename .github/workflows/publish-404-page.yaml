@@ -1,0 +1,97 @@
+name: publish-404-page
+
+# GitHub Pages serves the 404.html of the gh-pages branch for every address it
+# cannot find, including the addresses of the releases that delete-old-version-docs
+# has removed. This workflow publishes that page and keeps it up to date.
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/publish-404-page.yaml
+  workflow_dispatch:
+
+jobs:
+  publish-404-page:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out gh-pages branch
+        uses: actions/checkout@v6
+        with:
+          ref: gh-pages
+          # Push with the token given to set-git-config below, not with the
+          # credentials that checkout would otherwise leave in .git.
+          persist-credentials: false
+
+      - name: Write the 404 page
+        run: |
+          cat > 404.html <<'HTML'
+          <!doctype html>
+          <html lang="en">
+            <head>
+              <meta charset="utf-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1" />
+              <title>Page not found - Autoware Documentation</title>
+              <style>
+                :root {
+                  color-scheme: light dark;
+                }
+                body {
+                  font-family: system-ui, sans-serif;
+                  line-height: 1.6;
+                  margin: 0 auto;
+                  max-width: 40rem;
+                  padding: 4rem 1.5rem;
+                }
+                h1 {
+                  font-size: 1.6rem;
+                }
+                li {
+                  margin-bottom: 0.5rem;
+                }
+              </style>
+            </head>
+            <body>
+              <h1>Page not found</h1>
+              <p>
+                The page you asked for does not exist. It may have belonged to a release whose
+                documentation is no longer published on this site.
+              </p>
+              <ul>
+                <li>
+                  <a href="/autoware-documentation/main/">Read the current Autoware documentation</a>
+                </li>
+                <li>
+                  <a href="https://github.com/autowarefoundation/autoware-documentation/releases">
+                    Download the documentation of an older release
+                  </a>
+                </li>
+              </ul>
+            </body>
+          </html>
+          HTML
+        shell: bash
+
+      - name: Show the result
+        run: |
+          git add 404.html
+          git diff --cached
+        shell: bash
+
+      - name: Set git config
+        uses: autowarefoundation/autoware-github-actions/set-git-config@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit and push changes
+        run: |
+          # Commit only if changed
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Update the 404 page"
+          git push
+        shell: bash

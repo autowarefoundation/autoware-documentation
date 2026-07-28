@@ -1,0 +1,37 @@
+name: test-tools
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - tools/**
+      - .github/workflows/test-tools.yaml
+  pull_request:
+    paths:
+      - tools/**
+      - .github/workflows/test-tools.yaml
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test-tools:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: 3.12
+
+      - name: Install pytest
+        run: pip3 install pytest
+
+      - name: Run unit tests
+        run: pytest tools/ -v
+        shell: bash
