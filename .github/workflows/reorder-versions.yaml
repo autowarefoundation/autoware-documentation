@@ -19,7 +19,7 @@ jobs:
           path: repository
 
       - name: Check out gh-pages branch
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: gh-pages
           path: gh-pages
