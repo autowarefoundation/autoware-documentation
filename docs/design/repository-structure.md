@@ -38,13 +38,11 @@ end
 %% ====================
 subgraph AutowareUniverse["Autoware Universe"]
     T4([tier4_autoware_msgs])
-    TBNMS([trt_batched_nms])
     CB([cuda_blackboard])
     MTB([managed_transform_buffer])
     U([autoware_universe])
 
     T4 --> U
-    TBNMS --> U
     CB --> U
     MTB --> U
 end
