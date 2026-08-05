@@ -35,7 +35,6 @@ lidar_transfusion
 ptv3
 simpl_prediction
 tensorrt_bevdet
-tensorrt_rtmdet
 tensorrt_yolox
 traffic_light_classifier
 traffic_light_fine_detector
