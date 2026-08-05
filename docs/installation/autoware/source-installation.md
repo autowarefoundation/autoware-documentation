@@ -39,6 +39,7 @@ sudo apt-get -y install git
 
    ```bash
    bash ansible/scripts/install-ansible.sh
+   source ~/.bashrc
    ansible-galaxy collection install -f -r ansible-galaxy-requirements.yaml
    ansible-playbook autoware.dev_env.install_dev_env
    ```
