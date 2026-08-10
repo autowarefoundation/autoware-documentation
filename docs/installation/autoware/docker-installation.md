@@ -58,13 +58,13 @@ For the broader containerized-deployment story (deployment patterns, integration
    To install without **NVIDIA GPU** support:
 
    ```bash
-   ansible-playbook autoware.dev_env.install_docker --skip-tags nvidia
+   ansible-playbook autoware.dev_env.install_docker --skip-tags nvidia --ask-become-pass
    ```
 
    To download only the artifacts:
 
    ```bash
-   ansible-playbook autoware.dev_env.install_dev_env --tags artifacts
+   ansible-playbook autoware.dev_env.install_dev_env --tags artifacts --ask-become-pass
    ```
 
 !!! info
