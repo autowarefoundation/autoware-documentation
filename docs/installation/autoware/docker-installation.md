@@ -52,7 +52,7 @@ For the broader containerized-deployment story (deployment patterns, integration
    ```bash
    bash ansible/scripts/install-ansible.sh
    ansible-galaxy collection install -f -r ansible-galaxy-requirements.yaml
-   ansible-playbook autoware.dev_env.install_docker
+   ansible-playbook autoware.dev_env.install_docker --ask-become-pass
    ```
 
    To install without **NVIDIA GPU** support:
