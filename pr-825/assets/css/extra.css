@@ -1,0 +1,46 @@
+.md-grid {
+  max-width: 1920px;
+}
+
+.aw-badge-new,
+.md-status--new::after {
+  display: inline-block;
+  margin-left: 0.4em;
+  padding: 0.15em 0.5em;
+  border-radius: 1em;
+  font-size: 0.62em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  vertical-align: middle;
+  color: #fff;
+  background: #ff5252;
+  animation: aw-badge-pulse 2s ease-in-out infinite;
+}
+
+/* Turn Material's page-status nav icon into the same NEW pill. */
+.md-status--new::after {
+  content: "NEW";
+  -webkit-mask: none;
+  mask: none;
+  width: auto;
+  height: auto;
+  line-height: 1.4;
+}
+
+@keyframes aw-badge-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.5);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 0.4em rgba(255, 82, 82, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aw-badge-new {
+    animation: none;
+  }
+}
