@@ -1150,10 +1150,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#using-vs-code-remote-containers-for-development" class="md-nav__link">
+  <a href="#using-devcontainer-for-development" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Using VS Code remote containers for development
+        Using devcontainer for development
       
     </span>
   </a>
@@ -14259,10 +14259,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#using-vs-code-remote-containers-for-development" class="md-nav__link">
+  <a href="#using-devcontainer-for-development" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Using VS Code remote containers for development
+        Using devcontainer for development
       
     </span>
   </a>
@@ -14533,11 +14533,16 @@ vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </s
 <span class="c1"># If you are using nightly repositories, import them as well.</span>
 vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>repositories/autoware-nightly.repos
 </code></pre></div>
-<h3 id="using-vs-code-remote-containers-for-development">Using VS Code remote containers for development<a class="headerlink" href="#using-vs-code-remote-containers-for-development" title="Permanent link">#</a></h3>
-<p>Using the <a href="https://code.visualstudio.com/">Visual Studio Code</a> with the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Remote - Containers</a> extension, you can develop Autoware in the containerized environment with ease.</p>
+<h3 id="using-devcontainer-for-development">Using <code>devcontainer</code> for development<a class="headerlink" href="#using-devcontainer-for-development" title="Permanent link">#</a></h3>
+<p>Using the <a href="https://code.visualstudio.com/">Visual Studio Code</a> with the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Remote - Containers (devcontainer)</a> extension, you can develop Autoware in the containerized environment with ease.</p>
 <p>Get the Visual Studio Code's <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Remote - Containers</a> extension.
 And reopen the workspace in the container by selecting <code>Remote-Containers: Reopen in Container</code> from the Command Palette (<code>F1</code>).</p>
 <p>You can choose the <code>universe-devel-jazzy</code> or <code>universe-devel-cuda-jazzy</code> image to develop without or with CUDA support.</p>
+<p><code>devcontainer</code> is also supported by <a href="https://github.com/devcontainers/cli">devcontainer cli</a> and can be started from the CLI as well. At the repository root with <code>.devcontainer/devcontainer.json</code> folder, call</p>
+<div class="highlight"><pre><span></span><code><span class="go">devcontainer up &amp;&amp; devcontainer exec bash</span>
+</code></pre></div>
+<p>to enter the container environment. <code>devcontainer.json</code> can be specified by <code>--config</code> option when multiple json files are provided for development modes.
+To update the base image or reflect the changes in <code>devcontainer.json</code>, add <code>--remove-existing-container</code> option to <code>devcontainer up</code>.</p>
 <h3 id="building-docker-images-from-scratch">Building Docker images from scratch<a class="headerlink" href="#building-docker-images-from-scratch" title="Permanent link">#</a></h3>
 <p>The build pipeline uses <a href="https://docs.docker.com/build/bake/"><code>docker buildx bake</code></a> driven by <a href="https://github.com/autowarefoundation/autoware/blob/main/docker/docker-bake.hcl"><code>docker/docker-bake.hcl</code></a>. Building any target beyond <code>base</code> requires the autoware source repositories checked out under <code>src/</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>autoware/
