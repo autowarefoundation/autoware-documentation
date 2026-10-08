@@ -204,14 +204,23 @@ vcs import src < repositories/autoware.repos
 vcs import src < repositories/autoware-nightly.repos
 ```
 
-### Using VS Code remote containers for development
+### Using `devcontainer` for development
 
-Using the [Visual Studio Code](https://code.visualstudio.com/) with the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension, you can develop Autoware in the containerized environment with ease.
+Using the [Visual Studio Code](https://code.visualstudio.com/) with the [Remote - Containers (devcontainer)](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension, you can develop Autoware in the containerized environment with ease.
 
 Get the Visual Studio Code's [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
 And reopen the workspace in the container by selecting `Remote-Containers: Reopen in Container` from the Command Palette (`F1`).
 
 You can choose the `universe-devel-jazzy` or `universe-devel-cuda-jazzy` image to develop without or with CUDA support.
+
+`devcontainer` is also supported by [devcontainer cli](https://github.com/devcontainers/cli) and can be started from the CLI as well. At the repository root with `.devcontainer/devcontainer.json` folder, call
+
+```console
+devcontainer up && devcontainer exec bash
+```
+
+to enter the container environment. `devcontainer.json` can be specified by `--config` option when multiple json files are provided for development modes.
+To update the base image or reflect the changes in `devcontainer.json`, add `--remove-existing-container` option to `devcontainer up`.
 
 ### Building Docker images from scratch
 
