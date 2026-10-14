@@ -13,6 +13,10 @@ See [here](../index.md) for an overview.
 
 ## Interfaces
 
+- [/map/vector_map](./list/map-vector_map.md)
+- [/map/pointcloud_map](./list/map-pointcloud_map.md)
+- [/map/get_differential_pointcloud_map](./list/map-get_differential_pointcloud_map.md)
+- [/map/get_partial_pointcloud_map](./list/map-get_partial_pointcloud_map.md)
 - [/control/control_mode_request](./list/control-control-mode-request.md)
 - [/control/command/control_cmd](./list/control-command-control-cmd.md)
 - [/control/command/gear_cmd](./list/control-command-gear-cmd.md)
