@@ -13,6 +13,11 @@ See [here](../index.md) for an overview.
 
 ## Interfaces
 
+- /sensing/imu/imu_data
+- /sensing/camera/camera-id/image_rect_color
+- /sensing/camera/camera-id/image_raw
+- /sensing/lidar/concatenated/pointcloud
+- /sensing/radar/detected_objects
 - [/control/control_mode_request](./list/control-control-mode-request.md)
 - [/control/command/control_cmd](./list/control-command-control-cmd.md)
 - [/control/command/gear_cmd](./list/control-command-gear-cmd.md)
