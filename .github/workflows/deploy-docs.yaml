@@ -85,7 +85,7 @@ jobs:
           name: docs-pr-${{ github.event.pull_request.number }}
           path: ${{ runner.temp }}/site
           if-no-files-found: error
-          retention-days: 14
+          retention-days: 90
 
       - name: Explain how to view the site
         if: ${{ steps.mode.outputs.deploy == 'false' }}
@@ -104,7 +104,7 @@ jobs:
             echo "3. In that folder, run \`python3 -m http.server 8000\`."
             echo "4. Open <http://localhost:8000/>."
             echo
-            echo "The site is kept for 14 days."
+            echo "The site is kept for 90 days."
           } >> "$GITHUB_STEP_SUMMARY"
         shell: bash
 
