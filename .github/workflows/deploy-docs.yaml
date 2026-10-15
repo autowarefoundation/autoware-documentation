@@ -46,7 +46,7 @@ jobs:
     with:
       label: tag:deploy-docs
 
-  # Deploy only when the label is added, so the commit that the maintainer reviewed is deployed.
+  # Deploy only when the label is added. It deploys the head commit at that time, not a later push.
   deploy-docs-pr:
     if: ${{ !cancelled() && github.event_name == 'pull_request_target' && github.event.action == 'labeled' && github.event.label.name == 'tag:deploy-docs' && needs.require-label.outputs.result == 'true' }}
     needs: require-label

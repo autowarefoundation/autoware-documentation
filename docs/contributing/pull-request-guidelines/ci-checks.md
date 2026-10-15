@@ -83,5 +83,6 @@ For the details about self-hosted runners, refer to [GitHub Docs](https://docs.g
 ## deploy-docs
 
 This workflow deploys the preview documentation site for the pull request.  
-You need to add the `deploy-docs` label to run this workflow.  
-It deploys the commit that the pull request has when the label is added. A new commit removes the label, so a maintainer must review the change and add the label again.
+You need to add the `tag:deploy-docs` label to run this workflow.  
+It deploys the head commit of the pull request at the time the label is added. Before you add the label, check that the head commit is the commit that you reviewed.  
+A new commit removes the label, so a maintainer must review the change and add the label again.
