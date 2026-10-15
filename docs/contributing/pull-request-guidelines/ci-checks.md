@@ -91,4 +91,5 @@ This workflow publishes the preview documentation site for the pull request.
 A maintainer adds the `tag:deploy-docs` label to run this workflow.  
 It publishes the site that `build-docs-pr` built for the head commit of the pull request at the time the label is added. It does not run the code of the pull request.  
 Before you add the label, review the change and check that the head commit is the commit that you reviewed, because the preview is published on the documentation site.  
+The pull request can change how its site is built, so also review changes to `.github/workflows/build-docs-pr.yaml`, `mkdocs.yaml`, `main.py`, and `mkdocs-requirements.txt`.  
 A new commit removes the label, so a maintainer must review the change and add the label again.

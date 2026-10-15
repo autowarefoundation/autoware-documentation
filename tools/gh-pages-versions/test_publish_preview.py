@@ -88,7 +88,7 @@ def test_publish_refuses_a_link_in_the_site(site, gh_pages, tmp_path):
     assert (gh_pages / "pr-812" / "old.html").exists()
 
 
-@pytest.mark.parametrize("hidden", [".git/config", "home/.git", "home/.gitattributes", ".nojekyll"])
+@pytest.mark.parametrize("hidden", [".git/config", "home/.git", "home/.gitattributes", ".hidden"])
 def test_publish_refuses_a_hidden_file_in_the_site(site, gh_pages, hidden):
     path = site / hidden
     path.parent.mkdir(parents=True, exist_ok=True)

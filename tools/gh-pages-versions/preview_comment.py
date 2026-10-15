@@ -52,7 +52,7 @@ def comment_body(base_url, commit, changed_files):
     lines = [f"Documentation URL: <{base_url}>", f"Commit: {commit}", "Modified URLs:"]
     for path in changed_files:
         url = page_url(base_url, path)
-        if url is not None and not any(char in url for char in "<> \t"):
+        if url is not None and not any(char in url for char in "<>() \t\r\n"):
             lines.append(f"- <{url}>")
     return "\n".join(lines) + "\n"
 

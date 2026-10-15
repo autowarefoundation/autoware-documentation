@@ -143,6 +143,12 @@ jobs:
         run: |
           set -eu
 
+          # git gets the token on the command line of each call, and never in gh-pages/.git/config,
+          # because the files of the pull request sit in that tree.
+          auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          echo "::add-mask::$auth"
+          auth_header="http.https://github.com/.extraheader=AUTHORIZATION: basic $auth"
+
           # Another workflow can update gh-pages at the same time, so start again from its new state if the push fails.
           for _ in $(seq 5); do
             python3 ../repository/tools/gh-pages-versions/publish_preview.py \
@@ -153,13 +159,10 @@ jobs:
               exit 0
             fi
             git commit --quiet -m "Deployed ${HEAD_SHA:0:9} to $VERSION_NAME"
-            # The token is given to this one command only.
-            auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
-            echo "::add-mask::$auth"
-            if git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $auth" push origin HEAD:gh-pages; then
+            if git -c "$auth_header" push origin HEAD:gh-pages; then
               exit 0
             fi
-            git fetch --depth=1 origin gh-pages
+            git -c "$auth_header" fetch --depth=1 origin gh-pages
             git reset --hard FETCH_HEAD
           done
 
