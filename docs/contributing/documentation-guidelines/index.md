@@ -1,5 +1,9 @@
 # Documentation guidelines
 
+!!! note "Fork test"
+
+    This note exists only on a test pull request from a fork. It shows that the built site can be downloaded and viewed locally.
+
 ## Workflow
 
 Contributions to Autoware's documentation are welcome, and the same principles [described in the contribution guidelines](../index.md#pull-requests) should be followed. Small, limited changes can be made by forking this repository and submitting a pull request, but larger changes should be discussed with the community and Autoware maintainers via GitHub Discussion first.
