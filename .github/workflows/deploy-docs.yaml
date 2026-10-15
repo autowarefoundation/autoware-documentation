@@ -42,7 +42,7 @@ jobs:
   # Publishes the site that build-docs-pr built for the head commit at the time the label is added.
   # It runs only the code of the base branch. The built site is copied as data and never run.
   deploy-docs-pr:
-    if: ${{ github.event_name == 'pull_request_target' && github.event.action == 'labeled' && github.event.label.name == 'tag:deploy-docs' }}
+    if: ${{ github.event_name == 'pull_request_target' && github.event.action == 'labeled' && github.event.label.name == 'tag:deploy-docs' && github.event.pull_request.state == 'open' }}
     runs-on: ubuntu-latest
     permissions:
       actions: read
@@ -54,8 +54,10 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
       PR_NUMBER: ${{ github.event.pull_request.number }}
+      BASE_SHA: ${{ github.event.pull_request.base.sha }}
       HEAD_SHA: ${{ github.event.pull_request.head.sha }}
       HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+      HEAD_REF: ${{ github.event.pull_request.head.ref }}
       VERSION_NAME: pr-${{ github.event.pull_request.number }}
     steps:
       # The base branch, not the pull request: its scripts publish the site.
@@ -65,11 +67,13 @@ jobs:
           path: repository
           persist-credentials: false
 
+      # The site that is copied in comes from untrusted code, so the token is not kept in gh-pages/.git.
       - name: Check out gh-pages branch
         uses: actions/checkout@v7
         with:
           ref: gh-pages
           path: gh-pages
+          persist-credentials: false
 
       - name: Find the build of the labeled commit
         id: find-build
@@ -77,26 +81,41 @@ jobs:
           set -eu
 
           # Wait up to 20 minutes, in case the label is added while the build still runs.
+          # Runs are listed newest first. Only a run of this pull request's branch counts.
           for _ in $(seq 60); do
-            run=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/build-docs-pr.yaml/runs?event=pull_request&head_sha=$HEAD_SHA&per_page=100" \
-              --jq '[.workflow_runs[] | select(.head_repository.full_name == env.HEAD_REPO)]
-                | (map(select(.conclusion == "success")) + .) | first
-                | select(. != null) | "\(.id) \(.status) \(.conclusion)"')
-            if [ -n "$run" ]; then
-              read -r run_id status conclusion <<<"$run"
-              if [ "$status" = "completed" ]; then
-                if [ "$conclusion" = "success" ]; then
+            runs=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/build-docs-pr.yaml/runs?event=pull_request&head_sha=$HEAD_SHA&per_page=100" \
+              --jq '.workflow_runs[] | select(.head_repository.full_name == env.HEAD_REPO and .head_branch == env.HEAD_REF) | "\(.id) \(.status) \(.conclusion)"')
+            running=false
+            failure=""
+            while read -r run_id status conclusion; do
+              [ -n "$run_id" ] || continue
+              run_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$run_id"
+              if [ "$status" = "action_required" ] || [ "$conclusion" = "action_required" ]; then
+                echo "::error::The build of $HEAD_SHA waits for a maintainer to approve the workflows of the fork: $run_url. Approve it, then add the label again."
+                exit 1
+              elif [ "$status" != "completed" ]; then
+                running=true
+              elif [ "$conclusion" = "success" ]; then
+                artifacts=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$run_id/artifacts?name=docs-pr-$PR_NUMBER" \
+                  --jq '[.artifacts[] | select(.expired | not)] | length')
+                if [ "$artifacts" -gt 0 ]; then
                   echo "run-id=$run_id" >> "$GITHUB_OUTPUT"
                   exit 0
                 fi
-                echo "::error::The build of $HEAD_SHA did not succeed ($conclusion): $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$run_id"
-                exit 1
+                failure="The build $run_url has no site for this pull request. Its site expires after 7 days. Re-run the build, then add the label again."
+              elif [ -z "$failure" ]; then
+                failure="The build of $HEAD_SHA did not succeed ($conclusion): $run_url"
               fi
+            done <<<"$runs"
+
+            if [ "$running" = "false" ] && [ -n "$failure" ]; then
+              echo "::error::$failure"
+              exit 1
             fi
             sleep 20
           done
 
-          echo "::error::No finished build-docs-pr run for $HEAD_SHA. The workflows of a fork may wait for a maintainer to approve them. Add the label again after the build."
+          echo "::error::No finished build-docs-pr run for $HEAD_SHA after 20 minutes. Add the label again after the build."
           exit 1
         shell: bash
 
@@ -134,7 +153,10 @@ jobs:
               exit 0
             fi
             git commit --quiet -m "Deployed ${HEAD_SHA:0:9} to $VERSION_NAME"
-            if git push origin HEAD:gh-pages; then
+            # The token is given to this one command only.
+            auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+            echo "::add-mask::$auth"
+            if git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $auth" push origin HEAD:gh-pages; then
               exit 0
             fi
             git fetch --depth=1 origin gh-pages
@@ -151,7 +173,14 @@ jobs:
           set -eu
 
           site_url=$(grep -oP "^site_url:\s+\K(.*)" repository/mkdocs.yaml)
-          comment_body=$(gh pr diff "$PR_NUMBER" --name-only |
+
+          # The files of the published commit, not of a later push. The preview is already
+          # published, so a failure here only leaves the list of changed pages out.
+          if ! changed_files=$(gh api --paginate "repos/$GITHUB_REPOSITORY/compare/$BASE_SHA...$HEAD_SHA?per_page=100" --jq '.files[].filename'); then
+            echo "::warning::Could not list the changed files, so the comment links the preview only."
+            changed_files=""
+          fi
+          comment_body=$(printf '%s\n' "$changed_files" |
             python3 repository/tools/gh-pages-versions/preview_comment.py "$site_url/$VERSION_NAME/" "$HEAD_SHA")
 
           # Output multiline strings: https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#multiline-strings

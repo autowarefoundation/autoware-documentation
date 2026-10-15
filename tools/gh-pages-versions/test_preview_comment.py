@@ -32,9 +32,15 @@ def test_comment_body_names_the_commit_and_the_changed_pages():
     )
 
     assert body == (
-        f"Documentation URL: {BASE_URL}\n"
+        f"Documentation URL: <{BASE_URL}>\n"
         "Commit: 1a2b3c4\n"
         "Modified URLs:\n"
-        f"- {BASE_URL}how-to/page/\n"
-        f"- {BASE_URL}\n"
+        f"- <{BASE_URL}how-to/page/>\n"
+        f"- <{BASE_URL}>\n"
     )
+
+
+def test_comment_body_leaves_out_a_name_that_could_break_the_link():
+    body = preview_comment.comment_body(BASE_URL, "1a2b3c4", ["docs/a>[x](https://evil).md"])
+
+    assert "evil" not in body

@@ -36,11 +36,15 @@ def check_site(site):
     """Refuse a site that could write outside its directory or that is not a site at all.
 
     The site comes from a build of untrusted code, so a link could point anywhere
-    on the machine. Only plain directories and plain files are accepted.
+    on the machine, and a hidden file such as .git or .gitattributes would change
+    how git handles the gh-pages branch. Only plain directories and plain files
+    are accepted, and none of them may be hidden. MkDocs writes no hidden files.
     """
     if not site.is_dir() or site.is_symlink():
         raise ValueError(f"the site is not a directory: {site}")
     for path in site.rglob("*"):
+        if path.name.startswith("."):
+            raise ValueError(f"the site contains a hidden file: {path.relative_to(site)}")
         if path.is_symlink():
             raise ValueError(f"the site contains a link: {path.relative_to(site)}")
         if not path.is_dir() and not path.is_file():

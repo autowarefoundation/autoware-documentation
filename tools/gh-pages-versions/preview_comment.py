@@ -44,12 +44,16 @@ def page_url(base_url, path):
 
 
 def comment_body(base_url, commit, changed_files):
-    """Return the comment, with the address of each changed page."""
-    lines = [f"Documentation URL: {base_url}", f"Commit: {commit}", "Modified URLs:"]
+    """Return the comment, with the address of each changed page.
+
+    The file names come from the pull request, so each address is written as an
+    autolink in angle brackets, and a name cannot add its own Markdown.
+    """
+    lines = [f"Documentation URL: <{base_url}>", f"Commit: {commit}", "Modified URLs:"]
     for path in changed_files:
         url = page_url(base_url, path)
-        if url is not None:
-            lines.append(f"- {url}")
+        if url is not None and not any(char in url for char in "<> \t"):
+            lines.append(f"- <{url}>")
     return "\n".join(lines) + "\n"
 
 

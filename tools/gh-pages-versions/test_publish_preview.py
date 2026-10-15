@@ -88,6 +88,18 @@ def test_publish_refuses_a_link_in_the_site(site, gh_pages, tmp_path):
     assert (gh_pages / "pr-812" / "old.html").exists()
 
 
+@pytest.mark.parametrize("hidden", [".git/config", "home/.git", "home/.gitattributes", ".nojekyll"])
+def test_publish_refuses_a_hidden_file_in_the_site(site, gh_pages, hidden):
+    path = site / hidden
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("hidden", encoding="utf-8")
+
+    with pytest.raises(ValueError, match="hidden file"):
+        publish_preview.publish(site, gh_pages, "pr-812", "main")
+
+    assert (gh_pages / "pr-812" / "old.html").exists()
+
+
 def test_publish_refuses_a_linked_site(site, gh_pages, tmp_path):
     linked_site = tmp_path / "linked-site"
     linked_site.symlink_to(site)
