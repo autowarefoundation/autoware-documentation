@@ -1,0 +1,31 @@
+name: build-docs-preview
+
+# Builds the documentation of every pull request commit. It runs the code of the
+# pull request, so it has a read-only token and no secrets. The publish-docs-preview
+# workflow publishes the built site.
+
+on:
+  pull_request:
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  build-docs-preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+
+      - name: Build docs preview
+        uses: autowarefoundation/autoware-github-actions/build-docs-preview@v1
+        with:
+          mkdocs-requirements-txt: mkdocs-requirements.txt

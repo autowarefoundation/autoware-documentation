@@ -13,42 +13,9 @@ on:
       - "**/*.jpg"
     tags:
       - "[0-9]+.[0-9]+*"
-  pull_request_target:
-    types:
-      - opened
-      - synchronize
-      - labeled
   workflow_dispatch:
 
 jobs:
-  require-label:
-    if: ${{ github.event_name == 'pull_request_target' }}
-    uses: autowarefoundation/autoware-github-actions/.github/workflows/require-label.yaml@v1
-    with:
-      label: tag:deploy-docs
-
-  deploy-docs-pr:
-    if: ${{ github.event_name == 'pull_request_target' && needs.require-label.outputs.result == 'true' }}
-    needs: require-label
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.sha }}
-          # This job builds fork code in a trusted context, so it only runs
-          # after a maintainer adds the tag:deploy-docs label. Review the diff,
-          # including main.py and mkdocs-requirements.txt, before labeling.
-          allow-unsafe-pr-checkout: true
-
-      - name: Deploy docs
-        uses: autowarefoundation/autoware-github-actions/deploy-docs@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          latest: false
-          mkdocs-requirements-txt: mkdocs-requirements.txt
-
   deploy-docs-push:
     if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-latest
@@ -93,14 +60,12 @@ jobs:
 
   reorder-versions-json:
     needs:
-      - deploy-docs-pr
       - deploy-docs-push
       - deploy-docs-workflow-dispatch
       - delete-old-version-docs
     if: |
       always() &&
       (
-        needs.deploy-docs-pr.result == 'success' ||
         needs.deploy-docs-push.result == 'success' ||
         needs.deploy-docs-workflow-dispatch.result == 'success' ||
         needs.delete-old-version-docs.result == 'success'

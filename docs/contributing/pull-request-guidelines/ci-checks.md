@@ -80,7 +80,13 @@ You need to add the `ARM64` label to run this workflow.
 For reference information, since ARM machines are not supported by GitHub-hosted runners, we use self-hosted runners prepared by the AWF.  
 For the details about self-hosted runners, refer to [GitHub Docs](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners).
 
-## deploy-docs
+## build-docs-preview
 
-This workflow deploys the preview documentation site for the pull request.  
-You need to add the `deploy-docs` label to run this workflow.
+This workflow builds the documentation site of every commit of the pull request.  
+It runs the code of the pull request with a read-only token, and uploads the built site.
+
+## publish-docs-preview
+
+This workflow publishes the site that `build-docs-preview` built to Cloudflare Pages, and adds a comment with the URL of the preview.  
+It does not run the code of the pull request.  
+The preview has its own address, separate from the documentation site.
