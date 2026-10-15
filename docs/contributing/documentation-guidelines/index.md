@@ -35,10 +35,11 @@ There are two ways to preview your modification on a documentation website.
 Follow the steps below.
 
 1. Create a pull request to the repository.
-2. Add the `deploy-docs` label from the sidebar (See below figure).
-3. Wait for a couple of minutes, and the `github-actions` bot will notify the URL for the pull request's preview.
+2. Wait for the `deploy-docs-pr` check to finish. What happens next depends on where your branch is.
+   - If your branch is in the repository itself, the `github-actions` bot adds a comment with the URL of the preview.
+   - If your branch is in a fork, the site is built but not published. Open the run of the `deploy-docs-pr` check and follow the steps in its summary to download the site and view it on your computer.
 
-![deploy-docs-label](images/deploy-docs-label-for-pull-request.png){ width="800" }
+If this is your first pull request to the repository, a maintainer must approve the workflows before they run.
 
 #### 2. Running an MkDocs server in your local environment
 
