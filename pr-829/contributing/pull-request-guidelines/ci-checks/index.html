@@ -14333,21 +14333,29 @@ Editors differ:</p>
 The Ubuntu archives are often behind the pin: Ubuntu 22.04 ships at most <code>clang-format-15</code>, and Ubuntu 24.04 at most <code>clang-format-20</code>.</p>
 <p>Repositories can pin different versions.
 A system binary can match only one of them, so match the repository that you work on most.</p>
-<p>In the commands below, set <code>CLANG_FORMAT_VERSION</code> to the <code>rev</code> of that repository without the leading <code>v</code>, for pipx.
-For apt.llvm.org, set <code>CLANG_FORMAT_MAJOR</code> to the major version of that <code>rev</code>.</p>
+<p>In the commands below, set the variables from the <code>rev</code> of that repository:</p>
+<ul>
+<li>For pipx, set <code>CLANG_FORMAT_VERSION</code> to the <code>rev</code> without the leading <code>v</code>, for example <code>22.1.5</code>.</li>
+<li>For apt.llvm.org, set <code>CLANG_FORMAT_MAJOR</code> to its major version, for example <code>22</code>.</li>
+</ul>
 <h4 id="from-pipx-for-an-exact-match-with-ci">From pipx, for an exact match with CI<a class="headerlink" href="#from-pipx-for-an-exact-match-with-ci" title="Permanent link">#</a></h4>
 <p>This installs the same Python wheel that the pre-commit hook uses.
 It works on Ubuntu 22.04 and 24.04, on amd64 and arm64.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">CLANG_FORMAT_VERSION</span><span class="o">=</span><span class="m">22</span>.1.5
 
 sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>pipx
-pipx<span class="w"> </span>ensurepath<span class="w"> </span><span class="c1"># adds ~/.local/bin to PATH in new shells</span>
+pipx<span class="w"> </span>ensurepath
 pipx<span class="w"> </span>install<span class="w"> </span><span class="s2">"clang-format==</span><span class="si">${</span><span class="nv">CLANG_FORMAT_VERSION</span><span class="si">}</span><span class="s2">"</span>
 </code></pre></div>
-<p>Open a new shell, then check the version:</p>
-<div class="highlight"><pre><span></span><code>clang-format<span class="w"> </span>--version
+<p><code>pipx ensurepath</code> adds <code>~/.local/bin</code> to the end of <code>PATH</code> in new shells.
+So if Ubuntu's <code>clang-format</code> package is installed, its binary still comes first there.
+Log out and log in again: then Ubuntu's <code>~/.profile</code> puts <code>~/.local/bin</code> at the front of <code>PATH</code>.
+Then check that the first <code>clang-format</code> is in <code>~/.local/bin</code> and has the pinned version:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">type</span><span class="w"> </span>-a<span class="w"> </span>clang-format
+clang-format<span class="w"> </span>--version
 </code></pre></div>
-<p>To change the version later, run <code>pipx install --force "clang-format==${CLANG_FORMAT_VERSION}"</code>.
+<p>If another <code>clang-format</code> comes first, remove it, for example with <code>sudo apt-get remove clang-format</code>.</p>
+<p>To change the version later, run <code>pipx install --force "clang-format==&lt;version&gt;"</code>.
 Do not run <code>pipx upgrade clang-format</code>: it moves to the latest release, which may not be the pin.
 On Ubuntu 24.04, <code>pip install --user</code> fails with <code>externally-managed-environment</code> (PEP 668), so use pipx or a virtual environment.</p>
 <h4 id="from-aptllvmorg">From apt.llvm.org<a class="headerlink" href="#from-aptllvmorg" title="Permanent link">#</a></h4>
@@ -14356,7 +14364,7 @@ It keeps only the latest snapshot of that major version, so you cannot install a
 The output usually matches CI, but this is not guaranteed.
 Use pipx if you need an exact match.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">CLANG_FORMAT_MAJOR</span><span class="o">=</span><span class="m">22</span>
-.<span class="w"> </span>/etc/os-release<span class="w"> </span><span class="c1"># sets UBUNTU_CODENAME to jammy or noble</span>
+<span class="nv">UBUNTU_CODENAME</span><span class="o">=</span><span class="k">$(</span>.<span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">UBUNTU_CODENAME</span><span class="si">}</span><span class="s2">"</span><span class="k">)</span><span class="w"> </span><span class="c1"># jammy or noble</span>
 
 sudo<span class="w"> </span>apt-get<span class="w"> </span>update
 sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>wget<span class="w"> </span>gnupg<span class="w"> </span>ca-certificates
@@ -14376,7 +14384,9 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w
 <span class="c1"># expected: 6084 F3CF 814B 57C1 CF12  EFD5 15CF 4D18 AF4F 7421</span>
 </code></pre></div>
 <p>The package installs only the versioned binaries, such as <code>/usr/bin/clang-format-22</code>.
-Manual runs and VS Code look for a plain <code>clang-format</code>, so register it:</p>
+Manual runs and VS Code look for a plain <code>clang-format</code>, so register it.
+If Ubuntu's <code>clang-format</code> package is installed, remove it first with <code>sudo apt-get remove clang-format</code>.
+Otherwise, removing that package later also removes the link <code>/usr/bin/clang-format</code>.</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>update-alternatives<span class="w"> </span>--install<span class="w"> </span>/usr/bin/clang-format<span class="w"> </span>clang-format<span class="w"> </span>/usr/bin/clang-format-<span class="si">${</span><span class="nv">CLANG_FORMAT_MAJOR</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">CLANG_FORMAT_MAJOR</span><span class="si">}</span><span class="m">0</span>
 sudo<span class="w"> </span>update-alternatives<span class="w"> </span>--install<span class="w"> </span>/usr/bin/git-clang-format<span class="w"> </span>git-clang-format<span class="w"> </span>/usr/bin/git-clang-format-<span class="si">${</span><span class="nv">CLANG_FORMAT_MAJOR</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">CLANG_FORMAT_MAJOR</span><span class="si">}</span><span class="m">0</span>
 
