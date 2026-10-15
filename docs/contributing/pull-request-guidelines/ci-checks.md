@@ -82,5 +82,6 @@ For the details about self-hosted runners, refer to [GitHub Docs](https://docs.g
 
 ## deploy-docs
 
-This workflow deploys the preview documentation site for the pull request.  
-You need to add the `deploy-docs` label to run this workflow.
+This workflow builds the documentation site for every commit of the pull request.  
+If the branch of the pull request is in the repository itself, the workflow also publishes a preview and adds a comment with its URL.  
+If the branch is in a fork, the workflow uploads the built site as an artifact, because a pull request from a fork gets a read-only token. The summary of the run explains how to download and view the site.
