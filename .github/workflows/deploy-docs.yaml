@@ -15,10 +15,11 @@ on:
       - "[0-9]+.[0-9]+*"
   pull_request_target:
     types:
-      - opened
       - synchronize
       - labeled
   workflow_dispatch:
+
+permissions: {}
 
 jobs:
   # The label approves one commit, so a new commit removes it. A maintainer adds it again after a review.
@@ -38,40 +39,152 @@ jobs:
 
           gh pr edit "$PR_NUMBER" --remove-label tag:deploy-docs
 
-  # Runs after the label removal, so that its result does not depend on which job finishes first.
-  require-label:
-    needs: remove-label-on-new-commit
-    if: ${{ !cancelled() && github.event_name == 'pull_request_target' }}
-    uses: autowarefoundation/autoware-github-actions/.github/workflows/require-label.yaml@v1
-    with:
-      label: tag:deploy-docs
-
-  # Deploy only when the label is added. It deploys the head commit at that time, not a later push.
+  # Publishes the site that build-docs-pr built for the head commit at the time the label is added.
+  # It runs only the code of the base branch. The built site is copied as data and never run.
   deploy-docs-pr:
-    if: ${{ !cancelled() && github.event_name == 'pull_request_target' && github.event.action == 'labeled' && github.event.label.name == 'tag:deploy-docs' && needs.require-label.outputs.result == 'true' }}
-    needs: require-label
+    if: ${{ github.event_name == 'pull_request_target' && github.event.action == 'labeled' && github.event.label.name == 'tag:deploy-docs' }}
     runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: write
+      pull-requests: write
+    concurrency:
+      group: ${{ github.workflow }}-pr-${{ github.event.pull_request.number }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+      VERSION_NAME: pr-${{ github.event.pull_request.number }}
     steps:
+      # The base branch, not the pull request: its scripts publish the site.
       - name: Check out repository
         uses: actions/checkout@v7
         with:
-          fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.sha }}
-          # This job builds fork code in a trusted context, so it only runs
-          # after a maintainer adds the tag:deploy-docs label. Review the diff,
-          # including main.py and mkdocs-requirements.txt, before labeling.
-          allow-unsafe-pr-checkout: true
+          path: repository
+          persist-credentials: false
 
-      - name: Deploy docs
-        uses: autowarefoundation/autoware-github-actions/deploy-docs@v1
+      - name: Check out gh-pages branch
+        uses: actions/checkout@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          latest: false
-          mkdocs-requirements-txt: mkdocs-requirements.txt
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Find the build of the labeled commit
+        id: find-build
+        run: |
+          set -eu
+
+          # Wait up to 20 minutes, in case the label is added while the build still runs.
+          for _ in $(seq 60); do
+            run=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/build-docs-pr.yaml/runs?event=pull_request&head_sha=$HEAD_SHA&per_page=100" \
+              --jq '[.workflow_runs[] | select(.head_repository.full_name == env.HEAD_REPO)]
+                | (map(select(.conclusion == "success")) + .) | first
+                | select(. != null) | "\(.id) \(.status) \(.conclusion)"')
+            if [ -n "$run" ]; then
+              read -r run_id status conclusion <<<"$run"
+              if [ "$status" = "completed" ]; then
+                if [ "$conclusion" = "success" ]; then
+                  echo "run-id=$run_id" >> "$GITHUB_OUTPUT"
+                  exit 0
+                fi
+                echo "::error::The build of $HEAD_SHA did not succeed ($conclusion): $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$run_id"
+                exit 1
+              fi
+            fi
+            sleep 20
+          done
+
+          echo "::error::No finished build-docs-pr run for $HEAD_SHA. The workflows of a fork may wait for a maintainer to approve them. Add the label again after the build."
+          exit 1
+        shell: bash
+
+      - name: Download site
+        uses: actions/download-artifact@v8
+        with:
+          name: docs-pr-${{ github.event.pull_request.number }}
+          path: ${{ runner.temp }}/site
+          run-id: ${{ steps.find-build.outputs.run-id }}
+          github-token: ${{ github.token }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: 3.12
+
+      - name: Publish docs
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          GIT_AUTHOR_NAME: github-actions
+          GIT_AUTHOR_EMAIL: github-actions@github.com
+          GIT_COMMITTER_NAME: github-actions
+          GIT_COMMITTER_EMAIL: github-actions@github.com
+        working-directory: gh-pages
+        run: |
+          set -eu
+
+          # Another workflow can update gh-pages at the same time, so start again from its new state if the push fails.
+          for _ in $(seq 5); do
+            python3 ../repository/tools/gh-pages-versions/publish_preview.py \
+              "$RUNNER_TEMP/site" . "$VERSION_NAME" --default-branch "$DEFAULT_BRANCH"
+            git add --all -- "$VERSION_NAME" versions.json
+            if git diff --cached --quiet; then
+              echo "The preview is already up to date."
+              exit 0
+            fi
+            git commit --quiet -m "Deployed ${HEAD_SHA:0:9} to $VERSION_NAME"
+            if git push origin HEAD:gh-pages; then
+              exit 0
+            fi
+            git fetch --depth=1 origin gh-pages
+            git reset --hard FETCH_HEAD
+          done
+
+          echo "::error::Could not push to gh-pages."
+          exit 1
+        shell: bash
+
+      - name: Create comment body
+        id: create-comment-body
+        run: |
+          set -eu
+
+          site_url=$(grep -oP "^site_url:\s+\K(.*)" repository/mkdocs.yaml)
+          comment_body=$(gh pr diff "$PR_NUMBER" --name-only |
+            python3 repository/tools/gh-pages-versions/preview_comment.py "$site_url/$VERSION_NAME/" "$HEAD_SHA")
+
+          # Output multiline strings: https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#multiline-strings
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          {
+            echo "comment-body<<$EOF"
+            echo "$comment_body"
+            echo "$EOF"
+          } >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      - name: Find PR comment
+        id: find-comment
+        uses: peter-evans/find-comment@v4
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: github-actions[bot]
+          body-includes: Documentation URL
+
+      - name: Update PR comment
+        uses: peter-evans/create-or-update-comment@v5
+        with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            ${{ steps.create-comment-body.outputs.comment-body }}
+          edit-mode: replace
 
   deploy-docs-push:
     if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -88,6 +201,8 @@ jobs:
   deploy-docs-workflow-dispatch:
     if: ${{ github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -104,6 +219,8 @@ jobs:
   delete-old-version-docs:
     if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') }}
     needs: deploy-docs-push
+    permissions:
+      contents: write
     uses: ./.github/workflows/delete-old-version-docs.yaml
     with:
       # keep-lines is left at the default of the called workflow.
@@ -111,16 +228,17 @@ jobs:
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
 
+  # deploy-docs-pr is not listed, because publish_preview.py already writes versions.json in order.
   reorder-versions-json:
     needs:
-      - deploy-docs-pr
       - deploy-docs-push
       - deploy-docs-workflow-dispatch
       - delete-old-version-docs
+    permissions:
+      contents: write
     if: |
       always() &&
       (
-        needs.deploy-docs-pr.result == 'success' ||
         needs.deploy-docs-push.result == 'success' ||
         needs.deploy-docs-workflow-dispatch.result == 'success' ||
         needs.delete-old-version-docs.result == 'success'

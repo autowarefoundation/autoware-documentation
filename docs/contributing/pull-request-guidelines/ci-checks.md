@@ -80,9 +80,15 @@ You need to add the `ARM64` label to run this workflow.
 For reference information, since ARM machines are not supported by GitHub-hosted runners, we use self-hosted runners prepared by the AWF.  
 For the details about self-hosted runners, refer to [GitHub Docs](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners).
 
+## build-docs-pr
+
+This workflow builds the documentation site of every commit of the pull request.  
+It runs the code of the pull request with a read-only token, and uploads the built site.
+
 ## deploy-docs
 
-This workflow deploys the preview documentation site for the pull request.  
-You need to add the `tag:deploy-docs` label to run this workflow.  
-It deploys the head commit of the pull request at the time the label is added. Before you add the label, check that the head commit is the commit that you reviewed.  
+This workflow publishes the preview documentation site for the pull request.  
+A maintainer adds the `tag:deploy-docs` label to run this workflow.  
+It publishes the site that `build-docs-pr` built for the head commit of the pull request at the time the label is added. It does not run the code of the pull request.  
+Before you add the label, review the change and check that the head commit is the commit that you reviewed, because the preview is published on the documentation site.  
 A new commit removes the label, so a maintainer must review the change and add the label again.

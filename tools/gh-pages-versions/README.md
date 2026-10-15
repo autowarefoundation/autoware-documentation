@@ -14,6 +14,11 @@ with unit tests rather than in the workflows, so that it can be read and tested 
   `delete-old-version-docs` workflow.
 - `reorder_versions.py` sorts the entries of `versions.json`. It is used by the
   `reorder-versions` workflow.
+- `publish_preview.py` copies a pull request preview that `build-docs-pr` built into its
+  directory on the `gh-pages` branch, and lists it in `versions.json`. It refuses any name other
+  than `pr-<number>` and any site with links. It is used by the `deploy-docs` workflow.
+- `preview_comment.py` writes the pull request comment that links the preview and its changed
+  pages. It is used by the `deploy-docs` workflow.
 
 ## What is kept
 
@@ -54,6 +59,16 @@ python3 tools/gh-pages-versions/delete_old_version_docs.py --keep-lines 3
 
 ```bash
 python3 tools/gh-pages-versions/reorder_versions.py path/to/versions.json --default-branch main
+```
+
+`publish_preview.py` needs the built site and a checkout of the `gh-pages` branch. It changes
+the checkout only. The workflow commits and pushes the result. `preview_comment.py` reads the
+changed files from standard input.
+
+```bash
+python3 tools/gh-pages-versions/publish_preview.py path/to/site path/to/gh-pages pr-812
+gh pr diff 812 --name-only |
+  python3 tools/gh-pages-versions/preview_comment.py https://example.com/pr-812/ 1a2b3c4
 ```
 
 ## Tests

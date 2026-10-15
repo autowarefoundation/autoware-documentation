@@ -1,0 +1,64 @@
+name: build-docs-pr
+
+# Builds the documentation of every pull request commit. It runs the code of the
+# pull request, so it has a read-only token and no secrets. The deploy-docs
+# workflow publishes the built site after a maintainer adds the tag:deploy-docs label.
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  build-docs-pr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.10"
+
+      - name: Install MkDocs
+        run: |
+          pip3 install -U wheel
+          pip3 install -r mkdocs-requirements.txt
+        shell: bash
+
+      # mike builds the site the same way as for a deployment, but commits it to a
+      # local branch only. Nothing is pushed.
+      - name: Build docs
+        env:
+          VERSION_NAME: pr-${{ github.event.pull_request.number }}
+          GIT_AUTHOR_NAME: github-actions
+          GIT_AUTHOR_EMAIL: github-actions@github.com
+          GIT_COMMITTER_NAME: github-actions
+          GIT_COMMITTER_EMAIL: github-actions@github.com
+        run: |
+          mike deploy --branch build-docs-pr "$VERSION_NAME"
+          mkdir -p "$RUNNER_TEMP/site"
+          git archive build-docs-pr "$VERSION_NAME" | tar -x -C "$RUNNER_TEMP/site"
+        shell: bash
+
+      - name: Upload site
+        uses: actions/upload-artifact@v7
+        with:
+          name: docs-pr-${{ github.event.pull_request.number }}
+          path: ${{ runner.temp }}/site/pr-${{ github.event.pull_request.number }}
+          if-no-files-found: error
+          retention-days: 7

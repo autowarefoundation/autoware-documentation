@@ -35,8 +35,10 @@ There are two ways to preview your modification on a documentation website.
 Follow the steps below.
 
 1. Create a pull request to the repository.
-2. Add the `deploy-docs` label from the sidebar (See below figure).
-3. Wait for a couple of minutes, and the `github-actions` bot will notify the URL for the pull request's preview.
+2. Wait for the `build-docs-pr` check to pass.
+3. A maintainer reviews the change and adds the `tag:deploy-docs` label from the sidebar (See below figure).
+4. Wait for a couple of minutes, and the `github-actions` bot will notify the URL for the pull request's preview.
+   A new commit removes the label, so a maintainer must add it again to update the preview.
 
 ![deploy-docs-label](images/deploy-docs-label-for-pull-request.png){ width="800" }
 
