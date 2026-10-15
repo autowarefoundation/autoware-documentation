@@ -82,8 +82,10 @@ The Ubuntu archives are often behind the pin: Ubuntu 22.04 ships at most `clang-
 Repositories can pin different versions.
 A system binary can match only one of them, so match the repository that you work on most.
 
-In the commands below, set `CLANG_FORMAT_VERSION` to the `rev` of that repository without the leading `v`, for pipx.
-For apt.llvm.org, set `CLANG_FORMAT_MAJOR` to the major version of that `rev`.
+In the commands below, set the variables from the `rev` of that repository:
+
+- For pipx, set `CLANG_FORMAT_VERSION` to the `rev` without the leading `v`, for example `22.1.5`.
+- For apt.llvm.org, set `CLANG_FORMAT_MAJOR` to its major version, for example `22`.
 
 #### From pipx, for an exact match with CI
 
@@ -94,17 +96,23 @@ It works on Ubuntu 22.04 and 24.04, on amd64 and arm64.
 CLANG_FORMAT_VERSION=22.1.5
 
 sudo apt-get install -y pipx
-pipx ensurepath # adds ~/.local/bin to PATH in new shells
+pipx ensurepath
 pipx install "clang-format==${CLANG_FORMAT_VERSION}"
 ```
 
-Open a new shell, then check the version:
+`pipx ensurepath` adds `~/.local/bin` to the end of `PATH` in new shells.
+So if Ubuntu's `clang-format` package is installed, its binary still comes first there.
+Log out and log in again: then Ubuntu's `~/.profile` puts `~/.local/bin` at the front of `PATH`.
+Then check that the first `clang-format` is in `~/.local/bin` and has the pinned version:
 
 ```bash
+type -a clang-format
 clang-format --version
 ```
 
-To change the version later, run `pipx install --force "clang-format==${CLANG_FORMAT_VERSION}"`.
+If another `clang-format` comes first, remove it, for example with `sudo apt-get remove clang-format`.
+
+To change the version later, run `pipx install --force "clang-format==<version>"`.
 Do not run `pipx upgrade clang-format`: it moves to the latest release, which may not be the pin.
 On Ubuntu 24.04, `pip install --user` fails with `externally-managed-environment` (PEP 668), so use pipx or a virtual environment.
 
@@ -117,7 +125,7 @@ Use pipx if you need an exact match.
 
 ```bash
 CLANG_FORMAT_MAJOR=22
-. /etc/os-release # sets UBUNTU_CODENAME to jammy or noble
+UBUNTU_CODENAME=$(. /etc/os-release && echo "${UBUNTU_CODENAME}") # jammy or noble
 
 sudo apt-get update
 sudo apt-get install -y wget gnupg ca-certificates
@@ -141,7 +149,9 @@ gpg --show-keys --with-fingerprint /etc/apt/keyrings/apt.llvm.org.asc
 ```
 
 The package installs only the versioned binaries, such as `/usr/bin/clang-format-22`.
-Manual runs and VS Code look for a plain `clang-format`, so register it:
+Manual runs and VS Code look for a plain `clang-format`, so register it.
+If Ubuntu's `clang-format` package is installed, remove it first with `sudo apt-get remove clang-format`.
+Otherwise, removing that package later also removes the link `/usr/bin/clang-format`.
 
 ```bash
 sudo update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-${CLANG_FORMAT_MAJOR} ${CLANG_FORMAT_MAJOR}0
