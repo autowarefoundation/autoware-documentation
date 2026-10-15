@@ -21,14 +21,34 @@ on:
   workflow_dispatch:
 
 jobs:
+  # The label approves one commit, so a new commit removes it. A maintainer adds it again after a review.
+  remove-label-on-new-commit:
+    if: ${{ github.event_name == 'pull_request_target' && github.event.action == 'synchronize' && contains(github.event.pull_request.labels.*.name, 'tag:deploy-docs') }}
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Remove the label
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -eu
+
+          gh pr edit "$PR_NUMBER" --remove-label tag:deploy-docs
+
+  # Runs after the label removal, so that its result does not depend on which job finishes first.
   require-label:
-    if: ${{ github.event_name == 'pull_request_target' }}
+    needs: remove-label-on-new-commit
+    if: ${{ !cancelled() && github.event_name == 'pull_request_target' }}
     uses: autowarefoundation/autoware-github-actions/.github/workflows/require-label.yaml@v1
     with:
       label: tag:deploy-docs
 
+  # Deploy only when the label is added, so the commit that the maintainer reviewed is deployed.
   deploy-docs-pr:
-    if: ${{ github.event_name == 'pull_request_target' && needs.require-label.outputs.result == 'true' }}
+    if: ${{ !cancelled() && github.event_name == 'pull_request_target' && github.event.action == 'labeled' && github.event.label.name == 'tag:deploy-docs' && needs.require-label.outputs.result == 'true' }}
     needs: require-label
     runs-on: ubuntu-latest
     steps:
