@@ -106,3 +106,8 @@ For the details about self-hosted runners, refer to [GitHub Docs](https://docs.g
 This workflow builds the documentation site for every commit of the pull request.  
 If the branch of the pull request is in the repository itself, the workflow also publishes a preview and adds a comment with its URL.  
 If the branch is in a fork, the workflow uploads the built site as an artifact, because a pull request from a fork gets a read-only token. The summary of the run explains how to download and view the site.
+
+## comment-docs-artifact
+
+This workflow runs after `deploy-docs` for a pull request from a fork, and adds a comment with the download link of the built site.  
+It runs from the default branch and does not run the code of the pull request.

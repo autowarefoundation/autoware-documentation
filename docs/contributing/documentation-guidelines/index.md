@@ -37,7 +37,7 @@ Follow the steps below.
 1. Create a pull request to the repository.
 2. Wait for the `deploy-docs-pr` check to finish. What happens next depends on where your branch is.
    - If your branch is in the repository itself, the `github-actions` bot adds a comment with the URL of the preview.
-   - If your branch is in a fork, the site is built but not published. Open the run of the `deploy-docs-pr` check and follow the steps in its summary to download the site and view it on your computer.
+   - If your branch is in a fork, the site is built but not published. The `github-actions` bot adds a comment with a link to download the site, and the summary of the run explains how to view it on your computer.
 
 If this is your first pull request to the repository, a maintainer must approve the workflows before they run.
 
