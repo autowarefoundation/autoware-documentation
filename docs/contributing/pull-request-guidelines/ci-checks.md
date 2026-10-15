@@ -68,14 +68,22 @@ Each repository pins its clang-format version in `.pre-commit-config.yaml`, as t
 `pre-commit` installs that exact version in its own environment.
 So `pre-commit run -a` gives the same result as CI, whatever clang-format you have installed.
 
-Your system `clang-format` is used only by manual runs, by editors and IDEs (CLion, VS Code, clangd), and by `ament_clang_format`.
-If its version differs from the pin, your editor may format code differently from CI.
+Manual runs of `clang-format` use the binary on your `PATH`.
+Editors differ:
+
+- VS Code with the C/C++ extension uses the `clang-format` on your `PATH`, unless its bundled one is newer.
+  To always use yours, set `C_Cpp.clang_format_path`.
+- CLion uses its bundled `clang-format`, unless you set a custom path in **Settings | Editor | Code Style | C/C++**.
+- clangd has the formatter built in, so its output follows the version of clangd, not of `clang-format`.
+
+If the version that your editor uses differs from the pin, your editor may format code differently from CI.
 The Ubuntu archives are often behind the pin: Ubuntu 22.04 ships at most `clang-format-15`, and Ubuntu 24.04 at most `clang-format-20`.
 
 Repositories can pin different versions.
 A system binary can match only one of them, so match the repository that you work on most.
 
-In the commands below, set `CLANG_FORMAT_VERSION` to the `rev` of that repository without the leading `v`.
+In the commands below, set `CLANG_FORMAT_VERSION` to the `rev` of that repository without the leading `v`, for pipx.
+For apt.llvm.org, set `CLANG_FORMAT_MAJOR` to the major version of that `rev`.
 
 #### From pipx, for an exact match with CI
 
@@ -86,14 +94,18 @@ It works on Ubuntu 22.04 and 24.04, on amd64 and arm64.
 CLANG_FORMAT_VERSION=22.1.5
 
 sudo apt-get install -y pipx
-pipx ensurepath # adds ~/.local/bin to PATH; open a new shell afterwards
+pipx ensurepath # adds ~/.local/bin to PATH in new shells
 pipx install "clang-format==${CLANG_FORMAT_VERSION}"
+```
 
+Open a new shell, then check the version:
+
+```bash
 clang-format --version
 ```
 
 To change the version later, run `pipx install --force "clang-format==${CLANG_FORMAT_VERSION}"`.
-Do not run `pipx upgrade clang-format` or `pipx install clang-format` without a version: both install the latest release, which may not be the pin.
+Do not run `pipx upgrade clang-format`: it moves to the latest release, which may not be the pin.
 On Ubuntu 24.04, `pip install --user` fails with `externally-managed-environment` (PEP 668), so use pipx or a virtual environment.
 
 #### From apt.llvm.org
@@ -105,7 +117,7 @@ Use pipx if you need an exact match.
 
 ```bash
 CLANG_FORMAT_MAJOR=22
-. /etc/os-release # sets VERSION_CODENAME to jammy or noble
+. /etc/os-release # sets UBUNTU_CODENAME to jammy or noble
 
 sudo apt-get update
 sudo apt-get install -y wget gnupg ca-certificates
@@ -114,7 +126,7 @@ sudo install -d -m 0755 /etc/apt/keyrings
 wget -qO- https://apt.llvm.org/llvm-snapshot.gpg.key \
   | sudo tee /etc/apt/keyrings/apt.llvm.org.asc > /dev/null
 
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/apt.llvm.org.asc] http://apt.llvm.org/${VERSION_CODENAME}/ llvm-toolchain-${VERSION_CODENAME}-${CLANG_FORMAT_MAJOR} main" \
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/apt.llvm.org.asc] https://apt.llvm.org/${UBUNTU_CODENAME}/ llvm-toolchain-${UBUNTU_CODENAME}-${CLANG_FORMAT_MAJOR} main" \
   | sudo tee /etc/apt/sources.list.d/apt.llvm.org-${CLANG_FORMAT_MAJOR}.list > /dev/null
 
 sudo apt-get update
@@ -129,7 +141,7 @@ gpg --show-keys --with-fingerprint /etc/apt/keyrings/apt.llvm.org.asc
 ```
 
 The package installs only the versioned binaries, such as `/usr/bin/clang-format-22`.
-Editors and `ament_clang_format` look for a plain `clang-format`, so register it:
+Manual runs and VS Code look for a plain `clang-format`, so register it:
 
 ```bash
 sudo update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-${CLANG_FORMAT_MAJOR} ${CLANG_FORMAT_MAJOR}0
