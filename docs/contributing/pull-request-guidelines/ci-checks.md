@@ -58,107 +58,24 @@ pre-commit run -a --config .pre-commit-config-optional.yaml
 
 ### Matching your local clang-format to pre-commit
 
-Each repository pins its clang-format version in `.pre-commit-config.yaml`, as the `rev` of the `mirrors-clang-format` hook:
+`pre-commit` uses the clang-format version pinned in `.pre-commit-config.yaml`, so `pre-commit run -a` always matches CI.
+Your editor and manual runs use the `clang-format` on your `PATH`, which may be another version and format code differently.
 
-```yaml
-- repo: https://github.com/pre-commit/mirrors-clang-format
-  rev: v22.1.5
-```
-
-`pre-commit` installs that exact version in its own environment.
-So `pre-commit run -a` gives the same result as CI, whatever clang-format you have installed.
-
-Manual runs of `clang-format` use the binary on your `PATH`.
-Editors differ:
-
-- VS Code with the C/C++ extension uses the `clang-format` on your `PATH`, unless its bundled one is newer.
-  To always use yours, set `C_Cpp.clang_format_path`.
-- CLion uses its bundled `clang-format`, unless you set a custom path in **Settings | Editor | Code Style | C/C++**.
-- clangd has the formatter built in, so its output follows the version of clangd, not of `clang-format`.
-
-If the version that your editor uses differs from the pin, your editor may format code differently from CI.
-The Ubuntu archives are often behind the pin: Ubuntu 22.04 ships at most `clang-format-15`, and Ubuntu 24.04 at most `clang-format-20`.
-
-Repositories can pin different versions.
-A system binary can match only one of them, so match the repository that you work on most.
-
-In the commands below, set the variables from the `rev` of that repository:
-
-- For pipx, set `CLANG_FORMAT_VERSION` to the `rev` without the leading `v`, for example `22.1.5`.
-- For apt.llvm.org, set `CLANG_FORMAT_MAJOR` to its major version, for example `22`.
-
-#### From pipx, for an exact match with CI
-
-This installs the same Python wheel that the pre-commit hook uses.
-It works on Ubuntu 22.04 and 24.04, on amd64 and arm64.
+To install the pinned version, take the `rev` of `mirrors-clang-format` in `.pre-commit-config.yaml`, for example `v22.1.5`, and run:
 
 ```bash
-CLANG_FORMAT_VERSION=22.1.5
-
-sudo apt-get install -y pipx
+sudo apt install pipx
 pipx ensurepath
-pipx install "clang-format==${CLANG_FORMAT_VERSION}"
+pipx install --force clang-format==22.1.5
 ```
 
-`pipx ensurepath` adds `~/.local/bin` to the end of `PATH` in new shells.
-So if Ubuntu's `clang-format` package is installed, its binary still comes first there.
-Log out and log in again: then Ubuntu's `~/.profile` puts `~/.local/bin` at the front of `PATH`.
-Then check that the first `clang-format` is in `~/.local/bin` and has the pinned version:
+Then open a new terminal and check the version:
 
 ```bash
-type -a clang-format
 clang-format --version
 ```
 
-If another `clang-format` comes first, remove it, for example with `sudo apt-get remove clang-format`.
-
-To change the version later, run `pipx install --force "clang-format==<version>"`.
-Do not run `pipx upgrade clang-format`: it moves to the latest release, which may not be the pin.
-On Ubuntu 24.04, `pip install --user` fails with `externally-managed-environment` (PEP 668), so use pipx or a virtual environment.
-
-#### From apt.llvm.org
-
-[apt.llvm.org](https://apt.llvm.org/) has a package for each major version.
-It keeps only the latest snapshot of that major version, so you cannot install a specific patch release.
-The output usually matches CI, but this is not guaranteed.
-Use pipx if you need an exact match.
-
-```bash
-CLANG_FORMAT_MAJOR=22
-UBUNTU_CODENAME=$(. /etc/os-release && echo "${UBUNTU_CODENAME}") # jammy or noble
-
-sudo apt-get update
-sudo apt-get install -y wget gnupg ca-certificates
-
-sudo install -d -m 0755 /etc/apt/keyrings
-wget -qO- https://apt.llvm.org/llvm-snapshot.gpg.key \
-  | sudo tee /etc/apt/keyrings/apt.llvm.org.asc > /dev/null
-
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/apt.llvm.org.asc] https://apt.llvm.org/${UBUNTU_CODENAME}/ llvm-toolchain-${UBUNTU_CODENAME}-${CLANG_FORMAT_MAJOR} main" \
-  | sudo tee /etc/apt/sources.list.d/apt.llvm.org-${CLANG_FORMAT_MAJOR}.list > /dev/null
-
-sudo apt-get update
-sudo apt-get install -y clang-format-${CLANG_FORMAT_MAJOR}
-```
-
-Optionally, verify the signing key:
-
-```bash
-gpg --show-keys --with-fingerprint /etc/apt/keyrings/apt.llvm.org.asc
-# expected: 6084 F3CF 814B 57C1 CF12  EFD5 15CF 4D18 AF4F 7421
-```
-
-The package installs only the versioned binaries, such as `/usr/bin/clang-format-22`.
-Manual runs and VS Code look for a plain `clang-format`, so register it.
-If Ubuntu's `clang-format` package is installed, remove it first with `sudo apt-get remove clang-format`.
-Otherwise, removing that package later also removes the link `/usr/bin/clang-format`.
-
-```bash
-sudo update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-${CLANG_FORMAT_MAJOR} ${CLANG_FORMAT_MAJOR}0
-sudo update-alternatives --install /usr/bin/git-clang-format git-clang-format /usr/bin/git-clang-format-${CLANG_FORMAT_MAJOR} ${CLANG_FORMAT_MAJOR}0
-
-clang-format --version
-```
+If it still shows another version, log out and log in again.
 
 ## spell-check-differential
 
