@@ -14315,83 +14315,17 @@ To check them, use the <code>--config</code> option:</p>
 <div class="highlight"><pre><span></span><code>pre-commit<span class="w"> </span>run<span class="w"> </span>-a<span class="w"> </span>--config<span class="w"> </span>.pre-commit-config-optional.yaml
 </code></pre></div>
 <h3 id="matching-your-local-clang-format-to-pre-commit">Matching your local clang-format to pre-commit<a class="headerlink" href="#matching-your-local-clang-format-to-pre-commit" title="Permanent link">#</a></h3>
-<p>Each repository pins its clang-format version in <code>.pre-commit-config.yaml</code>, as the <code>rev</code> of the <code>mirrors-clang-format</code> hook:</p>
-<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/mirrors-clang-format</span>
-<span class="w">  </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v22.1.5</span>
-</code></pre></div>
-<p><code>pre-commit</code> installs that exact version in its own environment.
-So <code>pre-commit run -a</code> gives the same result as CI, whatever clang-format you have installed.</p>
-<p>Manual runs of <code>clang-format</code> use the binary on your <code>PATH</code>.
-Editors differ:</p>
-<ul>
-<li>VS Code with the C/C++ extension uses the <code>clang-format</code> on your <code>PATH</code>, unless its bundled one is newer.
-  To always use yours, set <code>C_Cpp.clang_format_path</code>.</li>
-<li>CLion uses its bundled <code>clang-format</code>, unless you set a custom path in <strong>Settings | Editor | Code Style | C/C++</strong>.</li>
-<li>clangd has the formatter built in, so its output follows the version of clangd, not of <code>clang-format</code>.</li>
-</ul>
-<p>If the version that your editor uses differs from the pin, your editor may format code differently from CI.
-The Ubuntu archives are often behind the pin: Ubuntu 22.04 ships at most <code>clang-format-15</code>, and Ubuntu 24.04 at most <code>clang-format-20</code>.</p>
-<p>Repositories can pin different versions.
-A system binary can match only one of them, so match the repository that you work on most.</p>
-<p>In the commands below, set the variables from the <code>rev</code> of that repository:</p>
-<ul>
-<li>For pipx, set <code>CLANG_FORMAT_VERSION</code> to the <code>rev</code> without the leading <code>v</code>, for example <code>22.1.5</code>.</li>
-<li>For apt.llvm.org, set <code>CLANG_FORMAT_MAJOR</code> to its major version, for example <code>22</code>.</li>
-</ul>
-<h4 id="from-pipx-for-an-exact-match-with-ci">From pipx, for an exact match with CI<a class="headerlink" href="#from-pipx-for-an-exact-match-with-ci" title="Permanent link">#</a></h4>
-<p>This installs the same Python wheel that the pre-commit hook uses.
-It works on Ubuntu 22.04 and 24.04, on amd64 and arm64.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">CLANG_FORMAT_VERSION</span><span class="o">=</span><span class="m">22</span>.1.5
-
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>pipx
+<p><code>pre-commit</code> uses the clang-format version pinned in <code>.pre-commit-config.yaml</code>, so <code>pre-commit run -a</code> always matches CI.
+Your editor and manual runs use the <code>clang-format</code> on your <code>PATH</code>, which may be another version and format code differently.</p>
+<p>To install the pinned version, take the <code>rev</code> of <code>mirrors-clang-format</code> in <code>.pre-commit-config.yaml</code>, for example <code>v22.1.5</code>, and run:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>pipx
 pipx<span class="w"> </span>ensurepath
-pipx<span class="w"> </span>install<span class="w"> </span><span class="s2">"clang-format==</span><span class="si">${</span><span class="nv">CLANG_FORMAT_VERSION</span><span class="si">}</span><span class="s2">"</span>
+pipx<span class="w"> </span>install<span class="w"> </span>--force<span class="w"> </span>clang-format<span class="o">==</span><span class="m">22</span>.1.5
 </code></pre></div>
-<p><code>pipx ensurepath</code> adds <code>~/.local/bin</code> to the end of <code>PATH</code> in new shells.
-So if Ubuntu's <code>clang-format</code> package is installed, its binary still comes first there.
-Log out and log in again: then Ubuntu's <code>~/.profile</code> puts <code>~/.local/bin</code> at the front of <code>PATH</code>.
-Then check that the first <code>clang-format</code> is in <code>~/.local/bin</code> and has the pinned version:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">type</span><span class="w"> </span>-a<span class="w"> </span>clang-format
-clang-format<span class="w"> </span>--version
+<p>Then open a new terminal and check the version:</p>
+<div class="highlight"><pre><span></span><code>clang-format<span class="w"> </span>--version
 </code></pre></div>
-<p>If another <code>clang-format</code> comes first, remove it, for example with <code>sudo apt-get remove clang-format</code>.</p>
-<p>To change the version later, run <code>pipx install --force "clang-format==&lt;version&gt;"</code>.
-Do not run <code>pipx upgrade clang-format</code>: it moves to the latest release, which may not be the pin.
-On Ubuntu 24.04, <code>pip install --user</code> fails with <code>externally-managed-environment</code> (PEP 668), so use pipx or a virtual environment.</p>
-<h4 id="from-aptllvmorg">From apt.llvm.org<a class="headerlink" href="#from-aptllvmorg" title="Permanent link">#</a></h4>
-<p><a href="https://apt.llvm.org/">apt.llvm.org</a> has a package for each major version.
-It keeps only the latest snapshot of that major version, so you cannot install a specific patch release.
-The output usually matches CI, but this is not guaranteed.
-Use pipx if you need an exact match.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">CLANG_FORMAT_MAJOR</span><span class="o">=</span><span class="m">22</span>
-<span class="nv">UBUNTU_CODENAME</span><span class="o">=</span><span class="k">$(</span>.<span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">UBUNTU_CODENAME</span><span class="si">}</span><span class="s2">"</span><span class="k">)</span><span class="w"> </span><span class="c1"># jammy or noble</span>
-
-sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>wget<span class="w"> </span>gnupg<span class="w"> </span>ca-certificates
-
-sudo<span class="w"> </span>install<span class="w"> </span>-d<span class="w"> </span>-m<span class="w"> </span><span class="m">0755</span><span class="w"> </span>/etc/apt/keyrings
-wget<span class="w"> </span>-qO-<span class="w"> </span>https://apt.llvm.org/llvm-snapshot.gpg.key<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/keyrings/apt.llvm.org.asc<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
-
-<span class="nb">echo</span><span class="w"> </span><span class="s2">"deb [arch=</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2"> signed-by=/etc/apt/keyrings/apt.llvm.org.asc] https://apt.llvm.org/</span><span class="si">${</span><span class="nv">UBUNTU_CODENAME</span><span class="si">}</span><span class="s2">/ llvm-toolchain-</span><span class="si">${</span><span class="nv">UBUNTU_CODENAME</span><span class="si">}</span><span class="s2">-</span><span class="si">${</span><span class="nv">CLANG_FORMAT_MAJOR</span><span class="si">}</span><span class="s2"> main"</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/apt.llvm.org-<span class="si">${</span><span class="nv">CLANG_FORMAT_MAJOR</span><span class="si">}</span>.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
-
-sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>clang-format-<span class="si">${</span><span class="nv">CLANG_FORMAT_MAJOR</span><span class="si">}</span>
-</code></pre></div>
-<p>Optionally, verify the signing key:</p>
-<div class="highlight"><pre><span></span><code>gpg<span class="w"> </span>--show-keys<span class="w"> </span>--with-fingerprint<span class="w"> </span>/etc/apt/keyrings/apt.llvm.org.asc
-<span class="c1"># expected: 6084 F3CF 814B 57C1 CF12  EFD5 15CF 4D18 AF4F 7421</span>
-</code></pre></div>
-<p>The package installs only the versioned binaries, such as <code>/usr/bin/clang-format-22</code>.
-Manual runs and VS Code look for a plain <code>clang-format</code>, so register it.
-If Ubuntu's <code>clang-format</code> package is installed, remove it first with <code>sudo apt-get remove clang-format</code>.
-Otherwise, removing that package later also removes the link <code>/usr/bin/clang-format</code>.</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>update-alternatives<span class="w"> </span>--install<span class="w"> </span>/usr/bin/clang-format<span class="w"> </span>clang-format<span class="w"> </span>/usr/bin/clang-format-<span class="si">${</span><span class="nv">CLANG_FORMAT_MAJOR</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">CLANG_FORMAT_MAJOR</span><span class="si">}</span><span class="m">0</span>
-sudo<span class="w"> </span>update-alternatives<span class="w"> </span>--install<span class="w"> </span>/usr/bin/git-clang-format<span class="w"> </span>git-clang-format<span class="w"> </span>/usr/bin/git-clang-format-<span class="si">${</span><span class="nv">CLANG_FORMAT_MAJOR</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">CLANG_FORMAT_MAJOR</span><span class="si">}</span><span class="m">0</span>
-
-clang-format<span class="w"> </span>--version
-</code></pre></div>
+<p>If it still shows another version, log out and log in again.</p>
 <h2 id="spell-check-differential">spell-check-differential<a class="headerlink" href="#spell-check-differential" title="Permanent link">#</a></h2>
 <p>This workflow detects spelling mistakes using <a href="https://github.com/streetsidesoftware/cspell">CSpell</a> with <a href="https://github.com/tier4/autoware-spell-check-dict/blob/main/.cspell.json">our dictionary file</a>.
 Since it is difficult to detect errors with no false positives, it is an optional workflow, but it is preferable to remove spelling mistakes as many as possible.</p>
