@@ -14126,8 +14126,10 @@
 <p>Follow the steps below.</p>
 <ol>
 <li>Create a pull request to the repository.</li>
-<li>Add the <code>deploy-docs</code> label from the sidebar (See below figure).</li>
-<li>Wait for a couple of minutes, and the <code>github-actions</code> bot will notify the URL for the pull request's preview.</li>
+<li>Wait for the <code>build-docs-pr</code> check to pass.</li>
+<li>A maintainer reviews the change and adds the <code>tag:deploy-docs</code> label from the sidebar (See below figure).</li>
+<li>Wait for a couple of minutes, and the <code>github-actions</code> bot will notify the URL for the pull request's preview.
+   A new commit removes the label, so a maintainer must add it again to update the preview.</li>
 </ol>
 <p><img alt="deploy-docs-label" src="images/deploy-docs-label-for-pull-request.png" width="800"></p>
 <h4 id="2-running-an-mkdocs-server-in-your-local-environment">2. Running an MkDocs server in your local environment<a class="headerlink" href="#2-running-an-mkdocs-server-in-your-local-environment" title="Permanent link">#</a></h4>

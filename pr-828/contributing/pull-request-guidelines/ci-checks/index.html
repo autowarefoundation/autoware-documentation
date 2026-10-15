@@ -13304,6 +13304,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#build-docs-pr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        build-docs-pr
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#deploy-docs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14169,6 +14180,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#build-docs-pr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        build-docs-pr
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#deploy-docs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14297,10 +14319,16 @@ To make the CI faster, it doesn't check all packages but only modified packages 
 You need to add the <code>ARM64</code> label to run this workflow.</p>
 <p>For reference information, since ARM machines are not supported by GitHub-hosted runners, we use self-hosted runners prepared by the <abbr title="Autoware Foundation">AWF</abbr>.<br>
 For the details about self-hosted runners, refer to <a href="https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners">GitHub Docs</a>.</p>
+<h2 id="build-docs-pr">build-docs-pr<a class="headerlink" href="#build-docs-pr" title="Permanent link">#</a></h2>
+<p>This workflow builds the documentation site of every commit of the pull request.<br>
+It runs the code of the pull request with a read-only token, and uploads the built site.</p>
 <h2 id="deploy-docs">deploy-docs<a class="headerlink" href="#deploy-docs" title="Permanent link">#</a></h2>
-<p>This workflow deploys the preview documentation site for the pull request.<br>
-You need to add the <code>deploy-docs</code> label to run this workflow.<br>
-It deploys the commit that the pull request has when the label is added. A new commit removes the label, so a maintainer must review the change and add the label again.</p>
+<p>This workflow publishes the preview documentation site for the pull request.<br>
+A maintainer adds the <code>tag:deploy-docs</code> label to run this workflow.<br>
+It publishes the site that <code>build-docs-pr</code> built for the head commit of the pull request at the time the label is added. It does not run the code of the pull request.<br>
+Before you add the label, review the change and check that the head commit is the commit that you reviewed, because the preview is published on the documentation site.<br>
+The pull request can change how its site is built, so also review changes to <code>.github/workflows/build-docs-pr.yaml</code>, <code>mkdocs.yaml</code>, <code>main.py</code>, and <code>mkdocs-requirements.txt</code>.<br>
+A new commit removes the label, so a maintainer must review the change and add the label again.</p>
 <!-- prettier-ignore --></div>
 
 
