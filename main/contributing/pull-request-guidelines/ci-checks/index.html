@@ -13268,6 +13268,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="pre-commit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matching-your-local-clang-format-to-pre-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matching your local clang-format to pre-commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -14133,6 +14150,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="pre-commit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matching-your-local-clang-format-to-pre-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matching your local clang-format to pre-commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -14280,6 +14314,18 @@ If there are some errors remain, fix them manually.</p>
 To check them, use the <code>--config</code> option:</p>
 <div class="highlight"><pre><span></span><code>pre-commit<span class="w"> </span>run<span class="w"> </span>-a<span class="w"> </span>--config<span class="w"> </span>.pre-commit-config-optional.yaml
 </code></pre></div>
+<h3 id="matching-your-local-clang-format-to-pre-commit">Matching your local clang-format to pre-commit<a class="headerlink" href="#matching-your-local-clang-format-to-pre-commit" title="Permanent link">#</a></h3>
+<p><code>pre-commit</code> uses the clang-format version pinned in <code>.pre-commit-config.yaml</code>, so <code>pre-commit run -a</code> always matches CI.
+Your editor and manual runs use the <code>clang-format</code> on your <code>PATH</code>, which may be another version and format code differently.</p>
+<p>To install the pinned version, take the <code>rev</code> of <code>mirrors-clang-format</code> in <code>.pre-commit-config.yaml</code>, for example <code>v22.1.5</code>, and run:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>pipx
+pipx<span class="w"> </span>ensurepath
+pipx<span class="w"> </span>install<span class="w"> </span>--force<span class="w"> </span>clang-format<span class="o">==</span><span class="m">22</span>.1.5
+</code></pre></div>
+<p>Then open a new terminal and check the version:</p>
+<div class="highlight"><pre><span></span><code>clang-format<span class="w"> </span>--version
+</code></pre></div>
+<p>If it still shows another version, log out and log in again.</p>
 <h2 id="spell-check-differential">spell-check-differential<a class="headerlink" href="#spell-check-differential" title="Permanent link">#</a></h2>
 <p>This workflow detects spelling mistakes using <a href="https://github.com/streetsidesoftware/cspell">CSpell</a> with <a href="https://github.com/tier4/autoware-spell-check-dict/blob/main/.cspell.json">our dictionary file</a>.
 Since it is difficult to detect errors with no false positives, it is an optional workflow, but it is preferable to remove spelling mistakes as many as possible.</p>
