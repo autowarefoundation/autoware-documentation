@@ -13331,6 +13331,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#comment-docs-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        comment-docs-artifact
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -14213,6 +14224,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#comment-docs-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        comment-docs-artifact
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -14344,8 +14366,12 @@ You need to add the <code>ARM64</code> label to run this workflow.</p>
 <p>For reference information, since ARM machines are not supported by GitHub-hosted runners, we use self-hosted runners prepared by the <abbr title="Autoware Foundation">AWF</abbr>.<br>
 For the details about self-hosted runners, refer to <a href="https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners">GitHub Docs</a>.</p>
 <h2 id="deploy-docs">deploy-docs<a class="headerlink" href="#deploy-docs" title="Permanent link">#</a></h2>
-<p>This workflow deploys the preview documentation site for the pull request.<br>
-You need to add the <code>deploy-docs</code> label to run this workflow.</p>
+<p>This workflow builds the documentation site for every commit of the pull request.<br>
+If the branch of the pull request is in the repository itself, the workflow also publishes a preview and adds a comment with its URL.<br>
+If the branch is in a fork, the workflow uploads the built site as an artifact, because a pull request from a fork gets a read-only token. The summary of the run explains how to download and view the site.</p>
+<h2 id="comment-docs-artifact">comment-docs-artifact<a class="headerlink" href="#comment-docs-artifact" title="Permanent link">#</a></h2>
+<p>This workflow runs after <code>deploy-docs</code> for a pull request from a fork, and adds a comment with the download link of the built site.<br>
+It runs from the default branch and does not run the code of the pull request.</p>
 <!-- prettier-ignore --></div>
 
 

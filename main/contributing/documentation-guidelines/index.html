@@ -14126,10 +14126,13 @@
 <p>Follow the steps below.</p>
 <ol>
 <li>Create a pull request to the repository.</li>
-<li>Add the <code>deploy-docs</code> label from the sidebar (See below figure).</li>
-<li>Wait for a couple of minutes, and the <code>github-actions</code> bot will notify the URL for the pull request's preview.</li>
+<li>Wait for the <code>deploy-docs-pr</code> check to finish. What happens next depends on where your branch is.<ul>
+<li>If your branch is in the repository itself, the <code>github-actions</code> bot adds a comment with the URL of the preview.</li>
+<li>If your branch is in a fork, the site is built but not published. The <code>github-actions</code> bot adds a comment with a link to download the site, and the summary of the run explains how to view it on your computer.</li>
+</ul>
+</li>
 </ol>
-<p><img alt="deploy-docs-label" src="images/deploy-docs-label-for-pull-request.png" width="800"></p>
+<p>If this is your first pull request to the repository, a maintainer must approve the workflows before they run.</p>
 <h4 id="2-running-an-mkdocs-server-in-your-local-environment">2. Running an MkDocs server in your local environment<a class="headerlink" href="#2-running-an-mkdocs-server-in-your-local-environment" title="Permanent link">#</a></h4>
 <p>Instead of creating a PR, you can use the <code>mkdocs</code> command to build Autoware's documentation websites on your local computer.
 Assuming that you are using Ubuntu OS, run the following to install the required libraries.</p>
