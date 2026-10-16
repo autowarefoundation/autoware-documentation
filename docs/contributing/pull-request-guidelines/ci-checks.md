@@ -56,6 +56,27 @@ To check them, use the `--config` option:
 pre-commit run -a --config .pre-commit-config-optional.yaml
 ```
 
+### Matching your local clang-format to pre-commit
+
+`pre-commit` uses the clang-format version pinned in `.pre-commit-config.yaml`, so `pre-commit run -a` always matches CI.
+Your editor and manual runs use the `clang-format` on your `PATH`, which may be another version and format code differently.
+
+To install the pinned version, take the `rev` of `mirrors-clang-format` in `.pre-commit-config.yaml`, for example `v22.1.5`, and run:
+
+```bash
+sudo apt install pipx
+pipx ensurepath
+pipx install --force clang-format==22.1.5
+```
+
+Then open a new terminal and check the version:
+
+```bash
+clang-format --version
+```
+
+If it still shows another version, log out and log in again.
+
 ## spell-check-differential
 
 This workflow detects spelling mistakes using [CSpell](https://github.com/streetsidesoftware/cspell) with [our dictionary file](https://github.com/tier4/autoware-spell-check-dict/blob/main/.cspell.json).
