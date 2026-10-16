@@ -13,41 +13,100 @@ on:
       - "**/*.jpg"
     tags:
       - "[0-9]+.[0-9]+*"
-  pull_request_target:
-    types:
-      - opened
-      - synchronize
-      - labeled
+  pull_request:
   workflow_dispatch:
 
 jobs:
-  require-label:
-    if: ${{ github.event_name == 'pull_request_target' }}
-    uses: autowarefoundation/autoware-github-actions/.github/workflows/require-label.yaml@v1
-    with:
-      label: tag:deploy-docs
-
+  # A pull request from a branch of this repository gets a write token, so it publishes a preview to gh-pages.
+  # A pull request from a fork or from Dependabot gets a read-only token, so it only builds the site and uploads it as an artifact.
   deploy-docs-pr:
-    if: ${{ github.event_name == 'pull_request_target' && needs.require-label.outputs.result == 'true' }}
-    needs: require-label
+    if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    concurrency:
+      group: ${{ github.workflow }}-pr-${{ github.event.pull_request.number }}
+    outputs:
+      deploy: ${{ steps.mode.outputs.deploy }}
     steps:
+      - name: Choose between deploy and build
+        id: mode
+        env:
+          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: |
+          if [ "$HEAD_REPO" = "$GITHUB_REPOSITORY" ] && [ "$AUTHOR" != "dependabot[bot]" ]; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+          fi
+        shell: bash
+
       - name: Check out repository
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
-          # This job builds fork code in a trusted context, so it only runs
-          # after a maintainer adds the tag:deploy-docs label. Review the diff,
-          # including main.py and mkdocs-requirements.txt, before labeling.
-          allow-unsafe-pr-checkout: true
+          persist-credentials: false
 
       - name: Deploy docs
+        if: ${{ steps.mode.outputs.deploy == 'true' }}
         uses: autowarefoundation/autoware-github-actions/deploy-docs@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           latest: false
           mkdocs-requirements-txt: mkdocs-requirements.txt
+
+      - name: Set up Python
+        if: ${{ steps.mode.outputs.deploy == 'false' }}
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.10"
+
+      - name: Install MkDocs
+        if: ${{ steps.mode.outputs.deploy == 'false' }}
+        run: |
+          pip3 install -U wheel
+          pip3 install -r mkdocs-requirements.txt
+        shell: bash
+
+      - name: Build docs
+        if: ${{ steps.mode.outputs.deploy == 'false' }}
+        run: |
+          mkdocs build --site-dir "$RUNNER_TEMP/site"
+        shell: bash
+
+      - name: Upload site
+        id: upload-site
+        if: ${{ steps.mode.outputs.deploy == 'false' }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: docs-pr-${{ github.event.pull_request.number }}
+          path: ${{ runner.temp }}/site
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Explain how to view the site
+        if: ${{ steps.mode.outputs.deploy == 'false' }}
+        env:
+          ARTIFACT_URL: ${{ steps.upload-site.outputs.artifact-url }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          echo "::notice::The site is not published for a pull request from a fork. Download it from the run summary: $ARTIFACT_URL"
+          {
+            echo "## Documentation preview"
+            echo
+            echo "This pull request comes from a fork, so the site is built but not published."
+            echo
+            echo "1. Download the site: [docs-pr-$PR_NUMBER]($ARTIFACT_URL). You must be signed in to GitHub."
+            echo "2. Unzip it to a new folder."
+            echo "3. In that folder, run \`python3 -m http.server 8000\`."
+            echo "4. Open <http://localhost:8000/>."
+            echo
+            echo "The site is kept for 90 days."
+          } >> "$GITHUB_STEP_SUMMARY"
+        shell: bash
 
   deploy-docs-push:
     if: ${{ github.event_name == 'push' }}
@@ -100,7 +159,7 @@ jobs:
     if: |
       always() &&
       (
-        needs.deploy-docs-pr.result == 'success' ||
+        (needs.deploy-docs-pr.result == 'success' && needs.deploy-docs-pr.outputs.deploy == 'true') ||
         needs.deploy-docs-push.result == 'success' ||
         needs.deploy-docs-workflow-dispatch.result == 'success' ||
         needs.delete-old-version-docs.result == 'success'
