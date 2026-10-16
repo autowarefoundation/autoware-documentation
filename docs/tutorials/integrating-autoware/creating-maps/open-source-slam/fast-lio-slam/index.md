@@ -56,6 +56,8 @@ sudo make install
 
 - Set imu and lidar topic on `Fast_LIO/config/ouster64.yaml`
 
+<p><img src="images/topic_name.png" width=712pix></p>
+
 ### 3) Run
 
 ```bash
@@ -75,7 +77,7 @@ sudo make install
 
 <p><img src="images/fast_lio_slam.png" width=712pix></p>
 
-<p><img src="images/fast_lio_slam.png" width=712pix></p>
+<p><img src="images/video.png" width=712pix></p>
 
 ## Other Examples
 
