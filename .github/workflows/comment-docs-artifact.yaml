@@ -17,7 +17,7 @@ permissions: {}
 jobs:
   comment-docs-artifact:
     if: ${{ github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       actions: read
       pull-requests: write

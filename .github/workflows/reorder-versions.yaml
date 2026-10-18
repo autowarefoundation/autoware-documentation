@@ -10,7 +10,7 @@ on:
 
 jobs:
   reorder-versions:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       # Two checkouts: the scripts live on the default branch, versions.json lives on gh-pages.
       - name: Check out repository
