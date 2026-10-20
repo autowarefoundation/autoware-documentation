@@ -21,7 +21,7 @@ jobs:
   # A pull request from a fork or from Dependabot gets a read-only token, so it only builds the site and uploads it as an artifact.
   deploy-docs-pr:
     if: ${{ github.event_name == 'pull_request' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
       pull-requests: write
@@ -110,7 +110,7 @@ jobs:
 
   deploy-docs-push:
     if: ${{ github.event_name == 'push' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -126,7 +126,7 @@ jobs:
 
   deploy-docs-workflow-dispatch:
     if: ${{ github.event_name == 'workflow_dispatch' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
