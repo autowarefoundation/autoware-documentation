@@ -21,4 +21,6 @@ type:
 Same as {{ link_ad_api('/api/routing/set_route') }}, but change the route while driving.
 This API only accepts the route when the route state is SET.
 In any other state, set the route first or wait for the route change to complete.
+This API only guarantees that a request has been accepted.
+Use [the state API](./state.md) to verify whether the request has been reflected.
 {% endblock %}

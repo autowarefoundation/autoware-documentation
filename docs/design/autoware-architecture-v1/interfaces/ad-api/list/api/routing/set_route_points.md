@@ -20,4 +20,6 @@ type:
 {% block description %}
 Set the route with the waypoint poses. If start pose is not specified, the current pose will be used.
 This API only accepts the route when the route state is UNSET. In any other state, clear the route first.
+This API only guarantees that a request has been accepted.
+Use [the state API](./state.md) to verify whether the request has been reflected.
 {% endblock %}
