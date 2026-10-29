@@ -1,5 +1,6 @@
 # Copyright 2026 The Autoware Contributors
 # SPDX-License-Identifier: Apache-2.0
+# cspell:ignore noscript
 
 """Assemble the documentation site from one built site per version.
 

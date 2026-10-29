@@ -1,5 +1,6 @@
 # Copyright 2026 The Autoware Contributors
 # SPDX-License-Identifier: Apache-2.0
+# cspell:ignore charrefs
 
 """Check that an assembled site shows the same pages as the bundles it came from.
 
