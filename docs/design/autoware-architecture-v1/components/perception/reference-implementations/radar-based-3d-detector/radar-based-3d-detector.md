@@ -46,7 +46,7 @@ The sample sensor kits of `autoware_launch` have no radar. As a result, the defa
   - The message type of the radar point cloud is [`radar_msgs/msg/RadarScan`](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarScan.msg).
   - The message type of the radar objects is [`radar_msgs/msg/RadarTracks`](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTracks.msg). [`autoware_radar_tracks_msgs_converter`](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_radar_tracks_msgs_converter) converts them to [`autoware_perception_msgs/msg/DetectedObjects`](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/DetectedObjects.msg) on `/sensing/radar/detected_objects`, and to `autoware_perception_msgs/msg/TrackedObjects` on `/sensing/radar/tracked_objects`.
     - Input objects need to be concatenated.
-    - Input objects need to be compensated with ego motion.
+    - The velocity of the input objects must be relative to the ground, so the ego motion must be compensated. The velocity filter of the faraway detection relies on this. The converter can do this compensation with the odometry (`use_twist_compensation: true`, the default of the package). The `radar_tracks_msgs_converter.param.yaml` of `autoware_sensing_launch` sets `use_twist_compensation: false`. With this file, the radar device or its driver must give the compensated velocity.
     - Input objects need to be transformed to `base_link`. The converter does this transform (`new_frame_id: base_link`).
 - Output
   - Tracked objects

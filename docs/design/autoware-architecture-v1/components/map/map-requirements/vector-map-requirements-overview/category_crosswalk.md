@@ -23,7 +23,7 @@ Necessary requirements for creation:
 
 1. Create a Lanelet for the crosswalk (_subtype:crosswalk_).
 2. If there is a stop line before the crosswalk, create a Linestring (_type:stop_line_). Create stop lines for the opposing traffic lane in the same way.
-3. Create a Polygon (_type:crosswalk_polygon_) to cover the crosswalk.
+3. Create a Polygon to cover the crosswalk. The regulatory element refers to it with the role _crosswalk_polygon_. Autoware does not read a type tag on this Polygon.
 4. The Lanelet of the road refers to the regulatory element (_subtype:crosswalk_). The regulatory element refers to the crosswalk Lanelet (role _refers_), the stop line Linestrings (role _ref_line_), and the Polygon (role _crosswalk_polygon_).
 
 ##### Supplemental information <!-- omit in toc -->
@@ -59,9 +59,16 @@ Necessary requirements for creation:
 - Create a Traffic Light Linestring. If multiple traffic lights exist, create multiple Linestrings.
   - Linestring
     - _type:traffic_light_
-    - _subtype:red_green_
+    - _subtype_: see the supplemental information
     - _height_:value
 - Make sure that the crosswalk Lanelet refers to a Regulatory Element (_subtype:traffic_light_). Also make sure that the Regulatory Element refers to the Linestrings (_type:traffic_light_).
+
+##### Supplemental information <!-- omit in toc -->
+
+Autoware knows that a traffic light is for pedestrians because a crosswalk Lanelet refers to its Regulatory Element. It does not use the subtype for this. The subtype controls the camera detection:
+
+- If the camera must detect the pedestrian light, give the Linestring a subtype other than _solid_, for example _subtype:red_green_. The map-based detector skips traffic light Linestrings that have no subtype or that have _subtype:solid_.
+- If the Linestring has _subtype:solid_, as in the example of the [Autoware Lanelet2 extension](https://github.com/autowarefoundation/autoware_lanelet2_extension/blob/main/autoware_lanelet2_extension/docs/extra_regulatory_elements.md#traffic-lights-for-crosswalks), the camera does not detect it. The crosswalk traffic light estimator then estimates the state of the pedestrian light from the vehicle traffic lights.
 
 Refer to [vm-04-02](category_traffic_light.md#vm-04-02-traffic-light-position-and-size) for more about the traffic light object.
 

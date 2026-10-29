@@ -81,7 +81,7 @@ The point cloud map must meet these requirements:
 - Each point in the map must contain X, Y, and Z coordinates.
 - Each point can also contain an intensity or an RGB value.
 - It must cover the entire operational area of the vehicle. Add a buffer zone around this area that matches the detection range of the sensors on the vehicle.
-- Its resolution must be at least 0.2 m to give reliable localization results.
+- The design recommends a point spacing of about 0.1 m to 0.2 m. The [point cloud map pre-processing tutorial](../../../../tutorials/integrating-autoware/creating-maps/pointcloud-map-pre-processing/index.md) downsamples the map with a voxel size in this range to decrease the computation cost and the memory bandwidth load. This is a recommendation, not a check that Autoware does. The NDT scan matcher makes its own voxel grid from the map, with a `resolution` of 2.0 m by default.
 - It can be in local or global coordinates. To use GNSS data for localization, it must be in global coordinates (georeferenced).
 
 For a large map, use a divided map. The point cloud map loader can then send only the parts of the map near the vehicle (partial and differential loading). A divided map must be cut along lines parallel to the x-axis and the y-axis into cells of the same size, about 20 m by 20 m. It also needs a metadata file. [`autoware_pointcloud_divider`](https://github.com/autowarefoundation/autoware_tools/tree/main/map/autoware_pointcloud_divider) can divide a map and write the metadata file. For the details of the divided map format, see [the README of `autoware_map_loader`](https://github.com/autowarefoundation/autoware_core/blob/main/map/autoware_map_loader/README.md).

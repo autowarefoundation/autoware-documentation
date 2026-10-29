@@ -100,8 +100,11 @@ Available methods include:
 The detection range depends on the model. The default model parameters cover a square of ±76.8 m around the vehicle for CenterPoint, ±92.16 m for TransFusion, and ±122.4 m for BEVFusion.
 
 If you want to use camera-LiDAR fusion, you can use the camera-LiDAR model of BEVFusion (`bevfusion_camera_lidar`) or [PointPainting](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_image_projection_based_fusion) (`lidar_detection_model:=pointpainting`, in the camera-LiDAR launch files).
-However, since `Base 3D Detection` is a critical component of the architecture, stable performance is essential.
-Therefore, we do not recommend using Camera-LiDAR fusion methods in environments where sensor data frequently drops.
+`Base 3D Detection` is a critical component of the architecture, so it needs stable performance.
+For this reason, the design recommends against camera-LiDAR fusion methods in environments where the camera data often drops. With these methods, a camera drop affects the base detection:
+
+- The camera-LiDAR model of BEVFusion skips the detection until each camera sent one image. After that, it uses the last image of each camera, also when the image is old ([`bevfusion_node.cpp`](https://github.com/autowarefoundation/autoware_universe/blob/main/perception/autoware_bevfusion/src/bevfusion_node.cpp)).
+- The fusion node of PointPainting waits for the 2D detections of the cameras until a timer expires. Then it fuses the point cloud with the detections that arrived ([`autoware_image_projection_based_fusion`](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_image_projection_based_fusion#inner-workings--algorithms)).
 
 The output topic is `/perception/object_recognition/detection/<model_type>/objects`. The tracker channel is `lidar_<model_type>`, for example `lidar_centerpoint`. If `use_validator` is `true`, an object validator of [`autoware_detected_object_validation`](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_detected_object_validation) removes the objects that have no obstacle points.
 
@@ -111,8 +114,7 @@ As optional method for detection to enhance detection of nearby objects, especia
 This can serve as a supplementary detection method alongside `Base 3D Detection`.
 
 To enable it, set `use_short_range_detection:=true`. Autoware then starts a second CenterPoint node (`lidar_short_range_centerpoint`) with the short-range model. Its tracker channel is `lidar_centerpoint_short_range`.
-By applying higher-resolution voxel grids in the ML model, we improve detection accuracy for small objects.
-The detection range typically falls between 30m and 50m.
+The short-range model uses a higher-resolution voxel grid to detect small objects better. In the `lidar_centerpoint` model bundle v4.1, the short-range model uses 0.16 m voxels and covers a square of ±51.2 m around the vehicle. The base model uses 0.32 m voxels and covers ±76.8 m. The `README.md` of the [model bundle on Hugging Face](https://huggingface.co/AutowareFoundation/lidar_centerpoint) lists the parameters of each model.
 
 ### Camera-only 3D detection
 
@@ -122,7 +124,7 @@ The detection range typically falls between 30m and 50m.
 - In `object_recognition_camera_lidar_radar.launch.xml`, set `use_camera_only_detection:=true` to give the tracker the objects of an external camera-only detector. By default, the topic is `/perception/object_recognition/detection/camera_only/objects` and the channel is `camera_streampetr`.
 - Other camera-only detectors are available as packages: [StreamPETR](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_camera_streampetr) and [BEVFormer](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_tensorrt_bevformer).
 
-Note that we will apply a high-confidence threshold to suppress the impact of false positives in `Camera-Only 3D Detection`.
+The design plans a high-confidence threshold for `Camera-Only 3D Detection`, to reduce the effect of false positives. Autoware 2.0.0 does not apply such a threshold. BEVDet keeps the objects with a score of at least 0.2 (`score_threshold` in `bevdet.param.yaml` of `autoware_tensorrt_bevdet`). The base CenterPoint model uses 0.35. The tracker can start new tracks from the `camera_streampetr` channel and trusts its existence probability (`input_channels.param.yaml`).
 
 The **camera VRU detector** (`use_camera_vru_detector:=true`) is a related option. VRU means vulnerable road users, for example pedestrians and cyclists. [`autoware_image_object_locator`](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_image_object_locator) makes 3D objects from the 2D boxes of the camera detector. Its tracker channel is `camera_vru`.
 
@@ -158,8 +160,8 @@ To enhance detection of objects that LiDAR-based methods detect badly, we offer 
 This can be used as supplementary detection alongside `Base 3D Detection`.
 In the serial launch file, [`autoware_detection_by_tracker`](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_detection_by_tracker) also uses the clusters to keep the tracked objects, and [`autoware_object_merger`](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_object_merger) combines the results.
 
-Note that as the data from point clouds and images increase, the processing time also increases.
-Therefore, we recommend avoiding this pipeline in situations where processing time is critical or use for only narrow detection range.
+The processing time of this pipeline increases with the number of points and images.
+For this reason, the design recommends that you do not use this pipeline when the processing time is critical, or that you use it only for a narrow detection range. The default launch files do not narrow the range of the clustering. Its crop box is off by default (`use_low_height_cropbox:=false`). When it is on, it covers ±200 m in x and y (`voxel_grid_based_euclidean_cluster.param.yaml` of `autoware_perception_config`).
 
 ### Multi-object tracking
 

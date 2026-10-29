@@ -252,17 +252,19 @@ In Autoware, this part is the pose twist fusion filter. It contains the EKF loca
 
 #### TF tree
 
-{{ diagram("image/tf-tree.svg", "The tf tree of Autoware. The localization component publishes the tf from map to base_link.") }}
+{{ diagram("image/tf-tree.svg", "The tf tree of Autoware. The localization component publishes the tf from map to base_link. The earth frame is optional.") }}
 
 |   frame   | meaning                                                                                        |
 | :-------: | :--------------------------------------------------------------------------------------------- |
-|   earth   | ECEF (Earth Centered Earth Fixed)                                                              |
+|   earth   | ECEF (Earth Centered Earth Fixed). Optional, see the note below.                               |
 |    map    | Origin of the map coordinate (for example MGRS origin)                                         |
 |  viewer   | User-defined frame for rviz                                                                    |
 | base_link | Reference pose of the ego-vehicle (projection of the rear-axle center onto the ground surface) |
 |  sensor   | Reference pose of each sensor                                                                  |
 
 Developers can optionally add other frames such as odom or base_footprint as long as the tf structure above is maintained.
+
+The `earth` frame follows the [REP-105](https://www.ros.org/reps/rep-0105.html#earth) convention, where `earth` is the parent of `map`. It is optional in Autoware. No default Autoware launch publishes the tf from `earth` to `map`. Instead, the map projection information on `/map/map_projector_info` relates the `map` frame to the globe. For example, `autoware_gnss_poser` uses it to convert the GNSS position into the `map` frame. If your system needs the `earth` frame, publish the tf from `earth` to `map` yourself. The [coordinate system guidelines](../../../../contributing/coding-guidelines/ros-nodes/coordinate-system.md) give more details.
 
 In Autoware, the EKF localizer publishes the tf from `map` to `base_link`. The `autoware_map_tf_generator` package publishes the `viewer` frame for RViz only. The vehicle description (`robot_state_publisher`) publishes the static tf from `base_link` to the sensor frames. In the sample sensor kit, the sensors are children of `sensor_kit_base_link`, which is a child of `base_link`.
 

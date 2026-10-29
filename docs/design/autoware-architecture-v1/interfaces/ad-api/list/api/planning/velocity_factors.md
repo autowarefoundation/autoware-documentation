@@ -25,6 +25,7 @@ type:
 
 {% extends 'design/autoware-architecture-v1/interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Get the velocity factors, sorted in ascending order of distance.
+Get the velocity factors.
+The specification intends the factors to be sorted in ascending order of distance. The default implementation does not sort them. It lists them in the fixed order of its input topics.
 For details, see the [planning factors](../../../features/planning-factors.md).
 {% endblock %}

@@ -161,6 +161,8 @@ If there are guide lines in the intersection, draw the Lanelet following them.
 
 In cases where the Lanelets branches off, begin the branching at the end of the guide line. However, it is not necessary to share points or linestrings between Lanelets.
 
+A guide line is a road painting. Give the Linestring along a dashed guide line _type:line_thin_ and _subtype:dashed_, not _type:virtual_. Use _type:virtual_ only for the bounds without road paintings, as in [vm-03-02](#vm-03-02-lanelets-turn-direction-and-virtual-linestring). [Lanelet2](https://github.com/fzi-forschungszentrum-informatik/Lanelet2/blob/master/lanelet2_core/doc/LinestringTagging.md) defines _virtual_ as a non-physical lane boundary. Camera-based localization (YabLoc) uses _line_thin_ Linestrings as road markings, but not _virtual_ Linestrings. Lanelet2 permits a lane change across a _line_thin_ _dashed_ Linestring. To prohibit it, add _lane_change=no_ (see [vm-01-02](category_lane.md#vm-01-02-allowance-for-lane-changes)).
+
 {{ diagram("../assets/vm-03-06_1.svg", "Guide lines for a right turn. On the right, the lane branches into two lanes.") }}
 
 #### Preferred vector map <!-- omit in toc -->

@@ -47,7 +47,7 @@ If there is a crosswalk at the intersection, make the road Lanelet and the cross
 Create traffic lights with Linestring.
 
 - _type:traffic_light_
-- _subtype:red_yellow_green_ (optional)
+- _subtype:red_yellow_green_
 
 Make the Linestring (from the start point to the end point) match the bottom edge of the traffic light. The start point is the left end, and the end point is the right end. Make sure that the 3D coordinates of the Linestring give the correct height of the traffic light above the ground.
 
@@ -55,7 +55,7 @@ Use _tag:height_ for the size of the traffic light. For example, for 50 cm, writ
 
 ##### Supplemental information <!-- omit in toc -->
 
-Autoware currently ignores subtype _red_yellow_green_.
+The map-based detector of the traffic light recognition skips traffic light Linestrings that have no subtype or that have _subtype:solid_. The camera then does not detect these lights. Autoware does not read other subtype values, such as _red_yellow_green_.
 
 #### Preferred vector map <!-- omit in toc -->
 

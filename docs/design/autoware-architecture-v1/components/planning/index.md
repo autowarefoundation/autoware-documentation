@@ -180,8 +180,8 @@ Plan a path that changes lanes to reach the destination.
 {{ diagram("image/features-lane-change.svg", "Lane change to the lane on the route.") }}
 
 - Module: [Lane Change](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_lane_change_module/). Launch arguments: `launch_lane_change_right_module`, `launch_lane_change_left_module`.
-- Needs: Lanelet map (driving lanelets).
-- Demonstration: [lane change video](https://youtu.be/0jRDGQ84cD4).
+- Needs: Object information and Lanelet map (adjacent lanes, where the type of the line between the lanes permits a lane change).
+- Demonstration: [lane change video](https://youtu.be/0jRDGQ84cD4) (2023).
 
 #### Obstacle avoidance
 
@@ -190,8 +190,8 @@ Plan a path that steers around obstacles.
 {{ diagram("image/features-avoidance.svg", "Avoidance of a parked vehicle.") }}
 
 - Modules: [Static Obstacle Avoidance](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_static_obstacle_avoidance_module/) (launch argument `launch_static_obstacle_avoidance`) and [Path Optimizer](https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_path_optimizer/) (launch argument `motion_path_planner_type:=path_optimizer`, the default).
-- Needs: Object information.
-- Demonstration: [avoidance video](https://youtu.be/A_V9yvfKZ4E).
+- Needs: Object information and Lanelet map (the ego lane, and the adjacent lanes that the `use_lane_type` parameter permits).
+- Demonstration: [avoidance video](https://youtu.be/A_V9yvfKZ4E) (2023, when the module had the name Avoidance).
 
 #### Path smoothing
 
@@ -200,8 +200,8 @@ Plan a path for smooth steering.
 {{ diagram("image/features-path-smoothing.svg", "A smooth path into the next lane where a lane ends.") }}
 
 - Modules: [Elastic Band Smoother](https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_path_smoother/) (launch argument `motion_path_smoother_type:=elastic_band`, the default) and [Path Optimizer](https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_path_optimizer/).
-- Needs: Lanelet map (driving lanelets).
-- Demonstration: [path smoothing video](https://youtu.be/RhyAF26Ppzs).
+- Needs: Nothing. The smoother uses only the path from the Behavior Path Planner and the ego odometry.
+- Demonstration: [path smoothing video](https://youtu.be/RhyAF26Ppzs) (2024).
 
 #### Narrow space driving
 
@@ -211,7 +211,7 @@ Plan a path inside the drivable area. If the vehicle cannot stay inside the driv
 
 - Module: [Path Optimizer](https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_path_optimizer/). The parameter `enable_outside_drivable_area_stop` enables the stop.
 - Needs: Lanelet map (high-precision lane boundaries).
-- Demonstration: [narrow space video](https://youtu.be/URzcLO2E1vY).
+- Demonstration: [narrow space video](https://youtu.be/URzcLO2E1vY) (2024).
 
 #### Pull over
 
@@ -220,8 +220,8 @@ Plan a path that pulls over to park on the road shoulder.
 {{ diagram("image/features-pull-over.svg", "Pull over to a goal on the road shoulder.") }}
 
 - Module: [Goal Planner](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_goal_planner_module/). Launch argument: `launch_goal_planner_module`.
-- Needs: Lanelet map (shoulder lane).
-- Demonstrations: [simple pull over video](https://youtu.be/r3-kAmTb4hc), [arc forward pull over video](https://youtu.be/ornbzkWxRWU), and [arc backward pull over video](https://youtu.be/if-0tG3AkLo).
+- Needs: Object information and Lanelet map (lanelets with the subtype `road_shoulder`, or a `BusStopArea` regulatory element when `use_bus_stop_area` is `true`).
+- Demonstrations (2023): [simple pull over video](https://youtu.be/r3-kAmTb4hc), [arc forward pull over video](https://youtu.be/ornbzkWxRWU), and [arc backward pull over video](https://youtu.be/if-0tG3AkLo).
 
 #### Pull out
 
@@ -230,8 +230,8 @@ Plan a path that pulls out from the road shoulder to start driving.
 {{ diagram("image/features-pull-out.svg", "Pull out from the road shoulder to the lane.") }}
 
 - Module: [Start Planner](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_start_planner_module/). Launch argument: `launch_start_planner_module`.
-- Needs: Lanelet map (shoulder lane).
-- Demonstrations: [simple pull out video](https://youtu.be/xOjnPqoHup4) and [backward pull out video](https://youtu.be/iGieijPcPcQ).
+- Needs: Object information and Lanelet map (a lanelet with the subtype `road_shoulder`, or the side of a road lane).
+- Demonstrations (2023): [simple pull out video](https://youtu.be/xOjnPqoHup4) and [backward pull out video](https://youtu.be/iGieijPcPcQ).
 
 #### Path shift
 
@@ -240,7 +240,7 @@ Shift the path sideways because of an external instruction.
 {{ diagram("image/features-side-shift.svg", "The path shifts sideways by the requested offset.") }}
 
 - Module: [Side Shift](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_side_shift_module/). Launch argument: `launch_side_shift_module`.
-- Needs: Nothing.
+- Needs: A lateral offset request on the `lateral_offset` input of the Behavior Path Planner.
 
 ### Velocity planning for obstacles and road shape
 
@@ -252,7 +252,7 @@ Plan the velocity to stop for an obstacle on the path.
 
 - Module: [Obstacle Stop](https://autowarefoundation.github.io/autoware_core/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_stop_module/) in the Motion Velocity Planner. Launch argument: `launch_obstacle_stop_module`.
 - Needs: Object information.
-- Demonstration: [obstacle stop video](https://youtu.be/d8IRW_xArcE).
+- Demonstration: [obstacle stop video](https://youtu.be/d8IRW_xArcE) (2023, recorded before this function moved to the Motion Velocity Planner in 2025).
 
 #### Obstacle deceleration
 
@@ -262,7 +262,7 @@ Plan the velocity to slow down for an obstacle near the path.
 
 - Module: [Obstacle Slow Down](https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_slow_down_module/) in the Motion Velocity Planner. Launch argument: `launch_obstacle_slow_down_module`.
 - Needs: Object information.
-- Demonstration: [obstacle deceleration video](https://youtu.be/gvN1otgeaaw).
+- Demonstration: [obstacle deceleration video](https://youtu.be/gvN1otgeaaw) (2023, recorded before this function moved to the Motion Velocity Planner in 2025).
 
 #### Adaptive cruise control
 
@@ -290,7 +290,7 @@ Plan the velocity to keep the vehicle stopped while an obstacle is near the vehi
 
 - Module: [Surround Obstacle Checker](https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_surround_obstacle_checker/). Launch argument: `launch_surround_obstacle_checker` (`false` in the default preset).
 - Needs: Object information.
-- Demonstration: [surround obstacle checker video](https://youtu.be/bbGgtXN3lC4).
+- Demonstration: [surround obstacle checker video](https://youtu.be/bbGgtXN3lC4) (2023).
 
 #### Run-out check
 
@@ -300,7 +300,7 @@ Plan the velocity to slow down or stop for objects that can run out into the pat
 
 - Module: [Run Out](https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_planner/autoware_motion_velocity_run_out_module/) in the Motion Velocity Planner. Launch argument: `launch_run_out_module`.
 - Needs: Object information.
-- Demonstration: [run out video](https://youtu.be/9IDggldT2t0).
+- Demonstration: [run out video](https://youtu.be/9IDggldT2t0) (2023). It shows the earlier Run Out module of the Behavior Velocity Planner, which Autoware removed in 2025.
 
 #### Collision check when the vehicle leaves its lane
 
@@ -325,8 +325,8 @@ Plan the velocity to slow down in a curve when an obstacle near the path can cau
 {{ diagram("image/features-decel-on-curve-obstacles.svg", "Slow down more in a curve with an obstacle at its edge.") }}
 
 - Module: [Obstacle Velocity Limiter](https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_velocity_limiter_module/) in the Motion Velocity Planner. Launch argument: `launch_obstacle_velocity_limiter_module`.
-- Needs: Object information and Lanelet map (static obstacles).
-- Demonstration: [obstacle velocity limiter video](https://youtu.be/I-oFgG6kIAs).
+- Needs: Lanelet map (line strings with a type from the `static_map_tags` parameter, `guard_rail` by default). The parameter `obstacles.dynamic_source` can add the point cloud or the occupancy grid as obstacle sources (`static_only` by default).
+- Demonstration: [obstacle velocity limiter video](https://youtu.be/I-oFgG6kIAs) (2023, when the function was a separate node).
 
 ### Traffic rules
 
@@ -338,7 +338,7 @@ Plan the velocity to stop or slow down for pedestrians who approach or walk on a
 
 - Module: [Crosswalk](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_crosswalk_module/) in the Behavior Velocity Planner. Launch argument: `launch_crosswalk_module`.
 - Needs: Object information and Lanelet map (pedestrian crossing).
-- Demonstration: [crosswalk video](https://youtu.be/tUvthyIL2W8).
+- Demonstration: [crosswalk video](https://youtu.be/tUvthyIL2W8) (2023).
 
 #### Stop line
 
@@ -347,8 +347,8 @@ Plan the velocity to stop at a stop line.
 {{ diagram("image/features-stop-line.svg", "Stop at the stop line of the map.") }}
 
 - Module: [Stop Line](https://autowarefoundation.github.io/autoware_core/main/planning/behavior_velocity_planner/autoware_behavior_velocity_stop_line_module/) in the Behavior Velocity Planner (Autoware Core). Launch argument: `launch_stop_line_module`.
-- Needs: Lanelet map (stop line).
-- Demonstration: [stop line video](https://youtu.be/eej9jYt-GSE).
+- Needs: Lanelet map (a traffic sign regulatory element with a stop line).
+- Demonstration: [stop line video](https://youtu.be/eej9jYt-GSE) (2023).
 
 #### Traffic light
 
@@ -357,8 +357,8 @@ Plan the velocity at an intersection from the traffic light signal.
 {{ diagram("image/features-traffic-light.svg", "Stop at the stop line when the traffic light is red.") }}
 
 - Module: [Traffic Light](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_traffic_light_module/) in the Behavior Velocity Planner. Launch argument: `launch_traffic_light_module`.
-- Needs: Traffic light state information.
-- Demonstration: [traffic light video](https://youtu.be/lGA53KljQrM).
+- Needs: Traffic light state information and Lanelet map (traffic light regulatory elements with stop lines).
+- Demonstration: [traffic light video](https://youtu.be/lGA53KljQrM) (2023).
 
 #### Intersection: oncoming vehicle check
 
@@ -367,8 +367,8 @@ Plan the velocity for a right or left turn at an intersection, to prevent a coll
 {{ diagram("image/features-intersection.svg", "Wait before a turn across the oncoming lane.") }}
 
 - Module: [Intersection](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_intersection_module/) in the Behavior Velocity Planner. Launch argument: `launch_intersection_module`.
-- Needs: Object information and Lanelet map (intersection lanes and yield lanes).
-- Demonstration: [intersection video](https://youtu.be/SGD07Hqg4Hk).
+- Needs: Object information and Lanelet map (intersection lanes with the `turn_direction` tag, and `right_of_way` regulatory elements with yield lanes).
+- Demonstration: [intersection video](https://youtu.be/SGD07Hqg4Hk) (2023).
 
 #### Intersection: blind spot check
 
@@ -377,8 +377,8 @@ Plan the velocity for a right or left turn at an intersection, to prevent a coll
 {{ diagram("image/features-blind-spot.svg", "Wait before a left turn when a bicycle comes from behind.") }}
 
 - Module: [Blind Spot](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_blind_spot_module/) in the Behavior Velocity Planner. Launch argument: `launch_blind_spot_module`.
-- Needs: Object information and Lanelet map (intersection lanes).
-- Demonstration: [blind spot video](https://youtu.be/oaTCJRafDGA).
+- Needs: Object information and Lanelet map (intersection lanes with the `turn_direction` tag).
+- Demonstration: [blind spot video](https://youtu.be/oaTCJRafDGA) (2024).
 
 #### Intersection: occlusion check
 
@@ -387,8 +387,8 @@ Plan the velocity for a right or left turn at an intersection, to reduce the ris
 {{ diagram("image/features-intersection-occlusion.svg", "Wait before a turn when a large vehicle hides part of the oncoming lane.") }}
 
 - Module: [Intersection](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_intersection_module/) in the Behavior Velocity Planner.
-- Needs: Object information and Lanelet map (intersection lanes).
-- Demonstration: [intersection occlusion video](https://youtu.be/bAHXMB7kbFc).
+- Needs: Object information, the occupancy grid map, and Lanelet map (intersection lanes with the `turn_direction` tag).
+- Demonstration: [intersection occlusion video](https://youtu.be/bAHXMB7kbFc) (2024).
 
 #### Intersection: traffic jam detection
 
@@ -397,15 +397,15 @@ Plan the velocity so that the vehicle does not enter an intersection when a vehi
 {{ diagram("image/features-intersection-traffic-jam.svg", "Do not enter the intersection when its exit is blocked.") }}
 
 - Module: [Intersection](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_intersection_module/) in the Behavior Velocity Planner.
-- Needs: Object information and Lanelet map (intersection lanes).
-- Demonstration: [intersection traffic jam video](https://youtu.be/negK4VbrC5o).
+- Needs: Object information and Lanelet map (intersection lanes with the `turn_direction` tag).
+- Demonstration: [intersection traffic jam video](https://youtu.be/negK4VbrC5o) (2024).
 
 #### Merge from a private area to a public road
 
 Plan the velocity to enter a public road from a private area, to prevent a collision with pedestrians or other vehicles.
 
 - Module: the merge from private road function of the [Intersection](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_intersection_module/) module. Launch argument: `launch_merge_from_private_module` (`false` in the default preset).
-- Needs: Object information and Lanelet map (private and public lanes).
+- Needs: Lanelet map (an intersection lane with the `turn_direction` tag and the `location=private` tag, which leads to a lane that does not have the `location=private` tag). The function stops the vehicle once at the stop line. It does not read object information. The Intersection module checks the other vehicles.
 
 #### No stopping area
 
@@ -414,7 +414,7 @@ Plan the velocity so that the vehicle does not stop in an area where stopping is
 {{ diagram("image/features-no-stopping-area.svg", "Stop before a no stopping area when a vehicle is stopped after it.") }}
 
 - Module: [No Stopping Area](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_no_stopping_area_module/) in the Behavior Velocity Planner. Launch argument: `launch_no_stopping_area_module`.
-- Needs: Lanelet map (no stopping area).
+- Needs: Object information (stopped vehicles after the area) and Lanelet map (a `no_stopping_area` regulatory element).
 
 #### Detection area
 
@@ -423,8 +423,8 @@ Plan the velocity to stop at the stop line of a detection area when an object is
 {{ diagram("image/features-detection-area.svg", "Stop at the stop line when objects are in the detection area.") }}
 
 - Module: [Detection Area](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_detection_area_module/) in the Behavior Velocity Planner. Launch argument: `launch_detection_area_module`.
-- Needs: Lanelet map (detection area).
-- Demonstration: [detection area video](https://youtu.be/YzXF4U69lJs).
+- Needs: Lanelet map (a `detection_area` regulatory element) and the obstacle point cloud. The `target_filtering` parameters can also select object classes from the object information (none by default).
+- Demonstration: [detection area video](https://youtu.be/YzXF4U69lJs) (2023).
 
 #### Speed bump
 
@@ -433,8 +433,8 @@ Plan the velocity to slow down for a speed bump.
 {{ diagram("image/features-speed-bump.svg", "Slow down before and on a speed bump.") }}
 
 - Module: [Speed Bump](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_speed_bump_module/) in the Behavior Velocity Planner. Launch argument: `launch_speed_bump_module` (`false` in the default preset).
-- Needs: Lanelet map (speed bump).
-- Demonstration: [speed bump video](https://youtu.be/FpX3q3YaaCw).
+- Needs: Lanelet map (a `speed_bump` regulatory element).
+- Demonstration: [speed bump video](https://youtu.be/FpX3q3YaaCw) (2024).
 
 #### No drivable lane
 
@@ -443,7 +443,7 @@ Plan the velocity to stop before a lane that is outside the operational design d
 {{ diagram("image/features-no-drivable-lane.svg", "Stop before a no drivable lane.") }}
 
 - Module: [No Drivable Lane](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_no_drivable_lane_module/) in the Behavior Velocity Planner. Launch argument: `launch_no_drivable_lane_module` (`false` in the default preset).
-- Needs: Lanelet map (no drivable lane).
+- Needs: Lanelet map (lanelets with the `no_drivable_lane=yes` tag).
 
 #### Occlusion spot check
 
@@ -452,8 +452,8 @@ Plan the velocity to slow down for objects that can come out of an occluded area
 {{ diagram("image/features-occlusion-spot.svg", "Slow down where a building hides a side street.") }}
 
 - Module: [Occlusion Spot](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_occlusion_spot_module/) in the Behavior Velocity Planner. Launch argument: `launch_occlusion_spot_module` (`false` in the default preset).
-- Needs: Object information and Lanelet map (private and public lanes).
-- Demonstration: [occlusion spot video](https://youtu.be/3qs8Ivjh1fs).
+- Needs: The occupancy grid map (`detection_method: occupancy_grid`, the default) or object information (`detection_method: predicted_object`). The occupancy grid method also uses object information. With `use_partition_lanelet` (the default), it also uses Lanelet map line strings of the types `guard_rail`, `fence`, and `wall`.
+- Demonstration: [occlusion spot video](https://youtu.be/3qs8Ivjh1fs) (2024).
 
 ### Parking
 
@@ -465,7 +465,7 @@ Plan the path and the velocity to a goal in a parking area.
 
 - Modules: [Freespace Planner](https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_freespace_planner/) and [Costmap Generator](https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_costmap_generator/). Launch argument: `launch_parking_module`.
 - Needs: Object information and Lanelet map (parking area).
-- Demonstration: [free space parking video](https://youtu.be/rAIYmwpNWfA).
+- Demonstration: [free space parking video](https://youtu.be/rAIYmwpNWfA) (2023).
 
 ### Safety
 
@@ -501,7 +501,7 @@ Give the correct minimum risk maneuver when a hazardous event occurs. For exampl
 Make a lane map from the localization data that you record during manual driving.
 
 - Tool: [bag2lanelet](https://autowarefoundation.github.io/autoware_tools/main/bag2lanelet/) in `autoware_tools`.
-- Needs: Nothing.
+- Needs: A rosbag with the `/tf` topic, recorded while you drive the route.
 
 #### Running lane optimization
 

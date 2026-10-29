@@ -92,23 +92,23 @@ In that case, text formats such as JSON where field names are repeated in an arr
 
 ### Naming convention
 
-The name of the interface must be `/<component name>/api/<interface name>`,
+Today, the names of the component interfaces have the form `/<component name>/<interface name>`, without an `api` namespace. All interfaces in [`interface_manifest.json`](https://github.com/autowarefoundation/autoware_core/blob/1.10.0/common/autoware_component_interface_specs/interface_manifest.json) of `autoware_component_interface_specs` use this form. For example, the route of the Planning component is `/planning/route` and the control command is `/control/command/control_cmd`. The AD API interfaces that [`autoware_adapi_specs`](https://github.com/autowarefoundation/autoware_core/tree/1.10.0/api/autoware_adapi_specs) defines start with `/api`, for example `/api/routing/route`.
+
+The design defines the following naming convention. Only the AD API follows it today. No component interface uses the `/<component name>/api/` form yet.
+
+In this convention, the name of an interface is `/<component name>/api/<interface name>`,
 where `<component name>` is the name of the component. For an AD API component, omit this part and start with `/api`.
 The `<interface name>` is an arbitrary string separated by slashes.
-Note that this rule causes a restriction that the namespace `api` must not be used as a name other than AD API and the component interface.
+This convention adds a restriction: do not use the namespace `api` for names other than the AD API and the component interfaces.
 
-!!! note
-
-    The AD API follows this rule. The component interfaces that `autoware_component_interface_specs` defines today do not use the `api` namespace yet. For example, the route of the Planning component is `/planning/route` and the control command is `/control/command/control_cmd`.
-
-The following are examples of correct interface names for AD API and the component interface:
+The following names follow the convention:
 
 - /api/autoware/state
 - /api/autoware/engage
 - /planning/api/route/set
 - /vehicle/api/status
 
-The following are examples of incorrect interface names for AD API and the component interface:
+The following names do not follow the convention:
 
 - /ad_api/autoware/state
 - /autoware/engage

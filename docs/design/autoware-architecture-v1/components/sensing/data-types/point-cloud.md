@@ -1,4 +1,4 @@
-<!-- cspell:ignore SECONDSTRONGEST -->
+<!-- cspell:ignore SECONDSTRONGEST Lambertian lambertian -->
 
 # Point cloud pre-processing design
 
@@ -42,18 +42,18 @@ The sensor kits load the driver and the steps 2 to 5 of each LiDAR into one cont
 
 The LiDAR driver must output a point cloud with the `PointXYZIRCAEDT` point type. [Nebula](https://github.com/tier4/nebula), the LiDAR driver of the sensor kits, publishes this point type. Autoware defines the point types in [`autoware_point_types`](https://github.com/autowarefoundation/autoware_core/tree/main/common/autoware_point_types) of Autoware Core.
 
-| Name              | Field name    | Datatype  | Derived | Description                                                                  |
-| ----------------- | ------------- | --------- | ------- | ---------------------------------------------------------------------------- |
-| `X`               | `x`           | `FLOAT32` | `false` | X position                                                                   |
-| `Y`               | `y`           | `FLOAT32` | `false` | Y position                                                                   |
-| `Z`               | `z`           | `FLOAT32` | `false` | Z position                                                                   |
-| `I` (intensity)   | `intensity`   | `UINT8`   | `false` | Measured reflectivity, intensity of the point                                |
-| `R` (return type) | `return_type` | `UINT8`   | `false` | Laser return type for dual return lidars                                     |
-| `C` (channel)     | `channel`     | `UINT16`  | `false` | Channel ID of the laser that measured the point                              |
-| `A` (azimuth)     | `azimuth`     | `FLOAT32` | `true`  | `atan2(Y, X)`, Horizontal angle from the lidar origin to the point           |
-| `E` (elevation)   | `elevation`   | `FLOAT32` | `true`  | `atan2(Z, D)`, Vertical angle from the lidar origin to the point             |
-| `D` (distance)    | `distance`    | `FLOAT32` | `true`  | `hypot(X, Y, Z)`, Euclidean distance from the lidar origin to the point      |
-| `T` (time)        | `time_stamp`  | `UINT32`  | `false` | Nanoseconds passed since the time of the header when this point was measured |
+| Name              | Field name    | Datatype  | Derived | Description                                                                                 |
+| ----------------- | ------------- | --------- | ------- | ------------------------------------------------------------------------------------------- |
+| `X`               | `x`           | `FLOAT32` | `false` | X position                                                                                  |
+| `Y`               | `y`           | `FLOAT32` | `false` | Y position                                                                                  |
+| `Z`               | `z`           | `FLOAT32` | `false` | Z position                                                                                  |
+| `I` (intensity)   | `intensity`   | `UINT8`   | `false` | Measured reflectivity, intensity of the point                                               |
+| `R` (return type) | `return_type` | `UINT8`   | `false` | Laser return type for dual return lidars                                                    |
+| `C` (channel)     | `channel`     | `UINT16`  | `false` | Channel ID of the laser that measured the point                                             |
+| `A` (azimuth)     | `azimuth`     | `FLOAT32` | `true`  | Horizontal angle from the lidar origin to the point, in radians (see [Azimuth](#azimuth))   |
+| `E` (elevation)   | `elevation`   | `FLOAT32` | `true`  | Vertical angle from the lidar origin to the point, in radians (see [Elevation](#elevation)) |
+| `D` (distance)    | `distance`    | `FLOAT32` | `true`  | `hypot(X, Y, Z)`, Euclidean distance from the lidar origin to the point                     |
+| `T` (time)        | `time_stamp`  | `UINT32`  | `false` | Nanoseconds passed since the time of the header when this point was measured                |
 
 The ring outlier filter keeps only the first six fields. Its output and the concatenated point cloud use the `PointXYZIRC` point type.
 
@@ -71,9 +71,7 @@ The ring outlier filter keeps only the first six fields. Its output and the conc
 
 ### Intensity
 
-Autoware uses the following ranges for intensity, compatible with [the VLP16 User Manual](https://usermanual.wiki/Pdf/VLP16Manual.1719942037/view):
-
-Quoting from the VLP-16 User Manual:
+Autoware uses the intensity ranges of the Velodyne VLP-16. Section 6.1 ("Calibrated Reflectivity") of the [VLP-16 User Manual](https://data.ouster.io/downloads/velodyne/user-manual/vlp-16-user-manual-revf.pdf) says:
 
 > For each laser measurement, a reflectivity byte is returned in addition to distance.
 > Reflectivity byte values are segmented into two ranges, allowing software to distinguish diffuse reflectors
@@ -83,7 +81,7 @@ Quoting from the VLP-16 User Manual:
 > retroreflecting surfaces pop with reflected IR light compared to diffuse reflectors that tend to scatter reflected energy.
 >
 > - Diffuse reflectors report values from 0 to 100 for reflectivities from 0% to 100%.
-> - Retroreflectors report values from 101 to 255, where 255 represents an ideal reflection.
+> - Retroreflectors report values from 101 to 255, where 255 represents an ideal or saturated reflection.
 
 In a typical point cloud without retroreflectors, all intensity points will be between 0 and 100.
 
@@ -95,29 +93,21 @@ But in a point cloud with retroreflectors, the intensity points will be between 
 
 #### Intensity mapping for other lidar brands
 
+Other LiDARs use other intensity ranges. The design recommends that the driver of such a LiDAR maps its values to the ranges of the VLP-16. The following sections give the recommended mapping for some LiDARs.
+
+Nebula does not do this mapping. Its Hesai and RoboSense decoders copy the reflectivity byte of the sensor to the `intensity` field without a change ([`hesai_decoder.hpp`](https://github.com/tier4/nebula/blob/main/src/nebula_hesai/nebula_hesai_decoders/include/nebula_hesai_decoders/decoders/hesai_decoder.hpp) and [`robosense_decoder.hpp`](https://github.com/tier4/nebula/blob/main/src/nebula_robosense/nebula_robosense_decoders/include/nebula_robosense_decoders/decoders/robosense_decoder.hpp)).
+
 ##### Hesai PandarXT16
 
-[Hesai Pandar XT16 User Manual](https://www.hesaitech.com/wp-content/uploads/2025/04/PandarXT-16_User_Manual_X02-en-250410.pdf)
+The PandarXT-16 user manual is on the [Hesai download page](https://www.hesaitech.com/downloads/).
 
-This lidar has 2 modes for reporting reflectivity:
-
-- Linear mapping
-- Non-linear mapping
-
-If you use the linear mapping mode, map [0, 255] to [0, 100] when you construct the point cloud.
-
-If you use the non-linear mapping mode, map these ranges (Hesai to Autoware)
-
-- [0, 251] to [0, 100] and
-- [252, 254] to [101, 255]
-
-when constructing the point cloud.
+This lidar has 2 modes for reporting reflectivity: linear mapping and non-linear mapping. The configuration of the sensor selects the mode. Nebula reads this configuration (`reflectivity_mapping` in [`hesai_cmd_response.hpp`](https://github.com/tier4/nebula/blob/main/src/nebula_hesai/nebula_hesai_hw_interfaces/include/nebula_hesai_hw_interfaces/hesai_cmd_response.hpp)), but it does not change the reflectivity values. For the value ranges of each mode, see the reflectivity section of the user manual.
 
 ##### Livox Mid-70
 
 [Livox Mid-70 User Manual](https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/Mid-70/new/Livox%20Mid-70%20User%20Manual_EN_v1.2.pdf)
 
-This lidar has 2 modes for reporting reflectivity similar to Velodyne VLP-16, only the ranges are slightly different.
+The manual (page 15) says that the values from 0 to 150 are for reflectivities from 0% to 100% in the Lambertian reflection model. The values from 151 to 255 are for retroreflective targets. These are the same 2 ranges as the VLP-16, with a different limit.
 
 Map these ranges (Livox to Autoware)
 
@@ -130,28 +120,25 @@ when constructing the point cloud.
 
 [RoboSense RS-LiDAR-16 User Manual](https://cdn.robosense.cn/20200723161715_42428.pdf)
 
-No mapping required, same as Velodyne VLP-16.
+No mapping required, same as Velodyne VLP-16. Section 10 ("Calibrated Reflectivity") of the manual gives the values from 0 to 100 to diffuse reflectors and the values from 101 to 255 to retroreflectors.
 
 ##### Ouster OS-1-64
 
-[Software User Manual v2.0.0 for all Ouster sensors](https://data.ouster.io/downloads/software-user-manual/software-user-manual-v2p0.pdf)
+Starting in firmware v2.1.0, Ouster sensors have an 8-bit calibrated reflectivity field. The [Ouster sensor data documentation](https://static.ouster.dev/sensor-docs/image_route1/image_route2/sensor_data/sensor-data.html#reflectivity-data-mapping) says:
 
-In the manual it is stated:
+> Reflectivity values between 0-100 are linearly mapped for lambertian targets with values between 0% and 100% reflectivity. Values between 101-255 are mapped as log 2 with linear interpolation between logarithmic points for retroreflective targets.
+
+As a result, no mapping is required for this field.
+
+Older firmware has a 16-bit reflectivity field. The [Software User Manual v2.0.0 for all Ouster sensors](https://data.ouster.io/downloads/software-user-manual/software-user-manual-v2p0.pdf) says:
 
 > Reflectivity [16 bit unsigned int] - sensor Signal Photons measurements are scaled based on measured range and sensor sensitivity at that range, providing an indication of target reflectivity. Calibration of this measurement has not currently been rigorously implemented, but this will be updated in a future firmware release.
 
-As a result, map the 16-bit reflectivity to the [0, 100] range.
+With this firmware, map the 16-bit reflectivity to the [0, 100] range.
 
 ##### Leishen CH64W
 
-[Leishen download page](http://www.lslidar.com/en/down) (no English user manual was found)
-
-A user manual of this lidar says:
-
-> Byte 7 represents echo strength, and the value range is 0-255. (Echo strength can reflect
-> the energy reflection characteristics of the measured object in the actual measurement
-> environment. Therefore, the echo strength can be used to distinguish objects with
-> different reflection characteristics.)
+The official [Leishen ROS 2 driver for the CH64W](https://github.com/Lslidar/Lslidar_ROS2_driver/tree/CH64W_V1.0) reads byte 7 of each point as the intensity, with values from 0 to 255 ([`lslidar_driver.cpp`](https://github.com/Lslidar/Lslidar_ROS2_driver/blob/CH64W_V1.0/src/lslidar_driver.cpp)). This value has no separate range for retroreflectors.
 
 As a result, map [0, 255] to the [0, 100] range.
 
@@ -190,22 +177,30 @@ In the `PointXYZIRC` and `PointXYZIRCAEDT` types, the `C` field represents the v
 The azimuth field gives the horizontal angle between the optical origin of the lidar and the point.
 Many lidar measure this with the angle of the rotary encoder when the laser was fired, and the driver typically corrects the value based on calibration data.
 
-In the `PointXYZIRCAEDT` type, the `A` field represents the azimuth angle in radians (clockwise) with a `FLOAT32`.
+In the `PointXYZIRCAEDT` type, the `A` field represents the azimuth angle in radians with a `FLOAT32`.
+[`autoware_point_types`](https://github.com/autowarefoundation/autoware_core/tree/main/common/autoware_point_types) and the [Nebula point types](https://github.com/tier4/nebula/blob/main/docs/point_types.md) do not define the zero direction or the direction of rotation. Nebula writes the azimuth of the sensor without a conversion:
+
+- Velodyne and RoboSense: 0 is the +X axis of the sensor. The angle increases clockwise, seen from above (`x = cos(A)` and `y = -sin(A)` for a point at a horizontal distance of 1).
+- Hesai: 0 is the +Y axis of the sensor. The angle increases clockwise, seen from above (`x = sin(A)` and `y = cos(A)` for a point at a horizontal distance of 1).
+
+The [distortion corrector](https://github.com/autowarefoundation/autoware_universe/blob/main/sensing/autoware_pointcloud_preprocessor/docs/distortion-corrector.md) finds the azimuth convention of its input when it updates the azimuth.
 
 ### Elevation
 
 The elevation field gives the vertical angle between the optical origin of the lidar and the point.
-In the `PointXYZIRCAEDT` type, the `E` field represents the elevation angle in radians (clockwise) with a `FLOAT32`.
+In the `PointXYZIRCAEDT` type, the `E` field represents the elevation angle in radians with a `FLOAT32`. A positive angle points up (`z = D * sin(E)`).
+
+The Velodyne decoders of Nebula do not follow this definition. They write the sine of the vertical angle to the `E` field, not the angle ([`vlp16_decoder.cpp`](https://github.com/tier4/nebula/blob/main/src/nebula_velodyne/nebula_velodyne_decoders/src/decoders/vlp16_decoder.cpp)).
 
 #### Solid state and petal pattern lidars
 
-!!! warning
-
-    This section is subject to change. Following are suggestions and open for discussion.
+The following are suggestions of the design. The [supported sensors](https://github.com/tier4/nebula/blob/main/docs/supported_sensors.md) of Nebula include no petal pattern lidar.
 
 For solid state lidars that have lines, assign row number as the channel id.
 
 For petal pattern lidars, you can keep channel 0.
+
+The Livox drivers do this with their `line` field, the laser number of the point. The [Livox ROS driver](https://github.com/Livox-SDK/livox_ros_driver/blob/master/livox_ros_driver/livox_ros_driver/lds.h) sets `line` to 0 for the Mid-40 and the Mid-70, which have one laser. For the Horizon, the Tele, and the Avia, which have 6 lasers, it sets `line` to a value from 0 to 5. The [Livox ROS Driver 2](https://github.com/Livox-SDK/livox_ros_driver2/blob/master/README.md) also has the `line` field.
 
 ### Time stamp
 

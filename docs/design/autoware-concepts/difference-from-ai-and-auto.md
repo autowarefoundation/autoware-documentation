@@ -42,7 +42,9 @@ Autoware.Auto development seemed to work fine initially, but after completing th
 
 !!! warning
 
-    Autoware.Auto is no longer developed. Its development moved to Autoware Core/Universe.
+    Autoware.Auto is no longer developed. In 2022, the Autoware Foundation moved the development of Autoware to Autoware Core/Universe on GitHub. The [README of Autoware.Auto](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/blob/master/README.md) and the post [Past, present and the future of Autoware](https://autoware.org/past-present-and-the-future-of-autoware/) (September 2022) describe this move.
+
+    The GitLab repository of Autoware.Auto is not archived, but its last code change is from December 2022. Its last commits, in March 2023, only add the migration notice to the README and the documentation.
 
 ## Autoware Core/Universe
 

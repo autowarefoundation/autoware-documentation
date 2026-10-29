@@ -17,28 +17,30 @@ Some behavior types have sequence and details as additional information. The `Pl
 
 The velocity factors is an array of information on the behavior that the vehicle stops or slows down.
 
-| Behavior                    | Description                                                                                  |
-| --------------------------- | -------------------------------------------------------------------------------------------- |
-| surrounding-obstacle        | There are obstacles immediately around the vehicle.                                          |
-| route-obstacle              | There are obstacles along the route ahead.                                                   |
-| intersection                | There are obstacles in other lanes in the path.                                              |
-| crosswalk                   | There are obstacles on the crosswalk.                                                        |
-| rear-check                  | There are obstacles behind that would be in a human driver's blind spot.                     |
-| user-defined-attention-area | There are obstacles in the predefined attention area.                                        |
-| roundabout                  | There are obstacles in the roundabout.                                                       |
-| run-out                     | There are objects that move toward the path of the vehicle.                                  |
-| no-stopping-area            | There is not enough space beyond the no stopping area.                                       |
-| no-drivable-lane            | A stop before a lane that is outside the operational design domain (ODD).                    |
-| stop-sign                   | A stop by a stop sign.                                                                       |
-| traffic-signal              | A stop by a traffic signal.                                                                  |
-| virtual-traffic-light       | A stop by a virtual traffic light, for example a shutter or a V2X device at an intersection. |
-| merge                       | A stop before merging lanes.                                                                 |
-| sidewalk                    | A stop before crossing the sidewalk.                                                         |
-| adaptive-cruise             | A slowdown to keep the distance to the vehicle ahead.                                        |
-| lane-change                 | A lane change.                                                                               |
-| avoidance                   | A path change to avoid an obstacle in the current lane.                                      |
-| start-planner               | A start from the road shoulder.                                                              |
-| goal-planner                | A stop at the goal, for example after a pull over to the road shoulder.                      |
+| Behavior                    | Description                                                                                                   |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| surrounding-obstacle        | There are obstacles immediately around the vehicle.                                                           |
+| route-obstacle              | There are obstacles along the route ahead.                                                                    |
+| intersection                | There are obstacles in other lanes in the path.                                                               |
+| crosswalk                   | There are obstacles on the crosswalk.                                                                         |
+| rear-check                  | There are obstacles behind that would be in a human driver's blind spot.                                      |
+| user-defined-attention-area | There are obstacles in the predefined attention area.                                                         |
+| roundabout                  | There are obstacles in the roundabout.                                                                        |
+| run-out                     | There are objects that move toward the path of the vehicle.                                                   |
+| no-stopping-area            | There is not enough space beyond the no stopping area.                                                        |
+| no-drivable-lane            | A stop before a lane that is outside the operational design domain (ODD).                                     |
+| stop-sign                   | A stop by a stop sign.                                                                                        |
+| traffic-signal              | A stop by a traffic signal.                                                                                   |
+| virtual-traffic-light       | A stop by a virtual traffic light, for example a shutter or a V2X device at an intersection.                  |
+| merge                       | A stop before merging lanes.                                                                                  |
+| sidewalk                    | A stop before crossing the sidewalk.                                                                          |
+| adaptive-cruise             | A slowdown to keep the distance to the vehicle ahead. No module of Autoware 2.0 sends it. See the note below. |
+| lane-change                 | A lane change.                                                                                                |
+| avoidance                   | A path change to avoid an obstacle in the current lane.                                                       |
+| start-planner               | A start from the road shoulder.                                                                               |
+| goal-planner                | A stop at the goal, for example after a pull over to the road shoulder.                                       |
+
+The `adaptive-cruise` type is in the message definition, but no module of Autoware 2.0 sends it. The [Obstacle Cruise](https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_cruise_module/) module of the Motion Velocity Planner keeps the distance to the vehicle ahead. It publishes its planning factor with the behavior `UNKNOWN`, and the default implementation skips planning factors that are not a stop or a slowdown. From November 2024 to January 2025, the Obstacle Cruise Planner sent `adaptive-cruise` when the vehicle followed the vehicle ahead.
 
 Each factor also provides the status, the pose of the stop position, and the distance from the vehicle to that pose.
 The pose uses the frame of the message header. The default implementation uses the `map` frame.
@@ -77,3 +79,5 @@ For these types, the section where the status is TURNING will be updated dynamic
 The `planning` node of `autoware_default_adapi_universe` makes these factors from the planning factors that the planning modules publish on the `/planning/planning_factors/*` topics.
 It maps each module to a behavior type, for example `blind_spot` to `rear-check` and `detection_area` to `user-defined-attention-area`. It skips the factors of modules that it does not map.
 It sets the behavior, the pose, the distance, the status, and the direction. It does not set the sequence, the detail, or the cooperation status.
+
+The API specification intends the factors in each array to be sorted in ascending order of distance. The default implementation does not sort them. It puts the factors together in the fixed order of its input topics, and keeps the order in which each module publishes them.

@@ -24,9 +24,9 @@ This evolution is being driven by our core value of developing â€˜cutting edgeâ€
 
 The Autoware E2E stack aims to achieve global scalability across ODDs with data-centric end-to-end AI. In this plan, neural networks replace the hand-coded modules in a modular and incremental way. Neural networks show great promise in handling diverse and complex driving scenarios across domains.
 
-{{ diagram("media/architecture_figure02.svg", "Figure 2: The definition of SAE Level 4+ autonomous driving.") }}
+{{ diagram("media/architecture_figure02.svg", "Figure 2: The roadmap definition of Level 4+ autonomous driving, compared with SAE Levels 3, 4, and 5.") }}
 
-In particular, we aim to achieve SAE Level 4+ autonomous driving functionality through Autoware E2E. At this level, the autonomous system operates without any human intervention and dynamically adapts to new scenarios that it did not encounter before, as Figure 2 shows.
+In particular, we aim to achieve Level 4+ autonomous driving functionality through Autoware E2E. Level 4+ is not an SAE level. [SAE J3016](https://www.sae.org/standards/content/j3016_202104/) defines six levels of driving automation, from Level 0 to Level 5. The roadmap uses Level 4+ for its own definition: a system that meets SAE Level 4 and can also dynamically adapt to new scenarios that it did not encounter before. Like SAE Level 4, it drives only under limited conditions and does not require the human to take over driving. In Figure 2, the first three rows summarize the SAE J3016 descriptions of Levels 3, 4, and 5. The Level 4+ column and the last row are the roadmap's own definitions.
 
 ## Autoware E2E architecture description
 

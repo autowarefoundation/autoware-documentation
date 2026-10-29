@@ -21,6 +21,8 @@ But if one of the following conditions is true, you must create the lanelets for
 
 Refer to [vm-03-04](category_intersection.md#vm-03-04-lanelet-creation-in-the-intersection) for more about intersection requirements.
 
+The minimum of 10 meters is a requirement of this map specification. No Autoware parameter uses this value. The intersection module looks for vehicles only on the attention lanes in the map: the lanes that conflict with the path of the vehicle, and their preceding lanes up to `common.attention_area_length` (200 m by default). If the Lanelets on the crossing road are short, the attention area is also short.
+
 ##### Behavior of Autoware <!-- omit in toc -->
 
 Autoware detects approaching vehicles and plans a route to avoid collisions.

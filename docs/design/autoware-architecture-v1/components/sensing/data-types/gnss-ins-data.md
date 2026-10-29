@@ -67,4 +67,6 @@ The [`gnss.launch.xml`](https://github.com/autowarefoundation/autoware_launch/bl
 
 ## GNSS-INS velocity and acceleration
 
-The [input types](../index.md#input-types) table also defines `geometry_msgs/msg/TwistWithCovarianceStamped` for the GNSS-INS velocity and `geometry_msgs/msg/AccelWithCovarianceStamped` for the GNSS-INS acceleration. The sensing component does not process these messages.
+The [input types](../index.md#input-types) table also lists `geometry_msgs/msg/TwistWithCovarianceStamped` for the GNSS-INS velocity and `geometry_msgs/msg/AccelWithCovarianceStamped` for the GNSS-INS acceleration. Autoware defines no topic for them. The [Sensing interface](../../../interfaces/components/sensing.md) page gives "Not defined" as their topic.
+
+No node of the sensing component reads these messages. Eagleye can read a GNSS velocity as `TwistWithCovarianceStamped` (`velocity_source_type: 3` of its `gnss_converter` node). The default `eagleye_config.param.yaml` of `autoware_launch` reads the u-blox `NavPVT` message (`velocity_source_type: 2`) instead. No node of Autoware 2.0.0 reads a GNSS acceleration.

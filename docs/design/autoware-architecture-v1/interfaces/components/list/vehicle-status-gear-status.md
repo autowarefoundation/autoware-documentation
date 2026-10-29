@@ -6,7 +6,7 @@ data_type_name: autoware_vehicle_msgs/msg/GearReport
 data_type_link: https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/GearReport.msg
 rate: 10 or N/A
 qos_reliability: reliable
-qos_durability: volatile or transient_local
+qos_durability: volatile
 qos_depth: 1
 ---
 
@@ -19,9 +19,8 @@ qos_depth: 1
 ## Description
 
 Get the current gear status of the vehicle. The statuses are listed in the table below.
-It is recommended to set QoS to transient_local and publish only when the status changes, but currently many implementations publish the status periodically.
-The `autoware_component_interface_specs` package defines `volatile` today.
-Therefore, ensure consistency across the entire system.
+
+The [`autoware_component_interface_specs`](https://github.com/autowarefoundation/autoware_core/blob/1.10.0/common/autoware_component_interface_specs/include/autoware/component_interface_specs/vehicle.hpp) package defines this topic with `volatile` durability. The vehicle interface publishes this topic. Known publishers, for example [`pacmod_interface`](https://github.com/tier4/pacmod_interface/blob/main/pacmod_interface/src/pacmod_interface/pacmod_interface.cpp) and [`autoware_simple_planning_simulator`](https://github.com/autowarefoundation/autoware_simple_planning_simulator/blob/1.1.0/autoware_simple_planning_simulator/src/simple_planning_simulator/simple_planning_simulator_core.cpp), publish the status continuously with `volatile` durability, not only when the status changes. The design intent is different: use `transient_local` durability and publish only when the status changes. Make sure that the publishers and the subscribers in your system use compatible QoS settings.
 
 | Value   | Description                                                                                 |
 | ------- | ------------------------------------------------------------------------------------------- |

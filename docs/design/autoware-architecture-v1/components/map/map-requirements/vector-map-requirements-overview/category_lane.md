@@ -21,7 +21,7 @@ The road's Lanelets must comply with the following requirements.
 - Align the Lanelet's direction with the direction in which the vehicle moves. (You can show the Lanelet direction as arrows in [Vector Map Builder](https://docs.web.auto/en/user-manuals/vector-map-builder/screen-layout#project-tab).)
 - Set whether a lane change is permitted or not, according to [vm-01-02](#vm-01-02-allowance-for-lane-changes).
 - Set the Linestring IDs for the Lanelet's left_bound and right_bound. See [vm-01-03](#vm-01-03-linestring-sharing).
-- tag: _one_way=yes_. Autoware does not support _one_way=no_. For a narrow road on which the vehicle drives in both directions, see [vm-01-14](#vm-01-14-roads-with-no-centerline-2).
+- tag: _one_way=yes_. Do not use _one_way=no_ on a road Lanelet. With _one_way=no_, the Lanelet2 traffic rules let a vehicle drive the Lanelet in both directions, and the routing graph of Autoware can use it in the reverse direction. But the route of Autoware keeps only the ID of each Lanelet, not the direction, and Autoware plans the path along the direction of the Lanelet. For a narrow road on which the vehicle drives in both directions, see [vm-01-14](#vm-01-14-roads-with-no-centerline-2).
 - Connect the Lanelet to the next and the previous Lanelets, except at the start or the end of the road. Two Lanelets are connected when the end points of the left and right bounds of the first Lanelet are the start points of the bounds of the next Lanelet.
 - Position the points (x, y, z) of the Lanelet to align with the PCD Map, both laterally and in elevation. The height of a Point must be the ellipsoidal height (WGS84). Refer to [vm-07-04](category_others.md#vm-07-04-ellipsoidal-height).
 
@@ -51,9 +51,12 @@ Set the Linestring _subtype_ according to the type of line.
 
 ##### Referenced from Japan's Road Traffic Law <!-- omit in toc -->
 
-- White dashed lines: lane changes and overtaking are permitted.
-- White solid lines: lane changes and overtaking are permitted.
-- Yellow solid lines: lane changes are not permitted.
+The tags of the drawing follow the legal background in Japan:
+
+- White dashed lines and white solid lines between lanes: the law does not prohibit a lane change across them. Set _lane_change=yes_.
+- Yellow solid lines between lanes: this road marking prohibits a lane change. Set _lane_change=no_.
+
+[Article 26-2, paragraph 3 of the Road Traffic Act](https://laws.e-gov.go.jp/law/335AC0000000105#Mp-Ch_3-Se_4-At_26_2) prohibits a lane change across a road marking that prohibits a change of course. The [ministerial order on road signs and road markings](https://laws.e-gov.go.jp/law/335M50004002003) gives this marking (number 102-2) the color yellow. For other countries, use the local traffic law.
 
 {{ diagram("../assets/vm-01-02.svg", "The three types of lane lines and the tags of their Linestrings.") }}
 
@@ -315,8 +318,8 @@ None in particular.
 
 Apply this requirement if all the following conditions are satisfied:
 
-- The road is a single lane without a road center line, and it is too narrow for the vehicle and an oncoming vehicle to pass each other.
-- No vehicles other than the autonomous vehicle enter this road.
+- The road is a single lane without a road center line, and it is too narrow for the vehicle and an oncoming vehicle to pass each other while both move.
+- If other vehicles use this road, an oncoming vehicle can pass the autonomous vehicle when the autonomous vehicle moves to the left side of the road and stops. If they cannot pass each other in this way (for example, when one vehicle must back up), other vehicles must not enter the road while the autonomous vehicle is on it.
 - The autonomous vehicle drives forth and back on this road.
 
 Requirement for Vector Map creation:
@@ -326,7 +329,8 @@ Requirement for Vector Map creation:
 ##### Supplementary information
 
 - Whether this case applies depends on the local operation policies and the vehicle specifications. Decide it with the map requestor.
-- The bidirectional traffic module of the behavior path planner finds such pairs of Lanelets. On these Lanelets, it moves the path of the vehicle to the left of the road center. If it detects an oncoming vehicle, it moves the vehicle to the left side, stops it, and waits until the oncoming vehicle has passed. It cannot handle cases in which the vehicles cannot pass each other this way.
+- The bidirectional traffic module of the behavior path planner finds such pairs of Lanelets. The Lanelets need no special tags. On these Lanelets, the module moves the path of the vehicle to the left of the road center. If it detects an oncoming vehicle, it moves the vehicle to the left side, stops it, and waits until the oncoming vehicle has passed. The default preset of `autoware_launch` enables this module.
+- The module always gives way in this way. It does not back up the vehicle, and it does not move the vehicle into a road shoulder to give way. It cannot handle cases in which the vehicles cannot pass each other this way.
 
 {{ diagram("../assets/vm-01-14_1.svg", "The vehicle drives outward on a narrow road and later comes back on it.") }}
 
@@ -360,11 +364,10 @@ A road Lanelet must be next to the road shoulder Lanelet.
 
 - Autoware can start from the road shoulder and can also stop on the road shoulder at the goal.
 - The Autoware parameter `margin_from_boundary` of the goal planner sets the margin between the vehicle and the edge of the road shoulder at the goal. You do not need to consider it when you create the Vector Map.
-- Autoware does not park on the road shoulder Lanelet where the vehicle overlaps with any of the following:
+- The goal planner does not select a goal on the road shoulder Lanelet where the vehicle overlaps with any of the following:
   - A Polygon of a _no_parking_area_
   - A Polygon of a _no_stopping_area_
-  - Areas near an intersection and in an intersection
-  - A crosswalk
+- The goal planner and the start planner do not look for intersections or crosswalks. If the vehicle must not stop on the road shoulder near or in an intersection, or on a crosswalk, cover that place with a _no_parking_area_ or a _no_stopping_area_ Polygon. The road shoulder Lanelet must refer to its regulatory element. See [vm-06-02](category_area.md#vm-06-02-no-parking-signs) and [vm-06-03](category_area.md#vm-06-03-no-stopping-signs). This is a requirement for the map, not a check that Autoware does.
 
 The Linestring at the boundary of the road shoulder does not need _tag:lane_change=yes_.
 

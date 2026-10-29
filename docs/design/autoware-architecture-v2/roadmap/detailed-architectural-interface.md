@@ -22,7 +22,9 @@ These safety requirements may vary across users and applications. Therefore, the
 
 In autonomous driving, many decisions are inherently non-deterministic. For example, the timing of a lane change often depends on driver preference and context. Both keeping the current lane and changing lanes can be equally valid choices.
 
-Some E2E planners, such as the Diffusion Drive planner, can generate multiple feasible trajectories in such scenarios. However, the vehicle must ultimately commit to a single maneuver. Therefore, the architecture must support a mechanism for users to influence decision-making, allowing their preferences to guide behavior selection when multiple valid options exist.
+Some E2E planners, such as [DiffusionDrive](https://github.com/hustvl/DiffusionDrive) (the paper ["DiffusionDrive: Truncated Diffusion Model for End-to-End Autonomous Driving"](https://arxiv.org/abs/2411.15139)), can generate multiple feasible trajectories in such scenarios. However, the vehicle must ultimately commit to a single maneuver. Therefore, the architecture must support a mechanism for users to influence decision-making, allowing their preferences to guide behavior selection when multiple valid options exist.
+
+DiffusionDrive is a published research planner. It is not the Diffusion Planner ([`autoware_diffusion_planner`](https://github.com/autowarefoundation/autoware_universe/tree/0.53.1/planning/autoware_diffusion_planner)) of Autoware 2.0.0. The Diffusion Planner makes one candidate trajectory for each element of its batch, and its default `batch_size` is 1.
 
 ## Generator-Selector framework
 
