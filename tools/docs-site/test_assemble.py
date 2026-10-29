@@ -218,6 +218,24 @@ def test_the_canonical_address_and_the_sitemap_get_the_version(bundles, tmp_path
         assert archive.read() == sitemap
 
 
+def test_the_sitemap_lists_the_root_of_its_version(bundles, tmp_path):
+    # The version selector keeps the current page only if the sitemap of the
+    # other version lists its root.
+    write(
+        bundles / "main" / "sitemap.xml",
+        f'<urlset xmlns="x"><url><loc>{SITE_URL}home/</loc></url></urlset>',
+    )
+    write(
+        bundles / "1.9.0" / "sitemap.xml",
+        f'<urlset xmlns="x"><url><loc>{SITE_URL}</loc></url><url><loc>{SITE_URL}home/</loc></url></urlset>',
+    )
+    output, _ = run(bundles, tmp_path)
+    for version in ("main", "1.9.0"):
+        sitemap = read(output / version / "sitemap.xml")
+        assert sitemap.count(f"<loc>{SITE_URL}{version}/</loc>") == 1
+        assert f"<loc>{SITE_URL}{version}/home/</loc>" in sitemap
+
+
 def test_a_canonical_address_with_the_version_is_kept(tmp_path):
     root = tmp_path / "bundles"
     write(root / "main" / "home" / "index.html", page("x", canonical="main/home/"))

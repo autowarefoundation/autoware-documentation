@@ -73,6 +73,7 @@ CSS_URL = re.compile(r"""url\(\s*(["']?)([^"')]+)\1\s*\)""")
 CANONICAL = re.compile(r"""<link\b[^>]*\brel=["']?canonical\b[^>]*>""", re.I)
 HREF = re.compile(r"""(\bhref=)(["']?)([^"'\s>]+)\2""", re.I)
 SITEMAP_LOCATION = re.compile(r"(<loc>)([^<]*)(</loc>)")
+SITEMAP_START = re.compile(r"<urlset\b[^>]*>")
 
 # A reference to a shared file, plain or percent-encoded as in the links to
 # diagrams.net.
@@ -341,13 +342,7 @@ def copy_version(version, versions, output, site_url, used):
             destination.write_text(text, encoding="utf-8")
             used.update(USED_MEDIA.findall(text))
         elif relative == "sitemap.xml":
-            text = path.read_text(encoding="utf-8")
-            text = SITEMAP_LOCATION.sub(
-                lambda m: m.group(1)
-                + canonical_address(m.group(2), version, site_url)
-                + m.group(3),
-                text,
-            )
+            text = rewrite_sitemap(path.read_text(encoding="utf-8"), version, site_url)
             destination.write_text(text, encoding="utf-8")
             with gzip.open(destination.with_suffix(".xml.gz"), "wt", encoding="utf-8") as archive:
                 archive.write(text)
@@ -355,6 +350,28 @@ def copy_version(version, versions, output, site_url, used):
             continue  # Written again from sitemap.xml, with the new addresses.
         else:
             shutil.copyfile(path, destination)
+
+
+def rewrite_sitemap(text, version, site_url):
+    """Give the addresses of a sitemap the name of their version.
+
+    The version selector of the theme keeps the current page when it switches
+    versions only if the sitemap of the other version lists the root of that
+    version. A version whose root page only redirects, like the default branch,
+    leaves its root out of the sitemap, so the root is added.
+    """
+    text = SITEMAP_LOCATION.sub(
+        lambda m: m.group(1) + canonical_address(m.group(2), version, site_url) + m.group(3),
+        text,
+    )
+    root = f"{site_url}{version.name}/"
+    if f"<loc>{root}</loc>" not in text:
+        text = SITEMAP_START.sub(
+            lambda m: f"{m.group(0)}\n    <url>\n         <loc>{root}</loc>\n    </url>",
+            text,
+            count=1,
+        )
+    return text
 
 
 def write_root_files(output, versions, default_version, releases_url):
