@@ -5,6 +5,8 @@ method: realtime stream
 type:
   name: autoware_adapi_v1_msgs/msg/VehicleStatus
   msg:
+    - name: stamp
+      text: Timestamp when this message was sent.
     - name: gear
       text: Gear status.
     - name: turn_indicators

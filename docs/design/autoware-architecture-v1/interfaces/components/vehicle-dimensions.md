@@ -1,26 +1,32 @@
 # Vehicle dimensions
 
+Autoware describes the size of the vehicle with the parameters in `vehicle_info.param.yaml`. Each vehicle description package has this file, for example [`autoware_sample_vehicle_description`](https://github.com/autowarefoundation/autoware_core/blob/main/description/autoware_sample_vehicle_description/config/vehicle_info.param.yaml). The [`autoware_vehicle_info_utils`](https://github.com/autowarefoundation/autoware_core/tree/main/common/autoware_vehicle_info_utils) package reads the parameters and calculates the values that depend on them.
+
+The current format supports only the Ackermann model. It is the model that planning and control use. It does not have to be the exact physical model of the vehicle.
+
 ## Vehicle axes and base_link
 
 {{ diagram("images/vehicle-axes.svg", "The axes of the base_link frame.") }}
 
-The `base_link` frame is used very frequently throughout the Autoware stack, and is a projection of the rear-axle center onto the ground surface.
+The `base_link` frame is used very frequently throughout the Autoware stack. It is the projection of the rear-axle center onto the ground surface.
 
-- Localization module outputs the `map` to `base_link` transformation.
-- Planning module plans the poses for where the `base_link` frame should be in the future.
-- Control module tries to fit `base_link` to incoming poses.
+- The Localization component outputs the `map` to `base_link` transformation.
+- The Planning component plans the poses for where the `base_link` frame should be in the future.
+- The Control component tries to fit `base_link` to incoming poses.
 
 ## Vehicle dimensions
 
 {{ diagram("images/vehicle-dimensions.svg", "The dimensions of the vehicle in the top view. The front wheels show a positive steering angle.") }}
 
-### wheelbase
+All lengths are in meters.
 
-The distance between front and rear axles.
+### wheel_base
 
-### track_width
+The distance between the front and rear axles.
 
-The distance between left and right wheels.
+### wheel_tread
+
+The distance between the centers of the left and right wheels.
 
 ### Overhangs
 
@@ -44,13 +50,21 @@ The distance between the front axle and the foremost point of the vehicle.
 
 The distance between the rear axle and the rear-most point of the vehicle.
 
+### vehicle_height
+
+The height of the vehicle from the ground.
+
+### max_steer_angle
+
+The maximum steering angle of the tires, in radians.
+
 ### vehicle_length
 
-Total length of the vehicle. Calculated by `front_overhang + wheelbase + rear_overhang`
+Total length of the vehicle. Calculated by `front_overhang + wheel_base + rear_overhang`
 
 ### vehicle_width
 
-Total width of the vehicle. Calculated by `left_overhang + track_width + right_overhang`
+Total width of the vehicle. Calculated by `left_overhang + wheel_tread + right_overhang`
 
 ### Wheel parameters
 
@@ -64,22 +78,16 @@ The lateral width of a wheel tire, primarily used for dead reckoning.
 
 The radius of the wheel, primarily used for dead reckoning.
 
-### polygon_footprint
+### Footprint
 
 {{ diagram("images/vehicle-footprint.svg", "The footprint polygon that Autoware makes from the vehicle dimensions.") }}
 
-The polygon defines the minimum collision area for the vehicle.
+The footprint is the minimum collision area of the vehicle. It is not a parameter. The `createFootprint()` function of `autoware_vehicle_info_utils` makes it from the dimensions above. The points are in clockwise order, with the origin on `base_link`. The center points are at half of `wheel_base`. A planning or control module can add a lateral or longitudinal margin to the footprint.
 
-The points should be ordered clockwise, with the origin on the `base_link`.
+The AD API reports the dimensions and a footprint polygon of the vehicle through `/api/vehicle/dimensions`.
 
 ## Wheel orientations
 
 If the vehicle is going forward, a positive wheel angle will result in the vehicle turning left.
 
 Autoware assumes the rear wheels don't turn on `z` axis.
-
-## Notice
-
-<!-- cspell: ignore xvlblo22 -->
-
-The vehicle used in the illustrations was created by xvlblo22 and is from <https://www.turbosquid.com/3d-models/modular-sedan-3d-model-1590886>.

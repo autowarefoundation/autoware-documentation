@@ -5,6 +5,8 @@ method: notification
 type:
   name: autoware_adapi_v1_msgs/msg/DoorStatusArray
   msg:
+    - name: stamp
+      text: Timestamp when this message was sent.
     - name: doors.status
       text: current door status
 ---

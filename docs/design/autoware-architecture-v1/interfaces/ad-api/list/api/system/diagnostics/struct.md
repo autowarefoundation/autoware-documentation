@@ -11,6 +11,8 @@ type:
       text: ID to check correspondence between struct and status.
     - name: nodes
       text: Static data for nodes in diagnostic graph.
+    - name: diags
+      text: Static data for leaf diagnostics in diagnostic graph.
     - name: links
       text: Static data for links in diagnostic graph.
 ---

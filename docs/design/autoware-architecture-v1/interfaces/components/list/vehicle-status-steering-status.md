@@ -4,7 +4,7 @@ interface_type: topic
 interface_name: /vehicle/status/steering_status
 data_type_name: autoware_vehicle_msgs/msg/SteeringReport
 data_type_link: https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/SteeringReport.msg
-rate: 10
+rate: 10 (design value)
 qos_reliability: reliable
 qos_durability: volatile
 qos_depth: 1
@@ -19,6 +19,8 @@ qos_depth: 1
 ## Description
 
 Get the current steering status of the vehicle.
+
+The rate of 10 Hz in the table is a design value. The [`autoware_component_interface_specs`](https://github.com/autowarefoundation/autoware_core/blob/1.10.0/common/autoware_component_interface_specs/include/autoware/component_interface_specs/vehicle.hpp) package does not define a rate. Known publishers send the status faster: [`autoware_simple_planning_simulator`](https://github.com/autowarefoundation/autoware_simple_planning_simulator/blob/1.1.0/autoware_simple_planning_simulator/src/simple_planning_simulator/simple_planning_simulator_core.cpp) publishes it at 40 Hz (`timer_sampling_time_ms: 25`), and [`pacmod_interface`](https://github.com/tier4/pacmod_interface/blob/main/pacmod_interface/src/pacmod_interface/pacmod_interface.cpp) publishes it once for each set of PACMod reports. The consumers use the latest message that they received. For example, [`autoware_trajectory_follower_node`](https://github.com/autowarefoundation/autoware_universe/blob/0.53.1/control/autoware_trajectory_follower_node/src/controller_node.cpp) and [`autoware_vehicle_cmd_gate`](https://github.com/autowarefoundation/autoware_universe/blob/0.53.1/control/autoware_vehicle_cmd_gate/src/vehicle_cmd_gate.cpp) read the latest steering angle and do not check its age.
 
 ## Message
 

@@ -6,7 +6,7 @@ data_type_name: autoware_vehicle_msgs/msg/GearReport
 data_type_link: https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/GearReport.msg
 rate: 10 or N/A
 qos_reliability: reliable
-qos_durability: volatile or transient_local
+qos_durability: volatile
 qos_depth: 1
 ---
 
@@ -19,12 +19,12 @@ qos_depth: 1
 ## Description
 
 Get the current gear status of the vehicle. The statuses are listed in the table below.
-It is recommended to set QoS to transient_local and publish only when the status changes, but currently many implementations publish the status periodically.
-Therefore, ensure consistency across the entire system.
+
+The [`autoware_component_interface_specs`](https://github.com/autowarefoundation/autoware_core/blob/1.10.0/common/autoware_component_interface_specs/include/autoware/component_interface_specs/vehicle.hpp) package defines this topic with `volatile` durability. The vehicle interface publishes this topic. Known publishers, for example [`pacmod_interface`](https://github.com/tier4/pacmod_interface/blob/main/pacmod_interface/src/pacmod_interface/pacmod_interface.cpp) and [`autoware_simple_planning_simulator`](https://github.com/autowarefoundation/autoware_simple_planning_simulator/blob/1.1.0/autoware_simple_planning_simulator/src/simple_planning_simulator/simple_planning_simulator_core.cpp), publish the status continuously with `volatile` durability, not only when the status changes. The design intent is different: use `transient_local` durability and publish only when the status changes. Make sure that the publishers and the subscribers in your system use compatible QoS settings.
 
 | Value   | Description                                                                                 |
 | ------- | ------------------------------------------------------------------------------------------- |
-| PARKING | The engine or motor is disconnected from the tires and the stopping mechanism is activated. |
+| PARK    | The engine or motor is disconnected from the tires and the stopping mechanism is activated. |
 | NEUTRAL | The engine or motor is disconnected from the tires.                                         |
 | DRIVE   | The engine or motor is connected to the tires in the forward direction.                     |
 | REVERSE | The engine or motor is connected to the tires in the backward direction.                    |
@@ -33,7 +33,7 @@ Therefore, ensure consistency across the entire system.
 
 The `stamp` field is the status received time or hardware time such as VCU. In the case of periodic publication, use the latest time, not the last status change.
 For the `report` field, use the valid values listed above. The `NONE` value can be used internally by programs, but will never be sent as a topic.
-Values ​​such as `LOW` and `DRIVE_2` ​​can be used if the vehicle has its own special gear types, but a dedicated implementation is required to handle this.
+Values such as `LOW` and `DRIVE_2` can be used if the vehicle has its own special gear types, but a dedicated implementation is required to handle this.
 
 ## Errors
 
@@ -63,8 +63,8 @@ Latency: Gear shifting is a mechanical process that takes time (typically 0.5s t
 
 ## Design
 
-- Support four typical gear types: PARKING, NEUTRAL, DRIVE, and REVERSE.
-- Unused values ​​can be used for special gear types.
+- Support four typical gear types: PARK, NEUTRAL, DRIVE, and REVERSE.
+- Unused values can be used for special gear types.
 - Simulate gear if necessary to increase reusability.
 
 ## History

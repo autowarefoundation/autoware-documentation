@@ -15,4 +15,5 @@ type:
 {% block description %}
 List the available manual control modes as described in [manual control](../../../../../features/manual-control.md).
 The disabled mode is not included in the available modes.
+The default implementation returns only the pedals mode.
 {% endblock %}

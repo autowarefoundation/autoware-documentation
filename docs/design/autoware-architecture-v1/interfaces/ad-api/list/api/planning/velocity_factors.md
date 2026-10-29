@@ -1,14 +1,16 @@
 ---
 title: /api/planning/velocity_factors
 status: not released
-method: realtime stream
+method: reliable stream
 type:
   name: autoware_adapi_v1_msgs/msg/VelocityFactorArray
   msg:
+    - name: header
+      text: Header with the timestamp and the frame ID of the poses.
     - name: factors.pose
-      text: The base link pose related to the velocity factor.
+      text: The pose related to the velocity factor, in the frame of the message header.
     - name: factors.distance
-      text: The distance from the base link to the above pose.
+      text: The distance from the vehicle to the above pose.
     - name: factors.status
       text: The status of the velocity factor.
     - name: factors.behavior
@@ -23,6 +25,7 @@ type:
 
 {% extends 'design/autoware-architecture-v1/interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Get the velocity factors, sorted in ascending order of distance.
+Get the velocity factors.
+The specification intends the factors to be sorted in ascending order of distance. The default implementation does not sort them. It lists them in the fixed order of its input topics.
 For details, see the [planning factors](../../../features/planning-factors.md).
 {% endblock %}

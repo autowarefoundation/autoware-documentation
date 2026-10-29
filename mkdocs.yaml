@@ -78,6 +78,7 @@ plugins:
   - redirects:
       redirect_maps:
         index.md: home/index.md
+        design/autoware-architecture-v1/interfaces/components/perception-interface.md: design/autoware-architecture-v1/interfaces/components/perception.md
   # https://zensical.org/docs/setup/search/
   - search:
       separator: '[\s\-_,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'

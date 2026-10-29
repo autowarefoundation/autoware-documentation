@@ -38,6 +38,12 @@ These files reside under [autoware/repositories](https://github.com/autowarefoun
 
   Holds the reference to [tier4/scenario_simulator_v2](https://github.com/tier4/scenario_simulator_v2.git) repository.
 
+- `simulator-nightly.repos`
+
+  ***
+
+  The nightly counterpart of `simulator.repos`. In Autoware 2.0.0, it lists no repositories.
+
 - `extra-packages.repos`
 
   ***

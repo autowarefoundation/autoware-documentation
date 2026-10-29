@@ -6,7 +6,7 @@ data_type_name: autoware_vehicle_msgs/msg/HazardLightsCommand
 data_type_link: https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/HazardLightsCommand.msg
 rate: 10 or N/A
 qos_reliability: reliable
-qos_durability: volatile or transient_local
+qos_durability: volatile
 qos_depth: 1
 ---
 
@@ -19,8 +19,8 @@ qos_depth: 1
 ## Description
 
 Send the hazard lights change command to the vehicle. The command is `ENABLE` or `DISABLE`.
-It is recommended to set QoS to transient_local and publish only when the command changes, but currently many implementations publish the command periodically.
-Therefore, ensure consistency across the entire system.
+
+The [`autoware_component_interface_specs`](https://github.com/autowarefoundation/autoware_core/blob/1.10.0/common/autoware_component_interface_specs/include/autoware/component_interface_specs/control.hpp) package defines this topic with `volatile` durability. In the default launch of Autoware, the [`autoware_vehicle_cmd_gate`](https://github.com/autowarefoundation/autoware_universe/blob/0.53.1/control/autoware_vehicle_cmd_gate/src/vehicle_cmd_gate.cpp) node publishes the command periodically, at its `update_rate` of 10 Hz. This node uses `transient_local` durability, and `volatile` subscribers also receive its messages. The design intent is different: use `transient_local` durability and publish only when the command changes. Make sure that the publishers and the subscribers in your system use compatible QoS settings.
 
 ## Message
 

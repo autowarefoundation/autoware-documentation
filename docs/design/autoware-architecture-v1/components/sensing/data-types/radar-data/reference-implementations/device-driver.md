@@ -13,21 +13,22 @@ The following communication types are considered:
 
 ## Software Interface
 
-Autoware support `ros-perception/radar_msgs/msg/RadarScan.msg` and `autoware_auto_perception_msgs/msg/TrackedObjects.msg` for Radar drivers.
+Autoware supports `ros-perception/radar_msgs/msg/RadarScan.msg` and `ros-perception/radar_msgs/msg/RadarTracks.msg` for radar drivers.
 
 {{ diagram("image/radar-driver.svg", "Inside the radar, target detection makes the scan points. Object tracking makes the tracks.") }}
 
-ROS driver receive the data from radar devices.
+The ROS driver receives the following data from the radar device:
 
 - Scan (pointcloud)
 - Tracked objects
 - Diagnostics results
 
-The ROS drivers receives the following data from the radar device.
+The ROS driver sends the following data to the radar device:
 
 - Time synchronization
-- Ego vehicle status, which often need for tracked objects calculation
+- Ego vehicle status, which the radar often needs to calculate the tracked objects
 
-## Radar driver example
+## Radar driver examples
 
 - [ARS408 driver](https://github.com/tier4/ars408_driver)
+- [Nebula](https://github.com/tier4/nebula): the `nebula_continental` package supports the Continental ARS548 and SRR520 radars. It publishes `RadarScan` and `RadarTracks`. For the ARS548, it also publishes `autoware_sensing_msgs/msg/RadarObjects`.

@@ -6,24 +6,56 @@ Autoware relies on high-definition point cloud maps and vector maps of the drivi
 
 A vector map contains highly accurate information about a road network, lane geometry, and traffic lights. It is required for route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians.
 
-Vector Map uses [lanelet2_extension](https://github.com/autowarefoundation/autoware_lanelet2_extension/blob/main/autoware_lanelet2_extension/docs/lanelet2_format_extension.md), which is based on the [lanelet2](https://github.com/fzi-forschungszentrum-informatik/Lanelet2) format and extended for Autoware.
+The Vector Map uses the [Autoware Lanelet2 format](https://github.com/autowarefoundation/autoware_lanelet2_extension/blob/main/autoware_lanelet2_extension/docs/lanelet2_format_extension.md). This format is the [Lanelet2](https://github.com/fzi-forschungszentrum-informatik/Lanelet2) format with extensions for Autoware. The package [`autoware_lanelet2_extension`](https://github.com/autowarefoundation/autoware_lanelet2_extension) defines these extensions.
 
-The primitives (basic components) used in Vector Map are explained in [Web.Auto Docs - What is Lanelet2](https://docs.web.auto/en/user-manuals/vector-map-builder/introduction#what-is-lanelet2). The following **Vector Map creation requirement specifications** are written on the premise of these knowledge.
+[Web.Auto Docs - What is Lanelet2](https://docs.web.auto/en/user-manuals/vector-map-builder/introduction#what-is-lanelet2) explains the primitives (basic components) of a Vector Map. The following **Vector Map creation requirement specifications** assume that you know these primitives.
 
-This specification is a set of requirements for the creation of Vector Map(s) to ensure that Autoware drives safely and autonomously as intended by the user. To Create a Lanelet2 format .osm file, please refer to [Creating a vector map](../../../../../../tutorials/integrating-autoware/creating-maps/creating-vector-map/index.md).
+This specification is a set of requirements for the creation of Vector Maps, so that Autoware drives safely and autonomously as the user intends. To create a Lanelet2 format .osm file, refer to [Creating a vector map](../../../../../../tutorials/integrating-autoware/creating-maps/creating-vector-map/index.md).
 
 ## Handling of the Requirement Specification
 
-Which requirements apply entirely depends on the configuration of the Autoware system on a vehicle. Before creating a Vector Map, it is necessary to clearly determine in advance how you want the vehicle with the implemented system to behave in various environments.
+Which requirements apply depends on the configuration of the Autoware system on the vehicle. Before you create a Vector Map, decide how the vehicle with the system must behave in each environment.
 
-Next, you must comply with the laws of the country where the autonomous driving vehicle will be operating. It is your responsibility to choose which of the following requirements to apply according to the laws.
+Next, you must comply with the laws of the country where the autonomous vehicle operates. It is your responsibility to choose which of the following requirements to apply according to these laws.
 
 ### Caution
 
-- The examples of the road signs and road surface markings are used in Japan. Please replace them with those used in your respective countries.
-- The values for range and distance indicated are minimum values. Please determine values that comply with the laws of your country. Furthermore, these minimum values may change depending on the maximum velocity of the autonomous driving vehicle.
+- The examples of road signs and road surface markings are the ones used in Japan. Replace them with the ones used in your country.
+- The values for ranges and distances are minimum values. Choose values that comply with the laws of your country. These minimum values can also change with the maximum velocity of the autonomous vehicle.
 
 ## List of Requirement Specifications
+
+<div class="grid cards aw-cards aw-cards--small" markdown>
+
+- :fa-cl-s fa-road: **[Lane](category_lane.md)**
+
+  vm-01-01 to vm-01-19: Lanelets, Linestrings, the centerline, speed limits, road shoulders, side strips, and walkways.
+
+- :fa-cl-s fa-hand: **[Stop line](category_stop_line.md)**
+
+  vm-02-01 to vm-02-02: stop lines and stop signs.
+
+- :fa-cl-s fa-arrows-split-up-and-left: **[Intersection](category_intersection.md)**
+
+  vm-03-01 to vm-03-15: Lanelets, areas, and right of way in intersections.
+
+- :fa-cl-s fa-traffic-light: **[Traffic light](category_traffic_light.md)**
+
+  vm-04-01 to vm-04-03: traffic lights and their lamps.
+
+- :fa-cl-s fa-person-walking: **[Crosswalk](category_crosswalk.md)**
+
+  vm-05-01 to vm-05-04: crosswalks, pedestrian signals, and fences.
+
+- :fa-cl-s fa-draw-polygon: **[Area](category_area.md)**
+
+  vm-06-01 to vm-06-05: buffer zones, no parking and no stopping areas, and detection areas.
+
+- :fa-cl-s fa-layer-group: **[Others](category_others.md)**
+
+  vm-07-01 to vm-07-04: creation range, pedestrian detection range, guardrails, and height.
+
+</div>
 
 | Category                                            | ID       | Requirements                                            |
 | --------------------------------------------------- | -------- | ------------------------------------------------------- |
@@ -49,13 +81,13 @@ Next, you must comply with the laws of the country where the autonomous driving 
 | [Category Stop Line](category_stop_line.md)         | vm-02-01 | Stop line alignment                                     |
 |                                                     | vm-02-02 | Stop sign                                               |
 | [Category Intersection](category_intersection.md)   | vm-03-01 | Intersection criteria                                   |
-|                                                     | vm-03-02 | Lanelet's turn direction and virtual                    |
+|                                                     | vm-03-02 | Lanelet's turn direction and virtual linestring         |
 |                                                     | vm-03-03 | Lanelet width in the intersection                       |
 |                                                     | vm-03-04 | Lanelet creation in the intersection                    |
 |                                                     | vm-03-05 | Lanelet division in the intersection                    |
 |                                                     | vm-03-06 | Guide lines in the intersection                         |
 |                                                     | vm-03-07 | Multiple lanelets in the intersection                   |
-|                                                     | vm-03-08 | Intersection Area range                                 |
+|                                                     | vm-03-08 | Intersection area range                                 |
 |                                                     | vm-03-09 | Range of Lanelet in the intersection                    |
 |                                                     | vm-03-10 | Right of way (with signal)                              |
 |                                                     | vm-03-11 | Right of way (without signal)                           |

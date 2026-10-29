@@ -6,7 +6,7 @@ data_type_name: autoware_vehicle_msgs/msg/GearCommand
 data_type_link: https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/msg/GearCommand.msg
 rate: 10 or N/A
 qos_reliability: reliable
-qos_durability: volatile or transient_local
+qos_durability: volatile
 qos_depth: 1
 ---
 
@@ -19,12 +19,12 @@ qos_depth: 1
 ## Description
 
 Send the gear change command to the vehicle. The commands are listed in the table below.
-It is recommended to set QoS to transient_local and publish only when the command changes, but currently many implementations publish the command periodically.
-Therefore, ensure consistency across the entire system.
+
+The [`autoware_component_interface_specs`](https://github.com/autowarefoundation/autoware_core/blob/1.10.0/common/autoware_component_interface_specs/include/autoware/component_interface_specs/control.hpp) package defines this topic with `volatile` durability. In the default launch of Autoware, the [`autoware_vehicle_cmd_gate`](https://github.com/autowarefoundation/autoware_universe/blob/0.53.1/control/autoware_vehicle_cmd_gate/src/vehicle_cmd_gate.cpp) node publishes the command periodically, at its `update_rate` of 10 Hz. This node uses `transient_local` durability, and `volatile` subscribers also receive its messages. The design intent is different: use `transient_local` durability and publish only when the command changes. Make sure that the publishers and the subscribers in your system use compatible QoS settings.
 
 | Value   | Description                                                                                 |
 | ------- | ------------------------------------------------------------------------------------------- |
-| PARKING | The engine or motor is disconnected from the tires and the stopping mechanism is activated. |
+| PARK    | The engine or motor is disconnected from the tires and the stopping mechanism is activated. |
 | NEUTRAL | The engine or motor is disconnected from the tires.                                         |
 | DRIVE   | The engine or motor is connected to the tires in the forward direction.                     |
 | REVERSE | The engine or motor is connected to the tires in the backward direction.                    |
@@ -34,7 +34,7 @@ Therefore, ensure consistency across the entire system.
 The `stamp` field is the command sent time. In the case of periodic publication, use the latest time, not the last command change.
 
 For the `command` field, use the valid values listed above. The `NONE` value can be used internally by programs, but will never be sent as a topic.
-Values ​​such as `LOW` and `DRIVE_2` ​​can be used if the vehicle has its own special gear types, but a dedicated implementation is required to handle this.
+Values such as `LOW` and `DRIVE_2` can be used if the vehicle has its own special gear types, but a dedicated implementation is required to handle this.
 
 ## Errors
 
@@ -65,8 +65,8 @@ Simulated gear: For vehicles without physical gears (e.g., direct drive EVs), fo
 
 ## Design
 
-- Support four typical gear types: PARKING, NEUTRAL, DRIVE, and REVERSE.
-- Unused values ​​can be used for special gear types.
+- Support four typical gear types: PARK, NEUTRAL, DRIVE, and REVERSE.
+- Unused values can be used for special gear types.
 - Simulate gear if necessary to increase reusability.
 - To prevent gear shifting chattering, reject a new gear command during several seconds after the last successful gear command.
 

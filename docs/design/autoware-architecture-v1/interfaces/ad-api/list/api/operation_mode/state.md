@@ -5,6 +5,8 @@ method: notification
 type:
   name: autoware_adapi_v1_msgs/msg/OperationModeState
   msg:
+    - name: stamp
+      text: Timestamp when this message was sent.
     - name: mode
       text: The selected command for Autoware control.
     - name: is_autoware_control_enabled

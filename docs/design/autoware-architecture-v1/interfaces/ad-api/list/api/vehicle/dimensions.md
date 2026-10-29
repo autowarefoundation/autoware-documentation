@@ -13,5 +13,5 @@ type:
 
 {% extends 'design/autoware-architecture-v1/interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Get the vehicle dimensions. See [here](../../../../components/vehicle-dimensions.md) for the definition of each value.
+Get the vehicle dimensions. See [vehicle dimensions](../../../../components/vehicle-dimensions.md) for the definition of each value.
 {% endblock %}

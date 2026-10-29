@@ -6,17 +6,17 @@ Autoware defines three categories of interfaces. The first one is Autoware AD AP
 
 ## Concept
 
-- Applications can operate multiple and various vehicles in a common way.
+Applications can operate many different vehicles in the same way.
 
-  {{ diagram("general/unified-access.svg", "One FMS operates a car, a bus, and a truck through the same AD API.") }}
+{{ diagram("general/unified-access.svg", "One FMS operates a car, a bus, and a truck through the same AD API.") }}
 
-- Applications are not affected by version updates and implementation changes.
+Version updates and implementation changes do not affect the applications.
 
-  {{ diagram("general/absorb-changes.svg", "Without the AD API, each HMI must match one Autoware version. With the AD API, the HMI stays the same.") }}
+{{ diagram("general/absorb-changes.svg", "Without the AD API, each HMI must match one Autoware version. With the AD API, the HMI stays the same.") }}
 
-- Developers only need to know the interface to add new features and hardware.
+To add a new feature or new hardware, developers need to know only the interface.
 
-  {{ diagram("general/new-feature.svg", "A new component connects to the component interface only.") }}
+{{ diagram("general/new-feature.svg", "A new component connects to the component interface only.") }}
 
 ## Requirements
 
@@ -48,6 +48,12 @@ Each component uses the interface to provide functionality and to access other c
 AD API implementation is also a component.
 Since the functional elements required for AD API are defined as the component interface, other components do not need to consider AD API directly.
 Tools for evaluation and debugging, such as simulators, access both AD API and the component interface.
+
+The specifications are code, not only documents:
+
+- The [`autoware_adapi_specs`](https://github.com/autowarefoundation/autoware_core/tree/main/api/autoware_adapi_specs) package defines the name, the type, and the QoS of each AD API interface.
+- The [`autoware_component_interface_specs`](https://github.com/autowarefoundation/autoware_core/tree/main/common/autoware_component_interface_specs) package defines the same for each component interface. See [Component interfaces](components/index.md) for the list.
+- The [`autoware_default_adapi`](https://github.com/autowarefoundation/autoware_core/tree/main/api/autoware_default_adapi) package in Autoware Core and the [`autoware_default_adapi_universe`](https://github.com/autowarefoundation/autoware_universe/tree/main/system/autoware_default_adapi_universe) package in Autoware Universe are the default AD API implementation.
 
 {{ diagram("general/architecture.svg", "Applications use the AD API. Components use and implement the component interface.") }}
 
@@ -86,19 +92,23 @@ In that case, text formats such as JSON where field names are repeated in an arr
 
 ### Naming convention
 
-The name of the interface must be `/<component name>/api/<interface name>`,
+Today, the names of the component interfaces have the form `/<component name>/<interface name>`, without an `api` namespace. All interfaces in [`interface_manifest.json`](https://github.com/autowarefoundation/autoware_core/blob/1.10.0/common/autoware_component_interface_specs/interface_manifest.json) of `autoware_component_interface_specs` use this form. For example, the route of the Planning component is `/planning/route` and the control command is `/control/command/control_cmd`. The AD API interfaces that [`autoware_adapi_specs`](https://github.com/autowarefoundation/autoware_core/tree/1.10.0/api/autoware_adapi_specs) defines start with `/api`, for example `/api/routing/route`.
+
+The design defines the following naming convention. Only the AD API follows it today. No component interface uses the `/<component name>/api/` form yet.
+
+In this convention, the name of an interface is `/<component name>/api/<interface name>`,
 where `<component name>` is the name of the component. For an AD API component, omit this part and start with `/api`.
 The `<interface name>` is an arbitrary string separated by slashes.
-Note that this rule causes a restriction that the namespace `api` must not be used as a name other than AD API and the component interface.
+This convention adds a restriction: do not use the namespace `api` for names other than the AD API and the component interfaces.
 
-The following are examples of correct interface names for AD API and the component interface:
+The following names follow the convention:
 
 - /api/autoware/state
 - /api/autoware/engage
 - /planning/api/route/set
 - /vehicle/api/status
 
-The following are examples of incorrect interface names for AD API and the component interface:
+The following names do not follow the convention:
 
 - /ad_api/autoware/state
 - /autoware/engage

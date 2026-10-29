@@ -1,6 +1,17 @@
-LOCALIZATION COMPONENT DESIGN DOC
+# Localization component design
 
 ## Abstract
+
+The Localization component estimates the pose, velocity, and acceleration of the ego vehicle. Planning, control, and perception use these estimates. This page gives the requirements of the component, its architecture, and the packages that implement it in Autoware.
+
+<div class="aw-pipeline" markdown>
+
+- :fa-cl-s fa-satellite-dish: <span>**Sensors** and maps</span>
+- :fa-cl-s fa-crosshairs: <span>**Pose and twist** estimators</span>
+- :fa-cl-s fa-filter: <span>**Fusion filter** (EKF)</span>
+- :fa-cl-s fa-car: <span>**Kinematic state** for other components</span>
+
+</div>
 
 ## 1. Requirements
 
@@ -19,7 +30,7 @@ Non-goals:
   - works outside of the pre-defined ODD (Operational Design Domain)
   - has better performance than is required for autonomous driving
 
-## 2. Sensor Configuration Examples
+## 2. Sensor configuration examples
 
 This section shows example sensor configurations and their expected performances.
 Each sensor has its own advantages and disadvantages, but overall performance can be improved by fusing multiple sensors.
@@ -35,12 +46,12 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 - The vehicle is placed in a structure-less environment, such as a rural landscape, highway, or tunnel
 - Environmental changes have occurred since the map was created, such as snow cover or the construction/destruction of buildings.
 - Surrounding objects are occluded
-- The car is surrounded by objects undetectable by LiDAR, e.g., glass windows, reflections, or absorption (dark objects)
+- The car is surrounded by objects undetectable by LiDAR, for example glass windows, reflections, or absorption (dark objects)
 - The environment contains laser beams at the same frequency as the car's LiDAR sensor(s)
 
 #### Functionality
 
-- The system can estimate the vehicle location on the point cloud map with the error of ~10cm.
+- The system can estimate the vehicle location on the point cloud map with an error of about 10 cm.
 - The system is operable at night.
 
 ### 3D-LiDAR or Camera + Vector Map
@@ -55,7 +66,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 - Tight curvature such as intersections
 - Large reflection change of the road surface caused by rain or paint
 
-#### Functionalities
+#### Functionality
 
 - Correct vehicle positions along the lateral direction.
 - Pose correction along the longitudinal can be inaccurate, but can be resolved by fusing with GNSS.
@@ -66,14 +77,14 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 
 - The vehicle is placed in an open environment with few to no surrounding objects, such as a rural landscape.
 
-#### Situation that can make the system unstable
+#### Situations that can make the system unstable
 
-- GNSS signals are blocked by surrounding objects, e.g., tunnels or buildings.
+- GNSS signals are blocked by surrounding objects, for example tunnels or buildings.
 
 #### Functionality
 
-- The system can estimate vehicle position in the world coordinate within an error of ~10m.
-- With a RKT-GNSS (Real Time Kinematic Global Navigation Satellite System) attached, the accuracy can be improved to ~10cm.
+- The system can estimate vehicle position in the world coordinate within an error of about 10 m.
+- With an RTK-GNSS (Real Time Kinematic Global Navigation Satellite System) attached, the accuracy can be improved to about 10 cm.
 - A system with this configuration can work without environment maps (both point cloud and vector map types).
 
 ### Camera (Visual Odometry, Visual SLAM)
@@ -109,7 +120,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 
 ### IMU
 
-#### Expected environments
+#### Expected situation
 
 - Flat, smooth roads
 
@@ -144,7 +155,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 
 - The car is placed in an environment with magnetic markers installed.
 
-#### Situations where the system becomes unstable
+#### Situations that can make the system unstable
 
 - The markers are not maintained.
 
@@ -153,12 +164,12 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 - Vehicle location can be obtained on the world coordinate by detecting the magnetic markers.
 - The system can work even if the road is covered with snow.
 
-## 3. Requirements
+## 3. Functional requirements
 
 - By implementing different modules, various sensor configurations and algorithms can be used.
 - The localization system can start pose estimation from an ambiguous initial location.
 - The system can produce a reliable initial location estimation.
-- The system can manage the state of the initial location estimation (uninitialized, initializable, or non-initializable) and can report to the error monitor.
+- The system can manage the state of the initial location estimation and can report it to the error monitor. Autoware reports the states `UNINITIALIZED`, `INITIALIZING`, and `INITIALIZED` (and `UNKNOWN` before the first report).
 
 ## 4. Architecture
 
@@ -166,19 +177,19 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 
 Two architectures are defined, "Required" and "Recommended". However, the "Required" architecture only contains the inputs and outputs necessary to accept various localization algorithms. To improve the reusability of each module, the required components are defined in the "Recommended" architecture section along with a more detailed explanation.
 
-### Required Architecture
+### Required architecture
 
 {{ diagram("image/required-architecture.svg", "The inputs and outputs that every localization implementation must provide.") }}
 
 #### Input
 
 - Sensor message
-  - e.g., LiDAR, camera, GNSS, IMU, CAN Bus, etc.
+  - for example LiDAR, camera, GNSS, IMU, CAN Bus, etc.
   - Data types should be ROS primitives for reusability
 - Map data
-  - e.g., point cloud map, lanelet2 map, feature map, etc.
+  - for example point cloud map, lanelet2 map, feature map, etc.
   - The map format should be chosen based on use case and sensor configuration
-  - Note that map data is not required for some specific cases (e.g., GNSS-only localization)
+  - Note that map data is not required for some specific cases (for example GNSS-only localization)
 - tf, static_tf
   - map frame
   - base_link frame
@@ -187,42 +198,54 @@ Two architectures are defined, "Required" and "Recommended". However, the "Requi
 
 - Pose with covariance stamped
   - Vehicle pose, covariance, and timestamp on the map coordinate
-  - 50Hz~ frequency (depending on the requirements of the Planning and Control components)
+  - 50 Hz or more (depending on the requirements of the Planning and Control components)
 - Twist with covariance stamped
   - Vehicle velocity, covariance, and timestamp on the base_link coordinate
-  - 50Hz~ frequency
+  - 50 Hz or more
 - Accel with covariance stamped
   - Acceleration, covariance, and timestamp on the base_link coordinate
-  - 50Hz~ frequency
+  - 50 Hz or more
 - Diagnostics
   - Diagnostics information that indicates if the localization module works properly
 - tf
   - tf of map to base_link
 
-### Recommended Architecture
+In the Autoware implementation, the pose and the twist come together in one `nav_msgs/msg/Odometry` message on `/localization/kinematic_state`. The acceleration is on `/localization/acceleration`. The EKF localizer runs its prediction and publishes the tf at 50 Hz by default (`predict_frequency` and `tf_rate` in `ekf_localizer.param.yaml`). See [5. Interface and data structure](#5-interface-and-data-structure) for the topics.
+
+### Recommended architecture
 
 {{ diagram("image/recommended-architecture.svg", "The recommended architecture, with the Autoware packages that implement each part.") }}
 
-#### Pose Estimator
+#### Pose estimator
 
 - Estimates the vehicle pose on the map coordinate by matching external sensor observation to the map
-- Provides the obtained pose and its covariance to `PoseTwistFusionFilter`
+- Provides the obtained pose and its covariance (`geometry_msgs/msg/PoseWithCovarianceStamped`) to the pose twist fusion filter
 
-#### Twist-Accel Estimator
+#### Twist-accel estimator
 
 - Produces the vehicle velocity, angular velocity, acceleration, angular acceleration, and their covariances
-  - It is possible to create a single module for both twist and acceleration or to create two separate modules - the choice of architecture is up to the developer
-- The twist estimator produces velocity and angular velocity from internal sensor observation
+  - It is possible to create a single module for both twist and acceleration or to create two separate modules. The choice of architecture is up to the developer.
+- The twist estimator produces velocity and angular velocity (`geometry_msgs/msg/TwistWithCovarianceStamped`) from internal sensor observation
 - The accel estimator produces acceleration and angular acceleration from internal sensor observations
 
-#### Kinematics Fusion Filter
+In the Autoware implementation, the twist estimator sends its twist to the fusion filter. The fusion filter does not take an acceleration input. The `autoware_twist2accel` package computes the acceleration (`geometry_msgs/msg/AccelWithCovarianceStamped`) from the change of the velocity, with a low-pass filter. By default (`use_odom: true`), it uses the velocity of the fused kinematic state.
+
+#### Kinematics fusion filter
 
 - Produces the likeliest pose, velocity, acceleration, and their covariances, computed by fusing two kinds of information:
   - The pose obtained from the pose estimator.
   - The velocity and acceleration obtained from the twist-accel estimator
 - Produces tf of map to base_link according to the pose estimation result
 
-#### Localization Diagnostics
+In Autoware, this part is the pose twist fusion filter. It contains the EKF localizer, the stop filter, and `autoware_twist2accel`.
+
+#### Pose initializer
+
+- Computes the first pose of the vehicle and sends it to the fusion filter
+- Uses the GNSS pose, a pose that the user gives, or a pose from the pose estimator (for example an NDT alignment around the GNSS pose)
+- Reports the initialization state
+
+#### Localization diagnostics
 
 - Monitors and guarantees the stability and reliability of pose estimation by fusing information obtained from multiple localization modules
 - Reports error status to the error monitor
@@ -233,13 +256,17 @@ Two architectures are defined, "Required" and "Recommended". However, the "Requi
 
 |   frame   | meaning                                                                                        |
 | :-------: | :--------------------------------------------------------------------------------------------- |
-|   earth   | ECEF (Earth Centered Earth Fixed）                                                             |
-|    map    | Origin of the map coordinate (ex. MGRS origin)                                                 |
+|   earth   | ECEF (Earth Centered Earth Fixed). Optional, see the note below.                               |
+|    map    | Origin of the map coordinate (for example MGRS origin)                                         |
 |  viewer   | User-defined frame for rviz                                                                    |
 | base_link | Reference pose of the ego-vehicle (projection of the rear-axle center onto the ground surface) |
 |  sensor   | Reference pose of each sensor                                                                  |
 
 Developers can optionally add other frames such as odom or base_footprint as long as the tf structure above is maintained.
+
+The `earth` frame follows the [REP-105](https://www.ros.org/reps/rep-0105.html#earth) convention, where `earth` is the parent of `map`. It is optional in Autoware. No default Autoware launch publishes the tf from `earth` to `map`. Instead, the map projection information on `/map/map_projector_info` relates the `map` frame to the globe. For example, `autoware_gnss_poser` uses it to convert the GNSS position into the `map` frame. If your system needs the `earth` frame, publish the tf from `earth` to `map` yourself. The [coordinate system guidelines](../../../../contributing/coding-guidelines/ros-nodes/coordinate-system.md) give more details.
+
+In Autoware, the EKF localizer publishes the tf from `map` to `base_link`. The `autoware_map_tf_generator` package publishes the `viewer` frame for RViz only. The vehicle description (`robot_state_publisher`) publishes the static tf from `base_link` to the sensor frames. In the sample sensor kit, the sensors are children of `sensor_kit_base_link`, which is a child of `base_link`.
 
 ### The localization module's ideal functionality
 
@@ -262,9 +289,56 @@ To maintain sufficient pose estimation performance for safe operation, the follo
 - Computational load
 - Latency
 
-## 5. Interface and Data Structure
+## 5. Interface and data structure
 
-## 6. Concerns, Assumptions, and Limitations
+The [`autoware_component_interface_specs`](https://github.com/autowarefoundation/autoware_core/tree/main/common/autoware_component_interface_specs) package of Autoware Core defines the outputs of the component. The [localization interface page](../../interfaces/components/localization.md) describes the message fields.
+
+### Outputs
+
+| Output                   | Topic or frame                       | Type                                                         |
+| :----------------------- | :----------------------------------- | :----------------------------------------------------------- |
+| Kinematic state          | `/localization/kinematic_state`      | `nav_msgs/msg/Odometry`                                      |
+| Acceleration             | `/localization/acceleration`         | `geometry_msgs/msg/AccelWithCovarianceStamped`               |
+| Pose with covariance     | `/localization/pose_with_covariance` | `geometry_msgs/msg/PoseWithCovarianceStamped`                |
+| Initialization state     | `/localization/initialization_state` | `autoware_adapi_v1_msgs/msg/LocalizationInitializationState` |
+| Initialization (service) | `/localization/initialize`           | `autoware_localization_msgs/srv/InitializeLocalization`      |
+| Vehicle pose (tf)        | `map` to `base_link`                 | tf                                                           |
+| Diagnostics              | `/diagnostics`                       | `diagnostic_msgs/msg/DiagnosticArray`                        |
+
+### Inputs
+
+These are the inputs of the default launch configuration, with NDT as the pose estimator and the gyro odometer as the twist estimator.
+
+| Input                     | Topic                                                       | Type                                                 |
+| :------------------------ | :---------------------------------------------------------- | :--------------------------------------------------- |
+| LiDAR point cloud         | `/sensing/lidar/concatenated/pointcloud`                    | `sensor_msgs/msg/PointCloud2`                        |
+| IMU                       | `/sensing/imu/imu_data`                                     | `sensor_msgs/msg/Imu`                                |
+| Vehicle twist             | `/sensing/vehicle_velocity_converter/twist_with_covariance` | `geometry_msgs/msg/TwistWithCovarianceStamped`       |
+| GNSS pose                 | `/sensing/gnss/pose_with_covariance`                        | `geometry_msgs/msg/PoseWithCovarianceStamped`        |
+| Point cloud map (partial) | `/map/get_differential_pointcloud_map` (service)            | `autoware_map_msgs/srv/GetDifferentialPointCloudMap` |
+
+### Packages
+
+The localization packages are in [Autoware Core](https://github.com/autowarefoundation/autoware_core/tree/main/localization) and [Autoware Universe](https://github.com/autowarefoundation/autoware_universe/tree/main/localization). The launch files are in the `autoware_localization_launch` package of `autoware_launch`. The `component_localization.launch.xml` file of `autoware_launch` selects the estimators with two launch arguments:
+
+- `pose_source`: one or more of `ndt`, `yabloc`, `eagleye`, `artag`, and `lidar-marker`, joined with underscores (for example `ndt_yabloc`). The default is `ndt`. If you select more than one, the pose estimator arbiter runs.
+- `twist_source`: `gyro_odom` or `eagleye`. The default is `gyro_odom`.
+
+| Part                     | Package                                                                                                                                                                                                                                                                                                                                                              | Repository |
+| :----------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------- |
+| Pose estimator           | [`autoware_ndt_scan_matcher`](https://autowarefoundation.github.io/autoware_core/main/localization/autoware_ndt_scan_matcher/)                                                                                                                                                                                                                                       | Core       |
+| Pose estimator           | [`yabloc`](https://autowarefoundation.github.io/autoware_universe/main/localization/yabloc/) (camera and vector map)                                                                                                                                                                                                                                                 | Universe   |
+| Pose estimator           | [`autoware_ar_tag_based_localizer`](https://autowarefoundation.github.io/autoware_universe/main/localization/autoware_landmark_based_localizer/autoware_ar_tag_based_localizer/)                                                                                                                                                                                     | Universe   |
+| Pose estimator           | [`autoware_lidar_marker_localizer`](https://autowarefoundation.github.io/autoware_universe/main/localization/autoware_landmark_based_localizer/autoware_lidar_marker_localizer/)                                                                                                                                                                                     | Universe   |
+| Pose and twist estimator | [Eagleye](https://github.com/MapIV/eagleye) (GNSS and IMU)                                                                                                                                                                                                                                                                                                           | External   |
+| Pose estimator support   | [`autoware_pose_estimator_arbiter`](https://autowarefoundation.github.io/autoware_universe/main/localization/autoware_pose_estimator_arbiter/), [`autoware_pose_covariance_modifier`](https://autowarefoundation.github.io/autoware_universe/main/localization/autoware_pose_covariance_modifier/)                                                                   | Universe   |
+| Twist estimator          | [`autoware_gyro_odometer`](https://autowarefoundation.github.io/autoware_core/main/localization/autoware_gyro_odometer/)                                                                                                                                                                                                                                             | Core       |
+| Fusion filter            | [`autoware_ekf_localizer`](https://autowarefoundation.github.io/autoware_core/main/localization/autoware_ekf_localizer/), [`autoware_stop_filter`](https://autowarefoundation.github.io/autoware_core/main/localization/autoware_stop_filter/), [`autoware_twist2accel`](https://autowarefoundation.github.io/autoware_core/main/localization/autoware_twist2accel/) | Core       |
+| Pose initializer         | [`autoware_pose_initializer`](https://autowarefoundation.github.io/autoware_core/main/localization/autoware_pose_initializer/)                                                                                                                                                                                                                                       | Core       |
+| Pose initializer support | [`autoware_pose_initialization_requester`](https://autowarefoundation.github.io/autoware_universe/main/localization/autoware_pose_initialization_requester/) (starts the initialization with GNSS)                                                                                                                                                                   | Universe   |
+| Diagnostics              | [`autoware_localization_error_monitor`](https://autowarefoundation.github.io/autoware_universe/main/localization/autoware_localization_error_monitor/), [`autoware_pose_instability_detector`](https://autowarefoundation.github.io/autoware_universe/main/localization/autoware_pose_instability_detector/)                                                         | Universe   |
+
+## 6. Concerns, assumptions, and limitations
 
 ### Prerequisites of sensors and inputs
 

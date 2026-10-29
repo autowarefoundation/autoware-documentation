@@ -45,12 +45,12 @@
 | [/api/operation_mode/disable_autoware_control](api/operation_mode/disable_autoware_control.md) | v1.0.0       | function call   |
 | [/api/operation_mode/enable_autoware_control](api/operation_mode/enable_autoware_control.md)   | v1.0.0       | function call   |
 | [/api/operation_mode/state](api/operation_mode/state.md)                                       | v1.0.0       | notification    |
-| [/api/perception/objects](api/perception/objects.md)                                           | not released | realtime stream |
+| [/api/perception/objects](api/perception/objects.md)                                           | not released | reliable stream |
 | [/api/planning/cooperation/get_policies](api/planning/cooperation/get_policies.md)             | not released | function call   |
 | [/api/planning/cooperation/set_commands](api/planning/cooperation/set_commands.md)             | not released | function call   |
 | [/api/planning/cooperation/set_policies](api/planning/cooperation/set_policies.md)             | not released | function call   |
-| [/api/planning/steering_factors](api/planning/steering_factors.md)                             | not released | realtime stream |
-| [/api/planning/velocity_factors](api/planning/velocity_factors.md)                             | not released | realtime stream |
+| [/api/planning/steering_factors](api/planning/steering_factors.md)                             | not released | reliable stream |
+| [/api/planning/velocity_factors](api/planning/velocity_factors.md)                             | not released | reliable stream |
 | [/api/routing/change_route](api/routing/change_route.md)                                       | v1.5.0       | function call   |
 | [/api/routing/change_route_points](api/routing/change_route_points.md)                         | v1.5.0       | function call   |
 | [/api/routing/clear_route](api/routing/clear_route.md)                                         | v1.0.0       | function call   |

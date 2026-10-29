@@ -1,4 +1,9 @@
+# cspell:ignore mlops
 nav:
   - index.md
   - autonomous-driving-stack-architecture.md
   - detailed-architectural-interface.md
+  - development-roadmap.md
+  - assessment-safety-and-benchmarks.md
+  - data-mlops-and-training.md
+  - neural-world-simulation.md

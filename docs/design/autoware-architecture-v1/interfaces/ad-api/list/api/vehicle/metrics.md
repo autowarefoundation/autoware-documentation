@@ -5,6 +5,8 @@ method: reliable stream
 type:
   name: autoware_adapi_v1_msgs/msg/VehicleMetrics
   msg:
+    - name: stamp
+      text: Timestamp when this message was sent.
     - name: energy
       text: The remaining vehicle fuel or battery. Ratio with the maximum as 1.0.
 ---

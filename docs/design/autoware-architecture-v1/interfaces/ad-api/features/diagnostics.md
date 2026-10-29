@@ -21,6 +21,7 @@ For error level, the same value as `diagnostic_msgs/msg/DiagnosticStatus` is use
 The diagnostics data has static and dynamic parts, so the API provides these separately for efficiency.
 Below is an example of a message that corresponds to the above diagram.
 The static part of the diagnostic is published only once as the DiagGraphStruct that contains nodes, diags, and links.
+Each diag has the index of its parent node in the `parent` field.
 The links specify dependencies between nodes by index into an array of them.
 The dynamic part of the diagnostic is published periodically as DiagGraphStatus.
 The status has nodes and diags of the same length as the struct, with the same index representing the same functional unit.
