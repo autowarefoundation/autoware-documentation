@@ -133,8 +133,8 @@
 
   <path class="edge" d="M190 58 H462"/>
   <text class="edge-lbl" x="246" y="58" text-anchor="middle" dominant-baseline="central">regulatory_element</text>
-  <path class="edge" d="M480 90 L250 200"/>
-  <text class="edge-lbl" x="452" y="110" text-anchor="middle" dominant-baseline="central">ref_line</text>
+  <path class="edge" d="M480 90 L243 231"/>
+  <text class="edge-lbl" x="474" y="126" text-anchor="middle" dominant-baseline="central">ref_line</text>
   <path class="edge" d="M700 90 C700 250 560 340 420 352"/>
-  <text class="edge-lbl" x="660" y="250" text-anchor="middle" dominant-baseline="central">refers</text>
+  <text class="edge-lbl" x="680" y="250" text-anchor="middle" dominant-baseline="central">refers</text>
 </svg>

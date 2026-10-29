@@ -390,5 +390,5 @@
   <!-- Note -->
   <text class="note" x="380" y="500" text-anchor="middle">Guide line</text>
   <path class="leader" d="M340 492 L222.8 242.8"/>
-  <path class="leader" d="M420 492 L562 248.9"/>
+  <path class="leader" d="M420 492 L500 274 L546 273.5"/>
 </svg>

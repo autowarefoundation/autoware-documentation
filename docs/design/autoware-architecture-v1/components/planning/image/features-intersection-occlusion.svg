@@ -202,8 +202,8 @@
   <circle class="light-off" cx="350" cy="108" r="8"/>
   <circle class="light-off" cx="370" cy="108" r="8"/>
 
-  <!-- Area that the large vehicle hides from the ego vehicle -->
-  <path class="area warn" d="M640 196 L760 160 V244 H640 Z"/>
+  <!-- Area that the large vehicle hides from the ego vehicle (sight lines from the ego vehicle at 280,163 past the truck corners) -->
+  <path class="area warn" d="M640 200 L760 213 V244 H640 Z"/>
 
   <!-- Large vehicle in the oncoming lane -->
   <g class="truck" transform="translate(568 162) rotate(270 17 55)">
@@ -215,13 +215,13 @@
   </g>
 
   <!-- Hidden vehicle -->
-  <g transform="translate(701 197) rotate(270 11 20)">
+  <g transform="translate(701 204) rotate(270 11 20)">
     <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
     <rect class="car-body other" x="0" y="0" width="22" height="40" rx="7"/>
     <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
     <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
   </g>
-  <path class="edge accent dash" d="M676 217 L650 217"/>
+  <path class="edge accent dash" d="M676 224 L650 224"/>
 
   <!-- Turn that the ego vehicle must not start yet -->
   <path class="lanelet bad" d="M400 149 H400 A101 101 0 0 1 501 250 V316 H473 V250 A73 73 0 0 0 400 177 H400 Z"/>

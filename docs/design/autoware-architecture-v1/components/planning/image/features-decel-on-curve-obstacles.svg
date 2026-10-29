@@ -123,8 +123,8 @@
   <path class="mark" fill="none" d="M0 46 H480 A194 194 0 0 1 674 240 V340"/>
   <path class="mark" fill="none" d="M0 144 H480 A96 96 0 0 1 576 240 V340"/>
 
-  <!-- Section where the ego vehicle slows down -->
-  <path class="lanelet alt" d="M380 81 H480 A159 159 0 0 1 639 240 V320 H611 V240 A131 131 0 0 0 480 109 H380 Z"/>
+  <!-- Section near the obstacle where the ego vehicle slows down. The speed goes back to normal after it. -->
+  <path class="lanelet alt" d="M521.15 86.42 A159 159 0 0 1 624.1 172.81 L598.73 184.64 A131 131 0 0 0 513.91 113.46 Z"/>
 
   <!-- Obstacle at the outer edge of the curve -->
   <g class="obstacle">
@@ -150,5 +150,5 @@
   <text class="note" x="750" y="40" text-anchor="end" dominant-baseline="central">Obstacle near the path</text>
   <line class="leader" x1="700" y1="50" x2="645" y2="88"/>
   <text class="note" x="300" y="190" text-anchor="middle" dominant-baseline="central">Slow down more for the obstacle</text>
-  <line class="leader" x1="330" y1="180" x2="420" y2="110"/>
+  <line class="leader" x1="400" y1="180" x2="556" y2="130"/>
 </svg>

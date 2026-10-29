@@ -150,7 +150,7 @@
 
   <rect class="box muted" x="660" y="16" width="140" height="60" rx="12"/>
   <text class="lbl" x="730" y="38" text-anchor="middle" dominant-baseline="central">Driver</text>
-  <text class="sub" x="730" y="58" text-anchor="middle" dominant-baseline="central">vehicle controls</text>
+  <text class="sub" x="730" y="58" text-anchor="middle" dominant-baseline="central">steering and pedals</text>
 
   <path class="edge" d="M90 76 V128"/>
 

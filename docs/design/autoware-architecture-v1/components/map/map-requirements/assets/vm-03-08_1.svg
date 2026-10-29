@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 480" role="img" aria-labelledby="vm-03-08-1-title">
   <title id="vm-03-08-1-title">
-    The intersection area is a polygon of type intersection_area. Its boundary follows the road border linestrings at the corners and the lanelet connection boundaries across the roads.
+    The intersection area is a polygon of type intersection_area. Its boundary follows the road border linestrings at the corners and around the median islands, and the lanelet connection boundaries
+    across the roads. The lanelets in the intersection start and end at these connection boundaries.
   </title>
   <style data-aw-standalone="">
     svg { --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-cyan: #00c8ff; --aw-d-bg: color-mix(in
@@ -23,6 +24,11 @@
   stroke-dasharray: 14 10;
 } .mark.thick {
   stroke-width: 7;
+} .lanelet {
+  fill: color-mix(in srgb, var(--aw-indigo) 38%, transparent);
+  stroke: none;
+} .lanelet.alt {
+  fill: color-mix(in srgb, var(--aw-cyan) 40%, transparent);
 } .area {
   fill: color-mix(in srgb, var(--aw-green) 25%, transparent);
   stroke: var(--aw-c-green);
@@ -70,18 +76,16 @@
   <path class="sidewalk" d="M652 360 A52 52 0 0 0 600 412 L612 412 A40 40 0 0 1 652 372 Z"/>
 
   <!-- Lane markings -->
-  <path class="mark" d="M480 412 L480 460"/>
-  <path class="mark dash" d="M420 412 L420 460"/>
-  <path class="mark dash" d="M540 412 L540 460"/>
-  <path class="mark thick" d="M360 412 L480 412"/>
+  <path class="mark dash" d="M416 412 L416 460"/>
+  <path class="mark dash" d="M544 412 L544 460"/>
+  <path class="mark thick" d="M360 412 L472 412"/>
   <path class="mark" d="M308 240 L260 240"/>
   <path class="mark dash" d="M308 180 L260 180"/>
   <path class="mark dash" d="M308 300 L260 300"/>
   <path class="mark thick" d="M308 120 L308 240"/>
-  <path class="mark" d="M480 68 L480 20"/>
-  <path class="mark dash" d="M540 68 L540 20"/>
-  <path class="mark dash" d="M420 68 L420 20"/>
-  <path class="mark thick" d="M600 68 L480 68"/>
+  <path class="mark dash" d="M544 68 L544 20"/>
+  <path class="mark dash" d="M416 68 L416 20"/>
+  <path class="mark thick" d="M600 68 L488 68"/>
   <path class="mark" d="M652 240 L700 240"/>
   <path class="mark dash" d="M652 300 L700 300"/>
   <path class="mark dash" d="M652 180 L700 180"/>
@@ -97,8 +101,6 @@
   <path class="mark thick" d="M438 370 L438 402"/>
   <path class="mark thick" d="M450 370 L450 402"/>
   <path class="mark thick" d="M462 370 L462 402"/>
-  <path class="mark thick" d="M474 370 L474 402"/>
-  <path class="mark thick" d="M486 370 L486 402"/>
   <path class="mark thick" d="M498 370 L498 402"/>
   <path class="mark thick" d="M510 370 L510 402"/>
   <path class="mark thick" d="M522 370 L522 402"/>
@@ -137,8 +139,6 @@
   <path class="mark thick" d="M522 110 L522 78"/>
   <path class="mark thick" d="M510 110 L510 78"/>
   <path class="mark thick" d="M498 110 L498 78"/>
-  <path class="mark thick" d="M486 110 L486 78"/>
-  <path class="mark thick" d="M474 110 L474 78"/>
   <path class="mark thick" d="M462 110 L462 78"/>
   <path class="mark thick" d="M450 110 L450 78"/>
   <path class="mark thick" d="M438 110 L438 78"/>
@@ -169,20 +169,30 @@
   <path class="mark thick" d="M610 138 L642 138"/>
   <path class="mark thick" d="M610 126 L642 126"/>
 
+  <!-- Median islands -->
+  <path class="sidewalk" d="M472 460 L472 388 A8 8 0 0 1 488 388 L488 460 Z"/>
+  <path class="sidewalk" d="M472 20 L472 92 A8 8 0 0 0 488 92 L488 20 Z"/>
   <!-- The intersection_area polygon -->
   <path
     class="area"
-    d="M360 412 L600 412 L600 412 A52 52 0 0 1 652 360 L652 360 L652 120 L652 120 A52 52 0 0 1 600 68 L600 68 L360 68 L360 68 A52 52 0 0 1 308 120 L308 120 L308 360 L308 360 A52 52 0 0 1 360 412 Z"
+    d="M360 412 L472 412 L472 388 A8 8 0 0 1 488 388 L488 412 L600 412 L600 412 A52 52 0 0 1 652 360 L652 360 L652 120 L652 120 A52 52 0 0 1 600 68 L600 68 L488 68 L488 92 A8 8 0 0 1 472 92 L472 68 L360 68 L360 68 A52 52 0 0 1 308 120 L308 120 L308 360 L308 360 A52 52 0 0 1 360 412 Z"
   />
 
+  <!-- Two of the lanelets in the intersection -->
+  <path class="lanelet" d="M360 412 A52 52 0 0 0 308 360 L308 300 A108 112 0 0 1 416 412 Z"/>
+  <path class="lanelet alt" d="M416 412 L416 68 L472 68 L472 412 Z"/>
   <!-- Road borders and lanelet connection boundaries -->
   <path class="bound" fill="none" d="M600 412 L600 412 A52 52 0 0 1 652 360 L652 360"/>
   <path class="bound" fill="none" d="M308 360 L308 360 A52 52 0 0 1 360 412 L360 412"/>
   <path class="bound" fill="none" d="M360 68 L360 68 A52 52 0 0 1 308 120 L308 120"/>
   <path class="bound" fill="none" d="M652 120 L652 120 A52 52 0 0 1 600 68 L600 68"/>
-  <path class="bound alt" d="M360 412 L600 412"/>
+  <path class="bound" fill="none" d="M472 412 L472 388 A8 8 0 0 1 488 388 L488 412"/>
+  <path class="bound" fill="none" d="M488 68 L488 92 A8 8 0 0 1 472 92 L472 68"/>
+  <path class="bound alt" d="M360 412 L472 412"/>
+  <path class="bound alt" d="M488 412 L600 412"/>
   <path class="bound alt" d="M308 120 L308 360"/>
-  <path class="bound alt" d="M600 68 L360 68"/>
+  <path class="bound alt" d="M600 68 L488 68"/>
+  <path class="bound alt" d="M472 68 L360 68"/>
   <path class="bound alt" d="M652 360 L652 120"/>
 
   <!-- Notes -->
@@ -195,7 +205,10 @@
     <tspan x="28">Polygon</tspan>
     <tspan class="code" x="28" dy="17">type: intersection_area</tspan>
   </text>
-  <path class="leader" d="M80.9 246 L480 270"/>
-  <text class="note" x="28" y="420">Lanelet connection boundary</text>
-  <path class="leader" d="M214.9 416 L420 412"/>
+  <path class="leader" d="M80.9 246 L390 200"/>
+  <text class="note" x="28" y="330">Lanelets</text>
+  <path class="leader" d="M86 326 L444 230"/>
+  <path class="leader" d="M86 326 L362 346"/>
+  <text class="note" x="28" y="440">Lanelet connection boundary</text>
+  <path class="leader" d="M214.9 436 L440 412"/>
 </svg>

@@ -80,12 +80,11 @@
 
   <!-- Lanelets in the private area, location private -->
   <rect class="lanelet alt" x="420" y="20" width="60" height="90"/>
-  <rect class="lanelet alt" x="420" y="110" width="60" height="50"/>
   <rect class="lanelet alt" x="480" y="20" width="60" height="90"/>
-  <rect class="lanelet alt" x="480" y="110" width="60" height="50"/>
+  <!-- Each lower private lanelet crosses the sidewalk and turns into the road -->
+  <path class="lanelet alt" d="M420 110 L480 110 L480 160 C480 230 450 262 360 262 L360 202 C390 202 420 190 420 160 Z"/>
+  <path class="lanelet alt" d="M480 110 L540 110 L540 160 C540 230 560 262 620 262 L620 322 C530 322 480 270 480 160 Z"/>
   <path class="bound" d="M420 110 L540 110"/>
-  <path class="lanelet alt" d="M360 202 C390 202 420 190 420 160 L480 160 C480 230 450 262 360 262 Z"/>
-  <path class="lanelet alt" d="M480 160 L540 160 C540 230 560 262 620 262 L620 322 C530 322 480 270 480 160 Z"/>
 
   <!-- Notes -->
   <text class="note" x="28" y="50">
@@ -96,6 +95,7 @@
   <path class="leader" d="M80.9 46 L450 60"/>
   <path class="leader" d="M80.9 46 L510 70"/>
   <path class="leader" d="M80.9 46 L450 130"/>
+  <path class="leader" d="M80.9 46 L510 135"/>
   <text class="note" x="28" y="150">
     <tspan x="28">Lanelet</tspan>
     <tspan class="code" x="28" dy="17">subtype: walkway</tspan>

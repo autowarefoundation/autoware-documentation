@@ -1,8 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 676" role="img" aria-labelledby="perception-reference-overview-title">
   <title id="perception-reference-overview-title">
     Sensing, Localization, and Map send data to the Perception component. In Perception, obstacle segmentation sends the obstacle point cloud to object recognition and to the occupancy grid
-    map. Object recognition runs detection, tracking, and prediction. Traffic light recognition also uses the vector map and V2X signals. Perception sends dynamic objects, obstacle points, the
-    occupancy grid map, and traffic signals to Planning.
+    map. Optionally, the occupancy grid map goes back to obstacle segmentation for outlier filtering. Object recognition runs detection, tracking, and prediction. Optionally, the tracked objects
+    go back to detection for interpolation. Traffic light recognition runs the map-based detector, the fine detector, the classifier, the occlusion predictor, multi-camera fusion, the arbiter
+    with V2X signals, and the crosswalk estimator. It also uses the vector map. Perception sends dynamic objects, obstacle points, the occupancy grid map, and traffic signals to Planning.
   </title>
   <style data-aw-standalone="">
     svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
@@ -59,6 +60,8 @@
   stroke: var(--aw-d-accent);
   stroke-width: 2;
   marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
 } .aw-glass-a {
   stop-color: var(--aw-glass-a);
 } .aw-glass-b {
@@ -167,13 +170,13 @@
   <text class="lbl" x="490" y="39" text-anchor="middle" dominant-baseline="central">Sensing</text>
 
   <!-- Inputs on the right -->
-  <rect class="box muted" x="730" y="208" width="115" height="54" rx="12"/>
-  <text class="lbl" x="787" y="227" text-anchor="middle" dominant-baseline="central">Map</text>
-  <text class="sub" x="787" y="247" text-anchor="middle" dominant-baseline="central">Vector map</text>
+  <rect class="box muted" x="730" y="267" width="115" height="54" rx="12"/>
+  <text class="lbl" x="787" y="286" text-anchor="middle" dominant-baseline="central">Map</text>
+  <text class="sub" x="787" y="306" text-anchor="middle" dominant-baseline="central">Vector map</text>
 
-  <rect class="box muted" x="730" y="288" width="115" height="54" rx="12"/>
-  <text class="lbl" x="787" y="307" text-anchor="middle" dominant-baseline="central">V2X</text>
-  <text class="sub" x="787" y="327" text-anchor="middle" dominant-baseline="central">Traffic signals</text>
+  <rect class="box muted" x="730" y="337" width="115" height="54" rx="12"/>
+  <text class="lbl" x="787" y="356" text-anchor="middle" dominant-baseline="central">V2X</text>
+  <text class="sub" x="787" y="376" text-anchor="middle" dominant-baseline="central">Traffic signals</text>
 
   <!-- The Perception component -->
   <rect class="glass-panel" x="20" y="110" width="690" height="440" rx="16"/>
@@ -207,10 +210,12 @@
   <text class="lbl" x="116" y="435" dominant-baseline="central">Prediction</text>
   <text class="code" x="116" y="456" dominant-baseline="central">map_based_prediction</text>
 
-  <path class="edge accent" d="M180 260 V292"/>
-  <path class="flow flow-accent" pathLength="100" d="M180 260 V292"/>
-  <path class="edge accent head" d="M180 260 V292"/>
-  <text class="edge-lbl" x="180" y="276" text-anchor="middle" dominant-baseline="central">Detected objects</text>
+  <path class="edge accent" d="M110 260 V292"/>
+  <path class="flow flow-accent" pathLength="100" d="M110 260 V292"/>
+  <path class="edge accent head" d="M110 260 V292"/>
+  <text class="edge-lbl" x="110" y="276" text-anchor="middle" dominant-baseline="central">Detected objects</text>
+  <path class="edge dash" d="M240 300 V268"/>
+  <text class="edge-lbl" x="240" y="280" text-anchor="middle" dominant-baseline="central">Interpolator (optional)</text>
   <path class="edge accent" d="M180 370 V402"/>
   <path class="flow flow-accent" pathLength="100" d="M180 370 V402"/>
   <path class="edge accent head" d="M180 370 V402"/>
@@ -222,35 +227,44 @@
   <text class="lbl" x="420" y="225" text-anchor="middle" dominant-baseline="central">segmentation</text>
   <text class="sub" x="420" y="245" text-anchor="middle" dominant-baseline="central">Ground removal</text>
 
-  <rect class="card" x="385" y="330" width="140" height="70" rx="12"/>
-  <text class="lbl" x="455" y="347" text-anchor="middle" dominant-baseline="central">Occupancy</text>
-  <text class="lbl" x="455" y="365" text-anchor="middle" dominant-baseline="central">grid map</text>
-  <text class="sub" x="455" y="385" text-anchor="middle" dominant-baseline="central">Blind spots</text>
+  <rect class="card" x="400" y="330" width="140" height="70" rx="12"/>
+  <text class="lbl" x="470" y="347" text-anchor="middle" dominant-baseline="central">Occupancy</text>
+  <text class="lbl" x="470" y="365" text-anchor="middle" dominant-baseline="central">grid map</text>
+  <text class="sub" x="470" y="385" text-anchor="middle" dominant-baseline="central">Blind spots</text>
 
   <path class="edge" d="M350 225 H308"/>
   <path class="flow" pathLength="100" d="M350 225 H308"/>
   <path class="edge head" d="M350 225 H308"/>
-  <path class="edge" d="M440 260 V322"/>
-  <path class="flow" pathLength="100" d="M440 260 V322"/>
-  <path class="edge head" d="M440 260 V322"/>
+  <path class="edge" d="M418 260 V322"/>
+  <path class="flow" pathLength="100" d="M418 260 V322"/>
+  <path class="edge head" d="M418 260 V322"/>
+  <path class="edge dash" d="M470 330 V268"/>
+  <text class="edge-lbl" x="470" y="288" text-anchor="middle" dominant-baseline="central">Outlier filter</text>
+  <text class="edge-lbl" x="470" y="303" text-anchor="middle" dominant-baseline="central">(optional)</text>
 
   <!-- Traffic light recognition -->
-  <rect class="card" x="550" y="190" width="140" height="170" rx="12"/>
-  <circle class="icon-bg" cx="620" cy="224" r="18"/>
-  <rect class="icon-line" x="614" y="212" width="12" height="24" rx="4"/>
-  <circle class="icon-dot" cx="620" cy="218" r="2.2"/>
-  <circle class="icon-dot" cx="620" cy="224" r="2.2"/>
-  <circle class="icon-dot" cx="620" cy="230" r="2.2"/>
-  <text class="lbl" x="620" y="260" text-anchor="middle" dominant-baseline="central">Traffic light</text>
-  <text class="lbl" x="620" y="278" text-anchor="middle" dominant-baseline="central">recognition</text>
-  <text class="sub" x="620" y="303" text-anchor="middle" dominant-baseline="central">Detect, classify, fuse</text>
+  <rect class="card" x="550" y="190" width="140" height="205" rx="12"/>
+  <circle class="icon-bg" cx="620" cy="220" r="18"/>
+  <rect class="icon-line" x="614" y="208" width="12" height="24" rx="4"/>
+  <circle class="icon-dot" cx="620" cy="214" r="2.2"/>
+  <circle class="icon-dot" cx="620" cy="220" r="2.2"/>
+  <circle class="icon-dot" cx="620" cy="226" r="2.2"/>
+  <text class="lbl" x="620" y="252" text-anchor="middle" dominant-baseline="central">Traffic light</text>
+  <text class="lbl" x="620" y="270" text-anchor="middle" dominant-baseline="central">recognition</text>
+  <text class="sub" x="620" y="294" text-anchor="middle" dominant-baseline="central">Map-based detector</text>
+  <text class="sub" x="620" y="308" text-anchor="middle" dominant-baseline="central">Fine detector</text>
+  <text class="sub" x="620" y="322" text-anchor="middle" dominant-baseline="central">Classifier</text>
+  <text class="sub" x="620" y="336" text-anchor="middle" dominant-baseline="central">Occlusion predictor</text>
+  <text class="sub" x="620" y="350" text-anchor="middle" dominant-baseline="central">Multi-camera fusion</text>
+  <text class="sub" x="620" y="364" text-anchor="middle" dominant-baseline="central">Arbiter (V2X)</text>
+  <text class="sub" x="620" y="378" text-anchor="middle" dominant-baseline="central">Crosswalk estimator</text>
 
-  <path class="edge" d="M730 235 H698"/>
-  <path class="flow" pathLength="100" d="M730 235 H698"/>
-  <path class="edge head" d="M730 235 H698"/>
-  <path class="edge" d="M730 315 H698"/>
-  <path class="flow" pathLength="100" d="M730 315 H698"/>
-  <path class="edge head" d="M730 315 H698"/>
+  <path class="edge" d="M730 294 H698"/>
+  <path class="flow" pathLength="100" d="M730 294 H698"/>
+  <path class="edge head" d="M730 294 H698"/>
+  <path class="edge" d="M730 364 H698"/>
+  <path class="flow" pathLength="100" d="M730 364 H698"/>
+  <path class="edge head" d="M730 364 H698"/>
 
   <!-- Edges from the inputs at the top -->
   <path class="edge" d="M75 66 V182"/>
@@ -265,15 +279,15 @@
   <path class="edge" d="M420 66 V182"/>
   <path class="flow" pathLength="100" d="M420 66 V182"/>
   <path class="edge head" d="M420 66 V182"/>
-  <path class="edge" d="M510 66 V322"/>
-  <path class="flow" pathLength="100" d="M510 66 V322"/>
-  <path class="edge head" d="M510 66 V322"/>
+  <path class="edge" d="M525 66 V322"/>
+  <path class="flow" pathLength="100" d="M525 66 V322"/>
+  <path class="edge head" d="M525 66 V322"/>
   <path class="edge" d="M620 66 V182"/>
   <path class="flow" pathLength="100" d="M620 66 V182"/>
   <path class="edge head" d="M620 66 V182"/>
   <text class="edge-lbl" x="290" y="88" text-anchor="middle" dominant-baseline="central">Point cloud, images, radar</text>
   <text class="edge-lbl" x="420" y="88" text-anchor="middle" dominant-baseline="central">Point cloud</text>
-  <text class="edge-lbl" x="510" y="88" text-anchor="middle" dominant-baseline="central">Point cloud</text>
+  <text class="edge-lbl" x="525" y="88" text-anchor="middle" dominant-baseline="central">Point cloud</text>
   <text class="edge-lbl" x="620" y="88" text-anchor="middle" dominant-baseline="central">Images, point cloud</text>
 
   <!-- Outputs to Planning -->
@@ -283,15 +297,15 @@
   <path class="edge accent" d="M365 260 V602"/>
   <path class="flow flow-accent" pathLength="100" d="M365 260 V602"/>
   <path class="edge accent head" d="M365 260 V602"/>
-  <path class="edge accent" d="M455 400 V602"/>
-  <path class="flow flow-accent" pathLength="100" d="M455 400 V602"/>
-  <path class="edge accent head" d="M455 400 V602"/>
-  <path class="edge accent" d="M620 360 V602"/>
-  <path class="flow flow-accent" pathLength="100" d="M620 360 V602"/>
-  <path class="edge accent head" d="M620 360 V602"/>
+  <path class="edge accent" d="M470 400 V602"/>
+  <path class="flow flow-accent" pathLength="100" d="M470 400 V602"/>
+  <path class="edge accent head" d="M470 400 V602"/>
+  <path class="edge accent" d="M620 395 V602"/>
+  <path class="flow flow-accent" pathLength="100" d="M620 395 V602"/>
+  <path class="edge accent head" d="M620 395 V602"/>
   <text class="edge-lbl" x="250" y="568" text-anchor="middle" dominant-baseline="central">Dynamic objects</text>
   <text class="edge-lbl" x="365" y="588" text-anchor="middle" dominant-baseline="central">Obstacle points</text>
-  <text class="edge-lbl" x="455" y="568" text-anchor="middle" dominant-baseline="central">Occupancy grid map</text>
+  <text class="edge-lbl" x="470" y="568" text-anchor="middle" dominant-baseline="central">Occupancy grid map</text>
   <text class="edge-lbl" x="620" y="588" text-anchor="middle" dominant-baseline="central">Traffic signals</text>
 
   <rect class="box muted" x="20" y="610" width="690" height="46" rx="12"/>

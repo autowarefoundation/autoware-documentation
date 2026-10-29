@@ -139,7 +139,7 @@
   <circle class="wheel" cx="675" cy="214" r="16"/>
   <circle class="rim" cx="675" cy="214" r="9"/>
   <circle class="hub" cx="675" cy="214" r="3"/>
-  <path class="leader" d="M470 230 H840"/>
+  <path class="leader" d="M470 230 H798"/>
 
   <path class="edge accent" d="M545 230 H800"/>
   <text class="lbl" x="810" y="230" dominant-baseline="central">+x</text>

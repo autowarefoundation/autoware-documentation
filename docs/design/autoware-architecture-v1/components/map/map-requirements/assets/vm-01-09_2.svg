@@ -53,51 +53,53 @@
 }
   </style>
 
-  <!-- Road surface -->
-  <path class="shoulder" d="M82 450 L82 320 A278 278 0 0 1 163.4 123.4 L255.3 31.5 L269.5 45.6 L177.6 137.6 A258 258 0 0 0 102 320 L102 450 Z"/>
-  <path class="shoulder" d="M222 450 L222 320 A138 138 0 0 1 262.4 222.4 L354.3 130.5 L368.5 144.6 L276.6 236.6 A118 118 0 0 0 242 320 L242 450 Z"/>
-  <path class="road" d="M102 450 L102 320 A258 258 0 0 1 177.6 137.6 L269.5 45.6 L354.3 130.5 L262.4 222.4 A138 138 0 0 0 222 320 L222 450 Z"/>
+  <g transform="translate(200 0)">
+    <!-- Road surface -->
+    <path class="shoulder" d="M82 450 L82 320 A278 278 0 0 1 163.4 123.4 L255.3 31.5 L269.5 45.6 L177.6 137.6 A258 258 0 0 0 102 320 L102 450 Z"/>
+    <path class="shoulder" d="M222 450 L222 320 A138 138 0 0 1 262.4 222.4 L354.3 130.5 L368.5 144.6 L276.6 236.6 A118 118 0 0 0 242 320 L242 450 Z"/>
+    <path class="road" d="M102 450 L102 320 A258 258 0 0 1 177.6 137.6 L269.5 45.6 L354.3 130.5 L262.4 222.4 A138 138 0 0 0 222 320 L222 450 Z"/>
 
-  <!-- Lane markings -->
-  <path class="mark" d="M102 450 L102 320 A258 258 0 0 1 177.6 137.6 L269.5 45.6"/>
-  <path class="mark" d="M222 450 L222 320 A138 138 0 0 1 262.4 222.4 L354.3 130.5"/>
-  <path class="mark dash" d="M162 450 L162 320 A198 198 0 0 1 220 180 L311.9 88.1"/>
+    <!-- Lane markings -->
+    <path class="mark" d="M102 450 L102 320 A258 258 0 0 1 177.6 137.6 L269.5 45.6"/>
+    <path class="mark" d="M222 450 L222 320 A138 138 0 0 1 262.4 222.4 L354.3 130.5"/>
+    <path class="mark dash" d="M162 450 L162 320 A198 198 0 0 1 220 180 L311.9 88.1"/>
 
-  <!-- The lanelet -->
-  <path class="lanelet" d="M102 450 L102 320 A258 258 0 0 1 177.6 137.6 L269.5 45.6 L311.9 88.1 L220 180 A198 198 0 0 0 162 320 L162 450 Z"/>
-  <path class="bound" d="M102 450 L102 400.4 L102 350.9 L102.5 303.9 L108.6 261.8 L121.6 221.3 L141.1 183.4 L166.6 149.3 L199.4 115.7 L234.4 80.7 L269.5 45.6"/>
-  <circle class="bound point" cx="102" cy="450" r="3.5"/>
-  <circle class="bound point" cx="102" cy="400.4" r="3.5"/>
-  <circle class="bound point" cx="102" cy="350.9" r="3.5"/>
-  <circle class="bound point" cx="102.5" cy="303.9" r="3.5"/>
-  <circle class="bound point" cx="108.6" cy="261.8" r="3.5"/>
-  <circle class="bound point" cx="121.6" cy="221.3" r="3.5"/>
-  <circle class="bound point" cx="141.1" cy="183.4" r="3.5"/>
-  <circle class="bound point" cx="166.6" cy="149.3" r="3.5"/>
-  <circle class="bound point" cx="199.4" cy="115.7" r="3.5"/>
-  <circle class="bound point" cx="234.4" cy="80.7" r="3.5"/>
-  <circle class="bound point" cx="269.5" cy="45.6" r="3.5"/>
-  <path class="bound" d="M162 450 L162 400.4 L162 350.9 L162.4 307.7 L167.1 275.3 L177.1 244.2 L192 215.2 L211.5 189 L241.8 158.2 L276.9 123.1 L311.9 88.1"/>
-  <circle class="bound point" cx="162" cy="450" r="3.5"/>
-  <circle class="bound point" cx="162" cy="400.4" r="3.5"/>
-  <circle class="bound point" cx="162" cy="350.9" r="3.5"/>
-  <circle class="bound point" cx="162.4" cy="307.7" r="3.5"/>
-  <circle class="bound point" cx="167.1" cy="275.3" r="3.5"/>
-  <circle class="bound point" cx="177.1" cy="244.2" r="3.5"/>
-  <circle class="bound point" cx="192" cy="215.2" r="3.5"/>
-  <circle class="bound point" cx="211.5" cy="189" r="3.5"/>
-  <circle class="bound point" cx="241.8" cy="158.2" r="3.5"/>
-  <circle class="bound point" cx="276.9" cy="123.1" r="3.5"/>
-  <circle class="bound point" cx="311.9" cy="88.1" r="3.5"/>
+    <!-- The lanelet -->
+    <path class="lanelet" d="M102 450 L102 320 A258 258 0 0 1 177.6 137.6 L269.5 45.6 L311.9 88.1 L220 180 A198 198 0 0 0 162 320 L162 450 Z"/>
+    <path class="bound" d="M102 450 L102 400.4 L102 350.9 L102.5 303.9 L108.6 261.8 L121.6 221.3 L141.1 183.4 L166.6 149.3 L199.4 115.7 L234.4 80.7 L269.5 45.6"/>
+    <circle class="bound point" cx="102" cy="450" r="3.5"/>
+    <circle class="bound point" cx="102" cy="400.4" r="3.5"/>
+    <circle class="bound point" cx="102" cy="350.9" r="3.5"/>
+    <circle class="bound point" cx="102.5" cy="303.9" r="3.5"/>
+    <circle class="bound point" cx="108.6" cy="261.8" r="3.5"/>
+    <circle class="bound point" cx="121.6" cy="221.3" r="3.5"/>
+    <circle class="bound point" cx="141.1" cy="183.4" r="3.5"/>
+    <circle class="bound point" cx="166.6" cy="149.3" r="3.5"/>
+    <circle class="bound point" cx="199.4" cy="115.7" r="3.5"/>
+    <circle class="bound point" cx="234.4" cy="80.7" r="3.5"/>
+    <circle class="bound point" cx="269.5" cy="45.6" r="3.5"/>
+    <path class="bound" d="M162 450 L162 400.4 L162 350.9 L162.4 307.7 L167.1 275.3 L177.1 244.2 L192 215.2 L211.5 189 L241.8 158.2 L276.9 123.1 L311.9 88.1"/>
+    <circle class="bound point" cx="162" cy="450" r="3.5"/>
+    <circle class="bound point" cx="162" cy="400.4" r="3.5"/>
+    <circle class="bound point" cx="162" cy="350.9" r="3.5"/>
+    <circle class="bound point" cx="162.4" cy="307.7" r="3.5"/>
+    <circle class="bound point" cx="167.1" cy="275.3" r="3.5"/>
+    <circle class="bound point" cx="177.1" cy="244.2" r="3.5"/>
+    <circle class="bound point" cx="192" cy="215.2" r="3.5"/>
+    <circle class="bound point" cx="211.5" cy="189" r="3.5"/>
+    <circle class="bound point" cx="241.8" cy="158.2" r="3.5"/>
+    <circle class="bound point" cx="276.9" cy="123.1" r="3.5"/>
+    <circle class="bound point" cx="311.9" cy="88.1" r="3.5"/>
 
-  <!-- Speed limit sign -->
-  <rect class="icon" x="48" y="372" width="4" height="30"/>
-  <circle class="sign" cx="50" cy="356" r="18"/>
-  <text class="sign-text" x="50" y="356" text-anchor="middle" dominant-baseline="central">20</text>
+    <!-- Speed limit sign -->
+    <rect class="icon" x="48" y="372" width="4" height="30"/>
+    <circle class="sign" cx="50" cy="356" r="18"/>
+    <text class="sign-text" x="50" y="356" text-anchor="middle" dominant-baseline="central">20</text>
+  </g>
 
   <!-- Notes -->
-  <text class="note lbl" x="440" y="70">Lanelet</text>
-  <text class="note code" x="440" y="88">subtype: road</text>
-  <text class="note code" x="440" y="106">speed_limit: 20</text>
-  <path class="leader" d="M434 66 L241.2 116.4"/>
+  <text class="note lbl" x="40" y="250">Lanelet</text>
+  <text class="note code" x="40" y="268">subtype: road</text>
+  <text class="note code" x="40" y="286">speed_limit: 20</text>
+  <path class="leader" d="M154 278 L330 340"/>
 </svg>

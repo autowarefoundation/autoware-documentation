@@ -45,11 +45,12 @@
 
   <!-- Notes -->
   <text class="note" x="440" y="70">Side strip</text>
-  <path class="leader" d="M434 66 L258.2 42.8"/>
+  <path class="leader" d="M434 66 L254 36"/>
+  <path class="leader" d="M434 66 L361.4 137.5"/>
   <text class="note" x="440" y="130">Off road</text>
   <path class="leader" d="M434 126 L330.3 247.9"/>
-  <text class="note bad" x="440" y="300">This road has no road shoulder.</text>
-  <text class="note bad" x="440" y="318">Do not add a road shoulder</text>
-  <text class="note bad" x="440" y="336">lanelet here.</text>
+  <text class="note bad" x="440" y="300">Incorrect: a road shoulder lanelet</text>
+  <text class="note bad" x="440" y="318">on the side strip. This road has</text>
+  <text class="note bad" x="440" y="336">no road shoulder.</text>
   <path class="leader" d="M434 296 L234.6 294.6"/>
 </svg>

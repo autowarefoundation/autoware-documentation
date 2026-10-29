@@ -344,6 +344,6 @@
   <path class="flow flow-route" pathLength="100" d="M550 308 L550 68"/>
   <path class="route head" d="M550 308 L550 68"/>
   <text class="note" x="580" y="404" text-anchor="middle">Case 2: on the non-priority road</text>
-  <text class="note" x="660" y="52">Priority road</text>
-  <path class="leader" d="M654 48 L730 165"/>
+  <text class="note" x="750" y="104" text-anchor="end">Priority road</text>
+  <path class="leader" d="M724 108 L724 160"/>
 </svg>

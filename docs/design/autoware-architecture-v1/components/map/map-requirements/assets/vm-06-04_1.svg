@@ -124,6 +124,6 @@
   <path class="flow flow-route" pathLength="100" d="M252 92 H700"/>
   <path class="route head" d="M252 92 H700"/>
 
-  <path class="leader" d="M500 30 L506 64"/>
+  <path class="leader" d="M502 32 L508 68"/>
   <text class="note" x="506" y="24" dominant-baseline="central">No stopping zone</text>
 </svg>

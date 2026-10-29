@@ -206,10 +206,10 @@
   <text class="sub" x="230" y="227" text-anchor="middle" dominant-baseline="central">Optional</text>
 
   <path class="edge dash" d="M190 242 V318"/>
-  <text class="edge-lbl" x="190" y="272" text-anchor="middle" dominant-baseline="central">Commands</text>
+  <text class="edge-lbl" x="190" y="272" text-anchor="middle" dominant-baseline="central">Vehicle commands</text>
   <text class="edge-lbl" x="190" y="288" text-anchor="middle" dominant-baseline="central">(vehicle format)</text>
   <path class="edge dash" d="M330 318 V248"/>
-  <text class="edge-lbl" x="330" y="272" text-anchor="middle" dominant-baseline="central">Statuses</text>
+  <text class="edge-lbl" x="330" y="272" text-anchor="middle" dominant-baseline="central">Vehicle statuses</text>
   <text class="edge-lbl" x="330" y="288" text-anchor="middle" dominant-baseline="central">(vehicle format)</text>
 
   <rect class="box primary" x="60" y="318" width="640" height="52" rx="14"/>
@@ -222,13 +222,13 @@
   <path class="edge accent" d="M190 370 V448"/>
   <path class="flow flow-accent" pathLength="100" d="M190 370 V448"/>
   <path class="edge accent head" d="M190 370 V448"/>
-  <text class="edge-lbl" x="190" y="406" text-anchor="middle" dominant-baseline="central">Commands</text>
-  <text class="edge-lbl" x="190" y="422" text-anchor="middle" dominant-baseline="central">(vehicle protocol)</text>
+  <text class="edge-lbl" x="190" y="406" text-anchor="middle" dominant-baseline="central">Vehicle commands</text>
+  <text class="edge-lbl" x="190" y="422" text-anchor="middle" dominant-baseline="central">(vehicle format and protocol)</text>
   <path class="edge" d="M570 448 V376"/>
   <path class="flow" pathLength="100" d="M570 448 V376"/>
   <path class="edge head" d="M570 448 V376"/>
-  <text class="edge-lbl" x="570" y="406" text-anchor="middle" dominant-baseline="central">Statuses</text>
-  <text class="edge-lbl" x="570" y="422" text-anchor="middle" dominant-baseline="central">(vehicle protocol)</text>
+  <text class="edge-lbl" x="570" y="406" text-anchor="middle" dominant-baseline="central">Vehicle statuses</text>
+  <text class="edge-lbl" x="570" y="422" text-anchor="middle" dominant-baseline="central">(vehicle format and protocol)</text>
 
   <rect class="card" x="20" y="448" width="720" height="56" rx="12"/>
   <ellipse class="car-shadow" cx="374" cy="496" rx="46" ry="3"/>

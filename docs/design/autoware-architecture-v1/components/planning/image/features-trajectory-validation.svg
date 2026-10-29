@@ -1,8 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 270" role="img" aria-labelledby="features-trajectory-validation-title">
-  <title id="features-trajectory-validation-title">The planning validator sends a valid trajectory to Control and stops an invalid trajectory that has a sharp zigzag.</title>
+  <title id="features-trajectory-validation-title">
+    The planning validator sends a valid trajectory to Control. A trajectory with a sharp zigzag fails the checks, and the validator replaces it with the last valid trajectory or reports it.
+  </title>
   <style data-aw-standalone="">
     svg { --aw-c-crimson: var(--aw-crimson); --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-car-shadow: #00002a40; --aw-crimson: #dc143c; --aw-d-bg: color-mix(in
-    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-flow-tone: 22%; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-flow-tone: 22%; --aw-green: #00e678; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
   fill: var(--aw-d-line);
 } text {
   font-size: 14px;
@@ -15,6 +17,14 @@
   fill: none;
   stroke: #fff;
   stroke-width: 3;
+} .area {
+  fill: color-mix(in srgb, var(--aw-green) 25%, transparent);
+  stroke: var(--aw-c-green);
+  stroke-width: 2;
+  stroke-dasharray: 6 4;
+} .area.warn {
+  fill: color-mix(in srgb, var(--aw-crimson) 22%, transparent);
+  stroke: var(--aw-c-crimson);
 } .route {
   fill: none;
   stroke: var(--aw-c-green);
@@ -114,15 +124,16 @@
     <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
     <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
   </g>
-  <text class="note good" x="380" y="116" text-anchor="middle" dominant-baseline="central">Valid trajectory: sent to Control</text>
+  <text class="note good" x="380" y="116" text-anchor="middle" dominant-baseline="central">Valid trajectory: passes the checks and goes to Control</text>
 
   <!-- Invalid trajectory -->
   <rect class="road" x="0" y="150" width="760" height="80"/>
   <line class="mark" x1="0" y1="156" x2="760" y2="156"/>
   <line class="mark" x1="0" y1="224" x2="760" y2="224"/>
-  <path class="route" d="M150 190 H300 L360 220 L430 160 L500 190 H700"/>
-  <path class="flow flow-route" pathLength="100" d="M150 190 H300 L360 220 L430 160 L500 190 H700"/>
-  <path class="route head" d="M150 190 H300 L360 220 L430 160 L500 190 H700"/>
+  <rect class="area warn" x="285" y="152" width="230" height="76" rx="6"/>
+  <path class="route" d="M150 190 H300 L360 226 L430 154 L500 190 H700"/>
+  <path class="flow flow-route" pathLength="100" d="M150 190 H300 L360 226 L430 154 L500 190 H700"/>
+  <path class="route head" d="M150 190 H300 L360 226 L430 154 L500 190 H700"/>
   <g transform="translate(99 170) rotate(90 11 20)">
     <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
     <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
@@ -132,5 +143,5 @@
     <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
     <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
   </g>
-  <text class="note bad" x="380" y="250" text-anchor="middle" dominant-baseline="central">Invalid trajectory (sharp zigzag): not sent</text>
+  <text class="note bad" x="380" y="250" text-anchor="middle" dominant-baseline="central">Invalid trajectory (sharp zigzag): fails the checks. The validator replaces it or reports it.</text>
 </svg>

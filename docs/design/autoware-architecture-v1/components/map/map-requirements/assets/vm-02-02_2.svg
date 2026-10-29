@@ -127,9 +127,9 @@
   <text class="code on-primary" x="470" y="334" text-anchor="middle" dominant-baseline="central">subtype: traffic_sign</text>
 
   <path class="edge" d="M200 322 H342"/>
-  <text class="edge-lbl" x="271" y="322" text-anchor="middle" dominant-baseline="central">regulatory_element</text>
+  <text class="edge-lbl" x="271" y="308" text-anchor="middle" dominant-baseline="central">regulatory_element</text>
   <path class="edge" d="M520 290 L594 184"/>
-  <text class="edge-lbl" x="550" y="248" text-anchor="middle" dominant-baseline="central">ref_line</text>
+  <text class="edge-lbl" x="540" y="248" text-anchor="end" dominant-baseline="central">ref_line</text>
   <path class="edge" d="M590 306 C680 280 680 150 646 104"/>
   <text class="edge-lbl" x="672" y="268" text-anchor="middle" dominant-baseline="central">refers</text>
 </svg>

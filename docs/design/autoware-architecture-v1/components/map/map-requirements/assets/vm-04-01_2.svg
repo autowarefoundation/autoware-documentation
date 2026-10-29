@@ -159,7 +159,7 @@
 
   <path class="edge" d="M610 398 H830 V60 H728"/>
   <text class="edge-lbl" x="714" y="398" text-anchor="middle" dominant-baseline="central">regulatory_element</text>
-  <path class="edge" d="M480 90 L250 206"/>
+  <path class="edge" d="M480 90 L245 214"/>
   <text class="edge-lbl" x="452" y="110" text-anchor="middle" dominant-baseline="central">ref_line</text>
   <path class="edge" d="M640 90 L652 244"/>
   <text class="edge-lbl" x="646" y="140" text-anchor="middle" dominant-baseline="central">light_bulbs</text>

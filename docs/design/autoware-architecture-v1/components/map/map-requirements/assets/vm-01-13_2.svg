@@ -62,12 +62,6 @@
   <circle class="bound point" cx="132" cy="200" r="3.5"/>
   <circle class="bound point" cx="132" cy="290" r="3.5"/>
   <circle class="bound point" cx="132" cy="380" r="3.5"/>
-  <path class="bound" d="M192 20 L192 110 L192 200 L192 290 L192 380"/>
-  <circle class="bound point" cx="192" cy="20" r="3.5"/>
-  <circle class="bound point" cx="192" cy="110" r="3.5"/>
-  <circle class="bound point" cx="192" cy="200" r="3.5"/>
-  <circle class="bound point" cx="192" cy="290" r="3.5"/>
-  <circle class="bound point" cx="192" cy="380" r="3.5"/>
   <path class="bound" d="M252 20 L252 110 L252 200 L252 290 L252 380"/>
   <circle class="bound point" cx="252" cy="20" r="3.5"/>
   <circle class="bound point" cx="252" cy="110" r="3.5"/>
@@ -75,13 +69,20 @@
   <circle class="bound point" cx="252" cy="290" r="3.5"/>
   <circle class="bound point" cx="252" cy="380" r="3.5"/>
 
+  <!-- The shared linestring, drawn last and highlighted -->
+  <path class="bound alt" d="M192 20 L192 110 L192 200 L192 290 L192 380"/>
+  <circle class="bound point" cx="192" cy="20" r="3.5"/>
+  <circle class="bound point" cx="192" cy="110" r="3.5"/>
+  <circle class="bound point" cx="192" cy="200" r="3.5"/>
+  <circle class="bound point" cx="192" cy="290" r="3.5"/>
+  <circle class="bound point" cx="192" cy="380" r="3.5"/>
   <!-- Notes -->
   <text class="note lbl" x="320" y="74">Lanelet</text>
   <text class="note code" x="320" y="92">subtype: road</text>
   <text class="note code" x="320" y="110">one_way: yes</text>
   <path class="leader" d="M314 70 L234 90"/>
   <path class="leader" d="M314 70 L170 100"/>
-  <text class="note good" x="320" y="294">The two lanelets share</text>
-  <text class="note good" x="320" y="312">one linestring.</text>
-  <path class="leader" d="M314 290 L194 290"/>
+  <text class="note good" x="320" y="254">The two lanelets share</text>
+  <text class="note good" x="320" y="272">one linestring.</text>
+  <path class="leader" d="M314 250 L195 250"/>
 </svg>

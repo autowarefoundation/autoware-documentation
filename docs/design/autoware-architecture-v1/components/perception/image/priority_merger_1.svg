@@ -1,7 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 330" role="img" aria-labelledby="priority-merger-1-title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 340" role="img" aria-labelledby="priority-merger-1-title">
   <title id="priority-merger-1-title">
     Timing of a synchronized object merger. The data of frame t arrives at the base 3D detector and at the cluster-based detector. The cluster-based detector finishes later. The object merger merges
-    and publishes frame t only after the slower detector finishes.
+    and publishes frame t only after the slower detector finishes. The cluster-based result of frame t+1 is lost, so the merger publishes no output for frame t+1, although the base 3D result of t+1 is
+    there.
   </title>
   <style data-aw-standalone="">
     svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
@@ -20,6 +21,10 @@
 } .box.muted {
   fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
   stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} .box.ext {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-dasharray: 6 5;
 } text {
   font-size: 14px;
   fill: var(--aw-d-fg);
@@ -107,18 +112,18 @@
   </defs>
 
   <!-- Background: a faint dot grid and soft glows -->
-  <rect class="dots" x="0" y="0" width="860" height="330"/>
+  <rect class="dots" x="0" y="0" width="860" height="340"/>
   <circle class="halo" cx="430" cy="190" r="140"/>
 
   <!-- Time axis -->
   <path class="edge" d="M190 50 H836"/>
   <text class="sub" x="836" y="30" text-anchor="end" dominant-baseline="central">Time</text>
   <text class="sub" x="230" y="30" text-anchor="middle" dominant-baseline="central">t</text>
-  <path class="edge plain dash" d="M230 50 V314"/>
+  <path class="edge plain dash" d="M230 50 V302"/>
   <text class="sub" x="430" y="30" text-anchor="middle" dominant-baseline="central">t+1</text>
-  <path class="edge plain dash" d="M430 50 V314"/>
+  <path class="edge plain dash" d="M430 50 V302"/>
   <text class="sub" x="630" y="30" text-anchor="middle" dominant-baseline="central">t+2</text>
-  <path class="edge plain dash" d="M630 50 V314"/>
+  <path class="edge plain dash" d="M630 50 V302"/>
 
   <!-- Row names -->
   <text x="20" y="100" dominant-baseline="central">Data acquisition</text>
@@ -138,14 +143,14 @@
   <text class="sub" x="740" y="160" dominant-baseline="central">t+2</text>
   <rect class="card" x="395" y="206" width="10" height="28" rx="3"/>
   <text class="sub" x="410" y="220" dominant-baseline="central">t</text>
-  <rect class="card" x="595" y="206" width="10" height="28" rx="3"/>
-  <text class="sub" x="610" y="220" dominant-baseline="central">t+1</text>
+  <rect class="box ext" x="595" y="206" width="10" height="28" rx="3"/>
+  <text class="edge-lbl" x="588" y="220" text-anchor="end" dominant-baseline="central">t+1 lost</text>
   <rect class="card" x="795" y="206" width="10" height="28" rx="3"/>
   <text class="sub" x="810" y="220" dominant-baseline="central">t+2</text>
   <rect class="box primary" x="395" y="266" width="10" height="28" rx="3"/>
   <text class="sub" x="410" y="280" dominant-baseline="central">t</text>
-  <rect class="box primary" x="595" y="266" width="10" height="28" rx="3"/>
-  <text class="sub" x="610" y="280" dominant-baseline="central">t+1</text>
+  <rect class="box ext" x="595" y="266" width="10" height="28" rx="3"/>
+  <text class="edge-lbl" x="588" y="280" text-anchor="end" dominant-baseline="central">no t+1 output</text>
   <rect class="box primary" x="795" y="266" width="10" height="28" rx="3"/>
   <text class="sub" x="810" y="280" dominant-baseline="central">t+2</text>
 
@@ -153,13 +158,13 @@
   <path class="edge accent" d="M236 108 L320 152"/>
   <path class="flow flow-accent" pathLength="100" d="M236 108 L320 152"/>
   <path class="edge accent head" d="M236 108 L320 152"/>
-  <path class="edge accent" d="M236 112 L390 212"/>
-  <path class="flow flow-accent" pathLength="100" d="M236 112 L390 212"/>
-  <path class="edge accent head" d="M236 112 L390 212"/>
+  <path class="edge accent" d="M236 114 Q300 200 390 216"/>
+  <path class="flow flow-accent" pathLength="100" d="M236 114 Q300 200 390 216"/>
+  <path class="edge accent head" d="M236 114 Q300 200 390 216"/>
   <text class="sub" x="292" y="118" dominant-baseline="central">Processing time</text>
-  <path class="edge dash" d="M336 172 L392 268"/>
+  <path class="edge dash" d="M334 176 L392 268"/>
   <path class="edge" d="M400 234 V262"/>
   <path class="flow" pathLength="100" d="M400 234 V262"/>
   <path class="edge head" d="M400 234 V262"/>
-  <text class="edge-lbl" x="420" y="312" dominant-baseline="central">Merges frame t after the slower input arrives</text>
+  <text class="edge-lbl" x="392" y="320" dominant-baseline="central">Frame t: merged only after the slower input arrives</text>
 </svg>

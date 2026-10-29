@@ -42,6 +42,8 @@
   marker-end: url("#aw-arrow");
 } .edge.dash {
   stroke-dasharray: 6 5;
+} .aw-d-arrow--route {
+  fill: var(--aw-c-green);
 } .road {
   fill: #5c6070;
 } .mark {
@@ -68,6 +70,13 @@
 } .bound.point {
   fill: var(--aw-cyan);
   stroke: none;
+} .route {
+  fill: none;
+  stroke: var(--aw-c-green);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  marker-end: url("#aw-arrow-route");
 } .leader {
   fill: none;
   stroke: var(--aw-d-muted);
@@ -84,6 +93,9 @@
     <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
     </marker>
+    <marker id="aw-arrow-route" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--route" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
     <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#3f2ee3"/>
       <stop offset="1" stop-color="#2a6df2"/>
@@ -96,6 +108,8 @@
   <path class="mark" d="M320 236 H840"/>
   <path class="mark dash" d="M320 180 H840"/>
   <rect class="lanelet" x="320" y="126" width="520" height="52"/>
+  <!-- Direction of travel in the lanelet, so that the stop line is before the area -->
+  <path class="route" d="M748 152 H812"/>
 
   <!-- The area polygon -->
   <rect class="area warn" x="520" y="128" width="200" height="48"/>

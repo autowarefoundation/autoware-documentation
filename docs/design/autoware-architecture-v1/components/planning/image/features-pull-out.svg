@@ -127,5 +127,5 @@
     <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
   </g>
   <text class="note" x="330" y="184" text-anchor="middle" dominant-baseline="central">Pull out path</text>
-  <line class="leader" x1="330" y1="176" x2="330" y2="64"/>
+  <line class="leader" x1="330" y1="176" x2="330" y2="58"/>
 </svg>

@@ -171,12 +171,12 @@
   </g>
 
   <!-- Planned path: forward to the turning point, then backward into the space -->
-  <path class="route" d="M240 150 H520 C580 150 600 130 620 106"/>
-  <path class="flow flow-route" pathLength="100" d="M240 150 H520 C580 150 600 130 620 106"/>
-  <path class="route head" d="M240 150 H520 C580 150 600 130 620 106"/>
-  <path class="route" d="M612 118 C570 160 500 150 500 200 V262"/>
-  <path class="flow flow-route" pathLength="100" d="M612 118 C570 160 500 150 500 200 V262"/>
-  <path class="route head" d="M612 118 C570 160 500 150 500 200 V262"/>
+  <path class="route" d="M240 150 H480 C540 150 560 120 580 106"/>
+  <path class="flow flow-route" pathLength="100" d="M240 150 H480 C540 150 560 120 580 106"/>
+  <path class="route head" d="M240 150 H480 C540 150 560 120 580 106"/>
+  <path class="route" d="M578 120 C578 162 500 160 500 205 V262"/>
+  <path class="flow flow-route" pathLength="100" d="M578 120 C578 162 500 160 500 205 V262"/>
+  <path class="route head" d="M578 120 C578 162 500 160 500 205 V262"/>
   <g transform="translate(189 130) rotate(90 11 20)">
     <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
     <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
@@ -186,8 +186,8 @@
     <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
     <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
   </g>
-  <text class="note" x="500" y="318" text-anchor="middle" dominant-baseline="central">Empty parking space</text>
+  <text class="note" x="500" y="318" text-anchor="middle" dominant-baseline="central">Reverse into the empty parking space</text>
   <line class="leader" x1="500" y1="308" x2="500" y2="290"/>
   <text class="note" x="750" y="22" text-anchor="end" dominant-baseline="central">Turning point: forward, then reverse</text>
-  <line class="leader" x1="640" y1="30" x2="622" y2="92"/>
+  <line class="leader" x1="576" y1="33" x2="580" y2="94"/>
 </svg>

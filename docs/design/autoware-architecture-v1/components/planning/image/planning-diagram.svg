@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 1110" role="img" aria-labelledby="planning-diagram-title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 1120" role="img" aria-labelledby="planning-diagram-title">
   <title id="planning-diagram-title">
     The reference implementation of the planning component: mission planning, scenario planning with lane driving and parking, the velocity smoother, and the planning validator, with the Diffusion
     Planner as an optional trajectory source.
@@ -170,18 +170,22 @@
   </defs>
 
   <!-- Background: a faint dot grid and soft glows -->
-  <rect class="dots" x="0" y="0" width="860" height="1110"/>
+  <rect class="dots" x="0" y="0" width="860" height="1120"/>
   <circle class="halo" cx="306" cy="500" r="230"/>
   <circle class="halo cyan" cx="706" cy="450" r="120"/>
-  <circle class="halo" cx="432" cy="930" r="120"/>
+  <circle class="halo" cx="432" cy="940" r="120"/>
 
-  <!-- Input from the AD API -->
+  <!-- Inputs from the AD API and from the other components -->
   <rect class="box muted" x="176" y="16" width="260" height="54" rx="12"/>
   <text class="lbl" x="306" y="34" text-anchor="middle" dominant-baseline="central">AD API</text>
   <text class="sub" x="306" y="54" text-anchor="middle" dominant-baseline="central">Goal, checkpoints, velocity limit</text>
+  <rect class="box muted" x="456" y="16" width="380" height="54" rx="12"/>
+  <text class="lbl" x="646" y="34" text-anchor="middle" dominant-baseline="central">Map, perception, localization, HMI</text>
+  <text class="sub" x="646" y="54" text-anchor="middle" dominant-baseline="central">Lanes, objects, obstacles, traffic lights, ego state, approvals</text>
+  <path class="edge" d="M646 70 V90"/>
 
   <!-- Planning component -->
-  <rect class="glass-panel" x="10" y="92" width="840" height="936" rx="18"/>
+  <rect class="glass-panel" x="10" y="92" width="840" height="946" rx="18"/>
   <text class="ttl" x="28" y="116">Planning</text>
 
   <!-- Mission planning -->
@@ -195,14 +199,15 @@
   <path class="edge" d="M306 70 V146"/>
   <path class="flow" pathLength="100" d="M306 70 V146"/>
   <path class="edge head" d="M306 70 V146"/>
+  <text class="edge-lbl" x="306" y="110" text-anchor="middle" dominant-baseline="central">Goal, checkpoints</text>
 
   <!-- Scenario planning: the default trajectory source (planning_setting:=rule_based) -->
-  <rect class="glass-panel" x="24" y="236" width="812" height="674" rx="18"/>
+  <rect class="glass-panel" x="24" y="236" width="812" height="684" rx="18"/>
   <text class="ttl" x="42" y="260">Scenario planning</text>
-  <text class="sub" x="42" y="278">Default trajectory source: planning_setting:=rule_based</text>
+  <text class="sub" x="796" y="260" text-anchor="end">Default trajectory source: planning_setting:=rule_based</text>
 
   <!-- Lane driving scenario -->
-  <rect class="glass-panel" x="38" y="292" width="536" height="438" rx="18"/>
+  <rect class="glass-panel" x="38" y="292" width="536" height="448" rx="18"/>
   <text class="ttl" x="56" y="316">Lane driving</text>
   <rect class="glass-panel" x="52" y="334" width="508" height="160" rx="18"/>
   <text class="ttl" x="70" y="358">Behavior planning</text>
@@ -230,43 +235,44 @@
   <text class="edge-lbl" x="306" y="314" text-anchor="middle" dominant-baseline="central">Route</text>
 
   <!-- Motion planning -->
-  <rect class="glass-panel" x="52" y="510" width="508" height="210" rx="18"/>
+  <rect class="glass-panel" x="52" y="510" width="508" height="220" rx="18"/>
   <text class="ttl" x="70" y="534">Motion planning</text>
-  <rect class="card" x="72" y="544" width="250" height="40" rx="12"/>
-  <circle class="icon-bg" cx="92" cy="564" r="12"/>
-  <path class="icon-line" d="M85 567 Q92 556 99 567"/>
-  <circle class="icon-dot" cx="85" cy="567" r="1.8"/>
-  <circle class="icon-dot" cx="92" cy="561.5" r="1.8"/>
-  <circle class="icon-dot" cx="99" cy="567" r="1.8"/>
-  <text class="lbl" x="197" y="564" text-anchor="middle" dominant-baseline="central">elastic_band_smoother</text>
-  <rect class="card" x="72" y="608" width="250" height="40" rx="12"/>
-  <circle class="icon-bg" cx="92" cy="628" r="12"/>
-  <path class="icon-line" d="M87 634 C87 628 97 628 97 622"/>
-  <circle class="icon-dot" cx="87" cy="634" r="2.2"/>
-  <circle class="icon-dot" cx="97" cy="622" r="2.2"/>
-  <text class="lbl" x="197" y="628" text-anchor="middle" dominant-baseline="central">path_optimizer</text>
-  <rect class="card" x="72" y="672" width="250" height="40" rx="12"/>
-  <circle class="icon-bg" cx="92" cy="692" r="12"/>
-  <path class="icon-line" d="M85 695 A7 7 0 0 1 99 695"/>
-  <path class="icon-line" d="M92 695 L95.5 689.5"/>
-  <circle class="icon-dot" cx="92" cy="695" r="1.8"/>
-  <text class="lbl" x="197" y="692" text-anchor="middle" dominant-baseline="central">motion_velocity_planner</text>
-  <rect class="box muted" x="344" y="602" width="200" height="52" rx="12"/>
-  <text class="lbl" x="444" y="619" text-anchor="middle" dominant-baseline="central">surround_obstacle_checker</text>
-  <text class="sub" x="444" y="639" text-anchor="middle" dominant-baseline="central">Optional, off by default</text>
-  <path class="edge accent" d="M197 484 V538"/>
-  <path class="flow flow-accent" pathLength="100" d="M197 484 V538"/>
-  <path class="edge accent head" d="M197 484 V538"/>
-  <text class="edge-lbl" x="197" y="500" text-anchor="middle" dominant-baseline="central">Path</text>
-  <path class="edge" d="M197 584 V602"/>
-  <path class="flow" pathLength="100" d="M197 584 V602"/>
-  <path class="edge head" d="M197 584 V602"/>
-  <path class="edge" d="M197 648 V666"/>
-  <path class="flow" pathLength="100" d="M197 648 V666"/>
-  <path class="edge head" d="M197 648 V666"/>
+  <rect class="card" x="290" y="544" width="250" height="40" rx="12"/>
+  <circle class="icon-bg" cx="310" cy="564" r="12"/>
+  <path class="icon-line" d="M303 567 Q310 556 317 567"/>
+  <circle class="icon-dot" cx="303" cy="567" r="1.8"/>
+  <circle class="icon-dot" cx="310" cy="561.5" r="1.8"/>
+  <circle class="icon-dot" cx="317" cy="567" r="1.8"/>
+  <text class="lbl" x="425" y="564" text-anchor="middle" dominant-baseline="central">elastic_band_smoother</text>
+  <rect class="card" x="290" y="608" width="250" height="40" rx="12"/>
+  <circle class="icon-bg" cx="310" cy="628" r="12"/>
+  <path class="icon-line" d="M305 634 C305 628 315 628 315 622"/>
+  <circle class="icon-dot" cx="305" cy="634" r="2.2"/>
+  <circle class="icon-dot" cx="315" cy="622" r="2.2"/>
+  <text class="lbl" x="425" y="628" text-anchor="middle" dominant-baseline="central">path_optimizer</text>
+  <rect class="card" x="290" y="672" width="250" height="46" rx="12"/>
+  <circle class="icon-bg" cx="310" cy="695" r="12"/>
+  <path class="icon-line" d="M303 698 A7 7 0 0 1 317 698"/>
+  <path class="icon-line" d="M310 698 L313.5 692.5"/>
+  <circle class="icon-dot" cx="310" cy="698" r="1.8"/>
+  <text class="lbl" x="425" y="686" text-anchor="middle" dominant-baseline="central">motion_velocity_planner</text>
+  <text class="sub" x="425" y="706" text-anchor="middle" dominant-baseline="central">Obstacle stop, slow down, cruise, ...</text>
+  <rect class="box muted" x="72" y="600" width="200" height="52" rx="12"/>
+  <text class="lbl" x="172" y="617" text-anchor="middle" dominant-baseline="central">surround_obstacle_checker</text>
+  <text class="sub" x="172" y="637" text-anchor="middle" dominant-baseline="central">Optional, off by default</text>
+  <path class="edge accent" d="M415 484 V538"/>
+  <path class="flow flow-accent" pathLength="100" d="M415 484 V538"/>
+  <path class="edge accent head" d="M415 484 V538"/>
+  <text class="edge-lbl" x="423" y="524" dominant-baseline="central">Path</text>
+  <path class="edge" d="M415 584 V602"/>
+  <path class="flow" pathLength="100" d="M415 584 V602"/>
+  <path class="edge head" d="M415 584 V602"/>
+  <path class="edge" d="M415 648 V666"/>
+  <path class="flow" pathLength="100" d="M415 648 V666"/>
+  <path class="edge head" d="M415 648 V666"/>
 
   <!-- Parking scenario -->
-  <rect class="glass-panel" x="590" y="292" width="232" height="438" rx="18"/>
+  <rect class="glass-panel" x="590" y="292" width="232" height="448" rx="18"/>
   <text class="ttl" x="608" y="316">Parking</text>
   <rect class="card" x="606" y="364" width="200" height="46" rx="12"/>
   <text class="lbl" x="706" y="378" text-anchor="middle" dominant-baseline="central">costmap_generator</text>
@@ -283,63 +289,67 @@
   <text class="edge-lbl" x="620" y="177" text-anchor="middle" dominant-baseline="central">Route</text>
 
   <!-- Scenario selection and velocity smoothing -->
-  <rect class="card" x="304" y="754" width="256" height="46" rx="12"/>
-  <circle class="icon-bg" cx="328" cy="777" r="14"/>
-  <path class="icon-line" d="M321 777 H326 L333 772 M326 777 L333 782"/>
-  <circle class="icon-dot" cx="333" cy="772" r="2"/>
+  <rect class="card" x="304" y="764" width="256" height="46" rx="12"/>
+  <circle class="icon-bg" cx="328" cy="787" r="14"/>
+  <path class="icon-line" d="M321 787 H326 L333 782 M326 787 L333 792"/>
   <circle class="icon-dot" cx="333" cy="782" r="2"/>
-  <text class="lbl" x="432" y="768" text-anchor="middle" dominant-baseline="central">scenario_selector</text>
-  <text class="sub" x="432" y="788" text-anchor="middle" dominant-baseline="central">Lane driving or parking</text>
-  <rect class="card" x="304" y="838" width="256" height="46" rx="12"/>
-  <circle class="icon-bg" cx="328" cy="861" r="14"/>
-  <path class="icon-line" d="M321 866 C327 866 329 856 335 856"/>
-  <text class="lbl" x="432" y="852" text-anchor="middle" dominant-baseline="central">velocity_smoother</text>
-  <text class="sub" x="432" y="872" text-anchor="middle" dominant-baseline="central">Velocity, acceleration, jerk</text>
-  <rect class="box muted" x="38" y="838" width="250" height="46" rx="12"/>
-  <text class="lbl" x="163" y="861" text-anchor="middle" dominant-baseline="central">external_velocity_limit_selector</text>
-  <path class="edge accent" d="M322 692 H432 V748"/>
-  <path class="flow flow-accent" pathLength="100" d="M322 692 H432 V748"/>
-  <path class="edge accent head" d="M322 692 H432 V748"/>
-  <path class="edge accent" d="M706 526 V777 H566"/>
-  <path class="flow flow-accent" pathLength="100" d="M706 526 V777 H566"/>
-  <path class="edge accent head" d="M706 526 V777 H566"/>
-  <path class="edge accent" d="M432 800 V832"/>
-  <path class="flow flow-accent" pathLength="100" d="M432 800 V832"/>
-  <path class="edge accent head" d="M432 800 V832"/>
-  <path class="edge" d="M288 861 H298"/>
-  <path class="flow" pathLength="100" d="M288 861 H298"/>
-  <path class="edge head" d="M288 861 H298"/>
-  <text class="edge-lbl" x="163" y="808" text-anchor="middle" dominant-baseline="central">Velocity limits from the AD API and modules</text>
-  <path class="edge" d="M163 818 V832"/>
-  <path class="flow" pathLength="100" d="M163 818 V832"/>
-  <path class="edge head" d="M163 818 V832"/>
+  <circle class="icon-dot" cx="333" cy="792" r="2"/>
+  <text class="lbl" x="432" y="778" text-anchor="middle" dominant-baseline="central">scenario_selector</text>
+  <text class="sub" x="432" y="798" text-anchor="middle" dominant-baseline="central">Lane driving or parking</text>
+  <rect class="card" x="304" y="848" width="256" height="46" rx="12"/>
+  <circle class="icon-bg" cx="328" cy="871" r="14"/>
+  <path class="icon-line" d="M321 876 C327 876 329 866 335 866"/>
+  <text class="lbl" x="432" y="862" text-anchor="middle" dominant-baseline="central">velocity_smoother</text>
+  <text class="sub" x="432" y="882" text-anchor="middle" dominant-baseline="central">Velocity, acceleration, jerk</text>
+  <rect class="box muted" x="38" y="848" width="250" height="46" rx="12"/>
+  <text class="lbl" x="163" y="871" text-anchor="middle" dominant-baseline="central">external_velocity_limit_selector</text>
+  <path class="edge accent" d="M415 718 V758"/>
+  <path class="flow flow-accent" pathLength="100" d="M415 718 V758"/>
+  <path class="edge accent head" d="M415 718 V758"/>
+  <text class="edge-lbl" x="423" y="750" dominant-baseline="central">Trajectory</text>
+  <path class="edge accent" d="M706 526 V798 H566"/>
+  <path class="flow flow-accent" pathLength="100" d="M706 526 V798 H566"/>
+  <path class="edge accent head" d="M706 526 V798 H566"/>
+  <text class="edge-lbl" x="706" y="760" text-anchor="middle" dominant-baseline="central">Trajectory</text>
+  <path class="edge" d="M624 776 H566"/>
+  <text class="edge-lbl" x="628" y="776" dominant-baseline="central">Route</text>
+  <path class="edge accent" d="M432 810 V842"/>
+  <path class="flow flow-accent" pathLength="100" d="M432 810 V842"/>
+  <path class="edge accent head" d="M432 810 V842"/>
+  <path class="edge" d="M288 871 H298"/>
+  <path class="flow" pathLength="100" d="M288 871 H298"/>
+  <path class="edge head" d="M288 871 H298"/>
+  <path class="edge dash" d="M230 652 V842"/>
+  <text class="edge-lbl" x="230" y="800" text-anchor="middle" dominant-baseline="central">Velocity limit</text>
+  <text class="edge-lbl" x="100" y="814" text-anchor="middle" dominant-baseline="central">AD API, other modules</text>
+  <path class="edge" d="M100 826 V842"/>
 
   <!-- Validation -->
-  <rect class="glass-panel" x="24" y="926" width="550" height="86" rx="18"/>
-  <text class="ttl" x="42" y="950">Validation</text>
-  <rect class="box primary" x="304" y="948" width="256" height="50" rx="12"/>
-  <circle class="icon-bg on" cx="330" cy="973" r="15"/>
-  <path class="icon-line" d="M330 966 L336 968.5 V973 Q336 978 330 980 Q324 978 324 973 V968.5 Z"/>
-  <path class="icon-line" d="M327.5 973 L329.5 975 L333 971"/>
-  <text class="lbl on-primary" x="432" y="964" text-anchor="middle" dominant-baseline="central">planning_validator</text>
-  <text class="sub on-primary" x="432" y="984" text-anchor="middle" dominant-baseline="central">Checker plugins</text>
-  <path class="edge accent" d="M432 884 V942"/>
-  <path class="flow flow-accent" pathLength="100" d="M432 884 V942"/>
-  <path class="edge accent head" d="M432 884 V942"/>
+  <rect class="glass-panel" x="24" y="936" width="550" height="86" rx="18"/>
+  <text class="ttl" x="42" y="960">Validation</text>
+  <rect class="box primary" x="304" y="958" width="256" height="50" rx="12"/>
+  <circle class="icon-bg on" cx="330" cy="983" r="15"/>
+  <path class="icon-line" d="M330 976 L336 978.5 V983 Q336 988 330 990 Q324 988 324 983 V978.5 Z"/>
+  <path class="icon-line" d="M327.5 983 L329.5 985 L333 981"/>
+  <text class="lbl on-primary" x="432" y="974" text-anchor="middle" dominant-baseline="central">planning_validator</text>
+  <text class="sub on-primary" x="432" y="994" text-anchor="middle" dominant-baseline="central">Checker plugins</text>
+  <path class="edge accent" d="M432 894 V952"/>
+  <path class="flow flow-accent" pathLength="100" d="M432 894 V952"/>
+  <path class="edge accent head" d="M432 894 V952"/>
 
   <!-- Optional learning-based trajectory source -->
-  <rect class="group ai dashed" x="590" y="926" width="246" height="86" rx="16"/>
-  <text class="ttl" x="608" y="950">Learning-based</text>
-  <rect class="card ai" x="606" y="954" width="214" height="46" rx="12"/>
-  <text class="lbl" x="713" y="968" text-anchor="middle" dominant-baseline="central">Diffusion Planner</text>
-  <text class="sub" x="713" y="988" text-anchor="middle" dominant-baseline="central">planning_setting:=diffusion_planner</text>
-  <path class="edge dash" d="M606 977 H566"/>
+  <rect class="group ai dashed" x="590" y="936" width="246" height="86" rx="16"/>
+  <text class="ttl" x="608" y="960">Learning-based</text>
+  <rect class="card ai" x="606" y="964" width="214" height="46" rx="12"/>
+  <text class="lbl" x="713" y="978" text-anchor="middle" dominant-baseline="central">Diffusion Planner</text>
+  <text class="sub" x="713" y="998" text-anchor="middle" dominant-baseline="central">planning_setting:=diffusion_planner</text>
+  <path class="edge dash" d="M606 987 H566"/>
 
   <!-- Output to Control -->
-  <rect class="box muted" x="232" y="1050" width="400" height="46" rx="12"/>
-  <text class="lbl" x="432" y="1064" text-anchor="middle" dominant-baseline="central">Control</text>
-  <text class="sub" x="432" y="1084" text-anchor="middle" dominant-baseline="central">/planning/trajectory</text>
-  <path class="edge accent" d="M432 998 V1044"/>
-  <path class="flow flow-accent" pathLength="100" d="M432 998 V1044"/>
-  <path class="edge accent head" d="M432 998 V1044"/>
+  <rect class="box muted" x="232" y="1060" width="400" height="46" rx="12"/>
+  <text class="lbl" x="432" y="1074" text-anchor="middle" dominant-baseline="central">Control</text>
+  <text class="sub" x="432" y="1094" text-anchor="middle" dominant-baseline="central">/planning/trajectory</text>
+  <path class="edge accent" d="M432 1008 V1054"/>
+  <path class="flow flow-accent" pathLength="100" d="M432 1008 V1054"/>
+  <path class="edge accent head" d="M432 1008 V1054"/>
 </svg>

@@ -37,6 +37,8 @@
 
   <!-- Road surface and wide edge lines -->
   <rect class="road" x="140" y="20" width="240" height="360"/>
+  <!-- The lanelet, drawn under the edge lines so that each line stays fully white -->
+  <rect class="lanelet" x="172" y="20" width="176" height="360"/>
   <path class="mark thick" d="M166 20 V380"/>
   <path class="mark thick" d="M172 20 V380"/>
   <path class="mark thick" d="M178 20 V380"/>
@@ -44,8 +46,7 @@
   <path class="mark thick" d="M348 20 V380"/>
   <path class="mark thick" d="M354 20 V380"/>
 
-  <!-- The lanelet and its linestrings -->
-  <rect class="lanelet" x="172" y="20" width="176" height="360"/>
+  <!-- The linestrings -->
   <path class="bound" d="M172 20 L172 110 L172 200 L172 290 L172 380"/>
   <circle class="bound point" cx="172" cy="20" r="3.5"/>
   <circle class="bound point" cx="172" cy="110" r="3.5"/>
@@ -63,5 +64,6 @@
   <text class="note good" x="400" y="194">Each linestring is in the</text>
   <text class="note good" x="400" y="212">middle of its edge line.</text>
   <path class="leader" d="M394 190 L348 190"/>
-  <path class="leader" d="M394 190 L366 150 L172 150"/>
+  <text class="note good" x="126" y="194" text-anchor="end">Linestring</text>
+  <path class="leader" d="M130 190 L172 190"/>
 </svg>

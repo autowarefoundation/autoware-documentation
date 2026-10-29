@@ -83,7 +83,14 @@
   <circle class="bound point" cx="256" cy="20" r="3.5"/>
 
   <!-- Notes -->
-  <text class="note good" x="380" y="264">The two centerlines connect</text>
-  <text class="note good" x="380" y="282">at the lanelet border.</text>
-  <path class="leader" d="M374 260 L261 260"/>
+  <text class="note" x="380" y="104">Centerline of the next lanelet</text>
+  <text class="note" x="380" y="122">A linestring</text>
+  <path class="leader" d="M374 100 L290 145"/>
+  <text class="note" x="380" y="424">Centerline of the first lanelet</text>
+  <text class="note" x="380" y="442">A linestring</text>
+  <path class="leader" d="M374 420 L290 375"/>
+  <text class="note good" x="380" y="284">The two centerlines connect</text>
+  <text class="note good" x="380" y="302">at the same point on the</text>
+  <text class="note good" x="380" y="320">lanelet border.</text>
+  <path class="leader" d="M374 280 L261 262"/>
 </svg>

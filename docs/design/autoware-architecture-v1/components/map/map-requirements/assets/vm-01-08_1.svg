@@ -139,4 +139,7 @@
   <!-- Notes -->
   <text class="note" x="320" y="284">No line on the outer side</text>
   <path class="leader" d="M314 280 L264 280"/>
+  <text class="note" x="98" y="112" text-anchor="end">No line on</text>
+  <text class="note" x="98" y="128" text-anchor="end">the outer side</text>
+  <path class="leader" d="M102 116 L120 116"/>
 </svg>

@@ -314,6 +314,11 @@
   <path class="lanelet" d="M588 218 C637.4 168.5 682 90 752 90 L752 150 C682 150 679.9 210.9 630.4 260.4 Z"/>
   <path class="bound" fill="none" d="M520 382 A232 232 0 0 1 588 218"/>
   <path class="bound" fill="none" d="M580 382 A172 172 0 0 1 630.4 260.4"/>
+  <!-- Bounds of the two branch lanelets. They overlap and share no linestrings. -->
+  <path class="bound" fill="none" d="M588 218 C637.4 168.5 682 90 752 90"/>
+  <path class="bound" fill="none" d="M630.4 260.4 C679.9 210.9 682 150 752 150"/>
+  <path class="bound" fill="none" d="M588 218 A232 232 0 0 1 752 150"/>
+  <path class="bound" fill="none" d="M630.4 260.4 A172 172 0 0 1 752 210"/>
   <path class="bound alt" d="M588 218 L630.4 260.4"/>
 
   <!-- Notes -->

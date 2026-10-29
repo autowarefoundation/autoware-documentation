@@ -133,12 +133,14 @@
   <text class="note code" x="440" y="68">subtype: road_shoulder</text>
   <text class="note code" x="440" y="86">one_way: yes</text>
   <path class="leader" d="M434 46 L333.1 165.9"/>
+  <path class="leader" d="M434 46 L256 38"/>
   <text class="note lbl" x="440" y="160">Lanelet</text>
   <text class="note code" x="440" y="178">subtype: road</text>
   <text class="note code" x="440" y="196">one_way: yes</text>
   <path class="leader" d="M434 156 L262.4 180"/>
-  <text class="note good" x="440" y="300">The road shoulder lanelet and</text>
-  <text class="note good" x="440" y="318">the road lanelet share the</text>
-  <text class="note good" x="440" y="336">linestring at the edge line.</text>
+  <path class="leader" d="M434 156 L175 205"/>
+  <text class="note good" x="440" y="300">Each road shoulder lanelet shares the</text>
+  <text class="note good" x="440" y="318">linestring at the edge line with the</text>
+  <text class="note good" x="440" y="336">road lanelet next to it.</text>
   <path class="leader" d="M434 296 L223.2 301.7"/>
 </svg>

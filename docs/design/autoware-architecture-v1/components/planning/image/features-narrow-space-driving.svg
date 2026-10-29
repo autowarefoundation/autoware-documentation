@@ -107,16 +107,17 @@
   <path class="road" d="M0 40 H430 V190 H760 V260 H360 V110 H0 Z"/>
 
   <!-- Planned path -->
-  <path class="route" d="M150 75 H300 C395 75 395 75 395 150 C395 225 395 225 490 225 H720"/>
-  <path class="flow flow-route" pathLength="100" d="M150 75 H300 C395 75 395 75 395 150 C395 225 395 225 490 225 H720"/>
-  <path class="route head" d="M150 75 H300 C395 75 395 75 395 150 C395 225 395 225 490 225 H720"/>
+  <path class="route" d="M110 75 H300 C395 75 395 75 395 150 C395 225 395 225 490 225 H720"/>
+  <path class="flow flow-route" pathLength="100" d="M110 75 H300 C395 75 395 75 395 150 C395 225 395 225 490 225 H720"/>
+  <path class="route head" d="M110 75 H300 C395 75 395 75 395 150 C395 225 395 225 490 225 H720"/>
 
   <!-- Footprints of the ego vehicle along the path -->
   <rect class="bound" x="296" y="60" width="68" height="34" rx="4" transform="rotate(8 330 77)"/>
   <rect class="bound" x="358" y="133" width="68" height="34" rx="4" transform="rotate(80 392 150)"/>
   <rect class="bound" x="416" y="205" width="68" height="34" rx="4" transform="rotate(12 450 222)"/>
   <rect class="bound" x="526" y="208" width="68" height="34" rx="4" transform="rotate(0 560 225)"/>
-  <g transform="translate(99 55) rotate(90 11 20)">
+  <!-- The ego vehicle, at the same size as its footprint -->
+  <g transform="translate(110 75) rotate(90) scale(1.5) translate(-11 -20)">
     <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
     <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
     <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
@@ -125,6 +126,7 @@
     <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
     <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
   </g>
+  <rect class="bound" x="76" y="58" width="68" height="34" rx="4"/>
   <text class="note" x="560" y="120" text-anchor="middle" dominant-baseline="central">Footprints inside the drivable area</text>
   <line class="leader" x1="560" y1="130" x2="560" y2="206"/>
 </svg>

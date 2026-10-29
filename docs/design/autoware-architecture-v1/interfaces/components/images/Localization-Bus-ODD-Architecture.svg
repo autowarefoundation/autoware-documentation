@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 570" role="img" aria-labelledby="localization-interface-title">
   <title id="localization-interface-title">
-    In the default Localization setup, the NDT scan matcher matches the LiDAR point cloud to the point cloud map, and the gyro odometer combines the IMU and the vehicle twist. The EKF localizer fuses
-    both into the kinematic state, which goes to Planning and Control. The pose initializer gives the first pose.
+    In the default Localization setup, the NDT scan matcher matches the LiDAR point cloud to the point cloud map, with the EKF pose as its initial guess, and the gyro odometer combines the IMU and the
+    vehicle twist. The EKF localizer fuses both, and the stop filter outputs the kinematic state to Planning, Control, and other components. Twist to acceleration outputs the acceleration, the
+    localization error monitor reports diagnostics, and the EKF localizer publishes the map to base_link transform. The pose initializer gives the first pose when the AD API requests initialization.
   </title>
   <style data-aw-standalone="">
     svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
@@ -55,8 +56,6 @@
   stroke: var(--aw-d-accent);
   stroke-width: 2;
   marker-end: url("#aw-arrow-accent");
-} .edge.dash {
-  stroke-dasharray: 6 5;
 } .aw-glass-a {
   stop-color: var(--aw-glass-a);
 } .aw-glass-b {
@@ -151,7 +150,6 @@
   <rect class="dots" x="0" y="0" width="860" height="570"/>
   <circle class="halo" cx="300" cy="300" r="160"/>
   <circle class="halo cyan" cx="720" cy="200" r="92"/>
-
   <!-- Inputs -->
   <rect class="card" x="20" y="16" width="160" height="54" rx="12"/>
   <text class="lbl" x="100" y="43" text-anchor="middle" dominant-baseline="central">Map</text>
@@ -159,11 +157,9 @@
   <text class="lbl" x="420" y="43" text-anchor="middle" dominant-baseline="central">Sensing</text>
   <rect class="card" x="660" y="16" width="180" height="54" rx="12"/>
   <text class="lbl" x="750" y="43" text-anchor="middle" dominant-baseline="central">AD API</text>
-
   <!-- The Localization component -->
   <rect class="glass-panel" x="20" y="120" width="820" height="330" rx="18"/>
   <text class="ttl" x="470" y="148">Localization</text>
-
   <rect class="card" x="40" y="170" width="220" height="52" rx="12"/>
   <circle class="icon-bg" cx="68" cy="196" r="15"/>
   <circle class="icon-dot" cx="62" cy="191" r="2"/>
@@ -176,19 +172,18 @@
   <text class="lbl" x="430" y="196" text-anchor="middle" dominant-baseline="central">Gyro odometer</text>
   <rect class="card" x="620" y="170" width="200" height="52" rx="12"/>
   <text class="lbl" x="720" y="196" text-anchor="middle" dominant-baseline="central">Pose initializer</text>
-
   <rect class="box primary" x="40" y="290" width="520" height="52" rx="14"/>
   <circle class="icon-bg on" cx="224" cy="316" r="17"/>
   <circle class="icon-line" cx="224" cy="316" r="7"/>
   <circle class="icon-dot" cx="224" cy="316" r="2.4"/>
   <path class="icon-line" d="M224 305 V308 M224 324 V327 M213 316 H216 M232 316 H235"/>
   <text class="lbl on-primary" x="300" y="316" text-anchor="middle" dominant-baseline="central">EKF localizer</text>
-
-  <rect class="card" x="40" y="380" width="220" height="46" rx="12"/>
-  <text class="lbl" x="150" y="403" text-anchor="middle" dominant-baseline="central">Stop filter</text>
-  <rect class="card" x="320" y="380" width="220" height="46" rx="12"/>
-  <text class="lbl" x="430" y="403" text-anchor="middle" dominant-baseline="central">Twist to acceleration</text>
-
+  <rect class="card" x="40" y="380" width="170" height="46" rx="12"/>
+  <text class="lbl" x="125" y="403" text-anchor="middle" dominant-baseline="central">Twist to acceleration</text>
+  <rect class="card" x="260" y="380" width="170" height="46" rx="12"/>
+  <text class="lbl" x="345" y="403" text-anchor="middle" dominant-baseline="central">Stop filter</text>
+  <rect class="card" x="470" y="380" width="220" height="46" rx="12"/>
+  <text class="lbl" x="580" y="403" text-anchor="middle" dominant-baseline="central">Localization error monitor</text>
   <!-- Inputs to the nodes -->
   <path class="edge" d="M100 70 V164"/>
   <path class="flow" pathLength="100" d="M100 70 V164"/>
@@ -197,7 +192,7 @@
   <path class="edge accent" d="M240 70 V164"/>
   <path class="flow flow-accent" pathLength="100" d="M240 70 V164"/>
   <path class="edge accent head" d="M240 70 V164"/>
-  <text class="edge-lbl" x="240" y="130" text-anchor="middle" dominant-baseline="central">LiDAR point cloud</text>
+  <text class="edge-lbl" x="240" y="100" text-anchor="middle" dominant-baseline="central">LiDAR point cloud</text>
   <path class="edge" d="M430 70 V164"/>
   <path class="flow" pathLength="100" d="M430 70 V164"/>
   <path class="edge head" d="M430 70 V164"/>
@@ -206,14 +201,19 @@
   <path class="flow" pathLength="100" d="M600 70 V100 H680 V164"/>
   <path class="edge head" d="M600 70 V100 H680 V164"/>
   <text class="edge-lbl" x="640" y="100" text-anchor="middle" dominant-baseline="central">GNSS pose</text>
-  <path class="edge dash" d="M760 70 V164"/>
-  <text class="edge-lbl" x="760" y="100" text-anchor="middle" dominant-baseline="central">Initialize</text>
-
+  <path class="edge" d="M770 70 V164"/>
+  <path class="flow" pathLength="100" d="M770 70 V164"/>
+  <path class="edge head" d="M770 70 V164"/>
+  <text class="edge-lbl" x="770" y="100" text-anchor="middle" dominant-baseline="central">Initialize</text>
   <!-- Inside Localization -->
   <path class="edge accent" d="M150 222 V284"/>
   <path class="flow flow-accent" pathLength="100" d="M150 222 V284"/>
   <path class="edge accent head" d="M150 222 V284"/>
   <text class="edge-lbl" x="150" y="254" text-anchor="middle" dominant-baseline="central">Pose</text>
+  <path class="edge" d="M230 290 V228"/>
+  <path class="flow" pathLength="100" d="M230 290 V228"/>
+  <path class="edge head" d="M230 290 V228"/>
+  <text class="edge-lbl" x="230" y="256" text-anchor="middle" dominant-baseline="central">Initial guess</text>
   <path class="edge" d="M430 222 V284"/>
   <path class="flow" pathLength="100" d="M430 222 V284"/>
   <path class="edge head" d="M430 222 V284"/>
@@ -222,30 +222,38 @@
   <path class="flow" pathLength="100" d="M720 222 V316 H566"/>
   <path class="edge head" d="M720 222 V316 H566"/>
   <text class="edge-lbl" x="720" y="262" text-anchor="middle" dominant-baseline="central">Initial pose</text>
-  <path class="edge accent" d="M150 342 V374"/>
-  <path class="flow flow-accent" pathLength="100" d="M150 342 V374"/>
-  <path class="edge accent head" d="M150 342 V374"/>
-  <path class="edge" d="M260 403 H314"/>
-  <path class="flow" pathLength="100" d="M260 403 H314"/>
-  <path class="edge head" d="M260 403 H314"/>
-
+  <path class="edge accent" d="M345 342 V374"/>
+  <path class="flow flow-accent" pathLength="100" d="M345 342 V374"/>
+  <path class="edge accent head" d="M345 342 V374"/>
+  <path class="edge" d="M260 403 H216"/>
+  <path class="flow" pathLength="100" d="M260 403 H216"/>
+  <path class="edge head" d="M260 403 H216"/>
+  <path class="edge" d="M430 403 H464"/>
+  <path class="flow" pathLength="100" d="M430 403 H464"/>
+  <path class="edge head" d="M430 403 H464"/>
   <!-- Outputs -->
-  <path class="edge accent" d="M150 426 V494"/>
-  <path class="flow flow-accent" pathLength="100" d="M150 426 V494"/>
-  <path class="edge accent head" d="M150 426 V494"/>
-  <text class="edge-lbl code" x="150" y="472" text-anchor="middle" dominant-baseline="central">/localization/kinematic_state</text>
-  <path class="edge" d="M430 426 V494"/>
-  <path class="flow" pathLength="100" d="M430 426 V494"/>
-  <path class="edge head" d="M430 426 V494"/>
-  <text class="edge-lbl code" x="430" y="472" text-anchor="middle" dominant-baseline="central">/localization/acceleration</text>
-  <path class="edge" d="M560 330 H660 V494"/>
-  <path class="flow" pathLength="100" d="M560 330 H660 V494"/>
-  <path class="edge head" d="M560 330 H660 V494"/>
-  <text class="edge-lbl code" x="660" y="472" text-anchor="middle" dominant-baseline="central">/tf</text>
-
-  <rect class="card" x="20" y="500" width="560" height="50" rx="12"/>
-  <text class="lbl" x="300" y="525" text-anchor="middle" dominant-baseline="central">Planning, Control, and other components</text>
-  <rect class="card" x="600" y="500" width="240" height="50" rx="12"/>
-  <text class="lbl" x="720" y="519" text-anchor="middle" dominant-baseline="central">TF tree</text>
-  <text class="sub code" x="720" y="537" text-anchor="middle" dominant-baseline="central">map → base_link</text>
+  <path class="edge accent" d="M345 426 V494"/>
+  <path class="flow flow-accent" pathLength="100" d="M345 426 V494"/>
+  <path class="edge accent head" d="M345 426 V494"/>
+  <text class="edge-lbl code" x="345" y="472" text-anchor="middle" dominant-baseline="central">/localization/kinematic_state</text>
+  <path class="edge" d="M125 426 V494"/>
+  <path class="flow" pathLength="100" d="M125 426 V494"/>
+  <path class="edge head" d="M125 426 V494"/>
+  <text class="edge-lbl code" x="125" y="472" text-anchor="middle" dominant-baseline="central">/localization/acceleration</text>
+  <path class="edge" d="M580 426 V494"/>
+  <path class="flow" pathLength="100" d="M580 426 V494"/>
+  <path class="edge head" d="M580 426 V494"/>
+  <text class="edge-lbl code" x="580" y="472" text-anchor="middle" dominant-baseline="central">/diagnostics</text>
+  <path class="edge" d="M560 330 H772 V494"/>
+  <path class="flow" pathLength="100" d="M560 330 H772 V494"/>
+  <path class="edge head" d="M560 330 H772 V494"/>
+  <text class="edge-lbl code" x="772" y="472" text-anchor="middle" dominant-baseline="central">/tf</text>
+  <rect class="card" x="20" y="500" width="440" height="50" rx="12"/>
+  <text class="lbl" x="240" y="525" text-anchor="middle" dominant-baseline="central">Planning, Control, and other components</text>
+  <rect class="card" x="470" y="500" width="220" height="50" rx="12"/>
+  <text class="lbl" x="580" y="519" text-anchor="middle" dominant-baseline="central">System</text>
+  <text class="sub" x="580" y="537" text-anchor="middle" dominant-baseline="central">Diagnostic graph</text>
+  <rect class="card" x="705" y="500" width="135" height="50" rx="12"/>
+  <text class="lbl" x="772" y="519" text-anchor="middle" dominant-baseline="central">TF tree</text>
+  <text class="sub code" x="772" y="537" text-anchor="middle" dominant-baseline="central">map → base_link</text>
 </svg>

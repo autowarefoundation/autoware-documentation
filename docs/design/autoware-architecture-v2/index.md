@@ -15,7 +15,7 @@ The rest of this page describes the target architecture. The [Generator-Selector
 
 ### Data flow with the Diffusion Planner
 
-{{ diagram("images/generator-selector.svg", "Generators make candidate trajectories. The selector checks them and picks one for the controller.") }}
+{{ diagram("images/planning-data-flow.svg", "The planning_setting launch argument selects the source of the trajectory. Both sources go through the planning validator.") }}
 
 1. `autoware_diffusion_planner` publishes an `autoware_internal_planning_msgs/msg/CandidateTrajectories` message on `/planning/generator/diffusion_planner/candidate_trajectories`.
 2. `autoware_trajectory_modifier` applies its modifier and optimizer plugins to each candidate. It publishes the first candidate on `/planning/trajectory_generator/trajectory`.
@@ -76,7 +76,7 @@ The [Autoware Index](../../installation/autoware/autoware-index.md) also lists A
 
 ## Generator - Selector architecture: conceptual overview
 
-{{ diagram("images/planning-data-flow.svg", "The planning_setting launch argument selects the source of the trajectory. Both sources go through the planning validator.") }}
+{{ diagram("images/generator-selector.svg", "Generators make candidate trajectories. The selector checks them and picks one for the controller.") }}
 
 Traditional autonomous driving follows a fixed pipeline:
 

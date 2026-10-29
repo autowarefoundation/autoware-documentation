@@ -1,5 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 488" role="img" aria-labelledby="how-to-add-new-modules-title">
-  <title id="how-to-add-new-modules-title">Three ways to extend planning: add or replace modules, replace a sub-component such as mission planning, or replace the whole planning component.</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 504" role="img" aria-labelledby="how-to-add-new-modules-title">
+  <title id="how-to-add-new-modules-title">
+    Three ways to extend planning: add or replace modules, replace a sub-component such as mission planning, or replace the whole planning component. In all three, planning keeps the same interfaces
+    to the API layer, map, HMI, perception, localization, system, and control.
+  </title>
   <style data-aw-standalone="">
     svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
     srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
@@ -41,6 +44,10 @@
   stroke: var(--aw-d-accent);
   stroke-width: 2;
   marker-end: url("#aw-arrow-accent");
+} .edge.both {
+  marker-start: url("#aw-arrow");
+} .edge.accent.both {
+  marker-start: url("#aw-arrow-accent");
 } .aw-glass-a {
   stop-color: var(--aw-glass-a);
 } .aw-glass-b {
@@ -116,107 +123,201 @@
   </defs>
 
   <!-- Background: a faint dot grid and soft glows -->
-  <rect class="dots" x="0" y="0" width="860" height="488"/>
-  <circle class="halo" cx="144" cy="255" r="140"/>
-  <circle class="halo cyan" cx="430" cy="255" r="140"/>
-  <circle class="halo" cx="716" cy="255" r="140"/>
-
+  <rect class="dots" x="0" y="0" width="960" height="504"/>
+  <circle class="halo" cx="209" cy="252" r="140"/>
+  <circle class="halo cyan" cx="529" cy="252" r="140"/>
+  <circle class="halo" cx="849" cy="252" r="140"/>
   <!-- Panel: 1. Add or replace modules -->
-  <text class="lbl" x="144" y="18" text-anchor="middle" dominant-baseline="central">1. Add or replace modules</text>
-  <rect class="box muted" x="24" y="38" width="240" height="36" rx="12"/>
-  <text class="lbl" x="144" y="56" text-anchor="middle" dominant-baseline="central">API layer</text>
-  <path class="edge" d="M144 74 V90"/>
-  <path class="flow" pathLength="100" d="M144 74 V90"/>
-  <path class="edge head" d="M144 74 V90"/>
-  <rect class="glass-panel" x="8" y="96" width="272" height="318" rx="18"/>
-  <text class="ttl" x="26" y="120">Planning</text>
-  <rect class="card" x="20" y="136" width="248" height="62" rx="12"/>
-  <text class="lbl" x="144" y="154" text-anchor="middle" dominant-baseline="central">Mission planning</text>
-  <rect class="box muted" x="28" y="168" width="112" height="22" rx="8"/>
-  <text class="sub" x="84" y="179" text-anchor="middle" dominant-baseline="central">Route</text>
-  <rect class="box muted" x="148" y="168" width="112" height="22" rx="8"/>
-  <text class="sub" x="204" y="179" text-anchor="middle" dominant-baseline="central">Goal</text>
-  <path class="edge accent" d="M144 198 V216"/>
-  <path class="flow flow-accent" pathLength="100" d="M144 198 V216"/>
-  <path class="edge accent head" d="M144 198 V216"/>
-  <rect class="card" x="20" y="222" width="248" height="94" rx="12"/>
-  <text class="lbl" x="144" y="240" text-anchor="middle" dominant-baseline="central">Behavior and motion</text>
-  <rect class="box muted" x="28" y="254" width="112" height="22" rx="8"/>
-  <text class="sub" x="84" y="265" text-anchor="middle" dominant-baseline="central">Lane change</text>
-  <rect class="box muted" x="148" y="254" width="112" height="22" rx="8"/>
-  <text class="sub" x="204" y="265" text-anchor="middle" dominant-baseline="central">Avoidance</text>
-  <rect class="box muted" x="28" y="284" width="112" height="22" rx="8"/>
-  <text class="sub" x="84" y="295" text-anchor="middle" dominant-baseline="central">Obstacle stop</text>
-  <rect class="box ext" x="148" y="284" width="112" height="22" rx="8"/>
-  <text class="sub" x="204" y="295" text-anchor="middle" dominant-baseline="central">My module</text>
-  <path class="edge accent" d="M144 316 V334"/>
-  <path class="flow flow-accent" pathLength="100" d="M144 316 V334"/>
-  <path class="edge accent head" d="M144 316 V334"/>
-  <rect class="card" x="20" y="340" width="248" height="62" rx="12"/>
-  <text class="lbl" x="144" y="358" text-anchor="middle" dominant-baseline="central">Validation</text>
-  <rect class="box muted" x="28" y="372" width="112" height="22" rx="8"/>
-  <text class="sub" x="84" y="383" text-anchor="middle" dominant-baseline="central">Collision check</text>
-  <rect class="box ext" x="148" y="372" width="112" height="22" rx="8"/>
-  <text class="sub" x="204" y="383" text-anchor="middle" dominant-baseline="central">My check</text>
-  <path class="edge accent" d="M144 414 V436"/>
-  <path class="flow flow-accent" pathLength="100" d="M144 414 V436"/>
-  <path class="edge accent head" d="M144 414 V436"/>
-  <rect class="box muted" x="24" y="442" width="240" height="36" rx="12"/>
-  <text class="lbl" x="144" y="460" text-anchor="middle" dominant-baseline="central">Control</text>
-
+  <text class="lbl" x="209" y="18" text-anchor="middle" dominant-baseline="central">1. Add or replace modules</text>
+  <rect class="box muted" x="104" y="38" width="210" height="32" rx="12"/>
+  <text class="lbl" x="209" y="54" text-anchor="middle" dominant-baseline="central">API layer</text>
+  <path class="edge" d="M189 70 V88"/>
+  <path class="flow" pathLength="100" d="M189 70 V88"/>
+  <path class="edge head" d="M189 70 V88"/>
+  <path class="edge" d="M249 92 V74"/>
+  <path class="flow" pathLength="100" d="M249 92 V74"/>
+  <path class="edge head" d="M249 92 V74"/>
+  <rect class="box muted" x="2" y="110" width="72" height="40" rx="10"/>
+  <text class="sub" x="38" y="130" text-anchor="middle" dominant-baseline="central">Map</text>
+  <path class="edge" d="M77 130 H101"/>
+  <path class="flow" pathLength="100" d="M77 130 H101"/>
+  <path class="edge head" d="M77 130 H101"/>
+  <rect class="box muted" x="2" y="176" width="72" height="40" rx="10"/>
+  <text class="sub" x="38" y="196" text-anchor="middle" dominant-baseline="central">HMI</text>
+  <path class="edge both" d="M77 196 H101"/>
+  <path class="flow" pathLength="100" d="M77 196 H101"/>
+  <path class="edge both head" d="M77 196 H101"/>
+  <rect class="box muted" x="2" y="242" width="72" height="40" rx="10"/>
+  <text class="sub" x="38" y="262" text-anchor="middle" dominant-baseline="central">Perception</text>
+  <path class="edge" d="M77 262 H101"/>
+  <path class="flow" pathLength="100" d="M77 262 H101"/>
+  <path class="edge head" d="M77 262 H101"/>
+  <rect class="box muted" x="2" y="308" width="72" height="40" rx="10"/>
+  <text class="sub" x="38" y="328" text-anchor="middle" dominant-baseline="central">Localization</text>
+  <path class="edge" d="M77 328 H101"/>
+  <path class="flow" pathLength="100" d="M77 328 H101"/>
+  <path class="edge head" d="M77 328 H101"/>
+  <rect class="box muted" x="2" y="374" width="72" height="40" rx="10"/>
+  <text class="sub" x="38" y="394" text-anchor="middle" dominant-baseline="central">System</text>
+  <path class="edge both" d="M77 394 H101"/>
+  <path class="flow" pathLength="100" d="M77 394 H101"/>
+  <path class="edge both head" d="M77 394 H101"/>
+  <rect class="glass-panel" x="104" y="92" width="210" height="320" rx="18"/>
+  <text class="ttl" x="120" y="112">Planning</text>
+  <rect class="card" x="111" y="122" width="196" height="56" rx="12"/>
+  <text class="lbl" x="209" y="137" text-anchor="middle" dominant-baseline="central">Mission planning</text>
+  <rect class="box muted" x="117" y="150" width="89" height="22" rx="8"/>
+  <text class="sub" x="161.5" y="161" text-anchor="middle" dominant-baseline="central">Route planning</text>
+  <rect class="box muted" x="213" y="150" width="89" height="22" rx="8"/>
+  <text class="sub" x="257.5" y="161" text-anchor="middle" dominant-baseline="central">Goal planning</text>
+  <path class="edge accent" d="M209 178 V192"/>
+  <path class="flow flow-accent" pathLength="100" d="M209 178 V192"/>
+  <path class="edge accent head" d="M209 178 V192"/>
+  <rect class="card" x="111" y="196" width="196" height="56" rx="12"/>
+  <text class="lbl" x="209" y="211" text-anchor="middle" dominant-baseline="central">Behavior</text>
+  <rect class="box muted" x="117" y="224" width="89" height="22" rx="8"/>
+  <text class="sub" x="161.5" y="235" text-anchor="middle" dominant-baseline="central">Lane change</text>
+  <rect class="box ext" x="213" y="224" width="89" height="22" rx="8"/>
+  <text class="sub" x="257.5" y="235" text-anchor="middle" dominant-baseline="central">My module</text>
+  <path class="edge accent" d="M209 252 V266"/>
+  <path class="flow flow-accent" pathLength="100" d="M209 252 V266"/>
+  <path class="edge accent head" d="M209 252 V266"/>
+  <rect class="card" x="111" y="270" width="196" height="56" rx="12"/>
+  <text class="lbl" x="209" y="285" text-anchor="middle" dominant-baseline="central">Motion</text>
+  <rect class="box muted" x="117" y="298" width="89" height="22" rx="8"/>
+  <text class="sub" x="161.5" y="309" text-anchor="middle" dominant-baseline="central">Obstacle stop</text>
+  <rect class="box ext" x="213" y="298" width="89" height="22" rx="8"/>
+  <text class="sub" x="257.5" y="309" text-anchor="middle" dominant-baseline="central">My module</text>
+  <path class="edge accent" d="M209 326 V340"/>
+  <path class="flow flow-accent" pathLength="100" d="M209 326 V340"/>
+  <path class="edge accent head" d="M209 326 V340"/>
+  <rect class="card" x="111" y="344" width="196" height="56" rx="12"/>
+  <text class="lbl" x="209" y="359" text-anchor="middle" dominant-baseline="central">Validation</text>
+  <rect class="box muted" x="117" y="372" width="89" height="22" rx="8"/>
+  <text class="sub" x="161.5" y="383" text-anchor="middle" dominant-baseline="central">Collision check</text>
+  <rect class="box ext" x="213" y="372" width="89" height="22" rx="8"/>
+  <text class="sub" x="257.5" y="383" text-anchor="middle" dominant-baseline="central">My check</text>
+  <path class="edge accent" d="M209 412 V428"/>
+  <path class="flow flow-accent" pathLength="100" d="M209 412 V428"/>
+  <path class="edge accent head" d="M209 412 V428"/>
+  <rect class="box muted" x="104" y="432" width="210" height="32" rx="12"/>
+  <text class="lbl" x="209" y="448" text-anchor="middle" dominant-baseline="central">Control</text>
   <!-- Panel: 2. Replace a sub-component -->
-  <text class="lbl" x="430" y="18" text-anchor="middle" dominant-baseline="central">2. Replace a sub-component</text>
-  <rect class="box muted" x="310" y="38" width="240" height="36" rx="12"/>
-  <text class="lbl" x="430" y="56" text-anchor="middle" dominant-baseline="central">API layer</text>
-  <path class="edge" d="M430 74 V90"/>
-  <path class="flow" pathLength="100" d="M430 74 V90"/>
-  <path class="edge head" d="M430 74 V90"/>
-  <rect class="glass-panel" x="294" y="96" width="272" height="318" rx="18"/>
-  <text class="ttl" x="312" y="120">Planning</text>
-  <rect class="box ext" x="306" y="136" width="248" height="62" rx="12"/>
-  <text class="lbl" x="430" y="158" text-anchor="middle" dominant-baseline="central">Third-party</text>
-  <text class="lbl" x="430" y="178" text-anchor="middle" dominant-baseline="central">mission planning</text>
-  <path class="edge accent" d="M430 198 V216"/>
-  <path class="flow flow-accent" pathLength="100" d="M430 198 V216"/>
-  <path class="edge accent head" d="M430 198 V216"/>
-  <rect class="card" x="306" y="222" width="248" height="94" rx="12"/>
-  <text class="lbl" x="430" y="240" text-anchor="middle" dominant-baseline="central">Behavior and motion</text>
-  <rect class="box muted" x="314" y="254" width="112" height="22" rx="8"/>
-  <text class="sub" x="370" y="265" text-anchor="middle" dominant-baseline="central">Lane change</text>
-  <rect class="box muted" x="434" y="254" width="112" height="22" rx="8"/>
-  <text class="sub" x="490" y="265" text-anchor="middle" dominant-baseline="central">Avoidance</text>
-  <rect class="box muted" x="314" y="284" width="112" height="22" rx="8"/>
-  <text class="sub" x="370" y="295" text-anchor="middle" dominant-baseline="central">Obstacle stop</text>
-  <rect class="box muted" x="434" y="284" width="112" height="22" rx="8"/>
-  <text class="sub" x="490" y="295" text-anchor="middle" dominant-baseline="central">Slow down</text>
-  <path class="edge accent" d="M430 316 V334"/>
-  <path class="flow flow-accent" pathLength="100" d="M430 316 V334"/>
-  <path class="edge accent head" d="M430 316 V334"/>
-  <rect class="card" x="306" y="340" width="248" height="62" rx="12"/>
-  <text class="lbl" x="430" y="358" text-anchor="middle" dominant-baseline="central">Validation</text>
-  <rect class="box muted" x="314" y="372" width="112" height="22" rx="8"/>
-  <text class="sub" x="370" y="383" text-anchor="middle" dominant-baseline="central">Collision check</text>
-  <rect class="box muted" x="434" y="372" width="112" height="22" rx="8"/>
-  <text class="sub" x="490" y="383" text-anchor="middle" dominant-baseline="central">TTC check</text>
-  <path class="edge accent" d="M430 414 V436"/>
-  <path class="flow flow-accent" pathLength="100" d="M430 414 V436"/>
-  <path class="edge accent head" d="M430 414 V436"/>
-  <rect class="box muted" x="310" y="442" width="240" height="36" rx="12"/>
-  <text class="lbl" x="430" y="460" text-anchor="middle" dominant-baseline="central">Control</text>
-
-  <!-- Panel: 3. Replace the component -->
-  <text class="lbl" x="716" y="18" text-anchor="middle" dominant-baseline="central">3. Replace the component</text>
-  <rect class="box muted" x="596" y="38" width="240" height="36" rx="12"/>
-  <text class="lbl" x="716" y="56" text-anchor="middle" dominant-baseline="central">API layer</text>
-  <path class="edge" d="M716 74 V90"/>
-  <path class="flow" pathLength="100" d="M716 74 V90"/>
-  <path class="edge head" d="M716 74 V90"/>
-  <rect class="box ext" x="580" y="96" width="272" height="318" rx="12"/>
-  <text class="lbl" x="716" y="246" text-anchor="middle" dominant-baseline="central">Third-party</text>
-  <text class="lbl" x="716" y="266" text-anchor="middle" dominant-baseline="central">planning component</text>
-  <path class="edge accent" d="M716 414 V436"/>
-  <path class="flow flow-accent" pathLength="100" d="M716 414 V436"/>
-  <path class="edge accent head" d="M716 414 V436"/>
-  <rect class="box muted" x="596" y="442" width="240" height="36" rx="12"/>
-  <text class="lbl" x="716" y="460" text-anchor="middle" dominant-baseline="central">Control</text>
+  <text class="lbl" x="529" y="18" text-anchor="middle" dominant-baseline="central">2. Replace a sub-component</text>
+  <rect class="box muted" x="424" y="38" width="210" height="32" rx="12"/>
+  <text class="lbl" x="529" y="54" text-anchor="middle" dominant-baseline="central">API layer</text>
+  <path class="edge" d="M509 70 V88"/>
+  <path class="flow" pathLength="100" d="M509 70 V88"/>
+  <path class="edge head" d="M509 70 V88"/>
+  <path class="edge" d="M569 92 V74"/>
+  <path class="flow" pathLength="100" d="M569 92 V74"/>
+  <path class="edge head" d="M569 92 V74"/>
+  <rect class="box muted" x="322" y="110" width="72" height="40" rx="10"/>
+  <text class="sub" x="358" y="130" text-anchor="middle" dominant-baseline="central">Map</text>
+  <path class="edge" d="M397 130 H421"/>
+  <path class="flow" pathLength="100" d="M397 130 H421"/>
+  <path class="edge head" d="M397 130 H421"/>
+  <rect class="box muted" x="322" y="176" width="72" height="40" rx="10"/>
+  <text class="sub" x="358" y="196" text-anchor="middle" dominant-baseline="central">HMI</text>
+  <path class="edge both" d="M397 196 H421"/>
+  <path class="flow" pathLength="100" d="M397 196 H421"/>
+  <path class="edge both head" d="M397 196 H421"/>
+  <rect class="box muted" x="322" y="242" width="72" height="40" rx="10"/>
+  <text class="sub" x="358" y="262" text-anchor="middle" dominant-baseline="central">Perception</text>
+  <path class="edge" d="M397 262 H421"/>
+  <path class="flow" pathLength="100" d="M397 262 H421"/>
+  <path class="edge head" d="M397 262 H421"/>
+  <rect class="box muted" x="322" y="308" width="72" height="40" rx="10"/>
+  <text class="sub" x="358" y="328" text-anchor="middle" dominant-baseline="central">Localization</text>
+  <path class="edge" d="M397 328 H421"/>
+  <path class="flow" pathLength="100" d="M397 328 H421"/>
+  <path class="edge head" d="M397 328 H421"/>
+  <rect class="box muted" x="322" y="374" width="72" height="40" rx="10"/>
+  <text class="sub" x="358" y="394" text-anchor="middle" dominant-baseline="central">System</text>
+  <path class="edge both" d="M397 394 H421"/>
+  <path class="flow" pathLength="100" d="M397 394 H421"/>
+  <path class="edge both head" d="M397 394 H421"/>
+  <rect class="glass-panel" x="424" y="92" width="210" height="320" rx="18"/>
+  <text class="ttl" x="440" y="112">Planning</text>
+  <rect class="box ext" x="431" y="122" width="196" height="56" rx="12"/>
+  <text class="lbl" x="529" y="140" text-anchor="middle" dominant-baseline="central">Third-party</text>
+  <text class="lbl" x="529" y="160" text-anchor="middle" dominant-baseline="central">mission planning</text>
+  <path class="edge accent" d="M529 178 V192"/>
+  <path class="flow flow-accent" pathLength="100" d="M529 178 V192"/>
+  <path class="edge accent head" d="M529 178 V192"/>
+  <rect class="card" x="431" y="196" width="196" height="56" rx="12"/>
+  <text class="lbl" x="529" y="211" text-anchor="middle" dominant-baseline="central">Behavior</text>
+  <rect class="box muted" x="437" y="224" width="89" height="22" rx="8"/>
+  <text class="sub" x="481.5" y="235" text-anchor="middle" dominant-baseline="central">Lane change</text>
+  <rect class="box muted" x="533" y="224" width="89" height="22" rx="8"/>
+  <text class="sub" x="577.5" y="235" text-anchor="middle" dominant-baseline="central">Avoidance</text>
+  <path class="edge accent" d="M529 252 V266"/>
+  <path class="flow flow-accent" pathLength="100" d="M529 252 V266"/>
+  <path class="edge accent head" d="M529 252 V266"/>
+  <rect class="card" x="431" y="270" width="196" height="56" rx="12"/>
+  <text class="lbl" x="529" y="285" text-anchor="middle" dominant-baseline="central">Motion</text>
+  <rect class="box muted" x="437" y="298" width="89" height="22" rx="8"/>
+  <text class="sub" x="481.5" y="309" text-anchor="middle" dominant-baseline="central">Path planning</text>
+  <rect class="box muted" x="533" y="298" width="89" height="22" rx="8"/>
+  <text class="sub" x="577.5" y="309" text-anchor="middle" dominant-baseline="central">Obstacle stop</text>
+  <path class="edge accent" d="M529 326 V340"/>
+  <path class="flow flow-accent" pathLength="100" d="M529 326 V340"/>
+  <path class="edge accent head" d="M529 326 V340"/>
+  <rect class="card" x="431" y="344" width="196" height="56" rx="12"/>
+  <text class="lbl" x="529" y="359" text-anchor="middle" dominant-baseline="central">Validation</text>
+  <rect class="box muted" x="437" y="372" width="89" height="22" rx="8"/>
+  <text class="sub" x="481.5" y="383" text-anchor="middle" dominant-baseline="central">Collision check</text>
+  <rect class="box muted" x="533" y="372" width="89" height="22" rx="8"/>
+  <text class="sub" x="577.5" y="383" text-anchor="middle" dominant-baseline="central">TTC check</text>
+  <path class="edge accent" d="M529 412 V428"/>
+  <path class="flow flow-accent" pathLength="100" d="M529 412 V428"/>
+  <path class="edge accent head" d="M529 412 V428"/>
+  <rect class="box muted" x="424" y="432" width="210" height="32" rx="12"/>
+  <text class="lbl" x="529" y="448" text-anchor="middle" dominant-baseline="central">Control</text>
+  <!-- Panel: 3. Replace the whole component -->
+  <text class="lbl" x="849" y="18" text-anchor="middle" dominant-baseline="central">3. Replace the whole component</text>
+  <rect class="box muted" x="744" y="38" width="210" height="32" rx="12"/>
+  <text class="lbl" x="849" y="54" text-anchor="middle" dominant-baseline="central">API layer</text>
+  <path class="edge" d="M829 70 V88"/>
+  <path class="flow" pathLength="100" d="M829 70 V88"/>
+  <path class="edge head" d="M829 70 V88"/>
+  <path class="edge" d="M889 92 V74"/>
+  <path class="flow" pathLength="100" d="M889 92 V74"/>
+  <path class="edge head" d="M889 92 V74"/>
+  <rect class="box muted" x="642" y="110" width="72" height="40" rx="10"/>
+  <text class="sub" x="678" y="130" text-anchor="middle" dominant-baseline="central">Map</text>
+  <path class="edge" d="M717 130 H741"/>
+  <path class="flow" pathLength="100" d="M717 130 H741"/>
+  <path class="edge head" d="M717 130 H741"/>
+  <rect class="box muted" x="642" y="176" width="72" height="40" rx="10"/>
+  <text class="sub" x="678" y="196" text-anchor="middle" dominant-baseline="central">HMI</text>
+  <path class="edge both" d="M717 196 H741"/>
+  <path class="flow" pathLength="100" d="M717 196 H741"/>
+  <path class="edge both head" d="M717 196 H741"/>
+  <rect class="box muted" x="642" y="242" width="72" height="40" rx="10"/>
+  <text class="sub" x="678" y="262" text-anchor="middle" dominant-baseline="central">Perception</text>
+  <path class="edge" d="M717 262 H741"/>
+  <path class="flow" pathLength="100" d="M717 262 H741"/>
+  <path class="edge head" d="M717 262 H741"/>
+  <rect class="box muted" x="642" y="308" width="72" height="40" rx="10"/>
+  <text class="sub" x="678" y="328" text-anchor="middle" dominant-baseline="central">Localization</text>
+  <path class="edge" d="M717 328 H741"/>
+  <path class="flow" pathLength="100" d="M717 328 H741"/>
+  <path class="edge head" d="M717 328 H741"/>
+  <rect class="box muted" x="642" y="374" width="72" height="40" rx="10"/>
+  <text class="sub" x="678" y="394" text-anchor="middle" dominant-baseline="central">System</text>
+  <path class="edge both" d="M717 394 H741"/>
+  <path class="flow" pathLength="100" d="M717 394 H741"/>
+  <path class="edge both head" d="M717 394 H741"/>
+  <rect class="box ext" x="744" y="92" width="210" height="320" rx="12"/>
+  <text class="lbl" x="849" y="242" text-anchor="middle" dominant-baseline="central">Third-party</text>
+  <text class="lbl" x="849" y="262" text-anchor="middle" dominant-baseline="central">planning component</text>
+  <path class="edge accent" d="M849 412 V428"/>
+  <path class="flow flow-accent" pathLength="100" d="M849 412 V428"/>
+  <path class="edge accent head" d="M849 412 V428"/>
+  <rect class="box muted" x="744" y="432" width="210" height="32" rx="12"/>
+  <text class="lbl" x="849" y="448" text-anchor="middle" dominant-baseline="central">Control</text>
+  <!-- Legend -->
+  <rect class="box ext" x="330" y="480" width="40" height="16" rx="6"/>
+  <text x="380" y="488" text-anchor="start" dominant-baseline="central">Your own or a third-party part. The other parts are from Autoware.</text>
 </svg>

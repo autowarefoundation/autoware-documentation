@@ -193,6 +193,6 @@
     <tspan x="28">The lanelets are next to each</tspan>
     <tspan x="28" dy="17">other and do not cross.</tspan>
   </text>
-  <path class="leader" d="M228.3 226 L457.4 231.7"/>
-  <path class="leader" d="M228.3 226 L542.2 227.3"/>
+  <path class="leader" d="M228.3 226 L522 167"/>
+  <path class="leader" d="M228.3 226 L489 297"/>
 </svg>

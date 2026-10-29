@@ -125,13 +125,16 @@
   <rect class="road" x="20" y="170" width="820" height="120"/>
   <path class="mark dash" d="M20 230 H360 M500 230 H840"/>
   <path class="mark dash" d="M430 10 V160 M430 300 V450"/>
-  <path class="mark thick" d="M374 304 H426"/>
+  <!-- Stop lines before the crossing: the ego lane and the opposing lane -->
+  <path class="mark thick" d="M374 304 H426 M434 156 H486"/>
 
-  <!-- Lanelets -->
-  <rect class="lanelet" x="20" y="172" width="820" height="56"/>
-  <rect class="lanelet" x="20" y="232" width="820" height="56"/>
+  <!-- Lanelets: they cover every lane in the sensor range and end a little outside it -->
+  <rect class="lanelet" x="180" y="172" width="500" height="56"/>
+  <rect class="lanelet" x="180" y="232" width="500" height="56"/>
   <rect class="lanelet alt" x="372" y="10" width="56" height="440"/>
   <rect class="lanelet alt" x="432" y="10" width="56" height="440"/>
+  <!-- The right-turn Lanelet of the ego vehicle in the intersection -->
+  <path class="lanelet" d="M372 290 V260 Q372 172 460 172 H488 V228 H460 Q428 228 428 260 V290 Z"/>
 
   <!-- The ego vehicle turns right (left-hand traffic) -->
   <g transform="translate(389 340)">

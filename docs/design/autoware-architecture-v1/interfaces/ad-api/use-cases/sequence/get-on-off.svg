@@ -146,7 +146,7 @@
   <path class="edge" d="M332 220 H558"/>
   <path class="flow" pathLength="100" d="M332 220 H558"/>
   <path class="edge head" d="M332 220 H558"/>
-  <text class="edge-lbl" x="445" y="209" text-anchor="middle" dominant-baseline="central">open the doors</text>
+  <text class="edge-lbl" x="445" y="209" text-anchor="middle" dominant-baseline="central">open the selected doors</text>
   <path class="edge dash" d="M558 262 H332"/>
   <path class="edge dash" d="M328 304 H102"/>
   <text class="edge-lbl" x="215" y="293" text-anchor="middle" dominant-baseline="central">response status</text>
@@ -169,7 +169,7 @@
   <path class="edge" d="M332 514 H558"/>
   <path class="flow" pathLength="100" d="M332 514 H558"/>
   <path class="edge head" d="M332 514 H558"/>
-  <text class="edge-lbl" x="445" y="503" text-anchor="middle" dominant-baseline="central">close the doors</text>
+  <text class="edge-lbl" x="445" y="503" text-anchor="middle" dominant-baseline="central">close all doors</text>
   <path class="edge dash" d="M558 556 H332"/>
   <path class="edge dash" d="M328 598 H102"/>
   <text class="edge-lbl" x="215" y="587" text-anchor="middle" dominant-baseline="central">response status</text>

@@ -103,10 +103,10 @@
   <rect class="box" x="20" y="220" width="250" height="60" rx="10"/>
   <text class="lbl" x="145" y="240" text-anchor="middle" dominant-baseline="central">Lanelet</text>
   <text class="code" x="145" y="260" text-anchor="middle" dominant-baseline="central">subtype: road</text>
-  <path class="leader" d="M270 250 H420 V152"/>
+  <path class="leader" d="M270 250 H300 V152 H380"/>
 
   <path class="edge" d="M145 220 V108"/>
   <text class="edge-lbl" x="145" y="164" text-anchor="middle" dominant-baseline="central">regulatory_element</text>
-  <path class="edge" d="M270 60 C450 60 600 70 634 120"/>
+  <path class="edge" d="M270 60 C450 60 600 72 630 126"/>
   <text class="edge-lbl" x="470" y="72" text-anchor="middle" dominant-baseline="central">refers</text>
 </svg>

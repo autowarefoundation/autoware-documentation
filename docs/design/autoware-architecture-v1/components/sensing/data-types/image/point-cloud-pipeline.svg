@@ -209,6 +209,11 @@
   <path class="edge" d="M480 368 H268"/>
   <path class="flow" pathLength="100" d="M480 368 H268"/>
   <path class="edge head" d="M480 368 H268"/>
+  <!-- The concatenation node also reads the twist for its motion compensation -->
+  <path class="edge" d="M770 368 H800 V552"/>
+  <path class="flow" pathLength="100" d="M770 368 H800 V552"/>
+  <path class="edge head" d="M770 368 H800 V552"/>
+  <text class="sub edge-lbl" x="800" y="512" text-anchor="middle" dominant-baseline="central">twist</text>
 
   <rect class="box muted" x="480" y="440" width="290" height="48" rx="12"/>
   <text class="lbl" x="625" y="456" text-anchor="middle" dominant-baseline="central">Other LiDARs</text>

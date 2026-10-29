@@ -232,21 +232,28 @@
   <path class="edge accent" d="M452 128 H520"/>
   <path class="flow flow-accent" pathLength="100" d="M452 128 H520"/>
   <path class="edge accent head" d="M452 128 H520"/>
+  <text class="edge-lbl" x="488" y="100" text-anchor="middle" dominant-baseline="central">Control</text>
+  <text class="edge-lbl" x="488" y="114" text-anchor="middle" dominant-baseline="central">command</text>
   <path class="edge" d="M342 176 V188"/>
   <path class="flow" pathLength="100" d="M342 176 V188"/>
   <path class="edge head" d="M342 176 V188"/>
   <path class="edge" d="M452 220 H520"/>
   <path class="flow" pathLength="100" d="M452 220 H520"/>
   <path class="edge head" d="M452 220 H520"/>
+  <text class="edge-lbl" x="488" y="208" text-anchor="middle" dominant-baseline="central">Gear</text>
   <path class="edge" d="M452 292 H520"/>
   <path class="flow" pathLength="100" d="M452 292 H520"/>
   <path class="edge head" d="M452 292 H520"/>
+  <text class="edge-lbl" x="488" y="266" text-anchor="middle" dominant-baseline="central">Operation</text>
+  <text class="edge-lbl" x="488" y="280" text-anchor="middle" dominant-baseline="central">mode</text>
   <path class="edge" d="M176 368 H224"/>
   <path class="flow" pathLength="100" d="M176 368 H224"/>
   <path class="edge head" d="M176 368 H224"/>
   <path class="edge" d="M452 368 H520"/>
   <path class="flow" pathLength="100" d="M452 368 H520"/>
   <path class="edge head" d="M452 368 H520"/>
+  <text class="edge-lbl" x="488" y="342" text-anchor="middle" dominant-baseline="central">External</text>
+  <text class="edge-lbl" x="488" y="356" text-anchor="middle" dominant-baseline="central">commands</text>
   <path class="edge" d="M176 448 H520"/>
   <path class="flow" pathLength="100" d="M176 448 H520"/>
   <path class="edge head" d="M176 448 H520"/>

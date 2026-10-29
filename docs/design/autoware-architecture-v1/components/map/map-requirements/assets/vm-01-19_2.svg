@@ -64,34 +64,34 @@
   <rect class="road" x="264" y="340" width="130" height="60"/>
 
   <!-- The walkway lanelet: the crossing plus 3 m on each side -->
-  <path class="lanelet alt" d="M242 440 L242 320 A118 118 0 0 1 242.3 312.1 L264.2 313.6 A96 96 0 0 0 264 320 L264 440 Z"/>
-  <path class="bound" d="M242 440 L242 405 L242 370 L242 335 L242.3 312.1"/>
+  <path class="lanelet alt" d="M242 440 L242 320 A118 118 0 0 1 243.71 300 L266.11 300 A96 96 0 0 0 264 320 L264 440 Z"/>
+  <path class="bound" d="M242 440 L242 405 L242 370 L242 335 L242 320 A118 118 0 0 1 243.71 300"/>
   <circle class="bound point" cx="242" cy="440" r="3.5"/>
   <circle class="bound point" cx="242" cy="405" r="3.5"/>
   <circle class="bound point" cx="242" cy="370" r="3.5"/>
   <circle class="bound point" cx="242" cy="335" r="3.5"/>
-  <circle class="bound point" cx="242.3" cy="312.1" r="3.5"/>
-  <path class="bound" d="M264 440 L264 405 L264 370 L264 335 L264.2 313.6"/>
+  <circle class="bound point" cx="243.71" cy="300" r="3.5"/>
+  <path class="bound" d="M264 440 L264 405 L264 370 L264 335 L264 320 A96 96 0 0 1 266.11 300"/>
   <circle class="bound point" cx="264" cy="440" r="3.5"/>
   <circle class="bound point" cx="264" cy="405" r="3.5"/>
   <circle class="bound point" cx="264" cy="370" r="3.5"/>
   <circle class="bound point" cx="264" cy="335" r="3.5"/>
-  <circle class="bound point" cx="264.2" cy="313.6" r="3.5"/>
+  <circle class="bound point" cx="266.11" cy="300" r="3.5"/>
 
   <!-- Dimensions -->
-  <path class="leader" d="M268 300 L276 300"/>
-  <path class="leader" d="M268 340 L276 340"/>
-  <path class="leader" d="M272 300 L272 340"/>
-  <text class="note" x="282" y="325">3 m</text>
-  <path class="leader" d="M268 400 L276 400"/>
-  <path class="leader" d="M268 440 L276 440"/>
-  <path class="leader" d="M272 400 L272 440"/>
-  <text class="note" x="282" y="425">3 m</text>
+  <path class="leader" d="M270 300 L278 300"/>
+  <path class="leader" d="M270 340 L278 340"/>
+  <path class="leader" d="M274 300 L274 340"/>
+  <text class="note" x="284" y="325">3 m</text>
+  <path class="leader" d="M270 400 L278 400"/>
+  <path class="leader" d="M270 440 L278 440"/>
+  <path class="leader" d="M274 400 L274 440"/>
+  <text class="note" x="284" y="425">3 m</text>
 
   <!-- Notes -->
   <text class="note lbl" x="440" y="230">Lanelet</text>
   <text class="note code" x="440" y="248">subtype: walkway</text>
-  <path class="leader" d="M434 226 L253 310"/>
+  <path class="leader" d="M434 226 L248 302"/>
   <text class="note" x="440" y="426">Private area</text>
   <path class="leader" d="M434 422 L374 394"/>
 </svg>

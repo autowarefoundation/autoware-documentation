@@ -24,7 +24,7 @@ Here Autoware decides not to change lanes a second time due to the obstacle, so 
 However, operator could overwrite that decision through RTC function and force the lane change so that vehicle could reach to it's goal.
 Using RTC, the operator can override these decisions to continue driving the vehicle to the goal.
 
-{{ diagram("cooperation/scenes.svg", "Three scenes on the way to the goal, each with its own ID and decision. The red lines show the paths of the other decisions.") }}
+{{ diagram("cooperation/scenes.svg", "Three scenes on the way to the goal, each with its own ID and decision. The green line shows the path of these decisions, and the red lines show the paths of the other decisions.") }}
 
 ## Architecture
 

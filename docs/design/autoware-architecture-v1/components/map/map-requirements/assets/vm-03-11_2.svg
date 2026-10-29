@@ -200,7 +200,9 @@
   <path class="edge" d="M230 160 L561 157"/>
   <text class="edge-lbl" x="329.3" y="159.1" text-anchor="middle" dominant-baseline="central">yield</text>
   <path class="edge" d="M230 170 L436 190"/>
+  <text class="edge-lbl" x="300" y="176.8" text-anchor="middle" dominant-baseline="central">yield</text>
   <path class="edge" d="M230 182 L436 250"/>
+  <text class="edge-lbl" x="262" y="192.6" text-anchor="middle" dominant-baseline="central">yield</text>
   <path class="edge" d="M230 198 L510 320"/>
-  <text class="edge-lbl" x="347.6" y="249.2" text-anchor="middle" dominant-baseline="central">right_of_way</text>
+  <text class="edge-lbl" x="305" y="246" text-anchor="end" dominant-baseline="central">right_of_way</text>
 </svg>

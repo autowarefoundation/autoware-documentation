@@ -69,15 +69,15 @@
   <circle class="bound point" cx="316" cy="500" r="3.5"/>
 
   <!-- The centerlines -->
-  <path class="bound alt" d="M256 500 L256 430 L286 390 L286 350 L256 310 L256 272"/>
+  <path class="bound alt" d="M256 500 L256 430 L286 390 L286 350 L256 310 L238 260"/>
   <circle class="bound point" cx="256" cy="500" r="3.5"/>
   <circle class="bound point" cx="256" cy="430" r="3.5"/>
   <circle class="bound point" cx="286" cy="390" r="3.5"/>
   <circle class="bound point" cx="286" cy="350" r="3.5"/>
   <circle class="bound point" cx="256" cy="310" r="3.5"/>
-  <circle class="bound point" cx="256" cy="272" r="3.5"/>
-  <path class="bound alt" d="M266 254 L256 210 L286 170 L286 130 L256 90 L256 20"/>
-  <circle class="bound point" cx="266" cy="254" r="3.5"/>
+  <circle class="bound point" cx="238" cy="260" r="3.5"/>
+  <path class="bound alt" d="M256 260 L256 210 L286 170 L286 130 L256 90 L256 20"/>
+  <circle class="bound point" cx="256" cy="260" r="3.5"/>
   <circle class="bound point" cx="256" cy="210" r="3.5"/>
   <circle class="bound point" cx="286" cy="170" r="3.5"/>
   <circle class="bound point" cx="286" cy="130" r="3.5"/>
@@ -87,5 +87,5 @@
   <!-- Notes -->
   <text class="note bad" x="380" y="264">The centerlines are</text>
   <text class="note bad" x="380" y="282">not connected.</text>
-  <path class="leader" d="M374 260 L270 262"/>
+  <path class="leader" d="M374 260 L264 260"/>
 </svg>

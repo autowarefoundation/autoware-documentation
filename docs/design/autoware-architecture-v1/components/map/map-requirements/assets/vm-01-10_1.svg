@@ -2,7 +2,7 @@
   <title id="vm-01-10_1-title">The ego vehicle drives in a wide lane and moves to the right for a short distance, then back to the middle of the lane.</title>
   <style data-aw-standalone="">
     svg { --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-car-shadow: #00002a40; --aw-d-bg: color-mix(in
-    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-flow-tone: 22%; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-flow-tone: 22%; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
   fill: var(--aw-d-line);
 } text {
   font-size: 14px;
@@ -22,6 +22,13 @@
   stroke-linecap: round;
   stroke-linejoin: round;
   marker-end: url("#aw-arrow-route");
+} .leader {
+  fill: none;
+  stroke: var(--aw-d-muted);
+  stroke-width: 1;
+} .note {
+  font-size: 13px;
+  fill: var(--aw-d-fg);
 } .flow {
   fill: none;
   stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
@@ -109,4 +116,24 @@
     <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
     <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
   </g>
+
+  <!-- The same vehicle later, on the part of the path to the right of the middle -->
+  <g transform="translate(275 161)">
+    <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
+    <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
+    <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
+    <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
+    <circle class="lidar" cx="11" cy="22" r="3.2"/>
+    <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
+    <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
+  </g>
+
+  <!-- Notes -->
+  <text class="note" x="380" y="186">Drives to the right of the middle</text>
+  <text class="note" x="380" y="204">of the lane for a short distance</text>
+  <path class="leader" d="M374 190 L301 181"/>
+  <text class="note" x="380" y="76">Then back to the middle of the lane</text>
+  <path class="leader" d="M374 80 L260 80"/>
+  <text class="note" x="380" y="326">Ego vehicle</text>
+  <path class="leader" d="M374 330 L271 330"/>
 </svg>

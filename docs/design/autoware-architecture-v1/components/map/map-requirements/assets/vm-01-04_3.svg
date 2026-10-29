@@ -51,6 +51,7 @@
   <rect class="lanelet" x="192" y="230" width="60" height="130"/>
   <path class="mark" d="M162 230 V170 M155 179 L162 170 L169 179"/>
   <path class="mark" d="M222 110 V170 M215 161 L222 170 L229 161"/>
+  <path class="mark" d="M222 265 V325 M215 316 L222 325 L229 316"/>
 
   <!-- Linestrings: two at the road center line -->
   <path class="bound" d="M132 40 L132 120 L132 200 L132 280 L132 360"/>
@@ -83,11 +84,22 @@
   <circle class="bound point" cx="252" cy="360" r="3.5"/>
   <path class="bound alt" d="M197 230 H252"/>
 
+  <!-- Length of the lanelets: one for the ego lane, two for the opposite lane -->
+  <path class="leader" d="M102 40 L114 40"/>
+  <path class="leader" d="M102 360 L114 360"/>
+  <path class="leader" d="M108 40 L108 360"/>
+  <path class="leader" d="M276 40 L288 40"/>
+  <path class="leader" d="M276 222 L288 222"/>
+  <path class="leader" d="M282 40 L282 222"/>
+  <path class="leader" d="M276 238 L288 238"/>
+  <path class="leader" d="M276 360 L288 360"/>
+  <path class="leader" d="M282 238 L282 360"/>
+
   <!-- Notes -->
   <text class="note bad" x="330" y="104">The two directions do not</text>
   <text class="note bad" x="330" y="122">use the same linestring.</text>
-  <path class="leader" d="M324 100 L197 120"/>
+  <path class="leader" d="M324 100 L197 96"/>
   <text class="note bad" x="330" y="244">The opposite lane is split, so the</text>
   <text class="note bad" x="330" y="262">lanelets do not have the same length.</text>
-  <path class="leader" d="M324 240 L244 230"/>
+  <path class="leader" d="M324 238 L244 230"/>
 </svg>

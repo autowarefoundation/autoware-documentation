@@ -126,7 +126,7 @@
   <circle class="bound point" cx="590" cy="290" r="4"/>
   <circle class="bound point" cx="740" cy="290" r="4"/>
 
-  <path class="leader" d="M580 146 L618 244"/>
+  <path class="leader" d="M580 146 L630 249"/>
   <text class="note" x="430" y="144" dominant-baseline="central">Linestring (ID 11)</text>
   <text class="code" x="430" y="164" dominant-baseline="central">type: light_bulbs</text>
   <text class="code" x="430" y="182" dominant-baseline="central">traffic_light_id: 10</text>
@@ -147,11 +147,11 @@
   <text class="code on-primary" x="595" y="71" text-anchor="middle" dominant-baseline="central">subtype: traffic_light</text>
 
   <path class="edge" d="M610 398 H830 V60 H728"/>
-  <text class="edge-lbl" x="714" y="398" text-anchor="middle" dominant-baseline="central">regulatory_element</text>
+  <text class="edge-lbl" x="714" y="386" text-anchor="middle" dominant-baseline="central">regulatory_element</text>
   <path class="edge" d="M480 90 L250 206"/>
-  <text class="edge-lbl" x="452" y="110" text-anchor="middle" dominant-baseline="central">ref_line</text>
-  <path class="edge" d="M640 90 L652 244"/>
-  <text class="edge-lbl" x="646" y="140" text-anchor="middle" dominant-baseline="central">light_bulbs</text>
+  <text class="edge-lbl" x="468" y="114" text-anchor="start" dominant-baseline="central">ref_line</text>
+  <path class="edge" d="M640 90 L652 247"/>
+  <text class="edge-lbl" x="652" y="140" text-anchor="start" dominant-baseline="central">light_bulbs</text>
   <path class="edge" d="M700 90 C770 150 790 260 746 286"/>
   <text class="edge-lbl" x="768" y="200" text-anchor="middle" dominant-baseline="central">refers</text>
 </svg>

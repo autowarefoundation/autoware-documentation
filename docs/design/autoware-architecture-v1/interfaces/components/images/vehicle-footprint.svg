@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 300" role="img" aria-labelledby="vehicle-footprint-title">
   <title id="vehicle-footprint-title">
     The footprint polygon that Autoware makes from the vehicle dimensions has six points in clockwise order: front left, front right, center right, rear right, rear left, and center left. Its origin
-    is base_link.
+    is base_link, with x forward and y to the left.
   </title>
   <style data-aw-standalone="">
     svg { --aw-c-cyan: #0098c7; --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-car-shadow: #00002a40; --aw-cyan: #00c8ff; --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
@@ -106,6 +106,8 @@
   <path class="area" d="M620 50 L620 250 L411 250 L200 250 L200 50 L411 50 Z"/>
   <path class="edge accent" d="M291 150 H700"/>
   <text class="lbl" x="710" y="150" dominant-baseline="central">+x</text>
+  <path class="edge accent" d="M291 150 V14"/>
+  <text class="lbl" x="302" y="18" dominant-baseline="central">+y</text>
   <circle class="bound point" cx="291" cy="150" r="5"/>
   <text class="sub on-primary" x="300" y="170">base_link</text>
 

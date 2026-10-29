@@ -1,8 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 730" role="img" aria-labelledby="radar-based-3d-detector-title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 800" role="img" aria-labelledby="radar-based-3d-detector-title">
   <title id="radar-based-3d-detector-title">
-    In Sensing, radar tracks go through a noise filter and a message converter. The detected radar objects go to the radar filter, then to the multi-object tracker on the radar channel. In the serial
-    launch file, the radar tracked objects go through tracked object filters and the tracker merger. Radar fusion to detected objects and the radar object tracker are available but not
-    launched. Detection from radar points is not available yet.
+    In Sensing, radar tracks go through a noise filter and a message converter. The detected radar objects go to the radar filter, then to the multi-object tracker on the radar channel, together with
+    the
+    LiDAR and camera detections. In the serial launch file, the radar tracked objects go through tracked object filters and the tracker merger adds them to the output of the multi-object tracker.
+    Radar fusion to detected objects, which fuses radar objects with the LiDAR and camera detections, and the radar object tracker, which can track the far radar objects for the tracker merger, are
+    available but not launched. Detection from radar points is not
+    available yet.
   </title>
   <style data-aw-standalone="">
     svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
@@ -156,9 +159,9 @@
   </defs>
 
   <!-- Background: a faint dot grid and soft glows -->
-  <rect class="dots" x="0" y="0" width="860" height="730"/>
+  <rect class="dots" x="0" y="0" width="860" height="800"/>
   <circle class="halo cyan" cx="420" cy="110" r="100"/>
-  <circle class="halo" cx="420" cy="500" r="160"/>
+  <circle class="halo" cx="420" cy="560" r="160"/>
 
   <!-- Sensing -->
   <rect class="glass-panel" x="20" y="16" width="820" height="190" rx="16"/>
@@ -195,7 +198,7 @@
   <path class="edge head" d="M730 110 V128"/>
 
   <!-- Detection -->
-  <rect class="glass-panel" x="20" y="236" width="820" height="160" rx="16"/>
+  <rect class="glass-panel" x="20" y="236" width="820" height="230" rx="16"/>
   <text class="ttl" x="40" y="262">Detection</text>
 
   <rect class="box muted" x="40" y="280" width="300" height="60" rx="12"/>
@@ -210,61 +213,72 @@
   <text class="lbl" x="730" y="299" text-anchor="middle" dominant-baseline="central">Radar point detection</text>
   <text class="sub" x="730" y="321" text-anchor="middle" dominant-baseline="central">Not available yet</text>
 
+  <rect class="box muted" x="40" y="390" width="240" height="54" rx="12"/>
+  <text class="lbl" x="160" y="409" text-anchor="middle" dominant-baseline="central">LiDAR and camera detection</text>
+  <text class="sub" x="160" y="429" text-anchor="middle" dominant-baseline="central">Detected objects</text>
+
   <path class="edge accent" d="M480 110 V272"/>
   <path class="flow flow-accent" pathLength="100" d="M480 110 V272"/>
   <path class="edge accent head" d="M480 110 V272"/>
   <text class="edge-lbl" x="480" y="180" text-anchor="middle" dominant-baseline="central">Detected objects</text>
   <path class="edge dash" d="M480 222 H190 V272"/>
   <path class="edge dash" d="M730 186 V272"/>
+  <path class="edge dash" d="M160 390 V348"/>
 
   <!-- Tracking -->
-  <rect class="glass-panel" x="20" y="426" width="820" height="200" rx="16"/>
-  <text class="ttl" x="40" y="452">Tracking</text>
+  <rect class="glass-panel" x="20" y="496" width="820" height="200" rx="16"/>
+  <text class="ttl" x="40" y="522">Tracking</text>
 
-  <rect class="box primary" x="300" y="470" width="240" height="60" rx="12"/>
-  <circle class="icon-bg on" cx="328" cy="500" r="17"/>
-  <path class="icon-line" d="M319 509 L327 499 L337 493"/>
-  <circle class="icon-dot" cx="319" cy="509" r="2.4"/>
-  <circle class="icon-dot" cx="327" cy="499" r="2.4"/>
-  <circle class="icon-dot" cx="337" cy="493" r="2.4"/>
-  <text class="lbl on-primary" x="356" y="490" dominant-baseline="central">Multi-object tracker</text>
-  <text class="sub on-primary" x="356" y="511" dominant-baseline="central">Channel radar</text>
+  <rect class="box primary" x="300" y="540" width="240" height="60" rx="12"/>
+  <circle class="icon-bg on" cx="328" cy="570" r="17"/>
+  <path class="icon-line" d="M319 579 L327 569 L337 563"/>
+  <circle class="icon-dot" cx="319" cy="579" r="2.4"/>
+  <circle class="icon-dot" cx="327" cy="569" r="2.4"/>
+  <circle class="icon-dot" cx="337" cy="563" r="2.4"/>
+  <text class="lbl on-primary" x="356" y="560" dominant-baseline="central">Multi-object tracker</text>
+  <text class="sub on-primary" x="356" y="581" dominant-baseline="central">Radar and other channels</text>
 
-  <rect class="card" x="580" y="470" width="240" height="60" rx="12"/>
-  <text class="lbl" x="700" y="489" text-anchor="middle" dominant-baseline="central">Tracked object filters</text>
-  <text class="sub" x="700" y="511" text-anchor="middle" dominant-baseline="central">Serial launch file</text>
+  <rect class="card" x="580" y="540" width="240" height="60" rx="12"/>
+  <text class="lbl" x="700" y="559" text-anchor="middle" dominant-baseline="central">Tracked object filters</text>
+  <text class="sub" x="700" y="581" text-anchor="middle" dominant-baseline="central">Serial launch file</text>
 
-  <rect class="card" x="440" y="556" width="260" height="50" rx="12"/>
-  <text class="lbl" x="570" y="573" text-anchor="middle" dominant-baseline="central">Tracker merger</text>
-  <text class="sub" x="570" y="591" text-anchor="middle" dominant-baseline="central">Serial launch file</text>
+  <rect class="card" x="440" y="626" width="260" height="50" rx="12"/>
+  <text class="lbl" x="570" y="643" text-anchor="middle" dominant-baseline="central">Tracker merger</text>
+  <text class="sub" x="570" y="661" text-anchor="middle" dominant-baseline="central">Serial launch file</text>
 
-  <rect class="box muted" x="40" y="556" width="220" height="50" rx="12"/>
-  <text class="lbl" x="150" y="573" text-anchor="middle" dominant-baseline="central">Radar object tracker</text>
-  <text class="sub" x="150" y="591" text-anchor="middle" dominant-baseline="central">Available, not launched</text>
+  <rect class="box muted" x="40" y="626" width="220" height="50" rx="12"/>
+  <text class="lbl" x="150" y="643" text-anchor="middle" dominant-baseline="central">Radar object tracker</text>
+  <text class="sub" x="150" y="661" text-anchor="middle" dominant-baseline="central">Available, not launched</text>
 
-  <path class="edge accent" d="M480 340 V462"/>
-  <path class="flow flow-accent" pathLength="100" d="M480 340 V462"/>
-  <path class="edge accent head" d="M480 340 V462"/>
-  <text class="edge-lbl" x="480" y="372" text-anchor="middle" dominant-baseline="central">Far objects</text>
-  <path class="edge dash" d="M190 340 V500 H292"/>
-  <path class="edge" d="M585 110 V462"/>
-  <path class="flow" pathLength="100" d="M585 110 V462"/>
-  <path class="edge head" d="M585 110 V462"/>
+  <path class="edge accent" d="M480 340 V532"/>
+  <path class="flow flow-accent" pathLength="100" d="M480 340 V532"/>
+  <path class="edge accent head" d="M480 340 V532"/>
+  <text class="edge-lbl" x="480" y="410" text-anchor="middle" dominant-baseline="central">Far objects</text>
+  <path class="edge dash" d="M340 310 H362 V532"/>
+  <path class="edge" d="M280 417 H320 V532"/>
+  <path class="flow" pathLength="100" d="M280 417 H320 V532"/>
+  <path class="edge head" d="M280 417 H320 V532"/>
+  <path class="edge" d="M585 110 V512 H700 V532"/>
+  <path class="flow" pathLength="100" d="M585 110 V512 H700 V532"/>
+  <path class="edge head" d="M585 110 V512 H700 V532"/>
   <text class="edge-lbl" x="585" y="160" text-anchor="middle" dominant-baseline="central">Tracked objects</text>
-  <path class="edge" d="M500 530 V548"/>
-  <path class="flow" pathLength="100" d="M500 530 V548"/>
-  <path class="edge head" d="M500 530 V548"/>
-  <path class="edge" d="M640 530 V548"/>
-  <path class="flow" pathLength="100" d="M640 530 V548"/>
-  <path class="edge head" d="M640 530 V548"/>
+  <path class="edge dash" d="M480 480 H220 V618"/>
+  <path class="edge dash" d="M260 651 H432"/>
+  <path class="edge" d="M500 600 V618"/>
+  <path class="flow" pathLength="100" d="M500 600 V618"/>
+  <path class="edge head" d="M500 600 V618"/>
+  <path class="edge" d="M640 600 V618"/>
+  <path class="flow" pathLength="100" d="M640 600 V618"/>
+  <path class="edge head" d="M640 600 V618"/>
 
   <!-- Output -->
-  <path class="edge accent" d="M330 530 V662"/>
-  <path class="flow flow-accent" pathLength="100" d="M330 530 V662"/>
-  <path class="edge accent head" d="M330 530 V662"/>
-  <path class="edge accent" d="M570 606 V662"/>
-  <path class="flow flow-accent" pathLength="100" d="M570 606 V662"/>
-  <path class="edge accent head" d="M570 606 V662"/>
-  <rect class="box muted" x="300" y="670" width="400" height="46" rx="12"/>
-  <text class="lbl" x="500" y="693" text-anchor="middle" dominant-baseline="central">Prediction</text>
+  <path class="edge accent" d="M330 600 V732"/>
+  <path class="flow flow-accent" pathLength="100" d="M330 600 V732"/>
+  <path class="edge accent head" d="M330 600 V732"/>
+  <text class="edge-lbl" x="330" y="714" text-anchor="middle" dominant-baseline="central">Other launch files</text>
+  <path class="edge accent" d="M570 676 V732"/>
+  <path class="flow flow-accent" pathLength="100" d="M570 676 V732"/>
+  <path class="edge accent head" d="M570 676 V732"/>
+  <rect class="box muted" x="300" y="740" width="400" height="46" rx="12"/>
+  <text class="lbl" x="500" y="763" text-anchor="middle" dominant-baseline="central">Prediction</text>
 </svg>

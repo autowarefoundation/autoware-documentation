@@ -180,8 +180,8 @@
   <circle class="light-red" cx="646" cy="304" r="4.5"/>
   <circle class="light-yellow" cx="646" cy="316" r="4.5"/>
   <circle class="light-green" cx="646" cy="328" r="4.5"/>
-  <path class="mark dash" d="M486.8 274 A172 172 0 0 1 560.9 176.1"/>
-  <path class="mark dash" d="M550.8 274 A112 112 0 0 1 592.6 227"/>
+  <path class="mark dash" d="M486.8 274 A172 172 0 0 1 524.2 206.9"/>
+  <path class="mark dash" d="M550.8 274 A112 112 0 0 1 568.8 247.1"/>
   <path class="lanelet" d="M480 322 A172 172 0 0 1 652 150 L652 210 A112 112 0 0 0 540 322 Z"/>
   <path class="bound alt" d="M524.2 206.9 L568.8 247.1"/>
 
@@ -189,18 +189,18 @@
   <rect class="box" x="20" y="150" width="220" height="58" rx="10"/>
   <text class="lbl" x="130" y="170" text-anchor="middle" dominant-baseline="central">Regulatory element</text>
   <text class="code" x="130" y="190" text-anchor="middle" dominant-baseline="central">subtype: road_marking</text>
-  <path class="edge" d="M240 172 L540.5 229"/>
-  <text class="edge-lbl" x="390.2" y="200.5" text-anchor="middle" dominant-baseline="central">refers</text>
+  <path class="edge" d="M240 172 L535.4 217"/>
+  <text class="edge-lbl" x="300" y="181.1" text-anchor="middle" dominant-baseline="central">refers</text>
   <path class="edge" d="M509.5 282.9 L246 200"/>
-  <text class="edge-lbl" x="377.8" y="241.4" text-anchor="middle" dominant-baseline="central">regulatory_element</text>
-  <text class="note" x="590" y="410">
-    <tspan x="590">Lanelet</tspan>
-    <tspan class="code" x="590" dy="17">turn_direction: right</tspan>
+  <text class="edge-lbl" x="296" y="215.7" text-anchor="middle" dominant-baseline="central">regulatory_element</text>
+  <text class="note" x="300" y="398">
+    <tspan x="300">Lanelet</tspan>
+    <tspan class="code" x="300" dy="17">turn_direction: right</tspan>
   </text>
-  <path class="leader" d="M584 406 L622.5 183.1"/>
+  <path class="leader" d="M352 392 L505 316"/>
   <text class="note" x="620" y="40">
     <tspan x="620">Linestring</tspan>
     <tspan class="code" x="620" dy="17">type: stop_line</tspan>
   </text>
-  <path class="leader" d="M614 36 L554.5 221"/>
+  <path class="leader" d="M614 36 L555.4 235"/>
 </svg>

@@ -54,7 +54,7 @@
   <circle class="bound point" cx="230" cy="320" r="3.5"/>
 
   <!-- Notes -->
-  <text class="note bad" x="420" y="104">The linestring is not in the</text>
-  <text class="note bad" x="420" y="122">middle of the marking.</text>
-  <path class="leader" d="M414 100 L252 120"/>
+  <text class="note bad" x="420" y="104">The linestring is at the edge of</text>
+  <text class="note bad" x="420" y="122">the marking, not in the middle.</text>
+  <path class="leader" d="M414 100 L235 120"/>
 </svg>

@@ -1,8 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 806" role="img" aria-labelledby="clustering-based-detection-title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 826" role="img" aria-labelledby="clustering-based-detection-title">
   <title id="clustering-based-detection-title">
     The pointcloud map filter removes the points of the obstacle point cloud that match the point cloud map. In LiDAR clustering, Euclidean clustering, a convex hull conversion, and the lanelet filter
-    make objects for the lidar_clustering channel. In camera-LiDAR fusion, an optional segmentation filter, Euclidean clustering, ROI cluster fusion with a 2D detector, the low-intensity filter, a
-    convex hull conversion, and the lanelet filter make objects for the camera_lidar_fusion channel. Both go to the multi-object tracker.
+    make objects for the lidar_clustering channel (default LiDAR launch file). In camera-LiDAR fusion (camera-LiDAR launch files), an optional segmentation filter that uses the masks of the 2D
+    detector,
+    Euclidean clustering, ROI cluster fusion with the ROIs of the 2D detector, the low-intensity filter, a convex hull conversion, and the lanelet filter make objects for the camera_lidar_fusion
+    channel.
+    Both go to the multi-object tracker.
   </title>
   <style data-aw-standalone="">
     svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-cyan: #00c8ff; --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
@@ -58,6 +61,8 @@
   stroke: var(--aw-d-accent);
   stroke-width: 2;
   marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
 } .aw-glass-a {
   stop-color: var(--aw-glass-a);
 } .aw-glass-b {
@@ -158,7 +163,7 @@
   </defs>
 
   <!-- Background: a faint dot grid and soft glows -->
-  <rect class="dots" x="0" y="0" width="860" height="806"/>
+  <rect class="dots" x="0" y="0" width="860" height="826"/>
   <circle class="halo" cx="210" cy="400" r="170"/>
   <circle class="halo cyan" cx="620" cy="450" r="200"/>
 
@@ -192,6 +197,7 @@
   <!-- LiDAR clustering -->
   <rect class="glass-panel" x="40" y="200" width="340" height="500" rx="16"/>
   <text class="ttl" x="60" y="226">LiDAR clustering</text>
+  <text class="sub" x="360" y="684" text-anchor="end">Default LiDAR launch file</text>
 
   <rect class="card" x="80" y="240" width="260" height="50" rx="12"/>
   <text class="lbl" x="210" y="257" text-anchor="middle" dominant-baseline="central">Euclidean clustering</text>
@@ -211,14 +217,15 @@
   <path class="edge" d="M210 366 V384"/>
   <path class="flow" pathLength="100" d="M210 366 V384"/>
   <path class="edge head" d="M210 366 V384"/>
-  <path class="edge accent" d="M210 442 V732"/>
-  <path class="flow flow-accent" pathLength="100" d="M210 442 V732"/>
-  <path class="edge accent head" d="M210 442 V732"/>
+  <path class="edge accent" d="M210 442 V752"/>
+  <path class="flow flow-accent" pathLength="100" d="M210 442 V752"/>
+  <path class="edge accent head" d="M210 442 V752"/>
   <text class="edge-lbl" x="210" y="580" text-anchor="middle" dominant-baseline="central">Channel lidar_clustering</text>
 
   <!-- Camera-LiDAR fusion clustering -->
   <rect class="glass-panel" x="420" y="200" width="400" height="500" rx="16"/>
   <text class="ttl" x="800" y="226" text-anchor="end">Camera-LiDAR fusion</text>
+  <text class="sub" x="800" y="684" text-anchor="end">Camera-LiDAR launch files</text>
 
   <rect class="box muted" x="440" y="240" width="200" height="50" rx="12"/>
   <text class="lbl" x="540" y="257" text-anchor="middle" dominant-baseline="central">Segmentation filter</text>
@@ -257,6 +264,11 @@
   <path class="edge" d="M680 417 H648"/>
   <path class="flow" pathLength="100" d="M680 417 H648"/>
   <path class="edge head" d="M680 417 H648"/>
+  <text class="edge-lbl" x="664" y="432" text-anchor="middle" dominant-baseline="central">ROIs</text>
+  <path class="edge dash" d="M740 392 V265 H648"/>
+  <path class="flow" pathLength="100" d="M740 392 V265 H648"/>
+  <path class="edge dash head" d="M740 392 V265 H648"/>
+  <text class="edge-lbl" x="740" y="330" text-anchor="middle" dominant-baseline="central">Masks</text>
   <path class="edge" d="M540 442 V460"/>
   <path class="flow" pathLength="100" d="M540 442 V460"/>
   <path class="edge head" d="M540 442 V460"/>
@@ -266,17 +278,17 @@
   <path class="edge" d="M540 594 V612"/>
   <path class="flow" pathLength="100" d="M540 594 V612"/>
   <path class="edge head" d="M540 594 V612"/>
-  <path class="edge accent" d="M540 670 V732"/>
-  <path class="flow flow-accent" pathLength="100" d="M540 670 V732"/>
-  <path class="edge accent head" d="M540 670 V732"/>
-  <text class="edge-lbl" x="540" y="716" text-anchor="middle" dominant-baseline="central">Channel camera_lidar_fusion</text>
+  <path class="edge accent" d="M540 670 V752"/>
+  <path class="flow flow-accent" pathLength="100" d="M540 670 V752"/>
+  <path class="edge accent head" d="M540 670 V752"/>
+  <text class="edge-lbl" x="540" y="726" text-anchor="middle" dominant-baseline="central">Channel camera_lidar_fusion</text>
 
   <!-- The tracker -->
-  <rect class="box primary" x="40" y="740" width="780" height="50" rx="12"/>
-  <circle class="icon-bg on" cx="332" cy="765" r="17"/>
-  <path class="icon-line" d="M323 774 L331 764 L341 758"/>
-  <circle class="icon-dot" cx="323" cy="774" r="2.4"/>
-  <circle class="icon-dot" cx="331" cy="764" r="2.4"/>
-  <circle class="icon-dot" cx="341" cy="758" r="2.4"/>
-  <text class="lbl on-primary" x="430" y="765" text-anchor="middle" dominant-baseline="central">Multi-object tracker</text>
+  <rect class="box primary" x="40" y="760" width="780" height="50" rx="12"/>
+  <circle class="icon-bg on" cx="332" cy="785" r="17"/>
+  <path class="icon-line" d="M323 794 L331 784 L341 778"/>
+  <circle class="icon-dot" cx="323" cy="794" r="2.4"/>
+  <circle class="icon-dot" cx="331" cy="784" r="2.4"/>
+  <circle class="icon-dot" cx="341" cy="778" r="2.4"/>
+  <text class="lbl on-primary" x="430" y="785" text-anchor="middle" dominant-baseline="central">Multi-object tracker</text>
 </svg>

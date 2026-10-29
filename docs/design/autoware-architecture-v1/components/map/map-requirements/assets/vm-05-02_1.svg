@@ -128,9 +128,11 @@
   <text class="code" x="40" y="60" dominant-baseline="central">type: traffic_light</text>
   <text class="code" x="40" y="78" dominant-baseline="central">subtype: red_green</text>
   <text class="code" x="40" y="96" dominant-baseline="central">height: (value)</text>
-  <path class="leader" d="M300 340 L444 372"/>
-  <text class="note" x="140" y="330" dominant-baseline="central">Linestring</text>
-  <text class="code" x="140" y="350" dominant-baseline="central">type: traffic_light</text>
+  <path class="leader" d="M300 336 L444 372"/>
+  <text class="note" x="140" y="316" dominant-baseline="central">Linestring</text>
+  <text class="code" x="140" y="336" dominant-baseline="central">type: traffic_light</text>
+  <text class="code" x="140" y="354" dominant-baseline="central">subtype: red_green</text>
+  <text class="code" x="140" y="372" dominant-baseline="central">height: (value)</text>
 
   <!-- The crosswalk lanelet -->
   <rect class="box" x="620" y="160" width="220" height="80" rx="10"/>
@@ -149,5 +151,5 @@
   <path class="edge" d="M600 60 L360 102"/>
   <text class="edge-lbl" x="480" y="81" text-anchor="middle" dominant-baseline="central">refers</text>
   <path class="edge" d="M640 90 C620 160 600 300 490 368"/>
-  <text class="edge-lbl" x="600" y="300" text-anchor="middle" dominant-baseline="central">refers</text>
+  <text class="edge-lbl" x="567" y="291" text-anchor="middle" dominant-baseline="central">refers</text>
 </svg>

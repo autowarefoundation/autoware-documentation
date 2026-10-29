@@ -221,7 +221,7 @@
   <path class="edge accent" d="M550 370 V412"/>
   <path class="flow flow-accent" pathLength="100" d="M550 370 V412"/>
   <path class="edge accent head" d="M550 370 V412"/>
-  <text class="edge-lbl" x="550" y="391" text-anchor="middle" dominant-baseline="central">Objects, obstacles, grid map, signals</text>
+  <text class="edge-lbl" x="562" y="391" dominant-baseline="central">Objects, obstacles, grid map, signals</text>
   <rect class="box muted" x="420" y="420" width="260" height="46" rx="12"/>
   <text class="lbl" x="550" y="443" text-anchor="middle" dominant-baseline="central">Planning</text>
 </svg>

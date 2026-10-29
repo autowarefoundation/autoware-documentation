@@ -171,10 +171,10 @@
   <circle class="light-red" cx="474" cy="114" r="4.5"/>
   <circle class="light-yellow" cx="486" cy="114" r="4.5"/>
   <circle class="light-green" cx="498" cy="114" r="4.5"/>
-  <rect class="light-housing" x="479" y="306" width="14" height="40" rx="4"/>
-  <circle class="light-red" cx="486" cy="314" r="4.5"/>
-  <circle class="light-yellow" cx="486" cy="326" r="4.5"/>
-  <circle class="light-green" cx="486" cy="338" r="4.5"/>
+  <rect class="light-housing" x="479" y="296" width="14" height="40" rx="4"/>
+  <circle class="light-red" cx="486" cy="304" r="4.5"/>
+  <circle class="light-yellow" cx="486" cy="316" r="4.5"/>
+  <circle class="light-green" cx="486" cy="328" r="4.5"/>
 
   <!-- The lanelets that go straight -->
   <path class="lanelet" d="M320 332 L320 108 L380 108 L380 332 Z"/>
@@ -191,7 +191,9 @@
   <path class="leader" d="M106.3 376 L318 334"/>
   <text class="note" x="600" y="380">
     <tspan x="600">The extended line</tspan>
-    <tspan x="600" dy="17">of the stop line</tspan>
+    <tspan x="600" dy="17">of the stop line is</tspan>
+    <tspan x="600" dy="17">the boundary of the</tspan>
+    <tspan x="600" dy="17">lanelet connection</tspan>
   </text>
   <path class="leader" d="M594 376 L442 334"/>
 </svg>

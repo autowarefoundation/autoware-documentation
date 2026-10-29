@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" role="img" aria-labelledby="vm-03-04-3-title">
   <title id="vm-03-04-3-title">Incorrect: the map has only the lanelets that the ego vehicle uses to turn left.</title>
   <style data-aw-standalone="">
-    svg { --aw-c-crimson: var(--aw-crimson); --aw-c-indigo: var(--aw-indigo); --aw-crimson: #dc143c; --aw-d-bg: color-mix(in
+    svg { --aw-c-crimson: var(--aw-crimson); --aw-c-indigo: var(--aw-indigo); --aw-crimson: #dc143c; --aw-cyan: #00c8ff; --aw-d-bg: color-mix(in
     srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-muted: var(--md-default-fg-color--light); --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } text {
   font-size: 14px;
   fill: var(--aw-d-fg);
@@ -22,6 +22,10 @@
   stroke: none;
 } .lanelet.bad {
   fill: color-mix(in srgb, var(--aw-crimson) 35%, transparent);
+} .bound {
+  fill: none;
+  stroke: var(--aw-cyan);
+  stroke-width: 2.5;
 } .light-housing {
   fill: #1b1d29;
   stroke: #8d91a0;
@@ -144,11 +148,13 @@
   <path class="lanelet" d="M440 322 L500 322 L500 440 L440 440 Z"/>
   <path class="lanelet" d="M388 210 L388 270 L310 270 L310 210 Z"/>
   <path class="lanelet" d="M440 322 A52 52 0 0 0 388 270 L388 210 A112 112 0 0 1 500 322 Z"/>
+  <!-- The outline of the turning lanelet: approach, turn, and exit are three lanelets -->
+  <path class="bound" fill="none" d="M440 322 A52 52 0 0 0 388 270 L388 210 A112 112 0 0 1 500 322 Z"/>
 
   <!-- Note -->
   <text class="note bad" x="28" y="210">
     <tspan x="28">Only the lanelets that the ego vehicle</tspan>
     <tspan x="28" dy="17">uses are created. The map is incomplete.</tspan>
   </text>
-  <path class="leader" d="M288.6 206 L440 260"/>
+  <path class="leader" d="M288.6 210 L330 232"/>
 </svg>

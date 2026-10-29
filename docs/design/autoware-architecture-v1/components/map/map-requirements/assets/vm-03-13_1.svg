@@ -146,7 +146,7 @@
 
   <!-- Notes -->
   <text class="note" x="28" y="64">Private area</text>
-  <path class="leader" d="M114.4 60 L416 64"/>
+  <path class="leader" d="M114.4 60 L440 64"/>
   <text class="note" x="28" y="180">Sidewalk</text>
   <path class="leader" d="M87.6 176 L260 175"/>
   <text class="note" x="28" y="290">Road</text>

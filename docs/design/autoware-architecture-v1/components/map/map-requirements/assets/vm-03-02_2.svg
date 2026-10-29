@@ -137,18 +137,24 @@
   <path class="route" d="M280 130 L200 130"/>
   <path class="flow flow-route" pathLength="100" d="M280 130 L200 130"/>
   <path class="route head" d="M280 130 L200 130"/>
+  <path class="route" d="M450 130 L388 130"/>
+  <path class="flow flow-route" pathLength="100" d="M450 130 L388 130"/>
+  <path class="route head" d="M450 130 L388 130"/>
+  <path class="route" d="M349.8 175.6 A50 50 0 0 0 315.5 132.4"/>
+  <path class="flow flow-route" pathLength="100" d="M349.8 175.6 A50 50 0 0 0 315.5 132.4"/>
+  <path class="route head" d="M349.8 175.6 A50 50 0 0 0 315.5 132.4"/>
 
   <!-- Notes -->
   <text class="note" x="60" y="236">
     <tspan x="60">Lanelet</tspan>
     <tspan class="code" x="60" dy="17">turn_direction: left</tspan>
   </text>
-  <path class="leader" d="M112.9 232 L330 152"/>
+  <path class="leader" d="M112.9 232 L345.3 158.9"/>
   <text class="note" x="560" y="236">
     <tspan x="560">Lanelet</tspan>
     <tspan class="code" x="560" dy="17">turn_direction: straight</tspan>
   </text>
-  <path class="leader" d="M554 232 L420 150"/>
+  <path class="leader" d="M554 232 L440 131"/>
   <text class="note" x="560" y="312">
     <tspan x="560">Linestring</tspan>
     <tspan class="code" x="560" dy="17">type: virtual</tspan>

@@ -92,6 +92,9 @@
   <line class="mark" x1="0" y1="158" x2="760" y2="158"/>
   <line class="mark dash" x1="0" y1="104" x2="760" y2="104"/>
 
+  <!-- Predicted collision area: the ego path from the ego front to the rear of the vehicle ahead. Drawn under the cars, so that the vehicle ahead stays clear. -->
+  <rect class="area warn" x="394" y="58" width="116" height="38" rx="4"/>
+
   <!-- Vehicle ahead -->
   <g transform="translate(509 57) rotate(90 11 20)">
     <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
@@ -99,9 +102,6 @@
     <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
     <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
   </g>
-
-  <!-- Predicted collision area -->
-  <rect class="area warn" x="412" y="58" width="74" height="38" rx="4"/>
 
   <!-- Ego vehicle (too close) -->
   <g transform="translate(359 57) rotate(90 11 20)">

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" role="img" aria-labelledby="vm-03-05-3-title">
-  <title id="vm-03-05-3-title">Incorrect: two lanelets go from the entrance to the exit of the intersection.</title>
+  <title id="vm-03-05-3-title">Incorrect: the right turn is divided into two lanelets between the entrance and the exit of the intersection.</title>
   <style data-aw-standalone="">
     svg { --aw-c-crimson: var(--aw-crimson); --aw-c-indigo: var(--aw-indigo); --aw-crimson: #dc143c; --aw-cyan: #00c8ff; --aw-d-bg: color-mix(in
     srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-muted: var(--md-default-fg-color--light); --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } text {
@@ -159,9 +159,9 @@
 
   <!-- Note -->
   <text class="note bad" x="28" y="330">
-    <tspan x="28">Two lanelets go from the entrance</tspan>
-    <tspan x="28" dy="17">to the exit of the intersection.</tspan>
+    <tspan x="28">The turn is divided into two lanelets</tspan>
+    <tspan x="28" dy="17">between the entrance and the exit.</tspan>
   </text>
-  <path class="leader" d="M255.1 326 L470 260"/>
-  <path class="leader" d="M255.1 326 L530 190"/>
+  <path class="leader" d="M272 326 L470 260"/>
+  <path class="leader" d="M272 326 L530 190"/>
 </svg>

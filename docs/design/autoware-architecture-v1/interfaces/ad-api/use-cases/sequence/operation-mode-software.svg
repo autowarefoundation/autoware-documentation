@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 470" role="img" aria-labelledby="adapi-operation-mode-software-title">
   <title id="adapi-operation-mode-software-title">
-    The operator asks the application to change the mode. The application calls the operation mode API, AD API changes the mode, and the new state goes back to the operator.
+    The operator asks the application to change the mode. The application calls the operation mode API, and AD API changes the mode. Only the enable and disable requests change the control mode of the
+    vehicle. The new state goes back to the operator.
   </title>
   <style data-aw-standalone="">
     svg { --aw-c-indigo: var(--aw-indigo); --aw-d-bg: color-mix(in
@@ -142,11 +143,13 @@
   <path class="edge" d="M292 136 H528"/>
   <path class="flow" pathLength="100" d="M292 136 H528"/>
   <path class="edge head" d="M292 136 H528"/>
-  <text class="edge-lbl" x="410" y="125" text-anchor="middle" dominant-baseline="central">/api/operation_mode/change_to_*</text>
+  <text class="edge-lbl" x="410" y="110" text-anchor="middle" dominant-baseline="central">/api/operation_mode/change_to_*</text>
+  <text class="edge-lbl" x="410" y="125" text-anchor="middle" dominant-baseline="central">or enable / disable_autoware_control</text>
   <path class="edge" d="M532 178 H748"/>
   <path class="flow" pathLength="100" d="M532 178 H748"/>
   <path class="edge head" d="M532 178 H748"/>
-  <text class="edge-lbl" x="640" y="167" text-anchor="middle" dominant-baseline="central">change the control mode (if needed)</text>
+  <text class="edge-lbl" x="640" y="152" text-anchor="middle" dominant-baseline="central">change the control mode</text>
+  <text class="edge-lbl" x="640" y="167" text-anchor="middle" dominant-baseline="central">(enable / disable only)</text>
   <path class="edge dash" d="M748 220 H532"/>
   <path class="edge dash" d="M528 262 H292"/>
   <text class="edge-lbl" x="410" y="251" text-anchor="middle" dominant-baseline="central">response status</text>

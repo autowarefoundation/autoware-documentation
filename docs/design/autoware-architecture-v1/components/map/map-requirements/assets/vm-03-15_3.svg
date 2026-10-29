@@ -72,6 +72,7 @@
   </text>
   <path class="leader" d="M80.9 206 L450 210"/>
   <path class="leader" d="M80.9 206 L510 240"/>
-  <text class="note" x="28" y="330">Shared linestring</text>
+  <text class="note" x="28" y="330">Shared linestrings</text>
   <path class="leader" d="M147.9 326 L418 330"/>
+  <path class="leader" d="M147.9 326 L538 356"/>
 </svg>

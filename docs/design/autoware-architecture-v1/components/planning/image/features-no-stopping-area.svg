@@ -123,15 +123,17 @@
 
   <!-- Road: two lanes in the same direction. The ego lane is on top. -->
   <rect class="road" x="0" y="44" width="760" height="120"/>
-  <line class="mark" x1="0" y1="50" x2="760" y2="50"/>
+  <rect class="road" x="420" y="34" width="100" height="12"/>
+  <line class="mark" x1="0" y1="50" x2="420" y2="50"/>
+  <line class="mark" x1="520" y1="50" x2="760" y2="50"/>
   <line class="mark" x1="0" y1="158" x2="760" y2="158"/>
   <line class="mark dash" x1="0" y1="104" x2="760" y2="104"/>
 
-  <!-- No stopping area in front of an entrance -->
+  <!-- No stopping area in front of an entrance (gap in the road edge) -->
   <rect class="area warn" x="400" y="52" width="140" height="50" rx="4"/>
 
-  <!-- Stopped vehicle after the area -->
-  <g transform="translate(589 57) rotate(90 11 20)">
+  <!-- Stopped vehicle just after the area: no space for the ego vehicle between them -->
+  <g transform="translate(557 57) rotate(90 11 20)">
     <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
     <rect class="car-body npc" x="0" y="0" width="22" height="40" rx="7"/>
     <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
@@ -158,6 +160,6 @@
   <line class="leader" x1="470" y1="32" x2="470" y2="52"/>
   <text class="note" x="398" y="184" text-anchor="middle" dominant-baseline="central">Stop before the area</text>
   <line class="leader" x1="398" y1="176" x2="398" y2="102"/>
-  <text class="note" x="600" y="184" text-anchor="middle" dominant-baseline="central">Stopped vehicle</text>
-  <line class="leader" x1="600" y1="176" x2="600" y2="92"/>
+  <text class="note" x="568" y="184" text-anchor="middle" dominant-baseline="central">Stopped vehicle</text>
+  <line class="leader" x1="568" y1="176" x2="568" y2="92"/>
 </svg>

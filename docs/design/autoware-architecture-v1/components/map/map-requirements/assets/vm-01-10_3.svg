@@ -5,6 +5,8 @@
     srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-muted: var(--md-default-fg-color--light); --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } text {
   font-size: 14px;
   fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
 } .road {
   fill: #5c6070;
 } .mark {
@@ -76,7 +78,10 @@
   <circle class="bound point" cx="256" cy="20" r="3.5"/>
 
   <!-- Notes -->
+  <text class="note lbl" x="380" y="104">Centerline of the lanelet</text>
+  <text class="note" x="380" y="122">A linestring</text>
+  <path class="leader" d="M374 100 L258 90"/>
   <text class="note bad" x="380" y="254">Not smooth. The vehicle</text>
   <text class="note bad" x="380" y="272">cannot drive this shape.</text>
-  <path class="leader" d="M374 250 L286 250"/>
+  <path class="leader" d="M374 266 L271 253"/>
 </svg>

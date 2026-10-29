@@ -65,6 +65,10 @@
   stroke-linecap: round;
   stroke-linejoin: round;
   marker-end: url("#aw-arrow-route");
+} .leader {
+  fill: none;
+  stroke: var(--aw-d-muted);
+  stroke-width: 1;
 } .note {
   font-size: 13px;
   fill: var(--aw-d-fg);
@@ -185,6 +189,8 @@
 
   <!-- Pose and distance -->
   <text class="note" x="570" y="82" text-anchor="middle" dominant-baseline="central">pose</text>
-  <path class="edge both" d="M176 256 H568"/>
-  <text class="edge-lbl" x="372" y="256" text-anchor="middle" dominant-baseline="central">distance</text>
+  <line class="leader" x1="132" y1="146" x2="132" y2="264"/>
+  <line class="leader" x1="570" y1="162" x2="570" y2="264"/>
+  <path class="edge both" d="M134 256 H568"/>
+  <text class="edge-lbl" x="351" y="256" text-anchor="middle" dominant-baseline="central">distance</text>
 </svg>

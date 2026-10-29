@@ -152,6 +152,19 @@
   <path class="lanelet" d="M612 270 L612 210 L690 210 L690 270 Z"/>
   <path class="lanelet" d="M612 210 L612 150 L690 150 L690 210 Z"/>
 
+  <!-- The lanelets in the intersection, as a light area under their outlines -->
+  <path class="lanelet" fill-opacity="0.3" d="M440 322 L440 98 L500 98 L500 322 Z"/>
+  <path class="lanelet" fill-opacity="0.3" d="M440 322 A52 52 0 0 0 388 270 L388 210 A112 112 0 0 1 500 322 Z"/>
+  <path class="lanelet" fill-opacity="0.3" d="M440 322 A172 172 0 0 1 612 150 L612 210 A112 112 0 0 0 500 322 Z"/>
+  <path class="lanelet" fill-opacity="0.3" d="M388 150 L612 150 L612 210 L388 210 Z"/>
+  <path class="lanelet" fill-opacity="0.3" d="M388 150 A52 52 0 0 0 440 98 L500 98 A112 112 0 0 1 388 210 Z"/>
+  <path class="lanelet" fill-opacity="0.3" d="M388 150 A172 172 0 0 1 560 322 L500 322 A112 112 0 0 0 388 210 Z"/>
+  <path class="lanelet" fill-opacity="0.3" d="M560 98 L560 322 L500 322 L500 98 Z"/>
+  <path class="lanelet" fill-opacity="0.3" d="M560 98 A52 52 0 0 0 612 150 L612 210 A112 112 0 0 1 500 98 Z"/>
+  <path class="lanelet" fill-opacity="0.3" d="M560 98 A172 172 0 0 1 388 270 L388 210 A112 112 0 0 0 500 98 Z"/>
+  <path class="lanelet" fill-opacity="0.3" d="M612 270 L388 270 L388 210 L612 210 Z"/>
+  <path class="lanelet" fill-opacity="0.3" d="M612 270 A52 52 0 0 0 560 322 L500 322 A112 112 0 0 1 612 210 Z"/>
+  <path class="lanelet" fill-opacity="0.3" d="M612 270 A172 172 0 0 1 440 98 L500 98 A112 112 0 0 0 612 210 Z"/>
   <!-- The outlines of the lanelets in the intersection -->
   <path class="bound" fill="none" d="M440 322 L440 98 L500 98 L500 322 Z"/>
   <path class="bound" fill="none" d="M440 322 A52 52 0 0 0 388 270 L388 210 A112 112 0 0 1 500 322 Z"/>

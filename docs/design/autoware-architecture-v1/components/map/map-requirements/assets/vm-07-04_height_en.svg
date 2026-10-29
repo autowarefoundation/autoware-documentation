@@ -68,11 +68,11 @@
 
   <!-- The point and its heights -->
   <circle class="bound point" cx="420" cy="130" r="6"/>
-  <text class="note" x="432" y="112" dominant-baseline="central">Point</text>
+  <text class="note" x="420" y="108" text-anchor="middle" dominant-baseline="central">Point</text>
 
   <path class="edge accent both" d="M432 140 V290"/>
   <text class="edge-lbl" x="440" y="270" dominant-baseline="central">Ellipsoidal height (use this)</text>
 
   <path class="edge both" d="M408 140 V232"/>
-  <text class="edge-lbl" x="400" y="186" text-anchor="end" dominant-baseline="central">Orthometric height</text>
+  <text class="edge-lbl" x="400" y="186" text-anchor="end" dominant-baseline="central">Orthometric height (do not use)</text>
 </svg>

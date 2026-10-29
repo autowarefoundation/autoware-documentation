@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" role="img" aria-labelledby="vm-01-05_3-title">
-  <title id="vm-01-05_3-title">Incorrect: a lanelet whose end is not a straight line, whose right bound is uneven in the curve, and whose right bound does not follow the lane line.</title>
+  <title id="vm-01-05_3-title">
+    Incorrect: a lanelet whose end has a kink and is not a straight line, whose right bound is uneven in the curve, and whose right bound does not follow the lane line.
+  </title>
   <style data-aw-standalone="">
     svg { --aw-c-crimson: var(--aw-crimson); --aw-c-indigo: var(--aw-indigo); --aw-crimson: #dc143c; --aw-cyan: #00c8ff; --aw-d-bg: color-mix(in
     srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-muted: var(--md-default-fg-color--light); --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } text {
@@ -52,7 +54,7 @@
   <!-- A wrong lanelet -->
   <path
     class="lanelet bad"
-    d="M102 450 L102 408.7 L102 367.4 L102 326.1 L103.8 289.8 L110.3 254.9 L121.6 221.3 L137.4 189.5 L157.5 160.2 L181.9 133.3 L211.1 104.1 L240.3 74.8 L269.5 45.6 L290.7 109.3 L269.5 130.5 L234.1 165.9 L206 183.1 L209.1 204.5 L187.7 207.1 L193.9 227.8 L173 233.5 L182.2 253.1 L162.4 261.8 L174.3 279.8 L156 291.3 L170.4 307.3 L162 320 L148 350 L148 390 L148 450 Z"
+    d="M102 450 L102 408.7 L102 367.4 L102 326.1 L103.8 289.8 L110.3 254.9 L121.6 221.3 L137.4 189.5 L157.5 160.2 L181.9 133.3 L211.1 104.1 L240.3 74.8 L269.5 45.6 L288.1 64.2 L305 95 L269.5 130.5 L234.1 165.9 L206 183.1 L209.1 204.5 L187.7 207.1 L193.9 227.8 L173 233.5 L182.2 253.1 L162.4 261.8 L174.3 279.8 L156 291.3 L170.4 307.3 L162 320 L148 350 L148 390 L148 450 Z"
   />
   <path class="bound" d="M102 450 L102 408.7 L102 367.4 L102 326.1 L103.8 289.8 L110.3 254.9 L121.6 221.3 L137.4 189.5 L157.5 160.2 L181.9 133.3 L211.1 104.1 L240.3 74.8 L269.5 45.6"/>
   <circle class="bound point" cx="102" cy="450" r="3.5"/>
@@ -70,7 +72,7 @@
   <circle class="bound point" cx="269.5" cy="45.6" r="3.5"/>
   <path
     class="bound"
-    d="M148 450 L148 390 L148 350 L162 320 L170.4 307.3 L156 291.3 L174.3 279.8 L162.4 261.8 L182.2 253.1 L173 233.5 L193.9 227.8 L187.7 207.1 L209.1 204.5 L206 183.1 L234.1 165.9 L269.5 130.5 L290.7 109.3"
+    d="M148 450 L148 390 L148 350 L162 320 L170.4 307.3 L156 291.3 L174.3 279.8 L162.4 261.8 L182.2 253.1 L173 233.5 L193.9 227.8 L187.7 207.1 L209.1 204.5 L206 183.1 L234.1 165.9 L269.5 130.5 L305 95"
   />
   <circle class="bound point" cx="148" cy="450" r="3.5"/>
   <circle class="bound point" cx="148" cy="390" r="3.5"/>
@@ -88,13 +90,16 @@
   <circle class="bound point" cx="206" cy="183.1" r="3.5"/>
   <circle class="bound point" cx="234.1" cy="165.9" r="3.5"/>
   <circle class="bound point" cx="269.5" cy="130.5" r="3.5"/>
-  <circle class="bound point" cx="290.7" cy="109.3" r="3.5"/>
+  <circle class="bound point" cx="305" cy="95" r="3.5"/>
+  <!-- The end of the lanelet has a kink, so it is not one straight line -->
+  <path class="bound" d="M269.5 45.6 L288.1 64.2 L305 95"/>
+  <circle class="bound point" cx="288.1" cy="64.2" r="3.5"/>
 
   <!-- Notes -->
   <text class="note bad" x="440" y="50">The end of the lanelet does not</text>
   <text class="note bad" x="440" y="68">meet the next lanelet in a</text>
   <text class="note bad" x="440" y="86">straight line.</text>
-  <path class="leader" d="M434 46 L290.7 86.7"/>
+  <path class="leader" d="M434 46 L294 63"/>
   <text class="note bad" x="440" y="200">The bound is uneven</text>
   <text class="note bad" x="440" y="218">and not smooth.</text>
   <path class="leader" d="M434 196 L174.3 279.8"/>

@@ -64,7 +64,7 @@
   <text class="sub" x="412" y="140" dominant-baseline="central">3</text>
   <text class="sub" x="412" y="194" dominant-baseline="central">4</text>
 
-  <path class="leader" d="M150 64 L268 138"/>
+  <path class="leader" d="M164 59 H270 V138"/>
   <text class="note" x="30" y="30" dominant-baseline="central">Linestring</text>
   <text class="code" x="30" y="50" dominant-baseline="central">points: 1-4</text>
   <text class="code" x="30" y="68" dominant-baseline="central">type: light_bulbs</text>

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-labelledby="vehicle-interface-hw-abstraction-title">
   <title id="vehicle-interface-hw-abstraction-title">
     Vehicles have different drive-by-wire interfaces. The control component sends a generic control command to an adapter. The adapter uses the vehicle configuration, which OEMs give or calibration
-    tools make, and sends an actuation command to the vehicle interface. The vehicle interface talks to the vehicle driver with the vehicle-specific protocol and sends the status back.
+    tools make and update, and sends an actuation command to the vehicle interface. The vehicle interface talks to the vehicle driver with the vehicle-specific protocol and sends the status back.
   </title>
   <style data-aw-standalone="">
     svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
@@ -223,8 +223,8 @@
   <text class="sub" x="440" y="518" text-anchor="middle" dominant-baseline="central">Uses the vehicle-specific protocol</text>
 
   <!-- Configuration and calibration -->
-  <text class="sub" x="100" y="300" text-anchor="middle" dominant-baseline="central">Given by OEMs, or made</text>
-  <text class="sub" x="100" y="316" text-anchor="middle" dominant-baseline="central">by calibration tools</text>
+  <text class="sub" x="100" y="300" text-anchor="middle" dominant-baseline="central">Given by OEMs, or made and</text>
+  <text class="sub" x="100" y="316" text-anchor="middle" dominant-baseline="central">updated by calibration tools</text>
 
   <rect class="box muted" x="16" y="338" width="168" height="64" rx="12"/>
   <text class="lbl" x="100" y="358" text-anchor="middle" dominant-baseline="central">Vehicle configuration</text>

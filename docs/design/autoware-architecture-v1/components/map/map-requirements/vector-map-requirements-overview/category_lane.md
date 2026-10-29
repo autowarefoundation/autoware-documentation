@@ -255,7 +255,7 @@ When center lines have been added to several Lanelets, they should be connected.
 
 #### Incorrect vector map <!-- omit in toc -->
 
-{{ diagram("../assets/vm-01-11_3.svg", "The two centerlines do not meet at the Lanelet border.") }}
+{{ diagram("../assets/vm-01-11_3.svg", "The two centerlines end at different points on the Lanelet border.") }}
 
 ---
 

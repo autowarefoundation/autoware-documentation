@@ -194,7 +194,7 @@
   <text class="lbl" x="125" y="170" text-anchor="middle" dominant-baseline="central">Regulatory element</text>
   <text class="code" x="125" y="190" text-anchor="middle" dominant-baseline="central">subtype: right_of_way</text>
   <path class="edge" d="M230 176 L436 250"/>
-  <text class="edge-lbl" x="316.5" y="207.1" text-anchor="middle" dominant-baseline="central">yield</text>
+  <text class="edge-lbl" x="280" y="194" text-anchor="middle" dominant-baseline="central">yield</text>
   <path class="edge" d="M230 198 L510 320"/>
-  <text class="edge-lbl" x="347.6" y="249.2" text-anchor="middle" dominant-baseline="central">right_of_way</text>
+  <text class="edge-lbl" x="290" y="224.1" text-anchor="middle" dominant-baseline="central">right_of_way</text>
 </svg>

@@ -115,13 +115,13 @@ The existing `object_merger` uses approximate synchronization via message filter
 As the amount of input data increases, which makes the delay, impacting the availability of autonomous driving.
 Additionally, if some detections fail, the merger fails to combine the results, reducing availability.
 
-{{ diagram("image/priority_merger_1.svg", "A synchronized merger waits for the slower detector.") }}
+{{ diagram("image/priority_merger_1.svg", "A synchronized merger waits for the slower detector, and gives no output when one input is missing.") }}
 
 The `Priority Object Merger` eliminates the message filter and uses a priority-based approach for the main detection.
 When subscribing to the output of the main detection, it gathers all outputs from the detection pipeline.
 It gathers outputs from all detections, ensuring that even if a secondary detection fails, results from other detections can still be merged, improving overall reliability and availability.
 
-{{ diagram("image/priority_merger_2.svg", "The multi-channel tracker does not wait for all detectors.") }}
+{{ diagram("image/priority_merger_2.svg", "A lost detection result does not stop the output of the multi-channel tracker.") }}
 
 - **Stationary detection**
 

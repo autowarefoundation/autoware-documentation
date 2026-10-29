@@ -215,9 +215,9 @@
   <path class="edge accent" d="M220 285 H154"/>
   <path class="flow flow-accent" pathLength="100" d="M220 285 H154"/>
   <path class="edge accent head" d="M220 285 H154"/>
-  <path class="edge" d="M620 285 H726"/>
-  <path class="flow" pathLength="100" d="M620 285 H726"/>
-  <path class="edge head" d="M620 285 H726"/>
-  <text class="edge-lbl" x="685" y="263" text-anchor="middle" dominant-baseline="central">cooperation</text>
-  <text class="edge-lbl" x="685" y="303" text-anchor="middle" dominant-baseline="central">status</text>
+  <path class="edge" d="M640 285 H726"/>
+  <path class="flow" pathLength="100" d="M640 285 H726"/>
+  <path class="edge head" d="M640 285 H726"/>
+  <text class="edge-lbl" x="685" y="253" text-anchor="middle" dominant-baseline="central">cooperation</text>
+  <text class="edge-lbl" x="685" y="269" text-anchor="middle" dominant-baseline="central">status</text>
 </svg>

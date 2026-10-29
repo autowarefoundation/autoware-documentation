@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" role="img" aria-labelledby="features-stop-line-title">
   <title id="features-stop-line-title">The ego vehicle stops at the stop line that the map defines.</title>
   <style data-aw-standalone="">
-    svg { --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-car-shadow: #00002a40; --aw-crimson: #dc143c; --aw-d-bg: color-mix(in
+    svg { --aw-c-crimson: var(--aw-crimson); --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-car-shadow: #00002a40; --aw-crimson: #dc143c; --aw-d-bg: color-mix(in
     srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-flow-tone: 22%; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
   fill: var(--aw-d-line);
 } text {
@@ -19,6 +19,11 @@
   stroke-dasharray: 14 10;
 } .mark.thick {
   stroke-width: 7;
+} .lanelet {
+  fill: color-mix(in srgb, var(--aw-indigo) 38%, transparent);
+  stroke: none;
+} .lanelet.bad {
+  fill: color-mix(in srgb, var(--aw-crimson) 35%, transparent);
 } .route {
   fill: none;
   stroke: var(--aw-c-green);
@@ -40,6 +45,8 @@
 } .note {
   font-size: 13px;
   fill: var(--aw-d-fg);
+} .note.bad {
+  fill: var(--aw-c-crimson);
 } .flow {
   fill: none;
   stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
@@ -117,6 +124,8 @@
 
   <!-- Stop line in the ego lane -->
   <line class="mark thick" x1="500" y1="52" x2="500" y2="102"/>
+  <!-- Area after the stop line: the planned velocity is zero here until the stop is released -->
+  <rect class="lanelet bad" x="506" y="63" width="214" height="28"/>
 
   <!-- Stop sign -->
   <circle class="sign" cx="560" cy="25" r="23"/>

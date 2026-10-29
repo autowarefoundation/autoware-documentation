@@ -183,7 +183,7 @@
 
   <!-- The steps for each batch -->
   <rect class="glass-panel" x="20" y="200" width="820" height="250" rx="16"/>
-  <text class="ttl" x="40" y="226">For each batch</text>
+  <text class="ttl" x="820" y="226" text-anchor="end">For each batch</text>
 
   <rect class="card" x="40" y="244" width="130" height="70" rx="12"/>
   <text class="lbl" x="105" y="268" text-anchor="middle" dominant-baseline="central">Predict</text>

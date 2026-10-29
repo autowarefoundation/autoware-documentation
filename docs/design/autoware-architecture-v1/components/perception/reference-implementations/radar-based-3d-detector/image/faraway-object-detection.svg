@@ -155,8 +155,9 @@
   <circle class="halo" cx="330" cy="196" r="150"/>
   <circle class="halo cyan" cx="330" cy="452" r="140"/>
 
-  <rect class="box muted" x="180" y="16" width="300" height="46" rx="12"/>
-  <text class="lbl" x="330" y="39" text-anchor="middle" dominant-baseline="central">Radar tracks</text>
+  <rect class="box muted" x="180" y="12" width="300" height="58" rx="12"/>
+  <text class="lbl" x="330" y="32" text-anchor="middle" dominant-baseline="central">Radar tracks</text>
+  <text class="code" x="330" y="53" text-anchor="middle" dominant-baseline="central">radar_msgs/msg/RadarTracks</text>
 
   <!-- Sensing -->
   <rect class="glass-panel" x="150" y="92" width="360" height="208" rx="16"/>
@@ -170,9 +171,9 @@
   <text class="lbl" x="330" y="243" text-anchor="middle" dominant-baseline="central">Message converter</text>
   <text class="code" x="330" y="264" text-anchor="middle" dominant-baseline="central">autoware_radar_tracks_msgs_converter</text>
 
-  <path class="edge" d="M330 62 V126"/>
-  <path class="flow" pathLength="100" d="M330 62 V126"/>
-  <path class="edge head" d="M330 62 V126"/>
+  <path class="edge" d="M330 70 V126"/>
+  <path class="flow" pathLength="100" d="M330 70 V126"/>
+  <path class="edge head" d="M330 70 V126"/>
   <path class="edge" d="M330 192 V214"/>
   <path class="flow" pathLength="100" d="M330 192 V214"/>
   <path class="edge head" d="M330 192 V214"/>
@@ -208,7 +209,7 @@
   <path class="edge accent" d="M330 528 V592"/>
   <path class="flow flow-accent" pathLength="100" d="M330 528 V592"/>
   <path class="edge accent head" d="M330 528 V592"/>
-  <text class="edge-lbl" x="330" y="577" text-anchor="middle" dominant-baseline="central">radar/far_objects</text>
+  <text class="edge-lbl" x="330" y="577" text-anchor="middle" dominant-baseline="central">/perception/object_recognition/detection/radar/far_objects</text>
 
   <rect class="box primary" x="180" y="600" width="300" height="58" rx="12"/>
   <circle class="icon-bg on" cx="214" cy="629" r="17"/>
@@ -217,5 +218,5 @@
   <circle class="icon-dot" cx="213" cy="628" r="2.4"/>
   <circle class="icon-dot" cx="223" cy="622" r="2.4"/>
   <text class="lbl on-primary" x="330" y="619" text-anchor="middle" dominant-baseline="central">Multi-object tracker</text>
-  <text class="sub on-primary" x="330" y="641" text-anchor="middle" dominant-baseline="central">Channel radar</text>
+  <text class="sub on-primary" x="330" y="641" text-anchor="middle" dominant-baseline="central">radar channel</text>
 </svg>

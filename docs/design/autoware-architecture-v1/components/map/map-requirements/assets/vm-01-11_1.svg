@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" role="img" aria-labelledby="vm-01-11_1-title">
   <title id="vm-01-11_1-title">On a long road, the ego vehicle moves to the right and back two times.</title>
   <style data-aw-standalone="">
-    svg { --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-car-shadow: #00002a40; --aw-d-bg: color-mix(in
-    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-flow-tone: 22%; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+    svg { --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-car-shadow: #00002a40; --aw-cyan: #00c8ff; --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-flow-tone: 22%; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
   fill: var(--aw-d-line);
 } text {
   font-size: 14px;
@@ -15,6 +15,11 @@
   fill: none;
   stroke: #fff;
   stroke-width: 3;
+} .lanelet {
+  fill: color-mix(in srgb, var(--aw-indigo) 38%, transparent);
+  stroke: none;
+} .lanelet.alt {
+  fill: color-mix(in srgb, var(--aw-cyan) 40%, transparent);
 } .route {
   fill: none;
   stroke: var(--aw-c-green);
@@ -22,6 +27,13 @@
   stroke-linecap: round;
   stroke-linejoin: round;
   marker-end: url("#aw-arrow-route");
+} .leader {
+  fill: none;
+  stroke: var(--aw-d-muted);
+  stroke-width: 1;
+} .note {
+  font-size: 13px;
+  fill: var(--aw-d-fg);
 } .flow {
   fill: none;
   stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
@@ -96,6 +108,10 @@
   <path class="mark" d="M196 20 V500"/>
   <path class="mark" d="M316 20 V500"/>
 
+  <!-- Two lanelets, each with an added centerline -->
+  <rect class="lanelet alt" x="196" y="20" width="120" height="240"/>
+  <rect class="lanelet" x="196" y="260" width="120" height="240"/>
+
   <!-- The ego vehicle and its path -->
   <path class="route" d="M256 448 V410 C256 390 286 390 286 370 V340 C286 320 256 320 256 300 V210 C256 190 286 190 286 170 V130 C286 110 256 110 256 90 V40"/>
   <path class="flow flow-route" d="M256 448 V410 C256 390 286 390 286 370 V340 C286 320 256 320 256 300 V210 C256 190 286 190 286 170 V130 C286 110 256 110 256 90 V40" pathLength="100"/>
@@ -109,4 +125,12 @@
     <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
     <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
   </g>
+
+  <!-- Notes -->
+  <text class="note" x="380" y="104">Lanelet with an added centerline</text>
+  <path class="leader" d="M374 100 L306 140"/>
+  <text class="note" x="380" y="384">Lanelet with an added centerline</text>
+  <path class="leader" d="M374 380 L306 400"/>
+  <text class="note" x="380" y="264">Lanelet border</text>
+  <path class="leader" d="M374 260 L318 260"/>
 </svg>

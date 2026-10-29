@@ -2,7 +2,7 @@
   <title id="vm-01-13_1-title">A road without a road center line that is wide enough for the ego vehicle and an oncoming vehicle to pass each other.</title>
   <style data-aw-standalone="">
     svg { --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-car-shadow: #00002a40; --aw-d-bg: color-mix(in
-    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-flow-tone: 22%; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-flow-tone: 22%; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
   fill: var(--aw-d-line);
 } text {
   font-size: 14px;
@@ -22,6 +22,10 @@
   stroke-linecap: round;
   stroke-linejoin: round;
   marker-end: url("#aw-arrow-route");
+} .leader {
+  fill: none;
+  stroke: var(--aw-d-muted);
+  stroke-width: 1;
 } .note {
   font-size: 13px;
   fill: var(--aw-d-fg);
@@ -132,5 +136,8 @@
   </g>
 
   <!-- Notes -->
-  <text class="note" x="320" y="204">No road center line</text>
+  <text class="note" x="320" y="196">No road center line.</text>
+  <text class="note" x="320" y="214">The road is wide enough for two</text>
+  <text class="note" x="320" y="232">vehicles to pass each other.</text>
+  <path class="leader" d="M314 200 L196 200"/>
 </svg>

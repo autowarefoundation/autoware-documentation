@@ -79,7 +79,7 @@ Use the Points of the lights when creating a Linestring.
 
 #### Preferred vector map <!-- omit in toc -->
 
-{{ diagram("../assets/vm-04-03_1.svg", "The light_bulbs Linestring connects the centers of the lamps, and each Point has a color tag.") }}
+{{ diagram("../assets/vm-04-03_1.svg", "The light_bulbs Linestring connects the centers of the lamps. Each Point has a color tag, and the arrow lamp also has an arrow tag.") }}
 
 The order of the lights' Points can be 1→2→3→4 or 4→3→2→1, either is acceptable.
 

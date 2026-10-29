@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 380" role="img" aria-labelledby="vm-05-04_1-title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 300" role="img" aria-labelledby="vm-05-04_1-title">
   <title id="vm-05-04_1-title">A fence linestring separates a kindergarten or playground from a road with a crosswalk. The fence linestring is not linked to anything.</title>
   <style data-aw-standalone="">
     svg { --aw-c-indigo: var(--aw-indigo); --aw-cyan: #00c8ff; --aw-d-bg: color-mix(in
@@ -60,7 +60,7 @@
   <circle class="bound point" cx="430" cy="156" r="4"/>
   <circle class="bound point" cx="820" cy="156" r="4"/>
 
-  <path class="leader" d="M260 318 L300 160"/>
-  <text class="note" x="200" y="332" dominant-baseline="central">Linestring</text>
-  <text class="code" x="200" y="352" dominant-baseline="central">type: fence</text>
+  <path class="leader" d="M500 34 L520 156"/>
+  <text class="note" x="440" y="24" dominant-baseline="central">Linestring</text>
+  <text class="code" x="514" y="24" dominant-baseline="central">type: fence</text>
 </svg>

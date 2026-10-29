@@ -22,8 +22,6 @@
   stroke-width: 3;
 } .mark.dash {
   stroke-dasharray: 14 10;
-} .mark.yellow {
-  stroke: #ffc233;
 } .area {
   fill: color-mix(in srgb, var(--aw-green) 25%, transparent);
   stroke: var(--aw-c-green);
@@ -68,11 +66,13 @@
   <path class="mark dash" d="M360 230 H490 M670 230 H820"/>
 
   <!-- The intersection area -->
-  <path class="bound" d="M510 160 H650 V180 H690 V280 H650 V300 H510 V280 H470 V180 H510 Z"/>
+  <path class="bound" d="M520 160 H640 V170 H690 V290 H640 V300 H520 V290 H470 V170 H520 Z"/>
 
   <!-- The hatched markings at the ends of the median strip -->
-  <rect class="mark yellow" x="572" y="150" width="16" height="40" rx="8"/>
-  <rect class="mark yellow" x="572" y="270" width="16" height="40" rx="8"/>
+  <rect class="mark" x="572" y="150" width="16" height="40" rx="8"/>
+  <rect class="mark" x="572" y="270" width="16" height="40" rx="8"/>
+  <path class="mark" style="stroke-width: 2" d="M573 167 L587 159 M573 175 L587 167 M573 183 L587 175"/>
+  <path class="mark" style="stroke-width: 2" d="M573 287 L587 279 M573 295 L587 287 M573 303 L587 295"/>
   <rect class="area" x="568" y="146" width="24" height="48" rx="10"/>
   <rect class="area" x="568" y="266" width="24" height="48" rx="10"/>
 
@@ -81,10 +81,10 @@
   <text class="note" x="660" y="40" dominant-baseline="central">Polygon</text>
   <text class="code" x="660" y="60" dominant-baseline="central">type: hatched_road_markings</text>
 
-  <path class="leader" d="M420 380 L480 284"/>
+  <path class="leader" d="M420 380 L478 292"/>
   <text class="note" x="340" y="394" dominant-baseline="central">Polygon</text>
   <text class="code" x="340" y="414" dominant-baseline="central">type: intersection_area</text>
 
-  <path class="leader" d="M700 394 L588 380"/>
+  <path class="leader" d="M700 394 L583 380"/>
   <text class="note" x="706" y="394" dominant-baseline="central">Median strip</text>
 </svg>

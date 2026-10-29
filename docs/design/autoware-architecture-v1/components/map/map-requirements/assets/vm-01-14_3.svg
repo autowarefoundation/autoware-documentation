@@ -5,6 +5,8 @@
     srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-muted: var(--md-default-fg-color--light); --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } text {
   font-size: 14px;
   fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
 } .road {
   fill: #5c6070;
 } .mark {
@@ -47,8 +49,8 @@
   <!-- Two lanelets side by side -->
   <rect class="lanelet" x="162" y="20" width="30" height="360"/>
   <rect class="lanelet alt" x="192" y="20" width="30" height="360"/>
-  <path class="mark" d="M176 230 V170 M169 179 L176 170 L183 179"/>
-  <path class="mark" d="M205 170 V230 M198 221 L205 230 L212 221"/>
+  <path class="mark" d="M176 310 V250 M169 259 L176 250 L183 259"/>
+  <path class="mark" d="M205 250 V310 M198 301 L205 310 L212 301"/>
   <path class="bound" d="M162 20 L162 110 L162 200 L162 290 L162 380"/>
   <circle class="bound point" cx="162" cy="20" r="3.5"/>
   <circle class="bound point" cx="162" cy="110" r="3.5"/>
@@ -69,6 +71,7 @@
   <circle class="bound point" cx="222" cy="380" r="3.5"/>
 
   <!-- Notes -->
+  <text class="note lbl bad" x="280" y="162">Incorrect</text>
   <text class="note bad" x="280" y="184">The road is split into a left part</text>
   <text class="note bad" x="280" y="202">and a right part, and the lanelets</text>
   <text class="note bad" x="280" y="220">are side by side.</text>

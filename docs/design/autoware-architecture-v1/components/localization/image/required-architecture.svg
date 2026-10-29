@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 330" role="img" aria-labelledby="localization-required-architecture-title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 330" role="img" aria-labelledby="localization-required-architecture-title">
   <title id="localization-required-architecture-title">
-    The Localization component takes sensor messages, map data, and tf as inputs. It outputs the pose, twist, and acceleration with covariance, diagnostics, and the tf from map to base_link.
+    The Localization component takes sensor messages, map data, and tf as inputs. It outputs the stamped pose, twist, and acceleration with covariance, diagnostics, and the tf from map to base_link.
   </title>
   <style data-aw-standalone="">
     svg { --aw-c-indigo: var(--aw-indigo); --aw-d-bg: color-mix(in
@@ -108,9 +108,9 @@
   </defs>
 
   <!-- Background: a faint dot grid and soft glows -->
-  <rect class="dots" x="0" y="0" width="820" height="330"/>
+  <rect class="dots" x="0" y="0" width="860" height="330"/>
   <circle class="halo" cx="400" cy="166" r="150"/>
-  <circle class="halo cyan" cx="680" cy="166" r="135"/>
+  <circle class="halo cyan" cx="720" cy="166" r="135"/>
 
   <!-- Inputs -->
   <rect class="box muted" x="20" y="44" width="180" height="64" rx="12"/>
@@ -145,25 +145,25 @@
   <text class="sub on-primary" x="400" y="196" text-anchor="middle" dominant-baseline="central">this interface</text>
 
   <!-- Outputs -->
-  <rect class="card" x="600" y="20" width="200" height="50" rx="12"/>
-  <text class="lbl" x="700" y="37" text-anchor="middle" dominant-baseline="central">Pose</text>
-  <text class="sub" x="700" y="55" text-anchor="middle" dominant-baseline="central">With covariance, map frame</text>
+  <rect class="card" x="600" y="20" width="240" height="50" rx="12"/>
+  <text class="lbl" x="720" y="37" text-anchor="middle" dominant-baseline="central">Pose</text>
+  <text class="sub" x="720" y="55" text-anchor="middle" dominant-baseline="central">With covariance, stamped, map frame</text>
 
-  <rect class="card" x="600" y="80" width="200" height="50" rx="12"/>
-  <text class="lbl" x="700" y="97" text-anchor="middle" dominant-baseline="central">Twist</text>
-  <text class="sub" x="700" y="115" text-anchor="middle" dominant-baseline="central">With covariance, base_link frame</text>
+  <rect class="card" x="600" y="80" width="240" height="50" rx="12"/>
+  <text class="lbl" x="720" y="97" text-anchor="middle" dominant-baseline="central">Twist</text>
+  <text class="sub" x="720" y="115" text-anchor="middle" dominant-baseline="central">With covariance, stamped, base_link frame</text>
 
-  <rect class="card" x="600" y="140" width="200" height="50" rx="12"/>
-  <text class="lbl" x="700" y="157" text-anchor="middle" dominant-baseline="central">Acceleration</text>
-  <text class="sub" x="700" y="175" text-anchor="middle" dominant-baseline="central">With covariance, base_link frame</text>
+  <rect class="card" x="600" y="140" width="240" height="50" rx="12"/>
+  <text class="lbl" x="720" y="157" text-anchor="middle" dominant-baseline="central">Acceleration</text>
+  <text class="sub" x="720" y="175" text-anchor="middle" dominant-baseline="central">With covariance, stamped, base_link frame</text>
 
-  <rect class="card" x="600" y="200" width="200" height="50" rx="12"/>
-  <text class="lbl" x="700" y="217" text-anchor="middle" dominant-baseline="central">Diagnostics</text>
-  <text class="sub" x="700" y="235" text-anchor="middle" dominant-baseline="central">Is the estimate reliable?</text>
+  <rect class="card" x="600" y="200" width="240" height="50" rx="12"/>
+  <text class="lbl" x="720" y="217" text-anchor="middle" dominant-baseline="central">Diagnostics</text>
+  <text class="sub" x="720" y="235" text-anchor="middle" dominant-baseline="central">Is the estimate reliable?</text>
 
-  <rect class="card" x="600" y="260" width="200" height="50" rx="12"/>
-  <text class="lbl" x="700" y="277" text-anchor="middle" dominant-baseline="central">tf</text>
-  <text class="sub" x="700" y="295" text-anchor="middle" dominant-baseline="central">map to base_link</text>
+  <rect class="card" x="600" y="260" width="240" height="50" rx="12"/>
+  <text class="lbl" x="720" y="277" text-anchor="middle" dominant-baseline="central">tf</text>
+  <text class="sub" x="720" y="295" text-anchor="middle" dominant-baseline="central">map to base_link</text>
 
   <path class="edge" d="M510 45 H592"/>
   <path class="flow" pathLength="100" d="M510 45 H592"/>

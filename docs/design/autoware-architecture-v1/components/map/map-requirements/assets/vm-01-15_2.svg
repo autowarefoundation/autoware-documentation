@@ -122,4 +122,6 @@
   <text class="note lbl" x="440" y="238">shoulder and the sidewalk</text>
   <text class="note code" x="440" y="256">type: road_border</text>
   <path class="leader" d="M434 216 L283.6 229.5"/>
+  <text class="note lbl" x="440" y="384">Sidewalk</text>
+  <path class="leader" d="M434 380 L253 380"/>
 </svg>

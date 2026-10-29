@@ -185,12 +185,12 @@
   <path class="edge accent" d="M200 76 V184"/>
   <path class="flow flow-accent" pathLength="100" d="M200 76 V184"/>
   <path class="edge accent head" d="M200 76 V184"/>
-  <text class="edge-lbl code" x="200" y="104" text-anchor="middle" dominant-baseline="central">/planning/trajectory</text>
+  <text class="edge-lbl code" x="200" y="98" text-anchor="middle" dominant-baseline="central">/planning/trajectory</text>
   <path class="edge" d="M32 76 V405 H44"/>
   <path class="flow" pathLength="100" d="M32 76 V405 H44"/>
   <path class="edge head" d="M32 76 V405 H44"/>
-  <text class="edge-lbl code" x="38" y="138" dominant-baseline="central">turn_indicators_cmd</text>
-  <text class="edge-lbl code" x="38" y="154" dominant-baseline="central">hazard_lights_cmd</text>
+  <text class="edge-lbl code" x="38" y="118" dominant-baseline="central">turn_indicators_cmd</text>
+  <text class="edge-lbl code" x="38" y="134" dominant-baseline="central">hazard_lights_cmd</text>
 
   <path class="edge" d="M430 76 V184"/>
   <path class="flow" pathLength="100" d="M430 76 V184"/>
@@ -201,7 +201,8 @@
   <text class="edge-lbl code" x="430" y="104" text-anchor="middle" dominant-baseline="central">/localization/kinematic_state</text>
 
   <path class="edge dash" d="M720 76 V218 H646"/>
-  <text class="edge-lbl code" x="720" y="130" text-anchor="middle" dominant-baseline="central">change_operation_mode</text>
+  <text class="edge-lbl code" x="720" y="124" text-anchor="middle" dominant-baseline="central">change_operation_mode</text>
+  <text class="edge-lbl code" x="720" y="140" text-anchor="middle" dominant-baseline="central">(service)</text>
 
   <!-- Inside Control -->
   <path class="edge" d="M125 246 V284"/>
@@ -210,7 +211,7 @@
   <path class="edge accent" d="M240 246 V374"/>
   <path class="flow flow-accent" pathLength="100" d="M240 246 V374"/>
   <path class="edge accent head" d="M240 246 V374"/>
-  <text class="edge-lbl code" x="240" y="300" text-anchor="middle" dominant-baseline="central">control_cmd</text>
+  <text class="edge-lbl code" x="240" y="354" text-anchor="middle" dominant-baseline="central">control_cmd</text>
   <path class="edge" d="M125 334 V374"/>
   <path class="flow" pathLength="100" d="M125 334 V374"/>
   <path class="edge head" d="M125 334 V374"/>
@@ -230,7 +231,8 @@
   <text class="edge-lbl code" x="285" y="462" text-anchor="middle" dominant-baseline="central">/control/command/control_cmd, gear_cmd,</text>
   <text class="edge-lbl code" x="285" y="478" text-anchor="middle" dominant-baseline="central">turn_indicators_cmd, hazard_lights_cmd</text>
   <path class="edge dash" d="M590 246 V514"/>
-  <text class="edge-lbl code" x="590" y="486" text-anchor="middle" dominant-baseline="central">/control/control_mode_request</text>
+  <text class="edge-lbl code" x="590" y="484" text-anchor="middle" dominant-baseline="central">/control/control_mode_request</text>
+  <text class="edge-lbl code" x="590" y="500" text-anchor="middle" dominant-baseline="central">(service)</text>
 
   <!-- Status from the vehicle interface -->
   <path class="edge" d="M640 548 H730 V330 H666"/>

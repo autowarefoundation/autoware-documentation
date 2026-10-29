@@ -52,12 +52,6 @@
   stroke: none;
 } .lanelet.alt {
   fill: color-mix(in srgb, var(--aw-cyan) 40%, transparent);
-} .bound {
-  fill: none;
-  stroke: var(--aw-cyan);
-  stroke-width: 2.5;
-} .bound.alt {
-  stroke: #ff7076;
 } .light-housing {
   fill: #1b1d29;
   stroke: #8d91a0;
@@ -226,7 +220,7 @@
   <path class="lanelet alt" d="M652 280 L428 280 L428 220 L652 220 Z"/>
 
   <!-- The opposing right turn, not a yield lane -->
-  <path class="bound" fill="none" d="M600 108 A172 172 0 0 1 428 280 L428 220 A112 112 0 0 0 540 108 Z"/>
+  <path class="mark dash" d="M600 108 A172 172 0 0 1 428 280 L428 220 A112 112 0 0 0 540 108 Z"/>
 
   <!-- The lanelet of the ego vehicle -->
   <path class="lanelet" d="M480 332 A172 172 0 0 1 652 160 L652 220 A112 112 0 0 0 540 332 Z"/>
@@ -246,10 +240,10 @@
   <text class="code" x="125" y="190" text-anchor="middle" dominant-baseline="central">subtype: right_of_way</text>
   <path class="edge" d="M230 164 L436 190"/>
   <text class="edge-lbl" x="316.5" y="174.9" text-anchor="middle" dominant-baseline="central">yield</text>
-  <path class="edge" d="M230 180 L436 250"/>
-  <text class="edge-lbl" x="316.5" y="209.4" text-anchor="middle" dominant-baseline="central">yield</text>
+  <path class="edge" d="M230 180 L600 264"/>
+  <text class="edge-lbl" x="316.5" y="200.6" text-anchor="middle" dominant-baseline="central">yield</text>
   <path class="edge" d="M230 198 L510 320"/>
-  <text class="edge-lbl" x="347.6" y="249.2" text-anchor="middle" dominant-baseline="central">right_of_way</text>
+  <text class="edge-lbl" x="255" y="238" text-anchor="middle" dominant-baseline="central">right_of_way</text>
   <text class="note" x="612" y="30">
     <tspan x="612">Opposing right turn:</tspan>
     <tspan x="612" dy="17">not a yield lane</tspan>

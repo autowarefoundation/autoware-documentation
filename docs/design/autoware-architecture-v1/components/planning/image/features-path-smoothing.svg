@@ -124,6 +124,6 @@
   </g>
   <text class="note" x="560" y="24" text-anchor="middle" dominant-baseline="central">Lane ends</text>
   <line class="leader" x1="530" y1="32" x2="430" y2="80"/>
-  <text class="note" x="330" y="184" text-anchor="middle" dominant-baseline="central">Smooth path</text>
-  <line class="leader" x1="330" y1="176" x2="330" y2="110"/>
+  <text class="note" x="400" y="184" text-anchor="middle" dominant-baseline="central">Smooth path</text>
+  <line class="leader" x1="400" y1="176" x2="400" y2="116"/>
 </svg>

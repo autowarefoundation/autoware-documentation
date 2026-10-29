@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 500" role="img" aria-labelledby="map-interface-title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520" role="img" aria-labelledby="map-interface-title">
   <title id="map-interface-title">
     The Map component loads the point cloud map, the Lanelet2 map, and the map projector info from files. Localization and Perception use the point cloud map. Perception, Planning, and Control use the
     Lanelet2 map. RViz shows the map markers.
@@ -150,7 +150,7 @@
   </defs>
 
   <!-- Background: a faint dot grid and soft glows -->
-  <rect class="dots" x="0" y="0" width="860" height="500"/>
+  <rect class="dots" x="0" y="0" width="860" height="520"/>
   <circle class="halo" cx="282" cy="196" r="150"/>
   <circle class="halo cyan" cx="715" cy="280" r="100"/>
 
@@ -211,27 +211,31 @@
   <path class="edge head" d="M575 263 V333 H604"/>
 
   <!-- Outputs -->
-  <path class="edge accent" d="M145 202 V424"/>
-  <path class="flow flow-accent" pathLength="100" d="M145 202 V424"/>
-  <path class="edge accent head" d="M145 202 V424"/>
-  <text class="edge-lbl" x="145" y="300" text-anchor="middle" dominant-baseline="central">Point cloud map</text>
-  <path class="edge accent" d="M420 202 V424"/>
-  <path class="flow flow-accent" pathLength="100" d="M420 202 V424"/>
-  <path class="edge accent head" d="M420 202 V424"/>
-  <text class="edge-lbl" x="420" y="300" text-anchor="middle" dominant-baseline="central">Lanelet2 map</text>
-  <path class="edge" d="M690 356 V424"/>
-  <path class="flow" pathLength="100" d="M690 356 V424"/>
-  <path class="edge head" d="M690 356 V424"/>
-  <text class="edge-lbl" x="690" y="398" text-anchor="middle" dominant-baseline="central">TF</text>
-  <path class="edge" d="M800 286 V424"/>
-  <path class="flow" pathLength="100" d="M800 286 V424"/>
-  <path class="edge head" d="M800 286 V424"/>
-  <text class="edge-lbl" x="800" y="398" text-anchor="middle" dominant-baseline="central">Markers</text>
+  <path class="edge accent" d="M145 202 V444"/>
+  <path class="flow flow-accent" pathLength="100" d="M145 202 V444"/>
+  <path class="edge accent head" d="M145 202 V444"/>
+  <text class="edge-lbl" x="145" y="292" text-anchor="middle" dominant-baseline="central">Point cloud map</text>
+  <text class="edge-lbl code" x="145" y="310" text-anchor="middle" dominant-baseline="central">sensor_msgs/msg/PointCloud2</text>
+  <path class="edge accent" d="M420 202 V444"/>
+  <path class="flow flow-accent" pathLength="100" d="M420 202 V444"/>
+  <path class="edge accent head" d="M420 202 V444"/>
+  <text class="edge-lbl" x="420" y="292" text-anchor="middle" dominant-baseline="central">Lanelet2 map</text>
+  <text class="edge-lbl code" x="420" y="310" text-anchor="middle" dominant-baseline="central">autoware_map_msgs/msg/LaneletMapBin</text>
+  <path class="edge" d="M650 356 V444"/>
+  <path class="flow" pathLength="100" d="M650 356 V444"/>
+  <path class="edge head" d="M650 356 V444"/>
+  <text class="edge-lbl" x="650" y="404" text-anchor="middle" dominant-baseline="central">TF</text>
+  <path class="edge" d="M800 286 V444"/>
+  <path class="flow" pathLength="100" d="M800 286 V444"/>
+  <path class="edge head" d="M800 286 V444"/>
+  <text class="edge-lbl" x="852" y="392" text-anchor="end" dominant-baseline="central">Markers</text>
+  <text class="edge-lbl code" x="852" y="409" text-anchor="end" dominant-baseline="central">visualization_msgs/msg/</text>
+  <text class="edge-lbl code" x="852" y="424" text-anchor="end" dominant-baseline="central">MarkerArray</text>
 
-  <rect class="card" x="20" y="430" width="250" height="50" rx="12"/>
-  <text class="lbl" x="145" y="455" text-anchor="middle" dominant-baseline="central">Localization, Perception</text>
-  <rect class="card" x="290" y="430" width="260" height="50" rx="12"/>
-  <text class="lbl" x="420" y="455" text-anchor="middle" dominant-baseline="central">Perception, Planning, Control</text>
-  <rect class="card" x="600" y="430" width="240" height="50" rx="12"/>
-  <text class="lbl" x="720" y="455" text-anchor="middle" dominant-baseline="central">RViz</text>
+  <rect class="card" x="20" y="450" width="250" height="50" rx="12"/>
+  <text class="lbl" x="145" y="475" text-anchor="middle" dominant-baseline="central">Localization, Perception</text>
+  <rect class="card" x="290" y="450" width="260" height="50" rx="12"/>
+  <text class="lbl" x="420" y="475" text-anchor="middle" dominant-baseline="central">Perception, Planning, Control</text>
+  <rect class="card" x="600" y="450" width="240" height="50" rx="12"/>
+  <text class="lbl" x="720" y="475" text-anchor="middle" dominant-baseline="central">RViz</text>
 </svg>

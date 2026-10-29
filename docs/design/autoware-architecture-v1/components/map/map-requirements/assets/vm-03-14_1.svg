@@ -209,8 +209,8 @@
   <circle class="light-red" cx="526" cy="304" r="4.5"/>
   <circle class="light-yellow" cx="526" cy="316" r="4.5"/>
   <circle class="light-green" cx="526" cy="328" r="4.5"/>
-  <path class="mark dash" d="M366.8 274 A172 172 0 0 1 440.9 176.1"/>
-  <path class="mark dash" d="M430.8 274 A112 112 0 0 1 472.6 227"/>
+  <path class="mark dash" d="M366.8 274 A172 172 0 0 1 404.2 206.9"/>
+  <path class="mark dash" d="M430.8 274 A112 112 0 0 1 448.8 247.1"/>
   <path class="mark thick" d="M404.2 206.9 L448.8 247.1"/>
   <g transform="translate(379 334)">
     <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>

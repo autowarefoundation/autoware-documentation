@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 250" role="img" aria-labelledby="interface-hierarchy-title">
   <title id="interface-hierarchy-title">
-    The same component, with two inputs and one output, has three possible next-level architectures: a monolithic one, type A with sub-components in parallel, and type B with sub-components in series.
+    The same component, with two inputs and one output, has three possible next-level architectures: a monolithic one, type A, where two sub-components each take one input and a third sub-component
+    merges their results into the output, and type B, where one input passes through a chain of two sub-components into the sub-component that takes the other input and makes the output.
   </title>
   <style data-aw-standalone="">
     svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-bg: color-mix(in

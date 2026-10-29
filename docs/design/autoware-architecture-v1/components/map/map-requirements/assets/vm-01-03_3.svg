@@ -57,7 +57,7 @@
   <rect class="lanelet" x="192" y="20" width="60" height="340"/>
   <rect class="lanelet alt" x="252" y="20" width="60" height="340"/>
 
-  <!-- Linestrings: two at each inner lane line -->
+  <!-- Linestrings: two at each inner lane line. Cyan belongs to the indigo lanelets, light red to the cyan lanelets. -->
   <path class="bound" d="M72 20 L72 105 L72 190 L72 275 L72 360"/>
   <circle class="bound point" cx="72" cy="20" r="3.5"/>
   <circle class="bound point" cx="72" cy="105" r="3.5"/>
@@ -82,13 +82,13 @@
   <circle class="bound point" cx="137" cy="190" r="3.5"/>
   <circle class="bound point" cx="137" cy="275" r="3.5"/>
   <circle class="bound point" cx="137" cy="360" r="3.5"/>
-  <path class="bound" d="M187 20 L187 105 L187 190 L187 275 L187 360"/>
+  <path class="bound alt" d="M187 20 L187 105 L187 190 L187 275 L187 360"/>
   <circle class="bound point" cx="187" cy="20" r="3.5"/>
   <circle class="bound point" cx="187" cy="105" r="3.5"/>
   <circle class="bound point" cx="187" cy="190" r="3.5"/>
   <circle class="bound point" cx="187" cy="275" r="3.5"/>
   <circle class="bound point" cx="187" cy="360" r="3.5"/>
-  <path class="bound alt" d="M197 20 L197 105 L197 190 L197 275 L197 360"/>
+  <path class="bound" d="M197 20 L197 105 L197 190 L197 275 L197 360"/>
   <circle class="bound point" cx="197" cy="20" r="3.5"/>
   <circle class="bound point" cx="197" cy="105" r="3.5"/>
   <circle class="bound point" cx="197" cy="190" r="3.5"/>

@@ -185,7 +185,8 @@
     </g>
     <rect class="glass" x="228" y="141" width="9" height="8" rx="3"/>
   </g>
-  <path class="edge accent" d="M256 145 L330 145"/>
+  <!-- The bicycle goes straight on, across the left turn of the ego vehicle -->
+  <path class="edge accent" d="M256 145 L436 145"/>
 
   <!-- Planned path and stop point -->
   <path class="route" d="M352 170 H386"/>

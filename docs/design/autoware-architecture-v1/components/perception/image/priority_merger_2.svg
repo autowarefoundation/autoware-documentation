@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 390" role="img" aria-labelledby="priority-merger-2-title">
   <title id="priority-merger-2-title">
-    Timing of the multi-channel tracker. The tracker updates its tracks with each detection result when it arrives. A timer publishes the tracks at a fixed rate. When the cluster-based result of frame
-    t+1 is lost, the tracker still updates with the base 3D result and still publishes.
+    Timing of the multi-channel tracker. Each detection result goes into a queue when it arrives. When a result of the slowest channel, the time reference, arrives, the tracker updates its tracks with
+    all queued results in time order. A timer publishes the tracks at a fixed rate. When the cluster-based result of frame t+1 is lost, the timer still publishes the predicted tracks, and the next
+    update also uses the queued base 3D result of frame t+1.
   </title>
   <style data-aw-standalone="">
     svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
@@ -127,10 +128,12 @@
   <!-- Row names -->
   <text x="20" y="100" dominant-baseline="central">Data acquisition</text>
   <text x="20" y="160" dominant-baseline="central">Base 3D detection</text>
-  <text x="20" y="220" dominant-baseline="central">Cluster-based detection</text>
-  <text x="20" y="280" dominant-baseline="central">Tracker update</text>
+  <text x="20" y="214" dominant-baseline="central">Cluster-based detection</text>
+  <text class="sub" x="20" y="232" dominant-baseline="central">Slowest channel: time reference</text>
+  <text x="20" y="274" dominant-baseline="central">Tracker update</text>
+  <text class="sub" x="20" y="292" dominant-baseline="central">Queued results, in time order</text>
   <text x="20" y="340" dominant-baseline="central">Tracker publish</text>
-
+  <text class="sub" x="20" y="358" dominant-baseline="central">Timer, fixed rate</text>
   <!-- Frames -->
   <rect class="box muted" x="225" y="86" width="10" height="28" rx="3"/>
   <rect class="box muted" x="425" y="86" width="10" height="28" rx="3"/>
@@ -146,29 +149,39 @@
   <rect class="card" x="795" y="206" width="10" height="28" rx="3"/>
   <text class="sub" x="810" y="220" dominant-baseline="central">t+2</text>
   <rect class="box ext" x="595" y="206" width="10" height="28" rx="3"/>
-  <text class="edge-lbl" x="610" y="220" dominant-baseline="central">t+1 lost</text>
-  <rect class="card" x="325" y="266" width="10" height="28" rx="3"/>
+  <text class="edge-lbl" x="588" y="220" text-anchor="end" dominant-baseline="central">t+1 lost</text>
+  <!-- Tracker updates: one batch each time a result of the time reference channel arrives -->
   <rect class="card" x="395" y="266" width="10" height="28" rx="3"/>
-  <rect class="card" x="525" y="266" width="10" height="28" rx="3"/>
-  <rect class="card" x="725" y="266" width="10" height="28" rx="3"/>
+  <text class="sub" x="410" y="280" dominant-baseline="central">t</text>
   <rect class="card" x="795" y="266" width="10" height="28" rx="3"/>
-
-  <rect class="box primary" x="355" y="326" width="10" height="28" rx="3"/>
-  <rect class="box primary" x="555" y="326" width="10" height="28" rx="3"/>
-  <rect class="box primary" x="755" y="326" width="10" height="28" rx="3"/>
-
+  <text class="sub" x="800" y="306" text-anchor="middle" dominant-baseline="central">t+1, t+2</text>
+  <!-- Tracker publishes: the timer does not wait for a lost result -->
+  <rect class="box primary" x="415" y="326" width="10" height="28" rx="3"/>
+  <rect class="box primary" x="615" y="326" width="10" height="28" rx="3"/>
+  <text class="sub" x="608" y="340" text-anchor="end" dominant-baseline="central">Predicted tracks</text>
+  <rect class="box primary" x="815" y="326" width="10" height="28" rx="3"/>
   <!-- Processing of frame t -->
   <path class="edge accent" d="M236 108 L320 152"/>
   <path class="flow flow-accent" pathLength="100" d="M236 108 L320 152"/>
   <path class="edge accent head" d="M236 108 L320 152"/>
-  <path class="edge accent" d="M236 112 L390 212"/>
-  <path class="flow flow-accent" pathLength="100" d="M236 112 L390 212"/>
-  <path class="edge accent head" d="M236 112 L390 212"/>
+  <path class="edge accent" d="M236 112 Q290 200 390 214"/>
+  <path class="flow flow-accent" pathLength="100" d="M236 112 Q290 200 390 214"/>
+  <path class="edge accent head" d="M236 112 Q290 200 390 214"/>
   <text class="sub" x="292" y="118" dominant-baseline="central">Processing time</text>
-  <path class="edge" d="M330 174 V262"/>
-  <path class="flow" pathLength="100" d="M330 174 V262"/>
-  <path class="edge head" d="M330 174 V262"/>
+  <!-- Results go to the tracker -->
+  <path class="edge" d="M333 174 L394 262"/>
+  <path class="flow" pathLength="100" d="M333 174 L394 262"/>
+  <path class="edge head" d="M333 174 L394 262"/>
   <path class="edge" d="M400 234 V262"/>
   <path class="flow" pathLength="100" d="M400 234 V262"/>
   <path class="edge head" d="M400 234 V262"/>
+  <path class="edge" d="M535 174 L790 276"/>
+  <path class="flow" pathLength="100" d="M535 174 L790 276"/>
+  <path class="edge head" d="M535 174 L790 276"/>
+  <path class="edge" d="M735 174 L793 262"/>
+  <path class="flow" pathLength="100" d="M735 174 L793 262"/>
+  <path class="edge head" d="M735 174 L793 262"/>
+  <path class="edge" d="M800 234 V262"/>
+  <path class="flow" pathLength="100" d="M800 234 V262"/>
+  <path class="edge head" d="M800 234 V262"/>
 </svg>

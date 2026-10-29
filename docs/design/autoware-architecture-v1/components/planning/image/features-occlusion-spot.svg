@@ -151,8 +151,8 @@
   </defs>
 
   <!-- Buildings next to the road -->
-  <rect class="shoulder" x="240" y="16" width="180" height="88" rx="4"/>
-  <rect class="shoulder" x="520" y="16" width="180" height="88" rx="4"/>
+  <rect class="shoulder" x="240" y="26" width="180" height="78" rx="4"/>
+  <rect class="shoulder" x="520" y="26" width="180" height="78" rx="4"/>
 
   <!-- Main road (two lanes in the same direction) and side street -->
   <rect class="road" x="0" y="110" width="760" height="120"/>
@@ -162,8 +162,8 @@
   <line class="mark" x1="0" y1="224" x2="760" y2="224"/>
   <line class="mark dash" x1="0" y1="170" x2="760" y2="170"/>
 
-  <!-- Area that the building hides from the ego vehicle -->
-  <path class="area warn" d="M432 4 H508 V30 L432 104 Z"/>
+  <!-- Area that the building hides from the ego vehicle (sight line from the ego vehicle at 130,143 past the building corner at 420,104) -->
+  <path class="area warn" d="M432 4 H508 V92 L432 102 Z"/>
 
   <!-- Pedestrian who can come out of the side street -->
   <g class="pedestrian">
@@ -174,7 +174,7 @@
   <path class="edge accent dash" d="M470 46 L470 128"/>
 
   <!-- Section where the ego vehicle slows down -->
-  <rect class="lanelet alt" x="300" y="129" width="260" height="28"/>
+  <rect class="lanelet alt" x="290" y="129" width="200" height="28"/>
 
   <!-- Planned path -->
   <path class="route" d="M150 143 H700"/>
@@ -189,8 +189,10 @@
     <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
     <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
   </g>
-  <text class="sign-text" x="330" y="60" text-anchor="middle" dominant-baseline="central">Building</text>
-  <text class="sign-text" x="610" y="60" text-anchor="middle" dominant-baseline="central">Building</text>
-  <text class="note" x="470" y="262" text-anchor="middle" dominant-baseline="central">Slow down near the occlusion spot</text>
-  <line class="leader" x1="470" y1="252" x2="470" y2="158"/>
+  <text class="sign-text" x="330" y="65" text-anchor="middle" dominant-baseline="central">Building</text>
+  <text class="sign-text" x="610" y="65" text-anchor="middle" dominant-baseline="central">Building</text>
+  <text class="note" x="226" y="12" text-anchor="end" dominant-baseline="central">Occluded area</text>
+  <line class="leader" x1="230" y1="12" x2="440" y2="12"/>
+  <text class="note" x="420" y="262" text-anchor="middle" dominant-baseline="central">Slow down near the occlusion spot</text>
+  <line class="leader" x1="420" y1="252" x2="420" y2="158"/>
 </svg>

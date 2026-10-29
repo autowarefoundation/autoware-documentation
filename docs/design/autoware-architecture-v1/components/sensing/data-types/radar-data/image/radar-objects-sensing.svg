@@ -217,9 +217,10 @@
   <path class="icon-line" d="M605 116 A13 13 0 0 1 618 129"/>
   <text class="lbl" x="700" y="116" text-anchor="middle" dominant-baseline="central">Other radars</text>
   <text class="sub" x="700" y="136" text-anchor="middle" dominant-baseline="central">The same pipeline</text>
-  <path class="edge" d="M790 152 V442"/>
-  <path class="flow" pathLength="100" d="M790 152 V442"/>
-  <path class="edge head" d="M790 152 V442"/>
+  <path class="edge accent" d="M790 152 V442"/>
+  <path class="flow flow-accent" pathLength="100" d="M790 152 V442"/>
+  <path class="edge accent head" d="M790 152 V442"/>
+  <text class="code" x="778" y="431" text-anchor="end" dominant-baseline="central">DetectedObjects</text>
 
   <!-- Merger -->
   <path class="edge accent" d="M186 404 V442"/>

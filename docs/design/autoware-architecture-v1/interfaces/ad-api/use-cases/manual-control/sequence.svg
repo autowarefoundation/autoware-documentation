@@ -145,7 +145,7 @@
   <path class="edge dash" d="M598 262 H162"/>
   <text class="edge-lbl" x="380" y="251" text-anchor="middle" dominant-baseline="central">response status</text>
   <rect class="box muted" x="100" y="294" width="560" height="32" rx="10"/>
-  <text class="sub" x="380" y="310" text-anchor="middle" dominant-baseline="central">Repeat while driving</text>
+  <text class="sub" x="380" y="310" text-anchor="middle" dominant-baseline="central">Repeat while driving: the three streams run in parallel</text>
   <path class="edge" d="M162 356 H598"/>
   <path class="flow" pathLength="100" d="M162 356 H598"/>
   <path class="edge head" d="M162 356 H598"/>

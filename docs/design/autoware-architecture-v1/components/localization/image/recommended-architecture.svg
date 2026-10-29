@@ -150,12 +150,13 @@
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="640"/>
-  <circle class="halo" cx="445" cy="305" r="160"/>
+  <circle class="halo" cx="512" cy="305" r="160"/>
   <circle class="halo cyan" cx="150" cy="334" r="130"/>
 
   <!-- Sensing -->
   <rect class="glass-panel" x="16" y="16" width="470" height="100" rx="18"/>
   <text class="ttl" x="32" y="38">Sensing</text>
+  <text class="sub" x="474" y="38" text-anchor="end">Examples</text>
 
   <rect class="box muted" x="26" y="50" width="96" height="52" rx="12"/>
   <text class="lbl" x="74" y="68" text-anchor="middle" dominant-baseline="central">LiDAR</text>
@@ -180,6 +181,7 @@
   <!-- Map -->
   <rect class="glass-panel" x="500" y="16" width="218" height="100" rx="18"/>
   <text class="ttl" x="516" y="38">Map</text>
+  <text class="sub" x="706" y="38" text-anchor="end">Examples</text>
 
   <rect class="box muted" x="510" y="50" width="96" height="52" rx="12"/>
   <text class="lbl" x="558" y="68" text-anchor="middle" dominant-baseline="central">Point cloud</text>
@@ -211,71 +213,76 @@
   <rect class="glass-panel" x="16" y="170" width="828" height="320" rx="18"/>
   <text class="ttl" x="32" y="194">Localization</text>
 
-  <rect class="card" x="40" y="210" width="220" height="80" rx="12"/>
-  <circle class="icon-bg" cx="68" cy="250" r="17"/>
-  <path class="icon-line" d="M68 260 C63.5 255.5 60.5 251.5 60.5 247 A7.5 7.5 0 0 1 75.5 247 C75.5 251.5 72.5 255.5 68 260 Z"/>
-  <circle class="icon-dot" cx="68" cy="247" r="2.4"/>
-  <text class="lbl" x="164" y="232" text-anchor="middle" dominant-baseline="central">Pose estimator</text>
-  <text class="sub" x="164" y="254" text-anchor="middle" dominant-baseline="central">NDT, YabLoc, Eagleye,</text>
-  <text class="sub" x="164" y="272" text-anchor="middle" dominant-baseline="central">AR tag, LiDAR marker</text>
+  <!-- Pose estimators: a stack, because one or more can run -->
+  <rect class="card" x="38" y="216" width="200" height="80" rx="12"/>
+  <rect class="card" x="32" y="210" width="200" height="80" rx="12"/>
+  <circle class="icon-bg" cx="58" cy="250" r="17"/>
+  <path class="icon-line" d="M58 260 C53.5 255.5 50.5 251.5 50.5 247 A7.5 7.5 0 0 1 65.5 247 C65.5 251.5 62.5 255.5 58 260 Z"/>
+  <circle class="icon-dot" cx="58" cy="247" r="2.4"/>
+  <text class="lbl" x="152" y="232" text-anchor="middle" dominant-baseline="central">Pose estimators</text>
+  <text class="sub" x="152" y="254" text-anchor="middle" dominant-baseline="central">NDT, YabLoc, Eagleye,</text>
+  <text class="sub" x="152" y="272" text-anchor="middle" dominant-baseline="central">AR tag, LiDAR marker</text>
 
-  <rect class="card" x="40" y="306" width="220" height="64" rx="12"/>
-  <circle class="icon-bg" cx="68" cy="338" r="17"/>
-  <path class="icon-line" d="M59.5 342 A8.5 8.5 0 0 1 76.5 342"/>
-  <path class="icon-line" d="M68 342 L72.5 336"/>
-  <circle class="icon-dot" cx="68" cy="342" r="2.2"/>
-  <text class="lbl" x="164" y="328" text-anchor="middle" dominant-baseline="central">Twist estimator</text>
-  <text class="sub" x="164" y="350" text-anchor="middle" dominant-baseline="central">Gyro odometer or Eagleye</text>
+  <rect class="card" x="32" y="312" width="200" height="64" rx="12"/>
+  <circle class="icon-bg" cx="58" cy="344" r="17"/>
+  <path class="icon-line" d="M49.5 348 A8.5 8.5 0 0 1 66.5 348"/>
+  <path class="icon-line" d="M58 348 L62.5 342"/>
+  <circle class="icon-dot" cx="58" cy="348" r="2.2"/>
+  <text class="lbl" x="152" y="334" text-anchor="middle" dominant-baseline="central">Twist estimator</text>
+  <text class="sub" x="152" y="356" text-anchor="middle" dominant-baseline="central">Gyro odometer or Eagleye</text>
 
-  <rect class="card" x="40" y="394" width="220" height="64" rx="12"/>
-  <circle class="icon-bg" cx="68" cy="426" r="17"/>
-  <circle class="icon-line" cx="68" cy="426" r="6.5"/>
-  <path class="icon-line" d="M68 415 V418.5 M68 433.5 V437 M57 426 H60.5 M75.5 426 H79"/>
-  <circle class="icon-dot" cx="68" cy="426" r="2"/>
-  <text class="lbl" x="164" y="416" text-anchor="middle" dominant-baseline="central">Pose initializer</text>
-  <text class="sub" x="164" y="438" text-anchor="middle" dominant-baseline="central">Initial pose for the EKF</text>
+  <rect class="card" x="32" y="396" width="200" height="64" rx="12"/>
+  <circle class="icon-bg" cx="58" cy="428" r="17"/>
+  <circle class="icon-line" cx="58" cy="428" r="6.5"/>
+  <path class="icon-line" d="M58 417 V420.5 M58 435.5 V439 M47 428 H50.5 M65.5 428 H69"/>
+  <circle class="icon-dot" cx="58" cy="428" r="2"/>
+  <text class="lbl" x="152" y="418" text-anchor="middle" dominant-baseline="central">Pose initializer</text>
+  <text class="sub" x="152" y="440" text-anchor="middle" dominant-baseline="central">Initial pose for the EKF</text>
 
-  <rect class="box primary" x="330" y="210" width="230" height="190" rx="18"/>
-  <circle class="icon-bg on" cx="445" cy="244" r="20"/>
-  <path class="icon-line" d="M435 235 L445 245 L455 235 M445 245 V255"/>
-  <circle class="icon-dot" cx="435" cy="235" r="2.6"/>
-  <circle class="icon-dot" cx="455" cy="235" r="2.6"/>
-  <circle class="icon-dot" cx="445" cy="255" r="2.6"/>
-  <text class="lbl on-primary" x="445" y="282" text-anchor="middle" dominant-baseline="central">Pose twist fusion filter</text>
-  <text class="sub on-primary" x="445" y="306" text-anchor="middle" dominant-baseline="central">EKF localizer, stop filter,</text>
-  <text class="sub on-primary" x="445" y="324" text-anchor="middle" dominant-baseline="central">and twist2accel</text>
+  <rect class="box primary" x="412" y="210" width="200" height="190" rx="18"/>
+  <circle class="icon-bg on" cx="512" cy="244" r="20"/>
+  <path class="icon-line" d="M502 235 L512 245 L522 235 M512 245 V255"/>
+  <circle class="icon-dot" cx="502" cy="235" r="2.6"/>
+  <circle class="icon-dot" cx="522" cy="235" r="2.6"/>
+  <circle class="icon-dot" cx="512" cy="255" r="2.6"/>
+  <text class="lbl on-primary" x="512" y="282" text-anchor="middle" dominant-baseline="central">Pose twist fusion filter</text>
+  <text class="sub on-primary" x="512" y="306" text-anchor="middle" dominant-baseline="central">EKF localizer, stop filter,</text>
+  <text class="sub on-primary" x="512" y="324" text-anchor="middle" dominant-baseline="central">and twist2accel</text>
 
-  <rect class="card" x="676" y="210" width="154" height="100" rx="12"/>
-  <text class="lbl" x="753" y="234" text-anchor="middle" dominant-baseline="central">Localization</text>
-  <text class="lbl" x="753" y="252" text-anchor="middle" dominant-baseline="central">diagnostics</text>
-  <text class="sub" x="753" y="276" text-anchor="middle" dominant-baseline="central">Error monitor and pose</text>
-  <text class="sub" x="753" y="294" text-anchor="middle" dominant-baseline="central">instability detector</text>
+  <rect class="card" x="684" y="210" width="146" height="100" rx="12"/>
+  <text class="lbl" x="757" y="234" text-anchor="middle" dominant-baseline="central">Localization</text>
+  <text class="lbl" x="757" y="252" text-anchor="middle" dominant-baseline="central">diagnostics</text>
+  <text class="sub" x="757" y="276" text-anchor="middle" dominant-baseline="central">Error monitor and pose</text>
+  <text class="sub" x="757" y="294" text-anchor="middle" dominant-baseline="central">instability detector</text>
 
-  <path class="edge accent" d="M260 250 H322"/>
-  <path class="flow flow-accent" pathLength="100" d="M260 250 H322"/>
-  <path class="edge accent head" d="M260 250 H322"/>
-  <text class="edge-lbl" x="295" y="250" text-anchor="middle" dominant-baseline="central">Pose</text>
-  <path class="edge accent" d="M260 338 H322"/>
-  <path class="flow flow-accent" pathLength="100" d="M260 338 H322"/>
-  <path class="edge accent head" d="M260 338 H322"/>
-  <text class="edge-lbl" x="295" y="338" text-anchor="middle" dominant-baseline="central">Twist</text>
-  <path class="edge" fill="none" d="M260 426 H296 V384 H322"/>
-  <path class="flow" pathLength="100" d="M260 426 H296 V384 H322"/>
-  <path class="edge head" fill="none" d="M260 426 H296 V384 H322"/>
-  <text class="edge-lbl" x="296" y="408" text-anchor="middle" dominant-baseline="central">Initial pose</text>
-  <path class="edge" d="M560 260 H668"/>
-  <path class="flow" pathLength="100" d="M560 260 H668"/>
-  <path class="edge head" d="M560 260 H668"/>
-  <text class="edge-lbl" x="614" y="260" text-anchor="middle" dominant-baseline="central">Kinematic state</text>
+  <path class="edge accent" d="M238 250 H404"/>
+  <path class="flow flow-accent" pathLength="100" d="M238 250 H404"/>
+  <path class="edge accent head" d="M238 250 H404"/>
+  <text class="edge-lbl code" x="318" y="222" text-anchor="middle" dominant-baseline="central">PoseWith</text>
+  <text class="edge-lbl code" x="318" y="237" text-anchor="middle" dominant-baseline="central">CovarianceStamped</text>
+  <path class="edge accent" d="M232 344 H404"/>
+  <path class="flow flow-accent" pathLength="100" d="M232 344 H404"/>
+  <path class="edge accent head" d="M232 344 H404"/>
+  <text class="edge-lbl code" x="318" y="316" text-anchor="middle" dominant-baseline="central">TwistWith</text>
+  <text class="edge-lbl code" x="318" y="331" text-anchor="middle" dominant-baseline="central">CovarianceStamped</text>
+  <path class="edge" fill="none" d="M232 428 H318 V384 H404"/>
+  <path class="flow" pathLength="100" d="M232 428 H318 V384 H404"/>
+  <path class="edge head" fill="none" d="M232 428 H318 V384 H404"/>
+  <text class="edge-lbl" x="318" y="406" text-anchor="middle" dominant-baseline="central">Initial pose</text>
+  <path class="edge" d="M612 260 H676"/>
+  <path class="flow" pathLength="100" d="M612 260 H676"/>
+  <path class="edge head" d="M612 260 H676"/>
+  <text class="edge-lbl" x="644" y="232" text-anchor="middle" dominant-baseline="central">Kinematic</text>
+  <text class="edge-lbl" x="644" y="247" text-anchor="middle" dominant-baseline="central">state</text>
 
   <!-- Outputs -->
-  <path class="edge accent" d="M445 400 V524"/>
-  <path class="flow flow-accent" pathLength="100" d="M445 400 V524"/>
-  <path class="edge accent head" d="M445 400 V524"/>
-  <text class="edge-lbl" x="445" y="511" text-anchor="middle" dominant-baseline="central">Pose, twist, acceleration, tf</text>
-  <path class="edge" d="M753 310 V524"/>
-  <path class="flow" pathLength="100" d="M753 310 V524"/>
-  <path class="edge head" d="M753 310 V524"/>
+  <path class="edge accent" d="M512 400 V524"/>
+  <path class="flow flow-accent" pathLength="100" d="M512 400 V524"/>
+  <path class="edge accent head" d="M512 400 V524"/>
+  <text class="edge-lbl" x="512" y="511" text-anchor="middle" dominant-baseline="central">Pose, twist, acceleration, tf</text>
+  <path class="edge" d="M757 310 V524"/>
+  <path class="flow" pathLength="100" d="M757 310 V524"/>
+  <path class="edge head" d="M757 310 V524"/>
 
   <rect class="glass-panel" x="16" y="532" width="828" height="92" rx="18"/>
   <text class="ttl" x="32" y="552">Outputs</text>

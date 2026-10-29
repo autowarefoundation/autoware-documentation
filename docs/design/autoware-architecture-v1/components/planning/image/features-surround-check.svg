@@ -101,8 +101,8 @@
   <line class="mark" x1="0" y1="158" x2="760" y2="158"/>
   <line class="mark dash" x1="0" y1="104" x2="760" y2="104"/>
 
-  <!-- Check area around the stopped ego vehicle -->
-  <rect class="area warn" x="250" y="14" width="160" height="90" rx="6"/>
+  <!-- Check area on all sides of the stopped ego vehicle (front, sides, and back) -->
+  <rect class="area warn" x="250" y="8" width="160" height="138" rx="6"/>
 
   <!-- Pedestrian in the check area -->
   <g class="pedestrian">
@@ -125,5 +125,5 @@
   <!-- The path is blocked -->
   <rect class="lanelet bad" x="412" y="63" width="288" height="28"/>
   <text class="note" x="330" y="184" text-anchor="middle" dominant-baseline="central">Do not start while an object is near</text>
-  <line class="leader" x1="330" y1="176" x2="330" y2="104"/>
+  <line class="leader" x1="330" y1="176" x2="330" y2="146"/>
 </svg>
