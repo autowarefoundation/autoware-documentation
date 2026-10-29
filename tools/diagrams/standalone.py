@@ -10,7 +10,7 @@ SVG into a page, so that the page uses the theme and follows the dark mode.
 
 The script reads the diagram rules and the light-mode colors from docs/assets/css/theme.css, and the shared
 markers, gradients, patterns, and filters from overrides/main.html. Each file gets only the rules and definitions
-that it uses. Run it again after you change one of these files or a diagram:
+that it uses. Run it again after you change one of these files or a diagram. It takes a folder or one SVG file:
 
     python3 tools/diagrams/standalone.py docs/design
 """
@@ -148,7 +148,7 @@ def main():
     values, rules = variables(css), diagram_rules(css)
     defs = definitions(TEMPLATE.read_text(encoding="utf-8"))
     count = 0
-    for path in sorted(folder.rglob("*.svg")):
+    for path in [folder] if folder.is_file() else sorted(folder.rglob("*.svg")):
         svg = path.read_text(encoding="utf-8")
         if 'class="' not in svg:
             continue
