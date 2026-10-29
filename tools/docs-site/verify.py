@@ -30,6 +30,7 @@ import sys
 import urllib.parse
 
 from assemble import DRAWIO_LINK
+from assemble import MEDIA_DIRECTORY
 from assemble import is_external
 
 REFERENCE_ATTRIBUTES = {"src", "href", "data", "poster"}
@@ -85,13 +86,40 @@ def read_page(path):
     return text, reader.pre, reader.references
 
 
+def describe(root, target):
+    """Return what a path holds, as far as resolving a reference can see it.
+
+    A shared file is named after its content, so only its existence counts.
+    """
+    full = Path(root) / target
+    if full.is_file():
+        if PurePosixPath(target).parts[:1] == (MEDIA_DIRECTORY,):
+            return "file"
+        return "file:" + hashlib.sha256(full.read_bytes()).hexdigest()
+    if full.is_dir():
+        return "page" if (full / "index.html").is_file() else "directory"
+    return "missing"
+
+
 class Resolver:
-    """Turn a reference into what it leads to: a file content, a page or a link."""
+    """Turn a reference into what it leads to: a file content, a page or a link.
+
+    The paths that a reference leads to outside the version of its page are
+    kept in `dependencies`, with what they held. The check of the version
+    depends on them, although they belong to another version or to the shared
+    files.
+    """
 
     def __init__(self, root, site_url):
         self.root = Path(root)
         self.site_url = site_url
         self.hashes = {}
+        self.dependencies = {}
+
+    def note(self, page, target):
+        """Keep a path that a reference of a page leads to, if it is outside its version."""
+        if PurePosixPath(target).parts[:1] != PurePosixPath(page).parts[:1]:
+            self.dependencies[target] = describe(self.root, target)
 
     def file_hash(self, path):
         if path not in self.hashes:
@@ -105,11 +133,14 @@ class Resolver:
             address = urllib.parse.unquote(match.group(2))
             if address.startswith(self.site_url):
                 relative = address[len(self.site_url) :].lstrip("/")
+                in_version = f"{PurePosixPath(page).parts[0]}/{relative}"
+                self.note(page, relative)
+                self.note(page, in_version)
                 path = self.root / relative
                 if not path.is_file():
                     # An address without the version, as the bundles of a
                     # release write it. The file sits in the version.
-                    path = self.root / PurePosixPath(page).parts[0] / relative
+                    path = self.root / in_version
                 return ("drawio", self.file_hash(path) if path.is_file() else "missing")
             return ("drawio", reference)
         if not reference or is_external(reference):
@@ -120,6 +151,7 @@ class Resolver:
         target = os.path.normpath(
             PurePosixPath(PurePosixPath(page).parent, urllib.parse.unquote(path)).as_posix()
         )
+        self.note(page, target)
         full = self.root / target
         if full.is_file() and full.suffix.lower() != ".html":
             return ("file", self.file_hash(full))
@@ -134,6 +166,15 @@ class Resolver:
 
 def verify_version(name, bundle, site, site_url):
     """Return the differences between a bundle and its version in the site."""
+    return verify_version_and_dependencies(name, bundle, site, site_url)[0]
+
+
+def verify_version_and_dependencies(name, bundle, site, site_url):
+    """Return the differences, and the paths outside the version that the check read.
+
+    The paths are kept separately for the bundles and for the site, each with
+    what it held, as `describe` returns it.
+    """
     problems = []
     bundle_resolver = Resolver(Path(bundle).parent, site_url)
     site_resolver = Resolver(site, site_url)
@@ -163,7 +204,8 @@ def verify_version(name, bundle, site, site_url):
             if attribute == "href" and tag == "link" and was[0] == "external":
                 continue  # The canonical address gets the name of the version.
             problems.append(f"{page}: <{tag} {attribute}={before!r}> led to {was}, now {now}")
-    return problems
+    dependencies = {"bundles": bundle_resolver.dependencies, "site": site_resolver.dependencies}
+    return problems, dependencies
 
 
 # The code and the packages that decide how a version is assembled and checked.
@@ -171,20 +213,18 @@ def verify_version(name, bundle, site, site_url):
 TOOL_FILES = ["assemble.py", "verify.py", "versions.py", "requirements.txt"]
 
 
-def environment_digest(site_url, names, directory=None):
+def environment_digest(site_url, directory=None):
     """Return a hash of what the check of every version depends on.
 
-    That is the code of the tools, their packages, the Python version, the
-    address of the site, and the names of all versions. A reference can lead
-    into another version, so a version that is added or removed checks the
-    other versions again.
+    That is the code of the tools, their packages, the Python version, and the
+    address of the site.
     """
     directory = Path(directory) if directory else Path(__file__).parent
     digest = hashlib.sha256()
     for tool in TOOL_FILES:
         digest.update(f"{tool}\0".encode())
         digest.update((directory / tool).read_bytes())
-    digest.update(f"{sys.version}\0{site_url}\0{chr(0).join(sorted(names))}".encode())
+    digest.update(f"{sys.version}\0{site_url}".encode())
     return digest.hexdigest()
 
 
@@ -192,8 +232,8 @@ def fingerprint(name, bundle, site, environment):
     """Return a hash of everything that the check of a version depends on.
 
     That is the environment from environment_digest, the built site of the
-    version, and its assembled pages. The shared files are named after their
-    content, so the pages that reference them cover them too.
+    version, and its assembled pages. The paths outside the version that the
+    check read are compared separately, by `dependencies_unchanged`.
     """
     digest = hashlib.sha256(environment.encode())
     roots = [(Path(bundle), "bundle"), (Path(site) / name, "site")]
@@ -205,15 +245,35 @@ def fingerprint(name, bundle, site, environment):
     return digest.hexdigest()
 
 
+def dependencies_unchanged(dependencies, bundles_root, site):
+    """Tell whether every path outside a version still holds what its check saw."""
+    if not isinstance(dependencies, dict):
+        return False
+    for label, root in (("bundles", bundles_root), ("site", site)):
+        paths = dependencies.get(label)
+        if not isinstance(paths, dict):
+            return False
+        for target, held in paths.items():
+            if describe(root, target) != held:
+                return False
+    return True
+
+
 def check_version(name, bundle, site, site_url, environment, verified):
     """Check one version, unless the same version passed the check before.
 
-    Return its fingerprint, and its problems or None if the check was skipped.
+    `verified` is the entry of the version in the state file. Return the new
+    entry, and the problems, or None if the check was skipped.
     """
     current = fingerprint(name, bundle, site, environment)
-    if verified == current:
-        return current, None
-    return current, verify_version(name, bundle, site, site_url)
+    if (
+        isinstance(verified, dict)
+        and verified.get("fingerprint") == current
+        and dependencies_unchanged(verified.get("dependencies"), Path(bundle).parent, site)
+    ):
+        return verified, None
+    problems, dependencies = verify_version_and_dependencies(name, bundle, site, site_url)
+    return {"fingerprint": current, "dependencies": dependencies}, problems
 
 
 def read_state(state):
@@ -234,15 +294,16 @@ def read_state(state):
 def verify_all(bundles, site, site_url, state=None):
     """Check every version of the site and print the result.
 
-    `state` is a JSON file that keeps the fingerprint of each version that
-    passed. A version with the same fingerprint is skipped, because nothing it
-    depends on changed. Return True if every version passed.
+    `state` is a JSON file that keeps, for each version that passed, its
+    fingerprint and the paths outside the version that its check read. A
+    version is skipped if both are unchanged, because nothing it depends on
+    changed. Return True if every version passed.
     """
     site_url = site_url if site_url.endswith("/") else site_url + "/"
     state = Path(state) if state else None
     verified = read_state(state)
     bundles = [bundle for bundle in sorted(Path(bundles).iterdir()) if bundle.is_dir()]
-    environment = environment_digest(site_url, [bundle.name for bundle in bundles])
+    environment = environment_digest(site_url)
     # The versions are independent, so they are checked at the same time.
     with ProcessPoolExecutor() as pool:
         results = list(
@@ -258,10 +319,10 @@ def verify_all(bundles, site, site_url, state=None):
         )
     passed = {}
     failed = False
-    for bundle, (current, problems) in zip(bundles, results):
+    for bundle, (entry, problems) in zip(bundles, results):
         if problems is None:
             print(f"{bundle.name}: unchanged since it passed, not checked again")
-            passed[bundle.name] = current
+            passed[bundle.name] = entry
             continue
         pages = len(list(bundle.rglob("*.html")))
         print(f"{bundle.name}: {pages} pages, {len(problems)} problems")
@@ -270,7 +331,7 @@ def verify_all(bundles, site, site_url, state=None):
         if problems:
             failed = True
         else:
-            passed[bundle.name] = current
+            passed[bundle.name] = entry
     if state:
         state.parent.mkdir(parents=True, exist_ok=True)
         state.write_text(json.dumps(passed, indent=2, sort_keys=True) + "\n", encoding="utf-8")

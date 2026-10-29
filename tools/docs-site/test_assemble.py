@@ -8,6 +8,7 @@ import gzip
 import hashlib
 from html.parser import HTMLParser
 import json
+import sys
 import urllib.parse
 
 from assemble import MEDIA_DIRECTORY
@@ -16,6 +17,7 @@ from assemble import media_name
 import pytest
 from verify import TOOL_FILES
 from verify import environment_digest
+from verify import main as verify_main
 from verify import verify_all
 from verify import verify_version
 
@@ -342,8 +344,7 @@ def test_verify_checks_a_version_again_when_its_bundle_changes(bundles, tmp_path
     assert "main: unchanged since it passed" in out
 
 
-def test_a_new_version_checks_the_other_versions_again(bundles, tmp_path, capsys):
-    # A reference can lead into another version, so the list of versions counts.
+def test_a_new_version_does_not_check_the_other_versions_again(bundles, tmp_path, capsys):
     output, _ = run(bundles, tmp_path)
     state = tmp_path / "verified.json"
     assert verify_all(bundles, output, SITE_URL, state)
@@ -352,8 +353,47 @@ def test_a_new_version_checks_the_other_versions_again(bundles, tmp_path, capsys
     capsys.readouterr()
     assert verify_all(bundles, output, SITE_URL, state)
     out = capsys.readouterr().out
-    assert "unchanged since it passed" not in out
+    assert "main: unchanged since it passed" in out
+    assert "1.9.0: unchanged since it passed" in out
+    assert "pr-7: 1 pages, 0 problems" in out
     assert sorted(json.loads(read(state))) == ["1.9.0", "main", "pr-7"]
+
+
+def test_a_change_in_another_version_checks_a_version_that_points_there(bundles, tmp_path, capsys):
+    # A release page points into main. The file does not exist yet, so the
+    # reference is broken in the built site and in the assembled site alike.
+    write(
+        bundles / "1.9.0" / "home" / "index.html",
+        page('<p>Hello</p><img src="../../main/home/new.png">'),
+    )
+    output, _ = run(bundles, tmp_path)
+    state = tmp_path / "verified.json"
+    assert verify_all(bundles, output, SITE_URL, state)
+
+    # main gets the file. The assembled site moves it to the shared files, so
+    # the reference of the release breaks, and the check must see that.
+    write(bundles / "main" / "home" / "new.png", OTHER_PNG)
+    write(bundles / "main" / "home" / "index.html", page('<p>Hello</p><img src="new.png">'))
+    output, _ = run(bundles, tmp_path)
+    capsys.readouterr()
+    assert not verify_all(bundles, output, SITE_URL, state)
+    out = capsys.readouterr().out
+    assert "1.9.0: unchanged since it passed" not in out
+    assert "new.png" in out
+    assert "1.9.0" not in json.loads(read(state))
+
+
+def test_the_command_line_keeps_the_state(bundles, tmp_path, monkeypatch, capsys):
+    output, _ = run(bundles, tmp_path)
+    state = tmp_path / "state" / "verified.json"
+    arguments = ["verify.py", "--bundles", str(bundles), "--site", str(output)]
+    arguments += ["--site-url", SITE_URL, "--state", str(state)]
+    monkeypatch.setattr(sys, "argv", arguments)
+    assert verify_main() == 0
+    assert sorted(json.loads(read(state))) == ["1.9.0", "main"]
+    capsys.readouterr()
+    assert verify_main() == 0
+    assert capsys.readouterr().out.count("unchanged since it passed") == 2
 
 
 @pytest.mark.parametrize("content", ["", "not json", "[1, 2]"])
@@ -367,13 +407,20 @@ def test_an_unreadable_state_checks_every_version(bundles, tmp_path, capsys, con
     assert sorted(json.loads(read(state))) == ["1.9.0", "main"]
 
 
-def test_the_environment_covers_the_tools_the_address_and_the_versions(tmp_path):
+def test_the_environment_covers_the_tools_the_packages_python_and_the_address(
+    tmp_path, monkeypatch
+):
     tools = tmp_path / "tools"
     for tool in TOOL_FILES:
         write(tools / tool, f"# {tool}")
-    first = environment_digest(SITE_URL, ["main", "1.9.0"], tools)
-    assert environment_digest(SITE_URL, ["1.9.0", "main"], tools) == first
-    assert environment_digest("https://example.com/", ["main", "1.9.0"], tools) != first
-    assert environment_digest(SITE_URL, ["main"], tools) != first
+    first = environment_digest(SITE_URL, tools)
+    assert environment_digest(SITE_URL, tools) == first
+    assert environment_digest("https://example.com/", tools) != first
+    write(tools / "requirements.txt", "minify-html==9.9.9")
+    second = environment_digest(SITE_URL, tools)
+    assert second != first
     write(tools / "assemble.py", "# changed")
-    assert environment_digest(SITE_URL, ["main", "1.9.0"], tools) != first
+    third = environment_digest(SITE_URL, tools)
+    assert third != second
+    monkeypatch.setattr(sys, "version", "9.9.9 (another Python)")
+    assert environment_digest(SITE_URL, tools) != third
