@@ -5,6 +5,9 @@
       "pattern": "^https://www\\.autosar\\.org/*"
     },
     {
+      "pattern": "^https://www\\.u-blox\\.com/"
+    },
+    {
       "pattern": "^http://localhost"
     },
     {

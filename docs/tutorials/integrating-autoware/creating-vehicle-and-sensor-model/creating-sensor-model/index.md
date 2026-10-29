@@ -950,7 +950,7 @@ For Example, necessary modifications for <YOUR-GNSS-SENSOR> should be like this:
 
 Also, you can remove dependencies and unused sensor launch files at `gnss.launch.xml`.
 For example,
-we will use [Clap B7 sensor](https://en.unicorecomm.com/assets/upload/file/CLAP-B7_Product_Brief_En.pdf) as a GNSS/INS and IMU sensor,
+we will use [Clap B7 sensor](https://www.unicore.com/assets/upload/file/CLAP-B7_Product_Brief_En.pdf) as a GNSS/INS and IMU sensor,
 and we will use [ntrip_client_ros](https://github.com/Robeff-Technology/ntrip_client) for RTK.
 Also, we will add these packages to [autoware.repos](https://github.com/leo-drive/autoware.tutorial_vehicle/blob/main/autoware.repos) file.
 

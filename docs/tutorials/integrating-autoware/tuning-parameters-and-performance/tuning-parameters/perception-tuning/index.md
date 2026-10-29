@@ -32,7 +32,7 @@ After that,
 we need
 to run the [TensorRT YOLO node](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_tensorrt_yolox) for our camera topics
 if it hasn't been launched on your sensor model.
-You can launch the tensorrt_yolo nodes by uncommenting the following lines in the [`camera_lidar_fusion_based_detection.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/main/tier4_universe_launch/tier4_perception_launch/launch/object_recognition/detection/detector/camera_lidar_detector.launch.xml)
+You can launch the tensorrt_yolo nodes by uncommenting the following lines in the [`camera_lidar_fusion_based_detection.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/tier4_universe_launch/tier4_perception_launch/launch/object_recognition/detection/detector/camera_lidar_detector.launch.xml)
 file:
 
 !!! note "Please adjust the following lines in the `camera_lidar_fusion_based_detection.launch.xml` file based on the number of your cameras (image_number)"
@@ -55,7 +55,7 @@ file:
   you can set these camera offsets to "0" as the initial value.
   Please be careful with the offset array size; it must be equal to your camera count.
 
-!!! note "[fusion_common.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/object_recognition/detection/image_projection_based_fusion/fusion_common.param.yaml) parameter file:"
+!!! note "[fusion_common.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/config/perception/object_recognition/detection/image_projection_based_fusion/fusion_common.param.yaml) parameter file:"
 
     ```diff
     - input_offset_ms: [61.67, 111.67, 45.0, 28.33, 78.33, 95.0] # 6 cameras
@@ -67,7 +67,7 @@ file:
   image_raw,
   and rois messages in the `tier4_perception_component.launch.xml` launch file.
 
-!!! note "[`tier4_perception_component.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/components/tier4_perception_component.launch.xml) launch file:"
+!!! note "[`tier4_perception_component.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/launch/components/tier4_perception_component.launch.xml) launch file:"
 
     ```diff
     - <arg name="image_raw0" default="/sensing/camera/camera0/image_rect_color" description="image raw topic name"/>
@@ -108,12 +108,12 @@ points on the high-slope roads with default configurations.
   for more information about these methods and their parameter definitions.
 
 - Firstly,
-  we will change the `global_slope_max_angle_deg` value from 10 to 30 degrees at [`ground_segmentation.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/obstacle_segmentation/ground_segmentation/ground_segmentation.param.yaml) parameter file.
+  we will change the `global_slope_max_angle_deg` value from 10 to 30 degrees at [`ground_segmentation.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/config/perception/obstacle_segmentation/ground_segmentation/ground_segmentation.param.yaml) parameter file.
   This change will reduce our false positive non-ground points.
   However, be cautious when increasing the threshold,
   as it may lead to an increase in the number of false negatives.
 
-!!! note "[`ground_segmentation.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/obstacle_segmentation/ground_segmentation/ground_segmentation.param.yaml) parameter file:"
+!!! note "[`ground_segmentation.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/config/perception/obstacle_segmentation/ground_segmentation/ground_segmentation.param.yaml) parameter file:"
 
     ```diff
     - global_slope_max_angle_deg: 10.0
@@ -124,7 +124,7 @@ points on the high-slope roads with default configurations.
   This adjustment will help in reducing false positive non-ground points,
   especially on step-like road surfaces or in cases of misaligned multiple lidar configurations.
 
-!!! note "[`ground_segmentation.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/obstacle_segmentation/ground_segmentation/ground_segmentation.param.yaml) parameter file:"
+!!! note "[`ground_segmentation.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/config/perception/obstacle_segmentation/ground_segmentation/ground_segmentation.param.yaml) parameter file:"
 
     ```diff
     - split_height_distance: 0.2
@@ -136,7 +136,7 @@ points on the high-slope roads with default configurations.
   but it may also decrease the number of true positive non-ground points
   that are below this threshold value.
 
-!!! note "[`ground_segmentation.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/obstacle_segmentation/ground_segmentation/ground_segmentation.param.yaml) parameter file:"
+!!! note "[`ground_segmentation.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/config/perception/obstacle_segmentation/ground_segmentation/ground_segmentation.param.yaml) parameter file:"
 
     ```diff
     - non_ground_height_threshold: 0.2
@@ -175,9 +175,9 @@ the false positive points will disappear from the same location.
   and predict these small objects, we aim to assign clusters to them as small as possible.
 
 - Firstly, we will change our object filter method from lanelet_filter to position_filter
-  to detect objects that are outside the lanelet boundaries at the [`tier4_perception_component.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/components/tier4_perception_component.launch.xml).
+  to detect objects that are outside the lanelet boundaries at the [`tier4_perception_component.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/launch/components/tier4_perception_component.launch.xml).
 
-!!! note "[`tier4_perception_component.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/components/tier4_perception_component.launch.xml) launch file:"
+!!! note "[`tier4_perception_component.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/launch/components/tier4_perception_component.launch.xml) launch file:"
 
     ```diff
     - <arg name="detected_objects_filter_method" default="lanelet_filter" description="options: lanelet_filter, position_filter"/>
@@ -196,9 +196,9 @@ the false positive points will disappear from the same location.
 
 - Now, we can detect unknown objects that are outside the lanelet map,
   but we still need to update the filter range
-  or disable the filter for unknown objects in the [`object_position_filter.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/object_recognition/detection/object_filter/object_position_filter.param.yaml) file.
+  or disable the filter for unknown objects in the [`object_position_filter.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/config/perception/object_recognition/detection/object_filter/object_position_filter.param.yaml) file.
 
-!!! note "[`object_position_filter.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/object_recognition/detection/object_filter/object_position_filter.param.yaml) parameter file:"
+!!! note "[`object_position_filter.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/config/perception/object_recognition/detection/object_filter/object_position_filter.param.yaml) parameter file:"
 
     ```diff
         upper_bound_x: 100.0
@@ -212,7 +212,7 @@ the false positive points will disappear from the same location.
 
 - Also, you can simply disable the filter for unknown labeled objects.
 
-!!! note "[`object_position_filter.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/object_recognition/detection/object_filter/object_position_filter.param.yaml) parameter file:"
+!!! note "[`object_position_filter.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/config/perception/object_recognition/detection/object_filter/object_position_filter.param.yaml) parameter file:"
 
     ```diff
     - UNKNOWN : true
@@ -226,7 +226,7 @@ the false positive points will disappear from the same location.
   Therefore,
   we will decrease the minimum cluster size to 1 in the `voxel_grid_based_euclidean_cluster.param.yaml` file.
 
-!!! note "[`voxel_grid_based_euclidean_cluster.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/object_recognition/detection/clustering/voxel_grid_based_euclidean_cluster.param.yaml) parameter file:"
+!!! note "[`voxel_grid_based_euclidean_cluster.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/config/perception/object_recognition/detection/clustering/voxel_grid_based_euclidean_cluster.param.yaml) parameter file:"
 
     ```diff
     - min_cluster_size: 10
