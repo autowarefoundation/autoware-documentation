@@ -32,6 +32,7 @@
 
 <div style="text-align: center;" markdown="1">
 
+[:fa-cl-s fa-rocket: Autoware 2.0 Release Notes <span class="aw-badge-new">NEW</span>](https://github.com/autowarefoundation/autoware/releases/tag/2.0.0){ .md-button .md-button--primary style="margin: 5px" }
 [:fa-cl-s fa-cubes: Autoware Index (Community Packages) <span class="aw-badge-new">NEW</span>](../installation/autoware/autoware-index.md){ .md-button .md-button--primary style="margin: 5px" }
 
 </div>
