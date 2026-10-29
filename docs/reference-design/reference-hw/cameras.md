@@ -2,7 +2,7 @@
 
 ## **TIER IV Automotive HDR Cameras**
 
-![camera-tieriv.png](images/camera-tieriv.png)
+![TIER IV Automotive HDR Cameras](images/camera-tier4.png)
 
 [TIER IV's Automotive HDR cameras](https://sensor.tier4.jp/automotive-camera) which have ROS 2 driver and tested by TIER IV are listed below:
 

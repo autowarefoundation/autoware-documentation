@@ -578,7 +578,7 @@ After that, you can just add your camera driver at `camera.launch.xml`:
 
 Then, you can launch tensorrt_yolo node via adding yolo.launch.xml on your design like that:
 (i.e.,
-it is included in [tier4_perception_launch](https://github.com/autowarefoundation/autoware_universe/blob/ad69c2851b7b84e12c9f0c3b177fb6a9032bf284/launch/tier4_perception_launch/launch/object_recognition/detection/camera_lidar_fusion_based_detection.launch.xml#L49-L59) package in autwoare.universe)
+it is included in [tier4_perception_launch](https://github.com/autowarefoundation/autoware_universe/blob/ad69c2851b7b84e12c9f0c3b177fb6a9032bf284/launch/tier4_perception_launch/launch/object_recognition/detection/camera_lidar_fusion_based_detection.launch.xml#L49-L59) package in autoware_universe)
 `image_number` argument defines your camera number
 
 ```xml
@@ -950,8 +950,8 @@ For Example, necessary modifications for <YOUR-GNSS-SENSOR> should be like this:
 
 Also, you can remove dependencies and unused sensor launch files at `gnss.launch.xml`.
 For example,
-we will use [Clap B7 sensor](https://en.unicorecomm.com/assets/upload/file/CLAP-B7_Product_Brief_En.pdf) as a GNSS/INS and IMU sensor,
-and we will use [nrtip_client_ros](https://github.com/Robeff-Technology/ntrip_client) for RTK.
+we will use [Clap B7 sensor](https://www.unicore.com/assets/upload/file/CLAP-B7_Product_Brief_En.pdf) as a GNSS/INS and IMU sensor,
+and we will use [ntrip_client_ros](https://github.com/Robeff-Technology/ntrip_client) for RTK.
 Also, we will add these packages to [autoware.repos](https://github.com/leo-drive/autoware.tutorial_vehicle/blob/main/autoware.repos) file.
 
 ```diff

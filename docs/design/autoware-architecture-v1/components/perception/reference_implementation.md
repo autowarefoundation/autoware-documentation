@@ -40,10 +40,10 @@ The Perception component consists of the following sub-components:
 Autoware primarily uses ML-based methods for 3D detection, referred to as **Base 3D Detection**.
 Available methods include:
 
-- [CenterPoint](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_lidar_centerpoint)
-- [TransFusion-L](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_lidar_transfusion)
+- [CenterPoint](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_lidar_centerpoint)
+- [TransFusion-L](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_lidar_transfusion)
 - [BEVFusion-L](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_bevfusion)
-- [Apollo instance segmentation](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_lidar_apollo_instance_segmentation) + [shape estimation](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_shape_estimation)
+- [Apollo instance segmentation](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_lidar_apollo_instance_segmentation) + [shape estimation](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_shape_estimation)
 
 The detection range for `Base 3D Detection` typically falls between 90m and 120m, depending on the specific case.
 If you wish to use Camera-LiDAR fusion, models like BEVFusion-CL (the model of Camera-LiDAR fusion) can be integrated.
@@ -99,7 +99,7 @@ Therefore, we recommend avoiding this pipeline in situations where processing ti
 
 ### Multi-Object Tracking v2
 
-**Multi-Object Tracking v2** is based on existing [multi_object_tracker](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_multi_object_tracker) and illustrated below:
+**Multi-Object Tracking v2** is based on existing [multi_object_tracker](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_multi_object_tracker) and illustrated below:
 
 ![](image/multi_object_tracking.drawio.svg)
 
@@ -107,7 +107,7 @@ The key features are as follows.
 
 - **Priority Object Merger**
 
-`Priority Object Merger` introduces new features compared to the existing [object_merger](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/autoware_object_merger).
+`Priority Object Merger` introduces new features compared to the existing [object_merger](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_object_merger).
 `Priority Object Merger` can handle multiple inputs, reducing the need for multiple `object_merger` nodes.
 It leads to be easy to debug.
 

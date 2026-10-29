@@ -3,7 +3,7 @@
 ## Overview
 
 In this tutorial,
-we will explain lidar-lidar calibration over [mapping-based lidar-lidar calibration tool](https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_extrinsic_mapping_based.md) of TIER IV's
+we will explain lidar-lidar calibration over [mapping-based lidar-lidar calibration tool](https://github.com/tier4/CalibrationTools/blob/148b6e5586a330d030b787fa49ef41cdd0d5cf59/sensor/docs/how_to_extrinsic_mapping_based.md) of TIER IV's
 CalibrationTools.
 
 !!! warning
@@ -22,7 +22,7 @@ point cloud for mapping because this point cloud
 includes a cropped vehicle point cloud. Therefore,
 vehicle points are not included in the map. When you start
 the bag recording,
-you should not move the vehicle for the first 5 seconds for better mapping performace.
+you should not move the vehicle for the first 5 seconds for better mapping performance.
 The following shows an example of a bag file used for this calibration:
 
 ??? note "ROS 2 Bag example of our calibration process for tutorial_vehicle"
@@ -56,7 +56,7 @@ touch mapping_based.launch.xml mapping_based_sensor_kit.launch.xml
 
 We will be modifying these `mapping_based.launch.xml` and `mapping_based_sensor_kit.launch.xml` by using TIER IV's sample sensor kit aip_x1.
 So,
-you should copy the contents of these two files from [aip_x1](https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1) to your created files.
+you should copy the contents of these two files from [aip_x1](https://github.com/tier4/CalibrationTools/tree/43ad25d17dc4d163d31bc5ea4a756c5a96dc5c0c/sensor/extrinsic_calibration_manager/launch/aip_x1) to your created files.
 
 Then we will continue with adding vehicle_id and sensor model names to the `mapping_based.launch.xml`:
 (Optionally, values are not important. These parameters will be overridden by launch arguments)

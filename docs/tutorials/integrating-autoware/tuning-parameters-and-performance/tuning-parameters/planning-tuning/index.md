@@ -19,7 +19,7 @@ It loads modules as plugins. Please refer to the package documentation for more
 information about these modules.
 
 To enable or disable Behavior velocity planner modules,
-we will enable or disable the necessary plugin modules in the [`default_preset.yaml` file](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/preset/default_preset.yaml) according to our preferences.
+we will enable or disable the necessary plugin modules in the [`default_preset.yaml` file](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/config/planning/preset/default_preset.yaml) according to our preferences.
 
 - For example, in the YTU campus environment, there are many speed bumps, pedestrians, and specific areas where autonomous driving is not permitted.
   We will enable the following three modules to handle these conditions:
@@ -30,7 +30,7 @@ To enable these modules,
 we need to set the launch\_<MODULE-NAME> argument
 to `true` for these modules in the `default_preset.yaml` parameter file:
 
-!!! note "[`default_preset.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/preset/default_preset.yaml) parameter file:"
+!!! note "[`default_preset.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/config/planning/preset/default_preset.yaml) parameter file:"
 
     ```diff
     arg:
@@ -50,7 +50,7 @@ to `true` for these modules in the `default_preset.yaml` parameter file:
   we will decrease the default speed bump velocity limits in the `speed_bump.param.yaml`
   to allow for minimum and maximum speeds when going over speed bumps.
 
-!!! note "[`speed_bump.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/speed_bump.param.yaml) parameter file:"
+!!! note "[`speed_bump.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/speed_bump.param.yaml) parameter file:"
 
     ```diff
     - min_speed: 1.39  # [m/s] = [5 kph]
@@ -65,7 +65,7 @@ to `true` for these modules in the `default_preset.yaml` parameter file:
   about these parameters. It is essential to fine-tune these modules
   based on your specific vehicle and environmental conditions.
 
-!!! note "[`speed_bump.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/speed_bump.param.yaml) parameter file:"
+!!! note "[`speed_bump.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/speed_bump.param.yaml) parameter file:"
 
     ```diff
     - slow_start_margin: 1.0 [m]
@@ -114,7 +114,7 @@ the path can be shifted to the opposite lane if the ego vehicle cannot fit in th
 - To disable the use of the opposite lanelet in the avoidance, we will set `use_lane_type`
   to `same_direction_lane` in the `static_obstacle_avoidance.param.yaml` file:
 
-!!! note "[`static_obstacle_avoidance.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/autoware_behavior_path_static_obstacle_avoidance_module/static_obstacle_avoidance.param.yaml) parameter file:"
+!!! note "[`static_obstacle_avoidance.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/autoware_behavior_path_static_obstacle_avoidance_module/static_obstacle_avoidance.param.yaml) parameter file:"
 
     ```diff
       avoidance:
@@ -143,7 +143,7 @@ You can adjust these changes to any target object according to your preference.
 For more information on these parameters, please refer to
 the [avoidance module documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_static_obstacle_avoidance_module/).
 
-!!! note "[`static_obstacle_avoidance.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/autoware_behavior_path_static_obstacle_avoidance_module/static_obstacle_avoidance.param.yaml) parameter file:"
+!!! note "[`static_obstacle_avoidance.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/autoware_behavior_path_static_obstacle_avoidance_module/static_obstacle_avoidance.param.yaml) parameter file:"
 
     ```diff
       avoidance:
@@ -166,10 +166,10 @@ such that the shifted path fits within the lanelet.
   In the YTU campus environment, as mentioned earlier, there are many
   pedestrians, and we do not want to perform avoidance maneuvers for them.
   Therefore, we will disable the avoidance maneuver for pedestrians by
-  modifying the target value in the [`static_obstacle_avoidance.param.yaml` file](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/autoware_behavior_path_static_obstacle_avoidance_module/static_obstacle_avoidance.param.yaml).
+  modifying the target value in the [`static_obstacle_avoidance.param.yaml` file](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/autoware_behavior_path_static_obstacle_avoidance_module/static_obstacle_avoidance.param.yaml).
   You can disable any target object according to your preference.
 
-!!! note "[`static_obstacle_avoidance.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/autoware_behavior_path_static_obstacle_avoidance_module/static_obstacle_avoidance.param.yaml) parameter file:"
+!!! note "[`static_obstacle_avoidance.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/autoware_behavior_path_static_obstacle_avoidance_module/static_obstacle_avoidance.param.yaml) parameter file:"
 
     ```diff
       avoidance:
@@ -242,7 +242,7 @@ This provides higher accuracy than estimating the velocity on the planning side.
 To determine which stop planner is being used,
 please update the motion_stop_planner_type parameter in the `default_preset.yaml` file:
 
-!!! note "[`default_preset.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/preset/default_preset.yaml) parameter file:"
+!!! note "[`default_preset.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/config/planning/preset/default_preset.yaml) parameter file:"
 
     ```yaml
       - arg:
@@ -260,7 +260,7 @@ we will increase the lateral margin for detection area.
 For more information on the parameters and inner working algorithms of the obstacle stop planner,
 please refer to the [documentation page](https://autowarefoundation.github.io/autoware_core/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_stop_module/).
 
-!!! note "[`obstacle_stop_planner.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/lane_driving/motion_planning/motion_velocity_planner/obstacle_stop.param.yaml) parameter file:"
+!!! note "[`obstacle_stop_planner.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.52.0/autoware_launch/config/planning/scenario_planning/lane_driving/motion_planning/motion_velocity_planner/obstacle_stop.param.yaml) parameter file:"
 
     ```diff
       detection_area:
@@ -283,4 +283,4 @@ it inserts a stop point behind the detected point cloud with the maximum longitu
 Autoware has a lot of changeable parameters and methods.
 The mentioned sample parameter tuning examples are just a small part of what is possible.
 For more information on the modules and their parameters,
-please refer to the [Autoware Universe documentation](https://autowarefoundation.github.io/autoware.universe/main/).
+please refer to the [Autoware Universe documentation](https://autowarefoundation.github.io/autoware_universe/main/).

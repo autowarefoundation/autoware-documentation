@@ -69,4 +69,4 @@ These Selector functions are implemented as plugins, allowing developers to cust
   - <https://github.com/orgs/autowarefoundation/discussions/5033>
   - <https://github.com/orgs/autowarefoundation/discussions/6301>
 - Proposed Architecture Interface: <https://github.com/tier4/new_planning_framework/wiki>
-- Migration plan for introducing new generator-selector framework: [Enable generator-selector planning framework #6292](https://github.com/autowarefoundation/autoware.universe/pull/6292)
+- Migration plan for introducing new generator-selector framework: [Enable generator-selector planning framework #6292](https://github.com/autowarefoundation/autoware_universe/pull/6292)
