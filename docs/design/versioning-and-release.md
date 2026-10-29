@@ -12,9 +12,11 @@ Autoware has many repositories that are expected to work together.
 
 When doing a release, we first make releases from sub-repositories such as `autoware_core`, `autoware_universe`, etc.
 
-⚠️ The release version of Autoware is going to be same as the version of the newly released `autoware_core`.
+⚠️ Autoware has its own version number. It does not follow the version of `autoware_core` or of any other sub-repository. For example, Autoware `2.0.0` uses `autoware_core` `1.10.0`.
 
-ℹ️ The rest of the repositories can track their own versions.
+ℹ️ Each sub-repository tracks its own version. The `repositories/autoware.repos` file at each Autoware release tag records the version of each sub-repository.
+
+Before Autoware `2.0.0`, the Autoware version was the same as the `autoware_core` version.
 
 Some repositories might not have changed at all, we can refer to their existing versions.
 

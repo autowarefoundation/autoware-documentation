@@ -4,17 +4,17 @@ status: new
 
 # Autoware Index
 
-The [Autoware Index](https://autowarefoundation.github.io/autoware-index/) is a registry of community ROS 2 packages that extend Autoware.
+The [Autoware Index](https://index.autoware.org/) is a registry of community ROS 2 packages that extend Autoware.
 It records which packages exist, where their source lives, and whether each one builds and passes tests against the latest Autoware release.
 
 <div style="text-align: center;" markdown="1">
 
-[:fa-cl-s fa-magnifying-glass: Browse Packages](https://autowarefoundation.github.io/autoware-index/){ .md-button style="margin: 5px" }
-[:fa-cl-s fa-circle-plus: Register Your Packages](https://autowarefoundation.github.io/autoware-index/register.html){ .md-button style="margin: 5px" }
+[:fa-cl-s fa-magnifying-glass: Browse Packages](https://index.autoware.org/){ .md-button style="margin: 5px" }
+[:fa-cl-s fa-circle-plus: Register Your Packages](https://index.autoware.org/register.html){ .md-button style="margin: 5px" }
 
 </div>
 
-[![The Autoware Index browse site](images/autoware-index/browse-site.png)](https://autowarefoundation.github.io/autoware-index/)
+[![The Autoware Index browse site](images/autoware-index/browse-site.png)](https://index.autoware.org/)
 
 A regular [source installation](source-installation.md) does not require the Autoware Index.
 Use it when you want community or extra packages that are not part of the default workspace:
@@ -23,7 +23,7 @@ you select packages from the registry, generate a `.repos` file from your select
 There are two ways to generate the file:
 
 - [`aw-index-cli`](https://github.com/autowarefoundation/aw-index-cli): a command line tool that composes it from the registry.
-- The [browse site](https://autowarefoundation.github.io/autoware-index/): its **Repos builder** composes and downloads the same file in your browser.
+- The [browse site](https://index.autoware.org/): its **Repos builder** composes and downloads the same file in your browser.
 
 ## Using `aw-index-cli`
 
@@ -50,9 +50,13 @@ There are two ways to generate the file:
 
    # Select by tags. A package matches if it carries any of the listed tags.
    aw-index-cli compose --rosdistro jazzy --tags sensing perception
+
+   # Select only the entries that are a Reference Design (aw-index-cli 0.5.0 or newer).
+   aw-index-cli compose --rosdistro jazzy --reference-design
    ```
 
-   When combined, the `--packages`, `--repository`, and `--tags` filters are ANDed.
+   When combined, the `--packages`, `--repository`, `--tags`, and `--reference-design` filters are ANDed.
+   A [Reference Design](../../reference-design/index.md) entry is a complete system that others can reproduce, for example [Vision Pilot](https://github.com/autowarefoundation/vision_pilot).
    Use the `--rosdistro` value that matches your ROS 2 distribution.
    The available distributions are listed in the [autoware-index](https://github.com/autowarefoundation/autoware-index/tree/main/distributions) repository.
 
@@ -97,7 +101,7 @@ aw-index-cli list --rosdistro jazzy
 
 If you prefer not to install anything:
 
-1. Pick your packages on the [browse site](https://autowarefoundation.github.io/autoware-index/).
+1. Pick your packages on the [browse site](https://index.autoware.org/).
 2. Open the **Repos builder** panel and download your selection as `autoware-index.repos`.
 3. Move the file into the `repositories` directory of your workspace and import it:
 
@@ -111,7 +115,7 @@ If you prefer not to install anything:
 
 To make your own packages available through the index, register them in the [autoware-index](https://github.com/autowarefoundation/autoware-index) repository:
 
-- Use the [guided register page](https://autowarefoundation.github.io/autoware-index/register.html).
+- Use the [guided register page](https://index.autoware.org/register.html).
   It writes the registry entry for you, runs the same checks as the pull request gate, and opens the pull request on your behalf.
 - Or register by hand: fork the repository, add one entry under `repositories:` in `distributions/<distro>.yaml` for each distribution you support, and open a pull request.
 

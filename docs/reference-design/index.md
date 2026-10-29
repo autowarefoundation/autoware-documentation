@@ -2,6 +2,10 @@
 
 Autoware has been developed and deployed in several autonomous vehicle projects. These projects range from prototypes, research platforms, education platforms, racing vehicles, commercial vehicles and utility vehicles. The pages in this section elaborate their designs, including hardware and software, for these projects.
 
+A Reference Design combines a Deployment Profile with a Reference Software Stack. The Deployment Profile describes the vehicle, the operating conditions and the use case. The Reference Software Stack lists the modules, the model versions and the parameters. The result is a documented system that others can reproduce.
+
+The [Autoware Index](../installation/autoware/autoware-index.md) marks the entries that are a Reference Design. [Vision Pilot](https://github.com/autowarefoundation/vision_pilot) is one of them. To add these entries to your workspace, run `aw-index-cli compose --rosdistro jazzy --reference-design`.
+
 The get started page provides the decision trees to find the reference design guideline that meet your needs. One can select the guideline according to the technology maturity, environment, budget, etc. You can start the process [here](./get-started/find-your-reference-design.md).
 
 Below are the lists of the design guidelines.

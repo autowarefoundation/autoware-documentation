@@ -27,10 +27,10 @@ sudo apt-get -y install git
    cd autoware
    ```
 
-   By default, this checks out the `main` branch, which contains the latest in-development changes. If you want to use a stable release, check out the corresponding release tag. For example, to use the `1.9.0` release (compatible with both ROS 2 Humble and Jazzy):
+   By default, this checks out the `main` branch, which contains the latest in-development changes. If you want to use a stable release, check out the corresponding release tag. For example, to use the `2.0.0` release (compatible with both ROS 2 Humble and Jazzy):
 
    ```bash
-   git checkout 1.9.0
+   git checkout 2.0.0
    ```
 
    The list of available tags can be found on the [autoware releases page](https://github.com/autowarefoundation/autoware/releases).
@@ -113,7 +113,7 @@ sudo apt-get -y install git
 2. Add community packages to your workspace. _(optional)_ <span class="aw-badge-new">NEW</span>
 
    The [Autoware Index](autoware-index.md) is a registry of community packages that extend Autoware, each built and tested against the latest Autoware release.
-   Pick packages on its [browse site](https://autowarefoundation.github.io/autoware-index/) or with `aw-index-cli` to generate `repositories/autoware-index.repos`, then import it the same way:
+   Pick packages on its [browse site](https://index.autoware.org/) or with `aw-index-cli` to generate `repositories/autoware-index.repos`, then import it the same way:
 
    ```bash
    vcs import src < repositories/autoware-index.repos
@@ -153,6 +153,19 @@ sudo apt-get -y install git
 7. Apply the settings recommended in [Console settings for ROS 2](../../installation/additional-settings-for-developers/console-settings.md) for a better development experience. _(optional)_
 
 ## How to update a workspace
+
+!!! warning "Upgrade from 1.9.0 or older to 2.0.0"
+
+    Autoware 2.0.0 downloads the AI models from [Hugging Face](https://huggingface.co/AutowareFoundation). The models use one folder per variant, for example `lidar_centerpoint/tiny/`. The 2.0.0 launch files read only this layout.
+
+    After you update the workspace, download the models again:
+
+    ```bash
+    ansible-galaxy collection install -f -r ansible-galaxy-requirements.yaml
+    ansible-playbook autoware.dev_env.install_dev_env --tags artifacts
+    ```
+
+    `autoware_livox_tag_filter` moved from `autoware_universe` to the [Autoware Index](autoware-index.md). If you use it, add it to your workspace with `aw-index-cli`.
 
 1. Update the `.repos` file.
 
