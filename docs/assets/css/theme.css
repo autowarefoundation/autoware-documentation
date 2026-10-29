@@ -502,7 +502,7 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
 }
 
 .md-typeset .grid.aw-cards--small {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
 }
 
 .md-typeset .aw-cards > ul > li {
@@ -837,6 +837,10 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
   color: var(--md-default-fg-color--light);
 }
 
+.md-typeset .aw-features--small {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+}
+
 .md-typeset .aw-features--compact {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
 }
@@ -1067,5 +1071,746 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
 
   .md-typeset .aw-method__actions > p {
     flex-flow: row wrap;
+  }
+}
+
+/* Numbered steps: an ordered list with gradient number badges. */
+.md-typeset .aw-steps > ol {
+  padding: 0;
+  margin: 1.2rem 0;
+  list-style: none;
+  counter-reset: aw-step;
+}
+
+.md-typeset .aw-steps > ol > li {
+  position: relative;
+  min-height: 1.6rem;
+  padding: 0.15rem 0 0 2.4rem;
+  margin: 0 0 0.8rem;
+  counter-increment: aw-step;
+}
+
+.md-typeset .aw-steps > ol > li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+  content: counter(aw-step);
+  background: linear-gradient(135deg, var(--aw-indigo), var(--aw-cyan));
+  border-radius: 50%;
+}
+
+/* Lines between the steps join the number badges into one path. */
+.md-typeset .aw-steps > ol > li:not(:last-child)::after {
+  position: absolute;
+  top: 1.7rem;
+  bottom: -0.7rem;
+  left: 0.8rem;
+  width: 2px;
+  content: "";
+  background: var(--md-default-fg-color--lightest);
+}
+
+/* A pipeline: steps in one row with arrows between them. On small screens, the steps stack. */
+.md-typeset .aw-pipeline > ul {
+  display: flex;
+  gap: 1.6rem;
+  padding: 0;
+  margin: 1.2rem 0;
+  list-style: none;
+}
+
+.md-typeset .aw-pipeline > ul > li {
+  position: relative;
+  display: flex;
+  flex: 1;
+  gap: 0.6rem;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  margin: 0;
+  font-size: 0.7rem;
+  background-color: color-mix(in srgb, var(--md-typeset-a-color) 6%, var(--md-default-bg-color));
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.8rem;
+}
+
+.md-typeset .aw-pipeline > ul > li > i {
+  font-size: 1rem;
+  color: var(--md-typeset-a-color);
+}
+
+.md-typeset .aw-pipeline > ul > li:not(:last-child)::after {
+  position: absolute;
+  top: 50%;
+  right: -1.2rem;
+  font-size: 0.9rem;
+  color: var(--md-default-fg-color--lighter);
+  content: "\2192";
+  transform: translateY(-50%);
+}
+
+/* Nested layers: the inner layers are the base that the outer layers build on. */
+.md-typeset .aw-layers {
+  margin: 1.6rem 0;
+  font-size: 0.7rem;
+}
+
+.md-typeset .aw-layers p {
+  margin: 0;
+}
+
+.md-typeset .aw-layers__layer {
+  padding: 0.9rem 1rem 1rem;
+  border-radius: 1rem;
+}
+
+.md-typeset .aw-layers__layer > .aw-layers__layer {
+  margin-top: 0.8rem;
+}
+
+.md-typeset .aw-layers__name {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.md-typeset .aw-layers__text {
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .aw-layers__layer--index {
+  border: 1px dashed var(--md-default-fg-color--lighter);
+}
+
+.md-typeset .aw-layers__layer--universe {
+  background-color: color-mix(in srgb, var(--aw-cyan) 9%, var(--md-default-bg-color));
+  border: 1px solid color-mix(in srgb, var(--aw-cyan) 35%, transparent);
+}
+
+.md-typeset .aw-layers__layer--core {
+  color: #fff;
+  background:
+    radial-gradient(18rem 8rem at 85% 0%, #00c8ff4d, transparent 70%),
+    linear-gradient(135deg, var(--aw-indigo), #2a1fa8);
+  box-shadow: 0 1rem 2rem -1.2rem #3f2ee3b3;
+}
+
+.md-typeset .aw-layers__layer--core .aw-layers__text {
+  color: #ffffffbf;
+}
+
+@media screen and (max-width: 44.984375em) {
+  .md-typeset .aw-pipeline > ul {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .md-typeset .aw-pipeline > ul > li:not(:last-child)::after {
+    top: auto;
+    right: auto;
+    bottom: -1.05rem;
+    left: 1.4rem;
+    content: "\2193";
+    transform: none;
+  }
+}
+
+/*
+ * Diagrams (see tools/diagrams/README.md). The diagram() macro puts each SVG into the page, so its classes take
+ * these colors and follow the dark mode. The tokens are on the body, so the shared arrow heads get them too.
+ */
+[data-md-color-scheme] {
+  --aw-d-bg: var(--md-default-bg-color);
+  --aw-d-fg: var(--md-default-fg-color);
+  --aw-d-muted: var(--md-default-fg-color--light);
+  --aw-d-line: color-mix(in srgb, var(--md-default-fg-color) 50%, transparent);
+  --aw-d-accent: var(--aw-c-cyan);
+  --aw-d-node: var(--md-default-bg-color);
+  --aw-d-node-stroke: color-mix(in srgb, var(--aw-c-indigo) 45%, transparent);
+  --aw-d-group: color-mix(in srgb, var(--aw-c-indigo) 6%, var(--md-default-bg-color));
+  --aw-d-group-stroke: color-mix(in srgb, var(--aw-c-indigo) 25%, transparent);
+}
+
+.aw-diagram-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.aw-d-arrow {
+  fill: var(--aw-d-line);
+}
+
+.aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+}
+
+.md-typeset .aw-diagram {
+  --aw-d-bg: color-mix(in srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color));
+
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1rem;
+  margin: 1.6em 0;
+  overflow-x: auto;
+  background-color: var(--aw-d-bg);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.9rem;
+}
+
+.md-typeset .aw-diagram > svg {
+  display: block;
+  width: 100%;
+  min-width: 34rem;
+  height: auto;
+  margin: 0 auto;
+  font-family: var(--md-text-font-family);
+}
+
+.md-typeset .aw-diagram > figcaption {
+  max-width: none;
+  margin: 0.8rem 0 0;
+  font-size: 0.65rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* Boxes */
+.aw-diagram .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+}
+
+.aw-diagram .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+}
+
+.aw-diagram .box.ai {
+  fill: color-mix(in srgb, var(--aw-cyan) 14%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-cyan) 70%, transparent);
+}
+
+.aw-diagram .box.ok {
+  fill: color-mix(in srgb, var(--aw-green) 14%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-c-green) 70%, transparent);
+}
+
+.aw-diagram .box.warn {
+  fill: color-mix(in srgb, var(--aw-crimson) 10%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-c-crimson) 70%, transparent);
+}
+
+.aw-diagram .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+}
+
+.aw-diagram .box.ext {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-dasharray: 6 5;
+}
+
+.aw-diagram .group {
+  fill: var(--aw-d-group);
+  stroke: var(--aw-d-group-stroke);
+  stroke-width: 1.5;
+}
+
+.aw-diagram .group.ai {
+  fill: color-mix(in srgb, var(--aw-cyan) 7%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-cyan) 45%, transparent);
+}
+
+.aw-diagram .group.dashed {
+  stroke-dasharray: 7 5;
+}
+
+/* Text */
+.aw-diagram text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+}
+
+.aw-diagram .lbl {
+  font-weight: 600;
+}
+
+.aw-diagram .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+}
+
+.aw-diagram .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+}
+
+.aw-diagram .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.aw-diagram .on-primary {
+  fill: #fff;
+}
+
+.aw-diagram .on-primary.sub {
+  fill: #ffffffc7;
+}
+
+.aw-diagram .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+}
+
+/* Lines */
+.aw-diagram .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+}
+
+.aw-diagram .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+}
+
+.aw-diagram .edge.both {
+  marker-start: url("#aw-arrow");
+}
+
+.aw-diagram .edge.accent.both {
+  marker-start: url("#aw-arrow-accent");
+}
+
+.aw-diagram .edge.dash {
+  stroke-dasharray: 6 5;
+}
+
+.aw-diagram .edge.plain {
+  marker-end: none;
+}
+
+.aw-diagram .icon {
+  fill: var(--aw-d-muted);
+}
+
+.aw-d-arrow--route {
+  fill: var(--aw-c-green);
+}
+
+/*
+ * Map illustrations: roads, lane markings, lanelets, and vehicles. The road colors stay the same in both modes,
+ * because they show real road surfaces.
+ */
+.aw-diagram .road {
+  fill: #5c6070;
+}
+
+.aw-diagram .shoulder {
+  fill: #8d91a0;
+}
+
+.aw-diagram .sidewalk {
+  fill: #b9bcc8;
+}
+
+.aw-diagram .mark {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+}
+
+.aw-diagram .mark.dash {
+  stroke-dasharray: 14 10;
+}
+
+.aw-diagram .mark.yellow {
+  stroke: #ffc233;
+}
+
+.aw-diagram .mark.thick {
+  stroke-width: 7;
+}
+
+.aw-diagram .lanelet {
+  fill: color-mix(in srgb, var(--aw-indigo) 38%, transparent);
+  stroke: none;
+}
+
+.aw-diagram .lanelet.alt {
+  fill: color-mix(in srgb, var(--aw-cyan) 40%, transparent);
+}
+
+.aw-diagram .lanelet.bad {
+  fill: color-mix(in srgb, var(--aw-crimson) 35%, transparent);
+}
+
+.aw-diagram .area {
+  fill: color-mix(in srgb, var(--aw-green) 25%, transparent);
+  stroke: var(--aw-c-green);
+  stroke-width: 2;
+  stroke-dasharray: 6 4;
+}
+
+.aw-diagram .area.warn {
+  fill: color-mix(in srgb, var(--aw-crimson) 22%, transparent);
+  stroke: var(--aw-c-crimson);
+}
+
+.aw-diagram .bound {
+  fill: none;
+  stroke: var(--aw-cyan);
+  stroke-width: 2.5;
+}
+
+.aw-diagram .bound.alt {
+  stroke: #ff7076;
+}
+
+.aw-diagram .bound.point {
+  fill: var(--aw-cyan);
+  stroke: none;
+}
+
+.aw-diagram .route {
+  fill: none;
+  stroke: var(--aw-c-green);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  marker-end: url("#aw-arrow-route");
+}
+
+.aw-diagram .route.plain {
+  marker-end: none;
+}
+
+.aw-diagram .car {
+  fill: var(--aw-indigo);
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+
+.aw-diagram .car.other {
+  fill: var(--aw-crimson);
+}
+
+.aw-diagram .car.npc {
+  fill: #8d91a0;
+}
+
+.aw-diagram .glass {
+  fill: #ffffffb3;
+}
+
+.aw-diagram .sign {
+  fill: #fff;
+  stroke: var(--aw-crimson);
+  stroke-width: 5;
+}
+
+.aw-diagram .sign-text {
+  font-weight: 700;
+  fill: #00002a;
+}
+
+.aw-diagram .light-housing {
+  fill: #1b1d29;
+  stroke: #8d91a0;
+  stroke-width: 1.5;
+}
+
+.aw-diagram .light-red {
+  fill: #ff3b4e;
+}
+
+.aw-diagram .light-yellow {
+  fill: #ffc233;
+}
+
+.aw-diagram .light-green {
+  fill: #00e678;
+}
+
+.aw-diagram .light-off {
+  fill: #4a4d5c;
+}
+
+.aw-diagram .leader {
+  fill: none;
+  stroke: var(--aw-d-muted);
+  stroke-width: 1;
+}
+
+.aw-diagram .note {
+  font-size: 13px;
+  fill: var(--aw-d-fg);
+}
+
+.aw-diagram .note.bad {
+  fill: var(--aw-c-crimson);
+}
+
+.aw-diagram .note.good {
+  fill: var(--aw-c-green);
+}
+
+.aw-diagram .note.code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+}
+
+.aw-diagram .mark-text {
+  font-size: 13px;
+  font-weight: 700;
+  fill: #fff;
+}
+
+/* ROS 2 commands in code blocks (see ros2-highlight.js). */
+[data-md-color-scheme="default"] {
+  --aw-ros-arg: #6a3fd6;
+  --aw-ros-val: #b8450f;
+}
+
+[data-md-color-scheme="slate"] {
+  --aw-ros-arg: #b3a9ff;
+  --aw-ros-val: #ff9e6b;
+}
+
+.md-typeset .aw-ros-bin {
+  font-weight: 700;
+  color: var(--aw-c-indigo);
+}
+
+.md-typeset .aw-ros-verb {
+  font-weight: 700;
+  color: var(--aw-c-cyan);
+}
+
+.md-typeset .aw-ros-pkg {
+  font-weight: 700;
+  color: var(--aw-c-green);
+}
+
+.md-typeset .aw-ros-file,
+.md-typeset .aw-ros-type {
+  color: var(--aw-c-green);
+}
+
+.md-typeset .aw-ros-name {
+  color: var(--aw-c-cyan);
+}
+
+.md-typeset .aw-ros-flag {
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .aw-ros-arg {
+  color: var(--aw-ros-arg);
+}
+
+.md-typeset .aw-ros-op {
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .aw-ros-val,
+.md-typeset .aw-ros-val.nv {
+  color: var(--aw-ros-val);
+}
+
+/*
+ * Illustration layer for the main diagrams: glass panels, glows, icons, a glass car, and data that flows along the
+ * lines. Use it only for a few overview diagrams (see tools/diagrams/README.md).
+ */
+[data-md-color-scheme="default"] {
+  --aw-glass-a: #ffffffd9;
+  --aw-glass-b: #f0f6ff8c;
+  --aw-halo-opacity: 0.22;
+  --aw-car-shadow: #00002a40;
+}
+
+[data-md-color-scheme="slate"] {
+  --aw-glass-a: #ffffff17;
+  --aw-glass-b: #ffffff08;
+  --aw-halo-opacity: 0.5;
+  --aw-car-shadow: #00000099;
+}
+
+.aw-glass-a {
+  stop-color: var(--aw-glass-a);
+}
+
+.aw-glass-b {
+  stop-color: var(--aw-glass-b);
+}
+
+.aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+}
+
+.aw-diagram .dots {
+  fill: url("#aw-dots");
+}
+
+/* A soft glow. It fades to nothing at its radius, so keep the circle inside the viewBox. */
+.aw-diagram .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+}
+
+.aw-diagram .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+}
+
+.aw-diagram .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+}
+
+.aw-diagram .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+}
+
+.aw-diagram .card.ai {
+  fill: color-mix(in srgb, var(--aw-cyan) 8%, var(--aw-d-node));
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 65%, transparent);
+}
+
+.aw-diagram .icon-bg {
+  fill: url("#aw-grad-primary");
+}
+
+.aw-diagram .icon-bg.ai {
+  fill: url("#aw-grad-ai");
+}
+
+.aw-diagram .icon-bg.on {
+  fill: #ffffff2e;
+}
+
+.aw-diagram .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.aw-diagram .icon-dot {
+  fill: #fff;
+}
+
+.aw-diagram .pill {
+  fill: #ffffff24;
+  stroke: #ffffff59;
+}
+
+.aw-diagram .pill-text {
+  font-size: 12px;
+  font-weight: 600;
+  fill: #fff;
+}
+
+.aw-diagram .traj {
+  fill: none;
+  stroke: url("#aw-grad-traj");
+  stroke-width: 2.5;
+  marker-end: url("#aw-arrow-accent");
+}
+
+.aw-diagram .glow {
+  filter: url("#aw-glow");
+}
+
+.aw-diagram .flow {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-dasharray: 0.1 12;
+  opacity: 0.9;
+  animation: aw-flow 1.4s linear infinite;
+}
+
+@keyframes aw-flow {
+  to {
+    stroke-dashoffset: -24.2;
+  }
+}
+
+.aw-diagram .car-body {
+  fill: url("#aw-grad-car");
+}
+
+.aw-diagram .car-glass {
+  fill: url("#aw-grad-car-glass");
+  stroke: #ffffffb3;
+  stroke-width: 1;
+}
+
+.aw-diagram .car-shine {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.75;
+}
+
+.aw-diagram .wheel {
+  fill: #1b1d29;
+}
+
+.aw-diagram .rim {
+  fill: none;
+  stroke: #c9ccd8;
+  stroke-width: 2.5;
+}
+
+.aw-diagram .hub {
+  fill: #c9ccd8;
+}
+
+.aw-diagram .car-shadow {
+  fill: var(--aw-car-shadow);
+  filter: url("#aw-soft");
+}
+
+.aw-diagram .headlight {
+  fill: #9ff3ff;
+  filter: url("#aw-glow");
+}
+
+.aw-diagram .lidar {
+  fill: url("#aw-grad-ai");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aw-diagram .flow {
+    display: none;
+    animation: none;
   }
 }

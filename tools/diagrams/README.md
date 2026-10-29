@@ -1,0 +1,114 @@
+# Diagrams
+
+The diagrams of this site are hand-written SVG files. The SVG uses a small set of classes, and `docs/assets/css/theme.css` gives these classes the colors of the theme. As a result, every diagram has the same look, and it follows the light and the dark mode.
+
+## Add a diagram to a page
+
+1. Write the SVG file next to the page, in the `images/` folder of the page, with the extension `.svg`.
+2. In the Markdown, call the `diagram` macro on its own line, with a blank line before and after it:
+
+   ```jinja
+   {{ diagram("images/generator-selector.svg", "Generators make candidate trajectories, and the selector picks one.") }}
+   ```
+
+   The first argument is the path relative to the page. The second argument is an optional caption.
+
+The macro puts the SVG into the HTML of the page. Do not use `![...](file.svg)` for these files. An image element cannot use the colors of the theme.
+
+`zensical serve` does not rebuild a page when only its SVG changes. Save the Markdown file again to see the change.
+
+## The SVG file
+
+- Start with `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 W H" role="img" aria-labelledby="ID-title">`, then a `<title id="ID-title">` that describes the diagram in one sentence. Use an id that is unique on the site, for example the file name.
+- Use a width of 720 to 960 for the `viewBox`. One unit is about one pixel on a desktop screen.
+- Do not set colors, fonts, or stroke widths in the file. Use the classes below. The only exception is `fill="none"` on a path.
+- Do not add `<defs>`, markers, or gradients. The site defines them once (in `overrides/main.html`).
+- Do not use `<foreignObject>`, embedded images, or text converted to paths.
+- Put text with `text-anchor="middle"` and `dominant-baseline="central"` in the center of its box.
+- Do not put a space between two elements, for example between two `<tspan>` elements. The macro removes the white space between tags. Put the space inside the text.
+
+## Classes
+
+### Shapes
+
+Use `<rect>` with `rx="10"` for boxes and `rx="16"` for groups.
+
+| Class          | Use                                                                                       |
+| :------------- | :---------------------------------------------------------------------------------------- |
+| `box`          | A node, for example a module, a package, or a component.                                  |
+| `box primary`  | The main node of the diagram. It has the indigo gradient. Use `on-primary` text on it.    |
+| `box ai`       | A learned or AI-based node. It has a cyan tint.                                           |
+| `box ok`       | A node that means success, a safe state, or an output that passes a check. Green tint.    |
+| `box warn`     | A node that means a fault, an emergency, or a rejected output. Crimson tint.              |
+| `box muted`    | A secondary node, for example an external input or an optional part.                      |
+| `box ext`      | A node outside Autoware, or a planned node that does not exist yet. Dashed, no fill.      |
+| `group`        | A container of nodes, for example a component or a layer. Put a `ttl` text in its corner. |
+| `group ai`     | A container of learned nodes. Cyan tint.                                                  |
+| `group dashed` | A container whose border is dashed, for example an optional part.                         |
+| `icon`         | A small shape, for example a vehicle or a sensor. Muted color.                            |
+
+### Text
+
+| Class        | Use                                                                 |
+| :----------- | :------------------------------------------------------------------ |
+| (none)       | Normal text, 14 px.                                                 |
+| `lbl`        | The name of a node, 14 px, bold.                                    |
+| `sub`        | A second line under a name, 12 px, muted.                           |
+| `code`       | A topic, a package, or a message name, 12 px, monospace.            |
+| `ttl`        | The title of a group, 12 px, bold, upper case.                      |
+| `on-primary` | Text on a `box primary`. Add it next to `lbl` or `sub`.             |
+| `edge-lbl`   | A label on a line, 12 px. It has a halo, so it can sit on the line. |
+
+### Lines
+
+Use `<path>` or `<line>`. A line gets an arrow head at its end.
+
+| Class         | Use                                                |
+| :------------ | :------------------------------------------------- |
+| `edge`        | A data flow or a dependency.                       |
+| `edge accent` | The main flow of the diagram. Cyan, thicker.       |
+| `edge dash`   | An optional or planned flow. Add it to the others. |
+| `edge both`   | A flow in both directions. Add it to the others.   |
+| `edge plain`  | A line without an arrow head.                      |
+
+### Map illustrations
+
+Use these classes for drawings of roads, lanelets, and vehicles. The road colors are the same in both modes, because they show real surfaces.
+
+| Class                                                                    | Use                                                                                                                                                                               |
+| :----------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `road`, `shoulder`, `sidewalk`                                           | Surfaces: asphalt, road shoulder, sidewalk.                                                                                                                                       |
+| `mark`                                                                   | A white lane marking. Add `dash` for a dashed line, `yellow` for a yellow or orange line, `thick` for a stop line or crosswalk stripe.                                            |
+| `lanelet`                                                                | A lanelet, as a translucent indigo area. `lanelet alt` is cyan, for a second lanelet. `lanelet bad` is crimson, for a wrong example.                                              |
+| `area`                                                                   | A map area, for example a detection area. Green, dashed. `area warn` is crimson.                                                                                                  |
+| `bound`                                                                  | A linestring, for example a lanelet bound. Cyan. `bound alt` is light red. `bound point` is a point of a linestring (a circle).                                                   |
+| `route`                                                                  | The path of a vehicle, with a green arrow head. `route plain` has no arrow head.                                                                                                  |
+| `car`                                                                    | The ego vehicle, indigo. `car other` is a crimson vehicle, `car npc` is a grey vehicle. Draw a rounded `rect` with `rx="6"` and put a `glass` rectangle on it for the windshield. |
+| `sign`, `sign-text`                                                      | A round traffic sign with a crimson ring, and its text.                                                                                                                           |
+| `light-housing`, `light-red`, `light-yellow`, `light-green`, `light-off` | A traffic light and its lamps.                                                                                                                                                    |
+| `leader`                                                                 | A thin line from a note to the thing that it describes. No arrow head.                                                                                                            |
+| `note`                                                                   | A note on an illustration, 13 px. `note bad` is crimson, for "do not do this". `note good` is green.                                                                              |
+| `note code`                                                              | A note in monospace, for example a tag name or a value.                                                                                                                           |
+| `mark-text`                                                              | White text painted on the road, for example a speed number.                                                                                                                       |
+
+### Illustration layer
+
+Use these classes only for a few overview diagrams, for example the generator-selector diagram of Architecture 2.0. They add depth and motion. Reference diagrams stay plain.
+
+| Class                                                                                           | Use                                                                                                                                                                        |
+| :---------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `dots`                                                                                          | A faint dot grid. Put a `rect` of the full `viewBox` size first.                                                                                                           |
+| `halo`, `halo cyan`                                                                             | A soft indigo or cyan glow behind a group. It fades to nothing at its radius, so keep the circle inside the `viewBox`.                                                     |
+| `glass-panel`                                                                                   | A translucent panel for a group.                                                                                                                                           |
+| `card`, `card ai`                                                                               | A node with a soft shadow. `card ai` has a cyan tint.                                                                                                                      |
+| `icon-bg`, `icon-bg ai`, `icon-bg on`                                                           | A round icon background: indigo, cyan, or white on a `box primary`.                                                                                                        |
+| `icon-line`, `icon-dot`                                                                         | The white strokes and dots of an icon.                                                                                                                                     |
+| `pill`, `pill-text`                                                                             | A small step inside a `box primary`.                                                                                                                                       |
+| `traj`                                                                                          | A trajectory: a line with an indigo-to-cyan gradient. It must not be a straight vertical or horizontal line, because a gradient needs a box with a size.                   |
+| `glow`                                                                                          | Adds a glow to a line or a shape.                                                                                                                                          |
+| `flow`                                                                                          | Dots that move along a line. Draw it on top of the `edge`, with the same path, and end it a little before the arrow head. It stops for readers who ask for reduced motion. |
+| `car-body`, `car-glass`, `car-shine`, `wheel`, `rim`, `hub`, `car-shadow`, `headlight`, `lidar` | The glass car of the generator-selector diagram. Copy its `g` element to reuse it.                                                                                         |
+
+## Example
+
+See `docs/design/autoware-architecture-v2/images/generator-selector.svg`.
