@@ -1229,12 +1229,17 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
   --aw-d-bg: var(--md-default-bg-color);
   --aw-d-fg: var(--md-default-fg-color);
   --aw-d-muted: var(--md-default-fg-color--light);
-  --aw-d-line: color-mix(in srgb, var(--md-default-fg-color) 50%, transparent);
+  --aw-d-line: #8d90a3;
   --aw-d-accent: var(--aw-c-cyan);
   --aw-d-node: var(--md-default-bg-color);
   --aw-d-node-stroke: color-mix(in srgb, var(--aw-c-indigo) 45%, transparent);
   --aw-d-group: color-mix(in srgb, var(--aw-c-indigo) 6%, var(--md-default-bg-color));
   --aw-d-group-stroke: color-mix(in srgb, var(--aw-c-indigo) 25%, transparent);
+}
+
+/* The lines are solid, so that a line does not show through its arrow head. */
+[data-md-color-scheme="slate"] {
+  --aw-d-line: #747a9c;
 }
 
 .aw-diagram-defs {
@@ -1646,6 +1651,9 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
   --aw-glass-b: #f0f6ff8c;
   --aw-halo-opacity: 0.22;
   --aw-car-shadow: #00002a40;
+  --aw-flow-tone: 22%;
+  --aw-flow-traj-a: #e3e0ff;
+  --aw-flow-traj-b: #d6f7ff;
 }
 
 [data-md-color-scheme="slate"] {
@@ -1653,6 +1661,9 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
   --aw-glass-b: #ffffff08;
   --aw-halo-opacity: 0.5;
   --aw-car-shadow: #00000099;
+  --aw-flow-tone: 40%;
+  --aw-flow-traj-a: #c8c2ff;
+  --aw-flow-traj-b: #aeeeff;
 }
 
 .aw-glass-a {
@@ -1661,6 +1672,14 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
 
 .aw-glass-b {
   stop-color: var(--aw-glass-b);
+}
+
+.aw-flow-traj-a {
+  stop-color: var(--aw-flow-traj-a);
+}
+
+.aw-flow-traj-b {
+  stop-color: var(--aw-flow-traj-b);
 }
 
 .aw-dot {
@@ -1746,24 +1765,114 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
   filter: url("#aw-glow");
 }
 
+/*
+ * Two pulses of light that travel along a line. Each pulse has the color of its line, a little lighter: add flow-accent
+ * or flow-traj for those lines. The path has pathLength="100", so every line has the same rhythm,
+ * whatever its length.
+ */
 .aw-diagram .flow {
   fill: none;
-  stroke: #fff;
-  stroke-width: 2.6;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
   stroke-linecap: round;
-  stroke-dasharray: 0.1 12;
-  opacity: 0.9;
-  animation: aw-flow 1.4s linear infinite;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+}
+
+.aw-diagram .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+}
+
+.aw-diagram .flow.flow-traj {
+  stroke: url("#aw-grad-traj-light");
+}
+
+.aw-diagram .flow.flow-route {
+  stroke: color-mix(in srgb, var(--aw-c-green) var(--aw-flow-tone), #fff);
+}
+
+/* A copy of a line with only its arrow head. Draw it after the flow, so that the arrow head stays on top. */
+.aw-diagram .edge.head,
+.aw-diagram .edge.accent.head,
+.aw-diagram .traj.head,
+.aw-diagram .route.head {
+  stroke: none;
 }
 
 @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
   to {
-    stroke-dashoffset: -24.2;
+    stroke-dashoffset: -94;
   }
 }
 
 .aw-diagram .car-body {
   fill: url("#aw-grad-car");
+}
+
+.aw-diagram .car-body.other {
+  fill: url("#aw-grad-car-other");
+}
+
+.aw-diagram .car-body.npc {
+  fill: url("#aw-grad-car-npc");
+}
+
+/* Other road users in the same glass style: a pedestrian, a traffic cone, a bicycle, and a truck. */
+.aw-diagram .ped-body {
+  fill: url("#aw-grad-car-other");
+  stroke: #fff;
+  stroke-width: 1;
+}
+
+.aw-diagram .ped-head {
+  fill: #ffe1d2;
+  stroke: #fff;
+  stroke-width: 1;
+}
+
+.aw-diagram .cone {
+  fill: url("#aw-grad-cone");
+  stroke: #fff;
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+
+.aw-diagram .cone-stripe {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+}
+
+.aw-diagram .cone-base {
+  fill: #c2410c;
+}
+
+.aw-diagram .bike-wheel {
+  fill: #1b1d29;
+}
+
+.aw-diagram .bike-frame {
+  fill: none;
+  stroke: #c9ccd8;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.aw-diagram .truck-box {
+  fill: url("#aw-grad-truck");
+  stroke: #ffffffb3;
+  stroke-width: 1;
+}
+
+.aw-diagram .truck-rib {
+  fill: none;
+  stroke: #8d91a0;
+  stroke-width: 1;
+  opacity: 0.6;
 }
 
 .aw-diagram .car-glass {
