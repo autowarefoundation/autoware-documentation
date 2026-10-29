@@ -1,5 +1,5 @@
 site_name: Autoware Documentation
-site_url: https://autowarefoundation.github.io/autoware-documentation
+site_url: https://autowarefoundation.github.io/autoware-documentation/
 repo_url: https://github.com/autowarefoundation/autoware
 edit_uri: https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/
 docs_dir: docs
@@ -7,6 +7,8 @@ copyright: Copyright &copy; 2025 The Autoware Foundation
 
 theme:
   name: material
+  variant: classic
+  custom_dir: overrides
   features:
     #    - navigation.expand # Until we simplify the navigation
     - navigation.indexes
@@ -50,21 +52,25 @@ extra_css:
 
 extra_javascript:
   - assets/js/mathjax.js
+  - assets/js/hidden-page-nav.js
   - https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 plugins:
-  - awesome-pages
+  - awesome-nav
   - exclude:
       regex:
         - ^(?!(.*/)?assets/).*\.(?!(.*\.)?md|(.*\.)?svg|(.*\.)?png|(.*\.)?gif|(.*\.)?jpg|(.*\.)?pdf).*$
         - ^(.*/)?[^.]*$
   - macros:
+      include_dir: docs
       include_yaml:
-        - autoware_interfaces: yaml/autoware-interfaces.yaml
+        autoware_interfaces: yaml/autoware-interfaces.yaml
   - mkdocs-video
-  - same-dir
-  # https://squidfunk.github.io/mkdocs-material/plugins/search/#config.separator
+  - redirects:
+      redirect_maps:
+        index.md: home/index.md
+  # https://zensical.org/docs/setup/search/
   - search:
       separator: '[\s\-_,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
 
@@ -89,8 +95,8 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:zensical.extensions.emoji.twemoji
+      emoji_generator: !!python/name:zensical.extensions.emoji.to_svg
   - pymdownx.highlight
   - pymdownx.keys
   - pymdownx.mark

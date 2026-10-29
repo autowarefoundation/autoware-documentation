@@ -41,20 +41,33 @@ Follow the steps below.
 
 If this is your first pull request to the repository, a maintainer must approve the workflows before they run.
 
-#### 2. Running an MkDocs server in your local environment
+#### 2. Running a local server
 
-Instead of creating a PR, you can use the `mkdocs` command to build Autoware's documentation websites on your local computer.
-Assuming that you are using Ubuntu OS, run the following to install the required libraries.
+You can also build the documentation website on your local computer.
+This site uses [Zensical](https://zensical.org/).
+Most other Autoware repositories still use [MkDocs](https://www.mkdocs.org/).
+
+To preview this site, install the dependencies of this repository in a virtual environment.
+
+```bash
+cd /PATH/TO/YOUR-autoware-documentation
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r mkdocs-requirements.txt
+```
+
+Then start the server.
+
+```bash
+zensical serve
+```
+
+Open <http://127.0.0.1:8000/autoware-documentation/> to see the preview of the website.
+
+To preview the documentation of another Autoware repository, install the shared MkDocs dependencies.
 
 ```bash
 python3 -m pip install -U $(curl -fsSL https://raw.githubusercontent.com/autowarefoundation/autoware-github-actions/main/deploy-docs/mkdocs-requirements.txt)
 ```
 
-Then, run `mkdocs serve` on your documentation directory.
-
-```bash
-cd /PATH/TO/YOUR-autoware-documentation
-mkdocs serve
-```
-
-It will launch the MkDocs server. Access [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to see the preview of the website.
+Then run `mkdocs serve` in the directory of that repository, and open <http://127.0.0.1:8000/>.

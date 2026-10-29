@@ -19,7 +19,7 @@
 
 ## About
 
-This repository contains the source files for Autoware's documentation, built and deployed with [MkDocs](https://www.mkdocs.org/). Autoware spans [multiple repositories](https://github.com/autowarefoundation/), and this site serves as a unified entry point to access information across all of them.
+This repository contains the source files for Autoware's documentation, built with [Zensical](https://zensical.org/) and deployed with [mike](https://github.com/squidfunk/mike). Autoware spans [multiple repositories](https://github.com/autowarefoundation/), and this site serves as a unified entry point to access information across all of them.
 
 For more about the Autoware project and its ecosystem, see the [Autoware Foundation organization profile](https://github.com/autowarefoundation/.github/blob/main/profile/README.md).
 
@@ -38,10 +38,10 @@ source .venv/bin/activate
 pip install -r mkdocs-requirements.txt
 
 # Serve locally
-mkdocs serve
+zensical serve
 ```
 
-Then open [http://localhost:8000](http://localhost:8000) in your browser.
+Then open <http://localhost:8000/autoware-documentation/> in your browser.
 
 ## Contributing
 
