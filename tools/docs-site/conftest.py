@@ -1,5 +1,6 @@
 # Copyright 2026 The Autoware Contributors
 # SPDX-License-Identifier: Apache-2.0
+# cspell:ignore javascripts
 
 """The fixture that the tests of assemble.py and verify.py share."""
 
