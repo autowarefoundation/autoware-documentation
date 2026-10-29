@@ -424,3 +424,112 @@ def test_the_environment_covers_the_tools_the_packages_python_and_the_address(
     assert third != second
     monkeypatch.setattr(sys, "version", "9.9.9 (another Python)")
     assert environment_digest(SITE_URL, tools) != third
+
+
+def test_a_change_of_the_environment_checks_every_version_again(
+    bundles, tmp_path, capsys, monkeypatch
+):
+    output, _ = run(bundles, tmp_path)
+    state = tmp_path / "verified.json"
+    assert verify_all(bundles, output, SITE_URL, state)
+    capsys.readouterr()
+    monkeypatch.setattr(sys, "version", "9.9.9 (another Python)")
+    assert verify_all(bundles, output, SITE_URL, state)
+    assert "unchanged since it passed" not in capsys.readouterr().out
+
+
+def test_a_missing_shared_file_checks_the_version_again(bundles, tmp_path, capsys):
+    # The shared files sit outside the directory of the version, so only the
+    # dependencies on the site side notice that one is gone.
+    output, _ = run(bundles, tmp_path)
+    state = tmp_path / "verified.json"
+    assert verify_all(bundles, output, SITE_URL, state)
+    (output / shared(PNG, ".png")).unlink()
+    capsys.readouterr()
+    assert not verify_all(bundles, output, SITE_URL, state)
+    assert "unchanged since it passed" not in capsys.readouterr().out
+
+
+def test_a_changed_file_of_another_version_checks_a_version_that_points_there(
+    bundles, tmp_path, capsys
+):
+    # A release page links to a file of main that stays in the directory of main.
+    write(bundles / "main" / "data.txt", "first")
+    write(
+        bundles / "1.9.0" / "home" / "index.html",
+        page('<p>Hello</p><img src="images/picture.png"><a href="../../main/data.txt">data</a>'),
+    )
+    output, _ = run(bundles, tmp_path)
+    state = tmp_path / "verified.json"
+    assert verify_all(bundles, output, SITE_URL, state)
+
+    # Only the content changes, and only in the site, so the release must be
+    # checked again, and the check must find the difference.
+    write(output / "main" / "data.txt", "second")
+    capsys.readouterr()
+    assert not verify_all(bundles, output, SITE_URL, state)
+    out = capsys.readouterr().out
+    assert "1.9.0: unchanged since it passed" not in out
+    assert "data.txt" in out
+
+
+def drawio_link(address):
+    return f"https://app.diagrams.net/?lightbox=1#U{urllib.parse.quote(address, safe='')}"
+
+
+@pytest.mark.parametrize(
+    "address",
+    [f"{SITE_URL}main/d/diagram.drawio.svg", f"{SITE_URL}1.9.0/../main/d/diagram.drawio.svg"],
+)
+def test_a_diagram_of_another_version_is_tracked(bundles, tmp_path, capsys, address):
+    # Releases link to the diagram of main. The second address only reaches it
+    # through "..", which must not hide that the path is outside the release.
+    write(bundles / "main" / "d" / "diagram.drawio.svg", SVG)
+    write(
+        bundles / "1.9.0" / "d" / "index.html", page(f'<a href="{drawio_link(address)}">open</a>')
+    )
+    output, _ = run(bundles, tmp_path)
+    state = tmp_path / "verified.json"
+    assert verify_all(bundles, output, SITE_URL, state)
+
+    # The diagram leaves the built site of main, but not the assembled site.
+    (bundles / "main" / "d" / "diagram.drawio.svg").unlink()
+    capsys.readouterr()
+    assert not verify_all(bundles, output, SITE_URL, state)
+    out = capsys.readouterr().out
+    assert "1.9.0: unchanged since it passed" not in out
+    assert "1.9.0/d/index.html" in out
+
+
+@pytest.mark.parametrize(
+    "dependencies",
+    [
+        None,
+        "not a mapping",
+        {"bundles": {}},
+        {"bundles": {}, "site": []},
+        {"bundles": {"a" * 300: "missing"}, "site": {}},
+    ],
+)
+def test_a_broken_entry_with_the_right_fingerprint_checks_the_version(
+    bundles, tmp_path, capsys, dependencies
+):
+    output, _ = run(bundles, tmp_path)
+    state = tmp_path / "verified.json"
+    assert verify_all(bundles, output, SITE_URL, state)
+    entries = json.loads(read(state))
+    entries["main"]["dependencies"] = dependencies
+    write(state, json.dumps(entries))
+    capsys.readouterr()
+    assert verify_all(bundles, output, SITE_URL, state)
+    out = capsys.readouterr().out
+    assert "main: 1 pages, 0 problems" in out
+    assert "1.9.0: unchanged since it passed" in out
+
+
+def test_a_deeply_nested_state_checks_every_version(bundles, tmp_path, capsys):
+    output, _ = run(bundles, tmp_path)
+    state = tmp_path / "verified.json"
+    write(state, "[" * 200000)
+    assert verify_all(bundles, output, SITE_URL, state)
+    assert "unchanged since it passed" not in capsys.readouterr().out

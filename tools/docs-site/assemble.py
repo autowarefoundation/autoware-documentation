@@ -194,8 +194,9 @@ def rewrite_drawio_link(reference, version, versions, site_url):
     address = urllib.parse.unquote(match.group(2))
     if not address.startswith(site_url):
         return reference
-    # Older builds of main.py wrote a double slash after the site address.
-    path = address[len(site_url) :].lstrip("/")
+    # Older builds of main.py wrote a double slash after the site address. The
+    # path is normalized, so that ".." leads to the same file as in a browser.
+    path = os.path.normpath(address[len(site_url) :].lstrip("/"))
     owner = version
     first, _, rest = path.partition("/")
     if first in versions:

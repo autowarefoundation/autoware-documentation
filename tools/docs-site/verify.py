@@ -118,6 +118,8 @@ class Resolver:
 
     def note(self, page, target):
         """Keep a path that a reference of a page leads to, if it is outside its version."""
+        if target in self.dependencies:
+            return
         if PurePosixPath(target).parts[:1] != PurePosixPath(page).parts[:1]:
             self.dependencies[target] = describe(self.root, target)
 
@@ -132,8 +134,10 @@ class Resolver:
         if match:
             address = urllib.parse.unquote(match.group(2))
             if address.startswith(self.site_url):
-                relative = address[len(self.site_url) :].lstrip("/")
-                in_version = f"{PurePosixPath(page).parts[0]}/{relative}"
+                # Normalized like every other path, so that ".." cannot hide
+                # a path outside the version.
+                relative = os.path.normpath(address[len(self.site_url) :].lstrip("/"))
+                in_version = os.path.normpath(f"{PurePosixPath(page).parts[0]}/{relative}")
                 self.note(page, relative)
                 self.note(page, in_version)
                 path = self.root / relative
@@ -266,11 +270,15 @@ def check_version(name, bundle, site, site_url, environment, verified):
     entry, and the problems, or None if the check was skipped.
     """
     current = fingerprint(name, bundle, site, environment)
-    if (
-        isinstance(verified, dict)
-        and verified.get("fingerprint") == current
-        and dependencies_unchanged(verified.get("dependencies"), Path(bundle).parent, site)
-    ):
+    try:
+        unchanged = (
+            isinstance(verified, dict)
+            and verified.get("fingerprint") == current
+            and dependencies_unchanged(verified.get("dependencies"), Path(bundle).parent, site)
+        )
+    except Exception:  # noqa: BLE001 - a broken entry only costs a full check.
+        unchanged = False
+    if unchanged:
         return verified, None
     problems, dependencies = verify_version_and_dependencies(name, bundle, site, site_url)
     return {"fingerprint": current, "dependencies": dependencies}, problems
@@ -286,7 +294,7 @@ def read_state(state):
         return {}
     try:
         verified = json.loads(state.read_text(encoding="utf-8"))
-    except (OSError, ValueError):
+    except Exception:  # noqa: BLE001 - any broken state only costs a full check.
         return {}
     return verified if isinstance(verified, dict) else {}
 

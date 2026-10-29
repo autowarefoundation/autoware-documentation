@@ -150,14 +150,12 @@ jobs:
 
   # The comment is a separate job outside the group of the publication. A publication that waits can be replaced by a
   # newer one, which never runs the steps of the replaced one, so the comment would be lost if it were part of that job.
-  # Dependabot pull requests get no preview, so they get no comment either.
   comment-preview:
     if: >-
       ${{ github.event_name == 'workflow_run' &&
         github.event.workflow_run.event == 'pull_request' &&
         github.event.workflow_run.conclusion == 'success' &&
-        github.event.workflow_run.head_repository.full_name == github.repository &&
-        github.event.workflow_run.actor.login != 'dependabot[bot]' }}
+        github.event.workflow_run.head_repository.full_name == github.repository }}
     runs-on: ubuntu-24.04
     # One comment job per pull request at a time, so that two builds that finish together do not both create a comment.
     concurrency:
@@ -179,6 +177,8 @@ jobs:
         shell: bash
 
       # The pull request comes from the GitHub API, never from the run or its artifact.
+      # Dependabot pull requests get no preview, so they get no comment either. They are found by their author, as in
+      # collect_bundles.py, because a maintainer can push to a Dependabot branch.
       - name: Find the pull request of the preview
         id: pull-request
         env:
@@ -187,8 +187,9 @@ jobs:
           HEAD_BRANCH: ${{ github.event.workflow_run.head_branch }}
         run: |
           number=$(gh pr list -R "$GITHUB_REPOSITORY" --state open --head "$HEAD_BRANCH" \
-            --json number,headRefOid,isCrossRepository \
-            --jq '[.[] | select(.headRefOid == env.HEAD_SHA and (.isCrossRepository | not)) | .number] | first // empty')
+            --json number,headRefOid,isCrossRepository,author \
+            --jq '[.[] | select(.headRefOid == env.HEAD_SHA and (.isCrossRepository | not)
+              and .author.login != "app/dependabot" and .author.login != "dependabot[bot]") | .number] | first // empty')
           echo "number=$number" >> "$GITHUB_OUTPUT"
         shell: bash
 
