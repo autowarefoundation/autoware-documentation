@@ -12,9 +12,11 @@ address, but it must still lead to a file with the same content.
 A reference that is broken in the bundle may stay broken in the site. A
 reference that works in the bundle must work in the site.
 
-A version that passed before, and whose built site, assembled pages and tool
-code did not change since, is not checked again. Releases never change, so
-usually only the default branch and the previews are checked.
+A version that passed before is not checked again while nothing that its check
+reads changed: its built site, its assembled pages, the paths outside the
+version that its references lead to, the code and packages of the tools, the
+Python version, and the site address. Releases never change, so usually only
+the default branch and the previews are checked.
 """
 
 import argparse
@@ -89,7 +91,10 @@ def read_page(path):
 def describe(root, target):
     """Return what a path holds, as far as resolving a reference can see it.
 
-    A shared file is named after its content, so only its existence counts.
+    A shared file counts only by its existence, because assemble.py names it
+    after a hash of its content. That holds as long as nothing else writes to
+    the shared files. assemble.py is part of environment_digest, so a change to
+    how it names them checks every version again.
     """
     full = Path(root) / target
     if full.is_file():

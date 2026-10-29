@@ -195,7 +195,8 @@ def rewrite_drawio_link(reference, version, versions, site_url):
     if not address.startswith(site_url):
         return reference
     # Older builds of main.py wrote a double slash after the site address. The
-    # path is normalized, so that ".." leads to the same file as in a browser.
+    # path is normalized, so that "." and ".." lead to the same file as in a
+    # browser. A link that the normalization changes otherwise would be broken.
     path = os.path.normpath(address[len(site_url) :].lstrip("/"))
     owner = version
     first, _, rest = path.partition("/")

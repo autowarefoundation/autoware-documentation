@@ -37,7 +37,7 @@ def comment_body(base_url, changed_files):
     """Return the comment for a preview at base_url and the changed files."""
     lines = [
         f"Documentation URL: {base_url}",
-        "The publish-docs workflow publishes the preview a few minutes after the build.",
+        "The preview should appear a few minutes after the build, when the publish-docs workflow finishes.",
         "Modified URLs:",
     ]
     for path in changed_files:
