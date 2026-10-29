@@ -16,6 +16,7 @@ theme:
     - navigation.instant.prefetch
     - navigation.instant.progress
     - navigation.path
+    - navigation.prune
     - navigation.sections
     - navigation.tabs
     - navigation.tabs.sticky
@@ -66,6 +67,8 @@ plugins:
       include_dir: docs
       include_yaml:
         autoware_interfaces: yaml/autoware-interfaces.yaml
+  - minify:
+      minify_html: true
   - mkdocs-video
   - redirects:
       redirect_maps:
@@ -89,6 +92,7 @@ markdown_extensions:
   - plantuml_markdown:
       server: http://www.plantuml.com/plantuml
       format: svg
+      cachedir: .cache/plantuml
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.caret

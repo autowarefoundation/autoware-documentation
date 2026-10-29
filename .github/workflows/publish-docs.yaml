@@ -1,0 +1,184 @@
+name: publish-docs
+
+# Puts every version of the documentation together and publishes it to GitHub Pages:
+# every release, the default branch, and every open pull request from this repository.
+# The versions share one copy of each image, so the site stays far below the size limit of GitHub Pages.
+#
+# The workflow runs from the default branch for every trigger, so a pull request cannot change it.
+# It checks out only the default branch and only downloads the built sites, so it never runs code of a pull request.
+# See tools/docs-site/README.md.
+
+on:
+  # A build of the default branch or of a pull request finished.
+  workflow_run:
+    workflows:
+      - deploy-docs
+      - github-release
+    types:
+      - completed
+  # A closed pull request leaves the site.
+  pull_request_target:
+    types:
+      - closed
+  # An expired artifact or a deleted release leaves the site.
+  schedule:
+    - cron: 0 3 * * *
+  workflow_dispatch:
+
+permissions: {}
+
+# One publication at a time. A newer request replaces one that waits, and it publishes the newer state anyway.
+concurrency:
+  group: publish-docs
+  cancel-in-progress: false
+
+jobs:
+  publish-docs:
+    if: >-
+      ${{ github.event_name != 'workflow_run' || (
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_repository.full_name == github.repository
+      ) }}
+    runs-on: ubuntu-24.04
+    permissions:
+      actions: read
+      contents: read
+      id-token: write
+      pages: write
+      pull-requests: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      # A scheduled run has no repository in its event, and a closed pull request can target another branch,
+      # so the default branch comes from the GitHub API.
+      - name: Find the default branch
+        id: default-branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: echo "name=$(gh api "repos/$GITHUB_REPOSITORY" --jq .default_branch)" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      - name: Check out the default branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ steps.default-branch.outputs.name }}
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Install the tools
+        run: pip3 install -r tools/docs-site/requirements.txt
+        shell: bash
+
+      - name: List the releases
+        id: releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tags=$(gh release list -R "$GITHUB_REPOSITORY" --limit 1000 --json tagName --jq '.[].tagName' | sort)
+          echo "hash=$(echo "$tags" | sha256sum | cut -c1-16)" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      # The site of a release never changes, so its archive is downloaded once and kept in the cache.
+      - name: Restore the release archives
+        uses: actions/cache@v6
+        with:
+          path: .release-archives
+          key: docs-release-archives-${{ steps.releases.outputs.hash }}
+          restore-keys: |
+            docs-release-archives-
+
+      - name: Collect the built sites
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 tools/docs-site/collect_bundles.py \
+            --repository "$GITHUB_REPOSITORY" \
+            --default-branch "${{ steps.default-branch.outputs.name }}" \
+            --output "$RUNNER_TEMP/bundles" \
+            --release-cache .release-archives
+        shell: bash
+
+      - name: Read the site address
+        id: site
+        run: echo "url=$(grep -oP '^site_url:\s+\K(.*)' mkdocs.yaml)" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      - name: Assemble the site
+        run: |
+          cd tools/docs-site
+          python3 assemble.py \
+            --bundles "$RUNNER_TEMP/bundles" \
+            --output "$RUNNER_TEMP/site" \
+            --site-url "${{ steps.site.outputs.url }}" \
+            --default-version "${{ steps.default-branch.outputs.name }}" \
+            --releases-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases"
+          du -sh "$RUNNER_TEMP/site"
+        shell: bash
+
+      - name: Check every page against its built site
+        run: |
+          cd tools/docs-site
+          python3 verify.py \
+            --bundles "$RUNNER_TEMP/bundles" \
+            --site "$RUNNER_TEMP/site" \
+            --site-url "${{ steps.site.outputs.url }}"
+        shell: bash
+
+      - name: Upload the site
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ${{ runner.temp }}/site
+
+      - name: Deploy the site
+        id: deploy
+        uses: actions/deploy-pages@v5
+
+      # The pull request comes from the GitHub API, never from the run or its artifact.
+      - name: Find the pull request of the preview
+        id: pull-request
+        if: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.event == 'pull_request' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          HEAD_BRANCH: ${{ github.event.workflow_run.head_branch }}
+        run: |
+          number=$(gh pr list -R "$GITHUB_REPOSITORY" --state open --head "$HEAD_BRANCH" \
+            --json number,headRefOid,isCrossRepository \
+            --jq '[.[] | select(.headRefOid == env.HEAD_SHA and (.isCrossRepository | not)) | .number] | first // empty')
+          echo "number=$number" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      - name: Write the comment
+        if: ${{ steps.pull-request.outputs.number != '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ steps.pull-request.outputs.number }}
+        run: |
+          python3 tools/docs-site/pr_comment.py \
+            --repository "$GITHUB_REPOSITORY" \
+            --pull-request "$PR_NUMBER" \
+            --site-url "${{ steps.site.outputs.url }}" > "$RUNNER_TEMP/comment.md"
+        shell: bash
+
+      - name: Find the comment
+        id: find-comment
+        if: ${{ steps.pull-request.outputs.number != '' }}
+        uses: peter-evans/find-comment@v4
+        with:
+          issue-number: ${{ steps.pull-request.outputs.number }}
+          comment-author: github-actions[bot]
+          body-includes: Documentation URL
+
+      - name: Update the comment
+        if: ${{ steps.pull-request.outputs.number != '' }}
+        uses: peter-evans/create-or-update-comment@v5
+        with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ steps.pull-request.outputs.number }}
+          body-path: ${{ runner.temp }}/comment.md
+          edit-mode: replace

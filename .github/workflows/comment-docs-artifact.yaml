@@ -38,6 +38,12 @@ jobs:
         run: |
           set -eu
 
+          # A pull request from this repository is published as a preview by the publish-docs workflow.
+          if [ "$HEAD_REPO" = "$GITHUB_REPOSITORY" ]; then
+            echo "The run belongs to this repository, so publish-docs publishes its preview."
+            exit 0
+          fi
+
           pr_number=$(gh api -X GET "repos/$GITHUB_REPOSITORY/pulls" -f state=open -f head="$HEAD_OWNER:$HEAD_BRANCH" \
             --jq '[.[] | select(.head.sha == env.HEAD_SHA and .head.repo.full_name == env.HEAD_REPO) | .number] | if length == 1 then .[0] else empty end')
           if [ -z "$pr_number" ]; then

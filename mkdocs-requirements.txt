@@ -1,6 +1,5 @@
 fontawesome-in-markdown
 mdx_truly_sane_lists
-mike @ git+https://github.com/squidfunk/mike.git@2d4ad799442f4592db8ad53b179bfb33db8c69ac
 plantuml-markdown==3.10.4
 pymdown-extensions
 python-markdown-math

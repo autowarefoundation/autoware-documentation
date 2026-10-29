@@ -30,7 +30,7 @@ jobs:
           python-version: 3.12
 
       - name: Install pytest
-        run: pip3 install pytest
+        run: pip3 install pytest -r tools/docs-site/requirements.txt
 
       - name: Run unit tests
         run: pytest tools/ -v
