@@ -179,7 +179,7 @@ An earlier version of this design placed a separate priority object merger in fr
 
 {{ diagram("image/priority_merger_1.svg", "A synchronized merger waits for the slower detector, and gives no output when one input is missing.") }}
 
-The multi-channel tracker uses each detection result when it arrives. A late or missing channel does not stop the output:
+The multi-channel tracker queues each detection result when it arrives. It updates the tracks when a result of the time reference channel arrives, and a timer publishes the tracks at a fixed rate. A late or missing channel does not stop the output:
 
 {{ diagram("image/priority_merger_2.svg", "A lost detection result does not stop the output of the multi-channel tracker.") }}
 

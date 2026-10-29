@@ -43,7 +43,7 @@ If the module supports RTC, these information are available in [velocity factors
 
 ## Sequence
 
-This is an example sequence that overrides the scene decision to force a lane change. It is for the second scene in the diagram in the architecture section.
+This is an example sequence that overrides the scene decision to force a lane change. It is for the second scene in the diagram in the description section.
 Here let's assume the cooperation policy is set to optional, see the decisions section described later for details.
 
 1. A planning module creates a scene instance with unique ID when approaching a place where a lane change is needed.

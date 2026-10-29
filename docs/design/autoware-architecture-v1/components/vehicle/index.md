@@ -66,7 +66,7 @@ The [`autoware_component_interface_specs`](https://github.com/autowarefoundation
 
 ### Inputs from Autoware
 
-The vehicle command gate of the Control component sends these commands. Planning makes the turn indicators and hazard lights commands, and the shift decider makes the gear command.
+The vehicle command gate of the Control component sends the control, gear, turn indicators, hazard lights, and emergency commands. Planning makes the turn indicators and hazard lights commands, and the shift decider makes the gear command. The operation mode transition manager calls the control mode request service, and the AD API calls the door command service.
 
 | Input                        | Topic                                  | Type                                                     |
 | :--------------------------- | :------------------------------------- | :------------------------------------------------------- |
