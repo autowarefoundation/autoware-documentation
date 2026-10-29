@@ -1,101 +1,58 @@
 name: deploy-docs
 
+# Builds the site of the default branch and of every pull request, and keeps each one as an artifact.
+# The publish-docs workflow puts these artifacts and the releases together on the site.
+
 on:
   push:
     branches:
       - main
-      - galactic
     paths:
       - mkdocs.yaml
       - mkdocs-requirements.txt
       - main.py
       - overrides/**
-      - .github/actions/deploy-docs/**
+      - .github/actions/build-docs/**
       - "**/.nav.yml"
       - yaml/**
       - "**/*.md"
+      - "**/*.js"
+      - "**/*.css"
       - "**/*.svg"
       - "**/*.png"
       - "**/*.jpg"
-    tags:
-      - "[0-9]+.[0-9]+*"
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
-  # A pull request from a branch of this repository gets a write token, so it publishes a preview to gh-pages.
-  # A pull request from a fork or from Dependabot gets a read-only token, so it only builds the site and uploads it as an artifact.
+  # A pull request from a branch of this repository is published as a preview by the publish-docs workflow.
+  # A pull request from a fork only keeps its site as an artifact, which comment-docs-artifact links on the pull request.
   deploy-docs-pr:
     if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-24.04
-    permissions:
-      contents: write
-      pull-requests: write
     concurrency:
       group: ${{ github.workflow }}-pr-${{ github.event.pull_request.number }}
-    outputs:
-      deploy: ${{ steps.mode.outputs.deploy }}
+      cancel-in-progress: true
     steps:
-      - name: Choose between deploy and build
-        id: mode
-        env:
-          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
-          AUTHOR: ${{ github.event.pull_request.user.login }}
-        run: |
-          if [ "$HEAD_REPO" = "$GITHUB_REPOSITORY" ] && [ "$AUTHOR" != "dependabot[bot]" ]; then
-            echo "deploy=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "deploy=false" >> "$GITHUB_OUTPUT"
-          fi
-        shell: bash
-
       - name: Check out repository
         uses: actions/checkout@v7
         with:
-          fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
           persist-credentials: false
 
-      - name: Deploy docs
-        if: ${{ steps.mode.outputs.deploy == 'true' }}
-        uses: ./.github/actions/deploy-docs
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Set up Python
-        if: ${{ steps.mode.outputs.deploy == 'false' }}
-        uses: actions/setup-python@v7
-        with:
-          python-version: "3.12"
-
-      - name: Install Zensical
-        if: ${{ steps.mode.outputs.deploy == 'false' }}
-        run: |
-          pip3 install -U wheel
-          pip3 install -r mkdocs-requirements.txt
-        shell: bash
-
       - name: Build docs
-        if: ${{ steps.mode.outputs.deploy == 'false' }}
-        run: |
-          zensical build --clean
-          mv site "$RUNNER_TEMP/site"
-        shell: bash
-
-      - name: Upload site
-        id: upload-site
-        if: ${{ steps.mode.outputs.deploy == 'false' }}
-        uses: actions/upload-artifact@v7
+        id: build
+        uses: ./.github/actions/build-docs
         with:
-          name: docs-pr-${{ github.event.pull_request.number }}
-          path: ${{ runner.temp }}/site
-          if-no-files-found: error
-          retention-days: 90
+          artifact-name: docs-pr-${{ github.event.pull_request.number }}
 
       - name: Explain how to view the site
-        if: ${{ steps.mode.outputs.deploy == 'false' }}
+        if: ${{ github.event.pull_request.head.repo.full_name != github.repository }}
         env:
-          ARTIFACT_URL: ${{ steps.upload-site.outputs.artifact-url }}
+          ARTIFACT_URL: ${{ steps.build.outputs.artifact-url }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           echo "::notice::The site is not published for a pull request from a fork. Download it from the run summary: $ARTIFACT_URL"
@@ -113,58 +70,19 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
         shell: bash
 
-  deploy-docs-push:
-    if: ${{ github.event_name == 'push' }}
+  deploy-docs-main:
+    if: ${{ github.event_name != 'pull_request' && github.ref_name == github.event.repository.default_branch }}
     runs-on: ubuntu-24.04
+    concurrency:
+      group: ${{ github.workflow }}-main
+      cancel-in-progress: true
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
         with:
-          fetch-depth: 0
+          persist-credentials: false
 
-      - name: Deploy docs
-        uses: ./.github/actions/deploy-docs
+      - name: Build docs
+        uses: ./.github/actions/build-docs
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-  deploy-docs-workflow-dispatch:
-    if: ${{ github.event_name == 'workflow_dispatch' }}
-    runs-on: ubuntu-24.04
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
-
-      - name: Deploy docs
-        uses: ./.github/actions/deploy-docs
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-  delete-old-version-docs:
-    if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') }}
-    needs: deploy-docs-push
-    uses: ./.github/workflows/delete-old-version-docs.yaml
-    with:
-      # keep-lines is left at the default of the called workflow.
-      dry-run: false
-    secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
-
-  reorder-versions-json:
-    needs:
-      - deploy-docs-pr
-      - deploy-docs-push
-      - deploy-docs-workflow-dispatch
-      - delete-old-version-docs
-    if: |
-      always() &&
-      (
-        (needs.deploy-docs-pr.result == 'success' && needs.deploy-docs-pr.outputs.deploy == 'true') ||
-        needs.deploy-docs-push.result == 'success' ||
-        needs.deploy-docs-workflow-dispatch.result == 'success' ||
-        needs.delete-old-version-docs.result == 'success'
-      )
-    uses: ./.github/workflows/reorder-versions.yaml
-    secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
+          artifact-name: docs-${{ github.event.repository.default_branch }}

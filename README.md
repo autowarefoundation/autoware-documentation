@@ -19,7 +19,7 @@
 
 ## About
 
-This repository contains the source files for Autoware's documentation, built with [Zensical](https://zensical.org/) and deployed with [mike](https://github.com/squidfunk/mike). Autoware spans [multiple repositories](https://github.com/autowarefoundation/), and this site serves as a unified entry point to access information across all of them.
+This repository contains the source files for Autoware's documentation, built with [Zensical](https://zensical.org/) and published to GitHub Pages by the `publish-docs` workflow (see [`tools/docs-site`](tools/docs-site/README.md)). Autoware spans [multiple repositories](https://github.com/autowarefoundation/), and this site serves as a unified entry point to access information across all of them.
 
 For more about the Autoware project and its ecosystem, see the [Autoware Foundation organization profile](https://github.com/autowarefoundation/.github/blob/main/profile/README.md).
 

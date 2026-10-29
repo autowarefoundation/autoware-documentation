@@ -144,7 +144,7 @@ def define_env(env):
 
     @env.filter
     def drawio(image_path):
-        image_url = urllib.parse.quote(f"{env.conf['site_url']}{image_path}", "")
+        image_url = urllib.parse.quote(f"{env.conf['site_url'].rstrip('/')}{image_path}", "")
         return f"https://app.diagrams.net/?lightbox=1#U{image_url}"
 
     # The macros read the page and the variables from the render context,

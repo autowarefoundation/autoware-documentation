@@ -1,0 +1,49 @@
+name: build-docs
+description: Build the site with Zensical and keep it as an artifact for the publish-docs workflow.
+
+inputs:
+  artifact-name:
+    description: The name of the artifact, for example docs-main or docs-pr-123.
+    required: true
+
+outputs:
+  artifact-url:
+    description: The address of the artifact.
+    value: ${{ steps.upload.outputs.artifact-url }}
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v7
+      with:
+        python-version: "3.12"
+        cache: pip
+        cache-dependency-path: mkdocs-requirements.txt
+
+    - name: Install Zensical
+      run: pip3 install -r mkdocs-requirements.txt
+      shell: bash
+
+    # Zensical and the PlantUML extension keep what they rendered in .cache.
+    # With the cache of an earlier build, only the changed pages are rendered again.
+    - name: Restore the build cache
+      uses: actions/cache@v6
+      with:
+        path: .cache
+        key: docs-build-${{ hashFiles('mkdocs-requirements.txt') }}-${{ github.sha }}
+        restore-keys: |
+          docs-build-${{ hashFiles('mkdocs-requirements.txt') }}-
+
+    - name: Build docs
+      run: zensical build
+      shell: bash
+
+    - name: Upload site
+      id: upload
+      uses: actions/upload-artifact@v7
+      with:
+        name: ${{ inputs.artifact-name }}
+        path: site
+        if-no-files-found: error
+        retention-days: 90
