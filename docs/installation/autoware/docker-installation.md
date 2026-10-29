@@ -1,5 +1,7 @@
 # Docker installation
 
+<!-- cspell:ignore Dockerfiles glxinfo -->
+
 Autoware publishes prebuilt multi-arch (amd64, arm64) Docker images on GHCR. There are runtime images for trying things out, devel images for building locally, and CUDA variants for GPU workloads.
 
 The full image catalog — twelve images organized as a build graph — is documented in the canonical Docker reference next to the Dockerfiles in the `autoware` repository. Bookmark these sections, since they track the implementation:
