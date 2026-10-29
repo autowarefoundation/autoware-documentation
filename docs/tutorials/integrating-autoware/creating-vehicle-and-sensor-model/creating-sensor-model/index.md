@@ -578,7 +578,7 @@ After that, you can just add your camera driver at `camera.launch.xml`:
 
 Then, you can launch tensorrt_yolo node via adding yolo.launch.xml on your design like that:
 (i.e.,
-it is included in [tier4_perception_launch](https://github.com/autowarefoundation/autoware_universe/blob/ad69c2851b7b84e12c9f0c3b177fb6a9032bf284/launch/tier4_perception_launch/launch/object_recognition/detection/camera_lidar_fusion_based_detection.launch.xml#L49-L59) package in autoware.universe)
+it is included in [tier4_perception_launch](https://github.com/autowarefoundation/autoware_universe/blob/ad69c2851b7b84e12c9f0c3b177fb6a9032bf284/launch/tier4_perception_launch/launch/object_recognition/detection/camera_lidar_fusion_based_detection.launch.xml#L49-L59) package in autoware_universe)
 `image_number` argument defines your camera number
 
 ```xml
