@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 500" role="img" aria-labelledby="map-interface-title">
+  <title id="map-interface-title">The Map component loads the point cloud map, the Lanelet2 map, and the map projector info from files. Localization and Perception use the point cloud map. Perception, Planning, and Control use the Lanelet2 map. RViz shows the map markers.</title>
+
+  <!-- Map files -->
+  <rect class="box ext" x="20" y="16" width="250" height="54" rx="10"/>
+  <text class="lbl" x="145" y="36" text-anchor="middle" dominant-baseline="central">Point cloud map</text>
+  <text class="sub code" x="145" y="55" text-anchor="middle" dominant-baseline="central">*.pcd</text>
+  <rect class="box ext" x="295" y="16" width="250" height="54" rx="10"/>
+  <text class="lbl" x="420" y="36" text-anchor="middle" dominant-baseline="central">Lanelet2 map</text>
+  <text class="sub code" x="420" y="55" text-anchor="middle" dominant-baseline="central">*.osm</text>
+  <rect class="box ext" x="590" y="16" width="250" height="54" rx="10"/>
+  <text class="lbl" x="715" y="36" text-anchor="middle" dominant-baseline="central">Map projector info</text>
+  <text class="sub code" x="715" y="55" text-anchor="middle" dominant-baseline="central">map_projector_info.yaml</text>
+
+  <!-- The Map component -->
+  <rect class="group" x="20" y="110" width="820" height="270" rx="16"/>
+  <text class="ttl" x="40" y="136">Map</text>
+
+  <rect class="box primary" x="40" y="150" width="210" height="52" rx="10"/>
+  <text class="lbl on-primary" x="145" y="176" text-anchor="middle" dominant-baseline="central">Point cloud map loader</text>
+  <rect class="box primary" x="310" y="150" width="220" height="52" rx="10"/>
+  <text class="lbl on-primary" x="420" y="176" text-anchor="middle" dominant-baseline="central">Lanelet2 map loader</text>
+  <rect class="box" x="610" y="150" width="210" height="52" rx="10"/>
+  <text class="lbl" x="715" y="176" text-anchor="middle" dominant-baseline="central">Map projection loader</text>
+
+  <rect class="box" x="610" y="240" width="210" height="46" rx="10"/>
+  <text class="lbl" x="715" y="263" text-anchor="middle" dominant-baseline="central">Lanelet2 map visualizer</text>
+  <rect class="box" x="610" y="310" width="160" height="46" rx="10"/>
+  <text class="lbl" x="690" y="333" text-anchor="middle" dominant-baseline="central">Map TF generator</text>
+
+  <path class="edge" d="M145 70 V144"/>
+  <path class="edge" d="M420 70 V144"/>
+  <path class="edge" d="M715 70 V144"/>
+
+  <path class="edge" d="M610 166 H536"/>
+  <text class="edge-lbl" x="573" y="152" text-anchor="middle" dominant-baseline="central">Projection</text>
+  <path class="edge" d="M530 190 H575 V263 H604"/>
+  <path class="edge" d="M575 263 V333 H604"/>
+
+  <!-- Outputs -->
+  <path class="edge accent" d="M145 202 V424"/>
+  <text class="edge-lbl" x="145" y="300" text-anchor="middle" dominant-baseline="central">Point cloud map</text>
+  <path class="edge accent" d="M420 202 V424"/>
+  <text class="edge-lbl" x="420" y="300" text-anchor="middle" dominant-baseline="central">Lanelet2 map</text>
+  <path class="edge" d="M690 356 V424"/>
+  <text class="edge-lbl" x="690" y="398" text-anchor="middle" dominant-baseline="central">TF</text>
+  <path class="edge" d="M800 286 V424"/>
+  <text class="edge-lbl" x="800" y="398" text-anchor="middle" dominant-baseline="central">Markers</text>
+
+  <rect class="box muted" x="20" y="430" width="250" height="50" rx="10"/>
+  <text class="lbl" x="145" y="455" text-anchor="middle" dominant-baseline="central">Localization, Perception</text>
+  <rect class="box muted" x="290" y="430" width="260" height="50" rx="10"/>
+  <text class="lbl" x="420" y="455" text-anchor="middle" dominant-baseline="central">Perception, Planning, Control</text>
+  <rect class="box muted" x="600" y="430" width="240" height="50" rx="10"/>
+  <text class="lbl" x="720" y="455" text-anchor="middle" dominant-baseline="central">RViz</text>
+</svg>

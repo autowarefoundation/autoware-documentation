@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" role="img" aria-labelledby="localization-tf-tree-title">
+  <title id="localization-tf-tree-title">The tf tree: earth is the parent of map. map is the parent of base_link and viewer. base_link is the parent of the sensor frames.</title>
+
+  <rect class="box muted" x="300" y="16" width="120" height="44" rx="10"/>
+  <text class="code" x="360" y="38" text-anchor="middle" dominant-baseline="central">earth</text>
+
+  <rect class="box" x="300" y="104" width="120" height="44" rx="10"/>
+  <text class="code" x="360" y="126" text-anchor="middle" dominant-baseline="central">map</text>
+
+  <rect class="box primary" x="300" y="192" width="120" height="44" rx="10"/>
+  <text class="code on-primary" x="360" y="214" text-anchor="middle" dominant-baseline="central">base_link</text>
+
+  <rect class="box muted" x="500" y="192" width="120" height="44" rx="10"/>
+  <text class="code" x="560" y="214" text-anchor="middle" dominant-baseline="central">viewer</text>
+
+  <rect class="box" x="120" y="280" width="120" height="40" rx="10"/>
+  <text class="code" x="180" y="300" text-anchor="middle" dominant-baseline="central">sensor A</text>
+
+  <rect class="box" x="300" y="280" width="120" height="40" rx="10"/>
+  <text class="code" x="360" y="300" text-anchor="middle" dominant-baseline="central">sensor B</text>
+
+  <rect class="box" x="480" y="280" width="120" height="40" rx="10"/>
+  <text class="code" x="540" y="300" text-anchor="middle" dominant-baseline="central">sensor C</text>
+
+  <text class="sub" x="650" y="300" text-anchor="middle" dominant-baseline="central">...</text>
+
+  <path class="edge" d="M360 60 V96"/>
+  <path class="edge" d="M360 148 V184"/>
+  <path class="edge" fill="none" d="M420 126 H560 V184"/>
+
+  <path class="edge plain" d="M360 236 V256"/>
+  <path class="edge plain" d="M180 256 H630"/>
+  <path class="edge" d="M180 256 V272"/>
+  <path class="edge" d="M360 256 V272"/>
+  <path class="edge" d="M540 256 V272"/>
+</svg>

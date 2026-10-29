@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 770 124" role="img" aria-labelledby="adapi-localization-state-title">
+  <title id="adapi-localization-state-title">The localization initialization state starts at UNINITIALIZED. An initialize request changes it to INITIALIZING, which changes to INITIALIZED on success or back to UNINITIALIZED on failure. From INITIALIZED, a new request changes it to INITIALIZING again.</title>
+
+  <!-- Initial state -->
+  <circle class="icon" cx="22" cy="68" r="9"/>
+  <path class="edge" d="M31 68 H52"/>
+
+  <!-- States -->
+  <rect class="box" x="56" y="40" width="170" height="56" rx="10"/>
+  <text class="lbl" x="141" y="68" text-anchor="middle" dominant-baseline="central">UNINITIALIZED</text>
+
+  <rect class="box" x="316" y="40" width="170" height="56" rx="10"/>
+  <text class="lbl" x="401" y="68" text-anchor="middle" dominant-baseline="central">INITIALIZING</text>
+
+  <rect class="box ok" x="576" y="40" width="170" height="56" rx="10"/>
+  <text class="lbl" x="661" y="68" text-anchor="middle" dominant-baseline="central">INITIALIZED</text>
+
+  <!-- Transitions -->
+  <path class="edge" d="M226 56 H312"/>
+  <text class="edge-lbl" x="271" y="31" text-anchor="middle" dominant-baseline="central">initialize</text>
+  <path class="edge" d="M316 80 H230"/>
+  <text class="edge-lbl" x="271" y="108" text-anchor="middle" dominant-baseline="central">failed</text>
+
+  <path class="edge" d="M486 80 H572"/>
+  <text class="edge-lbl" x="531" y="108" text-anchor="middle" dominant-baseline="central">succeeded</text>
+  <path class="edge" d="M576 56 H490"/>
+  <text class="edge-lbl" x="531" y="31" text-anchor="middle" dominant-baseline="central">initialize</text>
+</svg>

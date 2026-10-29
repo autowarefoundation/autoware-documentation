@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" role="img" aria-labelledby="features-lane-change-title">
+  <title id="features-lane-change-title">The ego vehicle changes from the upper lane to the lower lane to reach its destination.</title>
+
+  <!-- Road: two lanes in the same direction. The ego lane is on top. -->
+  <rect class="road" x="0" y="44" width="760" height="120"/>
+  <line class="mark" x1="0" y1="50" x2="760" y2="50"/>
+  <line class="mark" x1="0" y1="158" x2="760" y2="158"/>
+  <line class="mark dash" x1="0" y1="104" x2="760" y2="104"/>
+
+  <!-- Planned path: a smooth lane change to the lower lane -->
+  <path class="route" d="M150 77 H280 C400 77 400 131 520 131 H700"/>
+
+  <!-- Ego vehicle -->
+  <g>
+    <rect class="car" x="78" y="62" width="64" height="30" rx="6"/>
+    <rect class="glass" x="120" y="66" width="9" height="22" rx="3"/>
+  </g>
+  <text class="note" x="700" y="184" text-anchor="end" dominant-baseline="central">Lane change to the lane on the route</text>
+  <line class="leader" x1="560" y1="176" x2="560" y2="136"/>
+</svg>

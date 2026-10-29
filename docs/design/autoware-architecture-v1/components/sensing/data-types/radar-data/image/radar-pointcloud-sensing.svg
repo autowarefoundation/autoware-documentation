@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 494" role="img" aria-labelledby="radar-pointcloud-sensing-title">
+  <title id="radar-pointcloud-sensing-title">The radar driver publishes RadarScan. The noise filter removes noise. One branch converts the scan to PointCloud2 for low-level obstacle detection. The static points filter uses the ego odometry and sends the dynamic points to radar detection and tracking.</title>
+
+  <!-- Sensing -->
+  <rect class="group" x="16" y="16" width="540" height="400" rx="16"/>
+  <text class="ttl" x="36" y="40">Sensing</text>
+
+  <rect class="box muted" x="40" y="56" width="250" height="44" rx="10"/>
+  <text class="lbl" x="165" y="78" text-anchor="middle" dominant-baseline="central">Radar device</text>
+
+  <path class="edge" d="M165 100 V128"/>
+  <text class="sub" x="178" y="114" dominant-baseline="central">CAN, CAN-FD, or Ethernet</text>
+
+  <rect class="box" x="40" y="136" width="250" height="44" rx="10"/>
+  <text class="lbl" x="165" y="158" text-anchor="middle" dominant-baseline="central">Radar driver</text>
+
+  <path class="edge accent" d="M165 180 V208"/>
+  <text class="code" x="178" y="194" dominant-baseline="central">RadarScan</text>
+
+  <rect class="box" x="40" y="216" width="250" height="56" rx="10"/>
+  <text class="lbl" x="165" y="236" text-anchor="middle" dominant-baseline="central">Noise filter</text>
+  <text class="sub" x="165" y="256" text-anchor="middle" dominant-baseline="central">Amplitude, FOV, and range</text>
+
+  <path class="edge accent" d="M165 272 V322"/>
+  <text class="code" x="178" y="297" dominant-baseline="central">RadarScan</text>
+
+  <rect class="box" x="40" y="330" width="250" height="56" rx="10"/>
+  <text class="lbl" x="165" y="350" text-anchor="middle" dominant-baseline="central">Static points filter</text>
+  <text class="sub" x="165" y="370" text-anchor="middle" dominant-baseline="central">Doppler velocity and ego motion</text>
+
+  <path class="edge" d="M290 244 H312"/>
+  <rect class="box" x="320" y="216" width="210" height="56" rx="10"/>
+  <text class="lbl" x="425" y="236" text-anchor="middle" dominant-baseline="central">Scan to PointCloud2</text>
+  <text class="sub" x="425" y="256" text-anchor="middle" dominant-baseline="central">Amplitude, Doppler as intensity</text>
+
+  <!-- Ego odometry from localization -->
+  <rect class="box muted" x="40" y="436" width="250" height="44" rx="10"/>
+  <text class="code" x="165" y="458" text-anchor="middle" dominant-baseline="central">/localization/kinematic_state</text>
+  <path class="edge" d="M165 436 V394"/>
+  <text class="sub" x="178" y="424" dominant-baseline="central">Odometry</text>
+
+  <!-- Perception -->
+  <rect class="group" x="586" y="16" width="258" height="400" rx="16"/>
+  <text class="ttl" x="606" y="40">Perception</text>
+
+  <rect class="box" x="606" y="216" width="218" height="56" rx="10"/>
+  <text class="lbl" x="715" y="236" text-anchor="middle" dominant-baseline="central">Low-level obstacle</text>
+  <text class="sub" x="715" y="256" text-anchor="middle" dominant-baseline="central">detection (point cloud)</text>
+
+  <rect class="box ext" x="606" y="330" width="218" height="56" rx="10"/>
+  <text class="lbl" x="715" y="350" text-anchor="middle" dominant-baseline="central">Radar detection</text>
+  <text class="sub" x="715" y="370" text-anchor="middle" dominant-baseline="central">and tracking from scans</text>
+
+  <path class="edge" d="M530 244 H598"/>
+  <text class="edge-lbl" x="568" y="228" text-anchor="middle" dominant-baseline="central">PointCloud2</text>
+
+  <path class="edge accent" d="M290 358 H598"/>
+  <text class="edge-lbl" x="430" y="342" text-anchor="middle" dominant-baseline="central">RadarScan (dynamic points)</text>
+</svg>

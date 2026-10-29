@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" role="img" aria-labelledby="new-feature-title">
+  <title id="new-feature-title">Components A, B, and C connect to each other only through the component interface. A component for a new feature or new hardware connects to the same interface, so its developers need to know only the interface.</title>
+
+  <!-- Existing components, with their private parts inside -->
+  <rect class="group" x="20" y="16" width="220" height="150" rx="16"/>
+  <text class="ttl" x="40" y="42">Component A</text>
+  <rect class="box muted" x="44" y="62" width="76" height="34" rx="10"/>
+  <rect class="box muted" x="140" y="104" width="76" height="34" rx="10"/>
+
+  <rect class="group" x="270" y="16" width="220" height="150" rx="16"/>
+  <text class="ttl" x="290" y="42">Component B</text>
+  <rect class="box muted" x="294" y="62" width="64" height="76" rx="10"/>
+  <rect class="box muted" x="390" y="62" width="76" height="30" rx="10"/>
+  <rect class="box muted" x="390" y="104" width="76" height="30" rx="10"/>
+
+  <rect class="group" x="520" y="16" width="220" height="150" rx="16"/>
+  <text class="ttl" x="540" y="42">Component C</text>
+  <rect class="box muted" x="640" y="62" width="76" height="34" rx="10"/>
+  <rect class="box muted" x="544" y="104" width="76" height="34" rx="10"/>
+
+  <!-- Only some parts use the interface -->
+  <path class="edge plain" d="M82 96 V222 M178 138 V222 M326 138 V222 M678 96 V222"/>
+
+  <!-- The component interface -->
+  <rect class="box primary" x="20" y="222" width="720" height="50" rx="10"/>
+  <text class="lbl on-primary" x="380" y="247" text-anchor="middle" dominant-baseline="central">Component interface</text>
+
+  <!-- The new component -->
+  <path class="edge plain" d="M380 272 V322"/>
+  <rect class="box ai" x="200" y="322" width="360" height="44" rx="10"/>
+  <text class="lbl" x="380" y="344" text-anchor="middle" dominant-baseline="central">Component of a new feature or new hardware</text>
+</svg>

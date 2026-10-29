@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" role="img" aria-labelledby="features-side-shift-title">
+  <title id="features-side-shift-title">An external request shifts the path of the ego vehicle sideways in its lane.</title>
+
+  <!-- Road: two lanes in the same direction. The ego lane is on top. -->
+  <rect class="road" x="0" y="44" width="760" height="120"/>
+  <line class="mark" x1="0" y1="50" x2="760" y2="50"/>
+  <line class="mark" x1="0" y1="158" x2="760" y2="158"/>
+  <line class="mark dash" x1="0" y1="104" x2="760" y2="104"/>
+
+  <!-- Original path (lane center) -->
+  <line class="leader" x1="150" y1="77" x2="700" y2="77"/>
+
+  <!-- Shifted path -->
+  <path class="route" d="M150 77 H260 C340 77 340 94 420 94 H700"/>
+
+  <!-- Ego vehicle -->
+  <g>
+    <rect class="car" x="78" y="62" width="64" height="30" rx="6"/>
+    <rect class="glass" x="120" y="66" width="9" height="22" rx="3"/>
+  </g>
+  <text class="note" x="260" y="24" text-anchor="middle" dominant-baseline="central">Original path</text>
+  <line class="leader" x1="260" y1="32" x2="260" y2="74"/>
+  <text class="note" x="560" y="184" text-anchor="middle" dominant-baseline="central">Path shifted by the requested lateral offset</text>
+  <line class="leader" x1="560" y1="176" x2="560" y2="98"/>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" role="img" aria-labelledby="features-blind-spot-title">
+  <title id="features-blind-spot-title">The ego vehicle turns left, and a bicycle comes from behind on its left side, so the ego vehicle waits before the turn.</title>
+
+  <!-- Crossroad. Traffic keeps to the left. The ego lane is the upper lane of the horizontal road. -->
+  <rect class="road" x="0" y="130" width="760" height="120"/>
+  <rect class="road" x="400" y="0" width="120" height="330"/>
+  <line class="mark" x1="0" y1="136" x2="400" y2="136"/>
+  <line class="mark" x1="520" y1="136" x2="760" y2="136"/>
+  <line class="mark" x1="0" y1="244" x2="400" y2="244"/>
+  <line class="mark" x1="520" y1="244" x2="760" y2="244"/>
+  <line class="mark" x1="406" y1="0" x2="406" y2="130"/>
+  <line class="mark" x1="406" y1="250" x2="406" y2="330"/>
+  <line class="mark" x1="514" y1="0" x2="514" y2="130"/>
+  <line class="mark" x1="514" y1="250" x2="514" y2="330"/>
+  <line class="mark yellow" x1="0" y1="190" x2="400" y2="190"/>
+  <line class="mark yellow" x1="520" y1="190" x2="760" y2="190"/>
+  <line class="mark yellow" x1="460" y1="0" x2="460" y2="130"/>
+  <line class="mark yellow" x1="460" y1="250" x2="460" y2="330"/>
+
+  <!-- Left turn that the ego vehicle must not start yet -->
+  <path class="lanelet bad" d="M400 183 H400 A46 46 0 0 0 446 137 V10 H420 V137 A20 20 0 0 1 400 157 H400 Z"/>
+
+  <!-- Bicycle that comes from behind on the left side -->
+  <g>
+    <rect class="car other" x="210" y="137" width="40" height="16" rx="6"/>
+    <rect class="glass" x="228" y="141" width="9" height="8" rx="3"/>
+  </g>
+  <path class="edge accent" d="M256 145 L330 145"/>
+
+  <!-- Planned path and stop point -->
+  <path class="route" d="M352 170 H386"/>
+  <g>
+    <rect class="car" x="278" y="155" width="64" height="30" rx="6"/>
+    <rect class="glass" x="320" y="159" width="9" height="22" rx="3"/>
+  </g>
+  <line class="bound alt" x1="398" y1="140" x2="398" y2="186"/>
+  <text class="note" x="230" y="100" text-anchor="middle" dominant-baseline="central">Bicycle in the blind spot</text>
+  <line class="leader" x1="230" y1="110" x2="230" y2="137"/>
+  <text class="note" x="390" y="290" text-anchor="end" dominant-baseline="central">Wait before the left turn</text>
+  <line class="leader" x1="380" y1="280" x2="398" y2="188"/>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 360" role="img" aria-labelledby="vehicle-dimensions-title">
+  <title id="vehicle-dimensions-title">A top view of the vehicle with its dimensions: front_overhang, wheel_base, and rear_overhang add up to vehicle_length. left_overhang, wheel_tread, and right_overhang add up to vehicle_width. The front wheels show a positive steering angle, which turns the vehicle to the left.</title>
+
+  <!-- The vehicle, front to the right -->
+  <rect class="car" x="200" y="40" width="420" height="200" rx="6"/>
+  <rect class="glass" x="470" y="56" width="22" height="168" rx="3"/>
+  <rect class="icon" x="269" y="62" width="44" height="16" rx="4"/>
+  <rect class="icon" x="269" y="202" width="44" height="16" rx="4"/>
+  <rect class="icon" x="510" y="62" width="44" height="16" rx="4" transform="rotate(-30 532 70)"/>
+  <rect class="icon" x="510" y="202" width="44" height="16" rx="4" transform="rotate(-30 532 210)"/>
+  <text class="note" x="556" y="28">+30°</text>
+
+  <path class="edge accent" d="M291 140 H700"/>
+  <text class="lbl" x="710" y="140" dominant-baseline="central">+x</text>
+  <circle class="bound point" cx="291" cy="140" r="5"/>
+  <text class="sub on-primary" x="300" y="160">base_link</text>
+
+  <!-- Extension lines -->
+  <path class="leader" d="M200 240 V332 M291 78 V292 M532 218 V292 M620 240 V332"/>
+  <path class="leader" d="M200 40 H130 M269 70 H130 M269 210 H130 M200 240 H130"/>
+  <path class="leader" d="M620 40 H790 M620 240 H790"/>
+
+  <!-- Length -->
+  <path class="edge both" d="M202 280 H289"/>
+  <text class="code" x="245" y="300" text-anchor="middle" dominant-baseline="central">rear_overhang</text>
+  <path class="edge both" d="M293 280 H530"/>
+  <text class="code" x="411" y="300" text-anchor="middle" dominant-baseline="central">wheel_base</text>
+  <path class="edge both" d="M534 280 H618"/>
+  <text class="code" x="576" y="300" text-anchor="middle" dominant-baseline="central">front_overhang</text>
+  <path class="edge both" d="M202 324 H618"/>
+  <text class="code lbl" x="411" y="340" text-anchor="middle" dominant-baseline="central">vehicle_length</text>
+
+  <!-- Width -->
+  <path class="edge both" d="M150 42 V68"/>
+  <text class="code" x="140" y="55" text-anchor="end" dominant-baseline="central">left_overhang</text>
+  <path class="edge both" d="M150 72 V208"/>
+  <text class="code" x="140" y="140" text-anchor="end" dominant-baseline="central">wheel_tread</text>
+  <path class="edge both" d="M150 212 V238"/>
+  <text class="code" x="140" y="225" text-anchor="end" dominant-baseline="central">right_overhang</text>
+  <path class="edge both" d="M770 42 V238"/>
+  <text class="code lbl" x="780" y="100" dominant-baseline="central">vehicle_</text>
+  <text class="code lbl" x="780" y="116" dominant-baseline="central">width</text>
+
+  <text class="note" x="210" y="28">Left side</text>
+  <text class="note" x="210" y="260">Right side</text>
+</svg>

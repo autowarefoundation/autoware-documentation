@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" role="img" aria-labelledby="features-pull-over-title">
+  <title id="features-pull-over-title">The goal is on the road shoulder, so the ego vehicle pulls over from the lane to the shoulder and stops at the goal.</title>
+
+  <!-- Road shoulder -->
+  <rect class="shoulder" x="0" y="14" width="760" height="30"/>
+
+  <!-- Road: two lanes in the same direction. The ego lane is on top. -->
+  <rect class="road" x="0" y="44" width="760" height="120"/>
+  <line class="mark" x1="0" y1="50" x2="760" y2="50"/>
+  <line class="mark" x1="0" y1="158" x2="760" y2="158"/>
+  <line class="mark dash" x1="0" y1="104" x2="760" y2="104"/>
+
+  <!-- Planned path: from the lane to the shoulder -->
+  <path class="route" d="M150 77 H260 C340 77 340 29 420 29 H520"/>
+
+  <!-- Ego vehicle -->
+  <g>
+    <rect class="car" x="78" y="62" width="64" height="30" rx="6"/>
+    <rect class="glass" x="120" y="66" width="9" height="22" rx="3"/>
+  </g>
+
+  <!-- Goal -->
+  <circle class="bound point" cx="540" cy="29" r="6"/>
+  <text class="note" x="560" y="184" text-anchor="middle" dominant-baseline="central">Goal on the shoulder</text>
+  <line class="leader" x1="560" y1="176" x2="542" y2="36"/>
+  <text class="note" x="330" y="184" text-anchor="middle" dominant-baseline="central">Pull over path</text>
+  <line class="leader" x1="330" y1="176" x2="330" y2="70"/>
+</svg>

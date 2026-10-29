@@ -34,9 +34,9 @@ The message definition should clarify the following:
 
 - Whether the field is required or optional, and how it will be handled if omitted.
 - Time stamp and frame ID definitions and related fields.
-- How positive and negative values are assigned (e.g. left and right).
+- How positive and negative values are assigned (for example, left and right).
 - Range and units, invalid values.
-- Behavior when invalid or out-of-range values ​​are input.
+- Behavior when invalid or out-of-range values are input.
 - Behavior when interface feature is not supported.
 
 ## Errors

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-labelledby="vehicle-interface-hw-abstraction-title">
+  <title id="vehicle-interface-hw-abstraction-title">Vehicles have different drive-by-wire interfaces. The control component sends a generic control command to an adapter. The adapter uses the vehicle configuration, which OEMs give or calibration tools make, and sends an actuation command to the vehicle interface. The vehicle interface talks to the vehicle driver with the vehicle-specific protocol and sends the status back.</title>
+
+  <!-- Examples of drive-by-wire interfaces -->
+  <rect class="group dashed" x="200" y="16" width="504" height="112" rx="16"/>
+  <text class="ttl" x="216" y="38">Drive-by-wire interfaces differ</text>
+
+  <rect class="box muted" x="214" y="50" width="136" height="64" rx="10"/>
+  <text class="sub" x="282" y="64" text-anchor="middle" dominant-baseline="central">Steering voltage</text>
+  <text class="sub" x="282" y="82" text-anchor="middle" dominant-baseline="central">Engine torque</text>
+  <text class="sub" x="282" y="100" text-anchor="middle" dominant-baseline="central">Brake pressure</text>
+
+  <rect class="box muted" x="362" y="50" width="136" height="64" rx="10"/>
+  <text class="sub" x="430" y="64" text-anchor="middle" dominant-baseline="central">Steering angle</text>
+  <text class="sub" x="430" y="82" text-anchor="middle" dominant-baseline="central">Accel pedal</text>
+  <text class="sub" x="430" y="100" text-anchor="middle" dominant-baseline="central">Brake pedal</text>
+
+  <rect class="box muted" x="510" y="50" width="136" height="64" rx="10"/>
+  <text class="sub" x="578" y="73" text-anchor="middle" dominant-baseline="central">Yaw rate</text>
+  <text class="sub" x="578" y="91" text-anchor="middle" dominant-baseline="central">Velocity</text>
+
+  <text class="sub" x="676" y="82" text-anchor="middle" dominant-baseline="central">...</text>
+
+  <path class="edge dash" d="M452 128 V172"/>
+  <text class="edge-lbl" x="452" y="150" text-anchor="middle" dominant-baseline="central">Autoware abstracts them</text>
+
+  <!-- Autoware -->
+  <rect class="group" x="200" y="180" width="504" height="390" rx="16"/>
+  <text class="ttl" x="216" y="202">Autoware</text>
+
+  <rect class="box" x="330" y="216" width="220" height="56" rx="10"/>
+  <text class="lbl" x="440" y="236" text-anchor="middle" dominant-baseline="central">Control component</text>
+  <text class="sub" x="440" y="256" text-anchor="middle" dominant-baseline="central">Makes generic commands</text>
+
+  <path class="edge accent" d="M440 272 V330"/>
+  <text class="code" x="452" y="288" dominant-baseline="central">Control</text>
+  <text class="sub" x="452" y="304" dominant-baseline="central">Steering tire angle and rate,</text>
+  <text class="sub" x="452" y="320" dominant-baseline="central">velocity, acceleration, jerk</text>
+
+  <rect class="box primary" x="330" y="338" width="220" height="64" rx="10"/>
+  <text class="lbl on-primary" x="440" y="358" text-anchor="middle" dominant-baseline="central">Adapter</text>
+  <text class="sub on-primary" x="440" y="380" text-anchor="middle" dominant-baseline="central">Makes vehicle-specific commands</text>
+
+  <path class="edge accent" d="M480 402 V468"/>
+  <text class="code" x="492" y="418" dominant-baseline="central">ActuationCommand</text>
+  <text class="sub" x="492" y="434" dominant-baseline="central">Accel, brake, and</text>
+  <text class="sub" x="492" y="450" dominant-baseline="central">steering commands</text>
+
+  <path class="edge" d="M380 476 V410"/>
+  <text class="edge-lbl" x="380" y="440" text-anchor="middle" dominant-baseline="central">Status</text>
+
+  <rect class="box" x="330" y="476" width="220" height="64" rx="10"/>
+  <text class="lbl" x="440" y="496" text-anchor="middle" dominant-baseline="central">Vehicle interface</text>
+  <text class="sub" x="440" y="518" text-anchor="middle" dominant-baseline="central">Uses the vehicle-specific protocol</text>
+
+  <!-- Configuration and calibration -->
+  <text class="sub" x="100" y="300" text-anchor="middle" dominant-baseline="central">Given by OEMs, or made</text>
+  <text class="sub" x="100" y="316" text-anchor="middle" dominant-baseline="central">by calibration tools</text>
+
+  <rect class="box muted" x="16" y="338" width="168" height="64" rx="10"/>
+  <text class="lbl" x="100" y="358" text-anchor="middle" dominant-baseline="central">Vehicle configuration</text>
+  <text class="sub" x="100" y="380" text-anchor="middle" dominant-baseline="central">Accel, brake, steer maps</text>
+
+  <rect class="box muted" x="16" y="452" width="168" height="64" rx="10"/>
+  <text class="lbl" x="100" y="472" text-anchor="middle" dominant-baseline="central">Calibration tools</text>
+  <text class="sub" x="100" y="494" text-anchor="middle" dominant-baseline="central">Accel brake map calibrator</text>
+
+  <path class="edge" d="M184 370 H322"/>
+  <path class="edge" d="M100 452 V410"/>
+
+  <!-- Vehicle -->
+  <path class="edge accent" d="M480 540 V618"/>
+  <text class="edge-lbl" x="490" y="580" dominant-baseline="central">Actuation</text>
+  <path class="edge" d="M400 626 V548"/>
+  <text class="edge-lbl" x="390" y="580" text-anchor="end" dominant-baseline="central">Status</text>
+
+  <rect class="group" x="200" y="610" width="504" height="94" rx="16"/>
+  <text class="ttl" x="216" y="632">Vehicle</text>
+
+  <rect class="box" x="330" y="626" width="220" height="56" rx="10"/>
+  <text class="lbl" x="440" y="654" text-anchor="middle" dominant-baseline="central">Vehicle driver</text>
+</svg>

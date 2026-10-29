@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 470" role="img" aria-labelledby="adapi-initialize-pose-input-title">
+  <title id="adapi-initialize-pose-input-title">The user gives a pose in the GUI. The application calls the localization initialize API with that pose, and AD API forwards the request to Autoware.</title>
+
+  <!-- Participants and lifelines -->
+  <rect class="box" x="15" y="16" width="150" height="44" rx="10"/>
+  <text class="lbl" x="90" y="38" text-anchor="middle" dominant-baseline="central">GUI</text>
+  <line class="edge plain dash" x1="90" y1="60" x2="90" y2="458"/>
+  <rect class="box" x="225" y="16" width="150" height="44" rx="10"/>
+  <text class="lbl" x="300" y="38" text-anchor="middle" dominant-baseline="central">Application</text>
+  <line class="edge plain dash" x1="300" y1="60" x2="300" y2="458"/>
+  <rect class="box" x="455" y="16" width="150" height="44" rx="10"/>
+  <text class="lbl" x="530" y="38" text-anchor="middle" dominant-baseline="central">AD API</text>
+  <line class="edge plain dash" x1="530" y1="60" x2="530" y2="458"/>
+  <rect class="box" x="665" y="16" width="150" height="44" rx="10"/>
+  <text class="lbl" x="740" y="38" text-anchor="middle" dominant-baseline="central">Autoware</text>
+  <line class="edge plain dash" x1="740" y1="60" x2="740" y2="458"/>
+
+  <!-- Messages -->
+  <path class="edge" d="M92 94 H298"/>
+  <text class="edge-lbl" x="195" y="83" text-anchor="middle" dominant-baseline="central">pose</text>
+  <path class="edge" d="M302 136 H528"/>
+  <text class="edge-lbl" x="415" y="125" text-anchor="middle" dominant-baseline="central">/api/localization/initialize (pose)</text>
+  <path class="edge" d="M532 178 H738"/>
+  <text class="edge-lbl" x="635" y="167" text-anchor="middle" dominant-baseline="central">initialize the pose</text>
+  <path class="edge" d="M738 220 H532"/>
+  <text class="edge-lbl" x="635" y="209" text-anchor="middle" dominant-baseline="central">INITIALIZING</text>
+  <path class="edge" d="M528 262 H302"/>
+  <text class="edge-lbl" x="415" y="251" text-anchor="middle" dominant-baseline="central">/api/localization/initialization_state</text>
+  <path class="edge" d="M738 304 H532"/>
+  <text class="edge-lbl" x="635" y="293" text-anchor="middle" dominant-baseline="central">INITIALIZED or UNINITIALIZED</text>
+  <path class="edge" d="M528 346 H302"/>
+  <text class="edge-lbl" x="415" y="335" text-anchor="middle" dominant-baseline="central">/api/localization/initialization_state</text>
+  <path class="edge dash" d="M738 388 H532"/>
+  <text class="edge-lbl" x="635" y="377" text-anchor="middle" dominant-baseline="central">response status</text>
+  <path class="edge dash" d="M528 430 H302"/>
+  <text class="edge-lbl" x="415" y="419" text-anchor="middle" dominant-baseline="central">response status</text>
+</svg>

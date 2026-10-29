@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 270" role="img" aria-labelledby="features-trajectory-validation-title">
+  <title id="features-trajectory-validation-title">The planning validator sends a valid trajectory to Control and stops an invalid trajectory that has a sharp zigzag.</title>
+
+  <!-- Valid trajectory -->
+  <rect class="road" x="0" y="20" width="760" height="80"/>
+  <line class="mark" x1="0" y1="26" x2="760" y2="26"/>
+  <line class="mark" x1="0" y1="94" x2="760" y2="94"/>
+  <path class="route" d="M150 60 H700"/>
+  <g>
+    <rect class="car" x="78" y="45" width="64" height="30" rx="6"/>
+    <rect class="glass" x="120" y="49" width="9" height="22" rx="3"/>
+  </g>
+  <text class="note good" x="380" y="116" text-anchor="middle" dominant-baseline="central">Valid trajectory: sent to Control</text>
+
+  <!-- Invalid trajectory -->
+  <rect class="road" x="0" y="150" width="760" height="80"/>
+  <line class="mark" x1="0" y1="156" x2="760" y2="156"/>
+  <line class="mark" x1="0" y1="224" x2="760" y2="224"/>
+  <path class="route" d="M150 190 H300 L360 220 L430 160 L500 190 H700"/>
+  <g>
+    <rect class="car" x="78" y="175" width="64" height="30" rx="6"/>
+    <rect class="glass" x="120" y="179" width="9" height="22" rx="3"/>
+  </g>
+  <text class="note bad" x="380" y="250" text-anchor="middle" dominant-baseline="central">Invalid trajectory (sharp zigzag): not sent</text>
+</svg>

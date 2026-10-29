@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 644" role="img" aria-labelledby="radar-objects-sensing-title">
+  <title id="radar-objects-sensing-title">For each radar, the driver publishes RadarTracks, the noise filter removes noise tracks, and the message converter makes DetectedObjects in base_link with the ego odometry. The object merger merges all radars and sends the objects to perception.</title>
+
+  <rect class="group" x="16" y="16" width="828" height="508" rx="16"/>
+  <text class="ttl" x="36" y="40">Sensing</text>
+
+  <!-- The pipeline of one radar -->
+  <rect class="group dashed" x="36" y="56" width="300" height="364" rx="16"/>
+  <text class="ttl" x="56" y="80">Pipeline for each radar</text>
+
+  <rect class="box muted" x="56" y="96" width="260" height="44" rx="10"/>
+  <text class="lbl" x="186" y="118" text-anchor="middle" dominant-baseline="central">Radar device</text>
+
+  <path class="edge" d="M186 140 V168"/>
+  <text class="sub" x="198" y="154" dominant-baseline="central">CAN or Ethernet</text>
+
+  <rect class="box" x="56" y="176" width="260" height="44" rx="10"/>
+  <text class="lbl" x="186" y="198" text-anchor="middle" dominant-baseline="central">Radar driver</text>
+
+  <path class="edge accent" d="M186 220 V248"/>
+  <text class="code" x="198" y="234" dominant-baseline="central">RadarTracks</text>
+
+  <rect class="box" x="56" y="256" width="260" height="56" rx="10"/>
+  <text class="lbl" x="186" y="276" text-anchor="middle" dominant-baseline="central">Noise filter</text>
+  <text class="sub" x="186" y="296" text-anchor="middle" dominant-baseline="central">Y-axis velocity threshold</text>
+
+  <path class="edge accent" d="M186 312 V340"/>
+  <text class="code" x="198" y="326" dominant-baseline="central">RadarTracks</text>
+
+  <rect class="box" x="56" y="348" width="260" height="56" rx="10"/>
+  <text class="lbl" x="186" y="368" text-anchor="middle" dominant-baseline="central">Message converter</text>
+  <text class="sub" x="186" y="388" text-anchor="middle" dominant-baseline="central">Sensor frame to base_link</text>
+
+  <!-- Ego odometry -->
+  <rect class="box muted" x="480" y="354" width="260" height="44" rx="10"/>
+  <text class="code" x="610" y="376" text-anchor="middle" dominant-baseline="central">/localization/kinematic_state</text>
+  <path class="edge" d="M480 376 H324"/>
+  <text class="edge-lbl" x="408" y="376" text-anchor="middle" dominant-baseline="central">Odometry</text>
+
+  <!-- Other radars -->
+  <rect class="box muted" x="580" y="96" width="240" height="56" rx="10"/>
+  <text class="lbl" x="700" y="116" text-anchor="middle" dominant-baseline="central">Other radars</text>
+  <text class="sub" x="700" y="136" text-anchor="middle" dominant-baseline="central">The same pipeline</text>
+  <path class="edge" d="M790 152 V442"/>
+
+  <!-- Merger -->
+  <path class="edge accent" d="M186 404 V442"/>
+  <text class="code" x="198" y="431" dominant-baseline="central">DetectedObjects</text>
+
+  <rect class="box primary" x="56" y="450" width="764" height="56" rx="10"/>
+  <text class="lbl on-primary" x="438" y="470" text-anchor="middle" dominant-baseline="central">Object merger</text>
+  <text class="sub on-primary" x="438" y="490" text-anchor="middle" dominant-baseline="central">Merges the DetectedObjects of all radars</text>
+
+  <!-- Perception -->
+  <path class="edge accent" d="M438 506 V564"/>
+  <text class="code" x="452" y="544" dominant-baseline="central">/sensing/radar/detected_objects</text>
+
+  <rect class="box" x="278" y="572" width="320" height="56" rx="10"/>
+  <text class="lbl" x="438" y="592" text-anchor="middle" dominant-baseline="central">Radar detection and tracking</text>
+  <text class="sub" x="438" y="612" text-anchor="middle" dominant-baseline="central">Perception</text>
+</svg>

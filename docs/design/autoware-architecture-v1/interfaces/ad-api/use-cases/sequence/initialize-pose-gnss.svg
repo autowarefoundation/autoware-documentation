@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 520" role="img" aria-labelledby="adapi-initialize-pose-gnss-title">
+  <title id="adapi-initialize-pose-gnss-title">The application calls the localization initialize API without a pose. Autoware uses the latest GNSS pose as the initial guess.</title>
+
+  <!-- Participants and lifelines -->
+  <rect class="box" x="25" y="16" width="150" height="44" rx="10"/>
+  <text class="lbl" x="100" y="38" text-anchor="middle" dominant-baseline="central">Application</text>
+  <line class="edge plain dash" x1="100" y1="60" x2="100" y2="508"/>
+  <rect class="box" x="255" y="16" width="150" height="44" rx="10"/>
+  <text class="lbl" x="330" y="38" text-anchor="middle" dominant-baseline="central">AD API</text>
+  <line class="edge plain dash" x1="330" y1="60" x2="330" y2="508"/>
+  <rect class="box" x="485" y="16" width="150" height="44" rx="10"/>
+  <text class="lbl" x="560" y="38" text-anchor="middle" dominant-baseline="central">Autoware</text>
+  <line class="edge plain dash" x1="560" y1="60" x2="560" y2="508"/>
+  <rect class="box" x="685" y="16" width="150" height="44" rx="10"/>
+  <text class="lbl" x="760" y="38" text-anchor="middle" dominant-baseline="central">GNSS</text>
+  <line class="edge plain dash" x1="760" y1="60" x2="760" y2="508"/>
+
+  <!-- Messages -->
+  <path class="edge" d="M758 94 H562"/>
+  <text class="edge-lbl" x="660" y="83" text-anchor="middle" dominant-baseline="central">pose</text>
+  <path class="edge" d="M102 136 H328"/>
+  <text class="edge-lbl" x="215" y="125" text-anchor="middle" dominant-baseline="central">/api/localization/initialize (no pose)</text>
+  <path class="edge" d="M332 178 H558"/>
+  <text class="edge-lbl" x="445" y="167" text-anchor="middle" dominant-baseline="central">initialize the pose</text>
+  <path class="edge" d="M558 220 H332"/>
+  <text class="edge-lbl" x="445" y="209" text-anchor="middle" dominant-baseline="central">INITIALIZING</text>
+  <path class="edge" d="M328 262 H102"/>
+  <text class="edge-lbl" x="215" y="251" text-anchor="middle" dominant-baseline="central">/api/localization/initialization_state</text>
+  <path class="edge" d="M562 304 H596 V326 H564"/>
+  <text class="edge-lbl" x="604" y="315" dominant-baseline="central">use the GNSS pose</text>
+  <path class="edge" d="M558 354 H332"/>
+  <text class="edge-lbl" x="445" y="343" text-anchor="middle" dominant-baseline="central">INITIALIZED or UNINITIALIZED</text>
+  <path class="edge" d="M328 396 H102"/>
+  <text class="edge-lbl" x="215" y="385" text-anchor="middle" dominant-baseline="central">/api/localization/initialization_state</text>
+  <path class="edge dash" d="M558 438 H332"/>
+  <text class="edge-lbl" x="445" y="427" text-anchor="middle" dominant-baseline="central">response status</text>
+  <path class="edge dash" d="M328 480 H102"/>
+  <text class="edge-lbl" x="215" y="469" text-anchor="middle" dominant-baseline="central">response status</text>
+</svg>

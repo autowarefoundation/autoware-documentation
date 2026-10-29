@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" role="img" aria-labelledby="features-route-planning-title">
+  <title id="features-route-planning-title">The route goes on the road network from the start, through two checkpoints, to the goal.</title>
+
+  <!-- Road network -->
+  <rect class="road" x="0" y="40" width="760" height="36"/>
+  <rect class="road" x="0" y="180" width="760" height="36"/>
+  <rect class="road" x="0" y="320" width="760" height="36"/>
+  <rect class="road" x="60" y="0" width="36" height="400"/>
+  <rect class="road" x="230" y="0" width="36" height="400"/>
+  <rect class="road" x="400" y="0" width="36" height="400"/>
+  <rect class="road" x="570" y="0" width="36" height="400"/>
+  <rect class="road" x="700" y="0" width="36" height="400"/>
+
+  <!-- Route -->
+  <path class="route" d="M78 300 V58 H248 V198 H418 V338 H588 V58 H700"/>
+
+  <!-- Start (ego vehicle), checkpoints, and goal -->
+  <g transform="rotate(-90 78 330)">
+    <rect class="car" x="54" y="318" width="48" height="24" rx="6"/>
+    <rect class="glass" x="80" y="322" width="9" height="16" rx="3"/>
+  </g>
+  <circle class="bound point" cx="248" cy="130" r="8"/>
+  <circle class="bound point" cx="418" cy="270" r="8"/>
+  <circle class="bound point" cx="718" cy="58" r="8"/>
+  <text class="note" x="110" y="384" dominant-baseline="central">Start</text>
+  <text class="note" x="268" y="130" dominant-baseline="central">Checkpoint 1</text>
+  <text class="note" x="438" y="270" dominant-baseline="central">Checkpoint 2</text>
+  <text class="note" x="740" y="110" text-anchor="end" dominant-baseline="central">Goal</text>
+  <line class="leader" x1="728" y1="100" x2="720" y2="68"/>
+</svg>

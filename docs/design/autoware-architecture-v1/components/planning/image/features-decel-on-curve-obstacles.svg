@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" role="img" aria-labelledby="features-decel-on-curve-obstacles-title">
+  <title id="features-decel-on-curve-obstacles-title">An obstacle is at the edge of a curve, so the ego vehicle slows down more in the curve.</title>
+
+  <!-- Road with one lane that turns right -->
+  <path class="road" d="M0 40 H480 A200 200 0 0 1 680 240 V340 H570 V240 A90 90 0 0 0 480 150 H0 Z"/>
+  <path class="mark" fill="none" d="M0 46 H480 A194 194 0 0 1 674 240 V340"/>
+  <path class="mark" fill="none" d="M0 144 H480 A96 96 0 0 1 576 240 V340"/>
+
+  <!-- Section where the ego vehicle slows down -->
+  <path class="lanelet alt" d="M380 81 H480 A159 159 0 0 1 639 240 V320 H611 V240 A131 131 0 0 0 480 109 H380 Z"/>
+
+  <!-- Obstacle at the outer edge of the curve -->
+  <path class="car other" d="M632 85 L643 108 H621 Z"/>
+
+  <!-- Planned path -->
+  <path class="route" d="M150 95 H480 A145 145 0 0 1 625 240 V320"/>
+  <g>
+    <rect class="car" x="78" y="80" width="64" height="30" rx="6"/>
+    <rect class="glass" x="120" y="84" width="9" height="22" rx="3"/>
+  </g>
+  <text class="note" x="750" y="40" text-anchor="end" dominant-baseline="central">Obstacle near the path</text>
+  <line class="leader" x1="700" y1="50" x2="645" y2="88"/>
+  <text class="note" x="300" y="190" text-anchor="middle" dominant-baseline="central">Slow down more for the obstacle</text>
+  <line class="leader" x1="330" y1="180" x2="420" y2="110"/>
+</svg>

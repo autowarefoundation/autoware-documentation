@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 480" role="img" aria-labelledby="high-level-perception-diagram-title">
+  <title id="high-level-perception-diagram-title">Sensing, Localization, Map, and the API send data to the Perception component. Perception has four sub-components: object recognition, obstacle segmentation, occupancy grid map, and traffic light recognition. Perception sends its results to Planning.</title>
+
+  <!-- The API layer -->
+  <rect class="box muted" x="420" y="16" width="260" height="54" rx="10"/>
+  <text class="lbl" x="550" y="35" text-anchor="middle" dominant-baseline="central">API</text>
+  <text class="sub" x="550" y="55" text-anchor="middle" dominant-baseline="central">V2X information</text>
+  <path class="edge" d="M550 70 V110"/>
+
+  <!-- The input components -->
+  <rect class="box muted" x="20" y="146" width="170" height="54" rx="10"/>
+  <text class="lbl" x="105" y="165" text-anchor="middle" dominant-baseline="central">Sensing</text>
+  <text class="sub" x="105" y="185" text-anchor="middle" dominant-baseline="central">Point cloud, images, radar</text>
+
+  <rect class="box muted" x="20" y="218" width="170" height="54" rx="10"/>
+  <text class="lbl" x="105" y="237" text-anchor="middle" dominant-baseline="central">Localization</text>
+  <text class="sub" x="105" y="257" text-anchor="middle" dominant-baseline="central">Ego pose and velocity</text>
+
+  <rect class="box muted" x="20" y="290" width="170" height="54" rx="10"/>
+  <text class="lbl" x="105" y="309" text-anchor="middle" dominant-baseline="central">Map</text>
+  <text class="sub" x="105" y="329" text-anchor="middle" dominant-baseline="central">Vector and point cloud maps</text>
+
+  <path class="edge" d="M190 173 H242"/>
+  <path class="edge" d="M190 245 H242"/>
+  <path class="edge" d="M190 317 H242"/>
+
+  <!-- The Perception component -->
+  <rect class="group" x="250" y="118" width="590" height="252" rx="16"/>
+  <text class="ttl" x="272" y="144">Perception</text>
+
+  <rect class="box primary" x="272" y="162" width="266" height="84" rx="10"/>
+  <text class="lbl on-primary" x="405" y="192" text-anchor="middle" dominant-baseline="central">Object recognition</text>
+  <text class="sub on-primary" x="405" y="216" text-anchor="middle" dominant-baseline="central">Detection, tracking, prediction</text>
+
+  <rect class="box" x="556" y="162" width="266" height="84" rx="10"/>
+  <text class="lbl" x="689" y="192" text-anchor="middle" dominant-baseline="central">Obstacle segmentation</text>
+  <text class="sub" x="689" y="216" text-anchor="middle" dominant-baseline="central">Points of obstacles to avoid</text>
+
+  <rect class="box" x="272" y="264" width="266" height="84" rx="10"/>
+  <text class="lbl" x="405" y="294" text-anchor="middle" dominant-baseline="central">Occupancy grid map</text>
+  <text class="sub" x="405" y="318" text-anchor="middle" dominant-baseline="central">Blind spots and free space</text>
+
+  <rect class="box" x="556" y="264" width="266" height="84" rx="10"/>
+  <text class="lbl" x="689" y="294" text-anchor="middle" dominant-baseline="central">Traffic light recognition</text>
+  <text class="sub" x="689" y="318" text-anchor="middle" dominant-baseline="central">Colors and arrows of the signals</text>
+
+  <!-- The output to Planning -->
+  <path class="edge accent" d="M550 370 V412"/>
+  <text class="edge-lbl" x="550" y="391" text-anchor="middle" dominant-baseline="central">Objects, obstacles, grid map, signals</text>
+  <rect class="box muted" x="420" y="420" width="260" height="46" rx="10"/>
+  <text class="lbl" x="550" y="443" text-anchor="middle" dominant-baseline="central">Planning</text>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" role="img" aria-labelledby="features-aeb-title">
+  <title id="features-aeb-title">The ego vehicle comes too close to the vehicle ahead and brakes hard to prevent a collision.</title>
+
+  <!-- Road: two lanes in the same direction. The ego lane is on top. -->
+  <rect class="road" x="0" y="44" width="760" height="120"/>
+  <line class="mark" x1="0" y1="50" x2="760" y2="50"/>
+  <line class="mark" x1="0" y1="158" x2="760" y2="158"/>
+  <line class="mark dash" x1="0" y1="104" x2="760" y2="104"/>
+
+  <!-- Vehicle ahead -->
+  <g>
+    <rect class="car npc" x="488" y="62" width="64" height="30" rx="6"/>
+    <rect class="glass" x="530" y="66" width="9" height="22" rx="3"/>
+  </g>
+
+  <!-- Predicted collision area -->
+  <rect class="area warn" x="412" y="58" width="74" height="38" rx="4"/>
+
+  <!-- Ego vehicle (too close) -->
+  <g>
+    <rect class="car" x="338" y="62" width="64" height="30" rx="6"/>
+    <rect class="glass" x="380" y="66" width="9" height="22" rx="3"/>
+  </g>
+
+  <!-- Warning sign -->
+  <circle class="sign" cx="450" cy="24" r="16"/>
+  <text class="sign-text" x="450" y="24" text-anchor="middle" dominant-baseline="central">!</text>
+  <text class="note" x="450" y="184" text-anchor="middle" dominant-baseline="central">Predicted collision: emergency braking</text>
+  <line class="leader" x1="450" y1="176" x2="450" y2="96"/>
+</svg>

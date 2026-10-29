@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 320" role="img" aria-labelledby="adapi-steering-factors-1-title">
+  <title id="adapi-steering-factors-1-title">The vehicle turns left at an intersection. The steering factor has the status APPROACHING before the turn and TURNING between the start pose and the end pose of the turn.</title>
+
+  <!-- Status -->
+  <circle class="icon" cx="22" cy="36" r="9"/>
+  <path class="edge" d="M31 36 H56"/>
+  <rect class="box" x="60" y="14" width="160" height="44" rx="10"/>
+  <text class="lbl" x="140" y="36" text-anchor="middle" dominant-baseline="central">APPROACHING</text>
+  <path class="edge" d="M220 36 H296"/>
+  <rect class="box ok" x="300" y="14" width="160" height="44" rx="10"/>
+  <text class="lbl" x="380" y="36" text-anchor="middle" dominant-baseline="central">TURNING</text>
+
+  <!-- Roads -->
+  <rect class="road" x="0" y="110" width="820" height="140"/>
+  <rect class="road" x="620" y="0" width="120" height="320"/>
+  <path class="mark" d="M0 110 H620 M740 110 H820 M0 250 H620 M740 250 H820"/>
+  <path class="mark" d="M620 110 V0 M740 110 V0 M620 250 V320 M740 250 V320"/>
+  <path class="mark dash" d="M0 180 H610 M750 180 H820"/>
+  <path class="mark dash" d="M680 100 V0 M680 260 V320"/>
+
+  <!-- Ego vehicle and path -->
+  <rect class="car" x="110" y="130" width="64" height="30" rx="6"/>
+  <rect class="glass" x="156" y="134" width="10" height="22" rx="2"/>
+  <path class="route" d="M180 145 H650 V14"/>
+
+  <!-- Start and end poses of the turn -->
+  <path class="bound" d="M560 120 V170"/>
+  <text class="note" x="560" y="96" text-anchor="middle" dominant-baseline="central">pose[0]</text>
+  <path class="bound" d="M626 64 H674"/>
+  <text class="note" x="752" y="64" dominant-baseline="central">pose[1]</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 280" role="img" aria-labelledby="adapi-steering-factors-2-title">
+  <title id="adapi-steering-factors-2-title">The vehicle changes lanes. The steering factor has the status APPROACHING before the lane change and TURNING during it. The section between the start pose and the end pose can move forward while the vehicle drives.</title>
+
+  <!-- Status -->
+  <circle class="icon" cx="22" cy="36" r="9"/>
+  <path class="edge" d="M31 36 H56"/>
+  <rect class="box" x="60" y="14" width="160" height="44" rx="10"/>
+  <text class="lbl" x="140" y="36" text-anchor="middle" dominant-baseline="central">APPROACHING</text>
+  <path class="edge" d="M220 36 H296"/>
+  <rect class="box ok" x="300" y="14" width="160" height="44" rx="10"/>
+  <text class="lbl" x="380" y="36" text-anchor="middle" dominant-baseline="central">TURNING</text>
+
+  <!-- Road -->
+  <rect class="road" x="0" y="100" width="820" height="140"/>
+  <path class="mark" d="M0 100 H820 M0 240 H820"/>
+  <path class="mark dash" d="M0 170 H820"/>
+
+  <!-- Ego vehicle and path -->
+  <rect class="car" x="110" y="120" width="64" height="30" rx="6"/>
+  <rect class="glass" x="156" y="124" width="10" height="22" rx="2"/>
+  <path class="route" d="M180 135 H360 L520 205 H760"/>
+  <path class="bound alt" d="M360 135 H560 L720 205"/>
+
+  <!-- Current section -->
+  <path class="bound" d="M360 110 V160"/>
+  <text class="note" x="360" y="86" text-anchor="middle" dominant-baseline="central">pose[0]</text>
+  <path class="bound" d="M520 180 V230"/>
+  <text class="note" x="520" y="258" text-anchor="middle" dominant-baseline="central">pose[1]</text>
+
+  <!-- Section after an update -->
+  <path class="bound alt" d="M560 110 V160"/>
+  <text class="note" x="560" y="86" text-anchor="middle" dominant-baseline="central">updated pose[0]</text>
+  <path class="bound alt" d="M720 180 V230"/>
+  <text class="note" x="720" y="258" text-anchor="middle" dominant-baseline="central">updated pose[1]</text>
+</svg>

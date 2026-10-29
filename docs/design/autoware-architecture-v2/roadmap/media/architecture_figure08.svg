@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 486" role="img" aria-labelledby="roadmap-stack-fig08-title">
+  <title id="roadmap-stack-fig08-title">Step 4, option A: learned perception and learned driving, with localization on an HD map, feed a safety guardian that sends the trajectory to control.</title>
+
+  <!-- The reference design framework and the vehicle types -->
+  <rect class="box muted" x="20" y="40" width="500" height="52" rx="10"/>
+  <text class="lbl" x="270" y="66" text-anchor="middle" dominant-baseline="central">Reference design framework</text>
+  <rect class="group" x="560" y="16" width="280" height="112" rx="16"/>
+  <text class="ttl" x="580" y="38">Vehicle types</text>
+  <rect class="box" x="580" y="54" width="72" height="28" rx="10"/>
+  <text x="616" y="68" text-anchor="middle" dominant-baseline="central">Private</text>
+  <rect class="box" x="664" y="54" width="72" height="28" rx="10"/>
+  <text x="700" y="68" text-anchor="middle" dominant-baseline="central">Taxi</text>
+  <rect class="box" x="748" y="54" width="72" height="28" rx="10"/>
+  <text x="784" y="68" text-anchor="middle" dominant-baseline="central">Bus</text>
+  <rect class="box" x="580" y="90" width="72" height="28" rx="10"/>
+  <text x="616" y="104" text-anchor="middle" dominant-baseline="central">Shuttle</text>
+  <rect class="box" x="664" y="90" width="72" height="28" rx="10"/>
+  <text x="700" y="104" text-anchor="middle" dominant-baseline="central">Truck</text>
+  <rect class="box" x="748" y="90" width="72" height="28" rx="10"/>
+  <text x="784" y="104" text-anchor="middle" dominant-baseline="central">Cart</text>
+  <path class="edge plain" d="M520 66 H560"/>
+
+  <!-- Sensing and control -->
+  <rect class="box" x="20" y="150" width="96" height="240" rx="10"/>
+  <text class="lbl" x="68" y="270" text-anchor="middle" dominant-baseline="central">Sensing</text>
+  <rect class="box" x="710" y="150" width="130" height="240" rx="10"/>
+  <text class="lbl" x="775" y="270" text-anchor="middle" dominant-baseline="central">Control</text>
+
+  <!-- Sensors and the vehicle -->
+  <rect class="box muted" x="18" y="428" width="100" height="44" rx="10"/>
+  <text x="68" y="450" text-anchor="middle" dominant-baseline="central">Sensors</text>
+  <rect class="box muted" x="725" y="428" width="100" height="44" rx="10"/>
+  <text x="775" y="450" text-anchor="middle" dominant-baseline="central">Vehicle</text>
+  <path class="edge" d="M68 428 V396"/>
+  <path class="edge" d="M775 390 V422"/>
+
+  <!-- Safety perception and learned driving -->
+  <rect class="box ai" x="150" y="150" width="360" height="96" rx="10"/>
+  <text class="lbl" x="330" y="188.5" text-anchor="middle" dominant-baseline="central">Learned perception</text>
+  <text class="sub" x="330" y="208.5" text-anchor="middle" dominant-baseline="central">Safety perception</text>
+  <rect class="box ai" x="150" y="266" width="360" height="50" rx="10"/>
+  <text class="lbl" x="330" y="291" text-anchor="middle" dominant-baseline="central">Learned driving</text>
+  <rect class="box primary" x="544" y="150" width="132" height="240" rx="10"/>
+  <text class="lbl on-primary" x="610" y="260.5" text-anchor="middle" dominant-baseline="central">Safety</text>
+  <text class="lbl on-primary" x="610" y="279.5" text-anchor="middle" dominant-baseline="central">guardian</text>
+  <path class="edge" d="M116 198 H144"/>
+  <path class="edge" d="M116 291 H144"/>
+  <path class="edge" d="M510 198 H538"/>
+  <path class="edge" d="M510 291 H538"/>
+  <path class="edge" d="M676 270 H704"/>
+  <rect class="box" x="150" y="336" width="360" height="54" rx="10"/>
+  <text class="lbl" x="330" y="363" text-anchor="middle" dominant-baseline="central">Localization</text>
+  <path class="edge" d="M116 363 H144"/>
+  <path class="edge" d="M330 336 V322"/>
+  <rect class="box muted" x="275" y="428" width="110" height="44" rx="10"/>
+  <text class="lbl" x="330" y="450" text-anchor="middle" dominant-baseline="central">HD map</text>
+  <path class="edge" d="M330 428 V396"/>
+</svg>

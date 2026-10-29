@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 552" role="img" aria-labelledby="high-level-map-diagram-title">
+  <title id="high-level-map-diagram-title">The map component reads the projection info, Lanelet2 map, and point cloud map files. Its loader nodes publish the map projector info, the vector map, and the point cloud map to the other components. Helper nodes publish visualization markers, the viewer transform, and the map hash.</title>
+
+  <!-- Column titles -->
+  <text class="ttl" x="12" y="60">Map files</text>
+  <text class="ttl" x="560" y="60">Outputs and users</text>
+
+  <!-- The map component -->
+  <rect class="group" x="214" y="36" width="312" height="500" rx="16"/>
+  <text class="ttl" x="232" y="60">Map component (/map)</text>
+
+  <!-- Row A: projection -->
+  <rect class="box muted" x="12" y="76" width="176" height="72" rx="10"/>
+  <text class="lbl" x="100" y="102" text-anchor="middle" dominant-baseline="central">Projection info</text>
+  <text class="code" x="100" y="124" text-anchor="middle" dominant-baseline="central">map_projector_info.yaml</text>
+
+  <rect class="box primary" x="232" y="76" width="276" height="72" rx="10"/>
+  <text class="lbl on-primary" x="370" y="102" text-anchor="middle" dominant-baseline="central">map_projection_loader</text>
+  <text class="sub on-primary" x="370" y="124" text-anchor="middle" dominant-baseline="central">autoware_map_projection_loader</text>
+
+  <rect class="box" x="560" y="76" width="288" height="72" rx="10"/>
+  <text class="code" x="704" y="96" text-anchor="middle" dominant-baseline="central">/map/map_projector_info</text>
+  <text class="sub" x="704" y="116" text-anchor="middle" dominant-baseline="central">To sensing (GNSS), localization,</text>
+  <text class="sub" x="704" y="132" text-anchor="middle" dominant-baseline="central">and the AD API</text>
+
+  <path class="edge" d="M188 112 H224"/>
+  <path class="edge accent" d="M508 112 H552"/>
+
+  <!-- Projection to the Lanelet2 loader -->
+  <path class="edge" d="M370 148 V182"/>
+  <text class="edge-lbl" x="380" y="168" dominant-baseline="central">projector info</text>
+
+  <!-- Row B: Lanelet2 map -->
+  <rect class="box muted" x="12" y="188" width="176" height="72" rx="10"/>
+  <text class="lbl" x="100" y="214" text-anchor="middle" dominant-baseline="central">Lanelet2 map</text>
+  <text class="code" x="100" y="236" text-anchor="middle" dominant-baseline="central">lanelet2_map.osm</text>
+
+  <rect class="box primary" x="232" y="188" width="276" height="72" rx="10"/>
+  <text class="lbl on-primary" x="370" y="214" text-anchor="middle" dominant-baseline="central">lanelet2_map_loader</text>
+  <text class="sub on-primary" x="370" y="236" text-anchor="middle" dominant-baseline="central">autoware_map_loader</text>
+
+  <rect class="box" x="560" y="188" width="288" height="72" rx="10"/>
+  <text class="code" x="704" y="208" text-anchor="middle" dominant-baseline="central">/map/vector_map</text>
+  <text class="sub" x="704" y="228" text-anchor="middle" dominant-baseline="central">To localization, perception,</text>
+  <text class="sub" x="704" y="244" text-anchor="middle" dominant-baseline="central">planning, and control</text>
+
+  <path class="edge" d="M188 224 H224"/>
+  <path class="edge accent" d="M508 224 H552"/>
+
+  <!-- Lanelet2 loader to the helper nodes -->
+  <path class="edge" d="M370 260 V294"/>
+  <text class="edge-lbl" x="380" y="280" dominant-baseline="central">vector map</text>
+
+  <!-- Row C: helper nodes -->
+  <rect class="box muted" x="232" y="300" width="276" height="96" rx="10"/>
+  <text class="lbl" x="370" y="320" text-anchor="middle" dominant-baseline="central">Helper nodes</text>
+  <text class="code" x="370" y="344" text-anchor="middle" dominant-baseline="central">lanelet2_map_visualization</text>
+  <text class="code" x="370" y="362" text-anchor="middle" dominant-baseline="central">vector_map_tf_generator</text>
+  <text class="code" x="370" y="380" text-anchor="middle" dominant-baseline="central">map_hash_generator</text>
+
+  <rect class="box" x="560" y="300" width="288" height="96" rx="10"/>
+  <text class="sub" x="704" y="320" text-anchor="middle" dominant-baseline="central">For RViz and the map API</text>
+  <text class="code" x="704" y="344" text-anchor="middle" dominant-baseline="central">/map/vector_map_marker</text>
+  <text class="code" x="704" y="362" text-anchor="middle" dominant-baseline="central">/tf_static (map to viewer)</text>
+  <text class="code" x="704" y="380" text-anchor="middle" dominant-baseline="central">/api/autoware/get/map/info/hash</text>
+
+  <path class="edge" d="M508 348 H552"/>
+
+  <!-- Row D: point cloud map -->
+  <rect class="box muted" x="12" y="436" width="176" height="84" rx="10"/>
+  <text class="lbl" x="100" y="460" text-anchor="middle" dominant-baseline="central">Point cloud map</text>
+  <text class="code" x="100" y="482" text-anchor="middle" dominant-baseline="central">pointcloud_map.pcd</text>
+  <text class="sub" x="100" y="502" text-anchor="middle" dominant-baseline="central">and its metadata file</text>
+
+  <rect class="box primary" x="232" y="436" width="276" height="84" rx="10"/>
+  <text class="lbl on-primary" x="370" y="466" text-anchor="middle" dominant-baseline="central">pointcloud_map_loader</text>
+  <text class="sub on-primary" x="370" y="490" text-anchor="middle" dominant-baseline="central">autoware_map_loader</text>
+
+  <rect class="box" x="560" y="436" width="288" height="84" rx="10"/>
+  <text class="code" x="704" y="454" text-anchor="middle" dominant-baseline="central">/map/pointcloud_map</text>
+  <text class="code" x="704" y="472" text-anchor="middle" dominant-baseline="central">/map/get_*_pointcloud_map</text>
+  <text class="sub" x="704" y="490" text-anchor="middle" dominant-baseline="central">(partial, differential, selected)</text>
+  <text class="sub" x="704" y="506" text-anchor="middle" dominant-baseline="central">To localization and perception</text>
+
+  <path class="edge" d="M188 478 H224"/>
+  <path class="edge accent" d="M508 478 H552"/>
+</svg>

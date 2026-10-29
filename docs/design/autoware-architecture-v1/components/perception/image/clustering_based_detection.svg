@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 806" role="img" aria-labelledby="clustering-based-detection-title">
+  <title id="clustering-based-detection-title">The pointcloud map filter removes the points of the obstacle point cloud that match the point cloud map. In LiDAR clustering, Euclidean clustering, a convex hull conversion, and the lanelet filter make objects for the lidar_clustering channel. In camera-LiDAR fusion, an optional segmentation filter, Euclidean clustering, ROI cluster fusion with a 2D detector, the low-intensity filter, a convex hull conversion, and the lanelet filter make objects for the camera_lidar_fusion channel. Both go to the multi-object tracker.</title>
+
+  <!-- Shared input -->
+  <rect class="box muted" x="280" y="16" width="300" height="54" rx="10"/>
+  <text class="lbl" x="430" y="35" text-anchor="middle" dominant-baseline="central">Obstacle segmentation</text>
+  <text class="sub" x="430" y="55" text-anchor="middle" dominant-baseline="central">Points without the ground</text>
+
+  <rect class="box" x="280" y="106" width="300" height="56" rx="10"/>
+  <text class="lbl" x="430" y="125" text-anchor="middle" dominant-baseline="central">Pointcloud map filter</text>
+  <text class="sub" x="430" y="145" text-anchor="middle" dominant-baseline="central">Removes points that match the map</text>
+
+  <rect class="box muted" x="40" y="111" width="180" height="46" rx="10"/>
+  <text class="lbl" x="130" y="134" text-anchor="middle" dominant-baseline="central">Point cloud map</text>
+
+  <path class="edge" d="M430 70 V98"/>
+  <path class="edge" d="M220 134 H272"/>
+  <path class="edge" d="M400 162 V184 H210 V232"/>
+  <path class="edge" d="M460 162 V184 H540 V232"/>
+
+  <!-- LiDAR clustering -->
+  <rect class="group" x="40" y="200" width="340" height="500" rx="16"/>
+  <text class="ttl" x="60" y="226">LiDAR clustering</text>
+
+  <rect class="box" x="80" y="240" width="260" height="50" rx="10"/>
+  <text class="lbl" x="210" y="257" text-anchor="middle" dominant-baseline="central">Euclidean clustering</text>
+  <text class="sub" x="210" y="275" text-anchor="middle" dominant-baseline="central">Voxel grid based</text>
+
+  <rect class="box" x="80" y="316" width="260" height="50" rx="10"/>
+  <text class="lbl" x="210" y="333" text-anchor="middle" dominant-baseline="central">Feature remover</text>
+  <text class="sub" x="210" y="351" text-anchor="middle" dominant-baseline="central">Convex hull shape</text>
+
+  <rect class="box" x="80" y="392" width="260" height="50" rx="10"/>
+  <text class="lbl" x="210" y="409" text-anchor="middle" dominant-baseline="central">Lanelet filter</text>
+  <text class="sub" x="210" y="427" text-anchor="middle" dominant-baseline="central">Keeps objects on the lanes</text>
+
+  <path class="edge" d="M210 290 V308"/>
+  <path class="edge" d="M210 366 V384"/>
+  <path class="edge accent" d="M210 442 V732"/>
+  <text class="edge-lbl" x="210" y="580" text-anchor="middle" dominant-baseline="central">Channel lidar_clustering</text>
+
+  <!-- Camera-LiDAR fusion clustering -->
+  <rect class="group" x="420" y="200" width="400" height="500" rx="16"/>
+  <text class="ttl" x="800" y="226" text-anchor="end">Camera-LiDAR fusion</text>
+
+  <rect class="box muted" x="440" y="240" width="200" height="50" rx="10"/>
+  <text class="lbl" x="540" y="257" text-anchor="middle" dominant-baseline="central">Segmentation filter</text>
+  <text class="sub" x="540" y="275" text-anchor="middle" dominant-baseline="central">Optional</text>
+
+  <rect class="box" x="440" y="316" width="200" height="50" rx="10"/>
+  <text class="lbl" x="540" y="333" text-anchor="middle" dominant-baseline="central">Euclidean clustering</text>
+  <text class="sub" x="540" y="351" text-anchor="middle" dominant-baseline="central">Voxel grid based</text>
+
+  <rect class="box" x="440" y="392" width="200" height="50" rx="10"/>
+  <text class="lbl" x="540" y="409" text-anchor="middle" dominant-baseline="central">ROI cluster fusion</text>
+  <text class="sub" x="540" y="427" text-anchor="middle" dominant-baseline="central">Class from the 2D boxes</text>
+
+  <rect class="box ai" x="680" y="392" width="120" height="50" rx="10"/>
+  <text class="lbl" x="740" y="409" text-anchor="middle" dominant-baseline="central">2D detector</text>
+  <text class="sub" x="740" y="427" text-anchor="middle" dominant-baseline="central">YOLOX</text>
+
+  <rect class="box" x="440" y="468" width="200" height="50" rx="10"/>
+  <text class="lbl" x="540" y="485" text-anchor="middle" dominant-baseline="central">Low-intensity filter</text>
+  <text class="sub" x="540" y="503" text-anchor="middle" dominant-baseline="central">Raindrop clusters</text>
+
+  <rect class="box" x="440" y="544" width="200" height="50" rx="10"/>
+  <text class="lbl" x="540" y="561" text-anchor="middle" dominant-baseline="central">Feature remover</text>
+  <text class="sub" x="540" y="579" text-anchor="middle" dominant-baseline="central">Convex hull shape</text>
+
+  <rect class="box" x="440" y="620" width="200" height="50" rx="10"/>
+  <text class="lbl" x="540" y="637" text-anchor="middle" dominant-baseline="central">Lanelet filter</text>
+  <text class="sub" x="540" y="655" text-anchor="middle" dominant-baseline="central">Keeps objects on the lanes</text>
+
+  <path class="edge" d="M540 290 V308"/>
+  <path class="edge" d="M540 366 V384"/>
+  <path class="edge" d="M680 417 H648"/>
+  <path class="edge" d="M540 442 V460"/>
+  <path class="edge" d="M540 518 V536"/>
+  <path class="edge" d="M540 594 V612"/>
+  <path class="edge accent" d="M540 670 V732"/>
+  <text class="edge-lbl" x="540" y="716" text-anchor="middle" dominant-baseline="central">Channel camera_lidar_fusion</text>
+
+  <!-- The tracker -->
+  <rect class="box primary" x="40" y="740" width="780" height="50" rx="10"/>
+  <text class="lbl on-primary" x="430" y="765" text-anchor="middle" dominant-baseline="central">Multi-object tracker</text>
+</svg>

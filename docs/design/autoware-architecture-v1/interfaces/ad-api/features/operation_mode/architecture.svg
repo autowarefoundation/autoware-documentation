@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 318" role="img" aria-labelledby="adapi-operation-mode-architecture-title">
+  <title id="adapi-operation-mode-architecture-title">The stop, autonomous, remote, and local modes are inputs of the operation mode, which sends the command to the vehicle interface under Autoware control. The driver controls the vehicle interface directly under direct control.</title>
+
+  <!-- Operation modes -->
+  <rect class="box" x="20" y="16" width="140" height="60" rx="10"/>
+  <text class="lbl" x="90" y="38" text-anchor="middle" dominant-baseline="central">Stop</text>
+  <text class="sub" x="90" y="58" text-anchor="middle" dominant-baseline="central">keep stopped</text>
+
+  <rect class="box" x="180" y="16" width="140" height="60" rx="10"/>
+  <text class="lbl" x="250" y="38" text-anchor="middle" dominant-baseline="central">Autonomous</text>
+  <text class="sub" x="250" y="58" text-anchor="middle" dominant-baseline="central">Autoware drives</text>
+
+  <rect class="box" x="340" y="16" width="140" height="60" rx="10"/>
+  <text class="lbl" x="410" y="38" text-anchor="middle" dominant-baseline="central">Remote</text>
+  <text class="sub" x="410" y="58" text-anchor="middle" dominant-baseline="central">remote operator</text>
+
+  <rect class="box" x="500" y="16" width="140" height="60" rx="10"/>
+  <text class="lbl" x="570" y="38" text-anchor="middle" dominant-baseline="central">Local</text>
+  <text class="sub" x="570" y="58" text-anchor="middle" dominant-baseline="central">nearby operator</text>
+
+  <rect class="box muted" x="660" y="16" width="140" height="60" rx="10"/>
+  <text class="lbl" x="730" y="38" text-anchor="middle" dominant-baseline="central">Driver</text>
+  <text class="sub" x="730" y="58" text-anchor="middle" dominant-baseline="central">vehicle controls</text>
+
+  <path class="edge" d="M90 76 V128"/>
+  <path class="edge" d="M250 76 V128"/>
+  <path class="edge" d="M410 76 V128"/>
+  <path class="edge" d="M570 76 V128"/>
+
+  <!-- Operation mode -->
+  <rect class="box primary" x="20" y="132" width="620" height="54" rx="10"/>
+  <text class="lbl on-primary" x="330" y="159" text-anchor="middle" dominant-baseline="central">Operation mode</text>
+
+  <!-- Vehicle interface -->
+  <rect class="box" x="20" y="248" width="780" height="54" rx="10"/>
+  <text class="lbl" x="410" y="275" text-anchor="middle" dominant-baseline="central">Vehicle interface</text>
+
+  <path class="edge accent" d="M330 186 V244"/>
+  <text class="edge-lbl" x="330" y="216" text-anchor="middle" dominant-baseline="central">Autoware control</text>
+  <path class="edge" d="M730 76 V244"/>
+  <text class="edge-lbl" x="730" y="216" text-anchor="middle" dominant-baseline="central">direct control</text>
+</svg>

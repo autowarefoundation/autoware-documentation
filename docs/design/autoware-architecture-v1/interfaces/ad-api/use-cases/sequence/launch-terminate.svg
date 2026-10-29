@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 572" role="img" aria-labelledby="adapi-launch-terminate-title">
+  <title id="adapi-launch-terminate-title">The user powers on the computer. The operating system starts the application, which starts Autoware with the AD API, checks the interface version, and later stops Autoware before the shutdown.</title>
+
+  <!-- Participants and lifelines -->
+  <rect class="box" x="15" y="16" width="150" height="44" rx="10"/>
+  <text class="lbl" x="90" y="38" text-anchor="middle" dominant-baseline="central">User</text>
+  <line class="edge plain dash" x1="90" y1="60" x2="90" y2="560"/>
+  <rect class="box" x="195" y="16" width="150" height="44" rx="10"/>
+  <text class="lbl" x="270" y="38" text-anchor="middle" dominant-baseline="central">Operating system</text>
+  <line class="edge plain dash" x1="270" y1="60" x2="270" y2="560"/>
+  <rect class="box" x="395" y="16" width="150" height="44" rx="10"/>
+  <text class="lbl" x="470" y="38" text-anchor="middle" dominant-baseline="central">Application</text>
+  <line class="edge plain dash" x1="470" y1="60" x2="470" y2="560"/>
+  <rect class="box" x="645" y="16" width="150" height="44" rx="10"/>
+  <text class="lbl" x="720" y="38" text-anchor="middle" dominant-baseline="central">Autoware and AD API</text>
+  <line class="edge plain dash" x1="720" y1="60" x2="720" y2="560"/>
+
+  <!-- Messages -->
+
+  <!-- Start -->
+  <path class="edge" d="M92 94 H268"/>
+  <text class="edge-lbl" x="180" y="83" text-anchor="middle" dominant-baseline="central">power on</text>
+  <path class="edge" d="M272 136 H468"/>
+  <text class="edge-lbl" x="370" y="125" text-anchor="middle" dominant-baseline="central">start the service</text>
+  <path class="edge" d="M472 178 H506 V200 H474"/>
+  <text class="edge-lbl" x="514" y="189" dominant-baseline="central">update the system</text>
+  <path class="edge" d="M472 228 H718"/>
+  <text class="edge-lbl" x="595" y="217" text-anchor="middle" dominant-baseline="central">start Autoware (ros2 launch)</text>
+  <path class="edge" d="M472 270 H718"/>
+  <text class="edge-lbl" x="595" y="259" text-anchor="middle" dominant-baseline="central">/api/interface/version</text>
+  <path class="edge dash" d="M718 312 H472"/>
+  <text class="edge-lbl" x="595" y="301" text-anchor="middle" dominant-baseline="central">major, minor, patch</text>
+  <rect class="box muted" x="30" y="344" width="750" height="32" rx="10"/>
+  <text class="sub" x="405" y="360" text-anchor="middle" dominant-baseline="central">In service</text>
+
+  <!-- Stop -->
+  <path class="edge" d="M92 406 H468"/>
+  <text class="edge-lbl" x="280" y="395" text-anchor="middle" dominant-baseline="central">power off</text>
+  <path class="edge" d="M472 448 H718"/>
+  <text class="edge-lbl" x="595" y="437" text-anchor="middle" dominant-baseline="central">stop Autoware</text>
+  <path class="edge dash" d="M718 490 H472"/>
+  <text class="edge-lbl" x="595" y="479" text-anchor="middle" dominant-baseline="central">stopped</text>
+  <path class="edge" d="M468 532 H272"/>
+  <text class="edge-lbl" x="370" y="521" text-anchor="middle" dominant-baseline="central">shut down</text>
+</svg>

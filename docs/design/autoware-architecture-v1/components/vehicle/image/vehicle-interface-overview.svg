@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 530" role="img" aria-labelledby="vehicle-interface-overview-title">
+  <title id="vehicle-interface-overview-title">Control sends the control command to the vehicle command adapter. The adapter sends the actuation command to the vehicle interface and receives the actuation status. The vehicle interface sends the target command to the drive-by-wire system in a vehicle-specific format, receives the vehicle status, and sends the vehicle status to control.</title>
+
+  <rect class="box primary" x="60" y="16" width="600" height="56" rx="10"/>
+  <text class="lbl on-primary" x="360" y="44" text-anchor="middle" dominant-baseline="central">Control</text>
+
+  <path class="edge accent" d="M300 72 V162"/>
+  <text class="edge-lbl" x="300" y="112" text-anchor="middle" dominant-baseline="central">Control command</text>
+
+  <path class="edge" d="M580 300 V80"/>
+  <text class="edge-lbl" x="580" y="112" text-anchor="middle" dominant-baseline="central">Vehicle status</text>
+
+  <rect class="group" x="40" y="132" width="640" height="248" rx="16"/>
+  <text class="ttl" x="58" y="156">Vehicle</text>
+
+  <rect class="box" x="160" y="170" width="360" height="56" rx="10"/>
+  <text class="lbl" x="340" y="190" text-anchor="middle" dominant-baseline="central">Vehicle command adapter</text>
+  <text class="code" x="340" y="210" text-anchor="middle" dominant-baseline="central">raw_vehicle_cmd_converter</text>
+
+  <path class="edge accent" d="M300 226 V292"/>
+  <text class="edge-lbl" x="300" y="262" text-anchor="middle" dominant-baseline="central">Actuation command</text>
+  <path class="edge" d="M420 300 V234"/>
+  <text class="edge-lbl" x="420" y="262" text-anchor="middle" dominant-baseline="central">Actuation status</text>
+
+  <rect class="box primary" x="120" y="300" width="480" height="56" rx="10"/>
+  <text class="lbl on-primary" x="360" y="320" text-anchor="middle" dominant-baseline="central">Vehicle interface</text>
+  <text class="sub on-primary" x="360" y="340" text-anchor="middle" dominant-baseline="central">Vehicle-specific driver</text>
+
+  <path class="edge accent" d="M240 356 V462"/>
+  <text class="edge-lbl" x="240" y="404" text-anchor="middle" dominant-baseline="central">Target command</text>
+  <text class="edge-lbl" x="240" y="422" text-anchor="middle" dominant-baseline="central">(vehicle-specific format)</text>
+
+  <path class="edge" d="M480 470 V364"/>
+  <text class="edge-lbl" x="480" y="404" text-anchor="middle" dominant-baseline="central">Vehicle status</text>
+  <text class="edge-lbl" x="480" y="422" text-anchor="middle" dominant-baseline="central">(vehicle-specific format)</text>
+
+  <rect class="box muted" x="120" y="470" width="480" height="48" rx="10"/>
+  <text class="lbl" x="360" y="494" text-anchor="middle" dominant-baseline="central">Drive-by-wire system</text>
+</svg>

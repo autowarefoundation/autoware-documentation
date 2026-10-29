@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" role="img" aria-labelledby="features-intersection-title">
+  <title id="features-intersection-title">The ego vehicle turns right across the oncoming lane at an intersection and waits because an oncoming vehicle approaches.</title>
+
+  <!-- Crossroad. Traffic keeps to the left. The ego lane is the upper lane of the horizontal road. -->
+  <rect class="road" x="0" y="130" width="760" height="120"/>
+  <rect class="road" x="400" y="0" width="120" height="330"/>
+  <line class="mark" x1="0" y1="136" x2="400" y2="136"/>
+  <line class="mark" x1="520" y1="136" x2="760" y2="136"/>
+  <line class="mark" x1="0" y1="244" x2="400" y2="244"/>
+  <line class="mark" x1="520" y1="244" x2="760" y2="244"/>
+  <line class="mark" x1="406" y1="0" x2="406" y2="130"/>
+  <line class="mark" x1="406" y1="250" x2="406" y2="330"/>
+  <line class="mark" x1="514" y1="0" x2="514" y2="130"/>
+  <line class="mark" x1="514" y1="250" x2="514" y2="330"/>
+  <line class="mark yellow" x1="0" y1="190" x2="400" y2="190"/>
+  <line class="mark yellow" x1="520" y1="190" x2="760" y2="190"/>
+  <line class="mark yellow" x1="460" y1="0" x2="460" y2="130"/>
+  <line class="mark yellow" x1="460" y1="250" x2="460" y2="330"/>
+
+  <!-- Traffic light: green -->
+  <rect class="light-housing" x="312" y="94" width="76" height="28" rx="8"/>
+  <circle class="light-green" cx="330" cy="108" r="8"/>
+  <circle class="light-off" cx="350" cy="108" r="8"/>
+  <circle class="light-off" cx="370" cy="108" r="8"/>
+
+  <!-- Turn that the ego vehicle must not start yet -->
+  <path class="lanelet bad" d="M400 149 H400 A101 101 0 0 1 501 250 V316 H473 V250 A73 73 0 0 0 400 177 H400 Z"/>
+
+  <!-- Oncoming vehicle -->
+  <g transform="rotate(180 640 217)">
+    <rect class="car other" x="608" y="202" width="64" height="30" rx="6"/>
+    <rect class="glass" x="650" y="206" width="9" height="22" rx="3"/>
+  </g>
+  <path class="edge accent" d="M600 217 L550 217"/>
+
+  <!-- Planned path and stop point -->
+  <path class="route" d="M320 163 H384"/>
+  <line class="bound alt" x1="398" y1="140" x2="398" y2="186"/>
+
+  <!-- Ego vehicle -->
+  <g>
+    <rect class="car" x="248" y="148" width="64" height="30" rx="6"/>
+    <rect class="glass" x="290" y="152" width="9" height="22" rx="3"/>
+  </g>
+  <text class="note" x="640" y="290" text-anchor="middle" dominant-baseline="central">Oncoming vehicle</text>
+  <line class="leader" x1="640" y1="280" x2="640" y2="234"/>
+  <text class="note" x="390" y="290" text-anchor="end" dominant-baseline="central">Wait before the turn</text>
+  <line class="leader" x1="380" y1="280" x2="398" y2="188"/>
+</svg>

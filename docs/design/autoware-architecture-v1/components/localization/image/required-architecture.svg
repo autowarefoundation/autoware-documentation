@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 330" role="img" aria-labelledby="localization-required-architecture-title">
+  <title id="localization-required-architecture-title">The Localization component takes sensor messages, map data, and tf as inputs. It outputs the pose, twist, and acceleration with covariance, diagnostics, and the tf from map to base_link.</title>
+
+  <!-- Inputs -->
+  <rect class="box muted" x="20" y="44" width="180" height="64" rx="10"/>
+  <text class="lbl" x="110" y="66" text-anchor="middle" dominant-baseline="central">Sensor messages</text>
+  <text class="sub" x="110" y="88" text-anchor="middle" dominant-baseline="central">LiDAR, camera, GNSS, IMU, CAN</text>
+
+  <rect class="box muted" x="20" y="134" width="180" height="64" rx="10"/>
+  <text class="lbl" x="110" y="156" text-anchor="middle" dominant-baseline="central">Map data</text>
+  <text class="sub" x="110" y="178" text-anchor="middle" dominant-baseline="central">Point cloud map, Lanelet2 map</text>
+
+  <rect class="box muted" x="20" y="224" width="180" height="64" rx="10"/>
+  <text class="lbl" x="110" y="246" text-anchor="middle" dominant-baseline="central">tf, static_tf</text>
+  <text class="sub" x="110" y="268" text-anchor="middle" dominant-baseline="central">map and base_link frames</text>
+
+  <path class="edge" d="M200 76 H282"/>
+  <path class="edge" d="M200 166 H282"/>
+  <path class="edge" d="M200 256 H282"/>
+
+  <!-- The component -->
+  <rect class="box primary" x="290" y="20" width="220" height="292" rx="10"/>
+  <text class="lbl on-primary" x="400" y="154" text-anchor="middle" dominant-baseline="central">Localization</text>
+  <text class="sub on-primary" x="400" y="178" text-anchor="middle" dominant-baseline="central">Any algorithm that meets</text>
+  <text class="sub on-primary" x="400" y="196" text-anchor="middle" dominant-baseline="central">this interface</text>
+
+  <!-- Outputs -->
+  <rect class="box" x="600" y="20" width="200" height="50" rx="10"/>
+  <text class="lbl" x="700" y="37" text-anchor="middle" dominant-baseline="central">Pose</text>
+  <text class="sub" x="700" y="55" text-anchor="middle" dominant-baseline="central">With covariance, map frame</text>
+
+  <rect class="box" x="600" y="80" width="200" height="50" rx="10"/>
+  <text class="lbl" x="700" y="97" text-anchor="middle" dominant-baseline="central">Twist</text>
+  <text class="sub" x="700" y="115" text-anchor="middle" dominant-baseline="central">With covariance, base_link frame</text>
+
+  <rect class="box" x="600" y="140" width="200" height="50" rx="10"/>
+  <text class="lbl" x="700" y="157" text-anchor="middle" dominant-baseline="central">Acceleration</text>
+  <text class="sub" x="700" y="175" text-anchor="middle" dominant-baseline="central">With covariance, base_link frame</text>
+
+  <rect class="box" x="600" y="200" width="200" height="50" rx="10"/>
+  <text class="lbl" x="700" y="217" text-anchor="middle" dominant-baseline="central">Diagnostics</text>
+  <text class="sub" x="700" y="235" text-anchor="middle" dominant-baseline="central">Is the estimate reliable?</text>
+
+  <rect class="box" x="600" y="260" width="200" height="50" rx="10"/>
+  <text class="lbl" x="700" y="277" text-anchor="middle" dominant-baseline="central">tf</text>
+  <text class="sub" x="700" y="295" text-anchor="middle" dominant-baseline="central">map to base_link</text>
+
+  <path class="edge" d="M510 45 H592"/>
+  <path class="edge" d="M510 105 H592"/>
+  <path class="edge" d="M510 165 H592"/>
+  <path class="edge" d="M510 225 H592"/>
+  <path class="edge" d="M510 285 H592"/>
+</svg>

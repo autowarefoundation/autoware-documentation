@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 410" role="img" aria-labelledby="overall-sensing-architecture-title">
+  <title id="overall-sensing-architecture-title">The sensing component reads the vehicle velocity, GNSS/INS, IMU, LiDAR, camera, and radar data. It preprocesses the data and sends it to localization and perception.</title>
+
+  <rect class="group" x="16" y="16" width="828" height="250" rx="16"/>
+  <text class="ttl" x="38" y="42">Sensing</text>
+
+  <!-- Sensor inputs -->
+  <rect class="box muted" x="38" y="60" width="124" height="44" rx="10"/>
+  <text class="lbl" x="100" y="82" text-anchor="middle" dominant-baseline="central">Vehicle</text>
+  <rect class="box muted" x="170" y="60" width="124" height="44" rx="10"/>
+  <text class="lbl" x="232" y="82" text-anchor="middle" dominant-baseline="central">GNSS/INS</text>
+  <rect class="box muted" x="302" y="60" width="124" height="44" rx="10"/>
+  <text class="lbl" x="364" y="82" text-anchor="middle" dominant-baseline="central">IMU</text>
+  <rect class="box muted" x="434" y="60" width="124" height="44" rx="10"/>
+  <text class="lbl" x="496" y="82" text-anchor="middle" dominant-baseline="central">LiDAR</text>
+  <rect class="box muted" x="566" y="60" width="124" height="44" rx="10"/>
+  <text class="lbl" x="628" y="82" text-anchor="middle" dominant-baseline="central">Camera</text>
+  <rect class="box muted" x="698" y="60" width="124" height="44" rx="10"/>
+  <text class="lbl" x="760" y="82" text-anchor="middle" dominant-baseline="central">Radar</text>
+
+  <!-- Sensor data into the preprocessing -->
+  <path class="edge" d="M100 104 V162"/>
+  <text class="edge-lbl" x="100" y="133" text-anchor="middle" dominant-baseline="central">VelocityReport</text>
+  <path class="edge" d="M232 104 V162"/>
+  <text class="edge-lbl" x="232" y="133" text-anchor="middle" dominant-baseline="central">NavSatFix</text>
+  <path class="edge" d="M364 104 V162"/>
+  <text class="edge-lbl" x="364" y="133" text-anchor="middle" dominant-baseline="central">Imu</text>
+  <path class="edge accent" d="M496 104 V162"/>
+  <text class="edge-lbl" x="496" y="133" text-anchor="middle" dominant-baseline="central">PointCloud2</text>
+  <path class="edge" d="M628 104 V162"/>
+  <text class="edge-lbl" x="628" y="133" text-anchor="middle" dominant-baseline="central">Image</text>
+  <path class="edge" d="M760 104 V162"/>
+  <text class="edge-lbl" x="760" y="124" text-anchor="middle" dominant-baseline="central">RadarScan</text>
+  <text class="edge-lbl" x="760" y="142" text-anchor="middle" dominant-baseline="central">RadarTracks</text>
+
+  <!-- Preprocessing -->
+  <rect class="box" x="38" y="170" width="124" height="64" rx="10"/>
+  <text class="lbl" x="100" y="192" text-anchor="middle" dominant-baseline="central">Velocity</text>
+  <text class="sub" x="100" y="213" text-anchor="middle" dominant-baseline="central">converter</text>
+  <rect class="box" x="170" y="170" width="124" height="64" rx="10"/>
+  <text class="lbl" x="232" y="192" text-anchor="middle" dominant-baseline="central">GNSS poser</text>
+  <text class="sub" x="232" y="213" text-anchor="middle" dominant-baseline="central">Fix to map pose</text>
+  <rect class="box" x="302" y="170" width="124" height="64" rx="10"/>
+  <text class="lbl" x="364" y="192" text-anchor="middle" dominant-baseline="central">IMU corrector</text>
+  <text class="sub" x="364" y="213" text-anchor="middle" dominant-baseline="central">Gyro bias, scale</text>
+  <rect class="box" x="434" y="170" width="124" height="64" rx="10"/>
+  <text class="lbl" x="496" y="192" text-anchor="middle" dominant-baseline="central">Point cloud</text>
+  <text class="sub" x="496" y="213" text-anchor="middle" dominant-baseline="central">preprocessor</text>
+  <rect class="box ext" x="566" y="170" width="124" height="64" rx="10"/>
+  <text class="lbl" x="628" y="192" text-anchor="middle" dominant-baseline="central">Pass-through</text>
+  <text class="sub" x="628" y="213" text-anchor="middle" dominant-baseline="central">No sensing node</text>
+  <rect class="box" x="698" y="170" width="124" height="64" rx="10"/>
+  <text class="lbl" x="760" y="192" text-anchor="middle" dominant-baseline="central">Radar filters</text>
+  <text class="sub" x="760" y="213" text-anchor="middle" dominant-baseline="central">Noise, conversion</text>
+
+  <!-- Outputs to localization -->
+  <path class="edge" d="M100 234 V332"/>
+  <path class="edge" d="M232 234 V332"/>
+  <path class="edge" d="M364 234 V332"/>
+  <path class="edge accent" d="M470 234 V298 H420 V332"/>
+  <path class="edge dash" d="M600 234 V316 H440 V332"/>
+
+  <!-- Outputs to perception -->
+  <path class="edge accent" d="M522 234 V332"/>
+  <path class="edge" d="M640 234 V332"/>
+  <path class="edge" d="M760 234 V332"/>
+
+  <!-- Users of the sensing data -->
+  <rect class="box primary" x="38" y="340" width="408" height="54" rx="10"/>
+  <text class="lbl on-primary" x="242" y="367" text-anchor="middle" dominant-baseline="central">Localization</text>
+  <rect class="box primary" x="470" y="340" width="352" height="54" rx="10"/>
+  <text class="lbl on-primary" x="646" y="367" text-anchor="middle" dominant-baseline="central">Perception</text>
+</svg>

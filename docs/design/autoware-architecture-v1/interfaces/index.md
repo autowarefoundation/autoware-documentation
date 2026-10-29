@@ -6,17 +6,17 @@ Autoware defines three categories of interfaces. The first one is Autoware AD AP
 
 ## Concept
 
-- Applications can operate multiple and various vehicles in a common way.
+Applications can operate many different vehicles in the same way.
 
-  ![unified-access](general/unified-access.drawio.svg)
+{{ diagram("general/unified-access.svg", "One FMS operates a car, a bus, and a truck through the same AD API.") }}
 
-- Applications are not affected by version updates and implementation changes.
+Version updates and implementation changes do not affect the applications.
 
-  ![absorb-changes](general/absorb-changes.drawio.svg)
+{{ diagram("general/absorb-changes.svg", "Without the AD API, each HMI must match one Autoware version. With the AD API, the HMI stays the same.") }}
 
-- Developers only need to know the interface to add new features and hardware.
+To add a new feature or new hardware, developers need to know only the interface.
 
-  ![new-feature](general/new-feature.drawio.svg)
+{{ diagram("general/new-feature.svg", "A new component connects to the component interface only.") }}
 
 ## Requirements
 
@@ -49,7 +49,13 @@ AD API implementation is also a component.
 Since the functional elements required for AD API are defined as the component interface, other components do not need to consider AD API directly.
 Tools for evaluation and debugging, such as simulators, access both AD API and the component interface.
 
-![architecture](general/architecture.drawio.svg)
+The specifications are code, not only documents:
+
+- The [`autoware_adapi_specs`](https://github.com/autowarefoundation/autoware_core/tree/main/api/autoware_adapi_specs) package defines the name, the type, and the QoS of each AD API interface.
+- The [`autoware_component_interface_specs`](https://github.com/autowarefoundation/autoware_core/tree/main/common/autoware_component_interface_specs) package defines the same for each component interface. See [Component interfaces](components/index.md) for the list.
+- The [`autoware_default_adapi`](https://github.com/autowarefoundation/autoware_core/tree/main/api/autoware_default_adapi) package in Autoware Core and the [`autoware_default_adapi_universe`](https://github.com/autowarefoundation/autoware_universe/tree/main/system/autoware_default_adapi_universe) package in Autoware Universe are the default AD API implementation.
+
+{{ diagram("general/architecture.svg", "Applications use the AD API. Components use and implement the component interface.") }}
 
 The component interface has a hierarchical specification.
 The top-level architecture consists of some components. Each component has some options of the next-level architecture.
@@ -60,7 +66,7 @@ A sub-component can be combined with others that adopt the same architecture.
 Third parties can define and publish their own architecture and interface for open source development.
 It is desirable to propose them for standardization if they are sufficiently evaluated.
 
-![component](general/hierarchy.drawio.svg)
+{{ diagram("general/hierarchy.svg", "The next-level architecture of a component can be monolithic or made of sub-components.") }}
 
 ## Features
 
@@ -90,6 +96,10 @@ The name of the interface must be `/<component name>/api/<interface name>`,
 where `<component name>` is the name of the component. For an AD API component, omit this part and start with `/api`.
 The `<interface name>` is an arbitrary string separated by slashes.
 Note that this rule causes a restriction that the namespace `api` must not be used as a name other than AD API and the component interface.
+
+!!! note
+
+    The AD API follows this rule. The component interfaces that `autoware_component_interface_specs` defines today do not use the `api` namespace yet. For example, the route of the Planning component is `/planning/route` and the control command is `/control/command/control_cmd`.
 
 The following are examples of correct interface names for AD API and the component interface:
 

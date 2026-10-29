@@ -13,5 +13,5 @@ type:
 
 {% extends 'design/autoware-architecture-v1/interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Get the vehicle specifications.
+Get the vehicle specifications. The default implementation does not provide this API yet.
 {% endblock %}

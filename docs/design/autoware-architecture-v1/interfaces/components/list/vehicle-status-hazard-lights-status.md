@@ -20,6 +20,7 @@ qos_depth: 1
 
 Get the current hazard lights status of the vehicle. The status is `ENABLE` or `DISABLE`.
 It is recommended to set QoS to transient_local and publish only when the status changes, but currently many implementations publish the status periodically.
+The `autoware_component_interface_specs` package defines `volatile` today.
 Therefore, ensure consistency across the entire system.
 
 Note that this status indicates the logical activation state of the hazard lights system (i.e., whether the function is active), not the instantaneous physical state of the light bulbs (i.e., whether the bulb is lit or unlit during a blinking cycle). Therefore, the status typically remains ENABLE continuously while the hazard lights are blinking.

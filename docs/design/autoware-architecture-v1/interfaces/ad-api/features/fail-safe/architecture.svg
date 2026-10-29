@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 346" role="img" aria-labelledby="adapi-fail-safe-architecture-title">
+  <title id="adapi-fail-safe-architecture-title">The fail-safe module changes the mode of the Autoware planner and selects the command in the command selector. The command selector receives MRM commands from independent MRM planners and from the Autoware planner, the autonomous command, and the commands of other modes.</title>
+
+  <!-- Fail-safe module -->
+  <rect class="box primary" x="20" y="16" width="130" height="314" rx="10"/>
+  <text class="lbl on-primary" x="85" y="163" text-anchor="middle" dominant-baseline="central">Fail-safe</text>
+  <text class="lbl on-primary" x="85" y="183" text-anchor="middle" dominant-baseline="central">module</text>
+
+  <!-- Planners -->
+  <rect class="box" x="550" y="16" width="150" height="54" rx="10"/>
+  <text class="lbl" x="625" y="43" text-anchor="middle" dominant-baseline="central">Autoware planner</text>
+
+  <rect class="box muted" x="720" y="16" width="120" height="54" rx="10"/>
+  <text class="lbl" x="780" y="35" text-anchor="middle" dominant-baseline="central">Other mode</text>
+  <text class="lbl" x="780" y="53" text-anchor="middle" dominant-baseline="central">planners</text>
+
+  <rect class="box" x="226" y="78" width="140" height="54" rx="10"/>
+  <rect class="box" x="218" y="86" width="140" height="54" rx="10"/>
+  <rect class="box" x="210" y="94" width="140" height="54" rx="10"/>
+  <text class="lbl" x="280" y="112" text-anchor="middle" dominant-baseline="central">Independent</text>
+  <text class="lbl" x="280" y="130" text-anchor="middle" dominant-baseline="central">MRM planners</text>
+
+  <!-- Commands -->
+  <rect class="box warn" x="210" y="192" width="140" height="54" rx="10"/>
+  <text class="lbl" x="280" y="219" text-anchor="middle" dominant-baseline="central">MRM commands</text>
+
+  <rect class="box warn" x="380" y="192" width="140" height="54" rx="10"/>
+  <text class="lbl" x="450" y="219" text-anchor="middle" dominant-baseline="central">MRM command</text>
+
+  <rect class="box ok" x="550" y="192" width="150" height="54" rx="10"/>
+  <text class="lbl" x="625" y="211" text-anchor="middle" dominant-baseline="central">Autonomous</text>
+  <text class="lbl" x="625" y="229" text-anchor="middle" dominant-baseline="central">command</text>
+
+  <rect class="box muted" x="720" y="192" width="120" height="54" rx="10"/>
+  <text class="lbl" x="780" y="211" text-anchor="middle" dominant-baseline="central">Other mode</text>
+  <text class="lbl" x="780" y="229" text-anchor="middle" dominant-baseline="central">commands</text>
+
+  <path class="edge" d="M280 148 V188"/>
+  <path class="edge" d="M625 70 V188"/>
+  <path class="edge" d="M625 130 H450 V188"/>
+  <path class="edge" d="M780 70 V188"/>
+
+  <!-- Command selector -->
+  <rect class="box" x="210" y="276" width="630" height="54" rx="10"/>
+  <text class="lbl" x="525" y="303" text-anchor="middle" dominant-baseline="central">Command selector</text>
+
+  <path class="edge" d="M280 246 V272"/>
+  <path class="edge" d="M450 246 V272"/>
+  <path class="edge" d="M625 246 V272"/>
+  <path class="edge" d="M780 246 V272"/>
+
+  <!-- Fail-safe module outputs -->
+  <path class="edge accent" d="M150 43 H546"/>
+  <text class="edge-lbl" x="460" y="43" text-anchor="middle" dominant-baseline="central">change mode</text>
+  <path class="edge accent" d="M150 303 H206"/>
+  <text class="edge-lbl" x="178" y="288" text-anchor="middle" dominant-baseline="central">select</text>
+</svg>

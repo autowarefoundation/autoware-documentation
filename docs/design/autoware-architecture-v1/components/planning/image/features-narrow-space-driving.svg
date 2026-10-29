@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-labelledby="features-narrow-space-driving-title">
+  <title id="features-narrow-space-driving-title">The ego vehicle drives through a narrow crank-shaped road, and its footprint stays inside the drivable area.</title>
+
+  <!-- Walls of the narrow road -->
+  <path class="shoulder" d="M0 30 H440 V180 H760 V270 H350 V120 H0 Z"/>
+
+  <!-- Drivable area -->
+  <path class="road" d="M0 40 H430 V190 H760 V260 H360 V110 H0 Z"/>
+
+  <!-- Planned path -->
+  <path class="route" d="M150 75 H300 C395 75 395 75 395 150 C395 225 395 225 490 225 H720"/>
+
+  <!-- Footprints of the ego vehicle along the path -->
+  <rect class="bound" x="296" y="60" width="68" height="34" rx="4" transform="rotate(8 330 77)"/>
+  <rect class="bound" x="358" y="133" width="68" height="34" rx="4" transform="rotate(80 392 150)"/>
+  <rect class="bound" x="416" y="205" width="68" height="34" rx="4" transform="rotate(12 450 222)"/>
+  <rect class="bound" x="526" y="208" width="68" height="34" rx="4" transform="rotate(0 560 225)"/>
+  <g>
+    <rect class="car" x="78" y="60" width="64" height="30" rx="6"/>
+    <rect class="glass" x="120" y="64" width="9" height="22" rx="3"/>
+  </g>
+  <text class="note" x="560" y="120" text-anchor="middle" dominant-baseline="central">Footprints inside the drivable area</text>
+  <line class="leader" x1="560" y1="130" x2="560" y2="206"/>
+</svg>

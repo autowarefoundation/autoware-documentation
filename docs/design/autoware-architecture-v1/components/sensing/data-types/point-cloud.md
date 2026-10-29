@@ -1,54 +1,61 @@
+<!-- cspell:ignore SECONDSTRONGEST -->
+
 # Point cloud pre-processing design
 
 ## Overview
 
-Point cloud pre-processing is a collection of modules that apply some primitive pre-processing to the raw sensor data.
+Point cloud preprocessing is a collection of modules that apply primitive preprocessing to the raw sensor data.
 
-This pipeline covers the flow of data from drivers to the perception stack.
+This pipeline covers the flow of data from the LiDAR drivers to the perception and localization components.
 
-## Recommended processing pipeline
+## Processing pipeline
 
-```mermaid
-graph TD
-    Driver["Lidar Driver"] -->|"Cloud XYZIRCAEDT"| FilterPR["Polygon Remover Filter / CropBox Filter"]
+{{ diagram("image/point-cloud-pipeline.svg", "Each LiDAR has its own preprocessing chain. The concatenation node merges all LiDARs into one point cloud.") }}
 
-    subgraph "sensing"
-    FilterPR -->|"Cloud XYZIRCAEDT"| FilterDC["Motion Distortion Corrector Filter"]
-    FilterDC -->|"Cloud XYZIRCAEDT"| FilterOF["Outlier Remover Filter"]
-    FilterOF -->|"Cloud XYZIRC"| FilterDS["Downsampler Filter"]
-    FilterDS -->|"Cloud XYZIRC"| FilterTrans["Cloud Transformer"]
-    FilterTrans -->|"Cloud XYZIRC"| FilterC
+The sensor kits of `autoware_launch` build this pipeline with the shared launch files of [`autoware_sensing_launch`](https://github.com/autowarefoundation/autoware_launch/tree/main/autoware_universe_launch/autoware_sensing_launch). The topics in the diagram are relative to the namespace of each LiDAR, for example `/sensing/lidar/top/`.
 
-    FilterX["..."] -->|"Cloud XYZIRC (i)"| FilterC["Cloud Concatenator"]
-    end
+| Step | Node name                                              | Launch file                               | What it does                                                                                                                                                                                                                             |
+| :--- | :----------------------------------------------------- | :---------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1    | Nebula driver, for example `velodyne_ros_wrapper_node` | `autoware_sensor_driver_launch`           | Decodes the LiDAR packets and publishes `pointcloud_raw_ex` with the `PointXYZIRCAEDT` point type.                                                                                                                                       |
+| 2    | `crop_box_filter_self`                                 | `pointcloud_crop_boxes.launch.xml`        | Removes the points on the vehicle body.                                                                                                                                                                                                  |
+| 3    | `crop_box_filter_mirror`                               | `pointcloud_crop_boxes.launch.xml`        | Removes the points on the side mirrors. The `secondary_crop_box` launch argument sets the name of this second crop box.                                                                                                                  |
+| 4    | `distortion_corrector_node`                            | `pointcloud_preprocessor_cpu.launch.xml`  | Corrects the motion distortion of each point with the vehicle twist and the IMU angular velocity.                                                                                                                                        |
+| 5    | `ring_outlier_filter`                                  | `pointcloud_preprocessor_cpu.launch.xml`  | Removes noise points, for example from rain or insects. It publishes `pointcloud_before_sync` with the `PointXYZIRC` point type, in the frame of the sensor.                                                                             |
+| 6    | `concatenate_data`                                     | `pointcloud_concatenation_cpu.launch.xml` | Collects the point clouds of all LiDARs by time stamp, compensates the motion between them, and transforms them to `base_link`. It publishes `/sensing/lidar/concatenated/pointcloud` and `/sensing/lidar/concatenated/pointcloud_info`. |
 
-    FilterC -->|"Cloud XYZIRC"| SegGr["Ground Segmentation"]
-```
+The sensing pipeline does not downsample the point cloud. The users of `/sensing/lidar/concatenated/pointcloud` crop and downsample it for their own needs:
+
+- The ground segmentation of perception crops the point cloud to the height of the vehicle and removes the ground points.
+- The localization utilities crop the point cloud to the measurement range and downsample it with a voxel grid filter and a random filter. The result is the input of the NDT scan matcher.
 
 ## List of modules
 
-The modules used here are from [pointcloud_preprocessor package](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_pointcloud_preprocessor).
+The modules used here are from the [`autoware_pointcloud_preprocessor`](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_pointcloud_preprocessor) package. The [filter table of the package README](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_pointcloud_preprocessor#inner-workings--algorithms) describes each module. The package also has modules that the default pipeline does not use, for example the polygon remover, the dual return outlier filter, and the blockage diagnostics.
 
-For details about the modules, see [the following table](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_pointcloud_preprocessor#inner-workings--algorithms).
+[`autoware_cuda_pointcloud_preprocessor`](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_cuda_pointcloud_preprocessor) has CUDA versions of the same steps. Its `cuda_pointcloud_preprocessor_node` does steps 2 to 5 in one node. Use `pointcloud_preprocessor_cuda.launch.xml` and `pointcloud_concatenation_cuda.launch.xml` instead of the CPU launch files to use it. The sensor kits of `autoware_launch` use the CPU launch files.
 
-It is recommended that these modules are used in a single container as components. For details see [ROS 2 Composition](https://docs.ros.org/en/rolling/Tutorials/Intermediate/Composition.html)
+Autoware Core also has two point cloud filter packages: [`autoware_crop_box_filter`](https://github.com/autowarefoundation/autoware_core/tree/main/sensing/autoware_crop_box_filter) and [`autoware_downsample_filters`](https://github.com/autowarefoundation/autoware_core/tree/main/sensing/autoware_downsample_filters). The launch files of `autoware_launch` use the filters of `autoware_pointcloud_preprocessor`.
+
+The sensor kits load the driver and the steps 2 to 5 of each LiDAR into one container, `/sensing/lidar/<LiDAR name>/pointcloud_preprocessor/pointcloud_container`. They load the concatenation node into `pointcloud_container`. The sample sensor kit enables intra-process communication for these nodes. For details, see [ROS 2 Composition](https://docs.ros.org/en/rolling/Tutorials/Intermediate/Composition.html).
 
 ## Point cloud fields
 
-The lidar driver is expected to output a point cloud with the `PointXYZIRCAEDT` point type.
+The LiDAR driver must output a point cloud with the `PointXYZIRCAEDT` point type. [Nebula](https://github.com/tier4/nebula), the LiDAR driver of the sensor kits, publishes this point type. Autoware defines the point types in [`autoware_point_types`](https://github.com/autowarefoundation/autoware_core/tree/main/common/autoware_point_types) of Autoware Core.
 
-| name              | datatype  | derived | description                                                                  |
-| ----------------- | --------- | ------- | ---------------------------------------------------------------------------- |
-| `X`               | `FLOAT32` | `false` | X position                                                                   |
-| `Y`               | `FLOAT32` | `false` | Y position                                                                   |
-| `Z`               | `FLOAT32` | `false` | Z position                                                                   |
-| `I` (intensity)   | `UINT8`   | `false` | Measured reflectivity, intensity of the point                                |
-| `R` (return type) | `UINT8`   | `false` | Laser return type for dual return lidars                                     |
-| `C` (channel)     | `UINT16`  | `false` | Channel ID of the laser that measured the point                              |
-| `A` (azimuth)     | `FLOAT32` | `true`  | `atan2(Y, X)`, Horizontal angle from the lidar origin to the point           |
-| `E` (elevation)   | `FLOAT32` | `true`  | `atan2(Z, D)`, Vertical angle from the lidar origin to the point             |
-| `D` (distance)    | `FLOAT32` | `true`  | `hypot(X, Y, Z)`, Euclidean distance from the lidar origin to the point      |
-| `T` (time)        | `UINT32`  | `false` | Nanoseconds passed since the time of the header when this point was measured |
+| Name              | Field name    | Datatype  | Derived | Description                                                                  |
+| ----------------- | ------------- | --------- | ------- | ---------------------------------------------------------------------------- |
+| `X`               | `x`           | `FLOAT32` | `false` | X position                                                                   |
+| `Y`               | `y`           | `FLOAT32` | `false` | Y position                                                                   |
+| `Z`               | `z`           | `FLOAT32` | `false` | Z position                                                                   |
+| `I` (intensity)   | `intensity`   | `UINT8`   | `false` | Measured reflectivity, intensity of the point                                |
+| `R` (return type) | `return_type` | `UINT8`   | `false` | Laser return type for dual return lidars                                     |
+| `C` (channel)     | `channel`     | `UINT16`  | `false` | Channel ID of the laser that measured the point                              |
+| `A` (azimuth)     | `azimuth`     | `FLOAT32` | `true`  | `atan2(Y, X)`, Horizontal angle from the lidar origin to the point           |
+| `E` (elevation)   | `elevation`   | `FLOAT32` | `true`  | `atan2(Z, D)`, Vertical angle from the lidar origin to the point             |
+| `D` (distance)    | `distance`    | `FLOAT32` | `true`  | `hypot(X, Y, Z)`, Euclidean distance from the lidar origin to the point      |
+| `T` (time)        | `time_stamp`  | `UINT32`  | `false` | Nanoseconds passed since the time of the header when this point was measured |
+
+The ring outlier filter keeps only the first six fields. Its output and the concatenated point cloud use the `PointXYZIRC` point type.
 
 !!! note
 
@@ -57,12 +64,14 @@ The lidar driver is expected to output a point cloud with the `PointXYZIRCAEDT` 
 
 !!! warning
 
-    Autoware supports conversion from `PointXYZI` to `PointXYZIRC` (with channel and return type set to 0) for prototyping purposes.
-    However, this conversion is not recommended for production use since it is not efficient.
+    The concatenation node converts each input point cloud to `PointXYZIRC`.
+    If an input does not have a `UINT8` `intensity`, a `UINT8` `return_type`, and a `UINT16` `channel` field, the node keeps only `x`, `y`, and `z` and sets the other fields to 0.
+    For example, a `PointXYZI` input loses its intensity.
+    Use this only for prototyping. The distortion corrector and the ring outlier filter require the `PointXYZIRCAEDT` layout.
 
 ### Intensity
 
-We will use following ranges for intensity, compatible with [the VLP16 User Manual](https://usermanual.wiki/Pdf/VLP16Manual.1719942037/view):
+Autoware uses the following ranges for intensity, compatible with [the VLP16 User Manual](https://usermanual.wiki/Pdf/VLP16Manual.1719942037/view):
 
 Quoting from the VLP-16 User Manual:
 
@@ -78,9 +87,9 @@ Quoting from the VLP-16 User Manual:
 
 In a typical point cloud without retroreflectors, all intensity points will be between 0 and 100.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Retroreflective_Gradient_road_sign.jpg" width="200">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Retroreflective_Gradient_road_sign.jpg" width="200" alt="A retroreflective road sign">
 
-[Retroreflective Gradient road sign, Image Source](https://commons.wikimedia.org/wiki/File:Retroreflective_Gradient_road_sign.jpg)
+Image source: [Retroreflective Gradient road sign on Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Retroreflective_Gradient_road_sign.jpg)
 
 But in a point cloud with retroreflectors, the intensity points will be between 0 and 255.
 
@@ -95,9 +104,9 @@ This lidar has 2 modes for reporting reflectivity:
 - Linear mapping
 - Non-linear mapping
 
-If you are using linear mapping mode, you should map from [0, 255] to [0, 100] when constructing the point cloud.
+If you use the linear mapping mode, map [0, 255] to [0, 100] when you construct the point cloud.
 
-If you are using non-linear mapping mode, you should map (hesai to autoware)
+If you use the non-linear mapping mode, map these ranges (Hesai to Autoware)
 
 - [0, 251] to [0, 100] and
 - [252, 254] to [101, 255]
@@ -110,7 +119,7 @@ when constructing the point cloud.
 
 This lidar has 2 modes for reporting reflectivity similar to Velodyne VLP-16, only the ranges are slightly different.
 
-You should map (livox to autoware)
+Map these ranges (Livox to Autoware)
 
 - [0, 150] to [0, 100] and
 - [151, 255] to [101, 255]
@@ -131,33 +140,41 @@ In the manual it is stated:
 
 > Reflectivity [16 bit unsigned int] - sensor Signal Photons measurements are scaled based on measured range and sensor sensitivity at that range, providing an indication of target reflectivity. Calibration of this measurement has not currently been rigorously implemented, but this will be updated in a future firmware release.
 
-So it is advised to map the 16 bit reflectivity to [0, 100] range.
+As a result, map the 16-bit reflectivity to the [0, 100] range.
 
 ##### Leishen CH64W
 
-[I couldn't get the english user manual, link of website](http://www.lslidar.com/en/down)
+[Leishen download page](http://www.lslidar.com/en/down) (no English user manual was found)
 
-In a user manual I was able to find it says:
+A user manual of this lidar says:
 
 > Byte 7 represents echo strength, and the value range is 0-255. (Echo strength can reflect
 > the energy reflection characteristics of the measured object in the actual measurement
 > environment. Therefore, the echo strength can be used to distinguish objects with
 > different reflection characteristics.)
 
-So it is advised to map the [0, 255] to [0, 100] range.
+As a result, map [0, 255] to the [0, 100] range.
 
 ### Return type
 
 Various lidars support multiple return modes. Velodyne lidars support **Strongest** and **Last** return modes.
 
 In the `PointXYZIRC` and `PointXYZIRCAEDT` types, the `R` field represents the return type with a `UINT8`.
-The return type is vendor-specific. The following table provides an example of return type definitions.
+The values come from the driver. Nebula uses the values of its `ReturnType` enumeration ([`nebula_common.hpp`](https://github.com/tier4/nebula/blob/main/src/nebula_core/nebula_core_common/include/nebula_core_common/nebula_common.hpp)):
 
-| R (return type) | Description          |
-| --------------- | -------------------- |
-| `0`             | Unknown / Not Marked |
-| `1`             | Strongest            |
-| `2`             | Last                 |
+| R (return type) | Nebula `ReturnType` |
+| --------------- | ------------------- |
+| `0`             | `UNKNOWN`           |
+| `1`             | `LAST`              |
+| `2`             | `FIRST`             |
+| `3`             | `STRONGEST`         |
+| `4`             | `FIRST_WEAK`        |
+| `5`             | `LAST_WEAK`         |
+| `6`             | `IDENTICAL`         |
+| `7`             | `SECOND`            |
+| `8`             | `SECONDSTRONGEST`   |
+| `9`             | `FIRST_STRONGEST`   |
+| `10`            | `LAST_STRONGEST`    |
 
 ### Channel
 
@@ -209,10 +226,10 @@ The header of the point cloud message is expected to have the time of the earlie
 
 !!! note
 
-    The `sec` field is `int32` in ROS 2 humble. The largest value it can represent is 2^31 seconds, it is subject to
-    year 2038 problems. We will wait for actions on ROS 2 community side.
+    The `sec` field is `int32` in ROS 2 Humble, Jazzy, and Rolling. The largest value it can represent is 2^31 seconds.
+    As a result, it has the year 2038 problem. The ROS 2 community has not fixed this yet.
 
-    **More info at:** https://github.com/ros2/rcl_interfaces/issues/85
+    For details, see [the year 2038 issue of `rcl_interfaces`](https://github.com/ros2/rcl_interfaces/issues/85).
 
 #### Individual point time stamp
 
@@ -223,4 +240,4 @@ To calculate exact time each point was shot, the `T` nanoseconds are added to th
 !!! note
 
     The `T` field is `uint32` type. The largest value it can represent is 2^32 nanoseconds, which equates to roughly
-    4.29 seconds. Usual point clouds don't last more than 100ms for full cycle. So this field should be enough.
+    4.29 seconds. A full cycle of a usual point cloud takes 100 ms or less. As a result, this field is large enough.

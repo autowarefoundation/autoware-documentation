@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 580" role="img" aria-labelledby="control-component-title">
+  <title id="control-component-title">The trajectory follower follows the trajectory from planning and sends a control command to the vehicle command gate. The shift decider, the external command selector, and the system emergency commands also go to the gate. The gate selects one source and sends the commands to the vehicle interface. The control checkers report diagnostics to the system.</title>
+
+  <!-- Inputs -->
+  <rect class="box muted" x="16" y="80" width="160" height="56" rx="10"/>
+  <text class="lbl" x="96" y="100" text-anchor="middle" dominant-baseline="central">Planning</text>
+  <text class="sub" x="96" y="120" text-anchor="middle" dominant-baseline="central">Trajectory</text>
+
+  <rect class="box muted" x="16" y="156" width="160" height="56" rx="10"/>
+  <text class="lbl" x="96" y="176" text-anchor="middle" dominant-baseline="central">Localization</text>
+  <text class="sub" x="96" y="196" text-anchor="middle" dominant-baseline="central">Kinematic state</text>
+
+  <rect class="box muted" x="16" y="232" width="160" height="56" rx="10"/>
+  <text class="lbl" x="96" y="252" text-anchor="middle" dominant-baseline="central">Vehicle interface</text>
+  <text class="sub" x="96" y="272" text-anchor="middle" dominant-baseline="central">Steering status</text>
+
+  <rect class="box muted" x="16" y="340" width="160" height="56" rx="10"/>
+  <text class="lbl" x="96" y="360" text-anchor="middle" dominant-baseline="central">External operator</text>
+  <text class="sub" x="96" y="380" text-anchor="middle" dominant-baseline="central">Remote or local</text>
+
+  <rect class="box muted" x="16" y="420" width="160" height="56" rx="10"/>
+  <text class="lbl" x="96" y="440" text-anchor="middle" dominant-baseline="central">System</text>
+  <text class="sub" x="96" y="460" text-anchor="middle" dominant-baseline="central">Minimal risk maneuver</text>
+
+  <!-- Turn signals and hazard lights from planning go around the top -->
+  <path class="edge" fill="none" d="M96 80 V24 H590 V72"/>
+  <text class="edge-lbl" x="400" y="24" text-anchor="middle" dominant-baseline="central">Turn indicators and hazard lights</text>
+
+  <!-- Control -->
+  <rect class="group" x="192" y="40" width="484" height="524" rx="16"/>
+  <text class="ttl" x="208" y="62">Control</text>
+
+  <rect class="box primary" x="232" y="80" width="220" height="96" rx="10"/>
+  <text class="lbl on-primary" x="342" y="104" text-anchor="middle" dominant-baseline="central">Trajectory follower</text>
+  <text class="sub on-primary" x="342" y="128" text-anchor="middle" dominant-baseline="central">Lateral: MPC or pure pursuit</text>
+  <text class="sub on-primary" x="342" y="148" text-anchor="middle" dominant-baseline="central">Longitudinal: PID</text>
+
+  <rect class="box" x="232" y="196" width="220" height="48" rx="10"/>
+  <text class="lbl" x="342" y="220" text-anchor="middle" dominant-baseline="central">Shift decider</text>
+
+  <rect class="box" x="232" y="264" width="220" height="56" rx="10"/>
+  <text class="lbl" x="342" y="284" text-anchor="middle" dominant-baseline="central">Operation mode</text>
+  <text class="lbl" x="342" y="302" text-anchor="middle" dominant-baseline="central">transition manager</text>
+
+  <rect class="box" x="232" y="340" width="220" height="56" rx="10"/>
+  <text class="lbl" x="342" y="360" text-anchor="middle" dominant-baseline="central">External cmd selector</text>
+  <text class="sub" x="342" y="380" text-anchor="middle" dominant-baseline="central">and converter</text>
+
+  <rect class="box primary" x="528" y="80" width="128" height="380" rx="10"/>
+  <text class="lbl on-primary" x="592" y="244" text-anchor="middle" dominant-baseline="central">Vehicle</text>
+  <text class="lbl on-primary" x="592" y="262" text-anchor="middle" dominant-baseline="central">command gate</text>
+  <text class="sub on-primary" x="592" y="290" text-anchor="middle" dominant-baseline="central">Selects one source</text>
+  <text class="sub on-primary" x="592" y="308" text-anchor="middle" dominant-baseline="central">and applies limits</text>
+
+  <rect class="group dashed" x="232" y="488" width="424" height="60" rx="16"/>
+  <text class="ttl" x="248" y="510">Control checkers</text>
+  <text class="sub" x="248" y="532">Control validator, AEB, lane departure checker, collision detector</text>
+
+  <!-- Inputs to the follower -->
+  <path class="edge accent" d="M176 108 H224"/>
+  <path class="edge plain" d="M176 184 H206"/>
+  <path class="edge" fill="none" d="M176 260 H206 V150 H224"/>
+
+  <!-- Into the gate -->
+  <path class="edge accent" d="M452 128 H520"/>
+  <path class="edge" d="M342 176 V188"/>
+  <path class="edge" d="M452 220 H520"/>
+  <path class="edge" d="M452 292 H520"/>
+  <path class="edge" d="M176 368 H224"/>
+  <path class="edge" d="M452 368 H520"/>
+  <path class="edge" d="M176 448 H520"/>
+  <text class="edge-lbl" x="350" y="448" text-anchor="middle" dominant-baseline="central">Emergency commands</text>
+
+  <!-- Diagnostics to the system -->
+  <path class="edge" fill="none" d="M232 518 H96 V484"/>
+  <text class="edge-lbl" x="150" y="518" text-anchor="middle" dominant-baseline="central">Diagnostics</text>
+
+  <!-- To the vehicle -->
+  <rect class="box muted" x="716" y="200" width="128" height="140" rx="10"/>
+  <text class="lbl" x="780" y="232" text-anchor="middle" dominant-baseline="central">Vehicle</text>
+  <text class="lbl" x="780" y="250" text-anchor="middle" dominant-baseline="central">interface</text>
+  <text class="sub" x="780" y="280" text-anchor="middle" dominant-baseline="central">Control, gear,</text>
+  <text class="sub" x="780" y="298" text-anchor="middle" dominant-baseline="central">turn indicators,</text>
+  <text class="sub" x="780" y="316" text-anchor="middle" dominant-baseline="central">hazard lights</text>
+
+  <path class="edge accent" d="M656 270 H708"/>
+</svg>

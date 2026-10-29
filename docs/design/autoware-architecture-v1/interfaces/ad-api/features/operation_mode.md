@@ -24,7 +24,7 @@ Autoware control mode has four operation modes.
 | Local      | Manually control the vehicle from nearby with some device such as a joystick. |
 | Remote     | Manually control the vehicle from a web application on the cloud.             |
 
-![operation-mode-architecture](operation_mode/architecture.drawio.svg)
+{{ diagram("operation_mode/architecture.svg", "The operation mode selects the command under Autoware control. The driver controls the vehicle under direct control.") }}
 
 ## States
 
@@ -34,13 +34,19 @@ The flag `is_autoware_control_enabled` indicates if the vehicle is controlled by
 The enable and disable APIs can be used if the control can be switched by software.
 These APIs will always fail if the vehicle does not support mode switching or is switched by hardware.
 
-### Operation mode and change flags
+### Operation mode and availability flags
 
-The state `operation_mode` indicates what command is used when Autoware control is enabled.
-The flags `change_to_*` can be used to check if it is possible to transition to each mode.
+The field `mode` indicates what command is used when Autoware control is enabled.
+The flags `is_stop_mode_available`, `is_autonomous_mode_available`, `is_local_mode_available`, and `is_remote_mode_available` show if it is possible to transition to each mode.
+A change request to a mode that is not available fails with `ERROR_NOT_AVAILABLE`.
+
+In the default implementation, the availability comes from the diagnostic graph (the `/system/operation_mode/availability` topic).
+For example, the autonomous mode is available only when the map, localization, planning (including the route), perception, control, vehicle, and system diagnostics are OK.
+Use the [diagnostics API](diagnostics.md) to find the cause when a mode is not available.
 
 ### Transition flag
 
-Since Autoware may not be able to guarantee safety, such as switching to autonomous mode during overspeed.
-There is the flag `is_in_transition` for this situation and it will be true when changing modes.
-The operator who changed the mode should ensure safety while this flag is true. The flag will be false when the mode change is complete.
+Autoware cannot always guarantee safety during a mode change, for example when it switches to autonomous mode during overspeed.
+For this situation, the flag `is_in_transition` is true while the mode changes.
+The operator who changed the mode must ensure safety while this flag is true. The flag becomes false when the mode change is complete.
+If the mode change does not complete, Autoware returns to the previous mode.

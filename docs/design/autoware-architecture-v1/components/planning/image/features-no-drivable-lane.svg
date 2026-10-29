@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" role="img" aria-labelledby="features-no-drivable-lane-title">
+  <title id="features-no-drivable-lane-title">The road ahead is a no drivable lane, so the ego vehicle stops before it.</title>
+
+  <!-- Road: two lanes in the same direction. The ego lane is on top. -->
+  <rect class="road" x="0" y="44" width="760" height="120"/>
+  <line class="mark" x1="0" y1="50" x2="760" y2="50"/>
+  <line class="mark" x1="0" y1="158" x2="760" y2="158"/>
+  <line class="mark dash" x1="0" y1="104" x2="760" y2="104"/>
+
+  <!-- No drivable lane (outside the operational design domain) -->
+  <rect class="lanelet bad" x="480" y="50" width="280" height="108"/>
+
+  <!-- Planned path and stop point -->
+  <path class="route" d="M150 77 H460"/>
+  <line class="bound alt" x1="480" y1="50" x2="480" y2="158"/>
+
+  <!-- Ego vehicle -->
+  <g>
+    <rect class="car" x="78" y="62" width="64" height="30" rx="6"/>
+    <rect class="glass" x="120" y="66" width="9" height="22" rx="3"/>
+  </g>
+  <text class="note" x="620" y="24" text-anchor="middle" dominant-baseline="central">No drivable lane</text>
+  <line class="leader" x1="620" y1="32" x2="620" y2="52"/>
+  <text class="note" x="480" y="184" text-anchor="middle" dominant-baseline="central">Stop before the no drivable lane</text>
+  <line class="leader" x1="480" y1="176" x2="480" y2="160"/>
+</svg>

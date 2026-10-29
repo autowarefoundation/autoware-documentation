@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" role="img" aria-labelledby="features-detection-area-title">
+  <title id="features-detection-area-title">An object is in a detection area of the map, so the ego vehicle stops at the stop line that belongs to the area.</title>
+
+  <!-- Road: two lanes in the same direction. The ego lane is on top. -->
+  <rect class="road" x="0" y="44" width="760" height="120"/>
+  <line class="mark" x1="0" y1="50" x2="760" y2="50"/>
+  <line class="mark" x1="0" y1="158" x2="760" y2="158"/>
+  <line class="mark dash" x1="0" y1="104" x2="760" y2="104"/>
+
+  <!-- Detection area of the map -->
+  <path class="area" d="M520 112 L640 110 L670 150 L540 156 Z"/>
+
+  <!-- Objects in the detection area -->
+  <path class="car other" d="M570 121 L581 144 H559 Z"/>
+  <circle class="car other" cx="620" cy="123" r="6"/>
+  <rect class="car other" x="614" y="130" width="12" height="18" rx="5"/>
+
+  <!-- Stop line of the detection area -->
+  <line class="mark thick" x1="480" y1="52" x2="480" y2="102"/>
+
+  <!-- Area after the stop line -->
+  <rect class="lanelet bad" x="490" y="63" width="230" height="28"/>
+
+  <!-- Planned path up to the stop line -->
+  <path class="route" d="M150 77 H466"/>
+
+  <!-- Ego vehicle -->
+  <g>
+    <rect class="car" x="78" y="62" width="64" height="30" rx="6"/>
+    <rect class="glass" x="120" y="66" width="9" height="22" rx="3"/>
+  </g>
+  <text class="note" x="480" y="24" text-anchor="middle" dominant-baseline="central">Stop line</text>
+  <line class="leader" x1="480" y1="32" x2="480" y2="52"/>
+  <text class="note" x="600" y="184" text-anchor="middle" dominant-baseline="central">Detection area with objects</text>
+  <line class="leader" x1="600" y1="176" x2="600" y2="155"/>
+</svg>

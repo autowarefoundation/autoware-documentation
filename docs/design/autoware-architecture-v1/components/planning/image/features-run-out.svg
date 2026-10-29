@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" role="img" aria-labelledby="features-run-out-title">
+  <title id="features-run-out-title">A pedestrian on the sidewalk moves toward the path, so the ego vehicle stops before the place where they would meet.</title>
+  <rect class="sidewalk" x="0" y="14" width="760" height="30"/>
+
+  <!-- Road: two lanes in the same direction. The ego lane is on top. -->
+  <rect class="road" x="0" y="44" width="760" height="120"/>
+  <line class="mark" x1="0" y1="50" x2="760" y2="50"/>
+  <line class="mark" x1="0" y1="158" x2="760" y2="158"/>
+  <line class="mark dash" x1="0" y1="104" x2="760" y2="104"/>
+
+  <!-- Area after the stop point -->
+  <rect class="lanelet bad" x="480" y="63" width="240" height="28"/>
+
+  <!-- Pedestrian who moves toward the path -->
+  <circle class="car other" cx="560" cy="11" r="6"/>
+  <rect class="car other" x="554" y="18" width="12" height="18" rx="5"/>
+  <path class="edge accent" d="M575 30 L575 64"/>
+
+  <!-- Planned path and stop point -->
+  <path class="route" d="M150 77 H460"/>
+  <line class="bound alt" x1="480" y1="56" x2="480" y2="98"/>
+
+  <!-- Ego vehicle -->
+  <g>
+    <rect class="car" x="78" y="62" width="64" height="30" rx="6"/>
+    <rect class="glass" x="120" y="66" width="9" height="22" rx="3"/>
+  </g>
+  <text class="note" x="480" y="184" text-anchor="middle" dominant-baseline="central">Stop before the predicted collision point</text>
+  <line class="leader" x1="480" y1="176" x2="480" y2="100"/>
+</svg>

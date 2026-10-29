@@ -1,6 +1,6 @@
 ---
 last_updated: 2026-01-21
-interface_type: topic
+interface_type: service
 interface_name: /control/control_mode_request
 data_type_name: autoware_vehicle_msgs/srv/ControlModeCommand
 data_type_link: https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/srv/ControlModeCommand.srv

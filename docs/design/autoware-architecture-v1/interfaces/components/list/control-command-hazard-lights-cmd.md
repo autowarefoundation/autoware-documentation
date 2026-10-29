@@ -20,6 +20,7 @@ qos_depth: 1
 
 Send the hazard lights change command to the vehicle. The command is `ENABLE` or `DISABLE`.
 It is recommended to set QoS to transient_local and publish only when the command changes, but currently many implementations publish the command periodically.
+The `autoware_component_interface_specs` package defines `volatile` today.
 Therefore, ensure consistency across the entire system.
 
 ## Message

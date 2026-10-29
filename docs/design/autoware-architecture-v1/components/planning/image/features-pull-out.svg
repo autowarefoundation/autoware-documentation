@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" role="img" aria-labelledby="features-pull-out-title">
+  <title id="features-pull-out-title">The ego vehicle starts on the road shoulder and pulls out to the lane.</title>
+
+  <!-- Road shoulder -->
+  <rect class="shoulder" x="0" y="14" width="760" height="30"/>
+
+  <!-- Road: two lanes in the same direction. The ego lane is on top. -->
+  <rect class="road" x="0" y="44" width="760" height="120"/>
+  <line class="mark" x1="0" y1="50" x2="760" y2="50"/>
+  <line class="mark" x1="0" y1="158" x2="760" y2="158"/>
+  <line class="mark dash" x1="0" y1="104" x2="760" y2="104"/>
+
+  <!-- Planned path: from the shoulder to the lane -->
+  <path class="route" d="M150 29 H240 C330 29 330 77 420 77 H700"/>
+
+  <!-- Ego vehicle on the shoulder -->
+  <g>
+    <rect class="car" x="78" y="14" width="64" height="30" rx="6"/>
+    <rect class="glass" x="120" y="18" width="9" height="22" rx="3"/>
+  </g>
+  <text class="note" x="330" y="184" text-anchor="middle" dominant-baseline="central">Pull out path</text>
+  <line class="leader" x1="330" y1="176" x2="330" y2="64"/>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" role="img" aria-labelledby="features-surround-check-title">
+  <title id="features-surround-check-title">A pedestrian stands next to the stopped ego vehicle, so the ego vehicle does not start.</title>
+  <rect class="sidewalk" x="0" y="14" width="760" height="30"/>
+
+  <!-- Road: two lanes in the same direction. The ego lane is on top. -->
+  <rect class="road" x="0" y="44" width="760" height="120"/>
+  <line class="mark" x1="0" y1="50" x2="760" y2="50"/>
+  <line class="mark" x1="0" y1="158" x2="760" y2="158"/>
+  <line class="mark dash" x1="0" y1="104" x2="760" y2="104"/>
+
+  <!-- Check area around the stopped ego vehicle -->
+  <rect class="area warn" x="250" y="14" width="160" height="90" rx="6"/>
+
+  <!-- Pedestrian in the check area -->
+  <circle class="car other" cx="270" cy="17" r="6"/>
+  <rect class="car other" x="264" y="24" width="12" height="18" rx="5"/>
+
+  <!-- Ego vehicle (stopped) -->
+  <g>
+    <rect class="car" x="298" y="62" width="64" height="30" rx="6"/>
+    <rect class="glass" x="340" y="66" width="9" height="22" rx="3"/>
+  </g>
+
+  <!-- The path is blocked -->
+  <rect class="lanelet bad" x="412" y="63" width="288" height="28"/>
+  <text class="note" x="330" y="184" text-anchor="middle" dominant-baseline="central">Do not start while an object is near</text>
+  <line class="leader" x1="330" y1="176" x2="330" y2="104"/>
+</svg>

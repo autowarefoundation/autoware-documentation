@@ -20,6 +20,7 @@ qos_depth: 1
 
 Get the current control mode status of the vehicle. The status are listed in the table below.
 It is recommended to set QoS to transient_local and publish only when the status changes, but currently many implementations publish the status periodically.
+The `autoware_component_interface_specs` package defines `volatile` today.
 Therefore, ensure consistency across the entire system.
 
 Please note that ignoring a command does not mean stopping the vehicle.

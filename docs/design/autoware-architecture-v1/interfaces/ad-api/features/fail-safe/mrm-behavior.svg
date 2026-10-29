@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 260" role="img" aria-labelledby="adapi-mrm-behavior-title">
+  <title id="adapi-mrm-behavior-title">The MRM behavior starts at NONE. It can change to COMFORTABLE_STOP, PULL_OVER, or EMERGENCY_STOP. COMFORTABLE_STOP and PULL_OVER can change to EMERGENCY_STOP.</title>
+
+  <!-- Initial state -->
+  <circle class="icon" cx="22" cy="110" r="9"/>
+  <path class="edge" d="M31 110 H52"/>
+
+  <!-- Behaviors -->
+  <rect class="box" x="56" y="82" width="160" height="56" rx="10"/>
+  <text class="lbl" x="136" y="110" text-anchor="middle" dominant-baseline="central">NONE</text>
+
+  <rect class="box" x="316" y="16" width="200" height="56" rx="10"/>
+  <text class="lbl" x="416" y="44" text-anchor="middle" dominant-baseline="central">COMFORTABLE_STOP</text>
+
+  <rect class="box" x="316" y="148" width="200" height="56" rx="10"/>
+  <text class="lbl" x="416" y="176" text-anchor="middle" dominant-baseline="central">PULL_OVER</text>
+
+  <rect class="box warn" x="616" y="82" width="184" height="56" rx="10"/>
+  <text class="lbl" x="708" y="110" text-anchor="middle" dominant-baseline="central">EMERGENCY_STOP</text>
+
+  <!-- Transitions -->
+  <path class="edge" d="M216 102 H266 V44 H312"/>
+  <path class="edge" d="M216 118 H266 V176 H312"/>
+  <path class="edge" d="M516 44 H566 V102 H612"/>
+  <path class="edge" d="M516 176 H566 V118 H612"/>
+  <path class="edge" d="M136 138 V236 H708 V142"/>
+</svg>

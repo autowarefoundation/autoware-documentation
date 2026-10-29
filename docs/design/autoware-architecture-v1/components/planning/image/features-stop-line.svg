@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" role="img" aria-labelledby="features-stop-line-title">
+  <title id="features-stop-line-title">The ego vehicle stops at the stop line that the map defines.</title>
+
+  <!-- Road: two lanes in the same direction. The ego lane is on top. -->
+  <rect class="road" x="0" y="44" width="760" height="120"/>
+  <line class="mark" x1="0" y1="50" x2="760" y2="50"/>
+  <line class="mark" x1="0" y1="158" x2="760" y2="158"/>
+  <line class="mark dash" x1="0" y1="104" x2="760" y2="104"/>
+
+  <!-- Stop line in the ego lane -->
+  <line class="mark thick" x1="500" y1="52" x2="500" y2="102"/>
+
+  <!-- Stop sign -->
+  <circle class="sign" cx="560" cy="25" r="23"/>
+  <text class="sign-text" x="560" y="25" text-anchor="middle" dominant-baseline="central">STOP</text>
+
+  <!-- Planned path up to the stop line -->
+  <path class="route" d="M150 77 H486"/>
+
+  <!-- Ego vehicle -->
+  <g>
+    <rect class="car" x="78" y="62" width="64" height="30" rx="6"/>
+    <rect class="glass" x="120" y="66" width="9" height="22" rx="3"/>
+  </g>
+  <text class="note" x="500" y="184" text-anchor="middle" dominant-baseline="central">Stop at the stop line, then start again</text>
+  <line class="leader" x1="500" y1="176" x2="500" y2="104"/>
+</svg>

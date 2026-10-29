@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 300" role="img" aria-labelledby="vehicle-axes-title">
+  <title id="vehicle-axes-title">The base_link frame is on the ground below the center of the rear axle. The x axis points forward, the y axis points to the left, and the z axis points up. Roll, pitch, and yaw are the rotations around x, y, and z.</title>
+
+  <!-- Top view -->
+  <text class="ttl" x="20" y="24">Top view</text>
+  <rect class="icon" x="110" y="104" width="30" height="12" rx="3"/>
+  <rect class="icon" x="110" y="204" width="30" height="12" rx="3"/>
+  <rect class="icon" x="240" y="104" width="30" height="12" rx="3"/>
+  <rect class="icon" x="240" y="204" width="30" height="12" rx="3"/>
+  <rect class="car" x="70" y="110" width="230" height="100" rx="6"/>
+  <rect class="glass" x="222" y="120" width="18" height="80" rx="3"/>
+
+  <path class="edge accent" d="M125 160 H372"/>
+  <text class="lbl" x="382" y="160" dominant-baseline="central">+x</text>
+  <path class="edge accent" d="M125 160 V46"/>
+  <text class="lbl" x="125" y="34" text-anchor="middle" dominant-baseline="central">+y</text>
+  <path class="edge" d="M193 142 A70 70 0 0 0 143 92"/>
+  <text class="lbl" x="186" y="88" dominant-baseline="central">yaw</text>
+  <circle class="bound point" cx="125" cy="160" r="5"/>
+  <text class="note" x="64" y="238">base_link (the +z axis points out of the page)</text>
+
+  <!-- Side view -->
+  <text class="ttl" x="460" y="24">Side view</text>
+  <rect class="car" x="490" y="150" width="230" height="60" rx="6"/>
+  <rect class="glass" x="640" y="156" width="20" height="24" rx="3"/>
+  <circle class="icon" cx="545" cy="214" r="16"/>
+  <circle class="icon" cx="675" cy="214" r="16"/>
+  <path class="leader" d="M470 230 H840"/>
+
+  <path class="edge accent" d="M545 230 H800"/>
+  <text class="lbl" x="810" y="230" dominant-baseline="central">+x</text>
+  <path class="edge accent" d="M545 230 V46"/>
+  <text class="lbl" x="545" y="34" text-anchor="middle" dominant-baseline="central">+z</text>
+  <path class="edge" d="M579 136 A100 100 0 0 1 639 196"/>
+  <text class="lbl" x="600" y="118" dominant-baseline="central">pitch</text>
+  <path class="edge" d="M776 220 A8 18 0 1 0 776 240"/>
+  <text class="lbl" x="770" y="262" text-anchor="middle" dominant-baseline="central">roll</text>
+  <path class="edge" d="M526 78 A20 7 0 1 0 564 78"/>
+  <text class="lbl" x="574" y="66" dominant-baseline="central">yaw</text>
+  <circle class="bound point" cx="545" cy="230" r="5"/>
+  <text class="note" x="470" y="282">base_link (the +y axis points into the page)</text>
+</svg>

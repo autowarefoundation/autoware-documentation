@@ -1,8 +1,15 @@
 nav:
+  - index.md
   - Concepts: autoware-concepts
-  - autoware-system-capabilities.md
-  - Architecture 1.0: autoware-architecture-v1
-  - Architecture 2.0: autoware-architecture-v2
-  - repository-structure.md
-  - Repos files: repos-files.md
-  - Versioning & release process: versioning-and-release.md
+  - System capabilities: autoware-system-capabilities.md
+  - Architecture:
+      - Architecture 2.0: autoware-architecture-v2/index.md
+      - Components: autoware-architecture-v1/components
+      - Interfaces: autoware-architecture-v1/interfaces
+      - Node diagram: autoware-architecture-v1/node-diagram/index.md
+      - Roadmap: autoware-architecture-v2/roadmap
+      - Architecture 1.0: autoware-architecture-v1/index.md
+  - Repositories and releases:
+      - repository-structure.md
+      - Repos files: repos-files.md
+      - Versioning and release process: versioning-and-release.md

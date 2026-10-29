@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" role="img" aria-labelledby="features-adaptive-cruise-title">
+  <title id="features-adaptive-cruise-title">A vehicle drives ahead in the ego lane, and the ego vehicle follows it at a safe distance.</title>
+
+  <!-- Road: two lanes in the same direction. The ego lane is on top. -->
+  <rect class="road" x="0" y="44" width="760" height="120"/>
+  <line class="mark" x1="0" y1="50" x2="760" y2="50"/>
+  <line class="mark" x1="0" y1="158" x2="760" y2="158"/>
+  <line class="mark dash" x1="0" y1="104" x2="760" y2="104"/>
+
+  <!-- Vehicle ahead and its motion -->
+  <g>
+    <rect class="car npc" x="488" y="62" width="64" height="30" rx="6"/>
+    <rect class="glass" x="530" y="66" width="9" height="22" rx="3"/>
+  </g>
+  <path class="edge accent" d="M560 77 L640 77"/>
+
+  <!-- Planned path up to the vehicle ahead -->
+  <path class="route" d="M150 77 H470"/>
+
+  <!-- Ego vehicle -->
+  <g>
+    <rect class="car" x="78" y="62" width="64" height="30" rx="6"/>
+    <rect class="glass" x="120" y="66" width="9" height="22" rx="3"/>
+  </g>
+  <text class="note" x="320" y="184" text-anchor="middle" dominant-baseline="central">Keep a safe distance</text>
+  <line class="leader" x1="320" y1="176" x2="320" y2="82"/>
+  <text class="note" x="520" y="24" text-anchor="middle" dominant-baseline="central">Vehicle ahead</text>
+  <line class="leader" x1="520" y1="32" x2="520" y2="61"/>
+</svg>

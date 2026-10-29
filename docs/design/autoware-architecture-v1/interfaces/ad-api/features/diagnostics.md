@@ -16,19 +16,20 @@ Below is an example of the diagnostics provided by this API.
 The `path` in the diagram is an arbitrary string that describes the functional unit, and the `level` is its error level.
 For error level, the same value as `diagnostic_msgs/msg/DiagnosticStatus` is used.
 
-![graph-tree](diagnostics/tree.drawio.svg)
+{{ diagram("diagnostics/tree.svg", "An example diagnostic graph. The camera error makes the perception node and the autonomous mode node ERROR.") }}
 
 The diagnostics data has static and dynamic parts, so the API provides these separately for efficiency.
 Below is an example of a message that corresponds to the above diagram.
 The static part of the diagnostic is published only once as the DiagGraphStruct that contains nodes, diags, and links.
+Each diag has the index of its parent node in the `parent` field.
 The links specify dependencies between nodes by index into an array of them.
 The dynamic part of the diagnostic is published periodically as DiagGraphStatus.
 The status has nodes and diags of the same length as the struct, with the same index representing the same functional unit.
 
-![graph-data](diagnostics/data.drawio.svg)
+{{ diagram("diagnostics/data.svg", "The struct and status messages for the example graph.") }}
 
 Some functional unit levels may be latched. If the abnormality continues for a certain period, the level value will not return to normal.
 Use input_level to know the level before it was latched. Also, use latch_level to know if the latch is currently activated.
 To restore the level after the latch has been activated, use the reset API.
 
-![level](diagnostics/level.drawio.svg)
+{{ diagram("diagnostics/level.svg", "How the latch time changes level and latch_level for the same input_level.") }}

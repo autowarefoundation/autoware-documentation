@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img" aria-labelledby="generator-selector-title">
+  <title id="generator-selector-title">Sensing sends sensor data to the generators. The generators send candidate trajectories to the selector. The selector checks the candidates with a safety gate, ranks them, and sends the selected trajectory to the controller, which drives the vehicle.</title>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="900" height="480"/>
+  <circle class="halo" cx="610" cy="160" r="150"/>
+  <circle class="halo cyan" cx="780" cy="120" r="100"/>
+  <circle class="halo" cx="605" cy="390" r="85"/>
+  <circle class="halo cyan" cx="150" cy="220" r="110"/>
+
+  <!-- Sensing -->
+  <rect class="box primary" x="55" y="36" width="200" height="60" rx="30"/>
+  <circle class="icon-bg on" cx="88" cy="66" r="18"/>
+  <circle class="icon-dot" cx="82" cy="72" r="2.6"/>
+  <path class="icon-line" d="M82 63 A9 9 0 0 1 91 72"/>
+  <path class="icon-line" d="M82 56 A16 16 0 0 1 98 72"/>
+  <text class="lbl on-primary" x="116" y="57" dominant-baseline="central">Sensing</text>
+  <text class="sub on-primary" x="116" y="77" dominant-baseline="central">LiDAR, camera, radar</text>
+
+  <!-- The vehicle: a glass car with a roof LiDAR -->
+  <g transform="translate(48 168)">
+    <ellipse class="car-shadow" cx="105" cy="86" rx="92" ry="7"/>
+    <path class="car-body" d="M8 50 Q8 38 22 36 L52 33 L76 14 Q84 8 96 8 L146 8 Q158 8 166 16 L184 33 Q200 36 202 48 L202 62 Q202 70 194 70 L16 70 Q8 70 8 62 Z"/>
+    <path class="car-glass" d="M60 33 L80 17 Q86 13 96 13 L144 13 Q153 13 159 19 L176 33 Z"/>
+    <rect class="car-body" x="114" y="13" width="4" height="20"/>
+    <path class="car-shine" d="M90 17 L80 29"/>
+    <path class="car-shine" d="M26 44 Q105 38 188 42"/>
+    <rect class="lidar" x="100" y="1" width="26" height="7" rx="3.5"/>
+    <rect class="headlight" x="194" y="42" width="8" height="6" rx="3"/>
+    <circle class="wheel" cx="52" cy="70" r="15"/>
+    <circle class="rim" cx="52" cy="70" r="8.5"/>
+    <circle class="hub" cx="52" cy="70" r="3"/>
+    <circle class="wheel" cx="160" cy="70" r="15"/>
+    <circle class="rim" cx="160" cy="70" r="8.5"/>
+    <circle class="hub" cx="160" cy="70" r="3"/>
+  </g>
+
+  <path class="edge" d="M151 166 V104"/>
+  <path class="flow" d="M151 166 V104"/>
+  <path class="edge" d="M151 390 V268"/>
+  <path class="flow" d="M151 390 V268"/>
+  <text class="edge-lbl" x="151" y="290" text-anchor="middle" dominant-baseline="central">Vehicle</text>
+
+  <!-- Controller -->
+  <rect class="box primary" x="55" y="390" width="200" height="60" rx="30"/>
+  <circle class="icon-bg on" cx="88" cy="420" r="18"/>
+  <circle class="icon-line" cx="88" cy="420" r="8"/>
+  <path class="icon-line" d="M80 420 H96 M88 420 V428"/>
+  <text class="lbl on-primary" x="116" y="411" dominant-baseline="central">Controller</text>
+  <text class="sub on-primary" x="116" y="431" dominant-baseline="central">Follows the trajectory</text>
+
+  <!-- Sensing to the generators -->
+  <path class="edge accent" d="M255 66 H322"/>
+  <path class="flow" d="M255 66 H318"/>
+  <text class="edge-lbl" x="288" y="50" text-anchor="middle" dominant-baseline="central">Sensor data</text>
+
+  <!-- The generators -->
+  <rect class="glass-panel" x="330" y="22" width="548" height="252" rx="22"/>
+  <text class="ttl" x="354" y="50">Generators</text>
+  <text class="sub" x="354" y="70">Any module that outputs trajectories. They can run in parallel.</text>
+
+  <rect class="card" x="354" y="90" width="246" height="74" rx="14"/>
+  <circle class="icon-bg" cx="386" cy="127" r="18"/>
+  <path class="icon-line" d="M380 121 L392 121 M380 121 L386 133 M392 121 L386 133"/>
+  <circle class="icon-dot" cx="380" cy="121" r="2.8"/>
+  <circle class="icon-dot" cx="392" cy="121" r="2.8"/>
+  <circle class="icon-dot" cx="386" cy="133" r="2.8"/>
+  <text class="lbl" x="414" y="117" dominant-baseline="central">Robotics approach</text>
+  <text class="sub" x="414" y="137" dominant-baseline="central">Rule-based planning stack</text>
+
+  <rect class="card ai" x="616" y="90" width="246" height="74" rx="14"/>
+  <circle class="icon-bg ai" cx="648" cy="127" r="18"/>
+  <rect class="icon-line" x="640" y="118" width="16" height="7" rx="2"/>
+  <rect class="icon-line" x="640" y="129" width="16" height="7" rx="2"/>
+  <text class="lbl" x="676" y="117" dominant-baseline="central">Modular E2E</text>
+  <text class="sub" x="676" y="137" dominant-baseline="central">Learned perception, planning</text>
+
+  <rect class="card ai" x="354" y="178" width="246" height="74" rx="14"/>
+  <circle class="icon-bg ai" cx="386" cy="215" r="18"/>
+  <circle class="icon-line" cx="386" cy="215" r="8"/>
+  <circle class="icon-dot" cx="383" cy="212" r="1.8"/>
+  <circle class="icon-dot" cx="389" cy="212" r="1.8"/>
+  <circle class="icon-dot" cx="386" cy="218" r="1.8"/>
+  <text class="lbl" x="414" y="205" dominant-baseline="central">Monolithic E2E</text>
+  <text class="sub" x="414" y="225" dominant-baseline="central">One network, sensors to path</text>
+
+  <rect class="card ai" x="616" y="178" width="246" height="74" rx="14"/>
+  <circle class="icon-bg ai" cx="648" cy="215" r="18"/>
+  <circle class="icon-line" cx="648" cy="215" r="8"/>
+  <ellipse class="icon-line" cx="648" cy="215" rx="3.8" ry="8"/>
+  <path class="icon-line" d="M640 215 H656"/>
+  <text class="lbl" x="676" y="205" dominant-baseline="central">World model E2E</text>
+  <text class="sub" x="676" y="225" dominant-baseline="central">Learns how scenes evolve</text>
+
+  <!-- Candidate trajectories -->
+  <path class="traj" d="M560 276 C560 306 584 304 584 330"/>
+  <path class="traj" d="M605 276 C599 300 611 306 605 330"/>
+  <path class="traj" d="M650 276 C650 306 626 304 626 330"/>
+  <path class="flow" d="M560 276 C560 306 584 304 584 326"/>
+  <path class="flow" d="M605 276 C599 300 611 306 605 326"/>
+  <path class="flow" d="M650 276 C650 306 626 304 626 326"/>
+  <text class="edge-lbl" x="668" y="304" dominant-baseline="central">Candidate trajectories</text>
+
+  <!-- The selector -->
+  <rect class="box primary" x="440" y="338" width="330" height="112" rx="18"/>
+  <text class="lbl on-primary" x="468" y="364" dominant-baseline="central">Selector</text>
+  <text class="sub on-primary" x="468" y="383" dominant-baseline="central">Checks every candidate, then picks one</text>
+  <rect class="pill" x="468" y="402" width="124" height="32" rx="16"/>
+  <path class="icon-line" d="M486 410 L494 413 V419 Q494 425 486 428 Q478 425 478 419 V413 Z"/>
+  <text class="pill-text" x="502" y="418" dominant-baseline="central">Safety gate</text>
+  <path class="icon-line" d="M603 412 L609 418 L603 424"/>
+  <rect class="pill" x="620" y="402" width="124" height="32" rx="16"/>
+  <rect class="icon-dot" x="632" y="419" width="4" height="7" rx="1"/>
+  <rect class="icon-dot" x="638" y="414" width="4" height="12" rx="1"/>
+  <rect class="icon-dot" x="644" y="409" width="4" height="17" rx="1"/>
+  <text class="pill-text" x="656" y="418" dominant-baseline="central">Ranking</text>
+
+  <!-- The selector to the controller -->
+  <path class="edge accent glow" d="M440 420 H263"/>
+  <path class="flow" d="M440 420 H268"/>
+  <text class="edge-lbl" x="350" y="404" text-anchor="middle" dominant-baseline="central">Selected trajectory</text>
+</svg>

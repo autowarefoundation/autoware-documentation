@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 784" role="img" aria-labelledby="point-cloud-pipeline-title">
+  <title id="point-cloud-pipeline-title">For each LiDAR, the driver output goes through two crop box filters, the distortion corrector, and the ring outlier filter. The concatenation node merges the point clouds of all LiDARs and sends them to perception and localization.</title>
+
+  <!-- The pipeline of one LiDAR -->
+  <rect class="group" x="16" y="16" width="420" height="496" rx="16"/>
+  <text class="ttl" x="36" y="40">Per LiDAR</text>
+
+  <rect class="box muted" x="40" y="56" width="220" height="48" rx="10"/>
+  <text class="lbl" x="150" y="72" text-anchor="middle" dominant-baseline="central">LiDAR driver</text>
+  <text class="sub" x="150" y="91" text-anchor="middle" dominant-baseline="central">Nebula</text>
+
+  <path class="edge accent" d="M150 104 V144"/>
+  <text class="code" x="164" y="116" dominant-baseline="central">pointcloud_raw_ex</text>
+  <text class="sub" x="164" y="134" dominant-baseline="central">PointXYZIRCAEDT</text>
+
+  <rect class="box" x="40" y="152" width="220" height="48" rx="10"/>
+  <text class="lbl" x="150" y="168" text-anchor="middle" dominant-baseline="central">Crop box filter</text>
+  <text class="sub" x="150" y="187" text-anchor="middle" dominant-baseline="central">Removes the vehicle body</text>
+
+  <path class="edge accent" d="M150 200 V240"/>
+  <text class="code" x="164" y="220" dominant-baseline="central">self_cropped/pointcloud_ex</text>
+
+  <rect class="box" x="40" y="248" width="220" height="48" rx="10"/>
+  <text class="lbl" x="150" y="264" text-anchor="middle" dominant-baseline="central">Crop box filter</text>
+  <text class="sub" x="150" y="283" text-anchor="middle" dominant-baseline="central">Removes the mirrors</text>
+
+  <path class="edge accent" d="M150 296 V336"/>
+  <text class="code" x="164" y="316" dominant-baseline="central">mirror_cropped/pointcloud_ex</text>
+
+  <rect class="box" x="40" y="344" width="220" height="48" rx="10"/>
+  <text class="lbl" x="150" y="360" text-anchor="middle" dominant-baseline="central">Distortion corrector</text>
+  <text class="sub" x="150" y="379" text-anchor="middle" dominant-baseline="central">Compensates the ego motion</text>
+
+  <path class="edge accent" d="M150 392 V432"/>
+  <text class="code" x="164" y="412" dominant-baseline="central">rectified/pointcloud_ex</text>
+
+  <rect class="box" x="40" y="440" width="220" height="48" rx="10"/>
+  <text class="lbl" x="150" y="456" text-anchor="middle" dominant-baseline="central">Ring outlier filter</text>
+  <text class="sub" x="150" y="475" text-anchor="middle" dominant-baseline="central">Removes noise points</text>
+
+  <!-- Inputs from outside the LiDAR pipeline -->
+  <rect class="box muted" x="480" y="344" width="290" height="48" rx="10"/>
+  <text class="lbl" x="625" y="360" text-anchor="middle" dominant-baseline="central">Twist and IMU</text>
+  <text class="sub" x="625" y="379" text-anchor="middle" dominant-baseline="central">Velocity converter, IMU corrector</text>
+  <path class="edge" d="M480 368 H268"/>
+
+  <rect class="box muted" x="480" y="440" width="290" height="48" rx="10"/>
+  <text class="lbl" x="625" y="456" text-anchor="middle" dominant-baseline="central">Other LiDARs</text>
+  <text class="sub" x="625" y="475" text-anchor="middle" dominant-baseline="central">The same pipeline</text>
+
+  <!-- Concatenation -->
+  <path class="edge accent" d="M150 488 V552"/>
+  <text class="code" x="164" y="522" dominant-baseline="central">pointcloud_before_sync</text>
+  <text class="sub" x="164" y="540" dominant-baseline="central">PointXYZIRC</text>
+  <path class="edge" d="M625 488 V552"/>
+
+  <rect class="box primary" x="40" y="560" width="780" height="64" rx="10"/>
+  <text class="lbl on-primary" x="430" y="582" text-anchor="middle" dominant-baseline="central">Concatenate and time sync</text>
+  <text class="sub on-primary" x="430" y="604" text-anchor="middle" dominant-baseline="central">Matches the clouds by time, compensates the motion, and transforms them to base_link</text>
+
+  <!-- Users -->
+  <path class="edge accent" d="M160 624 V692"/>
+  <path class="edge accent" d="M430 624 V692"/>
+  <path class="edge accent" d="M700 624 V692"/>
+  <text class="code" x="430" y="650" text-anchor="middle" dominant-baseline="central">/sensing/lidar/concatenated/pointcloud</text>
+  <text class="sub" x="430" y="670" text-anchor="middle" dominant-baseline="central">PointXYZIRC</text>
+
+  <rect class="box" x="40" y="700" width="240" height="64" rx="10"/>
+  <text class="lbl" x="160" y="722" text-anchor="middle" dominant-baseline="central">Ground segmentation</text>
+  <text class="sub" x="160" y="743" text-anchor="middle" dominant-baseline="central">Perception</text>
+
+  <rect class="box" x="310" y="700" width="240" height="64" rx="10"/>
+  <text class="lbl" x="430" y="722" text-anchor="middle" dominant-baseline="central">LiDAR object detection</text>
+  <text class="sub" x="430" y="743" text-anchor="middle" dominant-baseline="central">Perception</text>
+
+  <rect class="box" x="580" y="700" width="240" height="64" rx="10"/>
+  <text class="lbl" x="700" y="722" text-anchor="middle" dominant-baseline="central">Crop and downsample</text>
+  <text class="sub" x="700" y="743" text-anchor="middle" dominant-baseline="central">Localization, NDT input</text>
+</svg>

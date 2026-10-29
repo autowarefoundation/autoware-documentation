@@ -20,11 +20,12 @@ qos_depth: 1
 
 Send the gear change command to the vehicle. The commands are listed in the table below.
 It is recommended to set QoS to transient_local and publish only when the command changes, but currently many implementations publish the command periodically.
+The `autoware_component_interface_specs` package defines `volatile` today.
 Therefore, ensure consistency across the entire system.
 
 | Value   | Description                                                                                 |
 | ------- | ------------------------------------------------------------------------------------------- |
-| PARKING | The engine or motor is disconnected from the tires and the stopping mechanism is activated. |
+| PARK    | The engine or motor is disconnected from the tires and the stopping mechanism is activated. |
 | NEUTRAL | The engine or motor is disconnected from the tires.                                         |
 | DRIVE   | The engine or motor is connected to the tires in the forward direction.                     |
 | REVERSE | The engine or motor is connected to the tires in the backward direction.                    |
@@ -34,7 +35,7 @@ Therefore, ensure consistency across the entire system.
 The `stamp` field is the command sent time. In the case of periodic publication, use the latest time, not the last command change.
 
 For the `command` field, use the valid values listed above. The `NONE` value can be used internally by programs, but will never be sent as a topic.
-Values ​​such as `LOW` and `DRIVE_2` ​​can be used if the vehicle has its own special gear types, but a dedicated implementation is required to handle this.
+Values such as `LOW` and `DRIVE_2` can be used if the vehicle has its own special gear types, but a dedicated implementation is required to handle this.
 
 ## Errors
 
@@ -65,8 +66,8 @@ Simulated gear: For vehicles without physical gears (e.g., direct drive EVs), fo
 
 ## Design
 
-- Support four typical gear types: PARKING, NEUTRAL, DRIVE, and REVERSE.
-- Unused values ​​can be used for special gear types.
+- Support four typical gear types: PARK, NEUTRAL, DRIVE, and REVERSE.
+- Unused values can be used for special gear types.
 - Simulate gear if necessary to increase reusability.
 - To prevent gear shifting chattering, reject a new gear command during several seconds after the last successful gear command.
 

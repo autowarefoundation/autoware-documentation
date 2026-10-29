@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" role="img" aria-labelledby="radar-communication-title">
+  <title id="radar-communication-title">The radar device sends scans, tracked objects, and diagnostics to the ROS driver. The ROS driver sends time synchronization and the ego vehicle status to the radar device.</title>
+
+  <rect class="box muted" x="40" y="72" width="170" height="64" rx="10"/>
+  <text class="lbl" x="125" y="104" text-anchor="middle" dominant-baseline="central">Radar device</text>
+
+  <rect class="box primary" x="510" y="72" width="170" height="64" rx="10"/>
+  <text class="lbl on-primary" x="595" y="104" text-anchor="middle" dominant-baseline="central">ROS driver</text>
+
+  <!-- Device to driver -->
+  <path class="edge accent" d="M210 92 H502"/>
+  <text class="sub" x="360" y="24" text-anchor="middle" dominant-baseline="central">Scan (RadarScan)</text>
+  <text class="sub" x="360" y="44" text-anchor="middle" dominant-baseline="central">Tracked objects (RadarTracks)</text>
+  <text class="sub" x="360" y="64" text-anchor="middle" dominant-baseline="central">Diagnostics</text>
+
+  <!-- Driver to device -->
+  <path class="edge" d="M510 116 H218"/>
+  <text class="sub" x="360" y="144" text-anchor="middle" dominant-baseline="central">Time synchronization</text>
+  <text class="sub" x="360" y="164" text-anchor="middle" dominant-baseline="central">Ego vehicle status</text>
+</svg>

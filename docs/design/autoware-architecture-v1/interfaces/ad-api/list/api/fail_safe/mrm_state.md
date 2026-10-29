@@ -5,6 +5,8 @@ method: notification
 type:
   name: autoware_adapi_v1_msgs/msg/MrmState
   msg:
+    - name: stamp
+      text: Timestamp when this message was sent.
     - name: state
       text: The state of MRM operation.
     - name: behavior

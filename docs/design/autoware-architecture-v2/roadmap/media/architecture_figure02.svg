@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 410" role="img" aria-labelledby="roadmap-stack-fig02-title">
+  <title id="roadmap-stack-fig02-title">What the human and the system must do at SAE Level 3, Level 4, Level 4+, and Level 5. At Level 4+, the human does not drive and the system can dynamically adapt to new scenarios.</title>
+
+  <!-- The levels -->
+  <rect class="box" x="168" y="16" width="162" height="44" rx="10"/>
+  <text class="lbl" x="249" y="38" text-anchor="middle" dominant-baseline="central">Level 3</text>
+  <rect class="box" x="340" y="16" width="162" height="44" rx="10"/>
+  <text class="lbl" x="421" y="38" text-anchor="middle" dominant-baseline="central">Level 4</text>
+  <rect class="box primary" x="512" y="16" width="162" height="44" rx="10"/>
+  <text class="lbl on-primary" x="593" y="38" text-anchor="middle" dominant-baseline="central">Level 4+</text>
+  <rect class="box" x="684" y="16" width="162" height="44" rx="10"/>
+  <text class="lbl" x="765" y="38" text-anchor="middle" dominant-baseline="central">Level 5</text>
+
+  <!-- What the human must do -->
+  <rect class="group" x="8" y="76" width="844" height="138" rx="16"/>
+  <text class="lbl" x="84" y="135" text-anchor="middle" dominant-baseline="central">What the human</text>
+  <text class="lbl" x="84" y="155" text-anchor="middle" dominant-baseline="central">must do</text>
+
+  <rect class="box ai" x="168" y="88" width="678" height="52" rx="10"/>
+  <text x="507" y="114" text-anchor="middle" dominant-baseline="central">The human is not driving when the autonomous driving system is engaged</text>
+
+  <rect class="box" x="168" y="150" width="162" height="52" rx="10"/>
+  <text x="249" y="166" text-anchor="middle" dominant-baseline="central">Upon a request, the</text>
+  <text x="249" y="186" text-anchor="middle" dominant-baseline="central">human must drive</text>
+
+  <rect class="box ai" x="340" y="150" width="506" height="52" rx="10"/>
+  <text x="593" y="176" text-anchor="middle" dominant-baseline="central">The human will not be required to take over driving</text>
+
+  <!-- What the system must do -->
+  <rect class="group" x="8" y="230" width="844" height="138" rx="16"/>
+  <text class="lbl" x="84" y="289" text-anchor="middle" dominant-baseline="central">What the system</text>
+  <text class="lbl" x="84" y="309" text-anchor="middle" dominant-baseline="central">must do</text>
+
+  <rect class="box ai" x="168" y="242" width="506" height="52" rx="10"/>
+  <text x="421" y="258" text-anchor="middle" dominant-baseline="central">The system can drive under limited conditions and will not</text>
+  <text x="421" y="278" text-anchor="middle" dominant-baseline="central">operate unless all required conditions are met</text>
+
+  <rect class="box" x="684" y="242" width="162" height="52" rx="10"/>
+  <text x="765" y="258" text-anchor="middle" dominant-baseline="central">The system can drive</text>
+  <text x="765" y="278" text-anchor="middle" dominant-baseline="central">under all conditions</text>
+
+  <rect class="box" x="168" y="304" width="334" height="52" rx="10"/>
+  <text x="335" y="320" text-anchor="middle" dominant-baseline="central">The system is limited to a</text>
+  <text x="335" y="340" text-anchor="middle" dominant-baseline="central">fixed set of scenarios</text>
+
+  <rect class="box ai" x="512" y="304" width="334" height="52" rx="10"/>
+  <text x="679" y="320" text-anchor="middle" dominant-baseline="central">The system can dynamically</text>
+  <text x="679" y="340" text-anchor="middle" dominant-baseline="central">adapt to new scenarios</text>
+
+  <!-- Legend -->
+  <rect class="box ai" x="168" y="384" width="28" height="16" rx="4"/>
+  <text class="sub" x="206" y="392" dominant-baseline="central">The cyan cells apply to Level 4+.</text>
+</svg>

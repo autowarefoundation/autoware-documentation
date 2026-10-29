@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" role="img" aria-labelledby="features-parking-title">
+  <title id="features-parking-title">The ego vehicle drives forward in a parking lot, then reverses into an empty parking space.</title>
+
+  <!-- Parking lot -->
+  <rect class="road" x="0" y="40" width="760" height="260"/>
+  <line class="mark" x1="60" y1="200" x2="60" y2="296"/>
+  <line class="mark" x1="60" y1="44" x2="60" y2="100"/>
+  <line class="mark" x1="140" y1="200" x2="140" y2="296"/>
+  <line class="mark" x1="140" y1="44" x2="140" y2="100"/>
+  <line class="mark" x1="220" y1="200" x2="220" y2="296"/>
+  <line class="mark" x1="220" y1="44" x2="220" y2="100"/>
+  <line class="mark" x1="300" y1="200" x2="300" y2="296"/>
+  <line class="mark" x1="300" y1="44" x2="300" y2="100"/>
+  <line class="mark" x1="380" y1="200" x2="380" y2="296"/>
+  <line class="mark" x1="380" y1="44" x2="380" y2="100"/>
+  <line class="mark" x1="460" y1="200" x2="460" y2="296"/>
+  <line class="mark" x1="460" y1="44" x2="460" y2="100"/>
+  <line class="mark" x1="540" y1="200" x2="540" y2="296"/>
+  <line class="mark" x1="540" y1="44" x2="540" y2="100"/>
+  <line class="mark" x1="620" y1="200" x2="620" y2="296"/>
+  <line class="mark" x1="620" y1="44" x2="620" y2="100"/>
+  <line class="mark" x1="700" y1="200" x2="700" y2="296"/>
+  <line class="mark" x1="700" y1="44" x2="700" y2="100"/>
+
+  <!-- Parked vehicles -->
+  <g transform="rotate(-90 100 250)">
+    <rect class="car npc" x="68" y="235" width="64" height="30" rx="6"/>
+    <rect class="glass" x="110" y="239" width="9" height="22" rx="3"/>
+  </g>
+  <g transform="rotate(-90 180 250)">
+    <rect class="car npc" x="148" y="235" width="64" height="30" rx="6"/>
+    <rect class="glass" x="190" y="239" width="9" height="22" rx="3"/>
+  </g>
+  <g transform="rotate(-90 260 250)">
+    <rect class="car npc" x="228" y="235" width="64" height="30" rx="6"/>
+    <rect class="glass" x="270" y="239" width="9" height="22" rx="3"/>
+  </g>
+  <g transform="rotate(-90 340 250)">
+    <rect class="car npc" x="308" y="235" width="64" height="30" rx="6"/>
+    <rect class="glass" x="350" y="239" width="9" height="22" rx="3"/>
+  </g>
+  <g transform="rotate(-90 420 250)">
+    <rect class="car npc" x="388" y="235" width="64" height="30" rx="6"/>
+    <rect class="glass" x="430" y="239" width="9" height="22" rx="3"/>
+  </g>
+  <g transform="rotate(-90 580 250)">
+    <rect class="car npc" x="548" y="235" width="64" height="30" rx="6"/>
+    <rect class="glass" x="590" y="239" width="9" height="22" rx="3"/>
+  </g>
+  <g transform="rotate(-90 660 250)">
+    <rect class="car npc" x="628" y="235" width="64" height="30" rx="6"/>
+    <rect class="glass" x="670" y="239" width="9" height="22" rx="3"/>
+  </g>
+
+  <!-- Planned path: forward to the turning point, then backward into the space -->
+  <path class="route" d="M240 150 H520 C580 150 600 130 620 106"/>
+  <path class="route" d="M612 118 C570 160 500 150 500 200 V262"/>
+  <g>
+    <rect class="car" x="168" y="135" width="64" height="30" rx="6"/>
+    <rect class="glass" x="210" y="139" width="9" height="22" rx="3"/>
+  </g>
+  <text class="note" x="500" y="318" text-anchor="middle" dominant-baseline="central">Empty parking space</text>
+  <line class="leader" x1="500" y1="308" x2="500" y2="290"/>
+  <text class="note" x="750" y="22" text-anchor="end" dominant-baseline="central">Turning point: forward, then reverse</text>
+  <line class="leader" x1="640" y1="30" x2="622" y2="92"/>
+</svg>

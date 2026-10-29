@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 300" role="img" aria-labelledby="vehicle-footprint-title">
+  <title id="vehicle-footprint-title">The footprint polygon that Autoware makes from the vehicle dimensions has six points in clockwise order: front left, front right, center right, rear right, rear left, and center left. Its origin is base_link.</title>
+
+  <!-- The vehicle, front to the right -->
+  <rect class="car" x="200" y="50" width="420" height="200" rx="6"/>
+  <rect class="glass" x="470" y="66" width="22" height="168" rx="3"/>
+  <rect class="icon" x="269" y="72" width="44" height="16" rx="4"/>
+  <rect class="icon" x="269" y="212" width="44" height="16" rx="4"/>
+  <rect class="icon" x="510" y="72" width="44" height="16" rx="4"/>
+  <rect class="icon" x="510" y="212" width="44" height="16" rx="4"/>
+
+  <!-- The footprint -->
+  <path class="area" d="M620 50 L620 250 L411 250 L200 250 L200 50 L411 50 Z"/>
+  <path class="edge accent" d="M291 150 H700"/>
+  <text class="lbl" x="710" y="150" dominant-baseline="central">+x</text>
+  <circle class="bound point" cx="291" cy="150" r="5"/>
+  <text class="sub on-primary" x="300" y="170">base_link</text>
+
+  <circle class="bound point" cx="620" cy="50" r="5"/>
+  <text class="lbl" x="632" y="36">1</text>
+  <circle class="bound point" cx="620" cy="250" r="5"/>
+  <text class="lbl" x="632" y="272">2</text>
+  <circle class="bound point" cx="411" cy="250" r="5"/>
+  <text class="lbl" x="406" y="276">3</text>
+  <circle class="bound point" cx="200" cy="250" r="5"/>
+  <text class="lbl" x="180" y="272">4</text>
+  <circle class="bound point" cx="200" cy="50" r="5"/>
+  <text class="lbl" x="180" y="36">5</text>
+  <circle class="bound point" cx="411" cy="50" r="5"/>
+  <text class="lbl" x="406" y="36">6</text>
+
+  <text class="note" x="660" y="64">1: front left</text>
+  <text class="note" x="660" y="86">2: front right</text>
+  <text class="note" x="660" y="216">3: center right</text>
+  <text class="note" x="660" y="238">4: rear right</text>
+  <text class="note" x="20" y="64">5: rear left</text>
+  <text class="note" x="20" y="86">6: center left</text>
+</svg>

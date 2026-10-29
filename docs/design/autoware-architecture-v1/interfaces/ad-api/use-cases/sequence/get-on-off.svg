@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 722" role="img" aria-labelledby="adapi-get-on-off-title">
+  <title id="adapi-get-on-off-title">In the stop mode, the application reads the door layout, opens the doors for getting on or off, waits for the passengers, and closes the doors.</title>
+
+  <!-- Participants and lifelines -->
+  <rect class="box" x="25" y="16" width="150" height="44" rx="10"/>
+  <text class="lbl" x="100" y="38" text-anchor="middle" dominant-baseline="central">Application</text>
+  <line class="edge plain dash" x1="100" y1="60" x2="100" y2="710"/>
+  <rect class="box" x="255" y="16" width="150" height="44" rx="10"/>
+  <text class="lbl" x="330" y="38" text-anchor="middle" dominant-baseline="central">AD API</text>
+  <line class="edge plain dash" x1="330" y1="60" x2="330" y2="710"/>
+  <rect class="box" x="485" y="16" width="150" height="44" rx="10"/>
+  <text class="lbl" x="560" y="38" text-anchor="middle" dominant-baseline="central">Vehicle</text>
+  <line class="edge plain dash" x1="560" y1="60" x2="560" y2="710"/>
+  <rect class="box" x="685" y="16" width="150" height="44" rx="10"/>
+  <text class="lbl" x="760" y="38" text-anchor="middle" dominant-baseline="central">Passengers</text>
+  <line class="edge plain dash" x1="760" y1="60" x2="760" y2="710"/>
+
+  <!-- Messages -->
+  <path class="edge" d="M102 94 H328"/>
+  <text class="edge-lbl" x="215" y="83" text-anchor="middle" dominant-baseline="central">/api/vehicle/doors/layout</text>
+  <path class="edge dash" d="M328 136 H102"/>
+  <text class="edge-lbl" x="215" y="125" text-anchor="middle" dominant-baseline="central">roles of each door</text>
+  <path class="edge" d="M102 178 H328"/>
+  <text class="edge-lbl" x="215" y="167" text-anchor="middle" dominant-baseline="central">/api/vehicle/doors/command: OPEN</text>
+  <path class="edge" d="M332 220 H558"/>
+  <text class="edge-lbl" x="445" y="209" text-anchor="middle" dominant-baseline="central">open the doors</text>
+  <path class="edge dash" d="M558 262 H332"/>
+  <path class="edge dash" d="M328 304 H102"/>
+  <text class="edge-lbl" x="215" y="293" text-anchor="middle" dominant-baseline="central">response status</text>
+  <path class="edge" d="M558 346 H332"/>
+  <text class="edge-lbl" x="445" y="335" text-anchor="middle" dominant-baseline="central">door status</text>
+  <path class="edge" d="M328 388 H102"/>
+  <text class="edge-lbl" x="215" y="377" text-anchor="middle" dominant-baseline="central">/api/vehicle/doors/status: OPENED</text>
+  <path class="edge" d="M758 430 H562"/>
+  <text class="edge-lbl" x="660" y="419" text-anchor="middle" dominant-baseline="central">get on or get off</text>
+  <path class="edge" d="M102 472 H328"/>
+  <text class="edge-lbl" x="215" y="461" text-anchor="middle" dominant-baseline="central">/api/vehicle/doors/command: CLOSE</text>
+  <path class="edge" d="M332 514 H558"/>
+  <text class="edge-lbl" x="445" y="503" text-anchor="middle" dominant-baseline="central">close the doors</text>
+  <path class="edge dash" d="M558 556 H332"/>
+  <path class="edge dash" d="M328 598 H102"/>
+  <text class="edge-lbl" x="215" y="587" text-anchor="middle" dominant-baseline="central">response status</text>
+  <path class="edge" d="M558 640 H332"/>
+  <text class="edge-lbl" x="445" y="629" text-anchor="middle" dominant-baseline="central">door status</text>
+  <path class="edge" d="M328 682 H102"/>
+  <text class="edge-lbl" x="215" y="671" text-anchor="middle" dominant-baseline="central">/api/vehicle/doors/status: CLOSED</text>
+</svg>

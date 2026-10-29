@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 600" role="img" aria-labelledby="control-interface-title">
+  <title id="control-interface-title">The Control component takes the trajectory and the vehicle signal commands from Planning, the kinematic state from Localization, and the status of the vehicle. Its vehicle command gate sends the control, gear, turn indicator, and hazard light commands to the vehicle interface.</title>
+
+  <!-- Other components -->
+  <rect class="box muted" x="20" y="20" width="240" height="56" rx="10"/>
+  <text class="lbl" x="140" y="48" text-anchor="middle" dominant-baseline="central">Planning</text>
+  <rect class="box muted" x="310" y="20" width="240" height="56" rx="10"/>
+  <text class="lbl" x="430" y="48" text-anchor="middle" dominant-baseline="central">Localization</text>
+  <rect class="box muted" x="600" y="20" width="240" height="56" rx="10"/>
+  <text class="lbl" x="720" y="48" text-anchor="middle" dominant-baseline="central">AD API</text>
+
+  <!-- The Control component -->
+  <rect class="group" x="20" y="150" width="640" height="300" rx="16"/>
+  <text class="ttl" x="44" y="174">Control</text>
+
+  <rect class="box" x="50" y="190" width="220" height="56" rx="10"/>
+  <text class="lbl" x="160" y="210" text-anchor="middle" dominant-baseline="central">Trajectory follower</text>
+  <text class="sub" x="160" y="230" text-anchor="middle" dominant-baseline="central">MPC and PID controllers</text>
+
+  <rect class="box" x="50" y="290" width="150" height="44" rx="10"/>
+  <text class="lbl" x="125" y="312" text-anchor="middle" dominant-baseline="central">Shift decider</text>
+
+  <rect class="box" x="330" y="190" width="310" height="56" rx="10"/>
+  <text class="lbl" x="485" y="210" text-anchor="middle" dominant-baseline="central">Operation mode transition manager</text>
+  <text class="sub" x="485" y="230" text-anchor="middle" dominant-baseline="central">Publishes the operation mode</text>
+
+  <rect class="box primary" x="50" y="380" width="470" height="50" rx="10"/>
+  <text class="lbl on-primary" x="285" y="405" text-anchor="middle" dominant-baseline="central">Vehicle command gate</text>
+
+  <!-- Inputs -->
+  <path class="edge accent" d="M200 76 V184"/>
+  <text class="edge-lbl code" x="200" y="104" text-anchor="middle" dominant-baseline="central">/planning/trajectory</text>
+  <path class="edge" d="M32 76 V405 H44"/>
+  <text class="edge-lbl code" x="38" y="138" dominant-baseline="central">turn_indicators_cmd</text>
+  <text class="edge-lbl code" x="38" y="154" dominant-baseline="central">hazard_lights_cmd</text>
+
+  <path class="edge" d="M430 76 V184"/>
+  <path class="edge" d="M430 140 H250 V184"/>
+  <text class="edge-lbl code" x="430" y="104" text-anchor="middle" dominant-baseline="central">/localization/kinematic_state</text>
+
+  <path class="edge dash" d="M720 76 V218 H646"/>
+  <text class="edge-lbl code" x="720" y="130" text-anchor="middle" dominant-baseline="central">change_operation_mode</text>
+
+  <!-- Inside Control -->
+  <path class="edge" d="M125 246 V284"/>
+  <path class="edge accent" d="M240 246 V374"/>
+  <text class="edge-lbl code" x="240" y="300" text-anchor="middle" dominant-baseline="central">control_cmd</text>
+  <path class="edge" d="M125 334 V374"/>
+  <text class="edge-lbl code" x="125" y="354" text-anchor="middle" dominant-baseline="central">gear_cmd</text>
+  <path class="edge" d="M420 246 V374"/>
+  <text class="edge-lbl code" x="420" y="310" text-anchor="middle" dominant-baseline="central">/system/operation_mode/state</text>
+
+  <!-- Outputs to the vehicle interface -->
+  <rect class="box muted" x="20" y="520" width="620" height="56" rx="10"/>
+  <text class="lbl" x="330" y="548" text-anchor="middle" dominant-baseline="central">Vehicle interface</text>
+
+  <path class="edge accent" d="M285 430 V514"/>
+  <text class="edge-lbl code" x="285" y="462" text-anchor="middle" dominant-baseline="central">/control/command/control_cmd, gear_cmd,</text>
+  <text class="edge-lbl code" x="285" y="478" text-anchor="middle" dominant-baseline="central">turn_indicators_cmd, hazard_lights_cmd</text>
+  <path class="edge dash" d="M590 246 V514"/>
+  <text class="edge-lbl code" x="590" y="486" text-anchor="middle" dominant-baseline="central">/control/control_mode_request</text>
+
+  <!-- Status from the vehicle interface -->
+  <path class="edge" d="M640 548 H730 V330 H666"/>
+  <text class="edge-lbl code" x="740" y="384" dominant-baseline="central">/vehicle/status/</text>
+  <text class="edge-lbl code" x="740" y="400" dominant-baseline="central">steering_status</text>
+  <text class="edge-lbl code" x="740" y="416" dominant-baseline="central">gear_status</text>
+  <text class="edge-lbl code" x="740" y="432" dominant-baseline="central">control_mode</text>
+</svg>

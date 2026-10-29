@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 480" role="img" aria-labelledby="adapi-manual-control-title">
+  <title id="adapi-manual-control-title">The application selects a manual control mode, changes the operation mode to remote, and then sends commands and the operator heartbeat while it receives the vehicle status.</title>
+
+  <!-- Participants and lifelines -->
+  <rect class="box" x="75" y="16" width="170" height="44" rx="10"/>
+  <text class="lbl" x="160" y="38" text-anchor="middle" dominant-baseline="central">Application</text>
+  <line class="edge plain dash" x1="160" y1="60" x2="160" y2="468"/>
+  <rect class="box" x="515" y="16" width="170" height="44" rx="10"/>
+  <text class="lbl" x="600" y="38" text-anchor="middle" dominant-baseline="central">AD API</text>
+  <line class="edge plain dash" x1="600" y1="60" x2="600" y2="468"/>
+
+  <!-- Messages -->
+  <path class="edge" d="M162 94 H598"/>
+  <text class="edge-lbl" x="380" y="83" text-anchor="middle" dominant-baseline="central">/api/manual/remote/control_mode/select</text>
+  <path class="edge dash" d="M598 136 H162"/>
+  <text class="edge-lbl" x="380" y="125" text-anchor="middle" dominant-baseline="central">response status</text>
+  <path class="edge" d="M598 178 H162"/>
+  <text class="edge-lbl" x="380" y="167" text-anchor="middle" dominant-baseline="central">/api/manual/remote/control_mode/status</text>
+  <path class="edge" d="M162 220 H598"/>
+  <text class="edge-lbl" x="380" y="209" text-anchor="middle" dominant-baseline="central">/api/operation_mode/change_to_remote</text>
+  <path class="edge dash" d="M598 262 H162"/>
+  <text class="edge-lbl" x="380" y="251" text-anchor="middle" dominant-baseline="central">response status</text>
+  <rect class="box muted" x="100" y="294" width="560" height="32" rx="10"/>
+  <text class="sub" x="380" y="310" text-anchor="middle" dominant-baseline="central">Repeat while driving</text>
+  <path class="edge" d="M162 356 H598"/>
+  <text class="edge-lbl" x="380" y="345" text-anchor="middle" dominant-baseline="central">/api/manual/remote/operator/heartbeat</text>
+  <path class="edge" d="M162 398 H598"/>
+  <text class="edge-lbl" x="380" y="387" text-anchor="middle" dominant-baseline="central">/api/manual/remote/command/*</text>
+  <path class="edge" d="M598 440 H162"/>
+  <text class="edge-lbl" x="380" y="429" text-anchor="middle" dominant-baseline="central">/api/vehicle/status</text>
+</svg>

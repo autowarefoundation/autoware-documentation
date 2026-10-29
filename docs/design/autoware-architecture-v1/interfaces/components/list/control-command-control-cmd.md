@@ -30,8 +30,8 @@ If your vehicle interface would like to support time series data directly, pleas
 
 For details about the message, [see the readme of autoware_control_msgs](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_control_msgs/README.md).
 
-The velocity, acceleration, and jerk values ​​at a given time must be planned in advance and must be consistent, which is typically done by the planning/control component.
-If these values ​​are inconsistent, which value takes priority depends on the vehicle implementation.
+The velocity, acceleration, and jerk values at a given time must be planned in advance and must be consistent, which is typically done by the planning/control component.
+If these values are inconsistent, which value takes priority depends on the vehicle implementation.
 
 Sending the latest command will invalidate previous commands, which means that commands from different time stamps are not kept as a time series.
 Only the latest command, not the latest time stamp command, is valid.

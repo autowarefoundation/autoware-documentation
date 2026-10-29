@@ -13,18 +13,23 @@
 Request to cooperate (RTC) is a feature that enables a human operator to support the decision in autonomous driving mode.
 Autoware usually drives the vehicle using its own decisions, but the operator may prefer to make their decisions in experiments and complex situations.
 
+!!! note
+
+    The cooperation APIs are not released yet, and the default AD API implementation does not provide them.
+    The default implementation also does not fill the cooperation status of the velocity and steering factors.
+
 The planning component manages each situation that requires decision as a scene.
 Each scene has an ID that doesn't change until the scene is completed or canceled.
 The operator can override the decision of the target scene using this ID.
-In practice, the user interface application can hides the specification of the ID and provides an abstracted interface to the operator.
+In practice, the user interface application can hide the specification of the ID and provide an abstracted interface to the operator.
 
 For example, in the situation in the diagram below, vehicle is expected to make two lane changes and turning left at the intersection.
 Therefore the planning component generates three scene instances for each required action, and each scene instance will wait for the decision to be made, in this case "changing or keeping lane" and "turning left or waiting at the intersection".
 Here Autoware decides not to change lanes a second time due to the obstacle, so the vehicle will stop there.
-However, operator could overwrite that decision through RTC function and force the lane change so that vehicle could reach to it's goal.
+However, the operator can override that decision through the RTC function and force the lane change so that the vehicle can reach its goal.
 Using RTC, the operator can override these decisions to continue driving the vehicle to the goal.
 
-![cooperation-scenes](cooperation/scenes.drawio.svg)
+{{ diagram("cooperation/scenes.svg", "Three scenes on the way to the goal, each with its own ID and decision. The red lines show the paths of the other decisions.") }}
 
 ## Architecture
 
@@ -34,7 +39,7 @@ See decisions section for details of these values.
 The cooperation policy is used when there is no operator decision and has a default value set by the system settings.
 If the module supports RTC, these information are available in [velocity factors or steering factors](planning-factors.md) as [cooperation status](../types/autoware_adapi_v1_msgs/msg/CooperationStatus.md).
 
-![cooperation-architecture](cooperation/architecture.drawio.svg)
+{{ diagram("cooperation/architecture.svg", "Each scene instance merges the module decision, the operator decision, and the cooperation policy.") }}
 
 ## Sequence
 
@@ -77,7 +82,7 @@ The meanings of these values are as follows. Note that the cooperation policy is
 
 The following flow is how the merged decision is determined.
 
-![cooperation-decisions](cooperation/decisions.drawio.svg)
+{{ diagram("cooperation/decisions.svg", "How the merged decision is determined.") }}
 
 ## Examples
 

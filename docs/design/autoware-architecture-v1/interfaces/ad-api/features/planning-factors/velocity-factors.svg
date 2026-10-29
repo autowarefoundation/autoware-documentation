@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 276" role="img" aria-labelledby="adapi-velocity-factors-title">
+  <title id="adapi-velocity-factors-title">The vehicle drives toward a stop position in front of an obstacle. The velocity factor has the status APPROACHING while the vehicle approaches, and STOPPED when the vehicle stops there. The factor gives the pose of the stop position and the distance to it.</title>
+
+  <!-- Status -->
+  <circle class="icon" cx="22" cy="36" r="9"/>
+  <path class="edge" d="M31 36 H56"/>
+  <rect class="box" x="60" y="14" width="160" height="44" rx="10"/>
+  <text class="lbl" x="140" y="36" text-anchor="middle" dominant-baseline="central">APPROACHING</text>
+  <path class="edge" d="M220 36 H296"/>
+  <rect class="box ok" x="300" y="14" width="160" height="44" rx="10"/>
+  <text class="lbl" x="380" y="36" text-anchor="middle" dominant-baseline="central">STOPPED</text>
+
+  <!-- Road -->
+  <rect class="road" x="0" y="96" width="820" height="140"/>
+  <path class="mark" d="M0 96 H820 M0 236 H820"/>
+  <path class="mark dash" d="M0 166 H820"/>
+
+  <!-- Ego vehicle, path, and stop position -->
+  <rect class="car" x="110" y="116" width="64" height="30" rx="6"/>
+  <rect class="glass" x="156" y="120" width="10" height="22" rx="2"/>
+  <path class="route" d="M180 131 H556"/>
+  <path class="bound" d="M570 104 V158"/>
+  <rect class="box muted" x="600" y="114" width="90" height="34" rx="10"/>
+  <text class="sub" x="645" y="131" text-anchor="middle" dominant-baseline="central">obstacle</text>
+
+  <!-- Pose and distance -->
+  <text class="note" x="570" y="82" text-anchor="middle" dominant-baseline="central">pose</text>
+  <path class="edge both" d="M176 256 H568"/>
+  <text class="edge-lbl" x="372" y="256" text-anchor="middle" dominant-baseline="central">distance</text>
+</svg>

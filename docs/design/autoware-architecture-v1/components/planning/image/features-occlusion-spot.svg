@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 290" role="img" aria-labelledby="features-occlusion-spot-title">
+  <title id="features-occlusion-spot-title">A building hides a side street, so the ego vehicle slows down in case a pedestrian comes out of it.</title>
+
+  <!-- Buildings next to the road -->
+  <rect class="shoulder" x="240" y="16" width="180" height="88" rx="4"/>
+  <rect class="shoulder" x="520" y="16" width="180" height="88" rx="4"/>
+
+  <!-- Main road (two lanes in the same direction) and side street -->
+  <rect class="road" x="0" y="110" width="760" height="120"/>
+  <rect class="road" x="430" y="0" width="80" height="110"/>
+  <line class="mark" x1="0" y1="116" x2="430" y2="116"/>
+  <line class="mark" x1="510" y1="116" x2="760" y2="116"/>
+  <line class="mark" x1="0" y1="224" x2="760" y2="224"/>
+  <line class="mark dash" x1="0" y1="170" x2="760" y2="170"/>
+
+  <!-- Area that the building hides from the ego vehicle -->
+  <path class="area warn" d="M432 4 H508 V30 L432 104 Z"/>
+
+  <!-- Pedestrian who can come out of the side street -->
+  <circle class="car other" cx="456" cy="27" r="6"/>
+  <rect class="car other" x="450" y="34" width="12" height="18" rx="5"/>
+  <path class="edge accent dash" d="M470 46 L470 128"/>
+
+  <!-- Section where the ego vehicle slows down -->
+  <rect class="lanelet alt" x="300" y="129" width="260" height="28"/>
+
+  <!-- Planned path -->
+  <path class="route" d="M150 143 H700"/>
+  <g>
+    <rect class="car" x="78" y="128" width="64" height="30" rx="6"/>
+    <rect class="glass" x="120" y="132" width="9" height="22" rx="3"/>
+  </g>
+  <text class="sign-text" x="330" y="60" text-anchor="middle" dominant-baseline="central">Building</text>
+  <text class="sign-text" x="610" y="60" text-anchor="middle" dominant-baseline="central">Building</text>
+  <text class="note" x="470" y="262" text-anchor="middle" dominant-baseline="central">Slow down near the occlusion spot</text>
+  <line class="leader" x1="470" y1="252" x2="470" y2="158"/>
+</svg>

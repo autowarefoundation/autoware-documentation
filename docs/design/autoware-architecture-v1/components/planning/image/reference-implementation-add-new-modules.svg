@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 836" role="img" aria-labelledby="reference-implementation-add-new-modules-title">
+  <title id="reference-implementation-add-new-modules-title">Where you can extend the current implementation: plugin modules in the behavior path, behavior velocity, and motion velocity planners and in the planning validator, new ROS nodes between the existing nodes, and new scenarios next to lane driving and parking.</title>
+
+  <!-- Lane driving scenario -->
+  <rect class="group" x="16" y="16" width="420" height="546" rx="16"/>
+  <text class="ttl" x="34" y="40">Lane driving</text>
+  <rect class="box" x="32" y="52" width="388" height="100" rx="10"/>
+  <text class="lbl" x="226" y="72" text-anchor="middle" dominant-baseline="central">behavior_path_planner</text>
+  <rect class="box muted" x="40" y="88" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="99.3" y="100" text-anchor="middle" dominant-baseline="central">Lane change</text>
+  <rect class="box muted" x="166.7" y="88" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="226" y="100" text-anchor="middle" dominant-baseline="central">Static avoidance</text>
+  <rect class="box muted" x="293.3" y="88" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="352.7" y="100" text-anchor="middle" dominant-baseline="central">Start planner</text>
+  <rect class="box muted" x="40" y="118" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="99.3" y="130" text-anchor="middle" dominant-baseline="central">Goal planner</text>
+  <rect class="box muted" x="166.7" y="118" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="226" y="130" text-anchor="middle" dominant-baseline="central">Side shift</text>
+  <rect class="box ext" x="293.3" y="118" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="352.7" y="130" text-anchor="middle" dominant-baseline="central">New module</text>
+  <path class="edge" d="M226 152 V174"/>
+  <rect class="box" x="32" y="180" width="388" height="100" rx="10"/>
+  <text class="lbl" x="226" y="200" text-anchor="middle" dominant-baseline="central">behavior_velocity_planner</text>
+  <rect class="box muted" x="40" y="216" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="99.3" y="228" text-anchor="middle" dominant-baseline="central">Crosswalk</text>
+  <rect class="box muted" x="166.7" y="216" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="226" y="228" text-anchor="middle" dominant-baseline="central">Intersection</text>
+  <rect class="box muted" x="293.3" y="216" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="352.7" y="228" text-anchor="middle" dominant-baseline="central">Traffic light</text>
+  <rect class="box muted" x="40" y="246" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="99.3" y="258" text-anchor="middle" dominant-baseline="central">Stop line</text>
+  <rect class="box muted" x="166.7" y="246" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="226" y="258" text-anchor="middle" dominant-baseline="central">Detection area</text>
+  <rect class="box ext" x="293.3" y="246" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="352.7" y="258" text-anchor="middle" dominant-baseline="central">New module</text>
+  <path class="edge" d="M226 280 V302"/>
+  <rect class="box" x="32" y="308" width="388" height="40" rx="10"/>
+  <text class="lbl" x="226" y="328" text-anchor="middle" dominant-baseline="central">elastic_band_smoother and path_optimizer</text>
+  <path class="edge" d="M226 348 V370"/>
+  <rect class="box ext" x="32" y="376" width="388" height="40" rx="10"/>
+  <text class="lbl" x="226" y="396" text-anchor="middle" dominant-baseline="central">New ROS node</text>
+  <path class="edge" d="M226 416 V438"/>
+  <rect class="box" x="32" y="444" width="388" height="100" rx="10"/>
+  <text class="lbl" x="226" y="464" text-anchor="middle" dominant-baseline="central">motion_velocity_planner</text>
+  <rect class="box muted" x="40" y="480" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="99.3" y="492" text-anchor="middle" dominant-baseline="central">Obstacle stop</text>
+  <rect class="box muted" x="166.7" y="480" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="226" y="492" text-anchor="middle" dominant-baseline="central">Obstacle cruise</text>
+  <rect class="box muted" x="293.3" y="480" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="352.7" y="492" text-anchor="middle" dominant-baseline="central">Slow down</text>
+  <rect class="box muted" x="40" y="510" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="99.3" y="522" text-anchor="middle" dominant-baseline="central">Run out</text>
+  <rect class="box muted" x="166.7" y="510" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="226" y="522" text-anchor="middle" dominant-baseline="central">Out of lane</text>
+  <rect class="box ext" x="293.3" y="510" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="352.7" y="522" text-anchor="middle" dominant-baseline="central">New module</text>
+
+  <!-- Parking scenario -->
+  <rect class="group" x="452" y="16" width="196" height="546" rx="16"/>
+  <text class="ttl" x="470" y="40">Parking</text>
+  <rect class="box" x="466" y="52" width="168" height="46" rx="10"/>
+  <text class="lbl" x="550" y="75" text-anchor="middle" dominant-baseline="central">costmap_generator</text>
+  <rect class="box" x="466" y="140" width="168" height="46" rx="10"/>
+  <text class="lbl" x="550" y="163" text-anchor="middle" dominant-baseline="central">freespace_planner</text>
+  <path class="edge" d="M550 98 V134"/>
+  <rect class="box ext" x="466" y="228" width="168" height="40" rx="10"/>
+  <text class="lbl" x="550" y="248" text-anchor="middle" dominant-baseline="central">New ROS node</text>
+  <path class="edge" d="M550 186 V222"/>
+
+  <!-- New scenario -->
+  <rect class="box ext" x="664" y="16" width="180" height="546" rx="16"/>
+  <text class="lbl" x="754" y="278" text-anchor="middle" dominant-baseline="central">New scenario</text>
+  <text class="sub" x="754" y="300" text-anchor="middle" dominant-baseline="central">For example, highway driving</text>
+
+  <!-- Scenario selection -->
+  <rect class="box" x="236" y="586" width="388" height="46" rx="10"/>
+  <text class="lbl" x="430" y="600" text-anchor="middle" dominant-baseline="central">scenario_selector</text>
+  <text class="sub" x="430" y="620" text-anchor="middle" dominant-baseline="central">Switches between the scenarios</text>
+  <path class="edge accent" d="M226 544 V609 H230"/>
+  <path class="edge accent" d="M550 268 V580"/>
+  <path class="edge accent" d="M754 562 V609 H630"/>
+  <rect class="box" x="236" y="656" width="388" height="40" rx="10"/>
+  <text class="lbl" x="430" y="676" text-anchor="middle" dominant-baseline="central">velocity_smoother</text>
+  <path class="edge accent" d="M430 632 V650"/>
+
+  <!-- Validation -->
+  <rect class="box" x="236" y="720" width="388" height="100" rx="10"/>
+  <text class="lbl" x="430" y="740" text-anchor="middle" dominant-baseline="central">planning_validator</text>
+  <rect class="box muted" x="244" y="756" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="303.3" y="768" text-anchor="middle" dominant-baseline="central">Latency</text>
+  <rect class="box muted" x="370.7" y="756" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="430" y="768" text-anchor="middle" dominant-baseline="central">Trajectory</text>
+  <rect class="box muted" x="497.3" y="756" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="556.7" y="768" text-anchor="middle" dominant-baseline="central">Intersection</text>
+  <rect class="box muted" x="244" y="786" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="303.3" y="798" text-anchor="middle" dominant-baseline="central">Rear collision</text>
+  <rect class="box ext" x="370.7" y="786" width="118.7" height="24" rx="6"/>
+  <text class="sub" x="430" y="798" text-anchor="middle" dominant-baseline="central">New checker</text>
+  <path class="edge accent" d="M430 696 V714"/>
+</svg>
