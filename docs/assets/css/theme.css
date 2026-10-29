@@ -1,0 +1,1071 @@
+/*
+ * The Autoware theme, on top of the Zensical "modern" variant.
+ *
+ * Palette:
+ *   indigo  #3f2ee3  brand color, links and accents on light pages
+ *   cyan    #00c8ff  links and accents on dark pages, info
+ *   green   #00e678  tips and success
+ *   crimson #dc143c  warnings and danger (always with white text on it)
+ *   navy    #00002a  dark background
+ *   mist    #f2f5ff  light surfaces, for example code blocks
+ *
+ * Gradients and blur are only on the header, the background glow, and buttons.
+ * Text, tables, code, and diagrams stay on flat colors.
+ */
+
+:root {
+  --aw-indigo: #3f2ee3;
+  --aw-cyan: #00c8ff;
+  --aw-green: #00e678;
+  --aw-crimson: #dc143c;
+  --aw-navy: #00002a;
+  --aw-mist: #f2f5ff;
+  --aw-gradient: linear-gradient(90deg, var(--aw-indigo), var(--aw-cyan) 55%, var(--aw-green));
+}
+
+/* Colors for each scheme. The icon colors are darker on light pages and lighter on dark pages, so they stay visible. */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: var(--aw-indigo);
+  --md-primary-fg-color--light: #6a5cf0;
+  --md-primary-fg-color--dark: #2c1fb8;
+  --md-primary-bg-color: #fff;
+  --md-primary-bg-color--light: #ffffffb3;
+  --md-accent-fg-color: var(--aw-indigo);
+  --md-accent-fg-color--transparent: #3f2ee314;
+  --md-accent-bg-color: #fff;
+  --md-accent-bg-color--light: #ffffffb3;
+  --md-typeset-a-color: var(--aw-indigo);
+  --md-code-bg-color: var(--aw-mist);
+  --md-code-bg-color--light: #f2f5ffe6;
+  --md-code-bg-color--lighter: #f2f5ff8a;
+  --md-code-hl-color: var(--aw-indigo);
+  --md-code-hl-color--light: #3f2ee31a;
+  --md-typeset-mark-color: #00c8ff40;
+
+  --aw-c-indigo: var(--aw-indigo);
+  --aw-c-cyan: #0098c7;
+  --aw-c-green: #00a352;
+  --aw-c-crimson: var(--aw-crimson);
+  --aw-c-grey: #6b6f8a;
+  --aw-glow-1: #3f2ee31c;
+  --aw-glow-2: #00c8ff17;
+  --aw-logo-start: var(--aw-indigo);
+  --aw-logo-end: #0098c7;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-hue: 240deg;
+  --md-primary-fg-color: var(--aw-indigo);
+  --md-primary-fg-color--light: #8a7dff;
+  --md-primary-fg-color--dark: #2c1fb8;
+  --md-primary-bg-color: #fff;
+  --md-primary-bg-color--light: #ffffffb3;
+  --md-accent-fg-color: var(--aw-cyan);
+  --md-accent-fg-color--transparent: #00c8ff1a;
+  --md-accent-bg-color: var(--aw-navy);
+  --md-accent-bg-color--light: #00002ab3;
+  --md-default-bg-color: var(--aw-navy);
+  --md-default-bg-color--light: #00002a8a;
+  --md-default-bg-color--lighter: #00002a42;
+  --md-default-bg-color--lightest: #00002a12;
+  --md-typeset-a-color: var(--aw-cyan);
+  --md-code-bg-color: #0c0c3e;
+  --md-code-bg-color--light: #0c0c3ee6;
+  --md-code-bg-color--lighter: #0c0c3e8a;
+  --md-code-hl-color: var(--aw-cyan);
+  --md-code-hl-color--light: #00c8ff1a;
+  --md-typeset-mark-color: #00c8ff4d;
+
+  --aw-c-indigo: #8a7dff;
+  --aw-c-cyan: var(--aw-cyan);
+  --aw-c-green: var(--aw-green);
+  --aw-c-crimson: #ff7076;
+  --aw-c-grey: #9a9dbb;
+  --aw-glow-1: #3f2ee340;
+  --aw-glow-2: #00c8ff1f;
+  --aw-logo-start: #8a7dff;
+  --aw-logo-end: var(--aw-cyan);
+}
+
+/* A faint glow at the top of the page. It scrolls away with the content and shows through the frosted header. */
+body {
+  background-image:
+    radial-gradient(60rem 26rem at 12% -6rem, var(--aw-glow-1), transparent 70%),
+    radial-gradient(50rem 22rem at 88% -8rem, var(--aw-glow-2), transparent 70%);
+  background-repeat: no-repeat;
+}
+
+/* Frosted header with a thin gradient line at the bottom. */
+.md-header {
+  background-color: color-mix(in srgb, var(--md-default-bg-color) 68%, transparent);
+  -webkit-backdrop-filter: saturate(180%) blur(0.7rem);
+  backdrop-filter: saturate(180%) blur(0.7rem);
+}
+
+.md-header::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  pointer-events: none;
+  content: "";
+  background: var(--aw-gradient);
+  opacity: 0.8;
+}
+
+/*
+ * The header shows the site name and the page title side by side. The theme swaps one for the other when the reader
+ * scrolls, but that hides the site name. On small screens, only the site name fits.
+ */
+.md-header__title .md-header__ellipsis {
+  display: flex;
+  align-items: center;
+}
+
+.md-header__title .md-header__topic,
+.md-header__title--active .md-header__topic {
+  position: relative;
+  z-index: auto;
+  flex: none;
+  pointer-events: auto;
+  opacity: 1;
+  transition: none;
+  transform: none;
+}
+
+.md-header__title .md-header__topic + .md-header__topic,
+.md-header__title--active .md-header__topic + .md-header__topic {
+  flex: 0 1 auto;
+  min-width: 0;
+  padding-left: 0.6rem;
+  margin-left: 0.6rem;
+  font-weight: 400;
+  color: var(--md-default-fg-color--light);
+  border-left: 1px solid var(--md-default-fg-color--lighter);
+}
+
+.md-header__topic + .md-header__topic .md-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* The site name links to the homepage (see header-home-link.js). */
+.aw-header-home {
+  color: inherit;
+}
+
+.aw-header-home:is(:hover, :focus) {
+  color: var(--md-accent-fg-color);
+}
+
+@media screen and (max-width: 59.984375em) {
+  .md-header__title .md-header__topic + .md-header__topic {
+    display: none;
+  }
+}
+
+/* Navigation tabs: a soft pill marks the active tab, in place of the thin underline. */
+.md-tabs {
+  box-shadow: none;
+}
+
+.md-tabs__item {
+  height: 2.4rem;
+  padding-right: 0.15rem;
+  padding-left: 0.15rem;
+}
+
+.md-tabs__item--active,
+.md-tabs[hidden] .md-tabs__item--active {
+  border-bottom: 0;
+}
+
+.md-tabs__link {
+  padding: 0.3rem 0.65rem;
+  margin-top: 0.5rem;
+  border-radius: 999px;
+  transition:
+    transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1),
+    opacity 0.25s,
+    background-color 0.15s,
+    color 0.15s;
+}
+
+.md-tabs__link:is(:hover, :focus) {
+  background-color: var(--md-default-fg-color--lightest);
+}
+
+.md-tabs__item--active .md-tabs__link,
+.md-tabs__item--active .md-tabs__link:is(:hover, :focus) {
+  color: var(--md-accent-fg-color);
+  background-color: var(--md-accent-fg-color--transparent);
+}
+
+.md-header__button.md-logo svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+/* Admonitions: one color per meaning. */
+.md-typeset :is(.admonition, details) {
+  --aw-adm: var(--aw-c-indigo);
+}
+
+.md-typeset
+  :is(.admonition, details):is(.abstract, .summary, .tldr, .info, .todo, .question, .help, .faq) {
+  --aw-adm: var(--aw-c-cyan);
+}
+
+.md-typeset :is(.admonition, details):is(.tip, .hint, .important, .success, .check, .done) {
+  --aw-adm: var(--aw-c-green);
+}
+
+.md-typeset
+  :is(.admonition, details):is(
+    .warning,
+    .caution,
+    .attention,
+    .failure,
+    .fail,
+    .missing,
+    .danger,
+    .error,
+    .bug
+  ) {
+  --aw-adm: var(--aw-c-crimson);
+}
+
+.md-typeset :is(.admonition, details):is(.quote, .cite) {
+  --aw-adm: var(--aw-c-grey);
+}
+
+.md-typeset :is(.admonition, details)[class] {
+  background-color: color-mix(in srgb, var(--aw-adm) 9%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--aw-adm) 18%, transparent);
+}
+
+.md-typeset :is(.admonition, details)[class] > :is(.admonition-title, summary)::before {
+  background-color: var(--aw-adm);
+}
+
+/*
+ * Buttons: rounded, with a gradient on the primary button. The theme draws other buttons in grey, which looks
+ * disabled, so they get the link color, a light tint, and a border.
+ */
+.md-typeset .md-button,
+.md-typeset .md-button:is(:hover, :focus) {
+  color: var(--md-typeset-a-color);
+  border: 1px solid color-mix(in srgb, var(--md-typeset-a-color) 40%, transparent);
+  border-radius: 999px;
+  opacity: 1;
+  transition:
+    background-color 125ms,
+    border-color 125ms,
+    box-shadow 125ms,
+    color 125ms;
+}
+
+.md-typeset .md-button {
+  background-color: color-mix(in srgb, var(--md-typeset-a-color) 7%, transparent);
+}
+
+.md-typeset .md-button:is(:hover, :focus) {
+  background-color: color-mix(in srgb, var(--md-typeset-a-color) 14%, transparent);
+  border-color: var(--md-typeset-a-color);
+}
+
+.md-typeset .md-button--primary,
+.md-typeset .md-button--primary:is(:hover, :focus) {
+  color: #fff;
+  background: linear-gradient(135deg, var(--aw-indigo), #2a6df2);
+  border-color: transparent;
+  box-shadow: 0 0.3rem 1rem -0.4rem #3f2ee3b3;
+}
+
+.md-typeset .md-button--primary:is(:hover, :focus) {
+  box-shadow: 0 0.4rem 1.4rem -0.3rem #3f2ee3d9;
+}
+
+::selection {
+  background-color: #00c8ff40;
+}
+
+/* Navy footer in both schemes, with the gradient line on top. */
+.md-footer {
+  position: relative;
+  color: #ffffffd9;
+  background-color: var(--aw-navy);
+  border-top: 0;
+}
+
+.md-footer::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 2px;
+  content: "";
+  background: var(--aw-gradient);
+  opacity: 0.8;
+}
+
+.md-footer-meta {
+  background-color: #000020;
+}
+
+.md-copyright {
+  color: #ffffff8c;
+}
+
+.md-copyright__highlight {
+  color: #ffffffd9;
+}
+
+html .md-footer-meta.md-typeset a,
+html .md-footer-meta.md-typeset a:not(:focus, :hover) {
+  color: var(--aw-cyan);
+}
+
+/* Homepage. It hides the sidebars, so the content gets a width limit of its own. */
+.md-main {
+  overflow-x: clip;
+}
+
+.md-main:has(.aw-hero) .md-content {
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.md-main:has(.aw-hero) .md-typeset h2 {
+  margin-top: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* A faint dot grid behind the hero. It fades out toward the edges. */
+.aw-hero__grid {
+  position: absolute;
+  inset: -3rem -2rem;
+  z-index: -2;
+  pointer-events: none;
+  background-image: radial-gradient(var(--md-default-fg-color--lighter) 1px, transparent 1.2px);
+  background-size: 1.1rem 1.1rem;
+  opacity: 0.5;
+  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 30% 45%, #000, transparent);
+  mask-image: radial-gradient(ellipse 60% 70% at 30% 45%, #000, transparent);
+}
+
+.aw-hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2.4rem;
+  align-items: center;
+  margin: 1.6rem 0 2.8rem;
+}
+
+/* Two soft color shapes behind the hero. */
+.aw-hero::before,
+.aw-hero::after {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  border-radius: 50%;
+  filter: blur(3.5rem);
+}
+
+.aw-hero::before {
+  top: -4rem;
+  left: -5rem;
+  width: 26rem;
+  height: 18rem;
+  background: var(--aw-indigo);
+  opacity: 0.2;
+}
+
+.aw-hero::after {
+  right: -3rem;
+  bottom: -4rem;
+  width: 24rem;
+  height: 16rem;
+  background: var(--aw-cyan);
+  opacity: 0.2;
+}
+
+[data-md-color-scheme="slate"] .aw-hero::before {
+  opacity: 0.45;
+}
+
+[data-md-color-scheme="slate"] .aw-hero::after {
+  opacity: 0.22;
+}
+
+.md-typeset .aw-hero h1 {
+  margin: 0 0 0.8rem;
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.aw-gradient-text {
+  color: var(--aw-c-indigo);
+  background: linear-gradient(90deg, var(--aw-c-indigo), var(--aw-c-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.md-typeset .aw-hero__text > p {
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .aw-hero__actions > p,
+.md-typeset .aw-hero__news > p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.2rem 0 0;
+}
+
+.md-typeset .aw-hero__actions .md-button {
+  margin: 0;
+}
+
+.md-typeset .aw-chip {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+  background:
+    linear-gradient(var(--md-default-bg-color), var(--md-default-bg-color)) padding-box,
+    var(--aw-gradient) border-box;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 999px;
+}
+
+.md-typeset .aw-chip:is(:hover, :focus) {
+  color: var(--md-typeset-a-color);
+}
+
+.md-typeset .aw-chip .aw-badge-new {
+  margin-left: 0.2em;
+}
+
+.aw-hero__video {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+  border-radius: 0.8rem;
+  box-shadow:
+    0 1.6rem 3rem -1.4rem #3f2ee399,
+    0 0 0 1px var(--md-default-fg-color--lightest);
+}
+
+.aw-hero__video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media screen and (max-width: 59.984375em) {
+  .aw-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.6rem;
+  }
+
+  .md-typeset .aw-hero h1 {
+    font-size: 2rem;
+  }
+}
+
+/*
+ * Cards on the homepage. The whole card is the link, and the gradient border shows on hover.
+ * Each card is a list item with two paragraphs: an icon and a bold link, then the text.
+ */
+.md-typeset :is(.aw-cards, .aw-features) > ul > li > p:first-child {
+  display: contents;
+}
+
+.md-typeset .grid.aw-cards {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 0.8rem;
+}
+
+.md-typeset .grid.aw-cards--small {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+}
+
+.md-typeset .aw-cards > ul > li {
+  position: relative;
+  padding: 0.9rem 1rem;
+  background:
+    linear-gradient(var(--md-default-bg-color), var(--md-default-bg-color)) padding-box,
+    linear-gradient(var(--md-default-fg-color--lightest), var(--md-default-fg-color--lightest))
+      border-box;
+  border: 1px solid transparent;
+  border-radius: 0.8rem;
+  transition:
+    box-shadow 150ms,
+    transform 150ms;
+}
+
+.md-typeset .aw-cards > ul > li:is(:hover, :focus-within) {
+  background:
+    linear-gradient(var(--md-default-bg-color), var(--md-default-bg-color)) padding-box,
+    var(--aw-gradient) border-box;
+  border-color: transparent;
+  box-shadow: 0 0.8rem 1.6rem -1rem #3f2ee380;
+  transform: translateY(-2px);
+}
+
+.md-typeset .aw-cards > ul > li > p:first-child > i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.8rem;
+  color: var(--md-typeset-a-color);
+  background-color: color-mix(in srgb, var(--md-typeset-a-color) 12%, transparent);
+  border-radius: 0.6rem;
+  transition:
+    background-color 150ms,
+    color 150ms;
+}
+
+.md-typeset .aw-cards > ul > li:is(:hover, :focus-within) > p:first-child > i {
+  color: #fff;
+  background-color: var(--md-typeset-a-color);
+}
+
+.md-typeset .aw-cards > ul > li > p:first-child > strong {
+  font-size: 0.8rem;
+}
+
+.md-typeset .aw-cards > ul > li > p:first-child > strong a {
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+}
+
+.md-typeset .aw-cards > ul > li:is(:hover, :focus-within) > p:first-child > strong a {
+  color: var(--md-typeset-a-color);
+}
+
+.md-typeset .aw-cards > ul > li > p:first-child > strong a::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  border-radius: inherit;
+}
+
+.md-typeset .aw-cards > ul > li > p + p {
+  margin: 0.4rem 0 0;
+  font-size: 0.7rem;
+  color: var(--md-default-fg-color--light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .aw-cards > ul > li {
+    transition: none;
+  }
+
+  .md-typeset .aw-cards > ul > li:is(:hover, :focus-within) {
+    transform: none;
+  }
+}
+
+/* Without blur support, or when the reader asks for less transparency, the header is solid. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .md-header {
+    background-color: var(--md-default-bg-color);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .md-header {
+    background-color: var(--md-default-bg-color);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/*
+ * Demo cards (docs/demos/index.md): a screenshot with a label next to the title, the tested components as tags,
+ * and the buttons. The image moves above the text on small screens.
+ */
+.md-typeset .aw-demo {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  margin: 1.6rem 0;
+  overflow: hidden;
+  background-color: color-mix(in srgb, var(--md-default-bg-color) 80%, transparent);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 1rem;
+  box-shadow: 0 1rem 2rem -1.6rem #00002a59;
+}
+
+.md-typeset .aw-demo__media {
+  position: relative;
+  min-height: 12rem;
+  overflow: hidden;
+  background: var(--aw-navy);
+}
+
+.md-typeset .aw-demo__media > p {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+
+.md-typeset .aw-demo__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms cubic-bezier(0.1, 0.7, 0.1, 1);
+}
+
+.md-typeset .aw-demo:hover .aw-demo__media img {
+  transform: scale(1.04);
+}
+
+/* A navy shade at the bottom of the image keeps the label readable on any screenshot. */
+.md-typeset .aw-demo__media::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(to top, #00002ad9, #00002a00 55%);
+}
+
+.md-typeset .aw-demo__kicker {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 0.8rem;
+  z-index: 1;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background-color: #ffffff26;
+  border: 1px solid #ffffff40;
+  border-radius: 999px;
+  -webkit-backdrop-filter: blur(0.4rem);
+  backdrop-filter: blur(0.4rem);
+}
+
+.md-typeset .aw-demo__body {
+  padding: 1.2rem 1.4rem 1.2rem;
+}
+
+.md-typeset .aw-demo__body > h2 {
+  margin: 0 0 0.8rem;
+}
+
+.md-typeset .aw-demo__facts {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 1.2rem;
+  font-size: 0.7rem;
+}
+
+.md-typeset .aw-demo__facts p,
+.md-typeset .aw-demo__facts ul {
+  margin: 0.4rem 0 0;
+}
+
+.md-typeset .aw-demo__facts .aw-demo__label {
+  margin: 0;
+  font-size: 0.6rem;
+  color: var(--md-default-fg-color--light);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.md-typeset .aw-demo__facts > div > p:not(.aw-demo__label, :has(.aw-tag)) {
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .aw-demo__facts li {
+  margin-bottom: 0.2em;
+}
+
+.md-typeset .aw-tag {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  margin: 0 0.2rem 0.3rem 0;
+  font-size: 0.65rem;
+  font-weight: 600;
+  border-radius: 999px;
+}
+
+.md-typeset .aw-tag--test {
+  color: var(--md-typeset-a-color);
+  background-color: color-mix(in srgb, var(--md-typeset-a-color) 12%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--md-typeset-a-color) 30%, transparent);
+}
+
+.md-typeset .aw-demo__actions > p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.2rem 0 0;
+}
+
+.md-typeset .aw-demo__actions .md-button {
+  margin: 0;
+}
+
+.md-typeset .aw-demo__more {
+  margin: 0.9rem 0 0;
+  font-size: 0.65rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* The check marks in the table of demos. */
+.md-typeset table .fa-check {
+  color: var(--aw-c-green);
+}
+
+@media screen and (max-width: 59.984375em) {
+  .md-typeset .aw-demo,
+  .md-typeset .aw-demo__facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .md-typeset .aw-demo__media {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .aw-demo:hover .aw-demo__media img {
+    transform: none;
+  }
+}
+
+/* The names in the table of demos stay on one line, so a narrow screen scrolls the table instead. */
+.md-typeset .aw-demo-table td:first-child {
+  white-space: nowrap;
+}
+
+/* A band across the full width of the window, for one section of the homepage. */
+.md-typeset .aw-band {
+  padding: 0.4rem calc(50vw - 50%) 2.4rem;
+  margin: 2.8rem calc(50% - 50vw) 0;
+  background:
+    radial-gradient(
+      40rem 16rem at 80% 0%,
+      color-mix(in srgb, var(--aw-cyan) 10%, transparent),
+      transparent 70%
+    ),
+    color-mix(in srgb, var(--aw-indigo) 4%, var(--md-default-bg-color));
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .aw-band {
+  background:
+    radial-gradient(
+      40rem 16rem at 80% 0%,
+      color-mix(in srgb, var(--aw-indigo) 22%, transparent),
+      transparent 70%
+    ),
+    color-mix(in srgb, #fff 3%, var(--md-default-bg-color));
+}
+
+/*
+ * Feature tiles on the homepage. Each tile is a list item like a card: an icon and a bold title, then the text.
+ * The compact variant puts the icon and a short label on one line.
+ * A list with blank lines between its items becomes one list per item, so the lists take no part in the layout.
+ */
+.md-typeset .aw-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 0.8rem;
+  margin: 1.2rem 0 0;
+}
+
+.md-typeset .aw-features > ul {
+  display: contents;
+}
+
+.md-typeset .aw-features > ul > li {
+  padding: 1rem 1.1rem;
+  list-style: none;
+  margin: 0;
+  background-color: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.8rem;
+  box-shadow: 0 0.6rem 1.4rem -1.1rem #00002a40;
+}
+
+.md-typeset .aw-features > ul > li > i,
+.md-typeset .aw-features > ul > li > p:first-child > i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.85rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--aw-indigo), var(--aw-cyan));
+  border-radius: 0.65rem;
+  box-shadow: 0 0.4rem 0.9rem -0.4rem #3f2ee399;
+}
+
+.md-typeset .aw-features > ul > li > p:first-child > strong:first-of-type {
+  font-size: 0.8rem;
+}
+
+.md-typeset .aw-features > ul > li > p + p {
+  margin: 0.4rem 0 0;
+  font-size: 0.7rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .aw-features--compact {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+}
+
+.md-typeset .aw-features--compact > ul > li {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.75rem;
+}
+
+.md-typeset .aw-features--compact > ul > li > i {
+  flex: none;
+  margin: 0;
+}
+
+/* On small screens, the icon of a card or a tile moves next to the text, so the cards stay short. */
+@media screen and (max-width: 44.984375em) {
+  .md-typeset .grid.aw-cards > ul > li,
+  .md-typeset .aw-features:not(.aw-features--compact) > ul > li {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 0.8rem;
+    align-items: center;
+  }
+
+  .md-typeset .aw-cards > ul > li > p:first-child > i,
+  .md-typeset .aw-features > ul > li > p:first-child > i {
+    grid-row: span 2;
+    align-self: start;
+    margin: 0;
+  }
+
+  .md-typeset .aw-cards > ul > li > p + p,
+  .md-typeset .aw-features > ul > li > p + p {
+    grid-column: 2;
+    margin-top: 0.2rem;
+  }
+}
+
+/*
+ * Installation page (docs/installation/index.md): hardware tiles, the two editions side by side, one row per
+ * installation method, and a callout with a gradient border.
+ */
+.md-typeset .aw-specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 7.5rem), 1fr));
+  gap: 0.6rem;
+  margin: 1.2rem 0;
+}
+
+.md-typeset .aw-specs > ul {
+  display: contents;
+}
+
+.md-typeset .aw-specs > ul > li {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  padding: 0.8rem 0.9rem;
+  margin: 0;
+  font-size: 0.65rem;
+  line-height: 1.4;
+  color: var(--md-default-fg-color--light);
+  list-style: none;
+  background-color: color-mix(in srgb, var(--md-typeset-a-color) 5%, var(--md-default-bg-color));
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.8rem;
+}
+
+.md-typeset .aw-specs > ul > li > i {
+  flex: none;
+  font-size: 1rem;
+  color: var(--md-typeset-a-color);
+}
+
+.md-typeset .aw-specs strong {
+  font-size: 0.8rem;
+  color: var(--md-default-fg-color);
+}
+
+.md-typeset .aw-editions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 0.8rem;
+  margin: 1.2rem 0 1.6rem;
+}
+
+.md-typeset .aw-edition {
+  padding: 1rem 1.2rem 0.6rem;
+  font-size: 0.7rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.9rem;
+}
+
+.md-typeset .aw-edition--featured {
+  background:
+    linear-gradient(
+        color-mix(in srgb, var(--aw-indigo) 5%, var(--md-default-bg-color)),
+        var(--md-default-bg-color)
+      )
+      padding-box,
+    var(--aw-gradient) border-box;
+  border-color: transparent;
+  box-shadow: 0 0.8rem 1.8rem -1.2rem #3f2ee380;
+}
+
+.md-typeset .aw-edition > p {
+  margin: 0;
+}
+
+.md-typeset .aw-edition > h3 {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+}
+
+.md-typeset .aw-edition ul {
+  margin-top: 0.6rem;
+}
+
+.md-typeset .aw-edition__badge {
+  display: inline-block;
+  padding: 0.1rem 0.6rem;
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--md-default-fg-color--light);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background-color: var(--md-default-fg-color--lightest);
+  border-radius: 999px;
+}
+
+.md-typeset .aw-edition--featured .aw-edition__badge {
+  color: #fff;
+  background: linear-gradient(135deg, var(--aw-indigo), #2a6df2);
+}
+
+.md-typeset .aw-method {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: start;
+  padding: 1.1rem 1.2rem;
+  margin: 0.8rem 0;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.9rem;
+  transition: box-shadow 150ms;
+}
+
+.md-typeset .aw-method:hover {
+  box-shadow: 0 0.8rem 1.6rem -1.2rem #3f2ee366;
+}
+
+.md-typeset .aw-method > p:first-child {
+  margin: 0;
+}
+
+.md-typeset .aw-method__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  font-size: 0.95rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--aw-indigo), var(--aw-cyan));
+  border-radius: 0.7rem;
+  box-shadow: 0 0.4rem 0.9rem -0.4rem #3f2ee399;
+}
+
+.md-typeset .aw-method__icon .twemoji {
+  --md-icon-size: 1.1rem;
+}
+
+.md-typeset .aw-method__body > h3 {
+  margin: 0.2rem 0 0.4rem;
+}
+
+.md-typeset .aw-method__body > p {
+  margin: 0.4rem 0 0;
+  font-size: 0.7rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .aw-method__actions > p {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 10rem;
+  margin: 0.2rem 0 0;
+}
+
+.md-typeset .aw-method__actions .md-button {
+  margin: 0;
+  text-align: center;
+}
+
+.md-typeset .aw-callout {
+  padding: 0.2rem 1.4rem 1.2rem;
+  margin: 2rem 0;
+  background:
+    radial-gradient(
+        30rem 10rem at 100% 0%,
+        color-mix(in srgb, var(--aw-cyan) 12%, transparent),
+        transparent 70%
+      )
+      padding-box,
+    linear-gradient(var(--md-default-bg-color), var(--md-default-bg-color)) padding-box,
+    var(--aw-gradient) border-box;
+  border: 1px solid transparent;
+  border-radius: 0.9rem;
+}
+
+.md-typeset .aw-callout > h2 {
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 59.984375em) {
+  .md-typeset .aw-method {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .md-typeset .aw-method__body,
+  .md-typeset .aw-method__actions {
+    grid-column: 1 / -1;
+  }
+
+  .md-typeset .aw-method__actions > p {
+    flex-flow: row wrap;
+  }
+}
