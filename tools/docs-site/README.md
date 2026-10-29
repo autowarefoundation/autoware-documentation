@@ -18,7 +18,7 @@ A pull request from a fork keeps its site as an artifact only. The `comment-docs
 - `assemble.py` puts the versions together:
   - Every image, diagram, and PDF moves to the `_media` directory, named after a hash of its content. The script rewrites the references in the HTML and CSS of each version. A file that no page references is left out.
   - The HTML is minified.
-  - Each page gets a canonical address with the name of its version, and so does each `sitemap.xml`.
+  - Each page gets a canonical address with the name of its version, and so does each `sitemap.xml`. Each sitemap also lists the root of its version, because the version selector keeps the current page only if the sitemap of the target version lists that root.
   - The site root gets `versions.json` for the version selector, an `index.html` that redirects to the default version, and a `404.html`.
 - `verify.py` compares every page of the assembled site with the page in its built site: the text, the content of each `pre` element, and what each reference leads to. A reference to an image must lead to a file with the same content. The `publish-docs` workflow stops before the deployment if a page differs.
 - `versions.py` reads version names and puts `versions.json` in the order of the version selector: the default branch first, then the releases from newest to oldest, then the pull request previews.
