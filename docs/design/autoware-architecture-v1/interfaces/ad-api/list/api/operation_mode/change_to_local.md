@@ -12,5 +12,7 @@ type:
 {% extends 'design/autoware-architecture-v1/interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
 Change the operation mode to local.
+This API only guarantees that a request has been accepted.
+Use [the state API](./state.md) to verify whether the request has been reflected.
 For details, see the [operation mode](../../../features/operation_mode.md).
 {% endblock %}
