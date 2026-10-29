@@ -3,11 +3,11 @@ site_url: https://autowarefoundation.github.io/autoware-documentation/
 repo_url: https://github.com/autowarefoundation/autoware
 edit_uri: https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/
 docs_dir: docs
-copyright: Copyright &copy; 2025 The Autoware Foundation
+copyright: Copyright &copy; 2026 The Autoware Foundation
 
 theme:
   name: material
-  variant: classic
+  variant: modern
   custom_dir: overrides
   features:
     #    - navigation.expand # Until we simplify the navigation
@@ -24,36 +24,41 @@ theme:
     - navigation.footer
     - navigation.tracking
   favicon: assets/images/autoware-foundation.png
+  font:
+    text: Roboto
+    code: Roboto Mono
   icon:
-    logo: fontawesome/solid/car
+    logo: autoware/logo
     repo: fontawesome/brands/github
   language: en
   palette:
     - scheme: default
-      primary: white
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
     - scheme: slate
-      primary: grey
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-night
         name: Switch to light mode
 
 extra:
-  font:
-    text: Roboto
-    code: Roboto Mono
   version:
     provider: mike
 
 extra_css:
+  - assets/css/theme.css
   - assets/css/extra.css
   - https://use.fontawesome.com/releases/v7.1.0/css/all.css
 
 extra_javascript:
   - assets/js/mathjax.js
   - assets/js/hidden-page-nav.js
+  - assets/js/header-home-link.js
+  - assets/js/ros2-highlight.js
   - https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
