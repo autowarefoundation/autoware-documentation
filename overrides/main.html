@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+<!-- prettier-ignore -->
+{#-
+  A page outside the navigation has no previous and next page. Use the
+  neighbors that main.py found in the default order of all pages.
+-#}
+{% block footer %}
+  {% if not page.previous_page and not page.next_page and page.meta and (page.meta.default_previous_page or page.meta.default_next_page) %}
+    {% set page = {"url": page.url, "meta": page.meta, "previous_page": page.meta.default_previous_page, "next_page": page.meta.default_next_page} %}
+  {% endif %}
+  {% include "partials/footer.html" %}
+{% endblock %}
