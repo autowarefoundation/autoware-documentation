@@ -31,6 +31,7 @@ def test_comment_body_lists_only_the_changed_pages():
     )
     assert body == (
         "Documentation URL: https://example.org/docs/pr-12/\n"
+        "The preview should appear a few minutes after the build, when the publish-docs workflow finishes.\n"
         "Modified URLs:\n"
         "- https://example.org/docs/pr-12/home/\n"
         "- https://example.org/docs/pr-12/demos/lane-change/\n"

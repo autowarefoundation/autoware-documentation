@@ -1,107 +1,29 @@
 # Copyright 2026 The Autoware Contributors
 # SPDX-License-Identifier: Apache-2.0
-# cspell:ignore javascripts charrefs
+# cspell:ignore javascripts
 
-"""Unit tests for assemble.py and verify.py."""
+"""Unit tests for assemble.py."""
 
 import gzip
-import hashlib
-from html.parser import HTMLParser
 import json
 import urllib.parse
 
 from assemble import MEDIA_DIRECTORY
-from assemble import assemble
 from assemble import media_name
+from helpers import OTHER_PNG
+from helpers import PNG
+from helpers import RELEASES_URL
+from helpers import SITE_URL
+from helpers import SVG
+from helpers import media_name_of
+from helpers import page
+from helpers import parse
+from helpers import read
+from helpers import run
+from helpers import shared
+from helpers import values
+from helpers import write
 import pytest
-from verify import verify_version
-
-SITE_URL = "https://example.org/docs/"
-RELEASES_URL = "https://example.org/releases"
-
-PNG = b"\x89PNG\r\n\x1a\nthe same picture"
-OTHER_PNG = b"\x89PNG\r\n\x1a\nanother picture"
-SVG = b'<svg xmlns="http://www.w3.org/2000/svg"></svg>'
-
-
-def write(path, content):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    if isinstance(content, bytes):
-        path.write_bytes(content)
-    else:
-        path.write_text(content, encoding="utf-8")
-
-
-def page(body, canonical="home/"):
-    return (
-        "<!doctype html><html><head>"
-        f'<link rel="canonical" href="{SITE_URL}{canonical}">'
-        "</head><body>"
-        f"{body}"
-        "</body></html>"
-    )
-
-
-def shared(content, suffix):
-    return f"{MEDIA_DIRECTORY}/{media_name_of(content, suffix)}"
-
-
-def media_name_of(content, suffix):
-    return hashlib.sha256(content).hexdigest()[:20] + suffix
-
-
-@pytest.fixture
-def bundles(tmp_path):
-    root = tmp_path / "bundles"
-    for version in ("main", "1.9.0"):
-        write(root / version / "home" / "images" / "picture.png", PNG)
-        write(
-            root / version / "home" / "index.html",
-            page('<p>Hello</p><img src="images/picture.png" alt="picture">'),
-        )
-    write(root / "main" / "assets" / "images" / "logo.svg", SVG)
-    write(root / "main" / "unused.png", OTHER_PNG)
-    write(root / "main" / "assets" / "javascripts" / "bundle.js.map", "{}")
-    write(root / "main" / "assets" / "javascripts" / "bundle.js", "console.log(1)")
-    return root
-
-
-def run(bundles, tmp_path, default_version="main"):
-    output = tmp_path / "site"
-    summary = assemble(bundles, output, SITE_URL, default_version, RELEASES_URL)
-    return output, summary
-
-
-def read(path):
-    return path.read_text(encoding="utf-8")
-
-
-class Reader(HTMLParser):
-    def __init__(self):
-        super().__init__(convert_charrefs=True)
-        self.attributes = []
-        self.text = ""
-
-    def handle_starttag(self, tag, attrs):
-        self.attributes.extend((tag, name, value) for name, value in attrs)
-
-    def handle_data(self, data):
-        self.text += data
-
-
-def parse(path):
-    """Return the attributes and the text of a page.
-
-    The pages are minified, so the quotes and the order of the attributes can
-    change. Reading the page as HTML ignores both.
-    """
-    reader = Reader()
-    reader.feed(read(path))
-    return reader
-
-
-def values(path, tag, attribute):
-    return [v for t, a, v in parse(path).attributes if t == tag and a == attribute]
 
 
 def test_a_file_that_several_versions_contain_is_stored_once(bundles, tmp_path):
@@ -274,32 +196,32 @@ def test_minifying_keeps_the_content_of_pre_elements(tmp_path):
     assert f"<pre><code>{code}</code></pre>" in read(output / "main" / "index.html")
 
 
-def test_verify_accepts_the_assembled_site(bundles, tmp_path):
-    output, _ = run(bundles, tmp_path)
-    for version in ("main", "1.9.0"):
-        assert verify_version(version, bundles / version, output, SITE_URL) == []
-
-
-def test_verify_finds_a_missing_image(bundles, tmp_path):
-    output, _ = run(bundles, tmp_path)
-    (output / shared(PNG, ".png")).unlink()
-    problems = verify_version("main", bundles / "main", output, SITE_URL)
-    assert len(problems) == 1
-    assert "picture.png" in problems[0]
-
-
-def test_verify_finds_changed_text(bundles, tmp_path):
-    output, _ = run(bundles, tmp_path)
-    page_path = output / "main" / "home" / "index.html"
-    page_path.write_text(read(page_path).replace("Hello", "Goodbye"), encoding="utf-8")
-    assert verify_version("main", bundles / "main", output, SITE_URL) == [
-        "main/home/index.html: the text differs"
-    ]
-
-
 def test_the_media_name_depends_only_on_the_content(tmp_path):
     first = tmp_path / "a.PNG"
     second = tmp_path / "other" / "b.png"
     write(first, PNG)
     write(second, PNG)
     assert media_name(first) == media_name(second) == media_name_of(PNG, ".png")
+
+
+@pytest.mark.parametrize(
+    "path",
+    [
+        "main/d/diagram.drawio.svg",
+        "1.5.0/../main/d/diagram.drawio.svg",
+        "main/./d//diagram.drawio.svg",
+    ],
+)
+def test_a_diagram_address_is_normalized(tmp_path, path):
+    # Each address leads to the diagram of main in a browser, so each one is
+    # rewritten to the shared file.
+    root = tmp_path / "bundles"
+    write(root / "main" / "d" / "diagram.drawio.svg", SVG)
+    write(root / "main" / "index.html", page("x"))
+    link = f"https://app.diagrams.net/?lightbox=1#U{urllib.parse.quote(SITE_URL + path, safe='')}"
+    write(root / "1.5.0" / "d" / "index.html", page(f'<a href="{link}">open</a>'))
+    output, _ = run(root, tmp_path)
+    expected = f"{SITE_URL}{shared(SVG, '.svg')}"
+    assert values(output / "1.5.0" / "d" / "index.html", "a", "href") == [
+        f"https://app.diagrams.net/?lightbox=1#U{urllib.parse.quote(expected, safe='')}"
+    ]
