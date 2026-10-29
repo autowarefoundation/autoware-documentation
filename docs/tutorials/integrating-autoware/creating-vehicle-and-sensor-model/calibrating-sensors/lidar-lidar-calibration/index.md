@@ -22,7 +22,7 @@ point cloud for mapping because this point cloud
 includes a cropped vehicle point cloud. Therefore,
 vehicle points are not included in the map. When you start
 the bag recording,
-you should not move the vehicle for the first 5 seconds for better mapping performace.
+you should not move the vehicle for the first 5 seconds for better mapping performance.
 The following shows an example of a bag file used for this calibration:
 
 ??? note "ROS 2 Bag example of our calibration process for tutorial_vehicle"

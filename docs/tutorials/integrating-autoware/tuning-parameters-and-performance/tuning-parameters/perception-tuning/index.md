@@ -153,7 +153,7 @@ the false positive points will disappear from the same location.
   </figcaption>
 </figure>
 
-- You need to update the ground segmenation according to your environment.
+- You need to update the ground segmentation according to your environment.
   These examples are provided for high slopes and rough road conditions.
   If you have better conditions,
   you can adjust your parameters
