@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Copyright 2026 The Autoware Contributors
 # SPDX-License-Identifier: Apache-2.0
-"""Embeds a fallback style into each diagram, so that the SVG file also looks right on its own.
+"""Embed a fallback style into each diagram, so that the SVG file also looks right on its own.
 
 GitHub and other viewers show an SVG file without the CSS of the site. Then every class has no style, and the
 shapes are black. This script adds a <style> and a <defs> element with the light-mode styles to each SVG file.
@@ -47,7 +47,7 @@ BLOCK = re.compile(r'\s*<(style|defs) data-aw-standalone="">.*?</\1>', re.S)
 
 
 def top_level(css):
-    """Yields (selector, body) for each top-level item of a stylesheet, without comments."""
+    """Yield (selector, body) for each top-level item of a stylesheet, without comments."""
     css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
     i = 0
     while True:
@@ -77,7 +77,7 @@ def variables(css):
 
 
 def diagram_rules(css):
-    """Returns (selectors, text) for each rule that styles a diagram, with the .aw-diagram prefix removed."""
+    """Return (selectors, text) for each rule that styles a diagram, with the .aw-diagram prefix removed."""
     rules = []
     for selector, body in top_level(css):
         if selector.startswith("@keyframes aw-flow"):

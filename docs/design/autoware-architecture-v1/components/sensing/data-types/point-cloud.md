@@ -16,7 +16,7 @@ The modules used here are from [pointcloud_preprocessor package](https://github.
 
 For details about the modules, see [the following table](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_pointcloud_preprocessor#inner-workings--algorithms).
 
-It is recommended that these modules are used in a single container as components. For details see [ROS 2 Composition](https://docs.ros.org/en/rolling/Tutorials/Intermediate/Composition.html)
+It is recommended that these modules are used in a single container as components. For details see [ROS 2 Composition](https://docs.ros.org/en/jazzy/Tutorials/Intermediate/Composition.html)
 
 ## Point cloud fields
 
