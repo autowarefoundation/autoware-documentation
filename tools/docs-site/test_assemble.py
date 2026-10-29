@@ -14,6 +14,8 @@ from assemble import MEDIA_DIRECTORY
 from assemble import assemble
 from assemble import media_name
 import pytest
+from verify import TOOL_FILES
+from verify import environment_digest
 from verify import verify_all
 from verify import verify_version
 
@@ -326,3 +328,52 @@ def test_verify_skips_a_version_that_passed_and_did_not_change(bundles, tmp_path
     assert "main: 1 pages, 1 problems" in out
     assert "1.9.0: unchanged since it passed" in out
     assert list(json.loads(read(state))) == ["1.9.0"]
+
+
+def test_verify_checks_a_version_again_when_its_bundle_changes(bundles, tmp_path, capsys):
+    output, _ = run(bundles, tmp_path)
+    state = tmp_path / "verified.json"
+    assert verify_all(bundles, output, SITE_URL, state)
+    write(bundles / "1.9.0" / "home" / "extra.txt", "a new file of the release")
+    capsys.readouterr()
+    assert verify_all(bundles, output, SITE_URL, state)
+    out = capsys.readouterr().out
+    assert "1.9.0: 1 pages, 0 problems" in out
+    assert "main: unchanged since it passed" in out
+
+
+def test_a_new_version_checks_the_other_versions_again(bundles, tmp_path, capsys):
+    # A reference can lead into another version, so the list of versions counts.
+    output, _ = run(bundles, tmp_path)
+    state = tmp_path / "verified.json"
+    assert verify_all(bundles, output, SITE_URL, state)
+    write(bundles / "pr-7" / "home" / "index.html", page("<p>Preview</p>"))
+    output, _ = run(bundles, tmp_path)
+    capsys.readouterr()
+    assert verify_all(bundles, output, SITE_URL, state)
+    out = capsys.readouterr().out
+    assert "unchanged since it passed" not in out
+    assert sorted(json.loads(read(state))) == ["1.9.0", "main", "pr-7"]
+
+
+@pytest.mark.parametrize("content", ["", "not json", "[1, 2]"])
+def test_an_unreadable_state_checks_every_version(bundles, tmp_path, capsys, content):
+    output, _ = run(bundles, tmp_path)
+    state = tmp_path / "verified.json"
+    write(state, content)
+    assert verify_all(bundles, output, SITE_URL, state)
+    out = capsys.readouterr().out
+    assert "unchanged since it passed" not in out
+    assert sorted(json.loads(read(state))) == ["1.9.0", "main"]
+
+
+def test_the_environment_covers_the_tools_the_address_and_the_versions(tmp_path):
+    tools = tmp_path / "tools"
+    for tool in TOOL_FILES:
+        write(tools / tool, f"# {tool}")
+    first = environment_digest(SITE_URL, ["main", "1.9.0"], tools)
+    assert environment_digest(SITE_URL, ["1.9.0", "main"], tools) == first
+    assert environment_digest("https://example.com/", ["main", "1.9.0"], tools) != first
+    assert environment_digest(SITE_URL, ["main"], tools) != first
+    write(tools / "assemble.py", "# changed")
+    assert environment_digest(SITE_URL, ["main", "1.9.0"], tools) != first

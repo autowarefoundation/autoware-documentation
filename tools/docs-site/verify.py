@@ -166,23 +166,37 @@ def verify_version(name, bundle, site, site_url):
     return problems
 
 
-# The code that decides how a version is assembled and checked. A change to it
-# checks every version again.
-TOOL_FILES = ["assemble.py", "verify.py", "versions.py"]
+# The code and the packages that decide how a version is assembled and checked.
+# A change to them checks every version again.
+TOOL_FILES = ["assemble.py", "verify.py", "versions.py", "requirements.txt"]
 
 
-def fingerprint(name, bundle, site):
+def environment_digest(site_url, names, directory=None):
+    """Return a hash of what the check of every version depends on.
+
+    That is the code of the tools, their packages, the Python version, the
+    address of the site, and the names of all versions. A reference can lead
+    into another version, so a version that is added or removed checks the
+    other versions again.
+    """
+    directory = Path(directory) if directory else Path(__file__).parent
+    digest = hashlib.sha256()
+    for tool in TOOL_FILES:
+        digest.update(f"{tool}\0".encode())
+        digest.update((directory / tool).read_bytes())
+    digest.update(f"{sys.version}\0{site_url}\0{chr(0).join(sorted(names))}".encode())
+    return digest.hexdigest()
+
+
+def fingerprint(name, bundle, site, environment):
     """Return a hash of everything that the check of a version depends on.
 
-    That is the built site of the version, its assembled pages, and the code of
-    the tools. The shared files are named after their content, so the pages
-    that reference them cover them too.
+    That is the environment from environment_digest, the built site of the
+    version, and its assembled pages. The shared files are named after their
+    content, so the pages that reference them cover them too.
     """
-    digest = hashlib.sha256()
-    here = Path(__file__).parent
+    digest = hashlib.sha256(environment.encode())
     roots = [(Path(bundle), "bundle"), (Path(site) / name, "site")]
-    for tool in TOOL_FILES:
-        digest.update((here / tool).read_bytes())
     for root, label in roots:
         for path in sorted(root.rglob("*")):
             if path.is_file():
@@ -191,15 +205,30 @@ def fingerprint(name, bundle, site):
     return digest.hexdigest()
 
 
-def check_version(name, bundle, site, site_url, verified):
+def check_version(name, bundle, site, site_url, environment, verified):
     """Check one version, unless the same version passed the check before.
 
     Return its fingerprint, and its problems or None if the check was skipped.
     """
-    current = fingerprint(name, bundle, site)
+    current = fingerprint(name, bundle, site, environment)
     if verified == current:
         return current, None
     return current, verify_version(name, bundle, site, site_url)
+
+
+def read_state(state):
+    """Return the versions that passed, from the state file.
+
+    A missing or unreadable file means that no version passed yet, so every
+    version is checked.
+    """
+    if not state or not state.exists():
+        return {}
+    try:
+        verified = json.loads(state.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    return verified if isinstance(verified, dict) else {}
 
 
 def verify_all(bundles, site, site_url, state=None):
@@ -211,8 +240,9 @@ def verify_all(bundles, site, site_url, state=None):
     """
     site_url = site_url if site_url.endswith("/") else site_url + "/"
     state = Path(state) if state else None
-    verified = json.loads(state.read_text(encoding="utf-8")) if state and state.exists() else {}
+    verified = read_state(state)
     bundles = [bundle for bundle in sorted(Path(bundles).iterdir()) if bundle.is_dir()]
+    environment = environment_digest(site_url, [bundle.name for bundle in bundles])
     # The versions are independent, so they are checked at the same time.
     with ProcessPoolExecutor() as pool:
         results = list(
@@ -222,6 +252,7 @@ def verify_all(bundles, site, site_url, state=None):
                 bundles,
                 [Path(site)] * len(bundles),
                 [site_url] * len(bundles),
+                [environment] * len(bundles),
                 [verified.get(bundle.name) for bundle in bundles],
             )
         )

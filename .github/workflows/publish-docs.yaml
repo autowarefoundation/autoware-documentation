@@ -27,11 +27,6 @@ on:
 
 permissions: {}
 
-# One publication at a time. A newer request replaces one that waits, and it publishes the newer state anyway.
-concurrency:
-  group: publish-docs
-  cancel-in-progress: false
-
 jobs:
   publish-docs:
     if: >-
@@ -40,12 +35,16 @@ jobs:
         github.event.workflow_run.head_repository.full_name == github.repository
       ) }}
     runs-on: ubuntu-24.04
+    # One publication at a time. A newer request replaces one that waits, and it publishes the newer state anyway.
+    # The group is on the job and not on the workflow, so a run whose job is skipped above never joins it.
+    concurrency:
+      group: publish-docs
+      cancel-in-progress: false
     permissions:
       actions: read
       contents: read
       id-token: write
       pages: write
-      pull-requests: write
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
@@ -65,41 +64,17 @@ jobs:
           ref: ${{ steps.default-branch.outputs.name }}
           persist-credentials: false
 
-      - name: Read the site address
-        id: site
-        run: echo "url=$(grep -oP '^site_url:\s+\K(.*)' mkdocs.yaml)" >> "$GITHUB_OUTPUT"
-        shell: bash
-
-      # Only the newest state of the site matters. A run that waits behind this one collects and publishes everything
-      # anyway, so this run skips the publication. It still comments on its pull request below.
-      - name: Look for a newer run
-        id: newer-start
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          newer=$(gh run list -R "$GITHUB_REPOSITORY" --workflow publish-docs.yaml --limit 20 \
-            --json databaseId,status \
-            --jq "[.[] | select(.databaseId > $GITHUB_RUN_ID and (.status == \"requested\" or .status == \"queued\" or .status == \"pending\" or .status == \"waiting\"))] | length")
-          if [ "$newer" -gt 0 ]; then
-            echo "::notice::A newer run of publish-docs waits, so this run leaves the publication to it."
-            echo "found=true" >> "$GITHUB_OUTPUT"
-          fi
-        shell: bash
-
       - name: Set up Python
-        if: ${{ steps.newer-start.outputs.found != 'true' }}
         uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
       - name: Install the tools
-        if: ${{ steps.newer-start.outputs.found != 'true' }}
         run: pip3 install -r tools/docs-site/requirements.txt
         shell: bash
 
       - name: List the releases
         id: releases
-        if: ${{ steps.newer-start.outputs.found != 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -109,7 +84,6 @@ jobs:
 
       # The site of a release never changes, so its archive is downloaded once and kept in the cache.
       - name: Restore the release archives
-        if: ${{ steps.newer-start.outputs.found != 'true' }}
         uses: actions/cache@v6
         with:
           path: .release-archives
@@ -118,7 +92,6 @@ jobs:
             docs-release-archives-
 
       - name: Collect the built sites
-        if: ${{ steps.newer-start.outputs.found != 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -129,8 +102,12 @@ jobs:
             --release-cache .release-archives
         shell: bash
 
+      - name: Read the site address
+        id: site
+        run: echo "url=$(grep -oP '^site_url:\s+\K(.*)' mkdocs.yaml)" >> "$GITHUB_OUTPUT"
+        shell: bash
+
       - name: Assemble the site
-        if: ${{ steps.newer-start.outputs.found != 'true' }}
         run: |
           cd tools/docs-site
           python3 assemble.py \
@@ -143,8 +120,8 @@ jobs:
         shell: bash
 
       # verify.py keeps the versions that passed in this file. A version that did not change since is not checked again.
+      # The cache is saved only when the job succeeds, so a failed check never marks a version as passed.
       - name: Restore the versions that passed the check
-        if: ${{ steps.newer-start.outputs.found != 'true' }}
         uses: actions/cache@v6
         with:
           path: .verified
@@ -153,7 +130,6 @@ jobs:
             docs-verified-
 
       - name: Check every page against its built site
-        if: ${{ steps.newer-start.outputs.found != 'true' }}
         run: |
           cd tools/docs-site
           python3 verify.py \
@@ -163,36 +139,49 @@ jobs:
             --state "$GITHUB_WORKSPACE/.verified/verified.json"
         shell: bash
 
-      - name: Look for a newer run again
-        id: newer-upload
-        if: ${{ steps.newer-start.outputs.found != 'true' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          newer=$(gh run list -R "$GITHUB_REPOSITORY" --workflow publish-docs.yaml --limit 20 \
-            --json databaseId,status \
-            --jq "[.[] | select(.databaseId > $GITHUB_RUN_ID and (.status == \"requested\" or .status == \"queued\" or .status == \"pending\" or .status == \"waiting\"))] | length")
-          if [ "$newer" -gt 0 ]; then
-            echo "::notice::A newer run of publish-docs waits, so this run leaves the publication to it."
-            echo "found=true" >> "$GITHUB_OUTPUT"
-          fi
-        shell: bash
-
       - name: Upload the site
-        if: ${{ steps.newer-start.outputs.found != 'true' && steps.newer-upload.outputs.found != 'true' }}
         uses: actions/upload-pages-artifact@v5
         with:
           path: ${{ runner.temp }}/site
 
       - name: Deploy the site
         id: deploy
-        if: ${{ steps.newer-start.outputs.found != 'true' && steps.newer-upload.outputs.found != 'true' }}
         uses: actions/deploy-pages@v5
+
+  # The comment is a separate job without a concurrency group. A publication that waits can be replaced by a newer
+  # one, which never runs the steps of the replaced one, so the comment would be lost if it were part of that job.
+  comment-preview:
+    if: >-
+      ${{ github.event_name == 'workflow_run' &&
+        github.event.workflow_run.event == 'pull_request' &&
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_repository.full_name == github.repository }}
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Find the default branch
+        id: default-branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: echo "name=$(gh api "repos/$GITHUB_REPOSITORY" --jq .default_branch)" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      - name: Check out the default branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ steps.default-branch.outputs.name }}
+          persist-credentials: false
+
+      - name: Read the site address
+        id: site
+        run: echo "url=$(grep -oP '^site_url:\s+\K(.*)' mkdocs.yaml)" >> "$GITHUB_OUTPUT"
+        shell: bash
 
       # The pull request comes from the GitHub API, never from the run or its artifact.
       - name: Find the pull request of the preview
         id: pull-request
-        if: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.event == 'pull_request' }}
         env:
           GH_TOKEN: ${{ github.token }}
           HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
