@@ -1,5 +1,6 @@
 # Copyright 2026 The Autoware Contributors
 # SPDX-License-Identifier: Apache-2.0
+# cspell:ignore javascripts charrefs
 
 """Unit tests for assemble.py and verify.py."""
 
