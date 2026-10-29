@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 530" role="img" aria-labelledby="vehicle-interface-overview-title">
-  <title id="vehicle-interface-overview-title">Control sends the control command to the vehicle command adapter. The adapter sends the actuation command to the vehicle interface and receives the actuation status. The vehicle interface sends the target command to the drive-by-wire system in a vehicle-specific format, receives the vehicle status, and sends the vehicle status to control.</title>
+  <title id="vehicle-interface-overview-title">
+    Control sends the control command to the vehicle command adapter. The adapter sends the actuation command to the vehicle interface and receives the actuation status. The vehicle interface sends
+    the target command to the drive-by-wire system in a vehicle-specific format, receives the vehicle status, and sends the vehicle status to control.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="720" height="530"/>

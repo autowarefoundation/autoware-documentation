@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 540" role="img" aria-labelledby="architecture-overview-title">
-  <title id="architecture-overview-title">The stacks of Autoware. Sensing, map, and the vehicle interface feed localization. Localization, sensing, and the map feed perception and planning. Perception feeds planning, planning feeds control, and control drives the vehicle through the vehicle interface.</title>
+  <title id="architecture-overview-title">
+    The stacks of Autoware. Sensing, map, and the vehicle interface feed localization. Localization, sensing, and the map feed perception and planning. Perception feeds planning, planning feeds
+    control, and control drives the vehicle through the vehicle interface.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="540"/>

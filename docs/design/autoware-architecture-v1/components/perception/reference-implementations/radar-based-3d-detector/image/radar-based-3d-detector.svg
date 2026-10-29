@@ -1,5 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 730" role="img" aria-labelledby="radar-based-3d-detector-title">
-  <title id="radar-based-3d-detector-title">In Sensing, radar tracks go through a noise filter and a message converter. The detected radar objects go to the radar filter, then to the multi-object tracker on the radar channel. In the serial launch file, the radar tracked objects go through tracked object filters and the tracker merger. Radar fusion to detected objects and the radar object tracker are available but not launched. Detection from radar points is not available yet.</title>
+  <title id="radar-based-3d-detector-title">
+    In Sensing, radar tracks go through a noise filter and a message converter. The detected radar objects go to the radar filter, then to the multi-object tracker on the radar channel. In the serial
+    launch file, the radar tracked objects go through tracked object filters and the tracker merger. Radar fusion to detected objects and the radar object tracker are available but not
+    launched. Detection from radar points is not available yet.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="730"/>

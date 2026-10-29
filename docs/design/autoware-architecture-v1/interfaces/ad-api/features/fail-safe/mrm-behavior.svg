@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 260" role="img" aria-labelledby="adapi-mrm-behavior-title">
-  <title id="adapi-mrm-behavior-title">The MRM behavior starts at NONE. It can change to COMFORTABLE_STOP, PULL_OVER, or EMERGENCY_STOP. COMFORTABLE_STOP and PULL_OVER can change to EMERGENCY_STOP.</title>
+  <title id="adapi-mrm-behavior-title">
+    The MRM behavior starts at NONE. It can change to COMFORTABLE_STOP, PULL_OVER, or EMERGENCY_STOP. COMFORTABLE_STOP and PULL_OVER can change to EMERGENCY_STOP.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="820" height="260"/>

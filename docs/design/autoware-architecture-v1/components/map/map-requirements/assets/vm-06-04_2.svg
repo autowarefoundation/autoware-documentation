@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 320" role="img" aria-labelledby="vm-06-04_2-title">
-  <title id="vm-06-04_2-title">The road lanelet refers to a no_stopping_area regulatory element. It refers to a no_stopping_area polygon on the lane and, optionally, to a stop_line linestring before the area.</title>
+  <title id="vm-06-04_2-title">
+    The road lanelet refers to a no_stopping_area regulatory element. It refers to a no_stopping_area polygon on the lane and, optionally, to a stop_line linestring before the area.
+  </title>
 
   <!-- Road: two lanes, left-hand traffic, the lanelet is the upper lane (traffic to the right) -->
   <rect class="road" x="320" y="120" width="520" height="120"/>

@@ -146,7 +146,10 @@
   <path class="lanelet alt" d="M440 382 A232 232 0 0 1 672 150 L672 210 A172 172 0 0 0 500 382 Z"/>
 
   <!-- Note -->
-  <text class="note good" x="28" y="230"><tspan x="28">The lanelets are next to each</tspan><tspan x="28" dy="17">other and do not cross.</tspan></text>
+  <text class="note good" x="28" y="230">
+    <tspan x="28">The lanelets are next to each</tspan>
+    <tspan x="28" dy="17">other and do not cross.</tspan>
+  </text>
   <path class="leader" d="M228.3 226 L457.4 231.7"/>
   <path class="leader" d="M228.3 226 L542.2 227.3"/>
 </svg>

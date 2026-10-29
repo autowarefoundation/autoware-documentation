@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 470" role="img" aria-labelledby="adapi-initialize-pose-input-title">
-  <title id="adapi-initialize-pose-input-title">The user gives a pose in the GUI. The application calls the localization initialize API with that pose, and AD API forwards the request to Autoware.</title>
+  <title id="adapi-initialize-pose-input-title">
+    The user gives a pose in the GUI. The application calls the localization initialize API with that pose, and AD API forwards the request to Autoware.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="840" height="470"/>

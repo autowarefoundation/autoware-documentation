@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 600" role="img" aria-labelledby="repository-structure-title">
-  <title id="repository-structure-title">The repositories of autoware.repos in three groups: Autoware Core, Autoware Universe, and the sensor components. Core feeds Universe, and all three feed autoware_launch. The tools and the scenario simulator are optional.</title>
+  <title id="repository-structure-title">
+    The repositories of autoware.repos in three groups: Autoware Core, Autoware Universe, and the sensor components. Core feeds Universe, and all three feed autoware_launch. The tools and the scenario
+    simulator are optional.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="600"/>

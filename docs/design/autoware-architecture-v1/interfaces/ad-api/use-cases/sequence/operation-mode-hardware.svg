@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 302" role="img" aria-labelledby="adapi-operation-mode-hardware-title">
-  <title id="adapi-operation-mode-hardware-title">The operator changes the control mode on the vehicle. The vehicle reports the control mode, and AD API sends the new operation mode state to the application.</title>
+  <title id="adapi-operation-mode-hardware-title">
+    The operator changes the control mode on the vehicle. The vehicle reports the control mode, and AD API sends the new operation mode state to the application.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="840" height="302"/>

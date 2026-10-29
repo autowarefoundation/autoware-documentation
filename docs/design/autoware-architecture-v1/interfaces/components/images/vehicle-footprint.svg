@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 300" role="img" aria-labelledby="vehicle-footprint-title">
-  <title id="vehicle-footprint-title">The footprint polygon that Autoware makes from the vehicle dimensions has six points in clockwise order: front left, front right, center right, rear right, rear left, and center left. Its origin is base_link.</title>
+  <title id="vehicle-footprint-title">
+    The footprint polygon that Autoware makes from the vehicle dimensions has six points in clockwise order: front left, front right, center right, rear right, rear left, and center left. Its origin
+    is base_link.
+  </title>
 
   <!-- Background: a faint dot grid -->
   <rect class="dots" x="0" y="0" width="860" height="300"/>

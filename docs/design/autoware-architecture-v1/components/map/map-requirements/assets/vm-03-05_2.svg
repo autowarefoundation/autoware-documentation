@@ -105,6 +105,9 @@
   <path class="lanelet" d="M440 322 A172 172 0 0 1 612 150 L612 210 A112 112 0 0 0 500 322 Z"/>
 
   <!-- Note -->
-  <text class="note good" x="28" y="330"><tspan x="28">One lanelet goes from the entrance</tspan><tspan x="28" dy="17">to the exit of the intersection.</tspan></text>
+  <text class="note good" x="28" y="330">
+    <tspan x="28">One lanelet goes from the entrance</tspan>
+    <tspan x="28" dy="17">to the exit of the intersection.</tspan>
+  </text>
   <path class="leader" d="M261.8 326 L470 250"/>
 </svg>

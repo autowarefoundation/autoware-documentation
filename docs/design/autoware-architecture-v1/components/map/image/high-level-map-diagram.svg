@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 552" role="img" aria-labelledby="high-level-map-diagram-title">
-  <title id="high-level-map-diagram-title">The map component reads the projection info, Lanelet2 map, and point cloud map files. Its loader nodes publish the map projector info, the vector map, and the point cloud map to the other components. Helper nodes publish visualization markers, the viewer transform, and the map hash.</title>
+  <title id="high-level-map-diagram-title">
+    The map component reads the projection info, Lanelet2 map, and point cloud map files. Its loader nodes publish the map projector info, the vector map, and the point cloud map to the other
+    components. Helper nodes publish visualization markers, the viewer transform, and the map hash.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="552"/>

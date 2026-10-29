@@ -12,7 +12,11 @@
   <rect class="lanelet bad" x="480" y="63" width="240" height="28"/>
 
   <!-- Pedestrian who moves toward the path -->
-  <g class="pedestrian"><ellipse class="car-shadow" cx="560" cy="37" rx="8" ry="2.5"/><path class="ped-body" d="M553 36 V25 Q553 18 560 18 Q567 18 567 25 V36 Z"/><circle class="ped-head" cx="560" cy="11" r="5.5"/></g>
+  <g class="pedestrian">
+    <ellipse class="car-shadow" cx="560" cy="37" rx="8" ry="2.5"/>
+    <path class="ped-body" d="M553 36 V25 Q553 18 560 18 Q567 18 567 25 V36 Z"/>
+    <circle class="ped-head" cx="560" cy="11" r="5.5"/>
+  </g>
   <path class="edge accent" d="M575 30 L575 64"/>
 
   <!-- Planned path and stop point -->

@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 330" role="img" aria-labelledby="localization-required-architecture-title">
-  <title id="localization-required-architecture-title">The Localization component takes sensor messages, map data, and tf as inputs. It outputs the pose, twist, and acceleration with covariance, diagnostics, and the tf from map to base_link.</title>
+  <title id="localization-required-architecture-title">
+    The Localization component takes sensor messages, map data, and tf as inputs. It outputs the pose, twist, and acceleration with covariance, diagnostics, and the tf from map to base_link.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="820" height="330"/>

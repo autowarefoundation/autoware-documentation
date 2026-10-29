@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 276" role="img" aria-labelledby="adapi-velocity-factors-title">
-  <title id="adapi-velocity-factors-title">The vehicle drives toward a stop position in front of an obstacle. The velocity factor has the status APPROACHING while the vehicle approaches, and STOPPED when the vehicle stops there. The factor gives the pose of the stop position and the distance to it.</title>
+  <title id="adapi-velocity-factors-title">
+    The vehicle drives toward a stop position in front of an obstacle. The velocity factor has the status APPROACHING while the vehicle approaches, and STOPPED when the vehicle stops there. The factor
+    gives the pose of the stop position and the distance to it.
+  </title>
 
   <!-- Status -->
   <circle class="icon" cx="22" cy="36" r="9"/>

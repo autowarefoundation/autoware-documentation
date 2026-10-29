@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 300" role="img" aria-labelledby="adapi-cooperation-scenes-title">
-  <title id="adapi-cooperation-scenes-title">A two-lane road with three scenes. In scene 1234, the vehicle changes to the right lane because the decision is activate. In scene 5678, the lane change back is not done because the decision is deactivate. Scene ABCD is a left turn at the intersection with the decision activate.</title>
+  <title id="adapi-cooperation-scenes-title">
+    A two-lane road with three scenes. In scene 1234, the vehicle changes to the right lane because the decision is activate. In scene 5678, the lane change back is not done because the decision is
+    deactivate. Scene ABCD is a left turn at the intersection with the decision activate.
+  </title>
 
   <!-- Road -->
   <rect class="road" x="0" y="110" width="860" height="140"/>

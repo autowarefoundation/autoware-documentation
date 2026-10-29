@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 330" role="img" aria-labelledby="priority-merger-1-title">
-  <title id="priority-merger-1-title">Timing of a synchronized object merger. The data of frame t arrives at the base 3D detector and at the cluster-based detector. The cluster-based detector finishes later. The object merger merges and publishes frame t only after the slower detector finishes.</title>
+  <title id="priority-merger-1-title">
+    Timing of a synchronized object merger. The data of frame t arrives at the base 3D detector and at the cluster-based detector. The cluster-based detector finishes later. The object merger merges
+    and publishes frame t only after the slower detector finishes.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="330"/>

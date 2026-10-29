@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 836" role="img" aria-labelledby="reference-implementation-add-new-modules-title">
-  <title id="reference-implementation-add-new-modules-title">Where you can extend the current implementation: plugin modules in the behavior path, behavior velocity, and motion velocity planners and in the planning validator, new ROS nodes between the existing nodes, and new scenarios next to lane driving and parking.</title>
+  <title id="reference-implementation-add-new-modules-title">
+    Where you can extend the current implementation: plugin modules in the behavior path, behavior velocity, and motion velocity planners and in the planning validator, new ROS nodes between the
+    existing nodes, and new scenarios next to lane driving and parking.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="836"/>

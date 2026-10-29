@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 480" role="img" aria-labelledby="high-level-perception-diagram-title">
-  <title id="high-level-perception-diagram-title">Sensing, Localization, Map, and the API send data to the Perception component. Perception has four sub-components: object recognition, obstacle segmentation, occupancy grid map, and traffic light recognition. Perception sends its results to Planning.</title>
+  <title id="high-level-perception-diagram-title">
+    Sensing, Localization, Map, and the API send data to the Perception component. Perception has four sub-components: object recognition, obstacle segmentation, occupancy grid map, and traffic light
+    recognition. Perception sends its results to Planning.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="480"/>

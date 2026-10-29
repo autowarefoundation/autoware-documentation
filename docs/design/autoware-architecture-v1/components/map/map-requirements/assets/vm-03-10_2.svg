@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" role="img" aria-labelledby="vm-03-10-2-title">
-  <title id="vm-03-10-2-title">The ego vehicle turns left at an intersection with traffic lights. Its lanelet is the right_of_way lanelet. The crossing lanes of the other signal phase and the opposing right turn are yield lanes.</title>
+  <title id="vm-03-10-2-title">
+    The ego vehicle turns left at an intersection with traffic lights. Its lanelet is the right_of_way lanelet. The crossing lanes of the other signal phase and the opposing right turn are yield
+    lanes.
+  </title>
 
   <!-- Roads -->
   <rect class="road" x="480" y="30" width="120" height="400"/>

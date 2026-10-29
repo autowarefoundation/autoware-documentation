@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-labelledby="vehicle-interface-hw-abstraction-title">
-  <title id="vehicle-interface-hw-abstraction-title">Vehicles have different drive-by-wire interfaces. The control component sends a generic control command to an adapter. The adapter uses the vehicle configuration, which OEMs give or calibration tools make, and sends an actuation command to the vehicle interface. The vehicle interface talks to the vehicle driver with the vehicle-specific protocol and sends the status back.</title>
+  <title id="vehicle-interface-hw-abstraction-title">
+    Vehicles have different drive-by-wire interfaces. The control component sends a generic control command to an adapter. The adapter uses the vehicle configuration, which OEMs give or calibration
+    tools make, and sends an actuation command to the vehicle interface. The vehicle interface talks to the vehicle driver with the vehicle-specific protocol and sends the status back.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="720" height="720"/>

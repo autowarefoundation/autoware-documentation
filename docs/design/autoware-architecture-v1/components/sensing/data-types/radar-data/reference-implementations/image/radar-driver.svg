@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 316" role="img" aria-labelledby="radar-driver-title">
-  <title id="radar-driver-title">Inside the radar, the antenna feeds target detection. Target detection outputs the scan points as RadarScan and feeds the occupancy grid and the object tracking. The object tracking outputs RadarTracks, and the occupancy grid outputs a cost map.</title>
+  <title id="radar-driver-title">
+    Inside the radar, the antenna feeds target detection. Target detection outputs the scan points as RadarScan and feeds the occupancy grid and the object tracking. The object tracking outputs
+    RadarTracks, and the occupancy grid outputs a cost map.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="760" height="316"/>

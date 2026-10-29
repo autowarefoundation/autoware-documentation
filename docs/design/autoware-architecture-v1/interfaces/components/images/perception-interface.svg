@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 470" role="img" aria-labelledby="perception-interface-title">
-  <title id="perception-interface-title">Perception takes sensor data, the maps, the kinematic state of the vehicle, the route, and external traffic signals. It has four parts: obstacle segmentation, occupancy grid map, object recognition, and traffic light recognition. It sends the obstacle point cloud, the occupancy grid, the objects, and the traffic signals to Planning and Control.</title>
+  <title id="perception-interface-title">
+    Perception takes sensor data, the maps, the kinematic state of the vehicle, the route, and external traffic signals. It has four parts: obstacle segmentation, occupancy grid map, object
+    recognition, and traffic light recognition. It sends the obstacle point cloud, the occupancy grid, the objects, and the traffic signals to Planning and Control.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="470"/>

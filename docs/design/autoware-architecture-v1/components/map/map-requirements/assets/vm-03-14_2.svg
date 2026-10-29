@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" role="img" aria-labelledby="vm-03-14-2-title">
-  <title id="vm-03-14-2-title">The lanelet that turns right refers to a road_marking regulatory element. The regulatory element refers to the stop line linestring at the end of the guide lines.</title>
+  <title id="vm-03-14-2-title">
+    The lanelet that turns right refers to a road_marking regulatory element. The regulatory element refers to the stop line linestring at the end of the guide lines.
+  </title>
 
   <!-- Roads -->
   <rect class="road" x="480" y="20" width="120" height="420"/>
@@ -109,8 +111,14 @@
   <text class="edge-lbl" x="390.2" y="200.5" text-anchor="middle" dominant-baseline="central">refers</text>
   <path class="edge" d="M509.5 282.9 L246 200"/>
   <text class="edge-lbl" x="377.8" y="241.4" text-anchor="middle" dominant-baseline="central">regulatory_element</text>
-  <text class="note" x="590" y="410"><tspan x="590">Lanelet</tspan><tspan class="code" x="590" dy="17">turn_direction: right</tspan></text>
+  <text class="note" x="590" y="410">
+    <tspan x="590">Lanelet</tspan>
+    <tspan class="code" x="590" dy="17">turn_direction: right</tspan>
+  </text>
   <path class="leader" d="M584 406 L622.5 183.1"/>
-  <text class="note" x="620" y="40"><tspan x="620">Linestring</tspan><tspan class="code" x="620" dy="17">type: stop_line</tspan></text>
+  <text class="note" x="620" y="40">
+    <tspan x="620">Linestring</tspan>
+    <tspan class="code" x="620" dy="17">type: stop_line</tspan>
+  </text>
   <path class="leader" d="M614 36 L554.5 221"/>
 </svg>

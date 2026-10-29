@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 640" role="img" aria-labelledby="localization-recommended-architecture-title">
-  <title id="localization-recommended-architecture-title">Sensor data, map data, and tf go into the Localization component. Pose estimators and twist estimators send their results to the pose twist fusion filter, and the pose initializer sends it the initial pose. The fusion filter outputs the pose, twist, acceleration, and tf. The localization diagnostics check the kinematic state and output diagnostics.</title>
+  <title id="localization-recommended-architecture-title">
+    Sensor data, map data, and tf go into the Localization component. Pose estimators and twist estimators send their results to the pose twist fusion filter, and the pose initializer sends it the
+    initial pose. The fusion filter outputs the pose, twist, acceleration, and tf. The localization diagnostics check the kinematic state and output diagnostics.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="640"/>

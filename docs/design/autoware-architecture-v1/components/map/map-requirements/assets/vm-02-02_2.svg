@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 380" role="img" aria-labelledby="vm-02-02_2-title">
-  <title id="vm-02-02_2-title">The road lanelet refers to a traffic_sign regulatory element. The regulatory element refers to a stop_line linestring next to the sign and to a traffic_sign linestring with the subtype stop_sign.</title>
+  <title id="vm-02-02_2-title">
+    The road lanelet refers to a traffic_sign regulatory element. The regulatory element refers to a stop_line linestring next to the sign and to a traffic_sign linestring with the subtype stop_sign.
+  </title>
 
   <!-- Road: two lanes, left-hand traffic, the lanelet is the upper lane (traffic to the right) -->
   <rect class="road" x="20" y="120" width="820" height="120"/>

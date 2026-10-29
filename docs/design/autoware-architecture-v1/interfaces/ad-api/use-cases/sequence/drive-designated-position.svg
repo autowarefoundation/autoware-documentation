@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 900" role="img" aria-labelledby="adapi-drive-designated-position-title">
-  <title id="adapi-drive-designated-position-title">The application sets a route. When the autonomous mode is available, the user requests a start and the application changes to the autonomous mode. At the goal, Autoware changes to the stop mode and the application clears the route.</title>
+  <title id="adapi-drive-designated-position-title">
+    The application sets a route. When the autonomous mode is available, the user requests a start and the application changes to the autonomous mode. At the goal, Autoware changes to the stop mode
+    and the application clears the route.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="900"/>

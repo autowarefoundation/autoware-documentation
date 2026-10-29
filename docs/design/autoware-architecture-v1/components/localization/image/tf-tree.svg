@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" role="img" aria-labelledby="localization-tf-tree-title">
-  <title id="localization-tf-tree-title">The tf tree: map is the parent of base_link and viewer. base_link is the parent of the sensor frames. The earth frame above map is optional. No default Autoware launch publishes it.</title>
+  <title id="localization-tf-tree-title">
+    The tf tree: map is the parent of base_link and viewer. base_link is the parent of the sensor frames. The earth frame above map is optional. No default Autoware launch publishes it.
+  </title>
 
   <!-- Background: a faint dot grid and a soft glow -->
   <rect class="dots" x="0" y="0" width="720" height="330"/>

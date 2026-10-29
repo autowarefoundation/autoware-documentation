@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 346" role="img" aria-labelledby="adapi-fail-safe-architecture-title">
-  <title id="adapi-fail-safe-architecture-title">The fail-safe module changes the mode of the Autoware planner and selects the command in the command selector. The command selector receives MRM commands from independent MRM planners and from the Autoware planner, the autonomous command, and the commands of other modes.</title>
+  <title id="adapi-fail-safe-architecture-title">
+    The fail-safe module changes the mode of the Autoware planner and selects the command in the command selector. The command selector receives MRM commands from independent MRM planners and from the
+    Autoware planner, the autonomous command, and the commands of other modes.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="346"/>

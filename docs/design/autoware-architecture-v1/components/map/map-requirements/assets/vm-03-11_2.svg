@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" role="img" aria-labelledby="vm-03-11-2-title">
-  <title id="vm-03-11-2-title">Case 1: the ego vehicle goes straight on the priority road. Its lanelet is the right_of_way lanelet. The crossing straight lanes and the opposing right turn are yield lanes.</title>
+  <title id="vm-03-11-2-title">
+    Case 1: the ego vehicle goes straight on the priority road. Its lanelet is the right_of_way lanelet. The crossing straight lanes and the opposing right turn are yield lanes.
+  </title>
 
   <!-- Roads -->
   <rect class="road" x="480" y="30" width="120" height="400"/>

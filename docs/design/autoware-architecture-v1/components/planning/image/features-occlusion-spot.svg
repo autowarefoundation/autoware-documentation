@@ -17,7 +17,11 @@
   <path class="area warn" d="M432 4 H508 V30 L432 104 Z"/>
 
   <!-- Pedestrian who can come out of the side street -->
-  <g class="pedestrian"><ellipse class="car-shadow" cx="456" cy="53" rx="8" ry="2.5"/><path class="ped-body" d="M449 52 V41 Q449 34 456 34 Q463 34 463 41 V52 Z"/><circle class="ped-head" cx="456" cy="27" r="5.5"/></g>
+  <g class="pedestrian">
+    <ellipse class="car-shadow" cx="456" cy="53" rx="8" ry="2.5"/>
+    <path class="ped-body" d="M449 52 V41 Q449 34 456 34 Q463 34 463 41 V52 Z"/>
+    <circle class="ped-head" cx="456" cy="27" r="5.5"/>
+  </g>
   <path class="edge accent dash" d="M470 46 L470 128"/>
 
   <!-- Section where the ego vehicle slows down -->

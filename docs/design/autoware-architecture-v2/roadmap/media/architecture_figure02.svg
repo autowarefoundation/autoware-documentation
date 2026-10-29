@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 432" role="img" aria-labelledby="roadmap-stack-fig02-title">
-  <title id="roadmap-stack-fig02-title">What the human and the system must do at SAE Level 3, Level 4, and Level 5, and at Level 4+ of the roadmap. At Level 4+, the human does not drive and the system can dynamically adapt to new scenarios. SAE J3016 defines Levels 0 to 5 only. Level 4+ and the last row are the roadmap's own definitions.</title>
+  <title id="roadmap-stack-fig02-title">
+    What the human and the system must do at SAE Level 3, Level 4, and Level 5, and at Level 4+ of the roadmap. At Level 4+, the human does not drive and the system can dynamically adapt to new
+    scenarios. SAE J3016 defines Levels 0 to 5 only. Level 4+ and the last row are the roadmap's own definitions.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="432"/>

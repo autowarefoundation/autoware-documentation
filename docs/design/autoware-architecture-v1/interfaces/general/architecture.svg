@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 510" role="img" aria-labelledby="interface-architecture-title">
-  <title id="interface-architecture-title">The FMS and the HMI use the AD API. Inside Autoware, the AD API component implements the AD API and uses the component interface. Components A to D use and implement the component interface. A simulator uses the AD API and also uses and implements the component interface.</title>
+  <title id="interface-architecture-title">
+    The FMS and the HMI use the AD API. Inside Autoware, the AD API component implements the AD API and uses the component interface. Components A to D use and implement the component interface. A
+    simulator uses the AD API and also uses and implements the component interface.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="510"/>

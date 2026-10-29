@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 486" role="img" aria-labelledby="roadmap-stack-fig05-title">
-  <title id="roadmap-stack-fig05-title">Step 2, option B: sensing and a standard 2D map feed learned perception. Learned perception builds the local world representation, which feeds learned planning and then control.</title>
+  <title id="roadmap-stack-fig05-title">
+    Step 2, option B: sensing and a standard 2D map feed learned perception. Learned perception builds the local world representation, which feeds learned planning and then control.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="486"/>

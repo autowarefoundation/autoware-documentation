@@ -12,7 +12,11 @@
   <rect class="area warn" x="250" y="14" width="160" height="90" rx="6"/>
 
   <!-- Pedestrian in the check area -->
-  <g class="pedestrian"><ellipse class="car-shadow" cx="270" cy="43" rx="8" ry="2.5"/><path class="ped-body" d="M263 42 V31 Q263 24 270 24 Q277 24 277 31 V42 Z"/><circle class="ped-head" cx="270" cy="17" r="5.5"/></g>
+  <g class="pedestrian">
+    <ellipse class="car-shadow" cx="270" cy="43" rx="8" ry="2.5"/>
+    <path class="ped-body" d="M263 42 V31 Q263 24 270 24 Q277 24 277 31 V42 Z"/>
+    <circle class="ped-head" cx="270" cy="17" r="5.5"/>
+  </g>
 
   <!-- Ego vehicle (stopped) -->
   <g transform="translate(319 57) rotate(90 11 20)">

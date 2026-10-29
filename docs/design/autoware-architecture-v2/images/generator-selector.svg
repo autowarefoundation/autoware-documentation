@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img" aria-labelledby="generator-selector-title">
-  <title id="generator-selector-title">Sensing sends sensor data to the generators. The generators send candidate trajectories to the selector. The selector checks the candidates with a safety gate, ranks them, and sends the selected trajectory to the controller, which drives the vehicle.</title>
+  <title id="generator-selector-title">
+    Sensing sends sensor data to the generators. The generators send candidate trajectories to the selector. The selector checks the candidates with a safety gate, ranks them, and sends the selected
+    trajectory to the controller, which drives the vehicle.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="900" height="480"/>

@@ -107,7 +107,10 @@
   <path class="bound alt" d="M490.4 200.4 L532.8 242.8"/>
 
   <!-- Note -->
-  <text class="note bad" x="28" y="330"><tspan x="28">Two lanelets go from the entrance</tspan><tspan x="28" dy="17">to the exit of the intersection.</tspan></text>
+  <text class="note bad" x="28" y="330">
+    <tspan x="28">Two lanelets go from the entrance</tspan>
+    <tspan x="28" dy="17">to the exit of the intersection.</tspan>
+  </text>
   <path class="leader" d="M255.1 326 L470 260"/>
   <path class="leader" d="M255.1 326 L530 190"/>
 </svg>

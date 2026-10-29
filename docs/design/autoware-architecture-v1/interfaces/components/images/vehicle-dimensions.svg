@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 360" role="img" aria-labelledby="vehicle-dimensions-title">
-  <title id="vehicle-dimensions-title">A top view of the vehicle with its dimensions: front_overhang, wheel_base, and rear_overhang add up to vehicle_length. left_overhang, wheel_tread, and right_overhang add up to vehicle_width. The front wheels show a positive steering angle, which turns the vehicle to the left.</title>
+  <title id="vehicle-dimensions-title">
+    A top view of the vehicle with its dimensions: front_overhang, wheel_base, and rear_overhang add up to vehicle_length. left_overhang, wheel_tread, and right_overhang add up to vehicle_width. The
+    front wheels show a positive steering angle, which turns the vehicle to the left.
+  </title>
 
   <!-- Background: a faint dot grid -->
   <rect class="dots" x="0" y="0" width="860" height="360"/>

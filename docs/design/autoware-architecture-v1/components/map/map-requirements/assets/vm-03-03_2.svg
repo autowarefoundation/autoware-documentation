@@ -105,6 +105,9 @@
   <path class="lanelet" d="M440 322 A172 172 0 0 1 612 150 L612 210 A112 112 0 0 0 500 322 Z"/>
 
   <!-- Note -->
-  <text class="note good" x="28" y="330"><tspan x="28">The lanelet has a constant width,</tspan><tspan x="28" dy="17">and its linestrings are smooth curves.</tspan></text>
+  <text class="note good" x="28" y="330">
+    <tspan x="28">The lanelet has a constant width,</tspan>
+    <tspan x="28" dy="17">and its linestrings are smooth curves.</tspan>
+  </text>
   <path class="leader" d="M255.1 326 L470 250"/>
 </svg>

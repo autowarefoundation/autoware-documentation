@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" role="img" aria-labelledby="vehicle-interface-title">
-  <title id="vehicle-interface-title">The Control component sends vehicle commands to the vehicle interface component and gets vehicle statuses back. Inside the component, an optional vehicle command adapter converts the commands into the vehicle format. The vehicle interface talks to the vehicle with the vehicle-specific protocol.</title>
+  <title id="vehicle-interface-title">
+    The Control component sends vehicle commands to the vehicle interface component and gets vehicle statuses back. Inside the component, an optional vehicle command adapter converts the commands into
+    the vehicle format. The vehicle interface talks to the vehicle with the vehicle-specific protocol.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="760" height="520"/>

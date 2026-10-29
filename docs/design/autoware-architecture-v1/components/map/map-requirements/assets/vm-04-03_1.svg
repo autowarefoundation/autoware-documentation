@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 340" role="img" aria-labelledby="vm-04-03_1-title">
-  <title id="vm-04-03_1-title">Two traffic lights with a red, a yellow, and a green lamp and a green right arrow lamp. A light_bulbs linestring connects points 1 to 4 at the centers of the lamps. Point 4 has the tags color green and arrow right.</title>
+  <title id="vm-04-03_1-title">
+    Two traffic lights with a red, a yellow, and a green lamp and a green right arrow lamp. A light_bulbs linestring connects points 1 to 4 at the centers of the lamps. Point 4 has the tags color
+    green and arrow right.
+  </title>
 
   <!-- Horizontal traffic light with an arrow lamp under the green lamp -->
   <rect class="light-housing" x="200" y="100" width="200" height="130" rx="12"/>

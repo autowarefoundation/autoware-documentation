@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" role="img" aria-labelledby="absorb-changes-title">
-  <title id="absorb-changes-title">Without the AD API, each HMI must match one Autoware version. With the AD API, the HMI uses the same interface for every version, and each AD API implementation absorbs the differences.</title>
+  <title id="absorb-changes-title">
+    Without the AD API, each HMI must match one Autoware version. With the AD API, the HMI uses the same interface for every version, and each AD API implementation absorbs the differences.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="760" height="440"/>
@@ -35,7 +37,10 @@
   <text class="lbl" x="140" y="378" text-anchor="middle" dominant-baseline="central">Autoware Core v1.0</text>
   <path class="box muted" d="M280 246 L480 246 L480 286 L480 286 L410 286 L395 298 L365 298 L350 286 L280 286 Z"/>
   <text class="lbl" x="380" y="266" text-anchor="middle" dominant-baseline="central">HMI</text>
-  <path class="box primary" d="M280 292 L350 292 L365 304 L395 304 L410 292 L480 292 L480 338 L480 338 L440 338 L440 348 L410 348 L410 338 L390 338 L390 348 L360 348 L360 338 L340 338 L340 348 L310 348 L310 338 L280 338 Z"/>
+  <path
+    class="box primary"
+    d="M280 292 L350 292 L365 304 L395 304 L410 292 L480 292 L480 338 L480 338 L440 338 L440 348 L410 348 L410 338 L390 338 L390 348 L360 348 L360 338 L340 338 L340 348 L310 348 L310 338 L280 338 Z"
+  />
   <text class="lbl on-primary" x="380" y="320" text-anchor="middle" dominant-baseline="central">AD API for Core v1.1</text>
   <path class="card" d="M280 350 L310 350 L310 360 L340 360 L340 350 L360 350 L360 360 L390 360 L390 350 L410 350 L410 360 L440 360 L440 350 L480 350 L480 396 L280 396 Z"/>
   <text class="lbl" x="380" y="378" text-anchor="middle" dominant-baseline="central">Autoware Core v1.1</text>

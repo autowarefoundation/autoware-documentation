@@ -105,6 +105,9 @@
   <path class="lanelet bad" d="M440 322 L442 280 L456 230 L488 214 L494 188 L534 170 L570 150 L612 150 L612 210 L564 200 L540 192 L526 180 L508 202 L502 230 L500 270 L500 322 Z"/>
 
   <!-- Note -->
-  <text class="note bad" x="28" y="330"><tspan x="28">The width of the lanelet changes,</tspan><tspan x="28" dy="17">and its linestrings are not smooth.</tspan></text>
+  <text class="note bad" x="28" y="330">
+    <tspan x="28">The width of the lanelet changes,</tspan>
+    <tspan x="28" dy="17">and its linestrings are not smooth.</tspan>
+  </text>
   <path class="leader" d="M255.1 326 L460 250"/>
 </svg>

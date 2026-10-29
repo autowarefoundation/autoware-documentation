@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" role="img" aria-labelledby="vm-07-04_height_en-title">
-  <title id="vm-07-04_height_en-title">A point on the terrain surface. Its ellipsoidal height is the distance down to the WGS84 ellipsoid surface. Its orthometric height is the distance down to the geoid.</title>
+  <title id="vm-07-04_height_en-title">
+    A point on the terrain surface. Its ellipsoidal height is the distance down to the WGS84 ellipsoid surface. Its orthometric height is the distance down to the geoid.
+  </title>
 
   <!-- Surfaces -->
   <path class="edge plain" d="M30 160 C120 90 200 120 260 100 C320 80 380 140 420 130 C470 118 520 70 600 80 C680 90 720 160 830 200"/>

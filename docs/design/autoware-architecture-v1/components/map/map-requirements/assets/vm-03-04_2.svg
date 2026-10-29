@@ -122,6 +122,9 @@
   <path class="bound" fill="none" d="M612 270 A172 172 0 0 1 440 98 L500 98 A112 112 0 0 0 612 210 Z"/>
 
   <!-- Note -->
-  <text class="note good" x="28" y="210"><tspan x="28">All lanelets in the intersection</tspan><tspan x="28" dy="17">are created.</tspan></text>
+  <text class="note good" x="28" y="210">
+    <tspan x="28">All lanelets in the intersection</tspan>
+    <tspan x="28" dy="17">are created.</tspan>
+  </text>
   <path class="leader" d="M248.4 206 L388 170"/>
 </svg>

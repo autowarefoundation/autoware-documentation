@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 500" role="img" aria-labelledby="map-interface-title">
-  <title id="map-interface-title">The Map component loads the point cloud map, the Lanelet2 map, and the map projector info from files. Localization and Perception use the point cloud map. Perception, Planning, and Control use the Lanelet2 map. RViz shows the map markers.</title>
+  <title id="map-interface-title">
+    The Map component loads the point cloud map, the Lanelet2 map, and the map projector info from files. Localization and Perception use the point cloud map. Perception, Planning, and Control use the
+    Lanelet2 map. RViz shows the map markers.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="500"/>

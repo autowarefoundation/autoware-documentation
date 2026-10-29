@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 494" role="img" aria-labelledby="radar-pointcloud-sensing-title">
-  <title id="radar-pointcloud-sensing-title">The radar driver publishes RadarScan. The noise filter removes noise. One branch converts the scan to PointCloud2 for low-level obstacle detection. The static points filter uses the ego odometry and sends the dynamic points to radar detection and tracking.</title>
+  <title id="radar-pointcloud-sensing-title">
+    The radar driver publishes RadarScan. The noise filter removes noise. One branch converts the scan to PointCloud2 for low-level obstacle detection. The static points filter uses the ego odometry
+    and sends the dynamic points to radar detection and tracking.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="494"/>

@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 770 260" role="img" aria-labelledby="adapi-motion-state-title">
-  <title id="adapi-motion-state-title">The motion state starts at STOPPED. When the vehicle tries to start, the state changes to STARTING, and the accept start API changes it to MOVING. If the accept is not required, the state changes from STOPPED to MOVING directly. When the vehicle stops, the state changes back to STOPPED. BRAKING is a planned state.</title>
+  <title id="adapi-motion-state-title">
+    The motion state starts at STOPPED. When the vehicle tries to start, the state changes to STARTING, and the accept start API changes it to MOVING. If the accept is not required, the state changes
+    from STOPPED to MOVING directly. When the vehicle stops, the state changes back to STOPPED. BRAKING is a planned state.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="770" height="260"/>

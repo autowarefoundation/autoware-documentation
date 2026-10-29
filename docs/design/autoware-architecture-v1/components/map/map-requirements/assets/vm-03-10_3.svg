@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" role="img" aria-labelledby="vm-03-10-3-title">
-  <title id="vm-03-10-3-title">The ego vehicle turns right at an intersection with traffic lights. Its lanelet is the right_of_way lanelet. The crossing lanes of the other signal phase are yield lanes. The opposing right turn is in the same signal phase and is not a yield lane.</title>
+  <title id="vm-03-10-3-title">
+    The ego vehicle turns right at an intersection with traffic lights. Its lanelet is the right_of_way lanelet. The crossing lanes of the other signal phase are yield lanes. The opposing right turn
+    is in the same signal phase and is not a yield lane.
+  </title>
 
   <!-- Roads -->
   <rect class="road" x="480" y="30" width="120" height="400"/>
@@ -126,6 +129,9 @@
   <text class="edge-lbl" x="316.5" y="209.4" text-anchor="middle" dominant-baseline="central">yield</text>
   <path class="edge" d="M230 198 L510 320"/>
   <text class="edge-lbl" x="347.6" y="249.2" text-anchor="middle" dominant-baseline="central">right_of_way</text>
-  <text class="note" x="612" y="30"><tspan x="612">Opposing right turn:</tspan><tspan x="612" dy="17">not a yield lane</tspan></text>
+  <text class="note" x="612" y="30">
+    <tspan x="612">Opposing right turn:</tspan>
+    <tspan x="612" dy="17">not a yield lane</tspan>
+  </text>
   <path class="leader" d="M606 26 L561 157"/>
 </svg>

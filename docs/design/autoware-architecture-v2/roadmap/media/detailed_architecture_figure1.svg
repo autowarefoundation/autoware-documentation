@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 380" role="img" aria-labelledby="roadmap-steps-title">
-  <title id="roadmap-steps-title">The steps from the traditional robotics stack to Step 1, learned planning, Step 2, learned planning and learned perception, Step 3, a monolithic learned driving model, and Step 4, a learned hybrid model.</title>
+  <title id="roadmap-steps-title">
+    The steps from the traditional robotics stack to Step 1, learned planning, Step 2, learned planning and learned perception, Step 3, a monolithic learned driving model, and Step 4, a learned hybrid
+    model.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="880" height="380"/>

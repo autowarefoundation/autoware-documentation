@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 300" role="img" aria-labelledby="vehicle-axes-title">
-  <title id="vehicle-axes-title">The base_link frame is on the ground below the center of the rear axle. The x axis points forward, the y axis points to the left, and the z axis points up. Roll, pitch, and yaw are the rotations around x, y, and z.</title>
+  <title id="vehicle-axes-title">
+    The base_link frame is on the ground below the center of the rear axle. The x axis points forward, the y axis points to the left, and the z axis points up. Roll, pitch, and yaw are the rotations
+    around x, y, and z.
+  </title>
 
   <!-- Background: a faint dot grid -->
   <rect class="dots" x="0" y="0" width="860" height="300"/>

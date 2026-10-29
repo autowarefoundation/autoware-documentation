@@ -1,5 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 468" role="img" aria-labelledby="planning-data-flow-title">
-  <title id="planning-data-flow-title">The planning data flow in Autoware 2.0.0. With planning_setting set to diffusion_planner, the Diffusion Planner sends candidate trajectories to the trajectory modifier, which sends the first candidate to the planning validator. With rule_based, scenario planning sends its trajectory to the planning validator. The validator publishes /planning/trajectory for control. The trajectory selector is not launched.</title>
+  <title id="planning-data-flow-title">
+    The planning data flow in Autoware 2.0.0. With planning_setting set to diffusion_planner, the Diffusion Planner sends candidate trajectories to the trajectory modifier, which sends the first
+    candidate to the planning validator. With rule_based, scenario planning sends its trajectory to the planning validator. The validator publishes /planning/trajectory for control. The trajectory
+    selector is not launched.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="468"/>

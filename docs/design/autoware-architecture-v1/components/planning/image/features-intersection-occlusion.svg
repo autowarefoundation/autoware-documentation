@@ -27,7 +27,13 @@
   <path class="area warn" d="M640 196 L760 160 V244 H640 Z"/>
 
   <!-- Large vehicle in the oncoming lane -->
-  <g class="truck" transform="translate(568 162) rotate(270 17 55)"><rect class="car-shadow" x="0" y="1" width="34" height="110" rx="6"/><rect class="truck-box" x="0" y="30" width="34" height="80" rx="4"/><path class="truck-rib" d="M3 46 H31 M3 62 H31 M3 78 H31 M3 94 H31"/><rect class="car-body npc" x="1" y="0" width="32" height="28" rx="8"/><path class="car-glass" d="M5 9 Q17 5.5 29 9 L27 16 Q17 14 7 16 Z"/></g>
+  <g class="truck" transform="translate(568 162) rotate(270 17 55)">
+    <rect class="car-shadow" x="0" y="1" width="34" height="110" rx="6"/>
+    <rect class="truck-box" x="0" y="30" width="34" height="80" rx="4"/>
+    <path class="truck-rib" d="M3 46 H31 M3 62 H31 M3 78 H31 M3 94 H31"/>
+    <rect class="car-body npc" x="1" y="0" width="32" height="28" rx="8"/>
+    <path class="car-glass" d="M5 9 Q17 5.5 29 9 L27 16 Q17 14 7 16 Z"/>
+  </g>
 
   <!-- Hidden vehicle -->
   <g transform="translate(701 197) rotate(270 11 20)">

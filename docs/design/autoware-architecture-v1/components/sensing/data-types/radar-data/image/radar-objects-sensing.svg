@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 644" role="img" aria-labelledby="radar-objects-sensing-title">
-  <title id="radar-objects-sensing-title">For each radar, the driver publishes RadarTracks, the noise filter removes noise tracks, and the message converter makes DetectedObjects in base_link with the ego odometry. The object merger merges all radars and sends the objects to perception.</title>
+  <title id="radar-objects-sensing-title">
+    For each radar, the driver publishes RadarTracks, the noise filter removes noise tracks, and the message converter makes DetectedObjects in base_link with the ego odometry. The object merger
+    merges all radars and sends the objects to perception.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="644"/>

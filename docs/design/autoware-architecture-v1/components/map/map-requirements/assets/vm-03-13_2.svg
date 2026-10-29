@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" role="img" aria-labelledby="vm-03-13-2-title">
-  <title id="vm-03-13-2-title">The lanelets where a private area joins a road. The lanelets in the private area have location private. The road lanelets have location urban. The sidewalk that the vehicles cross is a walkway lanelet, and the road shoulders are road_shoulder lanelets.</title>
+  <title id="vm-03-13-2-title">
+    The lanelets where a private area joins a road. The lanelets in the private area have location private. The road lanelets have location urban. The sidewalk that the vehicles cross is a walkway
+    lanelet, and the road shoulders are road_shoulder lanelets.
+  </title>
 
   <!-- The private area -->
   <rect class="road" x="420" y="20" width="120" height="150"/>
@@ -38,15 +41,29 @@
   <path class="lanelet alt" d="M480 160 L540 160 C540 230 560 262 620 262 L620 322 C530 322 480 270 480 160 Z"/>
 
   <!-- Notes -->
-  <text class="note" x="28" y="50"><tspan x="28">Lanelet</tspan><tspan class="code" x="28" dy="17">subtype: road</tspan><tspan class="code" x="28" dy="17">location: private</tspan></text>
+  <text class="note" x="28" y="50">
+    <tspan x="28">Lanelet</tspan>
+    <tspan class="code" x="28" dy="17">subtype: road</tspan>
+    <tspan class="code" x="28" dy="17">location: private</tspan>
+  </text>
   <path class="leader" d="M80.9 46 L450 60"/>
   <path class="leader" d="M80.9 46 L510 70"/>
   <path class="leader" d="M80.9 46 L450 130"/>
-  <text class="note" x="28" y="150"><tspan x="28">Lanelet</tspan><tspan class="code" x="28" dy="17">subtype: walkway</tspan></text>
+  <text class="note" x="28" y="150">
+    <tspan x="28">Lanelet</tspan>
+    <tspan class="code" x="28" dy="17">subtype: walkway</tspan>
+  </text>
   <path class="leader" d="M80.9 146 L300 175"/>
-  <text class="note" x="28" y="220"><tspan x="28">Lanelet</tspan><tspan class="code" x="28" dy="17">subtype: road_shoulder</tspan></text>
+  <text class="note" x="28" y="220">
+    <tspan x="28">Lanelet</tspan>
+    <tspan class="code" x="28" dy="17">subtype: road_shoulder</tspan>
+  </text>
   <path class="leader" d="M80.9 216 L290 196"/>
-  <text class="note" x="28" y="300"><tspan x="28">Lanelet</tspan><tspan class="code" x="28" dy="17">subtype: road</tspan><tspan class="code" x="28" dy="17">location: urban</tspan></text>
+  <text class="note" x="28" y="300">
+    <tspan x="28">Lanelet</tspan>
+    <tspan class="code" x="28" dy="17">subtype: road</tspan>
+    <tspan class="code" x="28" dy="17">location: urban</tspan>
+  </text>
   <path class="leader" d="M80.9 296 L290 240"/>
   <path class="leader" d="M80.9 296 L290 300"/>
 </svg>

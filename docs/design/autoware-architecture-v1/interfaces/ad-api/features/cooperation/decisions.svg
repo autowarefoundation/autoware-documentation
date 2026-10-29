@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 580" role="img" aria-labelledby="adapi-cooperation-decisions-title">
-  <title id="adapi-cooperation-decisions-title">The merged decision follows the operator decision if it is activate or deactivate. If the operator decision is none, the cooperation policy decides: required gives deactivate, and optional uses the module decision. If the operator decision is autonomous, the module decision is used.</title>
+  <title id="adapi-cooperation-decisions-title">
+    The merged decision follows the operator decision if it is activate or deactivate. If the operator decision is none, the cooperation policy decides: required gives deactivate, and optional uses
+    the module decision. If the operator decision is autonomous, the module decision is used.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="840" height="580"/>

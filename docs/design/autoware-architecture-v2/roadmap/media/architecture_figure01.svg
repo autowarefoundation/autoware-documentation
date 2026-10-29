@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 486" role="img" aria-labelledby="roadmap-stack-fig01-title">
-  <title id="roadmap-stack-fig01-title">The traditional robotics stack: sensing feeds computer vision perception and localization on an HD map. They build the local world representation for the robotics planning algorithms, which send the trajectory to control.</title>
+  <title id="roadmap-stack-fig01-title">
+    The traditional robotics stack: sensing feeds computer vision perception and localization on an HD map. They build the local world representation for the robotics planning algorithms, which send
+    the trajectory to control.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="486"/>

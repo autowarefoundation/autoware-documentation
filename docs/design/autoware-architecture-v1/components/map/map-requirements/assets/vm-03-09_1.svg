@@ -110,6 +110,9 @@
   <!-- Notes -->
   <text class="note" x="40" y="380">Stop line</text>
   <path class="leader" d="M106.3 376 L318 334"/>
-  <text class="note" x="600" y="380"><tspan x="600">The extended line</tspan><tspan x="600" dy="17">of the stop line</tspan></text>
+  <text class="note" x="600" y="380">
+    <tspan x="600">The extended line</tspan>
+    <tspan x="600" dy="17">of the stop line</tspan>
+  </text>
   <path class="leader" d="M594 376 L442 334"/>
 </svg>

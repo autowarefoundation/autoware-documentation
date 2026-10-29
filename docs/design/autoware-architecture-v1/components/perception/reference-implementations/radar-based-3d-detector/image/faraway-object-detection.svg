@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 676" role="img" aria-labelledby="faraway-object-detection-title">
-  <title id="faraway-object-detection-title">Radar tracks go through the crossing noise filter and the message converter in Sensing. The detected radar objects then go through the velocity and range filter and the vector map filter, and reach the multi-object tracker on the radar channel. Radar fusion to detected objects can also use the detected radar objects, but Autoware does not launch it.</title>
+  <title id="faraway-object-detection-title">
+    Radar tracks go through the crossing noise filter and the message converter in Sensing. The detected radar objects then go through the velocity and range filter and the vector map filter, and
+    reach the multi-object tracker on the radar channel. Radar fusion to detected objects can also use the detected radar objects, but Autoware does not launch it.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="676"/>

@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 318" role="img" aria-labelledby="adapi-operation-mode-architecture-title">
-  <title id="adapi-operation-mode-architecture-title">The stop, autonomous, remote, and local modes are inputs of the operation mode, which sends the command to the vehicle interface under Autoware control. The driver controls the vehicle interface directly under direct control.</title>
+  <title id="adapi-operation-mode-architecture-title">
+    The stop, autonomous, remote, and local modes are inputs of the operation mode, which sends the command to the vehicle interface under Autoware control. The driver controls the vehicle interface
+    directly under direct control.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="820" height="318"/>

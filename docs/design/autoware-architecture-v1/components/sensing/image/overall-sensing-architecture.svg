@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 410" role="img" aria-labelledby="overall-sensing-architecture-title">
-  <title id="overall-sensing-architecture-title">The sensing component reads the vehicle velocity, GNSS/INS, IMU, LiDAR, camera, and radar data. It preprocesses the data and sends it to localization and perception.</title>
+  <title id="overall-sensing-architecture-title">
+    The sensing component reads the vehicle velocity, GNSS/INS, IMU, LiDAR, camera, and radar data. It preprocesses the data and sends it to localization and perception.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="410"/>

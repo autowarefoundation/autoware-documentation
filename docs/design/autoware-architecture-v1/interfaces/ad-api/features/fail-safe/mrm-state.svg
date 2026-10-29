@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" role="img" aria-labelledby="adapi-mrm-state-title">
-  <title id="adapi-mrm-state-title">The MRM state starts at NORMAL. When an abnormality is detected, it changes to MRM_OPERATING. MRM_OPERATING changes to MRM_SUCCEEDED or MRM_FAILED, and both can change back to MRM_OPERATING. When the abnormality is resolved, the state changes back to NORMAL.</title>
+  <title id="adapi-mrm-state-title">
+    The MRM state starts at NORMAL. When an abnormality is detected, it changes to MRM_OPERATING. MRM_OPERATING changes to MRM_SUCCEEDED or MRM_FAILED, and both can change back to MRM_OPERATING. When
+    the abnormality is resolved, the state changes back to NORMAL.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="800" height="300"/>

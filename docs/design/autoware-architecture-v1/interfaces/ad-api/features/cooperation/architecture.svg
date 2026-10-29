@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 340" role="img" aria-labelledby="adapi-cooperation-architecture-title">
-  <title id="adapi-cooperation-architecture-title">Each scene class has a cooperation policy that the system settings initialize and the operator can set. Each scene instance merges the module decision from the planning module, the operator decision, and the cooperation policy into the merged decision. The planning module uses the merged decision, and the operator receives the cooperation status.</title>
+  <title id="adapi-cooperation-architecture-title">
+    Each scene class has a cooperation policy that the system settings initialize and the operator can set. Each scene instance merges the module decision from the planning module, the operator
+    decision, and the cooperation policy into the merged decision. The planning module uses the merged decision, and the operator receives the cooperation status.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="340"/>

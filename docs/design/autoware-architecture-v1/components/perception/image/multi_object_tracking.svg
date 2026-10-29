@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 662" role="img" aria-labelledby="multi-object-tracking-title">
-  <title id="multi-object-tracking-title">Up to 12 detection channels send objects to the input manager. For each batch of objects, the tracker predicts its tracks, associates the objects, updates the matched tracks, prunes old tracks, and spawns new tracks. A timer publishes the tracked objects to prediction.</title>
+  <title id="multi-object-tracking-title">
+    Up to 12 detection channels send objects to the input manager. For each batch of objects, the tracker predicts its tracks, associates the objects, updates the matched tracks, prunes old
+    tracks, and spawns new tracks. A timer publishes the tracked objects to prediction.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="662"/>

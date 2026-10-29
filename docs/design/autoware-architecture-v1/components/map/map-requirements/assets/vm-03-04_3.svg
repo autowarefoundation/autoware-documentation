@@ -103,6 +103,9 @@
   <path class="lanelet" d="M440 322 A52 52 0 0 0 388 270 L388 210 A112 112 0 0 1 500 322 Z"/>
 
   <!-- Note -->
-  <text class="note bad" x="28" y="210"><tspan x="28">Only the lanelets that the ego vehicle</tspan><tspan x="28" dy="17">uses are created. The map is incomplete.</tspan></text>
+  <text class="note bad" x="28" y="210">
+    <tspan x="28">Only the lanelets that the ego vehicle</tspan>
+    <tspan x="28" dy="17">uses are created. The map is incomplete.</tspan>
+  </text>
   <path class="leader" d="M288.6 206 L440 260"/>
 </svg>

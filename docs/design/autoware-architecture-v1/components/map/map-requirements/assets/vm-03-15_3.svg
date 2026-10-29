@@ -18,10 +18,16 @@
   <path class="bound" d="M540 20 L540 380"/>
 
   <!-- Notes -->
-  <text class="note" x="28" y="80"><tspan x="28">Lanelet</tspan><tspan class="code" x="28" dy="17">subtype: bicycle_lane</tspan></text>
+  <text class="note" x="28" y="80">
+    <tspan x="28">Lanelet</tspan>
+    <tspan class="code" x="28" dy="17">subtype: bicycle_lane</tspan>
+  </text>
   <path class="leader" d="M80.9 76 L405 80"/>
   <path class="leader" d="M80.9 76 L555 110"/>
-  <text class="note" x="28" y="210"><tspan x="28">Lanelet</tspan><tspan class="code" x="28" dy="17">subtype: road</tspan></text>
+  <text class="note" x="28" y="210">
+    <tspan x="28">Lanelet</tspan>
+    <tspan class="code" x="28" dy="17">subtype: road</tspan>
+  </text>
   <path class="leader" d="M80.9 206 L450 210"/>
   <path class="leader" d="M80.9 206 L510 240"/>
   <text class="note" x="28" y="330">Shared linestring</text>

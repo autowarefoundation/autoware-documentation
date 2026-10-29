@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 770 124" role="img" aria-labelledby="adapi-localization-state-title">
-  <title id="adapi-localization-state-title">The localization initialization state starts at UNINITIALIZED. An initialize request changes it to INITIALIZING, which changes to INITIALIZED on success or back to UNINITIALIZED on failure. From INITIALIZED, a new request changes it to INITIALIZING again.</title>
+  <title id="adapi-localization-state-title">
+    The localization initialization state starts at UNINITIALIZED. An initialize request changes it to INITIALIZING, which changes to INITIALIZED on success or back to UNINITIALIZED on failure. From
+    INITIALIZED, a new request changes it to INITIALIZING again.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="770" height="124"/>

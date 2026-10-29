@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 572" role="img" aria-labelledby="adapi-launch-terminate-title">
-  <title id="adapi-launch-terminate-title">The user powers on the computer. The operating system starts the application, which starts Autoware with the AD API, checks the interface version, and later stops Autoware before the shutdown.</title>
+  <title id="adapi-launch-terminate-title">
+    The user powers on the computer. The operating system starts the application, which starts Autoware with the AD API, checks the interface version, and later stops Autoware before the shutdown.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="840" height="572"/>

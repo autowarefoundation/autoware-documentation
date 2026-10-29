@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 280" role="img" aria-labelledby="adapi-steering-factors-2-title">
-  <title id="adapi-steering-factors-2-title">The vehicle changes lanes. The steering factor has the status APPROACHING before the lane change and TURNING during it. The section between the start pose and the end pose can move forward while the vehicle drives.</title>
+  <title id="adapi-steering-factors-2-title">
+    The vehicle changes lanes. The steering factor has the status APPROACHING before the lane change and TURNING during it. The section between the start pose and the end pose can move forward while
+    the vehicle drives.
+  </title>
 
   <!-- Status -->
   <circle class="icon" cx="22" cy="36" r="9"/>

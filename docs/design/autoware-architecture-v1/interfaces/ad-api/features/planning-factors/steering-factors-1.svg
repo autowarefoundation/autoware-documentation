@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 320" role="img" aria-labelledby="adapi-steering-factors-1-title">
-  <title id="adapi-steering-factors-1-title">The vehicle turns left at an intersection. The steering factor has the status APPROACHING before the turn and TURNING between the start pose and the end pose of the turn.</title>
+  <title id="adapi-steering-factors-1-title">
+    The vehicle turns left at an intersection. The steering factor has the status APPROACHING before the turn and TURNING between the start pose and the end pose of the turn.
+  </title>
 
   <!-- Status -->
   <circle class="icon" cx="22" cy="36" r="9"/>

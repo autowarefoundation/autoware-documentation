@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" role="img" aria-labelledby="radar-communication-title">
-  <title id="radar-communication-title">The radar device sends scans, tracked objects, and diagnostics to the ROS driver. The ROS driver sends time synchronization and the ego vehicle status to the radar device.</title>
+  <title id="radar-communication-title">
+    The radar device sends scans, tracked objects, and diagnostics to the ROS driver. The ROS driver sends time synchronization and the ego vehicle status to the radar device.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="720" height="200"/>

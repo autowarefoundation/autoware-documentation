@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" role="img" aria-labelledby="vm-05-02_1-title">
-  <title id="vm-05-02_1-title">A crosswalk with a pedestrian traffic light at each end. The crosswalk lanelet refers to a traffic_light regulatory element, which refers to the traffic_light linestrings of both pedestrian lights.</title>
+  <title id="vm-05-02_1-title">
+    A crosswalk with a pedestrian traffic light at each end. The crosswalk lanelet refers to a traffic_light regulatory element, which refers to the traffic_light linestrings of both pedestrian
+    lights.
+  </title>
 
   <!-- Road: two lanes -->
   <rect class="road" x="20" y="140" width="560" height="120"/>

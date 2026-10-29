@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 580" role="img" aria-labelledby="control-component-title">
-  <title id="control-component-title">The trajectory follower follows the trajectory from planning and sends a control command to the vehicle command gate. The shift decider, the external command selector, and the system emergency commands also go to the gate. The gate selects one source and sends the commands to the vehicle interface. The control checkers report diagnostics to the system.</title>
+  <title id="control-component-title">
+    The trajectory follower follows the trajectory from planning and sends a control command to the vehicle command gate. The shift decider, the external command selector, and the system emergency
+    commands also go to the gate. The gate selects one source and sends the commands to the vehicle interface. The control checkers report diagnostics to the system.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="580"/>

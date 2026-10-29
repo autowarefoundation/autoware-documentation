@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" role="img" aria-labelledby="new-feature-title">
-  <title id="new-feature-title">Components A, B, and C connect to each other only through the component interface. A component for a new feature or new hardware connects to the same interface, so its developers need to know only the interface.</title>
+  <title id="new-feature-title">
+    Components A, B, and C connect to each other only through the component interface. A component for a new feature or new hardware connects to the same interface, so its developers need to know only
+    the interface.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="760" height="380"/>

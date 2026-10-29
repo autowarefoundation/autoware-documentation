@@ -11,8 +11,17 @@
   <path class="area" d="M520 112 L640 110 L670 150 L540 156 Z"/>
 
   <!-- Objects in the detection area -->
-  <g class="obstacle"><ellipse class="car-shadow" cx="570" cy="146" rx="13" ry="3"/><rect class="cone-base" x="557" y="141" width="26" height="5" rx="2"/><path class="cone" d="M570 121 L580 142 H560 Z"/><path class="cone-stripe" d="M564.6 132.5 H575.4"/></g>
-  <g class="pedestrian"><ellipse class="car-shadow" cx="620" cy="149" rx="8" ry="2.5"/><path class="ped-body" d="M613 148 V137 Q613 130 620 130 Q627 130 627 137 V148 Z"/><circle class="ped-head" cx="620" cy="123" r="5.5"/></g>
+  <g class="obstacle">
+    <ellipse class="car-shadow" cx="570" cy="146" rx="13" ry="3"/>
+    <rect class="cone-base" x="557" y="141" width="26" height="5" rx="2"/>
+    <path class="cone" d="M570 121 L580 142 H560 Z"/>
+    <path class="cone-stripe" d="M564.6 132.5 H575.4"/>
+  </g>
+  <g class="pedestrian">
+    <ellipse class="car-shadow" cx="620" cy="149" rx="8" ry="2.5"/>
+    <path class="ped-body" d="M613 148 V137 Q613 130 620 130 Q627 130 627 137 V148 Z"/>
+    <circle class="ped-head" cx="620" cy="123" r="5.5"/>
+  </g>
 
   <!-- Stop line of the detection area -->
   <line class="mark thick" x1="480" y1="52" x2="480" y2="102"/>

@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 486" role="img" aria-labelledby="adapi-diagnostics-tree-title">
-  <title id="adapi-diagnostics-tree-title">An example diagnostic graph. The camera diagnostic is ERROR, so the perception node and the autonomous mode node are ERROR. All other nodes are OK. Links connect each child node to its parent nodes, and each leaf diagnostic belongs to one sensor or vehicle node.</title>
+  <title id="adapi-diagnostics-tree-title">
+    An example diagnostic graph. The camera diagnostic is ERROR, so the perception node and the autonomous mode node are ERROR. All other nodes are OK. Links connect each child node to its parent
+    nodes, and each leaf diagnostic belongs to one sensor or vehicle node.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="486"/>

@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" role="img" aria-labelledby="vm-03-06-2-title">
-  <title id="vm-03-06-2-title">The lanelets follow the guide lines, and their bounds along the guide lines are linestrings of type line_thin and subtype dashed. When a lanelet branches, the branch starts at the end of the guide lines.</title>
+  <title id="vm-03-06-2-title">
+    The lanelets follow the guide lines, and their bounds along the guide lines are linestrings of type line_thin and subtype dashed. When a lanelet branches, the branch starts at the end of the guide
+    lines.
+  </title>
 
   <!-- Left: one lane to one lane -->
 
@@ -260,12 +263,23 @@
   <path class="bound alt" d="M588 218 L630.4 260.4"/>
 
   <!-- Notes -->
-  <text class="note" x="28" y="470"><tspan x="28">Linestring</tspan><tspan class="code" x="28" dy="17">type: line_thin</tspan><tspan class="code" x="28" dy="17">subtype: dashed</tspan></text>
+  <text class="note" x="28" y="470">
+    <tspan x="28">Linestring</tspan>
+    <tspan class="code" x="28" dy="17">type: line_thin</tspan>
+    <tspan class="code" x="28" dy="17">subtype: dashed</tspan>
+  </text>
   <path class="leader" d="M101 466 L140.4 263.2"/>
   <path class="leader" d="M101 466 L200.5 274.7"/>
-  <text class="note" x="300" y="470"><tspan x="300">Linestring</tspan><tspan class="code" x="300" dy="17">type: line_thin</tspan><tspan class="code" x="300" dy="17">subtype: dashed</tspan></text>
+  <text class="note" x="300" y="470">
+    <tspan x="300">Linestring</tspan>
+    <tspan class="code" x="300" dy="17">type: line_thin</tspan>
+    <tspan class="code" x="300" dy="17">subtype: dashed</tspan>
+  </text>
   <path class="leader" d="M373 466 L534 302.7"/>
   <path class="leader" d="M373 466 L596.1 309.3"/>
-  <text class="note" x="540" y="500"><tspan x="540">When a lanelet branches, the branch</tspan><tspan x="540" dy="17">starts at the end of the guide line.</tspan></text>
+  <text class="note" x="540" y="500">
+    <tspan x="540">When a lanelet branches, the branch</tspan>
+    <tspan x="540" dy="17">starts at the end of the guide line.</tspan>
+  </text>
   <path class="leader" d="M534 496 L609.2 239.2"/>
 </svg>

@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 600" role="img" aria-labelledby="object-recognition-channels-title">
-  <title id="object-recognition-channels-title">Nine kinds of detectors send detected objects to the multi-object tracker, each on its own input channel. Base 3D detection and LiDAR clustering run by default. The tracker sends tracked objects to prediction, and prediction sends predicted objects to Planning.</title>
+  <title id="object-recognition-channels-title">
+    Nine kinds of detectors send detected objects to the multi-object tracker, each on its own input channel. Base 3D detection and LiDAR clustering run by default. The tracker sends tracked objects
+    to prediction, and prediction sends predicted objects to Planning.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="600"/>

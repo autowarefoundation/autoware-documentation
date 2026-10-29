@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" role="img" aria-labelledby="vm-06-01_3-title">
-  <title id="vm-06-01_3-title">Left: a hatched_road_markings polygon covers a buffer zone and shares points with the lanes next to it. Right: at an intersection, the hatched_road_markings polygons at the ends of the median strip overlap the intersection_area polygon.</title>
+  <title id="vm-06-01_3-title">
+    Left: a hatched_road_markings polygon covers a buffer zone and shares points with the lanes next to it. Right: at an intersection, the hatched_road_markings polygons at the ends of the median
+    strip overlap the intersection_area polygon.
+  </title>
 
   <!-- Left: a buffer zone on a straight road -->
   <rect class="road" x="20" y="150" width="300" height="180"/>

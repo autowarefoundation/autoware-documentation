@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 1154" role="img" aria-labelledby="node-diagram-title">
-  <title id="node-diagram-title">An overview of the main nodes of Autoware in the default setup of autoware_launch. Sensing and Map feed Localization and Perception. Planning uses the kinematic state, the objects, the traffic signals, and the vector map to make the trajectory. Control follows the trajectory and sends commands to the vehicle interface. System and the AD API run beside them.</title>
+  <title id="node-diagram-title">
+    An overview of the main nodes of Autoware in the default setup of autoware_launch. Sensing and Map feed Localization and Perception. Planning uses the kinematic state, the objects, the traffic
+    signals, and the vector map to make the trajectory. Control follows the trajectory and sends commands to the vehicle interface. System and the AD API run beside them.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="1154"/>

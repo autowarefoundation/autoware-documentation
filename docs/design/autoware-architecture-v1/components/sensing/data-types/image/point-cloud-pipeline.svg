@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 784" role="img" aria-labelledby="point-cloud-pipeline-title">
-  <title id="point-cloud-pipeline-title">For each LiDAR, the driver output goes through two crop box filters, the distortion corrector, and the ring outlier filter. The concatenation node merges the point clouds of all LiDARs and sends them to perception and localization.</title>
+  <title id="point-cloud-pipeline-title">
+    For each LiDAR, the driver output goes through two crop box filters, the distortion corrector, and the ring outlier filter. The concatenation node merges the point clouds of all LiDARs and sends
+    them to perception and localization.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="784"/>

@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 404" role="img" aria-labelledby="vm-05-03_2-title">
-  <title id="vm-05-03_2-title">A crosswalk across a two-lane road. The road lanelet refers to a crosswalk regulatory element. The regulatory element refers to the crosswalk lanelet, the crosswalk polygon, and the stop lines of both lanes. The crosswalk lanelet has the tags safety_slow_down_speed and safety_slow_down_distance.</title>
+  <title id="vm-05-03_2-title">
+    A crosswalk across a two-lane road. The road lanelet refers to a crosswalk regulatory element. The regulatory element refers to the crosswalk lanelet, the crosswalk polygon, and the stop lines of
+    both lanes. The crosswalk lanelet has the tags safety_slow_down_speed and safety_slow_down_distance.
+  </title>
 
   <!-- Road: two lanes, left-hand traffic, the road lanelet is the upper lane (traffic to the right) -->
   <rect class="road" x="20" y="150" width="820" height="120"/>

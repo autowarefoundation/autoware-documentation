@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" role="img" aria-labelledby="vm-03-02-2-title">
-  <title id="vm-03-02-2-title">The lanelets of a T-junction. The lanelet that turns left has turn_direction left. The lanelet that goes straight through the junction has turn_direction straight. The right bound of the left-turn lanelet has no paint, so it is a linestring of type virtual.</title>
+  <title id="vm-03-02-2-title">
+    The lanelets of a T-junction. The lanelet that turns left has turn_direction left. The lanelet that goes straight through the junction has turn_direction straight. The right bound of the left-turn
+    lanelet has no paint, so it is a linestring of type virtual.
+  </title>
 
   <!-- Roads -->
   <rect class="road" x="170" y="40" width="420" height="120"/>
@@ -51,11 +54,20 @@
   <path class="route head" d="M280 130 L200 130"/>
 
   <!-- Notes -->
-  <text class="note" x="60" y="236"><tspan x="60">Lanelet</tspan><tspan class="code" x="60" dy="17">turn_direction: left</tspan></text>
+  <text class="note" x="60" y="236">
+    <tspan x="60">Lanelet</tspan>
+    <tspan class="code" x="60" dy="17">turn_direction: left</tspan>
+  </text>
   <path class="leader" d="M112.9 232 L330 152"/>
-  <text class="note" x="560" y="236"><tspan x="560">Lanelet</tspan><tspan class="code" x="560" dy="17">turn_direction: straight</tspan></text>
+  <text class="note" x="560" y="236">
+    <tspan x="560">Lanelet</tspan>
+    <tspan class="code" x="560" dy="17">turn_direction: straight</tspan>
+  </text>
   <path class="leader" d="M554 232 L420 150"/>
-  <text class="note" x="560" y="312"><tspan x="560">Linestring</tspan><tspan class="code" x="560" dy="17">type: virtual</tspan></text>
+  <text class="note" x="560" y="312">
+    <tspan x="560">Linestring</tspan>
+    <tspan class="code" x="560" dy="17">type: virtual</tspan>
+  </text>
   <path class="leader" d="M554 308 L369 140"/>
   <text class="note" x="60" y="312">Lanelet</text>
   <path class="leader" d="M112.9 308 L330 360"/>

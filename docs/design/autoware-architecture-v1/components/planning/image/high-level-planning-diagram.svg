@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 730" role="img" aria-labelledby="high-level-planning-diagram-title">
-  <title id="high-level-planning-diagram-title">The high-level design of the planning component: mission planning, behavior and motion planning modules, and validation, with inputs from other components and the trajectory output to Control.</title>
+  <title id="high-level-planning-diagram-title">
+    The high-level design of the planning component: mission planning, behavior and motion planning modules, and validation, with inputs from other components and the trajectory output to Control.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="730"/>

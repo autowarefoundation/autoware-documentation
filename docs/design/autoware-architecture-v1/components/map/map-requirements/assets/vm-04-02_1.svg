@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 380" role="img" aria-labelledby="vm-04-02_1-title">
-  <title id="vm-04-02_1-title">Front view of a horizontal and a vertical traffic light. The traffic_light linestring runs along the bottom edge from the left end (point 1) to the right end (point 2). The subtype is red_yellow_green. The height tag gives the size of the light. The points have the real 3D position of the light.</title>
+  <title id="vm-04-02_1-title">
+    Front view of a horizontal and a vertical traffic light. The traffic_light linestring runs along the bottom edge from the left end (point 1) to the right end (point 2). The subtype is
+    red_yellow_green. The height tag gives the size of the light. The points have the real 3D position of the light.
+  </title>
 
   <!-- Horizontal traffic light -->
   <rect class="light-housing" x="220" y="70" width="170" height="70" rx="10"/>

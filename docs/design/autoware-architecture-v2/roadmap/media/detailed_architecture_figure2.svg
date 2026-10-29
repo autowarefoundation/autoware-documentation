@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 436" role="img" aria-labelledby="roadmap-generator-selector-title">
-  <title id="roadmap-generator-selector-title">The vehicle sends sensor data through the sensor abstraction layer and sensing to the generator. The generator holds robotics, learned, and proprietary models that make candidate trajectories. The selector checks and ranks them, and sends one trajectory to the controller, which drives the vehicle through the vehicle abstraction layer.</title>
+  <title id="roadmap-generator-selector-title">
+    The vehicle sends sensor data through the sensor abstraction layer and sensing to the generator. The generator holds robotics, learned, and proprietary models that make candidate trajectories. The
+    selector checks and ranks them, and sends one trajectory to the controller, which drives the vehicle through the vehicle abstraction layer.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="436"/>

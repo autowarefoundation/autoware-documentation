@@ -19,7 +19,11 @@
   <rect class="lanelet bad" x="480" y="63" width="240" height="28"/>
 
   <!-- Pedestrian who walks onto the crosswalk -->
-  <g class="pedestrian"><ellipse class="car-shadow" cx="524" cy="37" rx="8" ry="2.5"/><path class="ped-body" d="M517 36 V25 Q517 18 524 18 Q531 18 531 25 V36 Z"/><circle class="ped-head" cx="524" cy="11" r="5.5"/></g>
+  <g class="pedestrian">
+    <ellipse class="car-shadow" cx="524" cy="37" rx="8" ry="2.5"/>
+    <path class="ped-body" d="M517 36 V25 Q517 18 524 18 Q531 18 531 25 V36 Z"/>
+    <circle class="ped-head" cx="524" cy="11" r="5.5"/>
+  </g>
   <path class="edge accent" d="M540 30 L540 64"/>
 
   <!-- Planned path and stop point -->

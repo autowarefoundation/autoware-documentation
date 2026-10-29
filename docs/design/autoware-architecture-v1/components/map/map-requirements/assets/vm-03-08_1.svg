@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 480" role="img" aria-labelledby="vm-03-08-1-title">
-  <title id="vm-03-08-1-title">The intersection area is a polygon of type intersection_area. Its boundary follows the road border linestrings at the corners and the lanelet connection boundaries across the roads.</title>
+  <title id="vm-03-08-1-title">
+    The intersection area is a polygon of type intersection_area. Its boundary follows the road border linestrings at the corners and the lanelet connection boundaries across the roads.
+  </title>
 
   <!-- Roads -->
   <rect class="road" x="360" y="20" width="240" height="440"/>
@@ -124,7 +126,10 @@
   <path class="mark thick" d="M610 126 L642 126"/>
 
   <!-- The intersection_area polygon -->
-  <path class="area" d="M360 412 L600 412 L600 412 A52 52 0 0 1 652 360 L652 360 L652 120 L652 120 A52 52 0 0 1 600 68 L600 68 L360 68 L360 68 A52 52 0 0 1 308 120 L308 120 L308 360 L308 360 A52 52 0 0 1 360 412 Z"/>
+  <path
+    class="area"
+    d="M360 412 L600 412 L600 412 A52 52 0 0 1 652 360 L652 360 L652 120 L652 120 A52 52 0 0 1 600 68 L600 68 L360 68 L360 68 A52 52 0 0 1 308 120 L308 120 L308 360 L308 360 A52 52 0 0 1 360 412 Z"
+  />
 
   <!-- Road borders and lanelet connection boundaries -->
   <path class="bound" fill="none" d="M600 412 L600 412 A52 52 0 0 1 652 360 L652 360"/>
@@ -137,9 +142,15 @@
   <path class="bound alt" d="M652 360 L652 120"/>
 
   <!-- Notes -->
-  <text class="note" x="28" y="70"><tspan x="28">Linestring</tspan><tspan class="code" x="28" dy="17">type: road_border</tspan></text>
+  <text class="note" x="28" y="70">
+    <tspan x="28">Linestring</tspan>
+    <tspan class="code" x="28" dy="17">type: road_border</tspan>
+  </text>
   <path class="leader" d="M101 66 L344.8 104.8"/>
-  <text class="note" x="28" y="250"><tspan x="28">Polygon</tspan><tspan class="code" x="28" dy="17">type: intersection_area</tspan></text>
+  <text class="note" x="28" y="250">
+    <tspan x="28">Polygon</tspan>
+    <tspan class="code" x="28" dy="17">type: intersection_area</tspan>
+  </text>
   <path class="leader" d="M80.9 246 L480 270"/>
   <text class="note" x="28" y="420">Lanelet connection boundary</text>
   <path class="leader" d="M214.9 416 L420 412"/>

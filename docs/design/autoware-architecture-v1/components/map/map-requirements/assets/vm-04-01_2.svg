@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 440" role="img" aria-labelledby="vm-04-01_2-title">
-  <title id="vm-04-01_2-title">A road lanelet turns right at a T-junction and overlaps a crosswalk lanelet. It refers to a traffic_light regulatory element. The regulatory element refers to the stop_line linestring as ref_line, to the traffic_light linestring as refers, and to the light_bulbs linestring as light_bulbs.</title>
+  <title id="vm-04-01_2-title">
+    A road lanelet turns right at a T-junction and overlaps a crosswalk lanelet. It refers to a traffic_light regulatory element. The regulatory element refers to the stop_line linestring as
+    ref_line, to the traffic_light linestring as refers, and to the light_bulbs linestring as light_bulbs.
+  </title>
 
   <!-- Roads: a road from the left meets a north-south road -->
   <rect class="road" x="300" y="20" width="120" height="420"/>

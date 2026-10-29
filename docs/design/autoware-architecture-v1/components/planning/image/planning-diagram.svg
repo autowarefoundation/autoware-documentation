@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 1110" role="img" aria-labelledby="planning-diagram-title">
-  <title id="planning-diagram-title">The reference implementation of the planning component: mission planning, scenario planning with lane driving and parking, the velocity smoother, and the planning validator, with the Diffusion Planner as an optional trajectory source.</title>
+  <title id="planning-diagram-title">
+    The reference implementation of the planning component: mission planning, scenario planning with lane driving and parking, the velocity smoother, and the planning validator, with the Diffusion
+    Planner as an optional trajectory source.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="1110"/>

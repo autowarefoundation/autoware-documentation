@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" role="img" aria-labelledby="vm-06-05_1-title">
-  <title id="vm-06-05_1-title">A road lanelet ends at a stop line before a T-junction. It refers to a detection_area regulatory element. The regulatory element refers to the stop_line linestring as ref_line and to a detection_area polygon on the crossing road as refers.</title>
+  <title id="vm-06-05_1-title">
+    A road lanelet ends at a stop line before a T-junction. It refers to a detection_area regulatory element. The regulatory element refers to the stop_line linestring as ref_line and to a
+    detection_area polygon on the crossing road as refers.
+  </title>
 
   <!-- Roads: a road from the left meets a north-south road -->
   <rect class="road" x="300" y="20" width="120" height="420"/>

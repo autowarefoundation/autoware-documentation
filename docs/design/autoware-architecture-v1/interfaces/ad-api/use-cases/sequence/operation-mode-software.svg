@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 470" role="img" aria-labelledby="adapi-operation-mode-software-title">
-  <title id="adapi-operation-mode-software-title">The operator asks the application to change the mode. The application calls the operation mode API, AD API changes the mode, and the new state goes back to the operator.</title>
+  <title id="adapi-operation-mode-software-title">
+    The operator asks the application to change the mode. The application calls the operation mode API, AD API changes the mode, and the new state goes back to the operator.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="840" height="470"/>

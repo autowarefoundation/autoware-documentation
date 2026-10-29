@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 440" role="img" aria-labelledby="vm-03-11-1-title">
-  <title id="vm-03-11-1-title">Two scenes in an intersection without traffic lights. In case 1, the ego vehicle goes straight on the priority road. In case 2, the ego vehicle goes straight on the non-priority road.</title>
+  <title id="vm-03-11-1-title">
+    Two scenes in an intersection without traffic lights. In case 1, the ego vehicle goes straight on the priority road. In case 2, the ego vehicle goes straight on the non-priority road.
+  </title>
 
   <!-- Roads -->
   <rect class="road" x="140" y="20" width="120" height="350"/>

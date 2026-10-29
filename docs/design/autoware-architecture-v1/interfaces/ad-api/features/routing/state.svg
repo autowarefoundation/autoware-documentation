@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 770 226" role="img" aria-labelledby="adapi-routing-state-title">
-  <title id="adapi-routing-state-title">The route state starts at UNSET. Setting a route changes it to SET, and clearing the route changes it back to UNSET. A route change goes from SET to CHANGING and back to SET. When the vehicle arrives, the state changes to ARRIVED, and clearing the route changes it to UNSET.</title>
+  <title id="adapi-routing-state-title">
+    The route state starts at UNSET. Setting a route changes it to SET, and clearing the route changes it back to UNSET. A route change goes from SET to CHANGING and back to SET. When the vehicle
+    arrives, the state changes to ARRIVED, and clearing the route changes it to UNSET.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="770" height="226"/>

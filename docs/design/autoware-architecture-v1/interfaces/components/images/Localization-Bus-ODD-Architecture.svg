@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 570" role="img" aria-labelledby="localization-interface-title">
-  <title id="localization-interface-title">In the default Localization setup, the NDT scan matcher matches the LiDAR point cloud to the point cloud map, and the gyro odometer combines the IMU and the vehicle twist. The EKF localizer fuses both into the kinematic state, which goes to Planning and Control. The pose initializer gives the first pose.</title>
+  <title id="localization-interface-title">
+    In the default Localization setup, the NDT scan matcher matches the LiDAR point cloud to the point cloud map, and the gyro odometer combines the IMU and the vehicle twist. The EKF localizer fuses
+    both into the kinematic state, which goes to Planning and Control. The pose initializer gives the first pose.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="570"/>

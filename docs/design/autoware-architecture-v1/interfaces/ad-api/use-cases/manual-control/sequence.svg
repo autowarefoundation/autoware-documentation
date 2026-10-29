@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 480" role="img" aria-labelledby="adapi-manual-control-title">
-  <title id="adapi-manual-control-title">The application selects a manual control mode, changes the operation mode to remote, and then sends commands and the operator heartbeat while it receives the vehicle status.</title>
+  <title id="adapi-manual-control-title">
+    The application selects a manual control mode, changes the operation mode to remote, and then sends commands and the operator heartbeat while it receives the vehicle status.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="760" height="480"/>

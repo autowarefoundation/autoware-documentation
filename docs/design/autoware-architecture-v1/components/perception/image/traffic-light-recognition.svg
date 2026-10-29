@@ -1,5 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 440" role="img" aria-labelledby="traffic-light-recognition-title">
-  <title id="traffic-light-recognition-title">For each traffic light camera, the map-based detector makes rough regions of interest, the fine detector refines them, the car and pedestrian classifiers find the signal states, and the occlusion predictor marks hidden signals. Then multi-camera fusion combines the cameras, the arbiter adds the V2X signals, and the crosswalk estimator completes the pedestrian signals and sends the result to Planning.</title>
+  <title id="traffic-light-recognition-title">
+    For each traffic light camera, the map-based detector makes rough regions of interest, the fine detector refines them, the car and pedestrian classifiers find the signal states, and the occlusion
+    predictor marks hidden signals. Then multi-camera fusion combines the cameras, the arbiter adds the V2X signals, and the crosswalk estimator completes the pedestrian signals and sends the result
+    to Planning.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="440"/>

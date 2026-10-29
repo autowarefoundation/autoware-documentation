@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 250" role="img" aria-labelledby="interface-hierarchy-title">
-  <title id="interface-hierarchy-title">The same component, with two inputs and one output, has three possible next-level architectures: a monolithic one, type A with sub-components in parallel, and type B with sub-components in series.</title>
+  <title id="interface-hierarchy-title">
+    The same component, with two inputs and one output, has three possible next-level architectures: a monolithic one, type A with sub-components in parallel, and type B with sub-components in series.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="250"/>

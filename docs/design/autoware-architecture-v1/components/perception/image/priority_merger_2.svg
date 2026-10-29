@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 390" role="img" aria-labelledby="priority-merger-2-title">
-  <title id="priority-merger-2-title">Timing of the multi-channel tracker. The tracker updates its tracks with each detection result when it arrives. A timer publishes the tracks at a fixed rate. When the cluster-based result of frame t+1 is lost, the tracker still updates with the base 3D result and still publishes.</title>
+  <title id="priority-merger-2-title">
+    Timing of the multi-channel tracker. The tracker updates its tracks with each detection result when it arrives. A timer publishes the tracks at a fixed rate. When the cluster-based result of frame
+    t+1 is lost, the tracker still updates with the base 3D result and still publishes.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="390"/>

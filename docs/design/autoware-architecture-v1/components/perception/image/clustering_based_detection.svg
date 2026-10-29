@@ -1,5 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 806" role="img" aria-labelledby="clustering-based-detection-title">
-  <title id="clustering-based-detection-title">The pointcloud map filter removes the points of the obstacle point cloud that match the point cloud map. In LiDAR clustering, Euclidean clustering, a convex hull conversion, and the lanelet filter make objects for the lidar_clustering channel. In camera-LiDAR fusion, an optional segmentation filter, Euclidean clustering, ROI cluster fusion with a 2D detector, the low-intensity filter, a convex hull conversion, and the lanelet filter make objects for the camera_lidar_fusion channel. Both go to the multi-object tracker.</title>
+  <title id="clustering-based-detection-title">
+    The pointcloud map filter removes the points of the obstacle point cloud that match the point cloud map. In LiDAR clustering, Euclidean clustering, a convex hull conversion, and the lanelet filter
+    make objects for the lidar_clustering channel. In camera-LiDAR fusion, an optional segmentation filter, Euclidean clustering, ROI cluster fusion with a 2D detector, the low-intensity filter, a
+    convex hull conversion, and the lanelet filter make objects for the camera_lidar_fusion channel. Both go to the multi-object tracker.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="806"/>

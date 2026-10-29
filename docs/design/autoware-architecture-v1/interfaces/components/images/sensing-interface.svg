@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 470" role="img" aria-labelledby="sensing-interface-title">
-  <title id="sensing-interface-title">Sensing preprocesses the data of each sensor driver. Camera images, radar objects, and the LiDAR point cloud go to Perception. The LiDAR point cloud, the GNSS pose, the IMU data, and the vehicle twist go to Localization.</title>
+  <title id="sensing-interface-title">
+    Sensing preprocesses the data of each sensor driver. Camera images, radar objects, and the LiDAR point cloud go to Perception. The LiDAR point cloud, the GNSS pose, the IMU data, and the vehicle
+    twist go to Localization.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="470"/>

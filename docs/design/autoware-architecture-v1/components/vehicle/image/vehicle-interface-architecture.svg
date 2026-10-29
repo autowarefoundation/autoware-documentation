@@ -1,5 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 516" role="img" aria-labelledby="vehicle-interface-architecture-title">
-  <title id="vehicle-interface-architecture-title">Planning sends the trajectory to control, and turn indicator and hazard light commands to the vehicle command gate. Control and other command sources send commands to the gate. The gate sends the vehicle commands to the vehicle interface. The vehicle interface works with the adapter and the vehicle, and outputs the steering status, the velocity status, the vehicle reports, and the door status.</title>
+  <title id="vehicle-interface-architecture-title">
+    Planning sends the trajectory to control, and turn indicator and hazard light commands to the vehicle command gate. Control and other command sources send commands to the gate. The gate sends the
+    vehicle commands to the vehicle interface. The vehicle interface works with the adapter and the vehicle, and outputs the steering status, the velocity status, the vehicle reports, and the door
+    status.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="516"/>

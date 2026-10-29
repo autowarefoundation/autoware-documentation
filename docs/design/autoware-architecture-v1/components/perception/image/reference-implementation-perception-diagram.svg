@@ -1,5 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 676" role="img" aria-labelledby="perception-reference-overview-title">
-  <title id="perception-reference-overview-title">Sensing, Localization, and Map send data to the Perception component. In Perception, obstacle segmentation sends the obstacle point cloud to object recognition and to the occupancy grid map. Object recognition runs detection, tracking, and prediction. Traffic light recognition also uses the vector map and V2X signals. Perception sends dynamic objects, obstacle points, the occupancy grid map, and traffic signals to Planning.</title>
+  <title id="perception-reference-overview-title">
+    Sensing, Localization, and Map send data to the Perception component. In Perception, obstacle segmentation sends the obstacle point cloud to object recognition and to the occupancy grid
+    map. Object recognition runs detection, tracking, and prediction. Traffic light recognition also uses the vector map and V2X signals. Perception sends dynamic objects, obstacle points, the
+    occupancy grid map, and traffic signals to Planning.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="676"/>

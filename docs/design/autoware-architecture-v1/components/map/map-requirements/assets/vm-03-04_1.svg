@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" role="img" aria-labelledby="vm-03-04-1-title">
-  <title id="vm-03-04-1-title">An intersection where the map has a lanelet for every lane and every turn, also for the lanes that the ego vehicle does not use. The ego vehicle comes from the south and turns left.</title>
+  <title id="vm-03-04-1-title">
+    An intersection where the map has a lanelet for every lane and every turn, also for the lanes that the ego vehicle does not use. The ego vehicle comes from the south and turns left.
+  </title>
 
   <!-- Roads -->
   <rect class="road" x="320" y="20" width="120" height="420"/>

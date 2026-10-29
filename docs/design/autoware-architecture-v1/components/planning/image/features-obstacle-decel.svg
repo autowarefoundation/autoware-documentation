@@ -12,7 +12,12 @@
   <rect class="lanelet alt" x="430" y="63" width="270" height="28"/>
 
   <!-- Obstacle next to the path -->
-  <g class="obstacle"><ellipse class="car-shadow" cx="560" cy="44" rx="13" ry="3"/><rect class="cone-base" x="547" y="39" width="26" height="5" rx="2"/><path class="cone" d="M560 19 L570 40 H550 Z"/><path class="cone-stripe" d="M554.6 30.5 H565.4"/></g>
+  <g class="obstacle">
+    <ellipse class="car-shadow" cx="560" cy="44" rx="13" ry="3"/>
+    <rect class="cone-base" x="547" y="39" width="26" height="5" rx="2"/>
+    <path class="cone" d="M560 19 L570 40 H550 Z"/>
+    <path class="cone-stripe" d="M554.6 30.5 H565.4"/>
+  </g>
 
   <!-- Planned path -->
   <path class="route" d="M150 77 H700"/>

@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 600" role="img" aria-labelledby="control-interface-title">
-  <title id="control-interface-title">The Control component takes the trajectory and the vehicle signal commands from Planning, the kinematic state from Localization, and the status of the vehicle. Its vehicle command gate sends the control, gear, turn indicator, and hazard light commands to the vehicle interface.</title>
+  <title id="control-interface-title">
+    The Control component takes the trajectory and the vehicle signal commands from Planning, the kinematic state from Localization, and the status of the vehicle. Its vehicle command gate sends the
+    control, gear, turn indicator, and hazard light commands to the vehicle interface.
+  </title>
 
   <!-- Background: a faint dot grid and soft glows -->
   <rect class="dots" x="0" y="0" width="860" height="600"/>
