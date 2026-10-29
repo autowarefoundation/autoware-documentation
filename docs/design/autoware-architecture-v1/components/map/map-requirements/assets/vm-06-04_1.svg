@@ -12,9 +12,18 @@
   <path class="mark" d="M420 116 L460 68 M470 116 L510 68 M520 116 L560 68 M570 116 L610 68"/>
 
   <!-- The ego vehicle drives through without stopping -->
-  <rect class="car" x="200" y="81" width="40" height="22" rx="6"/>
-  <rect class="glass" x="226" y="84" width="9" height="16"/>
+  <g transform="translate(209 72) rotate(90 11 20)">
+    <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
+    <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
+    <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
+    <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
+    <circle class="lidar" cx="11" cy="22" r="3.2"/>
+    <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
+    <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
+  </g>
   <path class="route" d="M252 92 H700"/>
+  <path class="flow flow-route" pathLength="100" d="M252 92 H700"/>
+  <path class="route head" d="M252 92 H700"/>
 
   <path class="leader" d="M500 30 L506 64"/>
   <text class="note" x="506" y="24" dominant-baseline="central">No stopping zone</text>

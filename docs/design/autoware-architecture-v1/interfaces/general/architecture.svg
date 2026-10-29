@@ -1,8 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 510" role="img" aria-labelledby="interface-architecture-title">
   <title id="interface-architecture-title">The FMS and the HMI use the AD API. Inside Autoware, the AD API component implements the AD API and uses the component interface. Components A to D use and implement the component interface. A simulator uses the AD API and also uses and implements the component interface.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="510"/>
+  <circle class="halo cyan" cx="310" cy="100" r="92"/>
+  <circle class="halo" cx="310" cy="362" r="140"/>
+
   <!-- Legend -->
-  <rect class="box" x="20" y="14" width="40" height="22" rx="6"/>
+  <rect class="card" x="20" y="14" width="40" height="22" rx="6"/>
   <text x="70" y="25" dominant-baseline="central">Implementation</text>
   <rect class="box ext" x="200" y="14" width="40" height="22" rx="6"/>
   <text x="250" y="25" dominant-baseline="central">Specification</text>
@@ -12,37 +17,44 @@
   <text x="556" y="25" dominant-baseline="central">Implements</text>
 
   <!-- Applications outside Autoware -->
-  <rect class="box muted" x="20" y="66" width="270" height="44" rx="10"/>
+  <rect class="card" x="20" y="66" width="270" height="44" rx="12"/>
+  <circle class="icon-bg" cx="48" cy="88" r="14"/>
+  <path class="icon-line" d="M42 92 H54 A3.5 3.5 0 0 0 53 85 A5 5 0 0 0 44 86 A3 3 0 0 0 42 92 Z"/>
   <text class="lbl" x="155" y="88" text-anchor="middle" dominant-baseline="central">FMS</text>
-  <rect class="box muted" x="330" y="66" width="270" height="44" rx="10"/>
+  <rect class="card" x="330" y="66" width="270" height="44" rx="12"/>
+  <circle class="icon-bg" cx="358" cy="88" r="14"/>
+  <rect class="icon-line" x="351" y="82" width="14" height="10" rx="2"/>
+  <path class="icon-line" d="M355 95 H361"/>
   <text class="lbl" x="465" y="88" text-anchor="middle" dominant-baseline="central">HMI</text>
 
   <path class="edge" d="M155 110 V144"/>
   <path class="edge" d="M465 110 V144"/>
 
   <!-- AD API specification -->
-  <rect class="box ext" x="20" y="150" width="580" height="44" rx="10"/>
+  <rect class="box ext" x="20" y="150" width="580" height="44" rx="12"/>
   <text class="lbl" x="310" y="172" text-anchor="middle" dominant-baseline="central">Autoware AD API</text>
 
   <!-- Autoware -->
-  <rect class="group" x="20" y="226" width="580" height="268" rx="16"/>
+  <rect class="glass-panel" x="20" y="226" width="580" height="268" rx="18"/>
   <text class="ttl" x="40" y="252">Autoware</text>
 
-  <rect class="box" x="44" y="268" width="532" height="44" rx="10"/>
+  <rect class="card" x="44" y="268" width="532" height="44" rx="12"/>
+  <circle class="icon-bg" cx="72" cy="290" r="14"/>
+  <path class="icon-line" d="M69 284 L64 290 L69 296 M75 284 L80 290 L75 296"/>
   <text class="lbl" x="310" y="290" text-anchor="middle" dominant-baseline="central">AD API component</text>
   <path class="edge dash" d="M310 268 V200"/>
   <path class="edge" d="M310 312 V344"/>
 
-  <rect class="box ext" x="44" y="350" width="532" height="40" rx="10"/>
+  <rect class="box ext" x="44" y="350" width="532" height="40" rx="12"/>
   <text class="lbl" x="310" y="370" text-anchor="middle" dominant-baseline="central">Autoware component interface</text>
 
-  <rect class="box" x="44" y="436" width="118" height="40" rx="10"/>
+  <rect class="card" x="44" y="436" width="118" height="40" rx="12"/>
   <text class="lbl" x="103" y="456" text-anchor="middle" dominant-baseline="central">Component A</text>
-  <rect class="box" x="182" y="436" width="118" height="40" rx="10"/>
+  <rect class="card" x="182" y="436" width="118" height="40" rx="12"/>
   <text class="lbl" x="241" y="456" text-anchor="middle" dominant-baseline="central">Component B</text>
-  <rect class="box" x="320" y="436" width="118" height="40" rx="10"/>
+  <rect class="card" x="320" y="436" width="118" height="40" rx="12"/>
   <text class="lbl" x="379" y="456" text-anchor="middle" dominant-baseline="central">Component C</text>
-  <rect class="box" x="458" y="436" width="118" height="40" rx="10"/>
+  <rect class="card" x="458" y="436" width="118" height="40" rx="12"/>
   <text class="lbl" x="517" y="456" text-anchor="middle" dominant-baseline="central">Component D</text>
 
   <path class="edge" d="M93 436 V396"/>
@@ -55,7 +67,11 @@
   <path class="edge dash" d="M527 436 V396"/>
 
   <!-- Tools such as a simulator use both interfaces -->
-  <rect class="box muted" x="660" y="66" width="180" height="428" rx="10"/>
+  <rect class="card" x="660" y="66" width="180" height="428" rx="12"/>
+  <circle class="icon-bg" cx="750" cy="244" r="18"/>
+  <circle class="icon-line" cx="750" cy="244" r="8"/>
+  <ellipse class="icon-line" cx="750" cy="244" rx="3.8" ry="8"/>
+  <path class="icon-line" d="M742 244 H758"/>
   <text class="lbl" x="750" y="280" text-anchor="middle" dominant-baseline="central">Simulator</text>
   <path class="edge" d="M660 172 H606"/>
   <path class="edge" d="M660 362 H582"/>

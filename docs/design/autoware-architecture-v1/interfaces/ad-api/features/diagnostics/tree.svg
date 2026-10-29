@@ -1,66 +1,89 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 486" role="img" aria-labelledby="adapi-diagnostics-tree-title">
   <title id="adapi-diagnostics-tree-title">An example diagnostic graph. The camera diagnostic is ERROR, so the perception node and the autonomous mode node are ERROR. All other nodes are OK. Links connect each child node to its parent nodes, and each leaf diagnostic belongs to one sensor or vehicle node.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="486"/>
+  <circle class="halo" cx="330" cy="220" r="215"/>
+  <circle class="halo cyan" cx="115" cy="300" r="110"/>
+
   <!-- Nodes -->
-  <rect class="box warn" x="440" y="16" width="190" height="58" rx="10"/>
+  <rect class="box warn" x="440" y="16" width="190" height="58" rx="12"/>
   <text class="sub" x="452" y="30" dominant-baseline="central">nodes[0]</text>
   <text class="code" x="452" y="47" dominant-baseline="central">/mode/autonomous</text>
   <text class="sub" x="452" y="62" dominant-baseline="central">level: ERROR</text>
-  <rect class="box ok" x="650" y="16" width="190" height="58" rx="10"/>
+  <rect class="box ok" x="650" y="16" width="190" height="58" rx="12"/>
   <text class="sub" x="662" y="30" dominant-baseline="central">nodes[1]</text>
   <text class="code" x="662" y="47" dominant-baseline="central">/mode/emergency</text>
   <text class="sub" x="662" y="62" dominant-baseline="central">level: OK</text>
-  <rect class="box warn" x="20" y="128" width="190" height="58" rx="10"/>
+  <rect class="box warn" x="20" y="128" width="190" height="58" rx="12"/>
   <text class="sub" x="32" y="142" dominant-baseline="central">nodes[2]</text>
   <text class="code" x="32" y="159" dominant-baseline="central">/module/perception</text>
   <text class="sub" x="32" y="174" dominant-baseline="central">level: ERROR</text>
-  <rect class="box ok" x="440" y="128" width="190" height="58" rx="10"/>
+  <rect class="box ok" x="440" y="128" width="190" height="58" rx="12"/>
   <text class="sub" x="452" y="142" dominant-baseline="central">nodes[3]</text>
   <text class="code" x="452" y="159" dominant-baseline="central">/module/localization</text>
   <text class="sub" x="452" y="174" dominant-baseline="central">level: OK</text>
-  <rect class="box ok" x="650" y="128" width="190" height="58" rx="10"/>
+  <rect class="box ok" x="650" y="128" width="190" height="58" rx="12"/>
   <text class="sub" x="662" y="142" dominant-baseline="central">nodes[4]</text>
   <text class="code" x="662" y="159" dominant-baseline="central">/module/vehicle</text>
   <text class="sub" x="662" y="174" dominant-baseline="central">level: OK</text>
-  <rect class="box warn" x="20" y="240" width="190" height="58" rx="10"/>
+  <rect class="box warn" x="20" y="240" width="190" height="58" rx="12"/>
   <text class="sub" x="32" y="254" dominant-baseline="central">nodes[5]</text>
   <text class="code" x="32" y="271" dominant-baseline="central">/sensor/camera</text>
   <text class="sub" x="32" y="286" dominant-baseline="central">level: ERROR</text>
-  <rect class="box ok" x="230" y="240" width="190" height="58" rx="10"/>
+  <rect class="box ok" x="230" y="240" width="190" height="58" rx="12"/>
   <text class="sub" x="242" y="254" dominant-baseline="central">nodes[6]</text>
   <text class="code" x="242" y="271" dominant-baseline="central">/sensor/lidar</text>
   <text class="sub" x="242" y="286" dominant-baseline="central">level: OK</text>
-  <rect class="box ok" x="440" y="240" width="190" height="58" rx="10"/>
+  <rect class="box ok" x="440" y="240" width="190" height="58" rx="12"/>
   <text class="sub" x="452" y="254" dominant-baseline="central">nodes[7]</text>
   <text class="code" x="452" y="271" dominant-baseline="central">/sensor/imu</text>
   <text class="sub" x="452" y="286" dominant-baseline="central">level: OK</text>
-  <rect class="box ok" x="650" y="240" width="190" height="58" rx="10"/>
+  <rect class="box ok" x="650" y="240" width="190" height="58" rx="12"/>
   <text class="sub" x="662" y="254" dominant-baseline="central">nodes[8]</text>
   <text class="code" x="662" y="271" dominant-baseline="central">/vehicle/interface</text>
   <text class="sub" x="662" y="286" dominant-baseline="central">level: OK</text>
 
   <!-- Links from the children to the parents -->
-  <path class="edge" d="M115 128 V96 H500 V78"/>
+  <path class="edge accent" d="M115 128 V96 H500 V78"/>
+  <path class="flow flow-accent" pathLength="100" d="M115 128 V96 H500 V78"/>
+  <path class="edge accent head" d="M115 128 V96 H500 V78"/>
   <text class="edge-lbl" x="300" y="96" text-anchor="middle" dominant-baseline="central">links[0]</text>
   <path class="edge" d="M535 128 V78"/>
+  <path class="flow" pathLength="100" d="M535 128 V78"/>
+  <path class="edge head" d="M535 128 V78"/>
   <text class="edge-lbl" x="535" y="103" text-anchor="middle" dominant-baseline="central">links[1]</text>
   <path class="edge" d="M720 128 V96 H570 V78"/>
+  <path class="flow" pathLength="100" d="M720 128 V96 H570 V78"/>
+  <path class="edge head" d="M720 128 V96 H570 V78"/>
   <text class="edge-lbl" x="645" y="96" text-anchor="middle" dominant-baseline="central">links[2]</text>
   <path class="edge" d="M780 128 V78"/>
+  <path class="flow" pathLength="100" d="M780 128 V78"/>
+  <path class="edge head" d="M780 128 V78"/>
   <text class="edge-lbl" x="780" y="103" text-anchor="middle" dominant-baseline="central">links[3]</text>
-  <path class="edge" d="M115 240 V190"/>
+  <path class="edge accent" d="M115 240 V190"/>
+  <path class="flow flow-accent" pathLength="100" d="M115 240 V190"/>
+  <path class="edge accent head" d="M115 240 V190"/>
   <text class="edge-lbl" x="115" y="215" text-anchor="middle" dominant-baseline="central">links[4]</text>
   <path class="edge" d="M300 240 V215 H170 V190"/>
+  <path class="flow" pathLength="100" d="M300 240 V215 H170 V190"/>
+  <path class="edge head" d="M300 240 V215 H170 V190"/>
   <text class="edge-lbl" x="235" y="215" text-anchor="middle" dominant-baseline="central">links[5]</text>
   <path class="edge" d="M350 240 V215 H500 V190"/>
+  <path class="flow" pathLength="100" d="M350 240 V215 H500 V190"/>
+  <path class="edge head" d="M350 240 V215 H500 V190"/>
   <text class="edge-lbl" x="425" y="215" text-anchor="middle" dominant-baseline="central">links[6]</text>
   <path class="edge" d="M535 240 V190"/>
+  <path class="flow" pathLength="100" d="M535 240 V190"/>
+  <path class="edge head" d="M535 240 V190"/>
   <text class="edge-lbl" x="535" y="215" text-anchor="middle" dominant-baseline="central">links[7]</text>
   <path class="edge" d="M745 240 V190"/>
+  <path class="flow" pathLength="100" d="M745 240 V190"/>
+  <path class="edge head" d="M745 240 V190"/>
   <text class="edge-lbl" x="745" y="215" text-anchor="middle" dominant-baseline="central">links[8]</text>
 
   <!-- Leaf diagnostics -->
-  <rect class="box warn" x="20" y="346" width="190" height="124" rx="10"/>
+  <rect class="box warn" x="20" y="346" width="190" height="124" rx="12"/>
   <text class="sub" x="32" y="361" dominant-baseline="central">diags[0]</text>
   <text class="code" x="32" y="377" dominant-baseline="central">parent: 5</text>
   <text class="code" x="32" y="393" dominant-baseline="central">name: camera</text>
@@ -68,8 +91,10 @@
   <text class="code" x="32" y="425" dominant-baseline="central">message: ...</text>
   <text class="code" x="32" y="441" dominant-baseline="central">hardware_id: ...</text>
   <text class="code" x="32" y="457" dominant-baseline="central">values: ...</text>
-  <path class="edge" d="M115 346 V302"/>
-  <rect class="box ok" x="230" y="346" width="190" height="124" rx="10"/>
+  <path class="edge accent" d="M115 346 V302"/>
+  <path class="flow flow-accent" pathLength="100" d="M115 346 V302"/>
+  <path class="edge accent head" d="M115 346 V302"/>
+  <rect class="box ok" x="230" y="346" width="190" height="124" rx="12"/>
   <text class="sub" x="242" y="361" dominant-baseline="central">diags[1]</text>
   <text class="code" x="242" y="377" dominant-baseline="central">parent: 6</text>
   <text class="code" x="242" y="393" dominant-baseline="central">name: lidar</text>
@@ -78,7 +103,9 @@
   <text class="code" x="242" y="441" dominant-baseline="central">hardware_id: ...</text>
   <text class="code" x="242" y="457" dominant-baseline="central">values: ...</text>
   <path class="edge" d="M325 346 V302"/>
-  <rect class="box ok" x="440" y="346" width="190" height="124" rx="10"/>
+  <path class="flow" pathLength="100" d="M325 346 V302"/>
+  <path class="edge head" d="M325 346 V302"/>
+  <rect class="box ok" x="440" y="346" width="190" height="124" rx="12"/>
   <text class="sub" x="452" y="361" dominant-baseline="central">diags[2]</text>
   <text class="code" x="452" y="377" dominant-baseline="central">parent: 7</text>
   <text class="code" x="452" y="393" dominant-baseline="central">name: imu</text>
@@ -87,7 +114,9 @@
   <text class="code" x="452" y="441" dominant-baseline="central">hardware_id: ...</text>
   <text class="code" x="452" y="457" dominant-baseline="central">values: ...</text>
   <path class="edge" d="M535 346 V302"/>
-  <rect class="box ok" x="650" y="346" width="190" height="124" rx="10"/>
+  <path class="flow" pathLength="100" d="M535 346 V302"/>
+  <path class="edge head" d="M535 346 V302"/>
+  <rect class="box ok" x="650" y="346" width="190" height="124" rx="12"/>
   <text class="sub" x="662" y="361" dominant-baseline="central">diags[3]</text>
   <text class="code" x="662" y="377" dominant-baseline="central">parent: 8</text>
   <text class="code" x="662" y="393" dominant-baseline="central">name: vehicle</text>
@@ -96,4 +125,6 @@
   <text class="code" x="662" y="441" dominant-baseline="central">hardware_id: ...</text>
   <text class="code" x="662" y="457" dominant-baseline="central">values: ...</text>
   <path class="edge" d="M745 346 V302"/>
+  <path class="flow" pathLength="100" d="M745 346 V302"/>
+  <path class="edge head" d="M745 346 V302"/>
 </svg>

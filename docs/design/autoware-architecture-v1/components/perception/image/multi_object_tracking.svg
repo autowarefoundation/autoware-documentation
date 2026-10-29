@@ -1,71 +1,107 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 662" role="img" aria-labelledby="multi-object-tracking-title">
   <title id="multi-object-tracking-title">Up to 12 detection channels send objects to the input manager. For each batch of objects, the tracker predicts its tracks, associates the objects, updates the matched tracks, prunes old tracks, and spawns new tracks. A timer publishes the tracked objects to prediction.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="662"/>
+  <circle class="halo" cx="430" cy="300" r="220"/>
+  <circle class="halo cyan" cx="430" cy="520" r="120"/>
+
   <!-- Detection channels -->
-  <rect class="box" x="40" y="16" width="180" height="46" rx="10"/>
+  <rect class="card" x="40" y="16" width="180" height="46" rx="12"/>
   <text class="code" x="130" y="39" text-anchor="middle" dominant-baseline="central">lidar_centerpoint</text>
-  <rect class="box" x="240" y="16" width="180" height="46" rx="10"/>
+  <rect class="card" x="240" y="16" width="180" height="46" rx="12"/>
   <text class="code" x="330" y="39" text-anchor="middle" dominant-baseline="central">lidar_clustering</text>
-  <rect class="box" x="440" y="16" width="180" height="46" rx="10"/>
+  <rect class="card" x="440" y="16" width="180" height="46" rx="12"/>
   <text class="code" x="530" y="39" text-anchor="middle" dominant-baseline="central">radar</text>
-  <rect class="box muted" x="640" y="16" width="180" height="46" rx="10"/>
+  <rect class="box muted" x="640" y="16" width="180" height="46" rx="12"/>
   <text class="sub" x="730" y="39" text-anchor="middle" dominant-baseline="central">More channels, up to 12</text>
 
   <path class="edge accent" d="M130 62 V102"/>
+  <path class="flow flow-accent" pathLength="100" d="M130 62 V102"/>
+  <path class="edge accent head" d="M130 62 V102"/>
   <path class="edge accent" d="M330 62 V102"/>
+  <path class="flow flow-accent" pathLength="100" d="M330 62 V102"/>
+  <path class="edge accent head" d="M330 62 V102"/>
   <path class="edge accent" d="M530 62 V102"/>
+  <path class="flow flow-accent" pathLength="100" d="M530 62 V102"/>
+  <path class="edge accent head" d="M530 62 V102"/>
   <path class="edge accent" d="M730 62 V102"/>
+  <path class="flow flow-accent" pathLength="100" d="M730 62 V102"/>
+  <path class="edge accent head" d="M730 62 V102"/>
 
   <!-- Input manager -->
-  <rect class="box" x="40" y="110" width="780" height="60" rx="10"/>
+  <rect class="card" x="40" y="110" width="780" height="60" rx="12"/>
+  <circle class="icon-bg" cx="78" cy="140" r="18"/>
+  <path class="icon-line" d="M70 134 H86 M70 140 H86 M70 146 H86"/>
   <text class="lbl" x="430" y="130" text-anchor="middle" dominant-baseline="central">Input manager</text>
   <text class="sub" x="430" y="152" text-anchor="middle" dominant-baseline="central">Keeps a queue for each channel and makes batches of objects in time order</text>
 
   <!-- The steps for each batch -->
-  <rect class="group" x="20" y="200" width="820" height="250" rx="16"/>
+  <rect class="glass-panel" x="20" y="200" width="820" height="250" rx="16"/>
   <text class="ttl" x="40" y="226">For each batch</text>
 
-  <rect class="box" x="40" y="244" width="130" height="70" rx="10"/>
+  <rect class="card" x="40" y="244" width="130" height="70" rx="12"/>
   <text class="lbl" x="105" y="268" text-anchor="middle" dominant-baseline="central">Predict</text>
   <text class="sub" x="105" y="292" text-anchor="middle" dominant-baseline="central">To the object time</text>
 
-  <rect class="box" x="200" y="244" width="130" height="70" rx="10"/>
+  <rect class="card" x="200" y="244" width="130" height="70" rx="12"/>
   <text class="lbl" x="265" y="268" text-anchor="middle" dominant-baseline="central">Associate</text>
   <text class="sub" x="265" y="292" text-anchor="middle" dominant-baseline="central">BEV or polar gates</text>
 
-  <rect class="box" x="360" y="244" width="130" height="70" rx="10"/>
+  <rect class="card" x="360" y="244" width="130" height="70" rx="12"/>
   <text class="lbl" x="425" y="268" text-anchor="middle" dominant-baseline="central">Update</text>
   <text class="sub" x="425" y="292" text-anchor="middle" dominant-baseline="central">Matched tracks</text>
 
-  <rect class="box" x="520" y="244" width="130" height="70" rx="10"/>
+  <rect class="card" x="520" y="244" width="130" height="70" rx="12"/>
   <text class="lbl" x="585" y="268" text-anchor="middle" dominant-baseline="central">Prune</text>
   <text class="sub" x="585" y="292" text-anchor="middle" dominant-baseline="central">Old or overlapping</text>
 
-  <rect class="box" x="680" y="244" width="130" height="70" rx="10"/>
+  <rect class="card" x="680" y="244" width="130" height="70" rx="12"/>
   <text class="lbl" x="745" y="268" text-anchor="middle" dominant-baseline="central">Spawn</text>
   <text class="sub" x="745" y="292" text-anchor="middle" dominant-baseline="central">New tracks</text>
 
   <path class="edge accent" d="M105 170 V236"/>
+  <path class="flow flow-accent" pathLength="100" d="M105 170 V236"/>
+  <path class="edge accent head" d="M105 170 V236"/>
   <path class="edge" d="M170 279 H192"/>
+  <path class="flow" pathLength="100" d="M170 279 H192"/>
+  <path class="edge head" d="M170 279 H192"/>
   <path class="edge" d="M330 279 H352"/>
+  <path class="flow" pathLength="100" d="M330 279 H352"/>
+  <path class="edge head" d="M330 279 H352"/>
   <path class="edge" d="M490 279 H512"/>
+  <path class="flow" pathLength="100" d="M490 279 H512"/>
+  <path class="edge head" d="M490 279 H512"/>
   <path class="edge" d="M650 279 H672"/>
+  <path class="flow" pathLength="100" d="M650 279 H672"/>
+  <path class="edge head" d="M650 279 H672"/>
 
-  <rect class="box" x="320" y="360" width="220" height="50" rx="10"/>
+  <rect class="card" x="320" y="360" width="220" height="50" rx="12"/>
   <text class="lbl" x="430" y="377" text-anchor="middle" dominant-baseline="central">Tracks</text>
   <text class="sub" x="430" y="395" text-anchor="middle" dominant-baseline="central">Vehicle, pedestrian, polygon, static</text>
 
   <path class="edge" d="M745 314 V385 H548"/>
+  <path class="flow" pathLength="100" d="M745 314 V385 H548"/>
+  <path class="edge head" d="M745 314 V385 H548"/>
   <path class="edge" d="M320 385 H105 V322"/>
+  <path class="flow" pathLength="100" d="M320 385 H105 V322"/>
+  <path class="edge head" d="M320 385 H105 V322"/>
 
   <!-- Output -->
-  <rect class="box primary" x="320" y="490" width="220" height="60" rx="10"/>
+  <rect class="box primary" x="320" y="490" width="220" height="60" rx="12"/>
+  <circle class="icon-bg on" cx="350" cy="520" r="18"/>
+  <circle class="icon-line" cx="350" cy="520" r="8"/>
+  <path class="icon-line" d="M350 515 V520 H354"/>
   <text class="lbl on-primary" x="430" y="510" text-anchor="middle" dominant-baseline="central">Publish</text>
   <text class="sub on-primary" x="430" y="532" text-anchor="middle" dominant-baseline="central">Timer at 10 Hz</text>
   <path class="edge accent" d="M430 410 V482"/>
+  <path class="flow flow-accent" pathLength="100" d="M430 410 V482"/>
+  <path class="edge accent head" d="M430 410 V482"/>
 
   <path class="edge accent" d="M430 550 V592"/>
+  <path class="flow flow-accent" pathLength="100" d="M430 550 V592"/>
+  <path class="edge accent head" d="M430 550 V592"/>
   <text class="edge-lbl" x="430" y="571" text-anchor="middle" dominant-baseline="central">Tracked objects</text>
-  <rect class="box muted" x="320" y="600" width="220" height="46" rx="10"/>
+  <rect class="box muted" x="320" y="600" width="220" height="46" rx="12"/>
   <text class="lbl" x="430" y="623" text-anchor="middle" dominant-baseline="central">Prediction</text>
 </svg>

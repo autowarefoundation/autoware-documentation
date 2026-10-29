@@ -8,6 +8,8 @@
   <path class="mark dash" d="M20 140 H740"/>
   <path class="route plain" d="M300 110 H420"/>
   <path class="route" d="M420 110 H440"/>
+  <path class="flow flow-route" pathLength="100" d="M420 110 H440"/>
+  <path class="route head" d="M420 110 H440"/>
 
   <!-- The painted stop line and the linestring in its middle -->
   <path class="mark thick" d="M484 86 V138 M491 86 V138"/>

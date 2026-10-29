@@ -11,9 +11,18 @@
   <path class="mark thick" d="M484 86 V138 M491 86 V138"/>
 
   <!-- The ego vehicle -->
-  <rect class="car" x="320" y="99" width="40" height="22" rx="6"/>
-  <rect class="glass" x="346" y="102" width="9" height="16"/>
+  <g transform="translate(329 90) rotate(90 11 20)">
+    <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
+    <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
+    <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
+    <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
+    <circle class="lidar" cx="11" cy="22" r="3.2"/>
+    <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
+    <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
+  </g>
   <path class="route" d="M372 110 H448"/>
+  <path class="flow flow-route" pathLength="100" d="M372 110 H448"/>
+  <path class="route head" d="M372 110 H448"/>
 
   <!-- Note -->
   <path class="leader" d="M560 40 L494 84"/>

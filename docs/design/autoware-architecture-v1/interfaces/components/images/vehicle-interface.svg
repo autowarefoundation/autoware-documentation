@@ -1,19 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" role="img" aria-labelledby="vehicle-interface-title">
   <title id="vehicle-interface-title">The Control component sends vehicle commands to the vehicle interface component and gets vehicle statuses back. Inside the component, an optional vehicle command adapter converts the commands into the vehicle format. The vehicle interface talks to the vehicle with the vehicle-specific protocol.</title>
 
-  <rect class="box muted" x="20" y="16" width="720" height="56" rx="10"/>
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="760" height="520"/>
+  <circle class="halo" cx="560" cy="262" r="110"/>
+  <circle class="halo cyan" cx="380" cy="446" r="72"/>
+
+  <rect class="card" x="20" y="16" width="720" height="56" rx="12"/>
   <text class="lbl" x="380" y="44" text-anchor="middle" dominant-baseline="central">Control component</text>
 
   <path class="edge accent" d="M190 72 V140"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 72 V140"/>
+  <path class="edge accent head" d="M190 72 V140"/>
   <text class="edge-lbl" x="190" y="104" text-anchor="middle" dominant-baseline="central">Vehicle commands</text>
   <path class="edge" d="M570 140 V78"/>
+  <path class="flow" pathLength="100" d="M570 140 V78"/>
+  <path class="edge head" d="M570 140 V78"/>
   <text class="edge-lbl" x="570" y="104" text-anchor="middle" dominant-baseline="central">Vehicle statuses</text>
 
   <!-- The vehicle interface component -->
-  <rect class="group" x="20" y="140" width="720" height="244" rx="16"/>
+  <rect class="glass-panel" x="20" y="140" width="720" height="244" rx="18"/>
   <text class="ttl" x="40" y="166">Vehicle interface component</text>
 
-  <rect class="box ext" x="90" y="186" width="280" height="56" rx="10"/>
+  <rect class="box ext" x="90" y="186" width="280" height="56" rx="12"/>
   <text class="lbl" x="230" y="207" text-anchor="middle" dominant-baseline="central">Vehicle command adapter</text>
   <text class="sub" x="230" y="227" text-anchor="middle" dominant-baseline="central">Optional</text>
 
@@ -24,20 +33,32 @@
   <text class="edge-lbl" x="330" y="272" text-anchor="middle" dominant-baseline="central">Statuses</text>
   <text class="edge-lbl" x="330" y="288" text-anchor="middle" dominant-baseline="central">(vehicle format)</text>
 
-  <rect class="box primary" x="60" y="318" width="640" height="52" rx="10"/>
+  <rect class="box primary" x="60" y="318" width="640" height="52" rx="14"/>
+  <circle class="icon-bg on" cx="294" cy="344" r="17"/>
+  <circle class="icon-line" cx="294" cy="344" r="8"/>
+  <path class="icon-line" d="M286 344 H302 M294 344 V352"/>
   <text class="lbl on-primary" x="380" y="344" text-anchor="middle" dominant-baseline="central">Vehicle interface</text>
 
   <!-- The vehicle -->
   <path class="edge accent" d="M190 370 V448"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 370 V448"/>
+  <path class="edge accent head" d="M190 370 V448"/>
   <text class="edge-lbl" x="190" y="406" text-anchor="middle" dominant-baseline="central">Commands</text>
   <text class="edge-lbl" x="190" y="422" text-anchor="middle" dominant-baseline="central">(vehicle protocol)</text>
   <path class="edge" d="M570 448 V376"/>
+  <path class="flow" pathLength="100" d="M570 448 V376"/>
+  <path class="edge head" d="M570 448 V376"/>
   <text class="edge-lbl" x="570" y="406" text-anchor="middle" dominant-baseline="central">Statuses</text>
   <text class="edge-lbl" x="570" y="422" text-anchor="middle" dominant-baseline="central">(vehicle protocol)</text>
 
-  <rect class="box muted" x="20" y="448" width="720" height="56" rx="10"/>
-  <path class="icon" d="M330 488 v-14 q0-5 5-6 l16-3 l12-12 h28 l14 12 h8 q6 0 6 6 v17 z"/>
-  <circle class="icon" cx="347" cy="490" r="6"/>
-  <circle class="icon" cx="397" cy="490" r="6"/>
+  <rect class="card" x="20" y="448" width="720" height="56" rx="12"/>
+  <ellipse class="car-shadow" cx="374" cy="496" rx="46" ry="3"/>
+  <path class="car-body" d="M330 488 v-14 q0-5 5-6 l16-3 l12-12 h28 l14 12 h8 q6 0 6 6 v17 z"/>
+  <path class="car-glass" d="M355 464 L365 455 H390 L401 464 Z"/>
+  <path class="car-shine" d="M340 472 H414"/>
+  <circle class="wheel" cx="347" cy="490" r="6"/>
+  <circle class="rim" cx="347" cy="490" r="3"/>
+  <circle class="wheel" cx="397" cy="490" r="6"/>
+  <circle class="rim" cx="397" cy="490" r="3"/>
   <text class="lbl" x="440" y="476" dominant-baseline="central">Vehicle</text>
 </svg>

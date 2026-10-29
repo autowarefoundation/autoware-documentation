@@ -1,52 +1,72 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 676" role="img" aria-labelledby="faraway-object-detection-title">
   <title id="faraway-object-detection-title">Radar tracks go through the crossing noise filter and the message converter in Sensing. The detected radar objects then go through the velocity and range filter and the vector map filter, and reach the multi-object tracker on the radar channel. Radar fusion to detected objects can also use the detected radar objects, but Autoware does not launch it.</title>
 
-  <rect class="box muted" x="180" y="16" width="300" height="46" rx="10"/>
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="676"/>
+  <circle class="halo" cx="330" cy="196" r="150"/>
+  <circle class="halo cyan" cx="330" cy="452" r="140"/>
+
+  <rect class="box muted" x="180" y="16" width="300" height="46" rx="12"/>
   <text class="lbl" x="330" y="39" text-anchor="middle" dominant-baseline="central">Radar tracks</text>
 
   <!-- Sensing -->
-  <rect class="group" x="150" y="92" width="360" height="208" rx="16"/>
+  <rect class="glass-panel" x="150" y="92" width="360" height="208" rx="16"/>
   <text class="ttl" x="170" y="118">Sensing</text>
 
-  <rect class="box" x="180" y="134" width="300" height="58" rx="10"/>
+  <rect class="card" x="180" y="134" width="300" height="58" rx="12"/>
   <text class="lbl" x="330" y="155" text-anchor="middle" dominant-baseline="central">Crossing noise filter</text>
   <text class="code" x="330" y="176" text-anchor="middle" dominant-baseline="central">autoware_radar_tracks_noise_filter</text>
 
-  <rect class="box" x="180" y="222" width="300" height="58" rx="10"/>
+  <rect class="card" x="180" y="222" width="300" height="58" rx="12"/>
   <text class="lbl" x="330" y="243" text-anchor="middle" dominant-baseline="central">Message converter</text>
   <text class="code" x="330" y="264" text-anchor="middle" dominant-baseline="central">autoware_radar_tracks_msgs_converter</text>
 
   <path class="edge" d="M330 62 V126"/>
+  <path class="flow" pathLength="100" d="M330 62 V126"/>
+  <path class="edge head" d="M330 62 V126"/>
   <path class="edge" d="M330 192 V214"/>
+  <path class="flow" pathLength="100" d="M330 192 V214"/>
+  <path class="edge head" d="M330 192 V214"/>
 
   <!-- Detected objects to the radar filter -->
   <path class="edge accent" d="M330 280 V374"/>
+  <path class="flow flow-accent" pathLength="100" d="M330 280 V374"/>
+  <path class="edge accent head" d="M330 280 V374"/>
   <text class="edge-lbl" x="330" y="314" text-anchor="middle" dominant-baseline="central">/sensing/radar/detected_objects</text>
   <path class="edge dash" d="M330 330 H572"/>
 
-  <rect class="box muted" x="580" y="300" width="260" height="60" rx="10"/>
+  <rect class="box muted" x="580" y="300" width="260" height="60" rx="12"/>
   <text class="lbl" x="710" y="319" text-anchor="middle" dominant-baseline="central">Radar fusion to detected objects</text>
   <text class="sub" x="710" y="341" text-anchor="middle" dominant-baseline="central">Available, not launched</text>
 
   <!-- The radar filter of perception -->
-  <rect class="group" x="150" y="344" width="360" height="216" rx="16"/>
+  <rect class="glass-panel" x="150" y="344" width="360" height="216" rx="16"/>
   <text class="ttl" x="490" y="370" text-anchor="end">Radar filter</text>
 
-  <rect class="box" x="180" y="382" width="300" height="58" rx="10"/>
+  <rect class="card" x="180" y="382" width="300" height="58" rx="12"/>
   <text class="lbl" x="330" y="403" text-anchor="middle" dominant-baseline="central">Velocity and range filter</text>
   <text class="code" x="330" y="424" text-anchor="middle" dominant-baseline="central">autoware_object_sorter</text>
 
-  <rect class="box" x="180" y="470" width="300" height="58" rx="10"/>
+  <rect class="card" x="180" y="470" width="300" height="58" rx="12"/>
   <text class="lbl" x="330" y="491" text-anchor="middle" dominant-baseline="central">Vector map filter</text>
   <text class="code" x="330" y="512" text-anchor="middle" dominant-baseline="central">object_lanelet_filter</text>
 
   <path class="edge" d="M330 440 V462"/>
+  <path class="flow" pathLength="100" d="M330 440 V462"/>
+  <path class="edge head" d="M330 440 V462"/>
 
   <!-- Output -->
   <path class="edge accent" d="M330 528 V592"/>
+  <path class="flow flow-accent" pathLength="100" d="M330 528 V592"/>
+  <path class="edge accent head" d="M330 528 V592"/>
   <text class="edge-lbl" x="330" y="577" text-anchor="middle" dominant-baseline="central">radar/far_objects</text>
 
-  <rect class="box primary" x="180" y="600" width="300" height="58" rx="10"/>
+  <rect class="box primary" x="180" y="600" width="300" height="58" rx="12"/>
+  <circle class="icon-bg on" cx="214" cy="629" r="17"/>
+  <path class="icon-line" d="M205 638 L213 628 L223 622"/>
+  <circle class="icon-dot" cx="205" cy="638" r="2.4"/>
+  <circle class="icon-dot" cx="213" cy="628" r="2.4"/>
+  <circle class="icon-dot" cx="223" cy="622" r="2.4"/>
   <text class="lbl on-primary" x="330" y="619" text-anchor="middle" dominant-baseline="central">Multi-object tracker</text>
   <text class="sub on-primary" x="330" y="641" text-anchor="middle" dominant-baseline="central">Channel radar</text>
 </svg>

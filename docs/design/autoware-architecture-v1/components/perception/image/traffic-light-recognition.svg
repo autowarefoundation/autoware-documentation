@@ -1,57 +1,84 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 440" role="img" aria-labelledby="traffic-light-recognition-title">
   <title id="traffic-light-recognition-title">For each traffic light camera, the map-based detector makes rough regions of interest, the fine detector refines them, the car and pedestrian classifiers find the signal states, and the occlusion predictor marks hidden signals. Then multi-camera fusion combines the cameras, the arbiter adds the V2X signals, and the crosswalk estimator completes the pedestrian signals and sends the result to Planning.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="440"/>
+  <circle class="halo cyan" cx="505" cy="113" r="100"/>
+  <circle class="halo" cx="495" cy="300" r="130"/>
+
   <!-- The pipeline of each camera -->
-  <rect class="group" x="20" y="16" width="820" height="190" rx="16"/>
+  <rect class="glass-panel" x="20" y="16" width="820" height="190" rx="16"/>
   <text class="ttl" x="40" y="42">For each traffic light camera</text>
 
-  <rect class="box" x="40" y="78" width="160" height="70" rx="10"/>
+  <rect class="card" x="40" y="78" width="160" height="70" rx="12"/>
   <text class="lbl" x="120" y="102" text-anchor="middle" dominant-baseline="central">Map-based detector</text>
   <text class="sub" x="120" y="126" text-anchor="middle" dominant-baseline="central">Vector map, route</text>
 
-  <rect class="box ai" x="230" y="78" width="150" height="70" rx="10"/>
+  <rect class="card ai" x="230" y="78" width="150" height="70" rx="12"/>
   <text class="lbl" x="305" y="102" text-anchor="middle" dominant-baseline="central">Fine detector</text>
   <text class="sub" x="305" y="126" text-anchor="middle" dominant-baseline="central">YOLOX on the image</text>
 
-  <rect class="box ai" x="420" y="58" width="170" height="46" rx="10"/>
+  <rect class="card ai" x="420" y="58" width="170" height="46" rx="12"/>
   <text class="lbl" x="505" y="81" text-anchor="middle" dominant-baseline="central">Car classifier</text>
 
-  <rect class="box ai" x="420" y="122" width="170" height="46" rx="10"/>
+  <rect class="card ai" x="420" y="122" width="170" height="46" rx="12"/>
   <text class="lbl" x="505" y="145" text-anchor="middle" dominant-baseline="central">Pedestrian classifier</text>
 
-  <rect class="box" x="630" y="78" width="190" height="70" rx="10"/>
+  <rect class="card" x="630" y="78" width="190" height="70" rx="12"/>
   <text class="lbl" x="725" y="102" text-anchor="middle" dominant-baseline="central">Occlusion predictor</text>
   <text class="sub" x="725" y="126" text-anchor="middle" dominant-baseline="central">LiDAR point cloud</text>
 
   <path class="edge" d="M200 113 H222"/>
+  <path class="flow" pathLength="100" d="M200 113 H222"/>
+  <path class="edge head" d="M200 113 H222"/>
   <path class="edge" d="M380 113 H392 V81 H412"/>
+  <path class="flow" pathLength="100" d="M380 113 H392 V81 H412"/>
+  <path class="edge head" d="M380 113 H392 V81 H412"/>
   <path class="edge" d="M392 113 V145 H412"/>
+  <path class="flow" pathLength="100" d="M392 113 V145 H412"/>
+  <path class="edge head" d="M392 113 V145 H412"/>
   <path class="edge" d="M590 81 H606 V104 H622"/>
+  <path class="flow" pathLength="100" d="M590 81 H606 V104 H622"/>
+  <path class="edge head" d="M590 81 H606 V104 H622"/>
   <path class="edge" d="M590 145 H606 V122 H622"/>
+  <path class="flow" pathLength="100" d="M590 145 H606 V122 H622"/>
+  <path class="edge head" d="M590 145 H606 V122 H622"/>
 
   <!-- Fusion of all cameras -->
-  <rect class="box" x="630" y="260" width="190" height="70" rx="10"/>
+  <rect class="card" x="630" y="260" width="190" height="70" rx="12"/>
   <text class="lbl" x="725" y="284" text-anchor="middle" dominant-baseline="central">Multi-camera fusion</text>
   <text class="sub" x="725" y="308" text-anchor="middle" dominant-baseline="central">All cameras</text>
 
-  <rect class="box primary" x="400" y="260" width="190" height="70" rx="10"/>
-  <text class="lbl on-primary" x="495" y="284" text-anchor="middle" dominant-baseline="central">Arbiter</text>
-  <text class="sub on-primary" x="495" y="308" text-anchor="middle" dominant-baseline="central">Adds V2X signals</text>
+  <rect class="box primary" x="400" y="260" width="190" height="70" rx="12"/>
+  <circle class="icon-bg on" cx="430" cy="295" r="18"/>
+  <path class="icon-line" d="M421 287 L429 295 L421 303 M429 295 H440 M436 291 L440 295 L436 299"/>
+  <text class="lbl on-primary" x="460" y="285" dominant-baseline="central">Arbiter</text>
+  <text class="sub on-primary" x="460" y="306" dominant-baseline="central">Adds V2X signals</text>
 
-  <rect class="box" x="170" y="260" width="190" height="70" rx="10"/>
+  <rect class="card" x="170" y="260" width="190" height="70" rx="12"/>
   <text class="lbl" x="265" y="284" text-anchor="middle" dominant-baseline="central">Crosswalk estimator</text>
   <text class="sub" x="265" y="308" text-anchor="middle" dominant-baseline="central">Pedestrian signals</text>
 
-  <rect class="box muted" x="20" y="272" width="110" height="46" rx="10"/>
+  <rect class="box muted" x="20" y="272" width="110" height="46" rx="12"/>
   <text class="lbl" x="75" y="295" text-anchor="middle" dominant-baseline="central">Planning</text>
 
-  <rect class="box muted" x="400" y="374" width="190" height="50" rx="10"/>
+  <rect class="box muted" x="400" y="374" width="190" height="50" rx="12"/>
   <text class="lbl" x="495" y="399" text-anchor="middle" dominant-baseline="central">V2X</text>
 
   <path class="edge accent" d="M725 148 V252"/>
+  <path class="flow flow-accent" pathLength="100" d="M725 148 V252"/>
+  <path class="edge accent head" d="M725 148 V252"/>
   <text class="edge-lbl" x="725" y="230" text-anchor="middle" dominant-baseline="central">Signals of each camera</text>
   <path class="edge accent" d="M630 295 H598"/>
+  <path class="flow flow-accent" pathLength="100" d="M630 295 H598"/>
+  <path class="edge accent head" d="M630 295 H598"/>
   <path class="edge accent" d="M400 295 H368"/>
+  <path class="flow flow-accent" pathLength="100" d="M400 295 H368"/>
+  <path class="edge accent head" d="M400 295 H368"/>
   <path class="edge accent" d="M170 295 H138"/>
+  <path class="flow flow-accent" pathLength="100" d="M170 295 H138"/>
+  <path class="edge accent head" d="M170 295 H138"/>
   <path class="edge" d="M495 374 V338"/>
+  <path class="flow" pathLength="100" d="M495 374 V338"/>
+  <path class="edge head" d="M495 374 V338"/>
 </svg>

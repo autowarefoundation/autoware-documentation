@@ -36,9 +36,11 @@
   </g>
 
   <path class="edge" d="M151 166 V104"/>
-  <path class="flow" d="M151 166 V104"/>
+  <path class="flow" pathLength="100" d="M151 166 V104"/>
+  <path class="edge head" d="M151 166 V104"/>
   <path class="edge" d="M151 390 V268"/>
-  <path class="flow" d="M151 390 V268"/>
+  <path class="flow" pathLength="100" d="M151 390 V268"/>
+  <path class="edge head" d="M151 390 V268"/>
   <text class="edge-lbl" x="151" y="290" text-anchor="middle" dominant-baseline="central">Vehicle</text>
 
   <!-- Controller -->
@@ -51,7 +53,8 @@
 
   <!-- Sensing to the generators -->
   <path class="edge accent" d="M255 66 H322"/>
-  <path class="flow" d="M255 66 H318"/>
+  <path class="flow flow-accent" pathLength="100" d="M255 66 H318"/>
+  <path class="edge accent head" d="M255 66 H322"/>
   <text class="edge-lbl" x="288" y="50" text-anchor="middle" dominant-baseline="central">Sensor data</text>
 
   <!-- The generators -->
@@ -96,9 +99,12 @@
   <path class="traj" d="M560 276 C560 306 584 304 584 330"/>
   <path class="traj" d="M605 276 C599 300 611 306 605 330"/>
   <path class="traj" d="M650 276 C650 306 626 304 626 330"/>
-  <path class="flow" d="M560 276 C560 306 584 304 584 326"/>
-  <path class="flow" d="M605 276 C599 300 611 306 605 326"/>
-  <path class="flow" d="M650 276 C650 306 626 304 626 326"/>
+  <path class="flow flow-traj" pathLength="100" d="M560 276 C560 306 584 304 584 330"/>
+  <path class="traj head" d="M560 276 C560 306 584 304 584 330"/>
+  <path class="flow flow-traj" pathLength="100" d="M605 276 C599 300 611 306 605 330"/>
+  <path class="traj head" d="M605 276 C599 300 611 306 605 330"/>
+  <path class="flow flow-traj" pathLength="100" d="M650 276 C650 306 626 304 626 330"/>
+  <path class="traj head" d="M650 276 C650 306 626 304 626 330"/>
   <text class="edge-lbl" x="668" y="304" dominant-baseline="central">Candidate trajectories</text>
 
   <!-- The selector -->
@@ -117,6 +123,7 @@
 
   <!-- The selector to the controller -->
   <path class="edge accent glow" d="M440 420 H263"/>
-  <path class="flow" d="M440 420 H268"/>
+  <path class="flow flow-accent" pathLength="100" d="M440 420 H268"/>
+  <path class="edge accent glow head" d="M440 420 H263"/>
   <text class="edge-lbl" x="350" y="404" text-anchor="middle" dominant-baseline="central">Selected trajectory</text>
 </svg>

@@ -1,45 +1,87 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 486" role="img" aria-labelledby="roadmap-stack-fig07-title">
   <title id="roadmap-stack-fig07-title">Step 3, option B: one learned driving model takes sensing and a standard 2D map, and sends its trajectory to control.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="486"/>
+  <circle class="halo cyan" cx="700" cy="72" r="56"/>
+  <circle class="halo cyan" cx="413" cy="270" r="150"/>
+
   <!-- The reference design framework and the vehicle types -->
-  <rect class="box muted" x="20" y="40" width="500" height="52" rx="10"/>
+  <rect class="box muted" x="20" y="40" width="500" height="52" rx="14"/>
   <text class="lbl" x="270" y="66" text-anchor="middle" dominant-baseline="central">Reference design framework</text>
-  <rect class="group" x="560" y="16" width="280" height="112" rx="16"/>
+  <rect class="glass-panel" x="560" y="16" width="280" height="112" rx="18"/>
   <text class="ttl" x="580" y="38">Vehicle types</text>
-  <rect class="box" x="580" y="54" width="72" height="28" rx="10"/>
+  <rect class="card" x="580" y="54" width="72" height="28" rx="12"/>
   <text x="616" y="68" text-anchor="middle" dominant-baseline="central">Private</text>
-  <rect class="box" x="664" y="54" width="72" height="28" rx="10"/>
+  <rect class="card" x="664" y="54" width="72" height="28" rx="12"/>
   <text x="700" y="68" text-anchor="middle" dominant-baseline="central">Taxi</text>
-  <rect class="box" x="748" y="54" width="72" height="28" rx="10"/>
+  <rect class="card" x="748" y="54" width="72" height="28" rx="12"/>
   <text x="784" y="68" text-anchor="middle" dominant-baseline="central">Bus</text>
-  <rect class="box" x="580" y="90" width="72" height="28" rx="10"/>
+  <rect class="card" x="580" y="90" width="72" height="28" rx="12"/>
   <text x="616" y="104" text-anchor="middle" dominant-baseline="central">Shuttle</text>
-  <rect class="box" x="664" y="90" width="72" height="28" rx="10"/>
+  <rect class="card" x="664" y="90" width="72" height="28" rx="12"/>
   <text x="700" y="104" text-anchor="middle" dominant-baseline="central">Truck</text>
-  <rect class="box" x="748" y="90" width="72" height="28" rx="10"/>
+  <rect class="card" x="748" y="90" width="72" height="28" rx="12"/>
   <text x="784" y="104" text-anchor="middle" dominant-baseline="central">Cart</text>
   <path class="edge plain" d="M520 66 H560"/>
 
   <!-- Sensing and control -->
-  <rect class="box" x="20" y="150" width="96" height="240" rx="10"/>
-  <text class="lbl" x="68" y="270" text-anchor="middle" dominant-baseline="central">Sensing</text>
-  <rect class="box" x="710" y="150" width="130" height="240" rx="10"/>
-  <text class="lbl" x="775" y="270" text-anchor="middle" dominant-baseline="central">Control</text>
+  <rect class="card" x="20" y="150" width="96" height="240" rx="14"/>
+  <circle class="icon-bg" cx="68" cy="258" r="18"/>
+  <circle class="icon-dot" cx="62" cy="264" r="2.6"/>
+  <path class="icon-line" d="M62 255 A9 9 0 0 1 71 264"/>
+  <path class="icon-line" d="M62 248 A16 16 0 0 1 78 264"/>
+  <text class="lbl" x="68" y="292" text-anchor="middle" dominant-baseline="central">Sensing</text>
+  <rect class="card" x="710" y="150" width="130" height="240" rx="14"/>
+  <circle class="icon-bg" cx="775" cy="258" r="18"/>
+  <circle class="icon-line" cx="775" cy="258" r="8"/>
+  <path class="icon-line" d="M767 258 H783 M775 258 V266"/>
+  <text class="lbl" x="775" y="292" text-anchor="middle" dominant-baseline="central">Control</text>
 
   <!-- Sensors and the vehicle -->
-  <rect class="box muted" x="18" y="428" width="100" height="44" rx="10"/>
+  <rect class="box muted" x="18" y="428" width="100" height="44" rx="12"/>
   <text x="68" y="450" text-anchor="middle" dominant-baseline="central">Sensors</text>
-  <rect class="box muted" x="725" y="428" width="100" height="44" rx="10"/>
-  <text x="775" y="450" text-anchor="middle" dominant-baseline="central">Vehicle</text>
-  <path class="edge" d="M68 428 V396"/>
-  <path class="edge" d="M775 390 V422"/>
+  <g transform="translate(730.9 426) scale(0.42)">
+    <ellipse class="car-shadow" cx="105" cy="86" rx="92" ry="7"/>
+    <path class="car-body" d="M8 50 Q8 38 22 36 L52 33 L76 14 Q84 8 96 8 L146 8 Q158 8 166 16 L184 33 Q200 36 202 48 L202 62 Q202 70 194 70 L16 70 Q8 70 8 62 Z"/>
+    <path class="car-glass" d="M60 33 L80 17 Q86 13 96 13 L144 13 Q153 13 159 19 L176 33 Z"/>
+    <rect class="car-body" x="114" y="13" width="4" height="20"/>
+    <path class="car-shine" d="M90 17 L80 29"/>
+    <path class="car-shine" d="M26 44 Q105 38 188 42"/>
+    <rect class="lidar" x="100" y="1" width="26" height="7" rx="3.5"/>
+    <rect class="headlight" x="194" y="42" width="8" height="6" rx="3"/>
+    <circle class="wheel" cx="52" cy="70" r="15"/>
+    <circle class="rim" cx="52" cy="70" r="8.5"/>
+    <circle class="hub" cx="52" cy="70" r="3"/>
+    <circle class="wheel" cx="160" cy="70" r="15"/>
+    <circle class="rim" cx="160" cy="70" r="8.5"/>
+    <circle class="hub" cx="160" cy="70" r="3"/>
+  </g>
+  <text x="775" y="477" text-anchor="middle" dominant-baseline="central">Vehicle</text>
+  <path class="edge accent" d="M68 428 V396"/>
+  <path class="flow flow-accent" pathLength="100" d="M68 428 V400"/>
+  <path class="edge accent head" d="M68 428 V396"/>
+  <path class="edge accent" d="M775 390 V422"/>
+  <path class="flow flow-accent" pathLength="100" d="M775 390 V418"/>
+  <path class="edge accent head" d="M775 390 V422"/>
 
   <!-- Learned driving with a 2D map -->
-  <rect class="box ai" x="150" y="150" width="526" height="240" rx="10"/>
-  <text class="lbl" x="413" y="270" text-anchor="middle" dominant-baseline="central">Learned driving</text>
-  <path class="edge" d="M116 270 H144"/>
-  <path class="edge" d="M676 270 H704"/>
-  <rect class="box muted" x="358" y="428" width="110" height="44" rx="10"/>
+  <rect class="card ai" x="150" y="150" width="526" height="240" rx="14"/>
+  <circle class="icon-bg ai" cx="413" cy="258" r="18"/>
+  <circle class="icon-line" cx="413" cy="258" r="8"/>
+  <circle class="icon-dot" cx="410" cy="255" r="1.8"/>
+  <circle class="icon-dot" cx="416" cy="255" r="1.8"/>
+  <circle class="icon-dot" cx="413" cy="261" r="1.8"/>
+  <text class="lbl" x="413" y="292" text-anchor="middle" dominant-baseline="central">Learned driving</text>
+  <path class="edge accent" d="M116 270 H144"/>
+  <path class="flow flow-accent" pathLength="100" d="M116 270 H140"/>
+  <path class="edge accent head" d="M116 270 H144"/>
+  <path class="edge accent" d="M676 270 H704"/>
+  <path class="flow flow-accent" pathLength="100" d="M676 270 H700"/>
+  <path class="edge accent head" d="M676 270 H704"/>
+  <rect class="box muted" x="358" y="428" width="110" height="44" rx="12"/>
   <text class="lbl" x="413" y="450" text-anchor="middle" dominant-baseline="central">2D map</text>
   <path class="edge" d="M413 428 V396"/>
+  <path class="flow" pathLength="100" d="M413 428 V396"/>
+  <path class="edge head" d="M413 428 V396"/>
 </svg>

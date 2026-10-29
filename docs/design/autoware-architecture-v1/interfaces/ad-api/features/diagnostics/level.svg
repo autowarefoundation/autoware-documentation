@@ -1,6 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 440" role="img" aria-labelledby="adapi-diagnostics-level-title">
   <title id="adapi-diagnostics-level-title">A timing chart of level, input_level, and latch_level for latch times of 0.0, 1.0, and 2.0 seconds. The input is ERROR from 2.0 to 2.5 seconds and from 4.0 to 5.5 seconds. With a latch time of 0.0 seconds, the level latches at 2.0 seconds. With 1.0 second, it latches at 5.0 seconds. With 2.0 seconds, it does not latch. The reset at 10.0 seconds clears the latch.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="820" height="440"/>
+  <circle class="halo" cx="482" cy="220" r="200"/>
+
   <!-- Legend -->
   <rect class="box ok" x="170" y="10" width="80" height="22" rx="4"/>
   <text class="sub" x="210" y="21" text-anchor="middle" dominant-baseline="central">OK</text>

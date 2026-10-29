@@ -1,48 +1,82 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 468" role="img" aria-labelledby="planning-data-flow-title">
   <title id="planning-data-flow-title">The planning data flow in Autoware 2.0.0. With planning_setting set to diffusion_planner, the Diffusion Planner sends candidate trajectories to the trajectory modifier, which sends the first candidate to the planning validator. With rule_based, scenario planning sends its trajectory to the planning validator. The validator publishes /planning/trajectory for control. The trajectory selector is not launched.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="468"/>
+  <circle class="halo cyan" cx="180" cy="130" r="115"/>
+  <circle class="halo" cx="702" cy="140" r="100"/>
+  <circle class="halo" cx="430" cy="380" r="85"/>
+
   <!-- planning_setting:=diffusion_planner -->
-  <rect class="group dashed" x="20" y="16" width="524" height="252" rx="16"/>
+  <rect class="group dashed" x="20" y="16" width="524" height="252" rx="18"/>
   <text class="code" x="40" y="42">planning_setting:=diffusion_planner</text>
 
-  <rect class="box ai" x="40" y="60" width="280" height="60" rx="10"/>
-  <text class="lbl" x="180" y="80" text-anchor="middle" dominant-baseline="central">autoware_diffusion_planner</text>
-  <text class="sub" x="180" y="100" text-anchor="middle" dominant-baseline="central">Generator: a learned planner</text>
+  <rect class="card ai" x="40" y="60" width="280" height="60" rx="14"/>
+  <circle class="icon-bg ai" cx="70" cy="90" r="17"/>
+  <path class="icon-line" d="M62.44 95.67 C67.17 84.33 71.89 97.56 77.56 85.28"/>
+  <circle class="icon-dot" cx="63.39" cy="84.33" r="1.6"/>
+  <circle class="icon-dot" cx="69.06" cy="82.44" r="1.6"/>
+  <circle class="icon-dot" cx="75.67" cy="96.61" r="1.6"/>
+  <text class="lbl" x="98" y="80" dominant-baseline="central">autoware_diffusion_planner</text>
+  <text class="sub" x="98" y="100" dominant-baseline="central">Generator: a learned planner</text>
 
   <path class="edge accent" d="M180 120 V178"/>
+  <path class="flow flow-accent" pathLength="100" d="M180 120 V174"/>
+  <path class="edge accent head" d="M180 120 V178"/>
   <text class="edge-lbl" x="180" y="149" text-anchor="middle" dominant-baseline="central">CandidateTrajectories</text>
 
-  <rect class="box" x="40" y="184" width="280" height="64" rx="10"/>
-  <text class="lbl" x="180" y="205" text-anchor="middle" dominant-baseline="central">autoware_trajectory_modifier</text>
-  <text class="sub" x="180" y="226" text-anchor="middle" dominant-baseline="central">Modifier and optimizer plugins</text>
+  <rect class="card" x="40" y="184" width="280" height="64" rx="14"/>
+  <circle class="icon-bg" cx="70" cy="216" r="17"/>
+  <path class="icon-line" d="M62.44 212.22 H77.56 M62.44 219.78 H77.56"/>
+  <circle class="icon-dot" cx="67.17" cy="212.22" r="2.8"/>
+  <circle class="icon-dot" cx="72.83" cy="219.78" r="2.8"/>
+  <text class="lbl" x="98" y="205" dominant-baseline="central">autoware_trajectory_modifier</text>
+  <text class="sub" x="98" y="226" dominant-baseline="central">Modifier and optimizer plugins</text>
 
-  <rect class="box ext" x="340" y="184" width="184" height="64" rx="10"/>
+  <rect class="box ext" x="340" y="184" width="184" height="64" rx="14"/>
   <text class="lbl" x="432" y="205" text-anchor="middle" dominant-baseline="central">Trajectory selector</text>
   <text class="sub" x="432" y="226" text-anchor="middle" dominant-baseline="central">Not launched in 2.0.0</text>
 
   <!-- planning_setting:=rule_based -->
-  <rect class="group dashed" x="564" y="16" width="276" height="252" rx="16"/>
+  <rect class="group dashed" x="564" y="16" width="276" height="252" rx="18"/>
   <text class="code" x="584" y="42">planning_setting:=rule_based</text>
   <text class="sub" x="584" y="60">The default setting</text>
 
-  <rect class="box" x="584" y="76" width="236" height="64" rx="10"/>
-  <text class="lbl" x="702" y="98" text-anchor="middle" dominant-baseline="central">Scenario planning</text>
-  <text class="sub" x="702" y="118" text-anchor="middle" dominant-baseline="central">Rule-based planning stack</text>
+  <rect class="card" x="584" y="76" width="236" height="64" rx="14"/>
+  <circle class="icon-bg" cx="616" cy="108" r="18"/>
+  <path class="icon-line" d="M610 102 L622 102 M610 102 L616 114 M622 102 L616 114"/>
+  <circle class="icon-dot" cx="610" cy="102" r="2.8"/>
+  <circle class="icon-dot" cx="622" cy="102" r="2.8"/>
+  <circle class="icon-dot" cx="616" cy="114" r="2.8"/>
+  <text class="lbl" x="644" y="98" dominant-baseline="central">Scenario planning</text>
+  <text class="sub" x="644" y="118" dominant-baseline="central">Rule-based planning stack</text>
 
   <!-- The planning validator and control -->
-  <rect class="box" x="300" y="300" width="260" height="60" rx="10"/>
-  <text class="lbl" x="430" y="320" text-anchor="middle" dominant-baseline="central">autoware_planning_validator</text>
-  <text class="sub" x="430" y="340" text-anchor="middle" dominant-baseline="central">Checks the trajectory</text>
+  <rect class="card" x="300" y="300" width="260" height="60" rx="14"/>
+  <circle class="icon-bg" cx="330" cy="330" r="17"/>
+  <path class="icon-line" d="M330 321.5 L337.56 324.33 V330 Q337.56 335.67 330 338.5 Q322.44 335.67 322.44 330 V324.33 Z"/>
+  <path class="icon-line" d="M326.7 330 L329.06 332.36 L333.3 327.64"/>
+  <text class="lbl" x="357" y="320" dominant-baseline="central">autoware_planning_validator</text>
+  <text class="sub" x="357" y="340" dominant-baseline="central">Checks the trajectory</text>
 
   <path class="edge accent" d="M180 248 V330 H294"/>
+  <path class="flow flow-accent" pathLength="100" d="M180 248 V330 H290"/>
+  <path class="edge accent head" d="M180 248 V330 H294"/>
   <text class="edge-lbl" x="180" y="292" text-anchor="middle" dominant-baseline="central">Trajectory (first candidate)</text>
 
   <path class="edge" d="M702 140 V330 H566"/>
+  <path class="flow" pathLength="100" d="M702 140 V330 H566"/>
+  <path class="edge head" d="M702 140 V330 H566"/>
   <text class="edge-lbl" x="702" y="204" text-anchor="middle" dominant-baseline="central">Trajectory</text>
 
-  <rect class="box primary" x="340" y="404" width="180" height="48" rx="10"/>
-  <text class="lbl on-primary" x="430" y="428" text-anchor="middle" dominant-baseline="central">Control</text>
+  <rect class="box primary" x="340" y="404" width="180" height="48" rx="14"/>
+  <circle class="icon-bg on" cx="378" cy="428" r="15"/>
+  <circle class="icon-line" cx="378" cy="428" r="6.67"/>
+  <path class="icon-line" d="M371.33 428 H384.67 M378 428 V434.67"/>
+  <text class="lbl on-primary" x="402" y="428" dominant-baseline="central">Control</text>
 
   <path class="edge accent" d="M430 360 V398"/>
+  <path class="flow flow-accent" pathLength="100" d="M430 360 V394"/>
+  <path class="edge accent head" d="M430 360 V398"/>
   <text class="code" x="442" y="379" dominant-baseline="central">/planning/trajectory</text>
 </svg>

@@ -1,64 +1,131 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 436" role="img" aria-labelledby="roadmap-generator-selector-title">
   <title id="roadmap-generator-selector-title">The vehicle sends sensor data through the sensor abstraction layer and sensing to the generator. The generator holds robotics, learned, and proprietary models that make candidate trajectories. The selector checks and ranks them, and sends one trajectory to the controller, which drives the vehicle through the vehicle abstraction layer.</title>
 
-  <!-- The vehicle loop on the left -->
-  <rect class="box primary" x="20" y="24" width="200" height="48" rx="10"/>
-  <text class="lbl on-primary" x="120" y="48" text-anchor="middle" dominant-baseline="central">Sensing</text>
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="436"/>
+  <circle class="halo cyan" cx="585" cy="136" r="120"/>
+  <circle class="halo" cx="585" cy="360" r="75"/>
+  <circle class="halo cyan" cx="120" cy="215" r="70"/>
 
-  <rect class="box ext" x="20" y="104" width="200" height="44" rx="10"/>
+  <!-- The vehicle loop on the left -->
+  <rect class="box primary" x="20" y="24" width="200" height="48" rx="24"/>
+  <circle class="icon-bg on" cx="48" cy="48" r="16"/>
+  <circle class="icon-dot" cx="42.67" cy="53.33" r="2.31"/>
+  <path class="icon-line" d="M42.67 45.33 A8 8 0 0 1 50.67 53.33"/>
+  <path class="icon-line" d="M42.67 39.11 A14.22 14.22 0 0 1 56.89 53.33"/>
+  <text class="lbl on-primary" x="74" y="48" dominant-baseline="central">Sensing</text>
+
+  <rect class="box ext" x="20" y="104" width="200" height="44" rx="12"/>
   <text x="120" y="126" text-anchor="middle" dominant-baseline="central">Sensor abstraction layer</text>
 
-  <rect class="box muted" x="60" y="180" width="120" height="82" rx="10"/>
-  <path class="icon" d="M83 234 v-26 q0-8 8-8 h44 l14 14 h10 q6 0 6 6 v14 z"/>
-  <circle class="icon" cx="99" cy="236" r="7"/>
-  <circle class="icon" cx="143" cy="236" r="7"/>
+  <g transform="translate(62.25 183.5) scale(0.55)">
+    <ellipse class="car-shadow" cx="105" cy="86" rx="92" ry="7"/>
+    <path class="car-body" d="M8 50 Q8 38 22 36 L52 33 L76 14 Q84 8 96 8 L146 8 Q158 8 166 16 L184 33 Q200 36 202 48 L202 62 Q202 70 194 70 L16 70 Q8 70 8 62 Z"/>
+    <path class="car-glass" d="M60 33 L80 17 Q86 13 96 13 L144 13 Q153 13 159 19 L176 33 Z"/>
+    <rect class="car-body" x="114" y="13" width="4" height="20"/>
+    <path class="car-shine" d="M90 17 L80 29"/>
+    <path class="car-shine" d="M26 44 Q105 38 188 42"/>
+    <rect class="lidar" x="100" y="1" width="26" height="7" rx="3.5"/>
+    <rect class="headlight" x="194" y="42" width="8" height="6" rx="3"/>
+    <circle class="wheel" cx="52" cy="70" r="15"/>
+    <circle class="rim" cx="52" cy="70" r="8.5"/>
+    <circle class="hub" cx="52" cy="70" r="3"/>
+    <circle class="wheel" cx="160" cy="70" r="15"/>
+    <circle class="rim" cx="160" cy="70" r="8.5"/>
+    <circle class="hub" cx="160" cy="70" r="3"/>
+  </g>
   <text class="sub" x="120" y="251" text-anchor="middle" dominant-baseline="central">Vehicle</text>
 
-  <rect class="box ext" x="20" y="294" width="200" height="44" rx="10"/>
+  <rect class="box ext" x="20" y="294" width="200" height="44" rx="12"/>
   <text x="120" y="316" text-anchor="middle" dominant-baseline="central">Vehicle abstraction layer</text>
 
-  <rect class="box primary" x="20" y="370" width="200" height="48" rx="10"/>
-  <text class="lbl on-primary" x="120" y="394" text-anchor="middle" dominant-baseline="central">Controller</text>
+  <rect class="box primary" x="20" y="370" width="200" height="48" rx="24"/>
+  <circle class="icon-bg on" cx="48" cy="394" r="16"/>
+  <circle class="icon-line" cx="48" cy="394" r="7.11"/>
+  <path class="icon-line" d="M40.89 394 H55.11 M48 394 V401.11"/>
+  <text class="lbl on-primary" x="74" y="394" dominant-baseline="central">Controller</text>
 
   <path class="edge" d="M120 180 V154"/>
+  <path class="flow" pathLength="100" d="M120 180 V154"/>
+  <path class="edge head" d="M120 180 V154"/>
   <path class="edge" d="M120 104 V78"/>
+  <path class="flow" pathLength="100" d="M120 104 V78"/>
+  <path class="edge head" d="M120 104 V78"/>
   <path class="edge" d="M120 370 V344"/>
+  <path class="flow" pathLength="100" d="M120 370 V344"/>
+  <path class="edge head" d="M120 370 V344"/>
   <path class="edge" d="M120 294 V268"/>
+  <path class="flow" pathLength="100" d="M120 294 V268"/>
+  <path class="edge head" d="M120 294 V268"/>
 
   <!-- The generator -->
-  <rect class="group ai" x="330" y="16" width="510" height="240" rx="16"/>
+  <rect class="glass-panel" x="330" y="16" width="510" height="240" rx="22"/>
   <text class="ttl" x="352" y="42">Generator (black box)</text>
 
-  <rect class="box" x="352" y="60" width="225" height="48" rx="10"/>
-  <text class="lbl" x="464.5" y="84" text-anchor="middle" dominant-baseline="central">Traditional robotics stack</text>
-  <rect class="box ai" x="593" y="60" width="225" height="48" rx="10"/>
-  <text class="lbl" x="705.5" y="84" text-anchor="middle" dominant-baseline="central">Learned planning models</text>
-
-  <rect class="box ai" x="352" y="124" width="225" height="48" rx="10"/>
-  <text class="lbl" x="464.5" y="148" text-anchor="middle" dominant-baseline="central">Component-based AI models</text>
-  <rect class="box ai" x="593" y="124" width="225" height="48" rx="10"/>
-  <text class="lbl" x="705.5" y="148" text-anchor="middle" dominant-baseline="central">Proprietary AI models</text>
-
-  <rect class="box ai" x="352" y="188" width="225" height="48" rx="10"/>
-  <text class="lbl" x="464.5" y="212" text-anchor="middle" dominant-baseline="central">Learned driving models</text>
-  <rect class="box ai" x="593" y="188" width="225" height="48" rx="10"/>
-  <text class="lbl" x="705.5" y="212" text-anchor="middle" dominant-baseline="central">Learned hybrid models</text>
+  <rect class="card" x="352" y="60" width="225" height="48" rx="14"/>
+  <circle class="icon-bg" cx="374" cy="84" r="14"/>
+  <path class="icon-line" d="M369.33 79.33 L378.67 79.33 M369.33 79.33 L374 88.67 M378.67 79.33 L374 88.67"/>
+  <circle class="icon-dot" cx="369.33" cy="79.33" r="2.18"/>
+  <circle class="icon-dot" cx="378.67" cy="79.33" r="2.18"/>
+  <circle class="icon-dot" cx="374" cy="88.67" r="2.18"/>
+  <text class="lbl" x="395" y="84" dominant-baseline="central">Traditional robotics stack</text>
+  <rect class="card ai" x="593" y="60" width="225" height="48" rx="14"/>
+  <circle class="icon-bg ai" cx="615" cy="84" r="14"/>
+  <path class="icon-line" d="M609.56 89.44 C609.56 82.44 620.44 85.56 620.44 78.56"/>
+  <circle class="icon-dot" cx="609.56" cy="89.44" r="2.02"/>
+  <circle class="icon-dot" cx="620.44" cy="78.56" r="2.02"/>
+  <text class="lbl" x="636" y="84" dominant-baseline="central">Learned planning models</text>
+  <rect class="card ai" x="352" y="124" width="225" height="48" rx="14"/>
+  <circle class="icon-bg ai" cx="374" cy="148" r="14"/>
+  <rect class="icon-line" x="367.78" y="141" width="12.44" height="5.44" rx="1.56"/>
+  <rect class="icon-line" x="367.78" y="149.56" width="12.44" height="5.44" rx="1.56"/>
+  <text class="lbl" x="395" y="148" dominant-baseline="central">Component-based AI models</text>
+  <rect class="card ai" x="593" y="124" width="225" height="48" rx="14"/>
+  <circle class="icon-bg ai" cx="615" cy="148" r="14"/>
+  <rect class="icon-line" x="609.56" y="146.44" width="10.89" height="7.78" rx="1.56"/>
+  <path class="icon-line" d="M611.89 146.44 V144.11 A3.11 3.11 0 0 1 618.11 144.11 V146.44"/>
+  <text class="lbl" x="636" y="148" dominant-baseline="central">Proprietary AI models</text>
+  <rect class="card ai" x="352" y="188" width="225" height="48" rx="14"/>
+  <circle class="icon-bg ai" cx="374" cy="212" r="14"/>
+  <circle class="icon-line" cx="374" cy="212" r="6.22"/>
+  <circle class="icon-dot" cx="371.67" cy="209.67" r="1.4"/>
+  <circle class="icon-dot" cx="376.33" cy="209.67" r="1.4"/>
+  <circle class="icon-dot" cx="374" cy="214.33" r="1.4"/>
+  <text class="lbl" x="395" y="212" dominant-baseline="central">Learned driving models</text>
+  <rect class="card ai" x="593" y="188" width="225" height="48" rx="14"/>
+  <circle class="icon-bg ai" cx="615" cy="212" r="14"/>
+  <path class="icon-line" d="M615 205 L621.22 207.33 V212 Q621.22 216.67 615 219 Q608.78 216.67 608.78 212 V207.33 Z"/>
+  <circle class="icon-dot" cx="615" cy="212" r="2.02"/>
+  <text class="lbl" x="636" y="212" dominant-baseline="central">Learned hybrid models</text>
 
   <!-- Sensing to the generator -->
   <path class="edge accent" d="M220 48 H322"/>
+  <path class="flow flow-accent" pathLength="100" d="M220 48 H318"/>
+  <path class="edge accent head" d="M220 48 H322"/>
   <text class="edge-lbl" x="271" y="48" text-anchor="middle" dominant-baseline="central">Sensor data</text>
 
   <!-- The selector -->
-  <rect class="box primary" x="440" y="330" width="290" height="80" rx="10"/>
-  <text class="lbl on-primary" x="585" y="358" text-anchor="middle" dominant-baseline="central">Selector</text>
-  <text class="sub on-primary" x="585" y="382" text-anchor="middle" dominant-baseline="central">Safety gate and ranking</text>
+  <rect class="box primary" x="440" y="330" width="290" height="80" rx="18"/>
+  <circle class="icon-bg on" cx="476" cy="370" r="18"/>
+  <path class="icon-line" d="M476 361 L484 364 V370 Q484 376 476 379 Q468 376 468 370 V364 Z"/>
+  <path class="icon-line" d="M472.5 370 L475 372.5 L479.5 367.5"/>
+  <text class="lbl on-primary" x="506" y="358" dominant-baseline="central">Selector</text>
+  <text class="sub on-primary" x="506" y="382" dominant-baseline="central">Safety gate and ranking</text>
 
   <path class="edge accent" d="M545 256 V322"/>
+  <path class="flow flow-accent" pathLength="100" d="M545 256 V318"/>
+  <path class="edge accent head" d="M545 256 V322"/>
   <path class="edge accent" d="M585 256 V322"/>
+  <path class="flow flow-accent" pathLength="100" d="M585 256 V318"/>
+  <path class="edge accent head" d="M585 256 V322"/>
   <path class="edge accent" d="M625 256 V322"/>
+  <path class="flow flow-accent" pathLength="100" d="M625 256 V318"/>
+  <path class="edge accent head" d="M625 256 V322"/>
   <text class="edge-lbl" x="585" y="290" text-anchor="middle" dominant-baseline="central">Candidate trajectories</text>
 
   <!-- The selector to the controller -->
-  <path class="edge accent" d="M440 394 H228"/>
+  <path class="edge accent glow" d="M440 394 H228"/>
+  <path class="flow flow-accent" pathLength="100" d="M440 394 H232"/>
+  <path class="edge accent glow head" d="M440 394 H228"/>
   <text class="edge-lbl" x="334" y="394" text-anchor="middle" dominant-baseline="central">Selected trajectory</text>
 </svg>

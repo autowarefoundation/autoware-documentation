@@ -101,7 +101,11 @@
   <path class="lanelet" d="M320 332 L320 108 L380 108 L380 332 Z"/>
   <path class="lanelet alt" d="M440 108 L440 332 L380 332 L380 108 Z"/>
   <path class="route" d="M350 300 L350 140"/>
+  <path class="flow flow-route" pathLength="100" d="M350 300 L350 140"/>
+  <path class="route head" d="M350 300 L350 140"/>
   <path class="route" d="M410 140 L410 300"/>
+  <path class="flow flow-route" pathLength="100" d="M410 140 L410 300"/>
+  <path class="route head" d="M410 140 L410 300"/>
 
   <!-- Notes -->
   <text class="note" x="40" y="380">Stop line</text>

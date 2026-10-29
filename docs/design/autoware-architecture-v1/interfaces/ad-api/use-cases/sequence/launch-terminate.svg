@@ -1,32 +1,57 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 572" role="img" aria-labelledby="adapi-launch-terminate-title">
   <title id="adapi-launch-terminate-title">The user powers on the computer. The operating system starts the application, which starts Autoware with the AD API, checks the interface version, and later stops Autoware before the shutdown.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="840" height="572"/>
+  <circle class="halo" cx="600" cy="290" r="230"/>
+
   <!-- Participants and lifelines -->
-  <rect class="box" x="15" y="16" width="150" height="44" rx="10"/>
-  <text class="lbl" x="90" y="38" text-anchor="middle" dominant-baseline="central">User</text>
+  <rect class="card" x="15" y="16" width="150" height="44" rx="12"/>
+  <circle class="icon-bg" cx="71" cy="38" r="14"/>
+  <circle class="icon-line" cx="71" cy="35" r="3.2"/>
+  <path class="icon-line" d="M65 45 Q65 39.5 71 39.5 Q77 39.5 77 45"/>
+  <text class="lbl" x="94" y="38" dominant-baseline="central">User</text>
   <line class="edge plain dash" x1="90" y1="60" x2="90" y2="560"/>
-  <rect class="box" x="195" y="16" width="150" height="44" rx="10"/>
-  <text class="lbl" x="270" y="38" text-anchor="middle" dominant-baseline="central">Operating system</text>
+  <rect class="card" x="187" y="16" width="166" height="44" rx="12"/>
+  <circle class="icon-bg" cx="211" cy="38" r="14"/>
+  <rect class="icon-line" x="204" y="32" width="14" height="12" rx="2"/>
+  <path class="icon-line" d="M207 36 L209.5 38.5 L207 41 M211.5 41 H215"/>
+  <text class="lbl" x="234" y="38" dominant-baseline="central">Operating system</text>
   <line class="edge plain dash" x1="270" y1="60" x2="270" y2="560"/>
-  <rect class="box" x="395" y="16" width="150" height="44" rx="10"/>
-  <text class="lbl" x="470" y="38" text-anchor="middle" dominant-baseline="central">Application</text>
+  <rect class="card" x="395" y="16" width="150" height="44" rx="12"/>
+  <circle class="icon-bg" cx="431" cy="38" r="14"/>
+  <rect class="icon-line" x="424" y="32" width="14" height="12" rx="2"/>
+  <path class="icon-line" d="M424 36 H438"/>
+  <text class="lbl" x="454" y="38" dominant-baseline="central">Application</text>
   <line class="edge plain dash" x1="470" y1="60" x2="470" y2="560"/>
-  <rect class="box" x="645" y="16" width="150" height="44" rx="10"/>
-  <text class="lbl" x="720" y="38" text-anchor="middle" dominant-baseline="central">Autoware and AD API</text>
+  <rect class="box primary" x="625" y="16" width="190" height="44" rx="12"/>
+  <circle class="icon-bg on" cx="650" cy="38" r="14"/>
+  <path class="icon-line" d="M647 33 L642 38 L647 43 M653 33 L658 38 L653 43"/>
+  <text class="lbl on-primary" x="673" y="38" dominant-baseline="central">Autoware and AD API</text>
   <line class="edge plain dash" x1="720" y1="60" x2="720" y2="560"/>
 
   <!-- Messages -->
 
   <!-- Start -->
   <path class="edge" d="M92 94 H268"/>
+  <path class="flow" pathLength="100" d="M92 94 H268"/>
+  <path class="edge head" d="M92 94 H268"/>
   <text class="edge-lbl" x="180" y="83" text-anchor="middle" dominant-baseline="central">power on</text>
   <path class="edge" d="M272 136 H468"/>
+  <path class="flow" pathLength="100" d="M272 136 H468"/>
+  <path class="edge head" d="M272 136 H468"/>
   <text class="edge-lbl" x="370" y="125" text-anchor="middle" dominant-baseline="central">start the service</text>
   <path class="edge" d="M472 178 H506 V200 H474"/>
+  <path class="flow" pathLength="100" d="M472 178 H506 V200 H474"/>
+  <path class="edge head" d="M472 178 H506 V200 H474"/>
   <text class="edge-lbl" x="514" y="189" dominant-baseline="central">update the system</text>
   <path class="edge" d="M472 228 H718"/>
+  <path class="flow" pathLength="100" d="M472 228 H718"/>
+  <path class="edge head" d="M472 228 H718"/>
   <text class="edge-lbl" x="595" y="217" text-anchor="middle" dominant-baseline="central">start Autoware (ros2 launch)</text>
   <path class="edge" d="M472 270 H718"/>
+  <path class="flow" pathLength="100" d="M472 270 H718"/>
+  <path class="edge head" d="M472 270 H718"/>
   <text class="edge-lbl" x="595" y="259" text-anchor="middle" dominant-baseline="central">/api/interface/version</text>
   <path class="edge dash" d="M718 312 H472"/>
   <text class="edge-lbl" x="595" y="301" text-anchor="middle" dominant-baseline="central">major, minor, patch</text>
@@ -35,11 +60,17 @@
 
   <!-- Stop -->
   <path class="edge" d="M92 406 H468"/>
+  <path class="flow" pathLength="100" d="M92 406 H468"/>
+  <path class="edge head" d="M92 406 H468"/>
   <text class="edge-lbl" x="280" y="395" text-anchor="middle" dominant-baseline="central">power off</text>
   <path class="edge" d="M472 448 H718"/>
+  <path class="flow" pathLength="100" d="M472 448 H718"/>
+  <path class="edge head" d="M472 448 H718"/>
   <text class="edge-lbl" x="595" y="437" text-anchor="middle" dominant-baseline="central">stop Autoware</text>
   <path class="edge dash" d="M718 490 H472"/>
   <text class="edge-lbl" x="595" y="479" text-anchor="middle" dominant-baseline="central">stopped</text>
   <path class="edge" d="M468 532 H272"/>
+  <path class="flow" pathLength="100" d="M468 532 H272"/>
+  <path class="edge head" d="M468 532 H272"/>
   <text class="edge-lbl" x="370" y="521" text-anchor="middle" dominant-baseline="central">shut down</text>
 </svg>

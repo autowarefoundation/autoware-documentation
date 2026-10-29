@@ -142,10 +142,28 @@
   <circle class="light-green" cx="546" cy="388" r="4.5"/>
 
   <!-- Two vehicles and their routes -->
-  <rect class="car" x="279" y="394" width="22" height="40" rx="6"/>
-  <rect class="glass" x="282" y="399" width="16" height="9"/>
-  <rect class="car" x="339" y="394" width="22" height="40" rx="6"/>
-  <rect class="glass" x="342" y="399" width="16" height="9"/>
+  <g transform="translate(279 394)">
+    <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
+    <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
+    <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
+    <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
+    <circle class="lidar" cx="11" cy="22" r="3.2"/>
+    <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
+    <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
+  </g>
+  <g transform="translate(339 394)">
+    <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
+    <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
+    <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
+    <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
+    <circle class="lidar" cx="11" cy="22" r="3.2"/>
+    <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
+    <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
+  </g>
   <path class="route" d="M290 388 L290 382 A262 262 0 0 1 552 120 L562 120"/>
+  <path class="flow flow-route" pathLength="100" d="M290 388 L290 382 A262 262 0 0 1 552 120 L562 120"/>
+  <path class="route head" d="M290 388 L290 382 A262 262 0 0 1 552 120 L562 120"/>
   <path class="route" d="M350 388 L350 382 A202 202 0 0 1 552 180 L562 180"/>
+  <path class="flow flow-route" pathLength="100" d="M350 388 L350 382 A202 202 0 0 1 552 180 L562 180"/>
+  <path class="route head" d="M350 388 L350 382 A202 202 0 0 1 552 180 L562 180"/>
 </svg>

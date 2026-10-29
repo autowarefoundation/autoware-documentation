@@ -4,10 +4,14 @@
   <!-- Status -->
   <circle class="icon" cx="22" cy="36" r="9"/>
   <path class="edge" d="M31 36 H56"/>
-  <rect class="box" x="60" y="14" width="160" height="44" rx="10"/>
+  <path class="flow" pathLength="100" d="M31 36 H56"/>
+  <path class="edge head" d="M31 36 H56"/>
+  <rect class="card" x="60" y="14" width="160" height="44" rx="12"/>
   <text class="lbl" x="140" y="36" text-anchor="middle" dominant-baseline="central">APPROACHING</text>
   <path class="edge" d="M220 36 H296"/>
-  <rect class="box ok" x="300" y="14" width="160" height="44" rx="10"/>
+  <path class="flow" pathLength="100" d="M220 36 H296"/>
+  <path class="edge head" d="M220 36 H296"/>
+  <rect class="box ok" x="300" y="14" width="160" height="44" rx="12"/>
   <text class="lbl" x="380" y="36" text-anchor="middle" dominant-baseline="central">TURNING</text>
 
   <!-- Roads -->
@@ -19,9 +23,18 @@
   <path class="mark dash" d="M680 100 V0 M680 260 V320"/>
 
   <!-- Ego vehicle and path -->
-  <rect class="car" x="110" y="130" width="64" height="30" rx="6"/>
-  <rect class="glass" x="156" y="134" width="10" height="22" rx="2"/>
+  <g transform="translate(131 125) rotate(90 11 20)">
+    <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
+    <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
+    <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
+    <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
+    <circle class="lidar" cx="11" cy="22" r="3.2"/>
+    <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
+    <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
+  </g>
   <path class="route" d="M180 145 H650 V14"/>
+  <path class="flow flow-route" pathLength="100" d="M180 145 H650 V14"/>
+  <path class="route head" d="M180 145 H650 V14"/>
 
   <!-- Start and end poses of the turn -->
   <path class="bound" d="M560 120 V170"/>

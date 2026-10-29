@@ -1,52 +1,82 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 340" role="img" aria-labelledby="adapi-cooperation-architecture-title">
   <title id="adapi-cooperation-architecture-title">Each scene class has a cooperation policy that the system settings initialize and the operator can set. Each scene instance merges the module decision from the planning module, the operator decision, and the cooperation policy into the merged decision. The planning module uses the merged decision, and the operator receives the cooperation status.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="340"/>
+  <circle class="halo" cx="420" cy="220" r="118"/>
+  <circle class="halo cyan" cx="760" cy="170" r="98"/>
+
   <!-- Planning module and system settings -->
-  <rect class="box muted" x="20" y="42" width="130" height="54" rx="10"/>
+  <rect class="box muted" x="20" y="42" width="130" height="54" rx="12"/>
   <text class="lbl" x="85" y="61" text-anchor="middle" dominant-baseline="central">System</text>
   <text class="lbl" x="85" y="79" text-anchor="middle" dominant-baseline="central">settings</text>
 
-  <rect class="box" x="20" y="150" width="130" height="174" rx="10"/>
+  <rect class="card" x="20" y="150" width="130" height="174" rx="12"/>
+  <circle class="icon-bg" cx="85" cy="192" r="18"/>
+  <path class="icon-line" d="M79 200 Q79 192 85 192 Q91 192 91 184"/>
+  <circle class="icon-dot" cx="79" cy="200" r="2.6"/>
+  <circle class="icon-dot" cx="91" cy="184" r="2.6"/>
   <text class="lbl" x="85" y="228" text-anchor="middle" dominant-baseline="central">Planning</text>
   <text class="lbl" x="85" y="246" text-anchor="middle" dominant-baseline="central">module</text>
 
   <!-- Operator -->
-  <rect class="box primary" x="730" y="16" width="110" height="308" rx="10"/>
+  <rect class="box primary" x="730" y="16" width="110" height="308" rx="12"/>
+  <circle class="icon-bg on" cx="785" cy="132" r="18"/>
+  <circle class="icon-line" cx="785" cy="128" r="4"/>
+  <path class="icon-line" d="M777 141 Q777 134 785 134 Q793 134 793 141"/>
   <text class="lbl on-primary" x="785" y="170" text-anchor="middle" dominant-baseline="central">Operator</text>
 
   <!-- Each scene class -->
-  <rect class="group" x="200" y="16" width="440" height="96" rx="16"/>
+  <rect class="glass-panel" x="200" y="16" width="440" height="96" rx="16"/>
   <text class="ttl" x="220" y="40">Each scene class</text>
-  <rect class="box" x="220" y="50" width="400" height="46" rx="10"/>
+  <rect class="card" x="220" y="50" width="400" height="46" rx="12"/>
   <text class="lbl" x="420" y="73" text-anchor="middle" dominant-baseline="central">Cooperation policy</text>
 
   <!-- Each scene instance -->
-  <rect class="group" x="200" y="128" width="440" height="196" rx="16"/>
+  <rect class="glass-panel" x="200" y="128" width="440" height="196" rx="16"/>
   <text class="ttl" x="220" y="152">Each scene instance</text>
-  <rect class="box" x="220" y="168" width="170" height="46" rx="10"/>
+  <rect class="card" x="220" y="168" width="170" height="46" rx="12"/>
   <text class="lbl" x="305" y="191" text-anchor="middle" dominant-baseline="central">Module decision</text>
-  <rect class="box" x="450" y="168" width="170" height="46" rx="10"/>
+  <rect class="card" x="450" y="168" width="170" height="46" rx="12"/>
   <text class="lbl" x="535" y="191" text-anchor="middle" dominant-baseline="central">Operator decision</text>
-  <rect class="box ok" x="220" y="262" width="400" height="46" rx="10"/>
+  <rect class="box ok" x="220" y="262" width="400" height="46" rx="12"/>
   <text class="lbl" x="420" y="285" text-anchor="middle" dominant-baseline="central">Merged decision</text>
 
   <!-- Inputs -->
   <path class="edge" d="M150 69 H216"/>
+  <path class="flow" pathLength="100" d="M150 69 H216"/>
+  <path class="edge head" d="M150 69 H216"/>
   <text class="edge-lbl" x="183" y="55" text-anchor="middle" dominant-baseline="central">init</text>
   <path class="edge" d="M730 73 H624"/>
+  <path class="flow" pathLength="100" d="M730 73 H624"/>
+  <path class="edge head" d="M730 73 H624"/>
   <text class="edge-lbl" x="685" y="59" text-anchor="middle" dominant-baseline="central">set policy</text>
   <path class="edge" d="M150 191 H216"/>
+  <path class="flow" pathLength="100" d="M150 191 H216"/>
+  <path class="edge head" d="M150 191 H216"/>
   <path class="edge" d="M730 191 H624"/>
+  <path class="flow" pathLength="100" d="M730 191 H624"/>
+  <path class="edge head" d="M730 191 H624"/>
   <text class="edge-lbl" x="685" y="177" text-anchor="middle" dominant-baseline="central">set decision</text>
 
   <!-- Merge -->
   <path class="edge" d="M420 96 V258"/>
+  <path class="flow" pathLength="100" d="M420 96 V258"/>
+  <path class="edge head" d="M420 96 V258"/>
   <path class="edge" d="M305 214 V258"/>
+  <path class="flow" pathLength="100" d="M305 214 V258"/>
+  <path class="edge head" d="M305 214 V258"/>
   <path class="edge" d="M535 214 V258"/>
+  <path class="flow" pathLength="100" d="M535 214 V258"/>
+  <path class="edge head" d="M535 214 V258"/>
 
   <!-- Outputs -->
   <path class="edge accent" d="M220 285 H154"/>
+  <path class="flow flow-accent" pathLength="100" d="M220 285 H154"/>
+  <path class="edge accent head" d="M220 285 H154"/>
   <path class="edge" d="M620 285 H726"/>
+  <path class="flow" pathLength="100" d="M620 285 H726"/>
+  <path class="edge head" d="M620 285 H726"/>
   <text class="edge-lbl" x="685" y="263" text-anchor="middle" dominant-baseline="central">cooperation</text>
   <text class="edge-lbl" x="685" y="303" text-anchor="middle" dominant-baseline="central">status</text>
 </svg>

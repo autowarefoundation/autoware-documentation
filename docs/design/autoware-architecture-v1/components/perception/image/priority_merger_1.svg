@@ -1,6 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 330" role="img" aria-labelledby="priority-merger-1-title">
   <title id="priority-merger-1-title">Timing of a synchronized object merger. The data of frame t arrives at the base 3D detector and at the cluster-based detector. The cluster-based detector finishes later. The object merger merges and publishes frame t only after the slower detector finishes.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="330"/>
+  <circle class="halo" cx="430" cy="190" r="140"/>
+
   <!-- Time axis -->
   <path class="edge" d="M190 50 H836"/>
   <text class="sub" x="836" y="30" text-anchor="end" dominant-baseline="central">Time</text>
@@ -21,17 +25,17 @@
   <rect class="box muted" x="225" y="86" width="10" height="28" rx="3"/>
   <rect class="box muted" x="425" y="86" width="10" height="28" rx="3"/>
   <rect class="box muted" x="625" y="86" width="10" height="28" rx="3"/>
-  <rect class="box" x="325" y="146" width="10" height="28" rx="3"/>
+  <rect class="card" x="325" y="146" width="10" height="28" rx="3"/>
   <text class="sub" x="340" y="160" dominant-baseline="central">t</text>
-  <rect class="box" x="525" y="146" width="10" height="28" rx="3"/>
+  <rect class="card" x="525" y="146" width="10" height="28" rx="3"/>
   <text class="sub" x="540" y="160" dominant-baseline="central">t+1</text>
-  <rect class="box" x="725" y="146" width="10" height="28" rx="3"/>
+  <rect class="card" x="725" y="146" width="10" height="28" rx="3"/>
   <text class="sub" x="740" y="160" dominant-baseline="central">t+2</text>
-  <rect class="box" x="395" y="206" width="10" height="28" rx="3"/>
+  <rect class="card" x="395" y="206" width="10" height="28" rx="3"/>
   <text class="sub" x="410" y="220" dominant-baseline="central">t</text>
-  <rect class="box" x="595" y="206" width="10" height="28" rx="3"/>
+  <rect class="card" x="595" y="206" width="10" height="28" rx="3"/>
   <text class="sub" x="610" y="220" dominant-baseline="central">t+1</text>
-  <rect class="box" x="795" y="206" width="10" height="28" rx="3"/>
+  <rect class="card" x="795" y="206" width="10" height="28" rx="3"/>
   <text class="sub" x="810" y="220" dominant-baseline="central">t+2</text>
   <rect class="box primary" x="395" y="266" width="10" height="28" rx="3"/>
   <text class="sub" x="410" y="280" dominant-baseline="central">t</text>
@@ -42,9 +46,15 @@
 
   <!-- Processing of frame t -->
   <path class="edge accent" d="M236 108 L320 152"/>
+  <path class="flow flow-accent" pathLength="100" d="M236 108 L320 152"/>
+  <path class="edge accent head" d="M236 108 L320 152"/>
   <path class="edge accent" d="M236 112 L390 212"/>
+  <path class="flow flow-accent" pathLength="100" d="M236 112 L390 212"/>
+  <path class="edge accent head" d="M236 112 L390 212"/>
   <text class="sub" x="292" y="118" dominant-baseline="central">Processing time</text>
   <path class="edge dash" d="M336 172 L392 268"/>
   <path class="edge" d="M400 234 V262"/>
-  <text class="sub" x="420" y="312" dominant-baseline="central">Merges frame t after the slower input arrives</text>
+  <path class="flow" pathLength="100" d="M400 234 V262"/>
+  <path class="edge head" d="M400 234 V262"/>
+  <text class="edge-lbl" x="420" y="312" dominant-baseline="central">Merges frame t after the slower input arrives</text>
 </svg>

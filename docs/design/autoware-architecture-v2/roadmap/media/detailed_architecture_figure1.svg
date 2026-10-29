@@ -1,34 +1,68 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 380" role="img" aria-labelledby="roadmap-steps-title">
   <title id="roadmap-steps-title">The steps from the traditional robotics stack to Step 1, learned planning, Step 2, learned planning and learned perception, Step 3, a monolithic learned driving model, and Step 4, a learned hybrid model.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="880" height="380"/>
+  <circle class="halo" cx="170" cy="290" r="85"/>
+  <circle class="halo cyan" cx="440" cy="190" r="120"/>
+  <circle class="halo cyan" cx="720" cy="100" r="95"/>
+
   <!-- Start -->
-  <rect class="box" x="20" y="304" width="272" height="60" rx="10"/>
-  <text class="lbl" x="156" y="324" text-anchor="middle" dominant-baseline="central">Start</text>
-  <text class="sub" x="156" y="344" text-anchor="middle" dominant-baseline="central">Traditional robotics stack</text>
+  <rect class="card" x="20" y="304" width="272" height="60" rx="14"/>
+  <circle class="icon-bg" cx="48" cy="334" r="16"/>
+  <path class="icon-line" d="M42.67 328.67 L53.33 328.67 M42.67 328.67 L48 339.33 M53.33 328.67 L48 339.33"/>
+  <circle class="icon-dot" cx="42.67" cy="328.67" r="2.5"/>
+  <circle class="icon-dot" cx="53.33" cy="328.67" r="2.5"/>
+  <circle class="icon-dot" cx="48" cy="339.33" r="2.5"/>
+  <text class="lbl" x="74" y="324" dominant-baseline="central">Start</text>
+  <text class="sub" x="74" y="344" dominant-baseline="central">Traditional robotics stack</text>
 
   <!-- Step 1 -->
-  <rect class="box ai" x="162" y="232" width="272" height="60" rx="10"/>
-  <text class="lbl" x="298" y="252" text-anchor="middle" dominant-baseline="central">Step 1</text>
-  <text class="sub" x="298" y="272" text-anchor="middle" dominant-baseline="central">Learned planning</text>
+  <rect class="card ai" x="162" y="232" width="272" height="60" rx="14"/>
+  <circle class="icon-bg ai" cx="190" cy="262" r="16"/>
+  <path class="icon-line" d="M183.78 268.22 C183.78 260.22 196.22 263.78 196.22 255.78"/>
+  <circle class="icon-dot" cx="183.78" cy="268.22" r="2.3"/>
+  <circle class="icon-dot" cx="196.22" cy="255.78" r="2.3"/>
+  <text class="lbl" x="216" y="252" dominant-baseline="central">Step 1</text>
+  <text class="sub" x="216" y="272" dominant-baseline="central">Learned planning</text>
 
   <!-- Step 2 -->
-  <rect class="box ai" x="304" y="160" width="272" height="60" rx="10"/>
-  <text class="lbl" x="440" y="180" text-anchor="middle" dominant-baseline="central">Step 2</text>
-  <text class="sub" x="440" y="200" text-anchor="middle" dominant-baseline="central">Learned planning and learned perception</text>
+  <rect class="card ai" x="304" y="160" width="272" height="60" rx="14"/>
+  <circle class="icon-bg ai" cx="332" cy="190" r="16"/>
+  <rect class="icon-line" x="324.89" y="182" width="14.22" height="6.22" rx="1.8"/>
+  <rect class="icon-line" x="324.89" y="191.78" width="14.22" height="6.22" rx="1.8"/>
+  <text class="lbl" x="358" y="180" dominant-baseline="central">Step 2</text>
+  <text class="sub" x="358" y="200" dominant-baseline="central">Learned planning and learned perception</text>
 
   <!-- Step 3 -->
-  <rect class="box ai" x="446" y="88" width="272" height="60" rx="10"/>
-  <text class="lbl" x="582" y="108" text-anchor="middle" dominant-baseline="central">Step 3</text>
-  <text class="sub" x="582" y="128" text-anchor="middle" dominant-baseline="central">Learned driving: monolithic model</text>
+  <rect class="card ai" x="446" y="88" width="272" height="60" rx="14"/>
+  <circle class="icon-bg ai" cx="474" cy="118" r="16"/>
+  <circle class="icon-line" cx="474" cy="118" r="7.11"/>
+  <circle class="icon-dot" cx="471.33" cy="115.33" r="1.6"/>
+  <circle class="icon-dot" cx="476.67" cy="115.33" r="1.6"/>
+  <circle class="icon-dot" cx="474" cy="120.67" r="1.6"/>
+  <text class="lbl" x="500" y="108" dominant-baseline="central">Step 3</text>
+  <text class="sub" x="500" y="128" dominant-baseline="central">Learned driving: monolithic model</text>
 
   <!-- Step 4 -->
-  <rect class="box ai" x="588" y="16" width="272" height="60" rx="10"/>
-  <text class="lbl" x="724" y="36" text-anchor="middle" dominant-baseline="central">Step 4</text>
-  <text class="sub" x="724" y="56" text-anchor="middle" dominant-baseline="central">Learned hybrid model</text>
+  <rect class="card ai" x="588" y="16" width="272" height="60" rx="14"/>
+  <circle class="icon-bg ai" cx="616" cy="46" r="16"/>
+  <path class="icon-line" d="M616 38 L623.11 40.67 V46 Q623.11 51.33 616 54 Q608.89 51.33 608.89 46 V40.67 Z"/>
+  <circle class="icon-dot" cx="616" cy="46" r="2.3"/>
+  <text class="lbl" x="642" y="36" dominant-baseline="central">Step 4</text>
+  <text class="sub" x="642" y="56" dominant-baseline="central">Learned hybrid model</text>
 
   <!-- The steps -->
   <path class="edge accent" d="M90 304 V262 H156"/>
+  <path class="flow flow-accent" pathLength="100" d="M90 304 V262 H152"/>
+  <path class="edge accent head" d="M90 304 V262 H156"/>
   <path class="edge accent" d="M232 232 V190 H298"/>
+  <path class="flow flow-accent" pathLength="100" d="M232 232 V190 H294"/>
+  <path class="edge accent head" d="M232 232 V190 H298"/>
   <path class="edge accent" d="M374 160 V118 H440"/>
+  <path class="flow flow-accent" pathLength="100" d="M374 160 V118 H436"/>
+  <path class="edge accent head" d="M374 160 V118 H440"/>
   <path class="edge accent" d="M516 88 V46 H582"/>
+  <path class="flow flow-accent" pathLength="100" d="M516 88 V46 H578"/>
+  <path class="edge accent head" d="M516 88 V46 H582"/>
 </svg>

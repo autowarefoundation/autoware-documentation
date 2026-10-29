@@ -22,16 +22,23 @@
 
   <!-- Bicycle that comes from behind on the left side -->
   <g>
-    <rect class="car other" x="210" y="137" width="40" height="16" rx="6"/>
+    <g class="bicycle" transform="translate(210 137)"><ellipse class="car-shadow" cx="20" cy="10" rx="21" ry="6"/><rect class="bike-wheel" x="0" y="6" width="11" height="4" rx="2"/><rect class="bike-wheel" x="29" y="6" width="11" height="4" rx="2"/><path class="bike-frame" d="M8 8 H32 M30 2 V14"/><ellipse class="ped-body" cx="17" cy="8" rx="5.5" ry="7.5"/><circle class="ped-head" cx="22" cy="8" r="3.6"/></g>
     <rect class="glass" x="228" y="141" width="9" height="8" rx="3"/>
   </g>
   <path class="edge accent" d="M256 145 L330 145"/>
 
   <!-- Planned path and stop point -->
   <path class="route" d="M352 170 H386"/>
-  <g>
-    <rect class="car" x="278" y="155" width="64" height="30" rx="6"/>
-    <rect class="glass" x="320" y="159" width="9" height="22" rx="3"/>
+  <path class="flow flow-route" pathLength="100" d="M352 170 H386"/>
+  <path class="route head" d="M352 170 H386"/>
+  <g transform="translate(299 150) rotate(90 11 20)">
+    <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
+    <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
+    <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
+    <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
+    <circle class="lidar" cx="11" cy="22" r="3.2"/>
+    <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
+    <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
   </g>
   <line class="bound alt" x1="398" y1="140" x2="398" y2="186"/>
   <text class="note" x="230" y="100" text-anchor="middle" dominant-baseline="central">Bicycle in the blind spot</text>

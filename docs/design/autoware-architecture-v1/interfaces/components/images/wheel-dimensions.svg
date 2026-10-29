@@ -1,17 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 240" role="img" aria-labelledby="wheel-dimensions-title">
   <title id="wheel-dimensions-title">wheel_width is the width of the tire in the front view. wheel_radius is the distance from the center of the wheel to the edge of the tire in the side view.</title>
 
+  <!-- Background: a faint dot grid -->
+  <rect class="dots" x="0" y="0" width="760" height="240"/>
+
   <!-- Front view -->
   <text class="ttl" x="230" y="20" text-anchor="middle">Front view</text>
-  <rect class="icon" x="200" y="40" width="60" height="140" rx="12"/>
+  <rect class="wheel" x="200" y="40" width="60" height="140" rx="12"/>
   <path class="leader" d="M200 120 V214 M260 120 V214"/>
   <path class="edge both" d="M202 206 H258"/>
   <text class="code lbl" x="230" y="228" text-anchor="middle" dominant-baseline="central">wheel_width</text>
 
   <!-- Side view -->
   <text class="ttl" x="570" y="20" text-anchor="middle">Side view</text>
-  <circle class="icon" cx="570" cy="110" r="70"/>
-  <circle class="box" cx="570" cy="110" r="36"/>
+  <circle class="wheel" cx="570" cy="110" r="70"/>
+  <circle class="rim" cx="570" cy="110" r="36"/>
+  <circle class="rim" cx="570" cy="110" r="22"/>
+  <circle class="hub" cx="570" cy="110" r="7"/>
   <path class="leader" d="M570 110 V214 M640 110 V214"/>
   <path class="edge both" d="M572 206 H638"/>
   <text class="code lbl" x="605" y="228" text-anchor="middle" dominant-baseline="central">wheel_radius</text>

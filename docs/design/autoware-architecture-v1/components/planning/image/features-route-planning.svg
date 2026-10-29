@@ -13,11 +13,18 @@
 
   <!-- Route -->
   <path class="route" d="M78 300 V58 H248 V198 H418 V338 H588 V58 H700"/>
+  <path class="flow flow-route" pathLength="100" d="M78 300 V58 H248 V198 H418 V338 H588 V58 H700"/>
+  <path class="route head" d="M78 300 V58 H248 V198 H418 V338 H588 V58 H700"/>
 
   <!-- Start (ego vehicle), checkpoints, and goal -->
-  <g transform="rotate(-90 78 330)">
-    <rect class="car" x="54" y="318" width="48" height="24" rx="6"/>
-    <rect class="glass" x="80" y="322" width="9" height="16" rx="3"/>
+  <g transform="translate(67 310)">
+    <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
+    <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
+    <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
+    <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
+    <circle class="lidar" cx="11" cy="22" r="3.2"/>
+    <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
+    <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
   </g>
   <circle class="bound point" cx="248" cy="130" r="8"/>
   <circle class="bound point" cx="418" cy="270" r="8"/>

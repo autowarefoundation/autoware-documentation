@@ -1,82 +1,108 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 488" role="img" aria-labelledby="how-to-add-new-modules-title">
   <title id="how-to-add-new-modules-title">Three ways to extend planning: add or replace modules, replace a sub-component such as mission planning, or replace the whole planning component.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="488"/>
+  <circle class="halo" cx="144" cy="255" r="140"/>
+  <circle class="halo cyan" cx="430" cy="255" r="140"/>
+  <circle class="halo" cx="716" cy="255" r="140"/>
+
   <!-- Panel: 1. Add or replace modules -->
   <text class="lbl" x="144" y="18" text-anchor="middle" dominant-baseline="central">1. Add or replace modules</text>
-  <rect class="box muted" x="24" y="38" width="240" height="36" rx="10"/>
+  <rect class="box muted" x="24" y="38" width="240" height="36" rx="12"/>
   <text class="lbl" x="144" y="56" text-anchor="middle" dominant-baseline="central">API layer</text>
   <path class="edge" d="M144 74 V90"/>
-  <rect class="group" x="8" y="96" width="272" height="318" rx="16"/>
+  <path class="flow" pathLength="100" d="M144 74 V90"/>
+  <path class="edge head" d="M144 74 V90"/>
+  <rect class="glass-panel" x="8" y="96" width="272" height="318" rx="18"/>
   <text class="ttl" x="26" y="120">Planning</text>
-  <rect class="box" x="20" y="136" width="248" height="62" rx="10"/>
+  <rect class="card" x="20" y="136" width="248" height="62" rx="12"/>
   <text class="lbl" x="144" y="154" text-anchor="middle" dominant-baseline="central">Mission planning</text>
-  <rect class="box muted" x="28" y="168" width="112" height="22" rx="6"/>
+  <rect class="box muted" x="28" y="168" width="112" height="22" rx="8"/>
   <text class="sub" x="84" y="179" text-anchor="middle" dominant-baseline="central">Route</text>
-  <rect class="box muted" x="148" y="168" width="112" height="22" rx="6"/>
+  <rect class="box muted" x="148" y="168" width="112" height="22" rx="8"/>
   <text class="sub" x="204" y="179" text-anchor="middle" dominant-baseline="central">Goal</text>
   <path class="edge accent" d="M144 198 V216"/>
-  <rect class="box" x="20" y="222" width="248" height="94" rx="10"/>
+  <path class="flow flow-accent" pathLength="100" d="M144 198 V216"/>
+  <path class="edge accent head" d="M144 198 V216"/>
+  <rect class="card" x="20" y="222" width="248" height="94" rx="12"/>
   <text class="lbl" x="144" y="240" text-anchor="middle" dominant-baseline="central">Behavior and motion</text>
-  <rect class="box muted" x="28" y="254" width="112" height="22" rx="6"/>
+  <rect class="box muted" x="28" y="254" width="112" height="22" rx="8"/>
   <text class="sub" x="84" y="265" text-anchor="middle" dominant-baseline="central">Lane change</text>
-  <rect class="box muted" x="148" y="254" width="112" height="22" rx="6"/>
+  <rect class="box muted" x="148" y="254" width="112" height="22" rx="8"/>
   <text class="sub" x="204" y="265" text-anchor="middle" dominant-baseline="central">Avoidance</text>
-  <rect class="box muted" x="28" y="284" width="112" height="22" rx="6"/>
+  <rect class="box muted" x="28" y="284" width="112" height="22" rx="8"/>
   <text class="sub" x="84" y="295" text-anchor="middle" dominant-baseline="central">Obstacle stop</text>
-  <rect class="box ext" x="148" y="284" width="112" height="22" rx="6"/>
+  <rect class="box ext" x="148" y="284" width="112" height="22" rx="8"/>
   <text class="sub" x="204" y="295" text-anchor="middle" dominant-baseline="central">My module</text>
   <path class="edge accent" d="M144 316 V334"/>
-  <rect class="box" x="20" y="340" width="248" height="62" rx="10"/>
+  <path class="flow flow-accent" pathLength="100" d="M144 316 V334"/>
+  <path class="edge accent head" d="M144 316 V334"/>
+  <rect class="card" x="20" y="340" width="248" height="62" rx="12"/>
   <text class="lbl" x="144" y="358" text-anchor="middle" dominant-baseline="central">Validation</text>
-  <rect class="box muted" x="28" y="372" width="112" height="22" rx="6"/>
+  <rect class="box muted" x="28" y="372" width="112" height="22" rx="8"/>
   <text class="sub" x="84" y="383" text-anchor="middle" dominant-baseline="central">Collision check</text>
-  <rect class="box ext" x="148" y="372" width="112" height="22" rx="6"/>
+  <rect class="box ext" x="148" y="372" width="112" height="22" rx="8"/>
   <text class="sub" x="204" y="383" text-anchor="middle" dominant-baseline="central">My check</text>
   <path class="edge accent" d="M144 414 V436"/>
-  <rect class="box muted" x="24" y="442" width="240" height="36" rx="10"/>
+  <path class="flow flow-accent" pathLength="100" d="M144 414 V436"/>
+  <path class="edge accent head" d="M144 414 V436"/>
+  <rect class="box muted" x="24" y="442" width="240" height="36" rx="12"/>
   <text class="lbl" x="144" y="460" text-anchor="middle" dominant-baseline="central">Control</text>
 
   <!-- Panel: 2. Replace a sub-component -->
   <text class="lbl" x="430" y="18" text-anchor="middle" dominant-baseline="central">2. Replace a sub-component</text>
-  <rect class="box muted" x="310" y="38" width="240" height="36" rx="10"/>
+  <rect class="box muted" x="310" y="38" width="240" height="36" rx="12"/>
   <text class="lbl" x="430" y="56" text-anchor="middle" dominant-baseline="central">API layer</text>
   <path class="edge" d="M430 74 V90"/>
-  <rect class="group" x="294" y="96" width="272" height="318" rx="16"/>
+  <path class="flow" pathLength="100" d="M430 74 V90"/>
+  <path class="edge head" d="M430 74 V90"/>
+  <rect class="glass-panel" x="294" y="96" width="272" height="318" rx="18"/>
   <text class="ttl" x="312" y="120">Planning</text>
-  <rect class="box ext" x="306" y="136" width="248" height="62" rx="10"/>
+  <rect class="box ext" x="306" y="136" width="248" height="62" rx="12"/>
   <text class="lbl" x="430" y="158" text-anchor="middle" dominant-baseline="central">Third-party</text>
   <text class="lbl" x="430" y="178" text-anchor="middle" dominant-baseline="central">mission planning</text>
   <path class="edge accent" d="M430 198 V216"/>
-  <rect class="box" x="306" y="222" width="248" height="94" rx="10"/>
+  <path class="flow flow-accent" pathLength="100" d="M430 198 V216"/>
+  <path class="edge accent head" d="M430 198 V216"/>
+  <rect class="card" x="306" y="222" width="248" height="94" rx="12"/>
   <text class="lbl" x="430" y="240" text-anchor="middle" dominant-baseline="central">Behavior and motion</text>
-  <rect class="box muted" x="314" y="254" width="112" height="22" rx="6"/>
+  <rect class="box muted" x="314" y="254" width="112" height="22" rx="8"/>
   <text class="sub" x="370" y="265" text-anchor="middle" dominant-baseline="central">Lane change</text>
-  <rect class="box muted" x="434" y="254" width="112" height="22" rx="6"/>
+  <rect class="box muted" x="434" y="254" width="112" height="22" rx="8"/>
   <text class="sub" x="490" y="265" text-anchor="middle" dominant-baseline="central">Avoidance</text>
-  <rect class="box muted" x="314" y="284" width="112" height="22" rx="6"/>
+  <rect class="box muted" x="314" y="284" width="112" height="22" rx="8"/>
   <text class="sub" x="370" y="295" text-anchor="middle" dominant-baseline="central">Obstacle stop</text>
-  <rect class="box muted" x="434" y="284" width="112" height="22" rx="6"/>
+  <rect class="box muted" x="434" y="284" width="112" height="22" rx="8"/>
   <text class="sub" x="490" y="295" text-anchor="middle" dominant-baseline="central">Slow down</text>
   <path class="edge accent" d="M430 316 V334"/>
-  <rect class="box" x="306" y="340" width="248" height="62" rx="10"/>
+  <path class="flow flow-accent" pathLength="100" d="M430 316 V334"/>
+  <path class="edge accent head" d="M430 316 V334"/>
+  <rect class="card" x="306" y="340" width="248" height="62" rx="12"/>
   <text class="lbl" x="430" y="358" text-anchor="middle" dominant-baseline="central">Validation</text>
-  <rect class="box muted" x="314" y="372" width="112" height="22" rx="6"/>
+  <rect class="box muted" x="314" y="372" width="112" height="22" rx="8"/>
   <text class="sub" x="370" y="383" text-anchor="middle" dominant-baseline="central">Collision check</text>
-  <rect class="box muted" x="434" y="372" width="112" height="22" rx="6"/>
+  <rect class="box muted" x="434" y="372" width="112" height="22" rx="8"/>
   <text class="sub" x="490" y="383" text-anchor="middle" dominant-baseline="central">TTC check</text>
   <path class="edge accent" d="M430 414 V436"/>
-  <rect class="box muted" x="310" y="442" width="240" height="36" rx="10"/>
+  <path class="flow flow-accent" pathLength="100" d="M430 414 V436"/>
+  <path class="edge accent head" d="M430 414 V436"/>
+  <rect class="box muted" x="310" y="442" width="240" height="36" rx="12"/>
   <text class="lbl" x="430" y="460" text-anchor="middle" dominant-baseline="central">Control</text>
 
   <!-- Panel: 3. Replace the component -->
   <text class="lbl" x="716" y="18" text-anchor="middle" dominant-baseline="central">3. Replace the component</text>
-  <rect class="box muted" x="596" y="38" width="240" height="36" rx="10"/>
+  <rect class="box muted" x="596" y="38" width="240" height="36" rx="12"/>
   <text class="lbl" x="716" y="56" text-anchor="middle" dominant-baseline="central">API layer</text>
   <path class="edge" d="M716 74 V90"/>
-  <rect class="box ext" x="580" y="96" width="272" height="318" rx="10"/>
+  <path class="flow" pathLength="100" d="M716 74 V90"/>
+  <path class="edge head" d="M716 74 V90"/>
+  <rect class="box ext" x="580" y="96" width="272" height="318" rx="12"/>
   <text class="lbl" x="716" y="246" text-anchor="middle" dominant-baseline="central">Third-party</text>
   <text class="lbl" x="716" y="266" text-anchor="middle" dominant-baseline="central">planning component</text>
   <path class="edge accent" d="M716 414 V436"/>
-  <rect class="box muted" x="596" y="442" width="240" height="36" rx="10"/>
+  <path class="flow flow-accent" pathLength="100" d="M716 414 V436"/>
+  <path class="edge accent head" d="M716 414 V436"/>
+  <rect class="box muted" x="596" y="442" width="240" height="36" rx="12"/>
   <text class="lbl" x="716" y="460" text-anchor="middle" dominant-baseline="central">Control</text>
 </svg>

@@ -102,9 +102,18 @@
   <path class="bound" fill="none" d="M312 250 L88 250 L88 190 L312 190 Z"/>
   <path class="bound" fill="none" d="M312 250 A52 52 0 0 0 260 302 L200 302 A112 112 0 0 1 312 190 Z"/>
   <path class="bound" fill="none" d="M312 250 A172 172 0 0 1 140 78 L200 78 A112 112 0 0 0 312 190 Z"/>
-  <rect class="car" x="159" y="312" width="22" height="40" rx="6"/>
-  <rect class="glass" x="162" y="317" width="16" height="9"/>
+  <g transform="translate(159 312)">
+    <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
+    <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
+    <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
+    <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
+    <circle class="lidar" cx="11" cy="22" r="3.2"/>
+    <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
+    <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
+  </g>
   <path class="route" d="M170 308 L170 68"/>
+  <path class="flow flow-route" pathLength="100" d="M170 308 L170 68"/>
+  <path class="route head" d="M170 308 L170 68"/>
   <text class="note" x="200" y="404" text-anchor="middle">Case 1: on the priority road</text>
   <text class="note" x="280" y="52">Priority road</text>
   <path class="leader" d="M274 48 L250 40"/>
@@ -210,9 +219,18 @@
   <path class="bound" fill="none" d="M692 250 L468 250 L468 190 L692 190 Z"/>
   <path class="bound" fill="none" d="M692 250 A52 52 0 0 0 640 302 L580 302 A112 112 0 0 1 692 190 Z"/>
   <path class="bound" fill="none" d="M692 250 A172 172 0 0 1 520 78 L580 78 A112 112 0 0 0 692 190 Z"/>
-  <rect class="car" x="539" y="312" width="22" height="40" rx="6"/>
-  <rect class="glass" x="542" y="317" width="16" height="9"/>
+  <g transform="translate(539 312)">
+    <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
+    <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
+    <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
+    <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
+    <circle class="lidar" cx="11" cy="22" r="3.2"/>
+    <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
+    <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
+  </g>
   <path class="route" d="M550 308 L550 68"/>
+  <path class="flow flow-route" pathLength="100" d="M550 308 L550 68"/>
+  <path class="route head" d="M550 308 L550 68"/>
   <text class="note" x="580" y="404" text-anchor="middle">Case 2: on the non-priority road</text>
   <text class="note" x="660" y="52">Priority road</text>
   <path class="leader" d="M654 48 L730 165"/>

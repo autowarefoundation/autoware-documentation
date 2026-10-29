@@ -1,20 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" role="img" aria-labelledby="radar-communication-title">
   <title id="radar-communication-title">The radar device sends scans, tracked objects, and diagnostics to the ROS driver. The ROS driver sends time synchronization and the ego vehicle status to the radar device.</title>
 
-  <rect class="box muted" x="40" y="72" width="170" height="64" rx="10"/>
-  <text class="lbl" x="125" y="104" text-anchor="middle" dominant-baseline="central">Radar device</text>
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="720" height="200"/>
+  <circle class="halo cyan" cx="360" cy="100" r="95"/>
+  <circle class="halo" cx="595" cy="104" r="90"/>
 
-  <rect class="box primary" x="510" y="72" width="170" height="64" rx="10"/>
-  <text class="lbl on-primary" x="595" y="104" text-anchor="middle" dominant-baseline="central">ROS driver</text>
+  <rect class="box muted" x="40" y="72" width="170" height="64" rx="12"/>
+  <circle class="icon-bg" cx="70" cy="104" r="16"/>
+  <circle class="icon-dot" cx="64" cy="110" r="2.4"/>
+  <path class="icon-line" d="M64 102 A8 8 0 0 1 72 110"/>
+  <path class="icon-line" d="M64 95 A15 15 0 0 1 79 110"/>
+  <text class="lbl" x="140" y="104" text-anchor="middle" dominant-baseline="central">Radar device</text>
+
+  <rect class="box primary" x="510" y="72" width="170" height="64" rx="14"/>
+  <circle class="icon-bg on" cx="545" cy="104" r="18"/>
+  <rect class="icon-line" x="539" y="98" width="12" height="12" rx="2"/>
+  <path class="icon-line" d="M542 98 V94 M548 98 V94 M542 110 V114 M548 110 V114"/>
+  <text class="lbl on-primary" x="610" y="104" text-anchor="middle" dominant-baseline="central">ROS driver</text>
 
   <!-- Device to driver -->
   <path class="edge accent" d="M210 92 H502"/>
+  <path class="flow flow-accent" pathLength="100" d="M210 92 H502"/>
+  <path class="edge accent head" d="M210 92 H502"/>
   <text class="sub" x="360" y="24" text-anchor="middle" dominant-baseline="central">Scan (RadarScan)</text>
   <text class="sub" x="360" y="44" text-anchor="middle" dominant-baseline="central">Tracked objects (RadarTracks)</text>
   <text class="sub" x="360" y="64" text-anchor="middle" dominant-baseline="central">Diagnostics</text>
 
   <!-- Driver to device -->
   <path class="edge" d="M510 116 H218"/>
+  <path class="flow" pathLength="100" d="M510 116 H218"/>
+  <path class="edge head" d="M510 116 H218"/>
   <text class="sub" x="360" y="144" text-anchor="middle" dominant-baseline="central">Time synchronization</text>
   <text class="sub" x="360" y="164" text-anchor="middle" dominant-baseline="central">Ego vehicle status</text>
 </svg>

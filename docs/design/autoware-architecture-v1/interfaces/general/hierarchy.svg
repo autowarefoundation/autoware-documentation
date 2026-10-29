@@ -1,35 +1,66 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 250" role="img" aria-labelledby="interface-hierarchy-title">
   <title id="interface-hierarchy-title">The same component, with two inputs and one output, has three possible next-level architectures: a monolithic one, type A with sub-components in parallel, and type B with sub-components in series.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="250"/>
+  <circle class="halo" cx="440" cy="110" r="104"/>
+  <circle class="halo cyan" cx="746" cy="110" r="100"/>
+
   <!-- Monolithic architecture -->
   <path class="edge" d="M14 70 H48"/>
+  <path class="flow" pathLength="100" d="M14 70 H48"/>
+  <path class="edge head" d="M14 70 H48"/>
   <path class="edge" d="M14 150 H48"/>
-  <rect class="box" x="54" y="30" width="180" height="160" rx="10"/>
+  <path class="flow" pathLength="100" d="M14 150 H48"/>
+  <path class="edge head" d="M14 150 H48"/>
+  <rect class="card" x="54" y="30" width="180" height="160" rx="12"/>
   <text class="sub" x="144" y="110" text-anchor="middle" dominant-baseline="central">All in one</text>
   <path class="edge" d="M234 110 H268"/>
+  <path class="flow" pathLength="100" d="M234 110 H268"/>
+  <path class="edge head" d="M234 110 H268"/>
   <text class="lbl" x="144" y="222" text-anchor="middle" dominant-baseline="central">Monolithic architecture</text>
 
   <!-- Next-level architecture, type A -->
-  <rect class="group" x="340" y="30" width="200" height="160" rx="16"/>
+  <rect class="glass-panel" x="340" y="30" width="200" height="160" rx="18"/>
   <path class="edge" d="M300 70 H350"/>
+  <path class="flow" pathLength="100" d="M300 70 H350"/>
+  <path class="edge head" d="M300 70 H350"/>
   <path class="edge" d="M300 150 H350"/>
-  <rect class="box" x="356" y="52" width="66" height="36" rx="10"/>
-  <rect class="box" x="356" y="132" width="66" height="36" rx="10"/>
-  <rect class="box" x="458" y="52" width="66" height="116" rx="10"/>
+  <path class="flow" pathLength="100" d="M300 150 H350"/>
+  <path class="edge head" d="M300 150 H350"/>
+  <rect class="card" x="356" y="52" width="66" height="36" rx="12"/>
+  <rect class="card" x="356" y="132" width="66" height="36" rx="12"/>
+  <rect class="card" x="458" y="52" width="66" height="116" rx="12"/>
   <path class="edge" d="M422 70 H452"/>
+  <path class="flow" pathLength="100" d="M422 70 H452"/>
+  <path class="edge head" d="M422 70 H452"/>
   <path class="edge" d="M422 150 H452"/>
+  <path class="flow" pathLength="100" d="M422 150 H452"/>
+  <path class="edge head" d="M422 150 H452"/>
   <path class="edge" d="M524 110 H574"/>
+  <path class="flow" pathLength="100" d="M524 110 H574"/>
+  <path class="edge head" d="M524 110 H574"/>
   <text class="lbl" x="440" y="222" text-anchor="middle" dominant-baseline="central">Next-level architecture (type A)</text>
 
   <!-- Next-level architecture, type B -->
-  <rect class="group" x="646" y="30" width="200" height="160" rx="16"/>
+  <rect class="glass-panel" x="646" y="30" width="200" height="160" rx="18"/>
   <path class="edge" d="M606 70 H656"/>
+  <path class="flow" pathLength="100" d="M606 70 H656"/>
+  <path class="edge head" d="M606 70 H656"/>
   <path class="edge" d="M606 150 H656"/>
-  <rect class="box" x="662" y="52" width="168" height="36" rx="10"/>
-  <rect class="box" x="662" y="132" width="66" height="36" rx="10"/>
-  <rect class="box" x="764" y="132" width="66" height="36" rx="10"/>
+  <path class="flow" pathLength="100" d="M606 150 H656"/>
+  <path class="edge head" d="M606 150 H656"/>
+  <rect class="card" x="662" y="52" width="168" height="36" rx="12"/>
+  <rect class="card" x="662" y="132" width="66" height="36" rx="12"/>
+  <rect class="card" x="764" y="132" width="66" height="36" rx="12"/>
   <path class="edge" d="M728 150 H758"/>
+  <path class="flow" pathLength="100" d="M728 150 H758"/>
+  <path class="edge head" d="M728 150 H758"/>
   <path class="edge" d="M797 132 V94"/>
+  <path class="flow" pathLength="100" d="M797 132 V94"/>
+  <path class="edge head" d="M797 132 V94"/>
   <path class="edge" d="M830 70 H856"/>
+  <path class="flow" pathLength="100" d="M830 70 H856"/>
+  <path class="edge head" d="M830 70 H856"/>
   <text class="lbl" x="746" y="222" text-anchor="middle" dominant-baseline="central">Next-level architecture (type B)</text>
 </svg>

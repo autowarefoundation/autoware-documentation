@@ -1,73 +1,108 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 470" role="img" aria-labelledby="sensing-interface-title">
   <title id="sensing-interface-title">Sensing preprocesses the data of each sensor driver. Camera images, radar objects, and the LiDAR point cloud go to Perception. The LiDAR point cloud, the GNSS pose, the IMU data, and the vehicle twist go to Localization.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="470"/>
+  <circle class="halo" cx="370" cy="202" r="140"/>
+  <circle class="halo cyan" cx="760" cy="353" r="95"/>
+
   <text class="ttl" x="20" y="14">Inputs</text>
   <text class="ttl" x="250" y="14">Sensing</text>
   <text class="ttl" x="680" y="14">Users</text>
 
-  <rect class="box muted" x="20" y="26" width="170" height="48" rx="10"/>
+  <rect class="card" x="20" y="26" width="170" height="48" rx="12"/>
   <text class="lbl" x="105" y="41" text-anchor="middle" dominant-baseline="central">Camera driver</text>
   <text class="sub code" x="105" y="61" text-anchor="middle" dominant-baseline="central">Image</text>
   <path class="edge" d="M190 50 H244"/>
-  <rect class="box" x="250" y="26" width="240" height="48" rx="10"/>
+  <path class="flow" pathLength="100" d="M190 50 H244"/>
+  <path class="edge head" d="M190 50 H244"/>
+  <rect class="card" x="250" y="26" width="240" height="48" rx="12"/>
   <text class="lbl" x="370" y="41" text-anchor="middle" dominant-baseline="central">Camera preprocessing</text>
   <text class="sub" x="370" y="61" text-anchor="middle" dominant-baseline="central">Lens distortion correction</text>
   <path class="edge" d="M490 50 H674"/>
+  <path class="flow" pathLength="100" d="M490 50 H674"/>
+  <path class="edge head" d="M490 50 H674"/>
   <text class="edge-lbl" x="585" y="50" text-anchor="middle" dominant-baseline="central">Image</text>
 
-  <rect class="box muted" x="20" y="102" width="170" height="48" rx="10"/>
+  <rect class="card" x="20" y="102" width="170" height="48" rx="12"/>
   <text class="lbl" x="105" y="117" text-anchor="middle" dominant-baseline="central">Radar driver</text>
   <text class="sub code" x="105" y="137" text-anchor="middle" dominant-baseline="central">RadarTracks</text>
   <path class="edge" d="M190 126 H244"/>
-  <rect class="box" x="250" y="102" width="240" height="48" rx="10"/>
+  <path class="flow" pathLength="100" d="M190 126 H244"/>
+  <path class="edge head" d="M190 126 H244"/>
+  <rect class="card" x="250" y="102" width="240" height="48" rx="12"/>
   <text class="lbl" x="370" y="117" text-anchor="middle" dominant-baseline="central">Radar preprocessing</text>
   <text class="sub" x="370" y="137" text-anchor="middle" dominant-baseline="central">Noise filter, conversion</text>
   <path class="edge" d="M490 126 H674"/>
+  <path class="flow" pathLength="100" d="M490 126 H674"/>
+  <path class="edge head" d="M490 126 H674"/>
   <text class="edge-lbl" x="585" y="126" text-anchor="middle" dominant-baseline="central">Objects</text>
 
-  <rect class="box muted" x="20" y="178" width="170" height="48" rx="10"/>
+  <rect class="card" x="20" y="178" width="170" height="48" rx="12"/>
   <text class="lbl" x="105" y="193" text-anchor="middle" dominant-baseline="central">LiDAR drivers</text>
   <text class="sub code" x="105" y="213" text-anchor="middle" dominant-baseline="central">PointCloud2</text>
   <path class="edge accent" d="M190 202 H244"/>
-  <rect class="box primary" x="250" y="178" width="240" height="48" rx="10"/>
-  <text class="lbl on-primary" x="370" y="193" text-anchor="middle" dominant-baseline="central">Point cloud preprocessing</text>
-  <text class="sub on-primary" x="370" y="213" text-anchor="middle" dominant-baseline="central">Filters, concatenation</text>
+  <path class="flow flow-accent" pathLength="100" d="M190 202 H244"/>
+  <path class="edge accent head" d="M190 202 H244"/>
+  <rect class="box primary" x="250" y="178" width="240" height="48" rx="14"/>
+  <circle class="icon-bg on" cx="274" cy="202" r="15"/>
+  <circle class="icon-dot" cx="269" cy="207" r="2.4"/>
+  <path class="icon-line" d="M269 199 A8 8 0 0 1 277 207"/>
+  <path class="icon-line" d="M269 193 A14 14 0 0 1 283 207"/>
+  <text class="lbl on-primary" x="298" y="193" dominant-baseline="central">Point cloud preprocessing</text>
+  <text class="sub on-primary" x="298" y="213" dominant-baseline="central">Filters, concatenation</text>
   <path class="edge accent" d="M490 202 H760 V158"/>
+  <path class="flow flow-accent" pathLength="100" d="M490 202 H760 V158"/>
+  <path class="edge accent head" d="M490 202 H760 V158"/>
   <path class="edge accent" d="M760 202 V246"/>
+  <path class="flow flow-accent" pathLength="100" d="M760 202 V246"/>
+  <path class="edge accent head" d="M760 202 V246"/>
   <text class="edge-lbl" x="585" y="202" text-anchor="middle" dominant-baseline="central">Point cloud</text>
 
-  <rect class="box muted" x="20" y="254" width="170" height="48" rx="10"/>
+  <rect class="card" x="20" y="254" width="170" height="48" rx="12"/>
   <text class="lbl" x="105" y="269" text-anchor="middle" dominant-baseline="central">GNSS driver</text>
   <text class="sub code" x="105" y="289" text-anchor="middle" dominant-baseline="central">NavSatFix, orientation</text>
   <path class="edge" d="M190 278 H244"/>
-  <rect class="box" x="250" y="254" width="240" height="48" rx="10"/>
+  <path class="flow" pathLength="100" d="M190 278 H244"/>
+  <path class="edge head" d="M190 278 H244"/>
+  <rect class="card" x="250" y="254" width="240" height="48" rx="12"/>
   <text class="lbl" x="370" y="269" text-anchor="middle" dominant-baseline="central">GNSS poser</text>
   <text class="sub" x="370" y="289" text-anchor="middle" dominant-baseline="central">Pose in the map frame</text>
   <path class="edge" d="M490 278 H674"/>
+  <path class="flow" pathLength="100" d="M490 278 H674"/>
+  <path class="edge head" d="M490 278 H674"/>
   <text class="edge-lbl" x="585" y="278" text-anchor="middle" dominant-baseline="central">GNSS pose</text>
 
-  <rect class="box muted" x="20" y="330" width="170" height="48" rx="10"/>
+  <rect class="card" x="20" y="330" width="170" height="48" rx="12"/>
   <text class="lbl" x="105" y="345" text-anchor="middle" dominant-baseline="central">IMU driver</text>
   <text class="sub code" x="105" y="365" text-anchor="middle" dominant-baseline="central">Imu</text>
   <path class="edge" d="M190 354 H244"/>
-  <rect class="box" x="250" y="330" width="240" height="48" rx="10"/>
+  <path class="flow" pathLength="100" d="M190 354 H244"/>
+  <path class="edge head" d="M190 354 H244"/>
+  <rect class="card" x="250" y="330" width="240" height="48" rx="12"/>
   <text class="lbl" x="370" y="345" text-anchor="middle" dominant-baseline="central">IMU corrector</text>
   <text class="sub" x="370" y="365" text-anchor="middle" dominant-baseline="central">Yaw rate offset and scale</text>
   <path class="edge" d="M490 354 H674"/>
+  <path class="flow" pathLength="100" d="M490 354 H674"/>
+  <path class="edge head" d="M490 354 H674"/>
   <text class="edge-lbl" x="585" y="354" text-anchor="middle" dominant-baseline="central">IMU data</text>
 
-  <rect class="box muted" x="20" y="406" width="170" height="48" rx="10"/>
+  <rect class="card" x="20" y="406" width="170" height="48" rx="12"/>
   <text class="lbl" x="105" y="421" text-anchor="middle" dominant-baseline="central">Vehicle interface</text>
   <text class="sub code" x="105" y="441" text-anchor="middle" dominant-baseline="central">VelocityReport</text>
   <path class="edge" d="M190 430 H244"/>
-  <rect class="box" x="250" y="406" width="240" height="48" rx="10"/>
+  <path class="flow" pathLength="100" d="M190 430 H244"/>
+  <path class="edge head" d="M190 430 H244"/>
+  <rect class="card" x="250" y="406" width="240" height="48" rx="12"/>
   <text class="lbl" x="370" y="421" text-anchor="middle" dominant-baseline="central">Velocity converter</text>
   <text class="sub" x="370" y="441" text-anchor="middle" dominant-baseline="central">Report to twist</text>
   <path class="edge" d="M490 430 H674"/>
+  <path class="flow" pathLength="100" d="M490 430 H674"/>
+  <path class="edge head" d="M490 430 H674"/>
   <text class="edge-lbl" x="585" y="430" text-anchor="middle" dominant-baseline="central">Vehicle twist</text>
 
-  <rect class="box muted" x="680" y="26" width="160" height="126" rx="10"/>
+  <rect class="card" x="680" y="26" width="160" height="126" rx="12"/>
   <text class="lbl" x="760" y="89" text-anchor="middle" dominant-baseline="central">Perception</text>
-  <rect class="box muted" x="680" y="252" width="160" height="202" rx="10"/>
+  <rect class="card" x="680" y="252" width="160" height="202" rx="12"/>
   <text class="lbl" x="760" y="353" text-anchor="middle" dominant-baseline="central">Localization</text>
 </svg>

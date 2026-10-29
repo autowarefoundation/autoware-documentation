@@ -1,30 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" role="img" aria-labelledby="adapi-mrm-state-title">
   <title id="adapi-mrm-state-title">The MRM state starts at NORMAL. When an abnormality is detected, it changes to MRM_OPERATING. MRM_OPERATING changes to MRM_SUCCEEDED or MRM_FAILED, and both can change back to MRM_OPERATING. When the abnormality is resolved, the state changes back to NORMAL.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="800" height="300"/>
+  <circle class="halo" cx="136" cy="170" r="110"/>
+  <circle class="halo cyan" cx="540" cy="150" r="145"/>
+
   <!-- Initial state -->
   <circle class="icon" cx="22" cy="170" r="9"/>
-  <path class="edge" d="M31 170 H52"/>
+  <path class="edge accent" d="M31 170 H52"/>
+  <path class="flow flow-accent" pathLength="100" d="M31 170 H52"/>
+  <path class="edge accent head" d="M31 170 H52"/>
 
   <!-- NORMAL -->
-  <rect class="box ok" x="56" y="142" width="160" height="56" rx="10"/>
+  <rect class="box ok" x="56" y="142" width="160" height="56" rx="12"/>
   <text class="lbl" x="136" y="170" text-anchor="middle" dominant-baseline="central">NORMAL</text>
 
   <!-- MRM states -->
-  <rect class="group" x="290" y="16" width="494" height="270" rx="16"/>
+  <rect class="glass-panel" x="290" y="16" width="494" height="270" rx="16"/>
   <text class="ttl" x="310" y="42">MRM</text>
 
-  <rect class="box warn" x="316" y="142" width="190" height="56" rx="10"/>
+  <rect class="box warn" x="316" y="142" width="190" height="56" rx="12"/>
   <text class="lbl" x="411" y="170" text-anchor="middle" dominant-baseline="central">MRM_OPERATING</text>
 
-  <rect class="box" x="584" y="70" width="176" height="56" rx="10"/>
+  <rect class="card" x="584" y="70" width="176" height="56" rx="12"/>
   <text class="lbl" x="672" y="98" text-anchor="middle" dominant-baseline="central">MRM_SUCCEEDED</text>
 
-  <rect class="box" x="584" y="214" width="176" height="56" rx="10"/>
+  <rect class="card" x="584" y="214" width="176" height="56" rx="12"/>
   <text class="lbl" x="672" y="242" text-anchor="middle" dominant-baseline="central">MRM_FAILED</text>
 
   <!-- Transitions -->
-  <path class="edge" d="M216 170 H312"/>
+  <path class="edge accent" d="M216 170 H312"/>
+  <path class="flow flow-accent" pathLength="100" d="M216 170 H312"/>
+  <path class="edge accent head" d="M216 170 H312"/>
   <path class="edge both" d="M510 160 H545 V98 H580"/>
   <path class="edge both" d="M510 180 H545 V242 H580"/>
   <path class="edge" d="M290 60 H136 V138"/>
+  <path class="flow" pathLength="100" d="M290 60 H136 V138"/>
+  <path class="edge head" d="M290 60 H136 V138"/>
 </svg>

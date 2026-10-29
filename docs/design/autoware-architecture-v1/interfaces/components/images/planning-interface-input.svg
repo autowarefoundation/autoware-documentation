@@ -1,13 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 130" role="img" aria-labelledby="planning-interface-input-title">
   <title id="planning-interface-input-title">Other components send their outputs to the Planning component.</title>
 
-  <rect class="box muted" x="20" y="25" width="180" height="80" rx="10"/>
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="760" height="130"/>
+  <circle class="halo" cx="380" cy="65" r="62"/>
+
+  <rect class="card" x="20" y="25" width="180" height="80" rx="12"/>
   <text class="lbl" x="110" y="65" text-anchor="middle" dominant-baseline="central">Other components</text>
-  <rect class="box muted" x="560" y="25" width="180" height="80" rx="10"/>
+  <rect class="card" x="560" y="25" width="180" height="80" rx="12"/>
   <text class="lbl" x="650" y="65" text-anchor="middle" dominant-baseline="central">Other components</text>
 
-  <rect class="box primary" x="260" y="25" width="240" height="80" rx="10"/>
-  <text class="lbl on-primary" x="380" y="65" text-anchor="middle" dominant-baseline="central">Planning component</text>
+  <rect class="box primary" x="260" y="25" width="240" height="80" rx="14"/>
+  <circle class="icon-bg on" cx="300" cy="65" r="18"/>
+  <path class="icon-line" d="M293 72 C293 62 307 68 307 58"/>
+  <circle class="icon-dot" cx="293" cy="72" r="2.6"/>
+  <circle class="icon-dot" cx="307" cy="58" r="2.6"/>
+  <text class="lbl on-primary" x="330" y="65" dominant-baseline="central">Planning component</text>
 
   <path class="edge accent" d="M200 65 H254"/>
+  <path class="flow flow-accent" pathLength="100" d="M200 65 H254"/>
+  <path class="edge accent head" d="M200 65 H254"/>
 </svg>

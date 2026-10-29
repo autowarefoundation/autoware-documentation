@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 380" role="img" aria-labelledby="vm-04-02_1-title">
-  <title id="vm-04-02_1-title">Front view of a horizontal and a vertical traffic light. The traffic_light linestring runs along the bottom edge from the left end (point 1) to the right end (point 2). The height tag gives the size of the light. The points have the real 3D position of the light.</title>
+  <title id="vm-04-02_1-title">Front view of a horizontal and a vertical traffic light. The traffic_light linestring runs along the bottom edge from the left end (point 1) to the right end (point 2). The subtype is red_yellow_green. The height tag gives the size of the light. The points have the real 3D position of the light.</title>
 
   <!-- Horizontal traffic light -->
   <rect class="light-housing" x="220" y="70" width="170" height="70" rx="10"/>
@@ -32,7 +32,8 @@
   <text class="note" x="310" y="208" dominant-baseline="central">Linestring</text>
   <text class="code" x="310" y="228" dominant-baseline="central">points: 1-2</text>
   <text class="code" x="310" y="246" dominant-baseline="central">type: traffic_light</text>
-  <text class="code" x="310" y="264" dominant-baseline="central">height: 0.5</text>
+  <text class="code" x="310" y="264" dominant-baseline="central">subtype: red_yellow_green</text>
+  <text class="code" x="310" y="282" dominant-baseline="central">height: 0.5</text>
 
   <!-- Vertical traffic light -->
   <rect class="light-housing" x="640" y="30" width="70" height="170" rx="10"/>
@@ -52,5 +53,6 @@
   <text class="note" x="640" y="264" dominant-baseline="central">Linestring</text>
   <text class="code" x="640" y="284" dominant-baseline="central">points: 1-2</text>
   <text class="code" x="640" y="302" dominant-baseline="central">type: traffic_light</text>
-  <text class="code" x="640" y="320" dominant-baseline="central">height: 1.2</text>
+  <text class="code" x="640" y="320" dominant-baseline="central">subtype: red_yellow_green</text>
+  <text class="code" x="640" y="338" dominant-baseline="central">height: 1.2</text>
 </svg>

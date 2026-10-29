@@ -1,38 +1,55 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 770 260" role="img" aria-labelledby="adapi-motion-state-title">
   <title id="adapi-motion-state-title">The motion state starts at STOPPED. When the vehicle tries to start, the state changes to STARTING, and the accept start API changes it to MOVING. If the accept is not required, the state changes from STOPPED to MOVING directly. When the vehicle stops, the state changes back to STOPPED. BRAKING is a planned state.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="770" height="260"/>
+  <circle class="halo" cx="401" cy="130" r="125"/>
+  <circle class="halo cyan" cx="661" cy="128" r="100"/>
+
   <!-- Initial state -->
   <circle class="icon" cx="22" cy="128" r="9"/>
-  <path class="edge" d="M31 128 H52"/>
+  <path class="edge accent" d="M31 128 H52"/>
+  <path class="flow flow-accent" pathLength="100" d="M31 128 H52"/>
+  <path class="edge accent head" d="M31 128 H52"/>
 
   <!-- States -->
-  <rect class="box" x="56" y="100" width="170" height="56" rx="10"/>
+  <rect class="card" x="56" y="100" width="170" height="56" rx="12"/>
   <text class="lbl" x="141" y="128" text-anchor="middle" dominant-baseline="central">STOPPED</text>
 
-  <rect class="box" x="316" y="16" width="170" height="56" rx="10"/>
+  <rect class="card" x="316" y="16" width="170" height="56" rx="12"/>
   <text class="lbl" x="401" y="44" text-anchor="middle" dominant-baseline="central">STARTING</text>
 
-  <rect class="box ok" x="576" y="100" width="170" height="56" rx="10"/>
+  <rect class="box ok" x="576" y="100" width="170" height="56" rx="12"/>
   <text class="lbl" x="661" y="128" text-anchor="middle" dominant-baseline="central">MOVING</text>
 
-  <rect class="box ext" x="316" y="186" width="170" height="56" rx="10"/>
+  <rect class="box ext" x="316" y="186" width="170" height="56" rx="12"/>
   <text class="lbl" x="401" y="206" text-anchor="middle" dominant-baseline="central">BRAKING</text>
   <text class="sub" x="401" y="226" text-anchor="middle" dominant-baseline="central">planned</text>
 
   <!-- STOPPED and STARTING -->
-  <path class="edge" d="M100 100 V30 H312"/>
+  <path class="edge accent" d="M100 100 V30 H312"/>
+  <path class="flow flow-accent" pathLength="100" d="M100 100 V30 H312"/>
+  <path class="edge accent head" d="M100 100 V30 H312"/>
   <text class="edge-lbl" x="210" y="30" text-anchor="middle" dominant-baseline="central">start requested</text>
   <path class="edge" d="M316 58 H170 V96"/>
+  <path class="flow" pathLength="100" d="M316 58 H170 V96"/>
+  <path class="edge head" d="M316 58 H170 V96"/>
   <text class="edge-lbl" x="250" y="58" text-anchor="middle" dominant-baseline="central">start canceled</text>
 
   <!-- STARTING to MOVING -->
-  <path class="edge" d="M486 44 H661 V96"/>
+  <path class="edge accent" d="M486 44 H661 V96"/>
+  <path class="flow flow-accent" pathLength="100" d="M486 44 H661 V96"/>
+  <path class="edge accent head" d="M486 44 H661 V96"/>
   <text class="edge-lbl" x="574" y="44" text-anchor="middle" dominant-baseline="central">accept start</text>
 
   <!-- STOPPED and MOVING -->
   <path class="edge" d="M226 118 H572"/>
+  <path class="flow" pathLength="100" d="M226 118 H572"/>
+  <path class="edge head" d="M226 118 H572"/>
   <text class="edge-lbl" x="401" y="118" text-anchor="middle" dominant-baseline="central">start requested (accept not required)</text>
   <path class="edge" d="M576 140 H230"/>
+  <path class="flow" pathLength="100" d="M576 140 H230"/>
+  <path class="edge head" d="M576 140 H230"/>
   <text class="edge-lbl" x="401" y="140" text-anchor="middle" dominant-baseline="central">stopped</text>
 
   <!-- The planned BRAKING state -->

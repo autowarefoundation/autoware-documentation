@@ -100,9 +100,18 @@
   <circle class="light-green" cx="296" cy="328" r="4.5"/>
   <path class="mark dash" d="M136.8 274 A172 172 0 0 1 216 173"/>
   <path class="mark dash" d="M200.8 274 A112 112 0 0 1 246 225"/>
-  <rect class="car" x="149" y="334" width="22" height="40" rx="6"/>
-  <rect class="glass" x="152" y="339" width="16" height="9"/>
+  <g transform="translate(149 334)">
+    <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
+    <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
+    <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
+    <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
+    <circle class="lidar" cx="11" cy="22" r="3.2"/>
+    <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
+    <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
+  </g>
   <path class="route" d="M160 328 L160 322 A142 142 0 0 1 302 180 L322 180"/>
+  <path class="flow flow-route" pathLength="100" d="M160 328 L160 322 A142 142 0 0 1 302 180 L322 180"/>
+  <path class="route head" d="M160 328 L160 322 A142 142 0 0 1 302 180 L322 180"/>
 
   <!-- Right: one lane to two lanes -->
 
@@ -247,10 +256,21 @@
   <circle class="light-green" cx="746" cy="388" r="4.5"/>
   <path class="mark dash" d="M525 334 A232 232 0 0 1 588 218"/>
   <path class="mark dash" d="M586.8 334 A172 172 0 0 1 630.4 260.4"/>
-  <rect class="car" x="539" y="394" width="22" height="40" rx="6"/>
-  <rect class="glass" x="542" y="399" width="16" height="9"/>
+  <g transform="translate(539 394)">
+    <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
+    <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
+    <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
+    <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
+    <circle class="lidar" cx="11" cy="22" r="3.2"/>
+    <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
+    <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
+  </g>
   <path class="route" d="M550 388 L550 382 A202 202 0 0 1 752 180 L762 180"/>
+  <path class="flow flow-route" pathLength="100" d="M550 388 L550 382 A202 202 0 0 1 752 180 L762 180"/>
+  <path class="route head" d="M550 388 L550 382 A202 202 0 0 1 752 180 L762 180"/>
   <path class="route" d="M550 388 L550 382 A202 202 0 0 1 609.2 239.2 C658.7 189.7 682 120 752 120 L762 120"/>
+  <path class="flow flow-route" pathLength="100" d="M550 388 L550 382 A202 202 0 0 1 609.2 239.2 C658.7 189.7 682 120 752 120 L762 120"/>
+  <path class="route head" d="M550 388 L550 382 A202 202 0 0 1 609.2 239.2 C658.7 189.7 682 120 752 120 L762 120"/>
 
   <!-- Note -->
   <text class="note" x="380" y="500" text-anchor="middle">Guide line</text>

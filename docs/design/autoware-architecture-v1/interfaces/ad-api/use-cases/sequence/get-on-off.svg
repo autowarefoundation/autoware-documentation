@@ -1,47 +1,83 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 722" role="img" aria-labelledby="adapi-get-on-off-title">
   <title id="adapi-get-on-off-title">In the stop mode, the application reads the door layout, opens the doors for getting on or off, waits for the passengers, and closes the doors.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="840" height="722"/>
+  <circle class="halo" cx="330" cy="380" r="230"/>
+
   <!-- Participants and lifelines -->
-  <rect class="box" x="25" y="16" width="150" height="44" rx="10"/>
-  <text class="lbl" x="100" y="38" text-anchor="middle" dominant-baseline="central">Application</text>
+  <rect class="card" x="25" y="16" width="150" height="44" rx="12"/>
+  <circle class="icon-bg" cx="61" cy="38" r="14"/>
+  <rect class="icon-line" x="54" y="32" width="14" height="12" rx="2"/>
+  <path class="icon-line" d="M54 36 H68"/>
+  <text class="lbl" x="84" y="38" dominant-baseline="central">Application</text>
   <line class="edge plain dash" x1="100" y1="60" x2="100" y2="710"/>
-  <rect class="box" x="255" y="16" width="150" height="44" rx="10"/>
-  <text class="lbl" x="330" y="38" text-anchor="middle" dominant-baseline="central">AD API</text>
+  <rect class="box primary" x="255" y="16" width="150" height="44" rx="12"/>
+  <circle class="icon-bg on" cx="304" cy="38" r="14"/>
+  <path class="icon-line" d="M301 33 L296 38 L301 43 M307 33 L312 38 L307 43"/>
+  <text class="lbl on-primary" x="327" y="38" dominant-baseline="central">AD API</text>
   <line class="edge plain dash" x1="330" y1="60" x2="330" y2="710"/>
-  <rect class="box" x="485" y="16" width="150" height="44" rx="10"/>
-  <text class="lbl" x="560" y="38" text-anchor="middle" dominant-baseline="central">Vehicle</text>
+  <rect class="card" x="485" y="16" width="150" height="44" rx="12"/>
+  <circle class="icon-bg" cx="533" cy="38" r="14"/>
+  <path class="icon-line" d="M525 41 V37 L528 33 H538 L541 37 V41 Z"/>
+  <circle class="icon-dot" cx="528.5" cy="42.5" r="2.2"/>
+  <circle class="icon-dot" cx="537.5" cy="42.5" r="2.2"/>
+  <text class="lbl" x="556" y="38" dominant-baseline="central">Vehicle</text>
   <line class="edge plain dash" x1="560" y1="60" x2="560" y2="710"/>
-  <rect class="box" x="685" y="16" width="150" height="44" rx="10"/>
-  <text class="lbl" x="760" y="38" text-anchor="middle" dominant-baseline="central">Passengers</text>
+  <rect class="card" x="685" y="16" width="150" height="44" rx="12"/>
+  <circle class="icon-bg" cx="719" cy="38" r="14"/>
+  <circle class="icon-line" cx="719" cy="35" r="3.2"/>
+  <path class="icon-line" d="M713 45 Q713 39.5 719 39.5 Q725 39.5 725 45"/>
+  <text class="lbl" x="742" y="38" dominant-baseline="central">Passengers</text>
   <line class="edge plain dash" x1="760" y1="60" x2="760" y2="710"/>
 
   <!-- Messages -->
   <path class="edge" d="M102 94 H328"/>
+  <path class="flow" pathLength="100" d="M102 94 H328"/>
+  <path class="edge head" d="M102 94 H328"/>
   <text class="edge-lbl" x="215" y="83" text-anchor="middle" dominant-baseline="central">/api/vehicle/doors/layout</text>
   <path class="edge dash" d="M328 136 H102"/>
   <text class="edge-lbl" x="215" y="125" text-anchor="middle" dominant-baseline="central">roles of each door</text>
   <path class="edge" d="M102 178 H328"/>
+  <path class="flow" pathLength="100" d="M102 178 H328"/>
+  <path class="edge head" d="M102 178 H328"/>
   <text class="edge-lbl" x="215" y="167" text-anchor="middle" dominant-baseline="central">/api/vehicle/doors/command: OPEN</text>
   <path class="edge" d="M332 220 H558"/>
+  <path class="flow" pathLength="100" d="M332 220 H558"/>
+  <path class="edge head" d="M332 220 H558"/>
   <text class="edge-lbl" x="445" y="209" text-anchor="middle" dominant-baseline="central">open the doors</text>
   <path class="edge dash" d="M558 262 H332"/>
   <path class="edge dash" d="M328 304 H102"/>
   <text class="edge-lbl" x="215" y="293" text-anchor="middle" dominant-baseline="central">response status</text>
   <path class="edge" d="M558 346 H332"/>
+  <path class="flow" pathLength="100" d="M558 346 H332"/>
+  <path class="edge head" d="M558 346 H332"/>
   <text class="edge-lbl" x="445" y="335" text-anchor="middle" dominant-baseline="central">door status</text>
   <path class="edge" d="M328 388 H102"/>
+  <path class="flow" pathLength="100" d="M328 388 H102"/>
+  <path class="edge head" d="M328 388 H102"/>
   <text class="edge-lbl" x="215" y="377" text-anchor="middle" dominant-baseline="central">/api/vehicle/doors/status: OPENED</text>
   <path class="edge" d="M758 430 H562"/>
+  <path class="flow" pathLength="100" d="M758 430 H562"/>
+  <path class="edge head" d="M758 430 H562"/>
   <text class="edge-lbl" x="660" y="419" text-anchor="middle" dominant-baseline="central">get on or get off</text>
   <path class="edge" d="M102 472 H328"/>
+  <path class="flow" pathLength="100" d="M102 472 H328"/>
+  <path class="edge head" d="M102 472 H328"/>
   <text class="edge-lbl" x="215" y="461" text-anchor="middle" dominant-baseline="central">/api/vehicle/doors/command: CLOSE</text>
   <path class="edge" d="M332 514 H558"/>
+  <path class="flow" pathLength="100" d="M332 514 H558"/>
+  <path class="edge head" d="M332 514 H558"/>
   <text class="edge-lbl" x="445" y="503" text-anchor="middle" dominant-baseline="central">close the doors</text>
   <path class="edge dash" d="M558 556 H332"/>
   <path class="edge dash" d="M328 598 H102"/>
   <text class="edge-lbl" x="215" y="587" text-anchor="middle" dominant-baseline="central">response status</text>
   <path class="edge" d="M558 640 H332"/>
+  <path class="flow" pathLength="100" d="M558 640 H332"/>
+  <path class="edge head" d="M558 640 H332"/>
   <text class="edge-lbl" x="445" y="629" text-anchor="middle" dominant-baseline="central">door status</text>
   <path class="edge" d="M328 682 H102"/>
+  <path class="flow" pathLength="100" d="M328 682 H102"/>
+  <path class="edge head" d="M328 682 H102"/>
   <text class="edge-lbl" x="215" y="671" text-anchor="middle" dominant-baseline="central">/api/vehicle/doors/status: CLOSED</text>
 </svg>

@@ -1,36 +1,53 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 316" role="img" aria-labelledby="radar-driver-title">
   <title id="radar-driver-title">Inside the radar, the antenna feeds target detection. Target detection outputs the scan points as RadarScan and feeds the occupancy grid and the object tracking. The object tracking outputs RadarTracks, and the occupancy grid outputs a cost map.</title>
 
-  <rect class="group" x="16" y="16" width="560" height="176" rx="16"/>
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="760" height="316"/>
+  <circle class="halo" cx="290" cy="110" r="105"/>
+  <circle class="halo cyan" cx="650" cy="150" r="100"/>
+
+  <rect class="glass-panel" x="16" y="16" width="560" height="176" rx="18"/>
   <text class="ttl" x="36" y="40">Radar internal</text>
 
-  <rect class="box" x="36" y="104" width="110" height="48" rx="10"/>
+  <rect class="card" x="36" y="104" width="110" height="48" rx="12"/>
   <text class="lbl" x="91" y="128" text-anchor="middle" dominant-baseline="central">Antenna</text>
 
-  <rect class="box" x="186" y="104" width="150" height="48" rx="10"/>
+  <rect class="card" x="186" y="104" width="150" height="48" rx="12"/>
   <text class="lbl" x="261" y="128" text-anchor="middle" dominant-baseline="central">Target detection</text>
 
-  <rect class="box" x="400" y="40" width="156" height="48" rx="10"/>
+  <rect class="card" x="400" y="40" width="156" height="48" rx="12"/>
   <text class="lbl" x="478" y="64" text-anchor="middle" dominant-baseline="central">Occupancy grid</text>
 
-  <rect class="box" x="400" y="120" width="156" height="48" rx="10"/>
+  <rect class="card" x="400" y="120" width="156" height="48" rx="12"/>
   <text class="lbl" x="478" y="144" text-anchor="middle" dominant-baseline="central">Object tracking</text>
 
   <path class="edge" d="M146 128 H178"/>
+  <path class="flow" pathLength="100" d="M146 128 H178"/>
+  <path class="edge head" d="M146 128 H178"/>
   <path class="edge accent" d="M336 144 H392"/>
+  <path class="flow flow-accent" pathLength="100" d="M336 144 H392"/>
+  <path class="edge accent head" d="M336 144 H392"/>
   <path class="edge accent" d="M336 116 H366 V64 H392"/>
+  <path class="flow flow-accent" pathLength="100" d="M336 116 H366 V64 H392"/>
+  <path class="edge accent head" d="M336 116 H366 V64 H392"/>
 
   <!-- Outputs -->
   <path class="edge" d="M556 64 H612"/>
+  <path class="flow" pathLength="100" d="M556 64 H612"/>
+  <path class="edge head" d="M556 64 H612"/>
   <text class="sub" x="622" y="64" dominant-baseline="central">Cost map</text>
 
   <path class="edge accent" d="M556 144 H612"/>
+  <path class="flow flow-accent" pathLength="100" d="M556 144 H612"/>
+  <path class="edge accent head" d="M556 144 H612"/>
   <rect class="icon" x="626" y="132" width="50" height="28" rx="2"/>
   <path class="icon" d="M626 132 l12 -12 h50 l-12 12 z"/>
   <path class="icon" d="M676 160 v-28 l12 -12 v28 z"/>
   <text class="code" x="622" y="182" dominant-baseline="central">RadarTracks</text>
 
   <path class="edge accent" d="M261 152 V226"/>
+  <path class="flow flow-accent" pathLength="100" d="M261 152 V226"/>
+  <path class="edge accent head" d="M261 152 V226"/>
   <circle class="icon" cx="236" cy="246" r="5"/>
   <circle class="icon" cx="254" cy="238" r="5"/>
   <circle class="icon" cx="272" cy="244" r="5"/>

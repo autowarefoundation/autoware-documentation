@@ -12,13 +12,17 @@
   <rect class="area warn" x="250" y="14" width="160" height="90" rx="6"/>
 
   <!-- Pedestrian in the check area -->
-  <circle class="car other" cx="270" cy="17" r="6"/>
-  <rect class="car other" x="264" y="24" width="12" height="18" rx="5"/>
+  <g class="pedestrian"><ellipse class="car-shadow" cx="270" cy="43" rx="8" ry="2.5"/><path class="ped-body" d="M263 42 V31 Q263 24 270 24 Q277 24 277 31 V42 Z"/><circle class="ped-head" cx="270" cy="17" r="5.5"/></g>
 
   <!-- Ego vehicle (stopped) -->
-  <g>
-    <rect class="car" x="298" y="62" width="64" height="30" rx="6"/>
-    <rect class="glass" x="340" y="66" width="9" height="22" rx="3"/>
+  <g transform="translate(319 57) rotate(90 11 20)">
+    <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
+    <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
+    <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
+    <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
+    <circle class="lidar" cx="11" cy="22" r="3.2"/>
+    <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
+    <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
   </g>
 
   <!-- The path is blocked -->

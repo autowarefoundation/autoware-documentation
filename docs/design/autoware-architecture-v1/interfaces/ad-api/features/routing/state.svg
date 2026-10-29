@@ -1,38 +1,57 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 770 226" role="img" aria-labelledby="adapi-routing-state-title">
   <title id="adapi-routing-state-title">The route state starts at UNSET. Setting a route changes it to SET, and clearing the route changes it back to UNSET. A route change goes from SET to CHANGING and back to SET. When the vehicle arrives, the state changes to ARRIVED, and clearing the route changes it to UNSET.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="770" height="226"/>
+  <circle class="halo" cx="401" cy="113" r="110"/>
+  <circle class="halo cyan" cx="140" cy="113" r="100"/>
+
   <!-- Initial state -->
   <circle class="icon" cx="22" cy="68" r="9"/>
-  <path class="edge" d="M31 68 H52"/>
+  <path class="edge accent" d="M31 68 H52"/>
+  <path class="flow flow-accent" pathLength="100" d="M31 68 H52"/>
+  <path class="edge accent head" d="M31 68 H52"/>
 
   <!-- States -->
-  <rect class="box" x="56" y="40" width="170" height="56" rx="10"/>
+  <rect class="card" x="56" y="40" width="170" height="56" rx="12"/>
   <text class="lbl" x="141" y="68" text-anchor="middle" dominant-baseline="central">UNSET</text>
 
-  <rect class="box ok" x="316" y="40" width="170" height="56" rx="10"/>
+  <rect class="box ok" x="316" y="40" width="170" height="56" rx="12"/>
   <text class="lbl" x="401" y="68" text-anchor="middle" dominant-baseline="central">SET</text>
 
-  <rect class="box" x="576" y="40" width="170" height="56" rx="10"/>
+  <rect class="card" x="576" y="40" width="170" height="56" rx="12"/>
   <text class="lbl" x="661" y="68" text-anchor="middle" dominant-baseline="central">CHANGING</text>
 
-  <rect class="box" x="186" y="152" width="170" height="56" rx="10"/>
+  <rect class="card" x="186" y="152" width="170" height="56" rx="12"/>
   <text class="lbl" x="271" y="180" text-anchor="middle" dominant-baseline="central">ARRIVED</text>
 
   <!-- UNSET and SET -->
-  <path class="edge" d="M226 56 H312"/>
+  <path class="edge accent" d="M226 56 H312"/>
+  <path class="flow flow-accent" pathLength="100" d="M226 56 H312"/>
+  <path class="edge accent head" d="M226 56 H312"/>
   <text class="edge-lbl" x="271" y="31" text-anchor="middle" dominant-baseline="central">set</text>
   <path class="edge" d="M316 80 H230"/>
+  <path class="flow" pathLength="100" d="M316 80 H230"/>
+  <path class="edge head" d="M316 80 H230"/>
   <text class="edge-lbl" x="271" y="108" text-anchor="middle" dominant-baseline="central">clear</text>
 
   <!-- SET and CHANGING -->
   <path class="edge" d="M486 56 H572"/>
+  <path class="flow" pathLength="100" d="M486 56 H572"/>
+  <path class="edge head" d="M486 56 H572"/>
   <text class="edge-lbl" x="531" y="31" text-anchor="middle" dominant-baseline="central">change</text>
   <path class="edge" d="M576 80 H490"/>
+  <path class="flow" pathLength="100" d="M576 80 H490"/>
+  <path class="edge head" d="M576 80 H490"/>
   <text class="edge-lbl" x="531" y="108" text-anchor="middle" dominant-baseline="central">succeeded or failed</text>
 
   <!-- Arrival -->
   <path class="edge" d="M441 96 V180 H360"/>
+  <path class="flow" pathLength="100" d="M441 96 V180 H360"/>
+  <path class="edge head" d="M441 96 V180 H360"/>
   <text class="edge-lbl" x="441" y="140" text-anchor="middle" dominant-baseline="central">arrived</text>
   <path class="edge" d="M186 180 H101 V100"/>
+  <path class="flow" pathLength="100" d="M186 180 H101 V100"/>
+  <path class="edge head" d="M186 180 H101 V100"/>
   <text class="edge-lbl" x="101" y="140" text-anchor="middle" dominant-baseline="central">clear</text>
 </svg>

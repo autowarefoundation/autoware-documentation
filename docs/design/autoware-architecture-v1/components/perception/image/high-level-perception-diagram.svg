@@ -1,52 +1,84 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 480" role="img" aria-labelledby="high-level-perception-diagram-title">
   <title id="high-level-perception-diagram-title">Sensing, Localization, Map, and the API send data to the Perception component. Perception has four sub-components: object recognition, obstacle segmentation, occupancy grid map, and traffic light recognition. Perception sends its results to Planning.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="480"/>
+  <circle class="halo" cx="420" cy="240" r="190"/>
+  <circle class="halo cyan" cx="700" cy="250" r="150"/>
+
   <!-- The API layer -->
-  <rect class="box muted" x="420" y="16" width="260" height="54" rx="10"/>
+  <rect class="box muted" x="420" y="16" width="260" height="54" rx="12"/>
   <text class="lbl" x="550" y="35" text-anchor="middle" dominant-baseline="central">API</text>
   <text class="sub" x="550" y="55" text-anchor="middle" dominant-baseline="central">V2X information</text>
   <path class="edge" d="M550 70 V110"/>
+  <path class="flow" pathLength="100" d="M550 70 V110"/>
+  <path class="edge head" d="M550 70 V110"/>
 
   <!-- The input components -->
-  <rect class="box muted" x="20" y="146" width="170" height="54" rx="10"/>
+  <rect class="box muted" x="20" y="146" width="170" height="54" rx="12"/>
   <text class="lbl" x="105" y="165" text-anchor="middle" dominant-baseline="central">Sensing</text>
   <text class="sub" x="105" y="185" text-anchor="middle" dominant-baseline="central">Point cloud, images, radar</text>
 
-  <rect class="box muted" x="20" y="218" width="170" height="54" rx="10"/>
+  <rect class="box muted" x="20" y="218" width="170" height="54" rx="12"/>
   <text class="lbl" x="105" y="237" text-anchor="middle" dominant-baseline="central">Localization</text>
   <text class="sub" x="105" y="257" text-anchor="middle" dominant-baseline="central">Ego pose and velocity</text>
 
-  <rect class="box muted" x="20" y="290" width="170" height="54" rx="10"/>
+  <rect class="box muted" x="20" y="290" width="170" height="54" rx="12"/>
   <text class="lbl" x="105" y="309" text-anchor="middle" dominant-baseline="central">Map</text>
   <text class="sub" x="105" y="329" text-anchor="middle" dominant-baseline="central">Vector and point cloud maps</text>
 
   <path class="edge" d="M190 173 H242"/>
+  <path class="flow" pathLength="100" d="M190 173 H242"/>
+  <path class="edge head" d="M190 173 H242"/>
   <path class="edge" d="M190 245 H242"/>
+  <path class="flow" pathLength="100" d="M190 245 H242"/>
+  <path class="edge head" d="M190 245 H242"/>
   <path class="edge" d="M190 317 H242"/>
+  <path class="flow" pathLength="100" d="M190 317 H242"/>
+  <path class="edge head" d="M190 317 H242"/>
 
   <!-- The Perception component -->
-  <rect class="group" x="250" y="118" width="590" height="252" rx="16"/>
+  <rect class="glass-panel" x="250" y="118" width="590" height="252" rx="16"/>
   <text class="ttl" x="272" y="144">Perception</text>
 
-  <rect class="box primary" x="272" y="162" width="266" height="84" rx="10"/>
-  <text class="lbl on-primary" x="405" y="192" text-anchor="middle" dominant-baseline="central">Object recognition</text>
-  <text class="sub on-primary" x="405" y="216" text-anchor="middle" dominant-baseline="central">Detection, tracking, prediction</text>
+  <rect class="box primary" x="272" y="162" width="266" height="84" rx="12"/>
+  <circle class="icon-bg on" cx="308" cy="204" r="20"/>
+  <path class="icon-line" d="M300 201 V196 H305 M311 196 H316 V201 M316 207 V212 H311 M305 212 H300 V207"/>
+  <circle class="icon-dot" cx="308" cy="204" r="2.6"/>
+  <text class="lbl on-primary" x="340" y="194" dominant-baseline="central">Object recognition</text>
+  <text class="sub on-primary" x="340" y="215" dominant-baseline="central">Detection, tracking, prediction</text>
 
-  <rect class="box" x="556" y="162" width="266" height="84" rx="10"/>
-  <text class="lbl" x="689" y="192" text-anchor="middle" dominant-baseline="central">Obstacle segmentation</text>
-  <text class="sub" x="689" y="216" text-anchor="middle" dominant-baseline="central">Points of obstacles to avoid</text>
+  <rect class="card" x="556" y="162" width="266" height="84" rx="12"/>
+  <circle class="icon-bg" cx="592" cy="204" r="20"/>
+  <path class="icon-line" d="M582 212 H602"/>
+  <circle class="icon-dot" cx="586" cy="204" r="2"/>
+  <circle class="icon-dot" cx="591" cy="197" r="2"/>
+  <circle class="icon-dot" cx="597" cy="201" r="2"/>
+  <circle class="icon-dot" cx="594" cy="207" r="2"/>
+  <text class="lbl" x="624" y="194" dominant-baseline="central">Obstacle segmentation</text>
+  <text class="sub" x="624" y="215" dominant-baseline="central">Points of obstacles to avoid</text>
 
-  <rect class="box" x="272" y="264" width="266" height="84" rx="10"/>
-  <text class="lbl" x="405" y="294" text-anchor="middle" dominant-baseline="central">Occupancy grid map</text>
-  <text class="sub" x="405" y="318" text-anchor="middle" dominant-baseline="central">Blind spots and free space</text>
+  <rect class="card" x="272" y="264" width="266" height="84" rx="12"/>
+  <circle class="icon-bg" cx="308" cy="306" r="20"/>
+  <rect class="icon-line" x="300" y="298" width="16" height="16" rx="2"/>
+  <path class="icon-line" d="M305.3 298 V314 M310.7 298 V314 M300 303.3 H316 M300 308.7 H316"/>
+  <text class="lbl" x="340" y="296" dominant-baseline="central">Occupancy grid map</text>
+  <text class="sub" x="340" y="317" dominant-baseline="central">Blind spots and free space</text>
 
-  <rect class="box" x="556" y="264" width="266" height="84" rx="10"/>
-  <text class="lbl" x="689" y="294" text-anchor="middle" dominant-baseline="central">Traffic light recognition</text>
-  <text class="sub" x="689" y="318" text-anchor="middle" dominant-baseline="central">Colors and arrows of the signals</text>
+  <rect class="card" x="556" y="264" width="266" height="84" rx="12"/>
+  <circle class="icon-bg" cx="592" cy="306" r="20"/>
+  <rect class="icon-line" x="586" y="294" width="12" height="24" rx="4"/>
+  <circle class="icon-dot" cx="592" cy="300" r="2.2"/>
+  <circle class="icon-dot" cx="592" cy="306" r="2.2"/>
+  <circle class="icon-dot" cx="592" cy="312" r="2.2"/>
+  <text class="lbl" x="624" y="296" dominant-baseline="central">Traffic light recognition</text>
+  <text class="sub" x="624" y="317" dominant-baseline="central">Colors and arrows of the signals</text>
 
   <!-- The output to Planning -->
   <path class="edge accent" d="M550 370 V412"/>
+  <path class="flow flow-accent" pathLength="100" d="M550 370 V412"/>
+  <path class="edge accent head" d="M550 370 V412"/>
   <text class="edge-lbl" x="550" y="391" text-anchor="middle" dominant-baseline="central">Objects, obstacles, grid map, signals</text>
-  <rect class="box muted" x="420" y="420" width="260" height="46" rx="10"/>
+  <rect class="box muted" x="420" y="420" width="260" height="46" rx="12"/>
   <text class="lbl" x="550" y="443" text-anchor="middle" dominant-baseline="central">Planning</text>
 </svg>

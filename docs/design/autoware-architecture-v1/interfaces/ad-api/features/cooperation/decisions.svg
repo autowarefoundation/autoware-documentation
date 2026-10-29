@@ -1,64 +1,93 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 580" role="img" aria-labelledby="adapi-cooperation-decisions-title">
   <title id="adapi-cooperation-decisions-title">The merged decision follows the operator decision if it is activate or deactivate. If the operator decision is none, the cooperation policy decides: required gives deactivate, and optional uses the module decision. If the operator decision is autonomous, the module decision is used.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="840" height="580"/>
+  <circle class="halo" cx="419" cy="200" r="190"/>
+  <circle class="halo cyan" cx="665" cy="330" r="120"/>
+
   <!-- Start and the operator decision -->
   <circle class="icon" cx="419" cy="22" r="10"/>
   <path class="edge" d="M419 32 V50"/>
-  <rect class="box" x="309" y="54" width="220" height="44" rx="10"/>
+  <path class="flow" pathLength="100" d="M419 32 V50"/>
+  <path class="edge head" d="M419 32 V50"/>
+  <rect class="card" x="309" y="54" width="220" height="44" rx="12"/>
   <text class="lbl" x="419" y="76" text-anchor="middle" dominant-baseline="central">Check the operator decision</text>
   <path class="edge" d="M419 98 V116"/>
-  <path class="box" d="M419 120 L439 140 L419 160 L399 140 Z"/>
+  <path class="flow" pathLength="100" d="M419 98 V116"/>
+  <path class="edge head" d="M419 98 V116"/>
+  <path class="card" d="M419 120 L439 140 L419 160 L399 140 Z"/>
 
   <!-- Operator decision: deactivate and activate -->
   <path class="edge" d="M399 140 H91 V428"/>
+  <path class="flow" pathLength="100" d="M399 140 H91 V428"/>
+  <path class="edge head" d="M399 140 H91 V428"/>
   <text class="edge-lbl" x="91" y="300" text-anchor="middle" dominant-baseline="central">[deactivate]</text>
   <path class="edge" d="M255 140 V428"/>
+  <path class="flow" pathLength="100" d="M255 140 V428"/>
+  <path class="edge head" d="M255 140 V428"/>
   <text class="edge-lbl" x="255" y="300" text-anchor="middle" dominant-baseline="central">[activate]</text>
 
   <!-- Operator decision: none -->
   <path class="edge" d="M419 160 V196"/>
+  <path class="flow" pathLength="100" d="M419 160 V196"/>
+  <path class="edge head" d="M419 160 V196"/>
   <text class="edge-lbl" x="419" y="178" text-anchor="middle" dominant-baseline="central">[none]</text>
-  <rect class="box" x="309" y="200" width="220" height="44" rx="10"/>
+  <rect class="card" x="309" y="200" width="220" height="44" rx="12"/>
   <text class="lbl" x="419" y="222" text-anchor="middle" dominant-baseline="central">Check the cooperation policy</text>
   <path class="edge" d="M419 244 V262"/>
-  <path class="box" d="M419 266 L439 286 L419 306 L399 286 Z"/>
+  <path class="flow" pathLength="100" d="M419 244 V262"/>
+  <path class="edge head" d="M419 244 V262"/>
+  <path class="card" d="M419 266 L439 286 L419 306 L399 286 Z"/>
   <path class="edge" d="M419 306 V428"/>
+  <path class="flow" pathLength="100" d="M419 306 V428"/>
+  <path class="edge head" d="M419 306 V428"/>
   <text class="edge-lbl" x="419" y="368" text-anchor="middle" dominant-baseline="central">[required]</text>
   <path class="edge" d="M439 286 H556"/>
+  <path class="flow" pathLength="100" d="M439 286 H556"/>
+  <path class="edge head" d="M439 286 H556"/>
   <text class="edge-lbl" x="497" y="286" text-anchor="middle" dominant-baseline="central">[optional]</text>
 
   <!-- Operator decision: autonomous -->
   <path class="edge" d="M439 140 H665 V260"/>
+  <path class="flow" pathLength="100" d="M439 140 H665 V260"/>
+  <path class="edge head" d="M439 140 H665 V260"/>
   <text class="edge-lbl" x="665" y="200" text-anchor="middle" dominant-baseline="central">[autonomous]</text>
 
   <!-- The module decision -->
-  <rect class="box" x="560" y="264" width="210" height="44" rx="10"/>
+  <rect class="card" x="560" y="264" width="210" height="44" rx="12"/>
   <text class="lbl" x="665" y="286" text-anchor="middle" dominant-baseline="central">Check the module decision</text>
   <path class="edge" d="M665 308 V326"/>
-  <path class="box" d="M665 330 L685 350 L665 370 L645 350 Z"/>
+  <path class="flow" pathLength="100" d="M665 308 V326"/>
+  <path class="edge head" d="M665 308 V326"/>
+  <path class="card" d="M665 330 L685 350 L665 370 L645 350 Z"/>
   <path class="edge" d="M645 350 H583 V428"/>
+  <path class="flow" pathLength="100" d="M645 350 H583 V428"/>
+  <path class="edge head" d="M645 350 H583 V428"/>
   <text class="edge-lbl" x="583" y="392" text-anchor="middle" dominant-baseline="central">[activate]</text>
   <path class="edge" d="M685 350 H747 V428"/>
+  <path class="flow" pathLength="100" d="M685 350 H747 V428"/>
+  <path class="edge head" d="M685 350 H747 V428"/>
   <text class="edge-lbl" x="747" y="392" text-anchor="middle" dominant-baseline="central">[deactivate]</text>
 
   <!-- Results -->
-  <rect class="box" x="16" y="432" width="150" height="56" rx="10"/>
+  <rect class="card" x="16" y="432" width="150" height="56" rx="12"/>
   <text class="lbl" x="91" y="451" text-anchor="middle" dominant-baseline="central">deactivate</text>
   <text class="sub" x="91" y="471" text-anchor="middle" dominant-baseline="central">by operator decision</text>
 
-  <rect class="box ok" x="180" y="432" width="150" height="56" rx="10"/>
+  <rect class="box ok" x="180" y="432" width="150" height="56" rx="12"/>
   <text class="lbl" x="255" y="451" text-anchor="middle" dominant-baseline="central">activate</text>
   <text class="sub" x="255" y="471" text-anchor="middle" dominant-baseline="central">by operator decision</text>
 
-  <rect class="box" x="344" y="432" width="150" height="56" rx="10"/>
+  <rect class="card" x="344" y="432" width="150" height="56" rx="12"/>
   <text class="lbl" x="419" y="451" text-anchor="middle" dominant-baseline="central">deactivate</text>
   <text class="sub" x="419" y="471" text-anchor="middle" dominant-baseline="central">by cooperation policy</text>
 
-  <rect class="box ok" x="508" y="432" width="150" height="56" rx="10"/>
+  <rect class="box ok" x="508" y="432" width="150" height="56" rx="12"/>
   <text class="lbl" x="583" y="451" text-anchor="middle" dominant-baseline="central">activate</text>
   <text class="sub" x="583" y="471" text-anchor="middle" dominant-baseline="central">by module decision</text>
 
-  <rect class="box" x="672" y="432" width="150" height="56" rx="10"/>
+  <rect class="card" x="672" y="432" width="150" height="56" rx="12"/>
   <text class="lbl" x="747" y="451" text-anchor="middle" dominant-baseline="central">deactivate</text>
   <text class="sub" x="747" y="471" text-anchor="middle" dominant-baseline="central">by module decision</text>
 
@@ -67,6 +96,8 @@
   <path class="edge plain" d="M255 488 V514"/>
   <path class="edge plain" d="M583 488 V514"/>
   <path class="edge" d="M419 488 V538"/>
+  <path class="flow" pathLength="100" d="M419 488 V538"/>
+  <path class="edge head" d="M419 488 V538"/>
   <circle class="edge plain" cx="419" cy="554" r="13"/>
   <circle class="icon" cx="419" cy="554" r="8"/>
 </svg>

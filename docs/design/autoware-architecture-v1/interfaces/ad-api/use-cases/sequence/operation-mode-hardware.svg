@@ -1,28 +1,52 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 302" role="img" aria-labelledby="adapi-operation-mode-hardware-title">
   <title id="adapi-operation-mode-hardware-title">The operator changes the control mode on the vehicle. The vehicle reports the control mode, and AD API sends the new operation mode state to the application.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="840" height="302"/>
+  <circle class="halo" cx="530" cy="160" r="140"/>
+
   <!-- Participants and lifelines -->
-  <rect class="box" x="15" y="16" width="150" height="44" rx="10"/>
-  <text class="lbl" x="90" y="38" text-anchor="middle" dominant-baseline="central">Operator</text>
+  <rect class="card" x="15" y="16" width="150" height="44" rx="12"/>
+  <circle class="icon-bg" cx="58" cy="38" r="14"/>
+  <circle class="icon-line" cx="58" cy="35" r="3.2"/>
+  <path class="icon-line" d="M52 45 Q52 39.5 58 39.5 Q64 39.5 64 45"/>
+  <text class="lbl" x="81" y="38" dominant-baseline="central">Operator</text>
   <line class="edge plain dash" x1="90" y1="60" x2="90" y2="290"/>
-  <rect class="box" x="215" y="16" width="150" height="44" rx="10"/>
-  <text class="lbl" x="290" y="38" text-anchor="middle" dominant-baseline="central">Application</text>
+  <rect class="card" x="215" y="16" width="150" height="44" rx="12"/>
+  <circle class="icon-bg" cx="251" cy="38" r="14"/>
+  <rect class="icon-line" x="244" y="32" width="14" height="12" rx="2"/>
+  <path class="icon-line" d="M244 36 H258"/>
+  <text class="lbl" x="274" y="38" dominant-baseline="central">Application</text>
   <line class="edge plain dash" x1="290" y1="60" x2="290" y2="290"/>
-  <rect class="box" x="455" y="16" width="150" height="44" rx="10"/>
-  <text class="lbl" x="530" y="38" text-anchor="middle" dominant-baseline="central">AD API</text>
+  <rect class="box primary" x="455" y="16" width="150" height="44" rx="12"/>
+  <circle class="icon-bg on" cx="504" cy="38" r="14"/>
+  <path class="icon-line" d="M501 33 L496 38 L501 43 M507 33 L512 38 L507 43"/>
+  <text class="lbl on-primary" x="527" y="38" dominant-baseline="central">AD API</text>
   <line class="edge plain dash" x1="530" y1="60" x2="530" y2="290"/>
-  <rect class="box" x="675" y="16" width="150" height="44" rx="10"/>
-  <text class="lbl" x="750" y="38" text-anchor="middle" dominant-baseline="central">Vehicle</text>
+  <rect class="card" x="675" y="16" width="150" height="44" rx="12"/>
+  <circle class="icon-bg" cx="723" cy="38" r="14"/>
+  <path class="icon-line" d="M715 41 V37 L718 33 H728 L731 37 V41 Z"/>
+  <circle class="icon-dot" cx="718.5" cy="42.5" r="2.2"/>
+  <circle class="icon-dot" cx="727.5" cy="42.5" r="2.2"/>
+  <text class="lbl" x="746" y="38" dominant-baseline="central">Vehicle</text>
   <line class="edge plain dash" x1="750" y1="60" x2="750" y2="290"/>
 
   <!-- Messages -->
   <path class="edge" d="M92 94 H748"/>
+  <path class="flow" pathLength="100" d="M92 94 H748"/>
+  <path class="edge head" d="M92 94 H748"/>
   <text class="edge-lbl" x="420" y="83" text-anchor="middle" dominant-baseline="central">change the control mode with a switch</text>
   <path class="edge dash" d="M748 136 H92"/>
   <path class="edge" d="M748 178 H532"/>
+  <path class="flow" pathLength="100" d="M748 178 H532"/>
+  <path class="edge head" d="M748 178 H532"/>
   <text class="edge-lbl" x="640" y="167" text-anchor="middle" dominant-baseline="central">current control mode</text>
   <path class="edge" d="M528 220 H292"/>
+  <path class="flow" pathLength="100" d="M528 220 H292"/>
+  <path class="edge head" d="M528 220 H292"/>
   <text class="edge-lbl" x="410" y="209" text-anchor="middle" dominant-baseline="central">/api/operation_mode/state</text>
   <path class="edge" d="M288 262 H92"/>
+  <path class="flow" pathLength="100" d="M288 262 H92"/>
+  <path class="edge head" d="M288 262 H92"/>
   <text class="edge-lbl" x="190" y="251" text-anchor="middle" dominant-baseline="central">show the mode</text>
 </svg>

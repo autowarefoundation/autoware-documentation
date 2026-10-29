@@ -1,13 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 300" role="img" aria-labelledby="vehicle-footprint-title">
   <title id="vehicle-footprint-title">The footprint polygon that Autoware makes from the vehicle dimensions has six points in clockwise order: front left, front right, center right, rear right, rear left, and center left. Its origin is base_link.</title>
 
+  <!-- Background: a faint dot grid -->
+  <rect class="dots" x="0" y="0" width="860" height="300"/>
+
   <!-- The vehicle, front to the right -->
-  <rect class="car" x="200" y="50" width="420" height="200" rx="6"/>
-  <rect class="glass" x="470" y="66" width="22" height="168" rx="3"/>
-  <rect class="icon" x="269" y="72" width="44" height="16" rx="4"/>
-  <rect class="icon" x="269" y="212" width="44" height="16" rx="4"/>
-  <rect class="icon" x="510" y="72" width="44" height="16" rx="4"/>
-  <rect class="icon" x="510" y="212" width="44" height="16" rx="4"/>
+  <rect class="car-shadow" x="203" y="55" width="420" height="200" rx="6"/>
+  <rect class="car-body" x="310" y="-60" width="200" height="420" rx="6" transform="rotate(90 410 150)"/>
+  <rect class="car-glass" x="470" y="66" width="22" height="168" rx="3"/>
+  <rect class="car-glass" x="222" y="74" width="14" height="152" rx="3"/>
+  <rect class="wheel" x="269" y="72" width="44" height="16" rx="4"/>
+  <rect class="wheel" x="269" y="212" width="44" height="16" rx="4"/>
+  <rect class="wheel" x="510" y="72" width="44" height="16" rx="4"/>
+  <rect class="wheel" x="510" y="212" width="44" height="16" rx="4"/>
 
   <!-- The footprint -->
   <path class="area" d="M620 50 L620 250 L411 250 L200 250 L200 50 L411 50 Z"/>

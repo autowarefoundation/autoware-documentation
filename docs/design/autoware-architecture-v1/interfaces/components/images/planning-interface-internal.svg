@@ -1,16 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 130" role="img" aria-labelledby="planning-interface-internal-title">
   <title id="planning-interface-internal-title">Inside the Planning component, one module sends its output to another module.</title>
 
-  <rect class="box muted" x="20" y="25" width="180" height="80" rx="10"/>
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="760" height="130"/>
+  <circle class="halo" cx="380" cy="65" r="62"/>
+
+  <rect class="card" x="20" y="25" width="180" height="80" rx="12"/>
   <text class="lbl" x="110" y="65" text-anchor="middle" dominant-baseline="central">Other components</text>
-  <rect class="box muted" x="560" y="25" width="180" height="80" rx="10"/>
+  <rect class="card" x="560" y="25" width="180" height="80" rx="12"/>
   <text class="lbl" x="650" y="65" text-anchor="middle" dominant-baseline="central">Other components</text>
 
-  <rect class="group" x="260" y="10" width="240" height="110" rx="16"/>
+  <rect class="glass-panel" x="260" y="10" width="240" height="110" rx="18"/>
   <text class="ttl" x="280" y="36">Planning component</text>
-  <rect class="box primary" x="280" y="56" width="80" height="44" rx="10"/>
+  <rect class="box primary" x="280" y="56" width="80" height="44" rx="12"/>
   <text class="lbl on-primary" x="320" y="78" text-anchor="middle" dominant-baseline="central">Module</text>
-  <rect class="box primary" x="400" y="56" width="80" height="44" rx="10"/>
+  <rect class="box primary" x="400" y="56" width="80" height="44" rx="12"/>
   <text class="lbl on-primary" x="440" y="78" text-anchor="middle" dominant-baseline="central">Module</text>
   <path class="edge accent" d="M360 78 H394"/>
+  <path class="flow flow-accent" pathLength="100" d="M360 78 H394"/>
+  <path class="edge accent head" d="M360 78 H394"/>
 </svg>

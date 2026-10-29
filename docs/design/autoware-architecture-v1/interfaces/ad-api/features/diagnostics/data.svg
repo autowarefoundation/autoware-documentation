@@ -1,11 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 470" role="img" aria-labelledby="adapi-diagnostics-data-title">
   <title id="adapi-diagnostics-data-title">The messages of the example graph. DiagGraphStruct has the paths of the nodes, the parents and names of the leaf diagnostics, and the links between the nodes. DiagGraphStatus has the levels of the nodes and the leaf diagnostics, in the same order as the struct.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="470"/>
+  <circle class="halo" cx="300" cy="230" r="215"/>
+  <circle class="halo cyan" cx="722" cy="230" r="120"/>
+
   <!-- DiagGraphStruct -->
-  <rect class="group" x="16" y="16" width="570" height="438" rx="16"/>
+  <rect class="glass-panel" x="16" y="16" width="570" height="438" rx="16"/>
   <text class="lbl" x="36" y="42">DiagGraphStruct</text>
   <text class="code" x="36" y="68">nodes</text>
-  <rect class="box" x="92" y="82" width="210" height="216" rx="10"/>
+  <rect class="card" x="92" y="82" width="210" height="216" rx="12"/>
   <path class="edge plain" d="M92 106 H302"/>
   <path class="edge plain" d="M92 130 H302"/>
   <path class="edge plain" d="M92 154 H302"/>
@@ -33,7 +38,7 @@
   <text class="sub" x="84" y="286" text-anchor="end" dominant-baseline="central">nodes[8]</text>
   <text class="code" x="102" y="286" dominant-baseline="central">path: /vehicle/interface</text>
   <text class="code" x="36" y="326">diags</text>
-  <rect class="box" x="92" y="340" width="210" height="96" rx="10"/>
+  <rect class="card" x="92" y="340" width="210" height="96" rx="12"/>
   <path class="edge plain" d="M92 364 H302"/>
   <path class="edge plain" d="M92 388 H302"/>
   <path class="edge plain" d="M92 412 H302"/>
@@ -46,7 +51,7 @@
   <text class="sub" x="84" y="424" text-anchor="end" dominant-baseline="central">diags[3]</text>
   <text class="code" x="102" y="424" dominant-baseline="central">parent: 8, name: vehicle</text>
   <text class="code" x="318" y="68">links</text>
-  <rect class="box" x="374" y="82" width="200" height="216" rx="10"/>
+  <rect class="card" x="374" y="82" width="200" height="216" rx="12"/>
   <path class="edge plain" d="M374 106 H574"/>
   <path class="edge plain" d="M374 130 H574"/>
   <path class="edge plain" d="M374 154 H574"/>
@@ -75,10 +80,10 @@
   <text class="code" x="384" y="286" dominant-baseline="central">parent: 4, child: 8</text>
 
   <!-- DiagGraphStatus -->
-  <rect class="group" x="600" y="16" width="244" height="438" rx="16"/>
+  <rect class="glass-panel" x="600" y="16" width="244" height="438" rx="16"/>
   <text class="lbl" x="620" y="42">DiagGraphStatus</text>
   <text class="code" x="620" y="68">nodes</text>
-  <rect class="box" x="676" y="82" width="150" height="216" rx="10"/>
+  <rect class="card" x="676" y="82" width="150" height="216" rx="12"/>
   <path class="edge plain" d="M676 106 H826"/>
   <path class="edge plain" d="M676 130 H826"/>
   <path class="edge plain" d="M676 154 H826"/>
@@ -106,7 +111,7 @@
   <text class="sub" x="668" y="286" text-anchor="end" dominant-baseline="central">nodes[8]</text>
   <text class="code" x="686" y="286" dominant-baseline="central">level: OK</text>
   <text class="code" x="620" y="326">diags</text>
-  <rect class="box" x="676" y="340" width="150" height="96" rx="10"/>
+  <rect class="card" x="676" y="340" width="150" height="96" rx="12"/>
   <path class="edge plain" d="M676 364 H826"/>
   <path class="edge plain" d="M676 388 H826"/>
   <path class="edge plain" d="M676 412 H826"/>

@@ -1,30 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" role="img" aria-labelledby="localization-tf-tree-title">
-  <title id="localization-tf-tree-title">The tf tree: earth is the parent of map. map is the parent of base_link and viewer. base_link is the parent of the sensor frames.</title>
+  <title id="localization-tf-tree-title">The tf tree: map is the parent of base_link and viewer. base_link is the parent of the sensor frames. The earth frame above map is optional. No default Autoware launch publishes it.</title>
 
-  <rect class="box muted" x="300" y="16" width="120" height="44" rx="10"/>
+  <!-- Background: a faint dot grid and a soft glow -->
+  <rect class="dots" x="0" y="0" width="720" height="330"/>
+  <circle class="halo" cx="360" cy="200" r="125"/>
+
+  <rect class="box ext" x="300" y="16" width="120" height="44" rx="12"/>
   <text class="code" x="360" y="38" text-anchor="middle" dominant-baseline="central">earth</text>
+  <text class="sub" x="436" y="38" dominant-baseline="central">optional, not published by default</text>
 
-  <rect class="box" x="300" y="104" width="120" height="44" rx="10"/>
+  <rect class="card" x="300" y="104" width="120" height="44" rx="12"/>
   <text class="code" x="360" y="126" text-anchor="middle" dominant-baseline="central">map</text>
 
-  <rect class="box primary" x="300" y="192" width="120" height="44" rx="10"/>
+  <rect class="box primary" x="300" y="192" width="120" height="44" rx="12"/>
   <text class="code on-primary" x="360" y="214" text-anchor="middle" dominant-baseline="central">base_link</text>
 
-  <rect class="box muted" x="500" y="192" width="120" height="44" rx="10"/>
+  <rect class="box muted" x="500" y="192" width="120" height="44" rx="12"/>
   <text class="code" x="560" y="214" text-anchor="middle" dominant-baseline="central">viewer</text>
 
-  <rect class="box" x="120" y="280" width="120" height="40" rx="10"/>
+  <rect class="card" x="120" y="280" width="120" height="40" rx="12"/>
   <text class="code" x="180" y="300" text-anchor="middle" dominant-baseline="central">sensor A</text>
 
-  <rect class="box" x="300" y="280" width="120" height="40" rx="10"/>
+  <rect class="card" x="300" y="280" width="120" height="40" rx="12"/>
   <text class="code" x="360" y="300" text-anchor="middle" dominant-baseline="central">sensor B</text>
 
-  <rect class="box" x="480" y="280" width="120" height="40" rx="10"/>
+  <rect class="card" x="480" y="280" width="120" height="40" rx="12"/>
   <text class="code" x="540" y="300" text-anchor="middle" dominant-baseline="central">sensor C</text>
 
   <text class="sub" x="650" y="300" text-anchor="middle" dominant-baseline="central">...</text>
 
-  <path class="edge" d="M360 60 V96"/>
+  <path class="edge dash" d="M360 60 V96"/>
   <path class="edge" d="M360 148 V184"/>
   <path class="edge" fill="none" d="M420 126 H560 V184"/>
 

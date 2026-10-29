@@ -1,47 +1,69 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 516" role="img" aria-labelledby="vehicle-interface-architecture-title">
   <title id="vehicle-interface-architecture-title">Planning sends the trajectory to control, and turn indicator and hazard light commands to the vehicle command gate. Control and other command sources send commands to the gate. The gate sends the vehicle commands to the vehicle interface. The vehicle interface works with the adapter and the vehicle, and outputs the steering status, the velocity status, the vehicle reports, and the door status.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="516"/>
+  <circle class="halo" cx="390" cy="300" r="150"/>
+  <circle class="halo cyan" cx="710" cy="380" r="120"/>
+
   <!-- Planning and control -->
-  <rect class="box muted" x="300" y="16" width="180" height="44" rx="10"/>
+  <rect class="box muted" x="300" y="16" width="180" height="44" rx="12"/>
   <text class="lbl" x="390" y="38" text-anchor="middle" dominant-baseline="central">Planning</text>
 
-  <rect class="box primary" x="300" y="100" width="180" height="56" rx="10"/>
-  <text class="lbl on-primary" x="390" y="120" text-anchor="middle" dominant-baseline="central">Control</text>
-  <text class="sub on-primary" x="390" y="140" text-anchor="middle" dominant-baseline="central">Trajectory follower</text>
+  <rect class="box primary" x="300" y="100" width="180" height="56" rx="14"/>
+  <circle class="icon-bg on" cx="324" cy="128" r="15"/>
+  <circle class="icon-line" cx="324" cy="128" r="7"/>
+  <path class="icon-line" d="M317 128 H331 M324 128 V135"/>
+  <text class="lbl on-primary" x="404" y="120" text-anchor="middle" dominant-baseline="central">Control</text>
+  <text class="sub on-primary" x="404" y="140" text-anchor="middle" dominant-baseline="central">Trajectory follower</text>
 
   <path class="edge accent" d="M390 60 V92"/>
+  <path class="flow flow-accent" pathLength="100" d="M390 60 V92"/>
+  <path class="edge accent head" d="M390 60 V92"/>
   <text class="edge-lbl" x="400" y="76" dominant-baseline="central">Trajectory</text>
 
-  <rect class="box" x="300" y="196" width="180" height="48" rx="10"/>
+  <rect class="card" x="300" y="196" width="180" height="48" rx="12"/>
   <text class="lbl" x="390" y="220" text-anchor="middle" dominant-baseline="central">Vehicle command gate</text>
 
   <path class="edge accent" d="M390 156 V188"/>
+  <path class="flow flow-accent" pathLength="100" d="M390 156 V188"/>
+  <path class="edge accent head" d="M390 156 V188"/>
 
-  <rect class="box muted" x="40" y="196" width="200" height="48" rx="10"/>
+  <rect class="box muted" x="40" y="196" width="200" height="48" rx="12"/>
   <text class="lbl" x="140" y="212" text-anchor="middle" dominant-baseline="central">Other command sources</text>
   <text class="sub" x="140" y="230" text-anchor="middle" dominant-baseline="central">MRM, external, joystick</text>
 
   <path class="edge" d="M240 220 H292"/>
+  <path class="flow" pathLength="100" d="M240 220 H292"/>
+  <path class="edge head" d="M240 220 H292"/>
 
   <path class="edge" fill="none" d="M480 38 H540 V220 H488"/>
+  <path class="flow" pathLength="100" d="M480 38 H540 V220 H488"/>
+  <path class="edge head" fill="none" d="M480 38 H540 V220 H488"/>
   <text class="edge-lbl" x="550" y="130" dominant-baseline="central">Turn indicators, hazard lights</text>
 
   <!-- Vehicle interface -->
-  <rect class="box primary" x="300" y="300" width="180" height="80" rx="10"/>
-  <text class="lbl on-primary" x="390" y="330" text-anchor="middle" dominant-baseline="central">Vehicle interface</text>
-  <text class="sub on-primary" x="390" y="352" text-anchor="middle" dominant-baseline="central">Vehicle specific</text>
+  <rect class="box primary" x="300" y="300" width="180" height="80" rx="14"/>
+  <circle class="icon-bg on" cx="326" cy="340" r="16"/>
+  <path class="icon-line" d="M316 343.5 V338.5 L319.5 333 Q320.5 331.5 322.5 331.5 H329.5 Q331.5 331.5 332.5 333 L336 338.5 V343.5 Z"/>
+  <circle class="icon-dot" cx="320.5" cy="344" r="2.4"/>
+  <circle class="icon-dot" cx="331.5" cy="344" r="2.4"/>
+  <text class="lbl on-primary" x="404" y="330" text-anchor="middle" dominant-baseline="central">Vehicle interface</text>
+  <text class="sub on-primary" x="404" y="352" text-anchor="middle" dominant-baseline="central">Vehicle specific</text>
 
   <path class="edge accent" d="M390 244 V292"/>
+  <path class="flow flow-accent" pathLength="100" d="M390 244 V292"/>
+  <path class="edge accent head" d="M390 244 V292"/>
   <text class="edge-lbl" x="390" y="268" text-anchor="middle" dominant-baseline="central">Vehicle commands</text>
 
-  <rect class="box" x="40" y="304" width="200" height="72" rx="10"/>
+  <rect class="card" x="40" y="304" width="200" height="72" rx="12"/>
   <text class="lbl" x="140" y="322" text-anchor="middle" dominant-baseline="central">Adapter</text>
   <text class="code" x="140" y="342" text-anchor="middle" dominant-baseline="central">raw_vehicle_cmd_converter</text>
   <text class="sub" x="140" y="362" text-anchor="middle" dominant-baseline="central">Actuation command, status</text>
 
   <path class="edge both" d="M248 340 H292"/>
 
-  <rect class="box muted" x="300" y="440" width="180" height="56" rx="10"/>
+  <rect class="box muted" x="300" y="440" width="180" height="56" rx="12"/>
   <text class="lbl" x="390" y="460" text-anchor="middle" dominant-baseline="central">Vehicle</text>
   <text class="sub" x="390" y="480" text-anchor="middle" dominant-baseline="central">Vehicle-specific protocol</text>
 
@@ -51,24 +73,32 @@
   <path class="edge plain" d="M480 340 H530"/>
   <path class="edge plain" d="M530 283 V471"/>
   <path class="edge" d="M530 283 H572"/>
+  <path class="flow" pathLength="100" d="M530 283 H572"/>
+  <path class="edge head" d="M530 283 H572"/>
   <path class="edge" d="M530 341 H572"/>
+  <path class="flow" pathLength="100" d="M530 341 H572"/>
+  <path class="edge head" d="M530 341 H572"/>
   <path class="edge" d="M530 406 H572"/>
+  <path class="flow" pathLength="100" d="M530 406 H572"/>
+  <path class="edge head" d="M530 406 H572"/>
   <path class="edge" d="M530 471 H572"/>
+  <path class="flow" pathLength="100" d="M530 471 H572"/>
+  <path class="edge head" d="M530 471 H572"/>
 
-  <rect class="box" x="580" y="260" width="260" height="46" rx="10"/>
+  <rect class="card" x="580" y="260" width="260" height="46" rx="12"/>
   <text class="lbl" x="710" y="274" text-anchor="middle" dominant-baseline="central">Steering status</text>
   <text class="sub" x="710" y="292" text-anchor="middle" dominant-baseline="central">To control</text>
 
-  <rect class="box" x="580" y="318" width="260" height="46" rx="10"/>
+  <rect class="card" x="580" y="318" width="260" height="46" rx="12"/>
   <text class="lbl" x="710" y="332" text-anchor="middle" dominant-baseline="central">Velocity status</text>
   <text class="sub" x="710" y="350" text-anchor="middle" dominant-baseline="central">To localization, as a twist</text>
 
-  <rect class="box" x="580" y="376" width="260" height="60" rx="10"/>
+  <rect class="card" x="580" y="376" width="260" height="60" rx="12"/>
   <text class="lbl" x="710" y="392" text-anchor="middle" dominant-baseline="central">Vehicle reports</text>
   <text class="sub" x="710" y="410" text-anchor="middle" dominant-baseline="central">Gear, turn indicators,</text>
   <text class="sub" x="710" y="426" text-anchor="middle" dominant-baseline="central">hazard lights, control mode</text>
 
-  <rect class="box muted" x="580" y="448" width="260" height="46" rx="10"/>
+  <rect class="box muted" x="580" y="448" width="260" height="46" rx="12"/>
   <text class="lbl" x="710" y="462" text-anchor="middle" dominant-baseline="central">Door status</text>
   <text class="sub" x="710" y="480" text-anchor="middle" dominant-baseline="central">Optional, to the AD API</text>
 </svg>

@@ -1,69 +1,101 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 600" role="img" aria-labelledby="object-recognition-channels-title">
   <title id="object-recognition-channels-title">Nine kinds of detectors send detected objects to the multi-object tracker, each on its own input channel. Base 3D detection and LiDAR clustering run by default. The tracker sends tracked objects to prediction, and prediction sends predicted objects to Planning.</title>
 
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="600"/>
+  <circle class="halo cyan" cx="200" cy="300" r="180"/>
+  <circle class="halo" cx="560" cy="318" r="200"/>
+
   <!-- The detectors -->
-  <rect class="group" x="20" y="16" width="360" height="568" rx="16"/>
+  <rect class="glass-panel" x="20" y="16" width="360" height="568" rx="16"/>
   <text class="ttl" x="40" y="42">Detectors and their tracker channels</text>
   <text class="sub" x="40" y="62">Indigo: runs in the default launch file</text>
 
-  <rect class="box primary" x="40" y="80" width="320" height="44" rx="10"/>
+  <rect class="box primary" x="40" y="80" width="320" height="44" rx="12"/>
   <text class="lbl on-primary" x="200" y="94" text-anchor="middle" dominant-baseline="central">Base 3D detection</text>
   <text class="code on-primary" x="200" y="111" text-anchor="middle" dominant-baseline="central">lidar_centerpoint</text>
   <path class="edge" d="M360 102 H432"/>
+  <path class="flow" pathLength="100" d="M360 102 H432"/>
+  <path class="edge head" d="M360 102 H432"/>
 
-  <rect class="box ai" x="40" y="134" width="320" height="44" rx="10"/>
+  <rect class="card ai" x="40" y="134" width="320" height="44" rx="12"/>
   <text class="lbl" x="200" y="148" text-anchor="middle" dominant-baseline="central">Near-object 3D detection</text>
   <text class="code" x="200" y="165" text-anchor="middle" dominant-baseline="central">lidar_centerpoint_short_range</text>
   <path class="edge" d="M360 156 H432"/>
+  <path class="flow" pathLength="100" d="M360 156 H432"/>
+  <path class="edge head" d="M360 156 H432"/>
 
-  <rect class="box ai" x="40" y="188" width="320" height="44" rx="10"/>
+  <rect class="card ai" x="40" y="188" width="320" height="44" rx="12"/>
   <text class="lbl" x="200" y="202" text-anchor="middle" dominant-baseline="central">Camera-only 3D detection</text>
   <text class="code" x="200" y="219" text-anchor="middle" dominant-baseline="central">camera_streampetr</text>
   <path class="edge" d="M360 210 H432"/>
+  <path class="flow" pathLength="100" d="M360 210 H432"/>
+  <path class="edge head" d="M360 210 H432"/>
 
-  <rect class="box ai" x="40" y="242" width="320" height="44" rx="10"/>
+  <rect class="card ai" x="40" y="242" width="320" height="44" rx="12"/>
   <text class="lbl" x="200" y="256" text-anchor="middle" dominant-baseline="central">Camera VRU detection</text>
   <text class="code" x="200" y="273" text-anchor="middle" dominant-baseline="central">camera_vru</text>
   <path class="edge" d="M360 264 H432"/>
+  <path class="flow" pathLength="100" d="M360 264 H432"/>
+  <path class="edge head" d="M360 264 H432"/>
 
-  <rect class="box" x="40" y="296" width="320" height="44" rx="10"/>
+  <rect class="card" x="40" y="296" width="320" height="44" rx="12"/>
   <text class="lbl" x="200" y="310" text-anchor="middle" dominant-baseline="central">Radar faraway detection</text>
   <text class="code" x="200" y="327" text-anchor="middle" dominant-baseline="central">radar</text>
   <path class="edge" d="M360 318 H432"/>
+  <path class="flow" pathLength="100" d="M360 318 H432"/>
+  <path class="edge head" d="M360 318 H432"/>
 
-  <rect class="box ai" x="40" y="350" width="320" height="44" rx="10"/>
+  <rect class="card ai" x="40" y="350" width="320" height="44" rx="12"/>
   <text class="lbl" x="200" y="364" text-anchor="middle" dominant-baseline="central">Semantic segmentation clustering</text>
   <text class="code" x="200" y="381" text-anchor="middle" dominant-baseline="central">lidar_clustering</text>
   <path class="edge" d="M360 372 H432"/>
+  <path class="flow" pathLength="100" d="M360 372 H432"/>
+  <path class="edge head" d="M360 372 H432"/>
 
-  <rect class="box primary" x="40" y="404" width="320" height="44" rx="10"/>
+  <rect class="box primary" x="40" y="404" width="320" height="44" rx="12"/>
   <text class="lbl on-primary" x="200" y="418" text-anchor="middle" dominant-baseline="central">LiDAR clustering</text>
   <text class="code on-primary" x="200" y="435" text-anchor="middle" dominant-baseline="central">lidar_clustering</text>
   <path class="edge" d="M360 426 H432"/>
+  <path class="flow" pathLength="100" d="M360 426 H432"/>
+  <path class="edge head" d="M360 426 H432"/>
 
-  <rect class="box" x="40" y="458" width="320" height="44" rx="10"/>
+  <rect class="card" x="40" y="458" width="320" height="44" rx="12"/>
   <text class="lbl" x="200" y="472" text-anchor="middle" dominant-baseline="central">Camera-LiDAR fusion clustering</text>
   <text class="code" x="200" y="489" text-anchor="middle" dominant-baseline="central">camera_lidar_fusion</text>
   <path class="edge" d="M360 480 H432"/>
+  <path class="flow" pathLength="100" d="M360 480 H432"/>
+  <path class="edge head" d="M360 480 H432"/>
 
-  <rect class="box" x="40" y="512" width="320" height="44" rx="10"/>
+  <rect class="card" x="40" y="512" width="320" height="44" rx="12"/>
   <text class="lbl" x="200" y="526" text-anchor="middle" dominant-baseline="central">Irregular object detection</text>
   <text class="code" x="200" y="543" text-anchor="middle" dominant-baseline="central">camera_lidar_fusion_irregular</text>
   <path class="edge" d="M360 534 H432"/>
+  <path class="flow" pathLength="100" d="M360 534 H432"/>
+  <path class="edge head" d="M360 534 H432"/>
 
   <!-- The tracker, prediction, and Planning -->
-  <rect class="box primary" x="440" y="80" width="180" height="476" rx="10"/>
+  <rect class="box primary" x="440" y="80" width="180" height="476" rx="12"/>
+  <circle class="icon-bg on" cx="530" cy="256" r="20"/>
+  <path class="icon-line" d="M520 266 L529 255 L540 249"/>
+  <circle class="icon-dot" cx="520" cy="266" r="2.6"/>
+  <circle class="icon-dot" cx="529" cy="255" r="2.6"/>
+  <circle class="icon-dot" cx="540" cy="249" r="2.6"/>
   <text class="lbl on-primary" x="530" y="298" text-anchor="middle" dominant-baseline="central">Multi-object</text>
   <text class="lbl on-primary" x="530" y="316" text-anchor="middle" dominant-baseline="central">tracker</text>
   <text class="sub on-primary" x="530" y="340" text-anchor="middle" dominant-baseline="central">Up to 12 channels</text>
 
-  <rect class="box" x="680" y="283" width="160" height="70" rx="10"/>
+  <rect class="card" x="680" y="283" width="160" height="70" rx="12"/>
   <text class="lbl" x="760" y="307" text-anchor="middle" dominant-baseline="central">Prediction</text>
   <text class="code" x="760" y="331" text-anchor="middle" dominant-baseline="central">map_based_prediction</text>
   <path class="edge accent" d="M620 318 H672"/>
+  <path class="flow flow-accent" pathLength="100" d="M620 318 H672"/>
+  <path class="edge accent head" d="M620 318 H672"/>
 
-  <rect class="box muted" x="680" y="510" width="160" height="46" rx="10"/>
+  <rect class="box muted" x="680" y="510" width="160" height="46" rx="12"/>
   <text class="lbl" x="760" y="533" text-anchor="middle" dominant-baseline="central">Planning</text>
   <path class="edge accent" d="M760 353 V502"/>
+  <path class="flow flow-accent" pathLength="100" d="M760 353 V502"/>
+  <path class="edge accent head" d="M760 353 V502"/>
   <text class="edge-lbl" x="760" y="427" text-anchor="middle" dominant-baseline="central">Predicted objects</text>
 </svg>

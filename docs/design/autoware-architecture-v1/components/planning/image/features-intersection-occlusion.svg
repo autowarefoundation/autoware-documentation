@@ -27,15 +27,14 @@
   <path class="area warn" d="M640 196 L760 160 V244 H640 Z"/>
 
   <!-- Large vehicle in the oncoming lane -->
-  <g transform="rotate(180 585 217)">
-    <rect class="car npc" x="530" y="200" width="110" height="34" rx="6"/>
-    <rect class="glass" x="618" y="204" width="9" height="26" rx="3"/>
-  </g>
+  <g class="truck" transform="translate(568 162) rotate(270 17 55)"><rect class="car-shadow" x="0" y="1" width="34" height="110" rx="6"/><rect class="truck-box" x="0" y="30" width="34" height="80" rx="4"/><path class="truck-rib" d="M3 46 H31 M3 62 H31 M3 78 H31 M3 94 H31"/><rect class="car-body npc" x="1" y="0" width="32" height="28" rx="8"/><path class="car-glass" d="M5 9 Q17 5.5 29 9 L27 16 Q17 14 7 16 Z"/></g>
 
   <!-- Hidden vehicle -->
-  <g transform="rotate(180 712 217)">
-    <rect class="car other" x="680" y="202" width="64" height="30" rx="6"/>
-    <rect class="glass" x="722" y="206" width="9" height="22" rx="3"/>
+  <g transform="translate(701 197) rotate(270 11 20)">
+    <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
+    <rect class="car-body other" x="0" y="0" width="22" height="40" rx="7"/>
+    <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
+    <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
   </g>
   <path class="edge accent dash" d="M676 217 L650 217"/>
 
@@ -44,12 +43,19 @@
 
   <!-- Planned path and stop point -->
   <path class="route" d="M320 163 H384"/>
+  <path class="flow flow-route" pathLength="100" d="M320 163 H384"/>
+  <path class="route head" d="M320 163 H384"/>
   <line class="bound alt" x1="398" y1="140" x2="398" y2="186"/>
 
   <!-- Ego vehicle -->
-  <g>
-    <rect class="car" x="248" y="148" width="64" height="30" rx="6"/>
-    <rect class="glass" x="290" y="152" width="9" height="22" rx="3"/>
+  <g transform="translate(269 143) rotate(90 11 20)">
+    <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
+    <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
+    <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
+    <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
+    <circle class="lidar" cx="11" cy="22" r="3.2"/>
+    <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
+    <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
   </g>
   <text class="note" x="585" y="290" text-anchor="middle" dominant-baseline="central">Large vehicle</text>
   <line class="leader" x1="585" y1="280" x2="585" y2="236"/>
