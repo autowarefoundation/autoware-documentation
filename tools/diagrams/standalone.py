@@ -87,7 +87,9 @@ def diagram_rules(css):
             for s, b in inner:
                 parts = [p.strip().replace(".aw-diagram ", "") for p in s.split(",")]
                 rules.append((parts, f"{selector} {{{', '.join(parts)} {{{b}}}}}"))
-        elif ".md-typeset" not in selector and (".aw-diagram " in selector or EXTRA.search(selector)):
+        elif ".md-typeset" not in selector and (
+            ".aw-diagram " in selector or EXTRA.search(selector)
+        ):
             parts = [p.strip().replace(".aw-diagram ", "") for p in selector.split(",")]
             rules.append((parts, f"{', '.join(parts)} {{{body}}}"))
     return rules
@@ -96,7 +98,11 @@ def diagram_rules(css):
 def definitions(template):
     defs = re.search(r"<defs>(.*?)</defs>", template, re.S).group(1)
     items = {}
-    for match in re.finditer(r"<(marker|linearGradient|radialGradient|pattern|filter)\b[^>]*\bid=\"([^\"]+)\".*?</\1>", defs, re.S):
+    for match in re.finditer(
+        r"<(marker|linearGradient|radialGradient|pattern|filter)\b[^>]*\bid=\"([^\"]+)\".*?</\1>",
+        defs,
+        re.S,
+    ):
         items[match.group(2)] = match.group(0)
     return items
 
@@ -117,7 +123,10 @@ def standalone_block(svg, values, rules, defs):
         for text in chosen_defs.values():
             for attribute in re.findall(r'class="([^"]+)"', text):
                 used |= set(attribute.split())
-    needed = set(re.findall(r"var\((--[\w-]+)", " ".join(chosen_rules))) | {"--md-text-font-family", "--aw-d-bg"}
+    needed = set(re.findall(r"var\((--[\w-]+)", " ".join(chosen_rules))) | {
+        "--md-text-font-family",
+        "--aw-d-bg",
+    }
     for _ in range(3):
         for name in list(needed):
             needed |= set(re.findall(r"var\((--[\w-]+)", values.get(name, "")))
