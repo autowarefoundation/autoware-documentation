@@ -2,7 +2,7 @@
 
 ## Vehicle axes and base_link
 
-![Vehicle Axes](images/vehicle_axes.svg){: style="width:500px"}
+{{ diagram("images/vehicle-axes.svg", "The axes of the base_link frame.") }}
 
 The `base_link` frame is used very frequently throughout the Autoware stack, and is a projection of the rear-axle center onto the ground surface.
 
@@ -12,7 +12,7 @@ The `base_link` frame is used very frequently throughout the Autoware stack, and
 
 ## Vehicle dimensions
 
-![Vehicle Dimensions](images/vehicle_dimensions.svg){: style="width:550px"}
+{{ diagram("images/vehicle-dimensions.svg", "The dimensions of the vehicle in the top view. The front wheels show a positive steering angle.") }}
 
 ### wheelbase
 
@@ -54,7 +54,7 @@ Total width of the vehicle. Calculated by `left_overhang + track_width + right_o
 
 ### Wheel parameters
 
-![Wheel Dimensions](images/wheels.svg){: style="width:350px"}
+{{ diagram("images/wheel-dimensions.svg", "The width and the radius of a wheel.") }}
 
 #### wheel_width
 
@@ -66,7 +66,7 @@ The radius of the wheel, primarily used for dead reckoning.
 
 ### polygon_footprint
 
-![Wheel Dimensions](images/polygon_footprint.svg){: style="width:350px"}
+{{ diagram("images/vehicle-footprint.svg", "The footprint polygon that Autoware makes from the vehicle dimensions.") }}
 
 The polygon defines the minimum collision area for the vehicle.
 

@@ -1,0 +1,276 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 730" role="img" aria-labelledby="high-level-planning-diagram-title">
+  <title id="high-level-planning-diagram-title">
+    The high-level design of the planning component: mission planning, behavior and motion planning modules, and validation, with inputs from other components and the trajectory output to Control.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} .box.ext {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-dasharray: 6 5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.both {
+  marker-start: url("#aw-arrow");
+} .edge.accent.both {
+  marker-start: url("#aw-arrow-accent");
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="730"/>
+  <circle class="halo" cx="517" cy="365" r="220"/>
+  <circle class="halo cyan" cx="700" cy="171" r="120"/>
+  <circle class="halo cyan" cx="330" cy="574" r="110"/>
+
+  <!-- API layer -->
+  <rect class="box muted" x="190" y="16" width="654" height="46" rx="12"/>
+  <text class="lbl" x="517" y="39" text-anchor="middle" dominant-baseline="central">API layer</text>
+
+  <!-- Other components on the left -->
+  <rect class="box muted" x="16" y="120" width="130" height="50" rx="12"/>
+  <text class="lbl" x="81" y="145" text-anchor="middle" dominant-baseline="central">Map</text>
+  <rect class="box muted" x="16" y="200" width="130" height="60" rx="12"/>
+  <text class="lbl" x="81" y="221" text-anchor="middle" dominant-baseline="central">Human machine</text>
+  <text class="lbl" x="81" y="241" text-anchor="middle" dominant-baseline="central">interface</text>
+  <rect class="box muted" x="16" y="310" width="130" height="50" rx="12"/>
+  <text class="lbl" x="81" y="335" text-anchor="middle" dominant-baseline="central">Perception</text>
+  <rect class="box muted" x="16" y="420" width="130" height="50" rx="12"/>
+  <text class="lbl" x="81" y="445" text-anchor="middle" dominant-baseline="central">Localization</text>
+  <rect class="box muted" x="16" y="530" width="130" height="50" rx="12"/>
+  <text class="lbl" x="81" y="555" text-anchor="middle" dominant-baseline="central">System</text>
+
+  <!-- Planning component -->
+  <rect class="glass-panel" x="190" y="92" width="654" height="540" rx="18"/>
+  <text class="ttl" x="208" y="116">Planning component</text>
+
+  <!-- Mission planning -->
+  <rect class="glass-panel" x="208" y="128" width="618" height="86" rx="18"/>
+  <circle class="icon-bg" cx="238" cy="148" r="12"/>
+  <path class="icon-line" d="M234 155 V141 H243 L240.5 144.5 L243 148 H234"/>
+  <text class="ttl" x="258" y="152">Mission planning</text>
+  <rect class="card" x="226" y="166" width="140" height="32" rx="10"/>
+  <text class="sub" x="296" y="182" text-anchor="middle" dominant-baseline="central">Route planning</text>
+  <rect class="card" x="378" y="166" width="140" height="32" rx="10"/>
+  <text class="sub" x="448" y="182" text-anchor="middle" dominant-baseline="central">Goal planning</text>
+  <rect class="box ext" x="530" y="166" width="140" height="32" rx="10"/>
+  <text class="sub" x="600" y="182" text-anchor="middle" dominant-baseline="central">More modules</text>
+
+  <!-- Planning modules: behavior and motion -->
+  <rect class="glass-panel" x="208" y="246" width="618" height="238" rx="18"/>
+  <circle class="icon-bg" cx="238" cy="266" r="12"/>
+  <path class="icon-line" d="M233 272 C233 266 243 266 243 260"/>
+  <circle class="icon-dot" cx="233" cy="272" r="2.2"/>
+  <circle class="icon-dot" cx="243" cy="260" r="2.2"/>
+  <text class="ttl" x="258" y="270">Planning modules</text>
+  <text class="sub" x="226" y="288" text-anchor="start" dominant-baseline="central">Behavior</text>
+  <rect class="card" x="226" y="300" width="140" height="32" rx="10"/>
+  <text class="sub" x="296" y="316" text-anchor="middle" dominant-baseline="central">Lane change</text>
+  <rect class="card" x="378" y="300" width="140" height="32" rx="10"/>
+  <text class="sub" x="448" y="316" text-anchor="middle" dominant-baseline="central">Intersection</text>
+  <rect class="card" x="530" y="300" width="140" height="32" rx="10"/>
+  <text class="sub" x="600" y="316" text-anchor="middle" dominant-baseline="central">Crosswalk</text>
+  <rect class="card" x="682" y="300" width="140" height="32" rx="10"/>
+  <text class="sub" x="752" y="316" text-anchor="middle" dominant-baseline="central">Stop line</text>
+  <rect class="card" x="226" y="340" width="140" height="32" rx="10"/>
+  <text class="sub" x="296" y="356" text-anchor="middle" dominant-baseline="central">Avoidance</text>
+  <rect class="card" x="378" y="340" width="140" height="32" rx="10"/>
+  <text class="sub" x="448" y="356" text-anchor="middle" dominant-baseline="central">Pull over</text>
+  <rect class="card" x="530" y="340" width="140" height="32" rx="10"/>
+  <text class="sub" x="600" y="356" text-anchor="middle" dominant-baseline="central">Parking</text>
+  <rect class="box ext" x="682" y="340" width="140" height="32" rx="10"/>
+  <text class="sub" x="752" y="356" text-anchor="middle" dominant-baseline="central">More modules</text>
+  <text class="sub" x="226" y="392" text-anchor="start" dominant-baseline="central">Motion</text>
+  <rect class="card" x="226" y="404" width="140" height="32" rx="10"/>
+  <text class="sub" x="296" y="420" text-anchor="middle" dominant-baseline="central">Path planning</text>
+  <rect class="card" x="378" y="404" width="140" height="32" rx="10"/>
+  <text class="sub" x="448" y="420" text-anchor="middle" dominant-baseline="central">Velocity planning</text>
+  <rect class="card" x="530" y="404" width="140" height="32" rx="10"/>
+  <text class="sub" x="600" y="420" text-anchor="middle" dominant-baseline="central">Drivable area</text>
+  <rect class="card" x="682" y="404" width="140" height="32" rx="10"/>
+  <text class="sub" x="752" y="420" text-anchor="middle" dominant-baseline="central">Free space</text>
+  <rect class="card" x="226" y="444" width="140" height="32" rx="10"/>
+  <text class="sub" x="296" y="460" text-anchor="middle" dominant-baseline="central">Obstacle stop</text>
+  <rect class="card" x="378" y="444" width="140" height="32" rx="10"/>
+  <text class="sub" x="448" y="460" text-anchor="middle" dominant-baseline="central">Slow down</text>
+  <rect class="card" x="530" y="444" width="140" height="32" rx="10"/>
+  <text class="sub" x="600" y="460" text-anchor="middle" dominant-baseline="central">ML planner</text>
+  <rect class="box ext" x="682" y="444" width="140" height="32" rx="10"/>
+  <text class="sub" x="752" y="460" text-anchor="middle" dominant-baseline="central">More modules</text>
+
+  <!-- Validation -->
+  <rect class="glass-panel" x="208" y="516" width="618" height="98" rx="18"/>
+  <circle class="icon-bg" cx="238" cy="536" r="12"/>
+  <path class="icon-line" d="M238 529 L244 531.5 V536 Q244 541 238 543 Q232 541 232 536 V531.5 Z"/>
+  <text class="ttl" x="258" y="540">Validation</text>
+  <rect class="card" x="226" y="558" width="140" height="32" rx="10"/>
+  <text class="sub" x="296" y="574" text-anchor="middle" dominant-baseline="central">Collision check</text>
+  <rect class="card" x="378" y="558" width="140" height="32" rx="10"/>
+  <text class="sub" x="448" y="574" text-anchor="middle" dominant-baseline="central">TTC check</text>
+  <rect class="card" x="530" y="558" width="140" height="32" rx="10"/>
+  <text class="sub" x="600" y="574" text-anchor="middle" dominant-baseline="central">Comfort check</text>
+  <rect class="box ext" x="682" y="558" width="140" height="32" rx="10"/>
+  <text class="sub" x="752" y="574" text-anchor="middle" dominant-baseline="central">More modules</text>
+
+  <!-- Flow inside the planning component -->
+  <path class="edge accent" d="M517 214 V240"/>
+  <path class="flow flow-accent" pathLength="100" d="M517 214 V240"/>
+  <path class="edge accent head" d="M517 214 V240"/>
+  <path class="edge accent" d="M517 484 V510"/>
+  <path class="flow flow-accent" pathLength="100" d="M517 484 V510"/>
+  <path class="edge accent head" d="M517 484 V510"/>
+
+  <!-- Control component -->
+  <rect class="box muted" x="190" y="670" width="654" height="46" rx="12"/>
+  <text class="lbl" x="517" y="693" text-anchor="middle" dominant-baseline="central">Control</text>
+  <path class="edge accent" d="M517 632 V664"/>
+  <path class="flow flow-accent" pathLength="100" d="M517 632 V664"/>
+  <path class="edge accent head" d="M517 632 V664"/>
+  <text class="edge-lbl" x="517" y="648" text-anchor="middle" dominant-baseline="central">Trajectory</text>
+
+  <!-- API layer to and from planning -->
+  <path class="edge" d="M400 62 V86"/>
+  <path class="flow" pathLength="100" d="M400 62 V86"/>
+  <path class="edge head" d="M400 62 V86"/>
+  <path class="edge" d="M640 92 V68"/>
+  <path class="flow" pathLength="100" d="M640 92 V68"/>
+  <path class="edge head" d="M640 92 V68"/>
+
+  <!-- Other components to and from planning -->
+  <path class="edge" d="M146 145 H184"/>
+  <path class="flow" pathLength="100" d="M146 145 H184"/>
+  <path class="edge head" d="M146 145 H184"/>
+  <path class="edge both" d="M146 230 H184"/>
+  <path class="edge" d="M146 335 H184"/>
+  <path class="flow" pathLength="100" d="M146 335 H184"/>
+  <path class="edge head" d="M146 335 H184"/>
+  <path class="edge" d="M146 445 H184"/>
+  <path class="flow" pathLength="100" d="M146 445 H184"/>
+  <path class="edge head" d="M146 445 H184"/>
+  <path class="edge both" d="M146 555 H184"/>
+</svg>

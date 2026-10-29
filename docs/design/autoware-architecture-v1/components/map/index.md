@@ -23,7 +23,7 @@ In addition to above two types of maps, Autoware also requires a supplemental fi
 
 This diagram describes the high-level architecture of Map component in Autoware.
 
-![map component architecture](image/high-level-map-diagram.drawio.svg){width="800"}
+{{ diagram("image/high-level-map-diagram.svg", "The loader nodes read the map files and publish the maps to the other components.") }}
 
 The Map component consists of the following sub-components:
 

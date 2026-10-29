@@ -36,7 +36,7 @@ To clarify the design concepts, the following points are listed as goals and non
 
 This diagram describes the high-level architecture of the Perception Component.
 
-![overall-perception-architecture](image/high-level-perception-diagram.drawio.svg)
+{{ diagram("image/high-level-perception-diagram.svg", "The Perception component, its inputs, and its output to Planning.") }}
 
 The Perception Component consists of the following sub-components:
 

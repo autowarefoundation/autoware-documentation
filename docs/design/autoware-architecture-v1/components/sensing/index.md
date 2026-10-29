@@ -15,7 +15,7 @@ The sensor input formats are defined in this component.
 
 This diagram describes the high-level architecture of the Sensing Component.
 
-![overall-sensing-architecture](image/overall-sensing-architecture.drawio.svg)
+{{ diagram("image/overall-sensing-architecture.svg", "Sensing preprocesses the data of each sensor type and sends it to localization and perception.") }}
 
 ## Inputs
 

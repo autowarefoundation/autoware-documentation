@@ -1,0 +1,302 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 640" role="img" aria-labelledby="localization-recommended-architecture-title">
+  <title id="localization-recommended-architecture-title">
+    Sensor data, map data, and tf go into the Localization component. Pose estimators and twist estimators send their results to the pose twist fusion filter, and the pose initializer sends it the
+    initial pose. The fusion filter outputs the pose, twist, acceleration, and tf. The localization diagnostics check the kinematic state and output diagnostics.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="640"/>
+  <circle class="halo" cx="445" cy="305" r="160"/>
+  <circle class="halo cyan" cx="150" cy="334" r="130"/>
+
+  <!-- Sensing -->
+  <rect class="glass-panel" x="16" y="16" width="470" height="100" rx="18"/>
+  <text class="ttl" x="32" y="38">Sensing</text>
+
+  <rect class="box muted" x="26" y="50" width="96" height="52" rx="12"/>
+  <text class="lbl" x="74" y="68" text-anchor="middle" dominant-baseline="central">LiDAR</text>
+  <text class="code" x="74" y="88" text-anchor="middle" dominant-baseline="central">PointCloud2</text>
+
+  <rect class="box muted" x="128" y="50" width="72" height="52" rx="12"/>
+  <text class="lbl" x="164" y="68" text-anchor="middle" dominant-baseline="central">Camera</text>
+  <text class="code" x="164" y="88" text-anchor="middle" dominant-baseline="central">Image</text>
+
+  <rect class="box muted" x="206" y="50" width="84" height="52" rx="12"/>
+  <text class="lbl" x="248" y="68" text-anchor="middle" dominant-baseline="central">GNSS</text>
+  <text class="code" x="248" y="88" text-anchor="middle" dominant-baseline="central">NavSatFix</text>
+
+  <rect class="box muted" x="296" y="50" width="64" height="52" rx="12"/>
+  <text class="lbl" x="328" y="68" text-anchor="middle" dominant-baseline="central">IMU</text>
+  <text class="code" x="328" y="88" text-anchor="middle" dominant-baseline="central">Imu</text>
+
+  <rect class="box muted" x="366" y="50" width="110" height="52" rx="12"/>
+  <text class="lbl" x="421" y="68" text-anchor="middle" dominant-baseline="central">CAN bus</text>
+  <text class="code" x="421" y="88" text-anchor="middle" dominant-baseline="central">VelocityReport</text>
+
+  <!-- Map -->
+  <rect class="glass-panel" x="500" y="16" width="218" height="100" rx="18"/>
+  <text class="ttl" x="516" y="38">Map</text>
+
+  <rect class="box muted" x="510" y="50" width="96" height="52" rx="12"/>
+  <text class="lbl" x="558" y="68" text-anchor="middle" dominant-baseline="central">Point cloud</text>
+  <text class="sub" x="558" y="88" text-anchor="middle" dominant-baseline="central">map loader</text>
+
+  <rect class="box muted" x="612" y="50" width="96" height="52" rx="12"/>
+  <text class="lbl" x="660" y="68" text-anchor="middle" dominant-baseline="central">Lanelet2</text>
+  <text class="sub" x="660" y="88" text-anchor="middle" dominant-baseline="central">map loader</text>
+
+  <!-- tf -->
+  <rect class="box muted" x="732" y="50" width="112" height="52" rx="12"/>
+  <text class="lbl" x="788" y="68" text-anchor="middle" dominant-baseline="central">tf, static_tf</text>
+  <text class="sub" x="788" y="88" text-anchor="middle" dominant-baseline="central">map, base_link</text>
+
+  <!-- Inputs into the component -->
+  <path class="edge accent" d="M251 116 V162"/>
+  <path class="flow flow-accent" pathLength="100" d="M251 116 V162"/>
+  <path class="edge accent head" d="M251 116 V162"/>
+  <text class="edge-lbl" x="251" y="140" text-anchor="middle" dominant-baseline="central">Sensor data</text>
+  <path class="edge" d="M609 116 V162"/>
+  <path class="flow" pathLength="100" d="M609 116 V162"/>
+  <path class="edge head" d="M609 116 V162"/>
+  <text class="edge-lbl" x="609" y="140" text-anchor="middle" dominant-baseline="central">Map data</text>
+  <path class="edge" d="M788 102 V162"/>
+  <path class="flow" pathLength="100" d="M788 102 V162"/>
+  <path class="edge head" d="M788 102 V162"/>
+
+  <!-- Localization -->
+  <rect class="glass-panel" x="16" y="170" width="828" height="320" rx="18"/>
+  <text class="ttl" x="32" y="194">Localization</text>
+
+  <rect class="card" x="40" y="210" width="220" height="80" rx="12"/>
+  <circle class="icon-bg" cx="68" cy="250" r="17"/>
+  <path class="icon-line" d="M68 260 C63.5 255.5 60.5 251.5 60.5 247 A7.5 7.5 0 0 1 75.5 247 C75.5 251.5 72.5 255.5 68 260 Z"/>
+  <circle class="icon-dot" cx="68" cy="247" r="2.4"/>
+  <text class="lbl" x="164" y="232" text-anchor="middle" dominant-baseline="central">Pose estimator</text>
+  <text class="sub" x="164" y="254" text-anchor="middle" dominant-baseline="central">NDT, YabLoc, Eagleye,</text>
+  <text class="sub" x="164" y="272" text-anchor="middle" dominant-baseline="central">AR tag, LiDAR marker</text>
+
+  <rect class="card" x="40" y="306" width="220" height="64" rx="12"/>
+  <circle class="icon-bg" cx="68" cy="338" r="17"/>
+  <path class="icon-line" d="M59.5 342 A8.5 8.5 0 0 1 76.5 342"/>
+  <path class="icon-line" d="M68 342 L72.5 336"/>
+  <circle class="icon-dot" cx="68" cy="342" r="2.2"/>
+  <text class="lbl" x="164" y="328" text-anchor="middle" dominant-baseline="central">Twist estimator</text>
+  <text class="sub" x="164" y="350" text-anchor="middle" dominant-baseline="central">Gyro odometer or Eagleye</text>
+
+  <rect class="card" x="40" y="394" width="220" height="64" rx="12"/>
+  <circle class="icon-bg" cx="68" cy="426" r="17"/>
+  <circle class="icon-line" cx="68" cy="426" r="6.5"/>
+  <path class="icon-line" d="M68 415 V418.5 M68 433.5 V437 M57 426 H60.5 M75.5 426 H79"/>
+  <circle class="icon-dot" cx="68" cy="426" r="2"/>
+  <text class="lbl" x="164" y="416" text-anchor="middle" dominant-baseline="central">Pose initializer</text>
+  <text class="sub" x="164" y="438" text-anchor="middle" dominant-baseline="central">Initial pose for the EKF</text>
+
+  <rect class="box primary" x="330" y="210" width="230" height="190" rx="18"/>
+  <circle class="icon-bg on" cx="445" cy="244" r="20"/>
+  <path class="icon-line" d="M435 235 L445 245 L455 235 M445 245 V255"/>
+  <circle class="icon-dot" cx="435" cy="235" r="2.6"/>
+  <circle class="icon-dot" cx="455" cy="235" r="2.6"/>
+  <circle class="icon-dot" cx="445" cy="255" r="2.6"/>
+  <text class="lbl on-primary" x="445" y="282" text-anchor="middle" dominant-baseline="central">Pose twist fusion filter</text>
+  <text class="sub on-primary" x="445" y="306" text-anchor="middle" dominant-baseline="central">EKF localizer, stop filter,</text>
+  <text class="sub on-primary" x="445" y="324" text-anchor="middle" dominant-baseline="central">and twist2accel</text>
+
+  <rect class="card" x="676" y="210" width="154" height="100" rx="12"/>
+  <text class="lbl" x="753" y="234" text-anchor="middle" dominant-baseline="central">Localization</text>
+  <text class="lbl" x="753" y="252" text-anchor="middle" dominant-baseline="central">diagnostics</text>
+  <text class="sub" x="753" y="276" text-anchor="middle" dominant-baseline="central">Error monitor and pose</text>
+  <text class="sub" x="753" y="294" text-anchor="middle" dominant-baseline="central">instability detector</text>
+
+  <path class="edge accent" d="M260 250 H322"/>
+  <path class="flow flow-accent" pathLength="100" d="M260 250 H322"/>
+  <path class="edge accent head" d="M260 250 H322"/>
+  <text class="edge-lbl" x="295" y="250" text-anchor="middle" dominant-baseline="central">Pose</text>
+  <path class="edge accent" d="M260 338 H322"/>
+  <path class="flow flow-accent" pathLength="100" d="M260 338 H322"/>
+  <path class="edge accent head" d="M260 338 H322"/>
+  <text class="edge-lbl" x="295" y="338" text-anchor="middle" dominant-baseline="central">Twist</text>
+  <path class="edge" fill="none" d="M260 426 H296 V384 H322"/>
+  <path class="flow" pathLength="100" d="M260 426 H296 V384 H322"/>
+  <path class="edge head" fill="none" d="M260 426 H296 V384 H322"/>
+  <text class="edge-lbl" x="296" y="408" text-anchor="middle" dominant-baseline="central">Initial pose</text>
+  <path class="edge" d="M560 260 H668"/>
+  <path class="flow" pathLength="100" d="M560 260 H668"/>
+  <path class="edge head" d="M560 260 H668"/>
+  <text class="edge-lbl" x="614" y="260" text-anchor="middle" dominant-baseline="central">Kinematic state</text>
+
+  <!-- Outputs -->
+  <path class="edge accent" d="M445 400 V524"/>
+  <path class="flow flow-accent" pathLength="100" d="M445 400 V524"/>
+  <path class="edge accent head" d="M445 400 V524"/>
+  <text class="edge-lbl" x="445" y="511" text-anchor="middle" dominant-baseline="central">Pose, twist, acceleration, tf</text>
+  <path class="edge" d="M753 310 V524"/>
+  <path class="flow" pathLength="100" d="M753 310 V524"/>
+  <path class="edge head" d="M753 310 V524"/>
+
+  <rect class="glass-panel" x="16" y="532" width="828" height="92" rx="18"/>
+  <text class="ttl" x="32" y="552">Outputs</text>
+
+  <rect class="card" x="26" y="564" width="150" height="48" rx="12"/>
+  <text class="lbl" x="101" y="580" text-anchor="middle" dominant-baseline="central">Pose</text>
+  <text class="sub" x="101" y="598" text-anchor="middle" dominant-baseline="central">With covariance</text>
+
+  <rect class="card" x="190" y="564" width="150" height="48" rx="12"/>
+  <text class="lbl" x="265" y="580" text-anchor="middle" dominant-baseline="central">Twist</text>
+  <text class="sub" x="265" y="598" text-anchor="middle" dominant-baseline="central">With covariance</text>
+
+  <rect class="card" x="354" y="564" width="150" height="48" rx="12"/>
+  <text class="lbl" x="429" y="580" text-anchor="middle" dominant-baseline="central">Acceleration</text>
+  <text class="sub" x="429" y="598" text-anchor="middle" dominant-baseline="central">With covariance</text>
+
+  <rect class="card" x="518" y="564" width="150" height="48" rx="12"/>
+  <text class="lbl" x="593" y="580" text-anchor="middle" dominant-baseline="central">tf</text>
+  <text class="sub" x="593" y="598" text-anchor="middle" dominant-baseline="central">map to base_link</text>
+
+  <rect class="card" x="682" y="564" width="150" height="48" rx="12"/>
+  <text class="lbl" x="757" y="580" text-anchor="middle" dominant-baseline="central">Diagnostics</text>
+  <text class="sub" x="757" y="598" text-anchor="middle" dominant-baseline="central">Estimation status</text>
+</svg>

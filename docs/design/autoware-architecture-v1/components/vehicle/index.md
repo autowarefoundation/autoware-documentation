@@ -26,9 +26,9 @@ The Vehicle Interface component consists of the following components:
 
 Each component contains static nodes of Autoware, while each module can be dynamically loaded and unloaded (corresponding to C++ classes). The mechanism of the Vehicle Interface component is depicted by the following figures:
 
-![Vehicle Interface overview](image/vehicle_interface_architecture.png)
+{{ diagram("image/vehicle-interface-architecture.svg", "The commands that go into the vehicle interface and the status that comes out of it.") }}
 
-![Vehicle Interface overview](image/vehicle_interface_overview.png)
+{{ diagram("image/vehicle-interface-overview.svg", "The vehicle command adapter sits between the control component and the vehicle interface.") }}
 
 ## 3. Features
 

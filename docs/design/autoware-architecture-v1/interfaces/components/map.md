@@ -1,6 +1,6 @@
 # Map
 
-![Node diagram](images/Map-Bus-ODD-Architecture.drawio.svg)
+{{ diagram("images/Map-Bus-ODD-Architecture.svg", "The nodes of the Map component and the components that use the maps.") }}
 
 ## Overview
 

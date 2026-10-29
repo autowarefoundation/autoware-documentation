@@ -1,158 +1,56 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Page 10 -->
-<svg
-  x="0"
-  y="0"
-  width="264.10001"
-  height="126.4"
-  viewBox="0 0 264.10001 126.4"
-  version="1.1"
-  style="display:block"
-  id="svg59"
-  sodipodi:docname="vm-01-02.svg"
-  inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
-  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-  xmlns="http://www.w3.org/2000/svg"
-  xmlns:svg="http://www.w3.org/2000/svg"
->
-  <sodipodi:namedview
-    id="namedview59"
-    pagecolor="#ffffff"
-    bordercolor="#000000"
-    borderopacity="0.25"
-    inkscape:showpageshadow="2"
-    inkscape:pageopacity="0.0"
-    inkscape:pagecheckerboard="0"
-    inkscape:deskcolor="#d1d1d1"
-    inkscape:zoom="0.98909091"
-    inkscape:cx="428.17096"
-    inkscape:cy="-215.85478"
-    inkscape:window-width="1920"
-    inkscape:window-height="2123"
-    inkscape:window-x="0"
-    inkscape:window-y="0"
-    inkscape:window-maximized="0"
-    inkscape:current-layer="g59"
-  />
-  <defs id="defs2">
-    <clipPath id="c_10">
-      <path d="M 0,0 H 1100 V 825 H 0 Z" id="path1"/>
-    </clipPath>
-    <clipPath id="c0_10">
-      <path d="M 0,825 V 0 h 1100 v 825 z" id="path2"/>
-    </clipPath>
-    <style
-      type="text/css"
-      id="style2"
-    ><![CDATA[
-text { white-space: pre; }
-path, image { pointer-events: none; }
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 260" role="img" aria-labelledby="vm-01-02-title">
+  <title id="vm-01-02-title">Three lane lines: a white dashed line, a white solid line, and a yellow solid line, with the subtype and lane_change tags of each linestring.</title>
+  <style data-aw-standalone="">
+    svg { --aw-c-indigo: var(--aw-indigo); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-muted: var(--md-default-fg-color--light); --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .road {
+  fill: #5c6070;
+} .mark {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+} .mark.dash {
+  stroke-dasharray: 14 10;
+} .mark.yellow {
+  stroke: #ffc233;
+} .leader {
+  fill: none;
+  stroke: var(--aw-d-muted);
+  stroke-width: 1;
+} .note {
+  font-size: 13px;
+  fill: var(--aw-d-fg);
+} .note.code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+}
+  </style>
 
-.s0_10{
-font-size: 27.50px;
-font-family: MS-PGothic_bf;
-fill: #000;
-}
-.s1_10{
-font-size: 19.86px;
-font-family: MS-PGothic_bf;
-fill: #000;
-}
-.s2_10{
-font-size: 19.86px;
-font-family: ArialMT_bb;
-fill: #000;
-}
-.s3_10{
-font-size: 15.28px;
-font-family: MS-PGothic_bf;
-fill: #000;
-}
-.s4_10{
-font-size: 13.75px;
-font-family: ArialMT_bb;
-fill: #000;
-}
-.s5_10{
-font-size: 13.75px;
-font-family: MS-PGothic_bf;
-fill: #000;
-}
-.s6_10{
-font-size: 10.69px;
-font-family: ArialMT_bb;
-fill: #000;
-}
-.s7_10{
-font-size: 27.50px;
-font-family: ArialMT_bb;
-fill: #000;
-}
+  <!-- Road surface and lane markings -->
+  <rect class="road" x="40" y="20" width="360" height="220"/>
+  <path class="mark dash" d="M60 55 H380"/>
+  <path class="mark" d="M60 130 H380"/>
+  <path class="mark yellow" d="M60 205 H380"/>
 
-.g0_10{
-fill: #FFF;
-}
-.g1_10{
-fill: #000;
-fill-opacity: 0;
-}
-.g2_10{
-fill: none;
-stroke: #000;
-stroke-width: 1.145;
-stroke-linejoin: round;
-}
-.g3_10{
-fill: #666;
-}
-.g4_10{
-fill: none;
-stroke: #FFF;
-stroke-width: 4.583;
-stroke-linejoin: round;
-stroke-dasharray: 19,14;
-}
-.g5_10{
-fill: none;
-stroke: #FFF;
-stroke-width: 4.583;
-stroke-linejoin: round;
-}
-.g6_10{
-fill: none;
-stroke: #F7981D;
-stroke-width: 4.583;
-stroke-linejoin: round;
-}
-
-]]></style>
-  </defs>
-  <g clip-path="url(#c_10)" id="g59" transform="translate(-121.3,-628.1)">
-    <path fill-rule="evenodd" d="M 37.5,212.4 H 496.7 V 760.3 H 37.5 Z" class="g1_10" id="path5"/>
-    <path fill-rule="evenodd" d="m 124.63811,631.0799 h 258.1 v 120.4 h -258.1 z" class="g3_10" id="path53"/>
-    <path fill-rule="evenodd" d="m 131.83811,651.7799 h 243 z" class="g1_10" id="path54"/>
-    <path d="m 131.83811,651.7799 h 243" class="g4_10" id="path55"/>
-    <path fill-rule="evenodd" d="m 131.83811,690.6799 h 243 z" class="g1_10" id="path56"/>
-    <path d="m 131.83811,690.6799 h 243" class="g5_10" id="path57"/>
-    <path fill-rule="evenodd" d="m 131.83811,729.4799 h 243 z" class="g1_10" id="path58"/>
-    <path d="m 131.83811,729.4799 h 243" class="g6_10" id="path59"/>
-  </g>
-  <!-- Any embedded fonts defined here -->
-  <style
-    type="text/css"
-    id="style59"
-  ><![CDATA[
-
-@font-face {
-	font-family: ArialMT_bb;
-	src: url("fonts/ArialMT_bb.woff") format("woff");
-}
-
-@font-face {
-	font-family: MS-PGothic_bf;
-	src: url("fonts/MS-PGothic_bf.woff") format("woff");
-}
-
-]]></style>
+  <!-- Notes -->
+  <text class="note lbl" x="440" y="41">White dashed line</text>
+  <text class="note code" x="440" y="59">subtype: dashed</text>
+  <text class="note code" x="440" y="77">lane_change: yes</text>
+  <path class="leader" d="M432 37 L384 55"/>
+  <text class="note lbl" x="440" y="116">White solid line</text>
+  <text class="note code" x="440" y="134">subtype: solid</text>
+  <text class="note code" x="440" y="152">lane_change: yes</text>
+  <path class="leader" d="M432 112 L384 130"/>
+  <text class="note lbl" x="440" y="191">Yellow solid line</text>
+  <text class="note code" x="440" y="209">subtype: solid</text>
+  <text class="note code" x="440" y="227">lane_change: no</text>
+  <path class="leader" d="M432 187 L384 205"/>
 </svg>

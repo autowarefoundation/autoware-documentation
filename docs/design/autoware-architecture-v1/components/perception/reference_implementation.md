@@ -8,7 +8,7 @@ This document outlines detailed design of the reference implementations. This al
 
 This diagram describes the architecture of the reference implementation.
 
-![overall-perception-architecture](image/reference-implementaion-perception-diagram.drawio.svg)
+{{ diagram("image/reference-implementation-perception-diagram.svg", "The sub-components of the reference implementation and their inputs and outputs.") }}
 
 The Perception component consists of the following sub-components:
 
@@ -33,7 +33,7 @@ The Perception component consists of the following sub-components:
 
 ## Architecture for object recognition
 
-![Overall Pipeline](image/new_autoware_design.drawio.svg)
+{{ diagram("image/new_autoware_design.svg", "The detectors feed the multi-object tracker through separate channels.") }}
 
 ### Base 3D Detection
 
@@ -88,7 +88,7 @@ To integrate with the Autoware interface, we use a euclidean clustering method f
 To enhance detection of objects that LiDAR-based methods may struggle with, we offer **Cluster-Based 3D Detection**.
 `Cluster-Based 3D Detection` consists of many nodes, and the pipeline shows as following.
 
-![](image/clustering_based_detection.drawio.svg)
+{{ diagram("image/clustering_based_detection.svg", "LiDAR clustering and camera-LiDAR fusion clustering.") }}
 
 `Cluster-Based 3D Detection` is based on euclidean clustering including roi based pointcloud fusion.
 Its process combines non-ground LiDAR point clouds with the results of 2D detection or semantic segmentation.
@@ -101,7 +101,7 @@ Therefore, we recommend avoiding this pipeline in situations where processing ti
 
 **Multi-Object Tracking v2** is based on existing [multi_object_tracker](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_multi_object_tracker) and illustrated below:
 
-![](image/multi_object_tracking.drawio.svg)
+{{ diagram("image/multi_object_tracking.svg", "The processing steps of the multi-object tracker.") }}
 
 The key features are as follows.
 
@@ -115,13 +115,13 @@ The existing `object_merger` uses approximate synchronization via message filter
 As the amount of input data increases, which makes the delay, impacting the availability of autonomous driving.
 Additionally, if some detections fail, the merger fails to combine the results, reducing availability.
 
-![](image/priority_merger_1.drawio.svg)
+{{ diagram("image/priority_merger_1.svg", "A synchronized merger waits for the slower detector.") }}
 
 The `Priority Object Merger` eliminates the message filter and uses a priority-based approach for the main detection.
 When subscribing to the output of the main detection, it gathers all outputs from the detection pipeline.
 It gathers outputs from all detections, ensuring that even if a secondary detection fails, results from other detections can still be merged, improving overall reliability and availability.
 
-![](image/priority_merger_2.drawio.svg)
+{{ diagram("image/priority_merger_2.svg", "The multi-channel tracker does not wait for all detectors.") }}
 
 - **Stationary detection**
 

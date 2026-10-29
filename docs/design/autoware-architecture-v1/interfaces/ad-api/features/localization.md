@@ -11,7 +11,7 @@ This API manages the initialization of localization. Autoware requires a global 
 
 ## States
 
-![localization-initialization-state](localization/state.drawio.svg)
+{{ diagram("localization/state.svg", "The localization initialization state changes with the initialize request and its result.") }}
 
 | State         | Description                                                                      |
 | ------------- | -------------------------------------------------------------------------------- |

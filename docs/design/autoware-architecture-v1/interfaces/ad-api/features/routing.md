@@ -18,7 +18,7 @@ There are two ways to set the route. The one is a generic method that uses pose,
 
 ## States
 
-![route-state](routing/state.drawio.svg)
+{{ diagram("routing/state.svg", "The route state changes with the set, change, and clear requests, and with the arrival at the goal.") }}
 
 | State    | Description                                        |
 | -------- | -------------------------------------------------- |

@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 470" role="img" aria-labelledby="adapi-operation-mode-software-title">
+  <title id="adapi-operation-mode-software-title">
+    The operator asks the application to change the mode. The application calls the operation mode API, AD API changes the mode, and the new state goes back to the operator.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-indigo: var(--aw-indigo); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .on-primary {
+  fill: #fff;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .edge.plain {
+  marker-end: none;
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="840" height="470"/>
+  <circle class="halo" cx="530" cy="250" r="210"/>
+
+  <!-- Participants and lifelines -->
+  <rect class="card" x="15" y="16" width="150" height="44" rx="12"/>
+  <circle class="icon-bg" cx="58" cy="38" r="14"/>
+  <circle class="icon-line" cx="58" cy="35" r="3.2"/>
+  <path class="icon-line" d="M52 45 Q52 39.5 58 39.5 Q64 39.5 64 45"/>
+  <text class="lbl" x="81" y="38" dominant-baseline="central">Operator</text>
+  <line class="edge plain dash" x1="90" y1="60" x2="90" y2="458"/>
+  <rect class="card" x="215" y="16" width="150" height="44" rx="12"/>
+  <circle class="icon-bg" cx="251" cy="38" r="14"/>
+  <rect class="icon-line" x="244" y="32" width="14" height="12" rx="2"/>
+  <path class="icon-line" d="M244 36 H258"/>
+  <text class="lbl" x="274" y="38" dominant-baseline="central">Application</text>
+  <line class="edge plain dash" x1="290" y1="60" x2="290" y2="458"/>
+  <rect class="box primary" x="455" y="16" width="150" height="44" rx="12"/>
+  <circle class="icon-bg on" cx="504" cy="38" r="14"/>
+  <path class="icon-line" d="M501 33 L496 38 L501 43 M507 33 L512 38 L507 43"/>
+  <text class="lbl on-primary" x="527" y="38" dominant-baseline="central">AD API</text>
+  <line class="edge plain dash" x1="530" y1="60" x2="530" y2="458"/>
+  <rect class="card" x="675" y="16" width="150" height="44" rx="12"/>
+  <circle class="icon-bg" cx="723" cy="38" r="14"/>
+  <path class="icon-line" d="M715 41 V37 L718 33 H728 L731 37 V41 Z"/>
+  <circle class="icon-dot" cx="718.5" cy="42.5" r="2.2"/>
+  <circle class="icon-dot" cx="727.5" cy="42.5" r="2.2"/>
+  <text class="lbl" x="746" y="38" dominant-baseline="central">Vehicle</text>
+  <line class="edge plain dash" x1="750" y1="60" x2="750" y2="458"/>
+
+  <!-- Messages -->
+  <path class="edge" d="M92 94 H288"/>
+  <path class="flow" pathLength="100" d="M92 94 H288"/>
+  <path class="edge head" d="M92 94 H288"/>
+  <text class="edge-lbl" x="190" y="83" text-anchor="middle" dominant-baseline="central">change the mode</text>
+  <path class="edge" d="M292 136 H528"/>
+  <path class="flow" pathLength="100" d="M292 136 H528"/>
+  <path class="edge head" d="M292 136 H528"/>
+  <text class="edge-lbl" x="410" y="125" text-anchor="middle" dominant-baseline="central">/api/operation_mode/change_to_*</text>
+  <path class="edge" d="M532 178 H748"/>
+  <path class="flow" pathLength="100" d="M532 178 H748"/>
+  <path class="edge head" d="M532 178 H748"/>
+  <text class="edge-lbl" x="640" y="167" text-anchor="middle" dominant-baseline="central">change the control mode (if needed)</text>
+  <path class="edge dash" d="M748 220 H532"/>
+  <path class="edge dash" d="M528 262 H292"/>
+  <text class="edge-lbl" x="410" y="251" text-anchor="middle" dominant-baseline="central">response status</text>
+  <path class="edge dash" d="M288 304 H92"/>
+  <path class="edge" d="M748 346 H532"/>
+  <path class="flow" pathLength="100" d="M748 346 H532"/>
+  <path class="edge head" d="M748 346 H532"/>
+  <text class="edge-lbl" x="640" y="335" text-anchor="middle" dominant-baseline="central">current control mode</text>
+  <path class="edge" d="M528 388 H292"/>
+  <path class="flow" pathLength="100" d="M528 388 H292"/>
+  <path class="edge head" d="M528 388 H292"/>
+  <text class="edge-lbl" x="410" y="377" text-anchor="middle" dominant-baseline="central">/api/operation_mode/state</text>
+  <path class="edge" d="M288 430 H92"/>
+  <path class="flow" pathLength="100" d="M288 430 H92"/>
+  <path class="edge head" d="M288 430 H92"/>
+  <text class="edge-lbl" x="190" y="419" text-anchor="middle" dominant-baseline="central">show the mode</text>
+</svg>

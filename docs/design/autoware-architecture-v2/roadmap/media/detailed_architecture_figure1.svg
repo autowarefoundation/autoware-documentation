@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 380" role="img" aria-labelledby="roadmap-steps-title">
+  <title id="roadmap-steps-title">
+    The steps from the traditional robotics stack to Step 1, learned planning, Step 2, learned planning and learned perception, Step 3, a monolithic learned driving model, and Step 4, a learned hybrid
+    model.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-cyan: #00c8ff; --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .card.ai {
+  fill: color-mix(in srgb, var(--aw-cyan) 8%, var(--aw-d-node));
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 65%, transparent);
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.ai {
+  fill: url("#aw-grad-ai");
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-ai" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00c8ff"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="880" height="380"/>
+  <circle class="halo" cx="170" cy="290" r="85"/>
+  <circle class="halo cyan" cx="440" cy="190" r="120"/>
+  <circle class="halo cyan" cx="720" cy="100" r="95"/>
+
+  <!-- Start -->
+  <rect class="card" x="20" y="304" width="272" height="60" rx="14"/>
+  <circle class="icon-bg" cx="48" cy="334" r="16"/>
+  <path class="icon-line" d="M42.67 328.67 L53.33 328.67 M42.67 328.67 L48 339.33 M53.33 328.67 L48 339.33"/>
+  <circle class="icon-dot" cx="42.67" cy="328.67" r="2.5"/>
+  <circle class="icon-dot" cx="53.33" cy="328.67" r="2.5"/>
+  <circle class="icon-dot" cx="48" cy="339.33" r="2.5"/>
+  <text class="lbl" x="74" y="324" dominant-baseline="central">Start</text>
+  <text class="sub" x="74" y="344" dominant-baseline="central">Traditional robotics stack</text>
+
+  <!-- Step 1 -->
+  <rect class="card ai" x="162" y="232" width="272" height="60" rx="14"/>
+  <circle class="icon-bg ai" cx="190" cy="262" r="16"/>
+  <path class="icon-line" d="M183.78 268.22 C183.78 260.22 196.22 263.78 196.22 255.78"/>
+  <circle class="icon-dot" cx="183.78" cy="268.22" r="2.3"/>
+  <circle class="icon-dot" cx="196.22" cy="255.78" r="2.3"/>
+  <text class="lbl" x="216" y="252" dominant-baseline="central">Step 1</text>
+  <text class="sub" x="216" y="272" dominant-baseline="central">Learned planning</text>
+
+  <!-- Step 2 -->
+  <rect class="card ai" x="304" y="160" width="272" height="60" rx="14"/>
+  <circle class="icon-bg ai" cx="332" cy="190" r="16"/>
+  <rect class="icon-line" x="324.89" y="182" width="14.22" height="6.22" rx="1.8"/>
+  <rect class="icon-line" x="324.89" y="191.78" width="14.22" height="6.22" rx="1.8"/>
+  <text class="lbl" x="358" y="180" dominant-baseline="central">Step 2</text>
+  <text class="sub" x="358" y="200" dominant-baseline="central">Learned planning and learned perception</text>
+
+  <!-- Step 3 -->
+  <rect class="card ai" x="446" y="88" width="272" height="60" rx="14"/>
+  <circle class="icon-bg ai" cx="474" cy="118" r="16"/>
+  <circle class="icon-line" cx="474" cy="118" r="7.11"/>
+  <circle class="icon-dot" cx="471.33" cy="115.33" r="1.6"/>
+  <circle class="icon-dot" cx="476.67" cy="115.33" r="1.6"/>
+  <circle class="icon-dot" cx="474" cy="120.67" r="1.6"/>
+  <text class="lbl" x="500" y="108" dominant-baseline="central">Step 3</text>
+  <text class="sub" x="500" y="128" dominant-baseline="central">Learned driving: monolithic model</text>
+
+  <!-- Step 4 -->
+  <rect class="card ai" x="588" y="16" width="272" height="60" rx="14"/>
+  <circle class="icon-bg ai" cx="616" cy="46" r="16"/>
+  <path class="icon-line" d="M616 38 L623.11 40.67 V46 Q623.11 51.33 616 54 Q608.89 51.33 608.89 46 V40.67 Z"/>
+  <circle class="icon-dot" cx="616" cy="46" r="2.3"/>
+  <text class="lbl" x="642" y="36" dominant-baseline="central">Step 4</text>
+  <text class="sub" x="642" y="56" dominant-baseline="central">Learned hybrid model</text>
+
+  <!-- The steps -->
+  <path class="edge accent" d="M90 304 V262 H156"/>
+  <path class="flow flow-accent" pathLength="100" d="M90 304 V262 H152"/>
+  <path class="edge accent head" d="M90 304 V262 H156"/>
+  <path class="edge accent" d="M232 232 V190 H298"/>
+  <path class="flow flow-accent" pathLength="100" d="M232 232 V190 H294"/>
+  <path class="edge accent head" d="M232 232 V190 H298"/>
+  <path class="edge accent" d="M374 160 V118 H440"/>
+  <path class="flow flow-accent" pathLength="100" d="M374 160 V118 H436"/>
+  <path class="edge accent head" d="M374 160 V118 H440"/>
+  <path class="edge accent" d="M516 88 V46 H582"/>
+  <path class="flow flow-accent" pathLength="100" d="M516 88 V46 H578"/>
+  <path class="edge accent head" d="M516 88 V46 H582"/>
+</svg>

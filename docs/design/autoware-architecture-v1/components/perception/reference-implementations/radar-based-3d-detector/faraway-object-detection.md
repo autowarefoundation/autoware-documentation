@@ -4,7 +4,7 @@
 
 This diagram describes the pipeline for radar faraway dynamic object detection.
 
-![faraway object detection](image/faraway-object-detection.drawio.svg)
+{{ diagram("image/faraway-object-detection.svg", "The pipeline for radar faraway dynamic object detection.") }}
 
 ## Reference implementation
 

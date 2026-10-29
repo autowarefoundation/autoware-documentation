@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 340" role="img" aria-labelledby="adapi-cooperation-architecture-title">
+  <title id="adapi-cooperation-architecture-title">
+    Each scene class has a cooperation policy that the system settings initialize and the operator can set. Each scene instance merges the module decision from the planning module, the operator
+    decision, and the cooperation policy into the merged decision. The planning module uses the merged decision, and the operator receives the cooperation status.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-green: #00e678; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.ok {
+  fill: color-mix(in srgb, var(--aw-green) 14%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-c-green) 70%, transparent);
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="340"/>
+  <circle class="halo" cx="420" cy="220" r="118"/>
+  <circle class="halo cyan" cx="760" cy="170" r="98"/>
+
+  <!-- Planning module and system settings -->
+  <rect class="box muted" x="20" y="42" width="130" height="54" rx="12"/>
+  <text class="lbl" x="85" y="61" text-anchor="middle" dominant-baseline="central">System</text>
+  <text class="lbl" x="85" y="79" text-anchor="middle" dominant-baseline="central">settings</text>
+
+  <rect class="card" x="20" y="150" width="130" height="174" rx="12"/>
+  <circle class="icon-bg" cx="85" cy="192" r="18"/>
+  <path class="icon-line" d="M79 200 Q79 192 85 192 Q91 192 91 184"/>
+  <circle class="icon-dot" cx="79" cy="200" r="2.6"/>
+  <circle class="icon-dot" cx="91" cy="184" r="2.6"/>
+  <text class="lbl" x="85" y="228" text-anchor="middle" dominant-baseline="central">Planning</text>
+  <text class="lbl" x="85" y="246" text-anchor="middle" dominant-baseline="central">module</text>
+
+  <!-- Operator -->
+  <rect class="box primary" x="730" y="16" width="110" height="308" rx="12"/>
+  <circle class="icon-bg on" cx="785" cy="132" r="18"/>
+  <circle class="icon-line" cx="785" cy="128" r="4"/>
+  <path class="icon-line" d="M777 141 Q777 134 785 134 Q793 134 793 141"/>
+  <text class="lbl on-primary" x="785" y="170" text-anchor="middle" dominant-baseline="central">Operator</text>
+
+  <!-- Each scene class -->
+  <rect class="glass-panel" x="200" y="16" width="440" height="96" rx="16"/>
+  <text class="ttl" x="220" y="40">Each scene class</text>
+  <rect class="card" x="220" y="50" width="400" height="46" rx="12"/>
+  <text class="lbl" x="420" y="73" text-anchor="middle" dominant-baseline="central">Cooperation policy</text>
+
+  <!-- Each scene instance -->
+  <rect class="glass-panel" x="200" y="128" width="440" height="196" rx="16"/>
+  <text class="ttl" x="220" y="152">Each scene instance</text>
+  <rect class="card" x="220" y="168" width="170" height="46" rx="12"/>
+  <text class="lbl" x="305" y="191" text-anchor="middle" dominant-baseline="central">Module decision</text>
+  <rect class="card" x="450" y="168" width="170" height="46" rx="12"/>
+  <text class="lbl" x="535" y="191" text-anchor="middle" dominant-baseline="central">Operator decision</text>
+  <rect class="box ok" x="220" y="262" width="400" height="46" rx="12"/>
+  <text class="lbl" x="420" y="285" text-anchor="middle" dominant-baseline="central">Merged decision</text>
+
+  <!-- Inputs -->
+  <path class="edge" d="M150 69 H216"/>
+  <path class="flow" pathLength="100" d="M150 69 H216"/>
+  <path class="edge head" d="M150 69 H216"/>
+  <text class="edge-lbl" x="183" y="55" text-anchor="middle" dominant-baseline="central">init</text>
+  <path class="edge" d="M730 73 H624"/>
+  <path class="flow" pathLength="100" d="M730 73 H624"/>
+  <path class="edge head" d="M730 73 H624"/>
+  <text class="edge-lbl" x="685" y="59" text-anchor="middle" dominant-baseline="central">set policy</text>
+  <path class="edge" d="M150 191 H216"/>
+  <path class="flow" pathLength="100" d="M150 191 H216"/>
+  <path class="edge head" d="M150 191 H216"/>
+  <path class="edge" d="M730 191 H624"/>
+  <path class="flow" pathLength="100" d="M730 191 H624"/>
+  <path class="edge head" d="M730 191 H624"/>
+  <text class="edge-lbl" x="685" y="177" text-anchor="middle" dominant-baseline="central">set decision</text>
+
+  <!-- Merge -->
+  <path class="edge" d="M420 96 V258"/>
+  <path class="flow" pathLength="100" d="M420 96 V258"/>
+  <path class="edge head" d="M420 96 V258"/>
+  <path class="edge" d="M305 214 V258"/>
+  <path class="flow" pathLength="100" d="M305 214 V258"/>
+  <path class="edge head" d="M305 214 V258"/>
+  <path class="edge" d="M535 214 V258"/>
+  <path class="flow" pathLength="100" d="M535 214 V258"/>
+  <path class="edge head" d="M535 214 V258"/>
+
+  <!-- Outputs -->
+  <path class="edge accent" d="M220 285 H154"/>
+  <path class="flow flow-accent" pathLength="100" d="M220 285 H154"/>
+  <path class="edge accent head" d="M220 285 H154"/>
+  <path class="edge" d="M620 285 H726"/>
+  <path class="flow" pathLength="100" d="M620 285 H726"/>
+  <path class="edge head" d="M620 285 H726"/>
+  <text class="edge-lbl" x="685" y="263" text-anchor="middle" dominant-baseline="central">cooperation</text>
+  <text class="edge-lbl" x="685" y="303" text-anchor="middle" dominant-baseline="central">status</text>
+</svg>

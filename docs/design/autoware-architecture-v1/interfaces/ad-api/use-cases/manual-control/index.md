@@ -21,9 +21,7 @@ To operate a vehicle without a steering wheel or steering wheel, or to develop a
 
 ## Sequence
 
-```plantuml
-{% include 'design/autoware-architecture-v1/interfaces/ad-api/use-cases/manual-control/sequence.plantuml' %}
-```
+{{ diagram("sequence.svg", "Select a control mode, change to the remote mode, then send commands while the vehicle status comes back.") }}
 
 ## Related features
 

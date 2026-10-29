@@ -6,6 +6,4 @@
 
 ## Sequence
 
-```plantuml
-{% include 'design/autoware-architecture-v1/interfaces/ad-api/use-cases/sequence/get-on-off.plantuml' %}
-```
+{{ diagram("sequence/get-on-off.svg", "Open the doors for the passengers, then close them.") }}

@@ -1,3 +1,4 @@
+import html
 import os  # for relpath, cannot use pathlib
 from pathlib import Path
 from pathlib import PurePosixPath
@@ -153,6 +154,26 @@ def define_env(env):
     @jinja2.pass_context
     def create_relative_link(context, text, root_path):
         return _relative_link(context["page"], text, root_path)
+
+    # cspell:ignore figcaption
+    # Puts an SVG file into the page, so that its classes take the colors of the
+    # theme and follow the dark mode (see tools/diagrams/README.md). The path is
+    # relative to the page. The SVG becomes one line, because a blank line would
+    # end the HTML block in Markdown.
+    @env.macro
+    @jinja2.pass_context
+    def diagram(context, path, caption=""):
+        page = context["page"]
+        docs_dir = Path(env.conf.get("root_dir", "."), env.conf.get("docs_dir", "docs"))
+        svg = (docs_dir / os.path.dirname(page.path) / path).read_text(encoding="utf-8")
+        # The fallback style and definitions are for viewers outside the site (see tools/diagrams/standalone.py).
+        # The page has its own, and they follow the dark mode.
+        svg = re.sub(r'<(style|defs) data-aw-standalone="">.*?</\1>', "", svg, flags=re.DOTALL)
+        svg = re.sub(r"<\?xml[^>]*\?>|<!--.*?-->", "", svg, flags=re.DOTALL)
+        svg = re.sub(r">\s+<", "><", svg.strip())
+        svg = re.sub(r"\s*\n\s*", " ", svg)
+        figcaption = f"<figcaption>{html.escape(caption)}</figcaption>" if caption else ""
+        return f'<figure class="aw-diagram">{svg}{figcaption}</figure>'
 
     @env.macro
     @jinja2.pass_context

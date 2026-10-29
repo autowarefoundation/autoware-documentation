@@ -24,7 +24,7 @@ Here Autoware decides not to change lanes a second time due to the obstacle, so 
 However, operator could overwrite that decision through RTC function and force the lane change so that vehicle could reach to it's goal.
 Using RTC, the operator can override these decisions to continue driving the vehicle to the goal.
 
-![cooperation-scenes](cooperation/scenes.drawio.svg)
+{{ diagram("cooperation/scenes.svg", "Three scenes on the way to the goal, each with its own ID and decision. The red lines show the paths of the other decisions.") }}
 
 ## Architecture
 
@@ -34,7 +34,7 @@ See decisions section for details of these values.
 The cooperation policy is used when there is no operator decision and has a default value set by the system settings.
 If the module supports RTC, these information are available in [velocity factors or steering factors](planning-factors.md) as [cooperation status](../types/autoware_adapi_v1_msgs/msg/CooperationStatus.md).
 
-![cooperation-architecture](cooperation/architecture.drawio.svg)
+{{ diagram("cooperation/architecture.svg", "Each scene instance merges the module decision, the operator decision, and the cooperation policy.") }}
 
 ## Sequence
 
@@ -77,7 +77,7 @@ The meanings of these values are as follows. Note that the cooperation policy is
 
 The following flow is how the merged decision is determined.
 
-![cooperation-decisions](cooperation/decisions.drawio.svg)
+{{ diagram("cooperation/decisions.svg", "How the merged decision is determined.") }}
 
 ## Examples
 

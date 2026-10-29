@@ -1,0 +1,338 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 540" role="img" aria-labelledby="architecture-overview-title">
+  <title id="architecture-overview-title">
+    The stacks of Autoware. Sensing, map, and the vehicle interface feed localization. Localization, sensing, and the map feed perception and planning. Perception feeds planning, planning feeds
+    control, and control drives the vehicle through the vehicle interface.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-car-shadow: #00002a40; --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.both {
+  marker-start: url("#aw-arrow");
+} .edge.accent.both {
+  marker-start: url("#aw-arrow-accent");
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} .car-body {
+  fill: url("#aw-grad-car");
+} .car-glass {
+  fill: url("#aw-grad-car-glass");
+  stroke: #ffffffb3;
+  stroke-width: 1;
+} .car-shine {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.75;
+} .wheel {
+  fill: #1b1d29;
+} .rim {
+  fill: none;
+  stroke: #c9ccd8;
+  stroke-width: 2.5;
+} .hub {
+  fill: #c9ccd8;
+} .car-shadow {
+  fill: var(--aw-car-shadow);
+  filter: url("#aw-soft");
+} .headlight {
+  fill: #9ff3ff;
+  filter: url("#aw-glow");
+} .lidar {
+  fill: url("#aw-grad-ai");
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <filter id="aw-glow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="aw-grad-ai" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00c8ff"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-car" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2a1fa8"/>
+      <stop offset="0.35" stop-color="#3f2ee3"/>
+      <stop offset="0.75" stop-color="#2a6df2"/>
+      <stop offset="1" stop-color="#00b4ff"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-car-glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#bfeeff" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#7fd8ff" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+    <filter id="aw-soft" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feGaussianBlur stdDeviation="3.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="540"/>
+  <circle class="halo" cx="500" cy="140" r="130"/>
+  <circle class="halo cyan" cx="170" cy="140" r="120"/>
+  <circle class="halo" cx="430" cy="390" r="140"/>
+
+  <!-- Lines that pass behind the localization bar come first, so that the bar covers them -->
+  <path class="edge" d="M320 400 V372 H250 V270"/>
+  <path class="flow" pathLength="100" d="M320 400 V372 H250 V270"/>
+  <path class="edge head" d="M320 400 V372 H250 V270"/>
+  <path class="edge" d="M520 400 V372 H590 V270"/>
+  <path class="flow" pathLength="100" d="M520 400 V372 H590 V270"/>
+  <path class="edge head" d="M520 400 V372 H590 V270"/>
+
+  <!-- Perception -->
+  <rect class="glass-panel" x="20" y="20" width="300" height="240" rx="18"/>
+  <text class="ttl" x="40" y="44">Perception</text>
+  <rect class="glass-panel" x="36" y="56" width="268" height="72" rx="12"/>
+  <text class="sub" x="50" y="74">Dynamic objects</text>
+  <rect class="card" x="48" y="86" width="80" height="30" rx="10"/>
+  <text x="88" y="101" text-anchor="middle" dominant-baseline="central">Detection</text>
+  <rect class="card" x="132" y="86" width="80" height="30" rx="10"/>
+  <text x="172" y="101" text-anchor="middle" dominant-baseline="central">Tracking</text>
+  <rect class="card" x="216" y="86" width="80" height="30" rx="10"/>
+  <text x="256" y="101" text-anchor="middle" dominant-baseline="central">Prediction</text>
+  <rect class="card" x="36" y="138" width="268" height="40" rx="12"/>
+  <text x="170" y="158" text-anchor="middle" dominant-baseline="central">Obstacle segmentation</text>
+  <rect class="glass-panel" x="36" y="188" width="268" height="60" rx="12"/>
+  <text class="sub" x="50" y="206">Traffic lights</text>
+  <rect class="card" x="48" y="214" width="122" height="26" rx="10"/>
+  <text x="109" y="227" text-anchor="middle" dominant-baseline="central">Detection</text>
+  <rect class="card" x="174" y="214" width="122" height="26" rx="10"/>
+  <text x="235" y="227" text-anchor="middle" dominant-baseline="central">Classification</text>
+
+  <!-- Planning -->
+  <rect class="glass-panel" x="350" y="20" width="300" height="240" rx="18"/>
+  <text class="ttl" x="370" y="44">Planning</text>
+  <rect class="card" x="366" y="56" width="84" height="192" rx="12"/>
+  <circle class="icon-bg" cx="408" cy="120" r="17"/>
+  <path class="icon-line" d="M402 129 V111 H414 L410.5 115.5 L414 120 H402"/>
+  <text class="lbl" x="408" y="152" text-anchor="middle" dominant-baseline="central">Mission</text>
+  <rect class="glass-panel" x="460" y="56" width="176" height="192" rx="12"/>
+  <text class="sub" x="474" y="74">Scenario</text>
+  <rect class="card" x="472" y="84" width="152" height="34" rx="10"/>
+  <text x="548" y="101" text-anchor="middle" dominant-baseline="central">Scenario selector</text>
+  <rect class="card" x="472" y="128" width="74" height="110" rx="12"/>
+  <text x="509" y="174" text-anchor="middle" dominant-baseline="central">Lane</text>
+  <text x="509" y="192" text-anchor="middle" dominant-baseline="central">driving</text>
+  <rect class="card" x="550" y="128" width="74" height="110" rx="12"/>
+  <text x="587" y="183" text-anchor="middle" dominant-baseline="central">Parking</text>
+
+  <!-- Control -->
+  <rect class="glass-panel" x="680" y="20" width="160" height="240" rx="18"/>
+  <circle class="icon-bg" cx="760" cy="106" r="20"/>
+  <circle class="icon-line" cx="760" cy="106" r="9"/>
+  <path class="icon-line" d="M751 106 H769 M760 106 V115"/>
+  <text class="lbl" x="760" y="140" text-anchor="middle" dominant-baseline="central">Control</text>
+
+  <path class="edge accent" d="M320 140 H342"/>
+  <path class="flow flow-accent" pathLength="100" d="M320 140 H342"/>
+  <path class="edge accent head" d="M320 140 H342"/>
+  <path class="edge accent" d="M650 140 H672"/>
+  <path class="flow flow-accent" pathLength="100" d="M650 140 H672"/>
+  <path class="edge accent head" d="M650 140 H672"/>
+
+  <!-- Localization -->
+  <rect class="box primary" x="20" y="300" width="820" height="44" rx="12"/>
+  <circle class="icon-bg on" cx="386" cy="322" r="15"/>
+  <path class="icon-line" d="M386 331 C382 327 379.5 323.5 379.5 319.5 A6.5 6.5 0 0 1 392.5 319.5 C392.5 323.5 390 327 386 331 Z"/>
+  <circle class="icon-dot" cx="386" cy="319.5" r="2.2"/>
+  <text class="lbl on-primary" x="444" y="322" text-anchor="middle" dominant-baseline="central">Localization</text>
+  <path class="edge" d="M170 300 V268"/>
+  <path class="flow" pathLength="100" d="M170 300 V268"/>
+  <path class="edge head" d="M170 300 V268"/>
+  <path class="edge" d="M500 300 V268"/>
+  <path class="flow" pathLength="100" d="M500 300 V268"/>
+  <path class="edge head" d="M500 300 V268"/>
+  <path class="edge" d="M760 300 V268"/>
+  <path class="flow" pathLength="100" d="M760 300 V268"/>
+  <path class="edge head" d="M760 300 V268"/>
+
+  <!-- Sensing, map, and vehicle interface -->
+  <rect class="box primary" x="20" y="400" width="260" height="46" rx="12"/>
+  <circle class="icon-bg on" cx="118" cy="423" r="15"/>
+  <circle class="icon-dot" cx="113" cy="428" r="2.4"/>
+  <path class="icon-line" d="M113 420 A8 8 0 0 1 121 428"/>
+  <path class="icon-line" d="M113 414 A14 14 0 0 1 127 428"/>
+  <text class="lbl on-primary" x="168" y="423" text-anchor="middle" dominant-baseline="central">Sensing</text>
+  <rect class="box primary" x="300" y="400" width="240" height="46" rx="12"/>
+  <circle class="icon-bg on" cx="398" cy="423" r="15"/>
+  <path class="icon-line" d="M389 416.5 L395 414 L401 416.5 L407 414 V429.5 L401 432 L395 429.5 L389 432 Z M395 414 V429.5 M401 416.5 V432"/>
+  <text class="lbl on-primary" x="436" y="423" text-anchor="middle" dominant-baseline="central">Map</text>
+  <rect class="box primary" x="560" y="400" width="280" height="46" rx="12"/>
+  <circle class="icon-bg on" cx="640" cy="423" r="15"/>
+  <path class="icon-line" d="M630.5 426.5 V421.5 L634 416 Q635 414.5 637 414.5 H643 Q645 414.5 646 416 L649.5 421.5 V426.5 Z"/>
+  <circle class="icon-dot" cx="635" cy="427" r="2.3"/>
+  <circle class="icon-dot" cx="645" cy="427" r="2.3"/>
+  <text class="lbl on-primary" x="712" y="423" text-anchor="middle" dominant-baseline="central">Vehicle interface</text>
+
+  <path class="edge" d="M150 400 V352"/>
+  <path class="flow" pathLength="100" d="M150 400 V352"/>
+  <path class="edge head" d="M150 400 V352"/>
+  <path class="edge" d="M420 400 V352"/>
+  <path class="flow" pathLength="100" d="M420 400 V352"/>
+  <path class="edge head" d="M420 400 V352"/>
+  <path class="edge" d="M700 400 V352"/>
+  <path class="flow" pathLength="100" d="M700 400 V352"/>
+  <path class="edge head" d="M700 400 V352"/>
+  <path class="edge" d="M20 423 H8 V140 H12"/>
+  <path class="flow" pathLength="100" d="M20 423 H8 V140 H12"/>
+  <path class="edge head" d="M20 423 H8 V140 H12"/>
+  <path class="edge" d="M840 140 H852 V423 H848"/>
+  <path class="flow" pathLength="100" d="M840 140 H852 V423 H848"/>
+  <path class="edge head" d="M840 140 H852 V423 H848"/>
+
+  <!-- Sensors and vehicle -->
+  <rect class="box muted" x="20" y="480" width="260" height="44" rx="12"/>
+  <text class="sub" x="150" y="502" text-anchor="middle" dominant-baseline="central">LiDAR, cameras, radars, GNSS/INS, IMU</text>
+  <path class="edge" d="M150 480 V454"/>
+  <path class="flow" pathLength="100" d="M150 480 V454"/>
+  <path class="edge head" d="M150 480 V454"/>
+  <rect class="box muted" x="560" y="480" width="280" height="44" rx="12"/>
+  <!-- The vehicle: the glass car of the generator-selector diagram, smaller -->
+  <g transform="translate(640 488) scale(0.3)">
+    <ellipse class="car-shadow" cx="105" cy="86" rx="92" ry="7"/>
+    <path class="car-body" d="M8 50 Q8 38 22 36 L52 33 L76 14 Q84 8 96 8 L146 8 Q158 8 166 16 L184 33 Q200 36 202 48 L202 62 Q202 70 194 70 L16 70 Q8 70 8 62 Z"/>
+    <path class="car-glass" d="M60 33 L80 17 Q86 13 96 13 L144 13 Q153 13 159 19 L176 33 Z"/>
+    <rect class="car-body" x="114" y="13" width="4" height="20"/>
+    <path class="car-shine" d="M90 17 L80 29"/>
+    <path class="car-shine" d="M26 44 Q105 38 188 42"/>
+    <rect class="lidar" x="100" y="1" width="26" height="7" rx="3.5"/>
+    <rect class="headlight" x="194" y="42" width="8" height="6" rx="3"/>
+    <circle class="wheel" cx="52" cy="70" r="15"/>
+    <circle class="rim" cx="52" cy="70" r="8.5"/>
+    <circle class="hub" cx="52" cy="70" r="3"/>
+    <circle class="wheel" cx="160" cy="70" r="15"/>
+    <circle class="rim" cx="160" cy="70" r="8.5"/>
+    <circle class="hub" cx="160" cy="70" r="3"/>
+  </g>
+  <text class="sub" x="712" y="503" dominant-baseline="central">Vehicle</text>
+  <path class="edge both" d="M700 480 V454"/>
+</svg>

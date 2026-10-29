@@ -1,0 +1,220 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 470" role="img" aria-labelledby="perception-interface-title">
+  <title id="perception-interface-title">
+    Perception takes sensor data, the maps, the kinematic state of the vehicle, the route, and external traffic signals. It has four parts: obstacle segmentation, occupancy grid map, object
+    recognition, and traffic light recognition. It sends the obstacle point cloud, the occupancy grid, the objects, and the traffic signals to Planning and Control.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.ext {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-dasharray: 6 5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="470"/>
+  <circle class="halo" cx="390" cy="230" r="170"/>
+
+  <!-- Inputs -->
+  <rect class="card" x="20" y="34" width="160" height="64" rx="12"/>
+  <text class="lbl" x="100" y="56" text-anchor="middle" dominant-baseline="central">Sensing</text>
+  <text class="sub" x="100" y="77" text-anchor="middle" dominant-baseline="central">LiDAR, cameras, radars</text>
+  <rect class="card" x="20" y="114" width="160" height="64" rx="12"/>
+  <text class="lbl" x="100" y="136" text-anchor="middle" dominant-baseline="central">Map</text>
+  <text class="sub" x="100" y="157" text-anchor="middle" dominant-baseline="central">Lanelet2, point cloud</text>
+  <rect class="card" x="20" y="194" width="160" height="64" rx="12"/>
+  <text class="lbl" x="100" y="216" text-anchor="middle" dominant-baseline="central">Localization</text>
+  <text class="sub" x="100" y="237" text-anchor="middle" dominant-baseline="central">Kinematic state</text>
+  <rect class="card" x="20" y="274" width="160" height="64" rx="12"/>
+  <text class="lbl" x="100" y="296" text-anchor="middle" dominant-baseline="central">Planning</text>
+  <text class="sub" x="100" y="317" text-anchor="middle" dominant-baseline="central">Route</text>
+  <rect class="box ext" x="20" y="354" width="160" height="64" rx="12"/>
+  <text class="lbl" x="100" y="376" text-anchor="middle" dominant-baseline="central">V2X</text>
+  <text class="sub" x="100" y="397" text-anchor="middle" dominant-baseline="central">Traffic signals</text>
+
+  <path class="edge accent" d="M180 66 H224"/>
+  <path class="flow flow-accent" pathLength="100" d="M180 66 H224"/>
+  <path class="edge accent head" d="M180 66 H224"/>
+  <path class="edge" d="M180 146 H224"/>
+  <path class="flow" pathLength="100" d="M180 146 H224"/>
+  <path class="edge head" d="M180 146 H224"/>
+  <path class="edge" d="M180 226 H224"/>
+  <path class="flow" pathLength="100" d="M180 226 H224"/>
+  <path class="edge head" d="M180 226 H224"/>
+  <path class="edge" d="M180 306 H224"/>
+  <path class="flow" pathLength="100" d="M180 306 H224"/>
+  <path class="edge head" d="M180 306 H224"/>
+  <path class="edge dash" d="M180 386 H224"/>
+
+  <!-- The Perception component -->
+  <rect class="glass-panel" x="230" y="16" width="320" height="420" rx="18"/>
+  <text class="ttl" x="254" y="42">Perception</text>
+
+  <rect class="card" x="254" y="58" width="272" height="48" rx="12"/>
+  <text class="lbl" x="390" y="82" text-anchor="middle" dominant-baseline="central">Obstacle segmentation</text>
+  <rect class="card" x="254" y="126" width="272" height="48" rx="12"/>
+  <text class="lbl" x="390" y="150" text-anchor="middle" dominant-baseline="central">Occupancy grid map</text>
+  <rect class="box primary" x="254" y="194" width="272" height="128" rx="14"/>
+  <circle class="icon-bg on" cx="296" cy="270" r="18"/>
+  <path class="icon-line" d="M287 266 V262 H291 M301 262 H305 V266 M305 274 V278 H301 M291 278 H287 V274"/>
+  <circle class="icon-dot" cx="296" cy="270" r="3"/>
+  <text class="lbl on-primary" x="390" y="222" text-anchor="middle" dominant-baseline="central">Object recognition</text>
+  <text class="sub on-primary" x="390" y="252" text-anchor="middle" dominant-baseline="central">Detection</text>
+  <text class="sub on-primary" x="390" y="274" text-anchor="middle" dominant-baseline="central">Tracking</text>
+  <text class="sub on-primary" x="390" y="296" text-anchor="middle" dominant-baseline="central">Prediction</text>
+  <rect class="card" x="254" y="342" width="272" height="72" rx="12"/>
+  <text class="lbl" x="390" y="368" text-anchor="middle" dominant-baseline="central">Traffic light recognition</text>
+  <text class="sub" x="390" y="390" text-anchor="middle" dominant-baseline="central">Cameras and V2X</text>
+
+  <!-- Outputs -->
+  <path class="edge" d="M526 82 H694"/>
+  <path class="flow" pathLength="100" d="M526 82 H694"/>
+  <path class="edge head" d="M526 82 H694"/>
+  <text class="edge-lbl" x="612" y="82" text-anchor="middle" dominant-baseline="central">Obstacle point cloud</text>
+  <path class="edge" d="M526 150 H694"/>
+  <path class="flow" pathLength="100" d="M526 150 H694"/>
+  <path class="edge head" d="M526 150 H694"/>
+  <text class="edge-lbl" x="612" y="150" text-anchor="middle" dominant-baseline="central">Occupancy grid</text>
+  <path class="edge accent" d="M526 258 H694"/>
+  <path class="flow flow-accent" pathLength="100" d="M526 258 H694"/>
+  <path class="edge accent head" d="M526 258 H694"/>
+  <text class="edge-lbl" x="612" y="258" text-anchor="middle" dominant-baseline="central">Objects</text>
+  <path class="edge" d="M526 378 H694"/>
+  <path class="flow" pathLength="100" d="M526 378 H694"/>
+  <path class="edge head" d="M526 378 H694"/>
+  <text class="edge-lbl" x="612" y="378" text-anchor="middle" dominant-baseline="central">Traffic signals</text>
+
+  <rect class="card" x="700" y="34" width="140" height="380" rx="12"/>
+  <text class="lbl" x="770" y="214" text-anchor="middle" dominant-baseline="central">Planning</text>
+  <text class="sub" x="770" y="236" text-anchor="middle" dominant-baseline="central">and Control</text>
+</svg>

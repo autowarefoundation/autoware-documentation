@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" role="img" aria-labelledby="features-decel-on-curve-obstacles-title">
+  <title id="features-decel-on-curve-obstacles-title">An obstacle is at the edge of a curve, so the ego vehicle slows down more in the curve.</title>
+  <style data-aw-standalone="">
+    svg { --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-car-shadow: #00002a40; --aw-cyan: #00c8ff; --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-flow-tone: 22%; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .aw-d-arrow--route {
+  fill: var(--aw-c-green);
+} .road {
+  fill: #5c6070;
+} .mark {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+} .lanelet {
+  fill: color-mix(in srgb, var(--aw-indigo) 38%, transparent);
+  stroke: none;
+} .lanelet.alt {
+  fill: color-mix(in srgb, var(--aw-cyan) 40%, transparent);
+} .route {
+  fill: none;
+  stroke: var(--aw-c-green);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  marker-end: url("#aw-arrow-route");
+} .leader {
+  fill: none;
+  stroke: var(--aw-d-muted);
+  stroke-width: 1;
+} .note {
+  font-size: 13px;
+  fill: var(--aw-d-fg);
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-route {
+  stroke: color-mix(in srgb, var(--aw-c-green) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} .car-body {
+  fill: url("#aw-grad-car");
+} .cone {
+  fill: url("#aw-grad-cone");
+  stroke: #fff;
+  stroke-width: 1;
+  stroke-linejoin: round;
+} .cone-stripe {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+} .cone-base {
+  fill: #c2410c;
+} .car-glass {
+  fill: url("#aw-grad-car-glass");
+  stroke: #ffffffb3;
+  stroke-width: 1;
+} .car-shadow {
+  fill: var(--aw-car-shadow);
+  filter: url("#aw-soft");
+} .headlight {
+  fill: #9ff3ff;
+  filter: url("#aw-glow");
+} .lidar {
+  fill: url("#aw-grad-ai");
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow-route" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--route" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <filter id="aw-glow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="aw-grad-ai" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00c8ff"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-car" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2a1fa8"/>
+      <stop offset="0.35" stop-color="#3f2ee3"/>
+      <stop offset="0.75" stop-color="#2a6df2"/>
+      <stop offset="1" stop-color="#00b4ff"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-car-glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#bfeeff" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#7fd8ff" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-cone" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e5560f"/>
+      <stop offset="1" stop-color="#ffa25c"/>
+    </linearGradient>
+    <filter id="aw-soft" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feGaussianBlur stdDeviation="3.5"/>
+    </filter>
+  </defs>
+
+  <!-- Road with one lane that turns right -->
+  <path class="road" d="M0 40 H480 A200 200 0 0 1 680 240 V340 H570 V240 A90 90 0 0 0 480 150 H0 Z"/>
+  <path class="mark" fill="none" d="M0 46 H480 A194 194 0 0 1 674 240 V340"/>
+  <path class="mark" fill="none" d="M0 144 H480 A96 96 0 0 1 576 240 V340"/>
+
+  <!-- Section where the ego vehicle slows down -->
+  <path class="lanelet alt" d="M380 81 H480 A159 159 0 0 1 639 240 V320 H611 V240 A131 131 0 0 0 480 109 H380 Z"/>
+
+  <!-- Obstacle at the outer edge of the curve -->
+  <g class="obstacle">
+    <ellipse class="car-shadow" cx="632" cy="110" rx="13" ry="3"/>
+    <rect class="cone-base" x="619" y="105" width="26" height="5" rx="2"/>
+    <path class="cone" d="M632 85 L642 106 H622 Z"/>
+    <path class="cone-stripe" d="M626.6 96.5 H637.4"/>
+  </g>
+
+  <!-- Planned path -->
+  <path class="route" d="M150 95 H480 A145 145 0 0 1 625 240 V320"/>
+  <path class="flow flow-route" pathLength="100" d="M150 95 H480 A145 145 0 0 1 625 240 V320"/>
+  <path class="route head" d="M150 95 H480 A145 145 0 0 1 625 240 V320"/>
+  <g transform="translate(99 75) rotate(90 11 20)">
+    <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
+    <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
+    <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
+    <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
+    <circle class="lidar" cx="11" cy="22" r="3.2"/>
+    <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
+    <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
+  </g>
+  <text class="note" x="750" y="40" text-anchor="end" dominant-baseline="central">Obstacle near the path</text>
+  <line class="leader" x1="700" y1="50" x2="645" y2="88"/>
+  <text class="note" x="300" y="190" text-anchor="middle" dominant-baseline="central">Slow down more for the obstacle</text>
+  <line class="leader" x1="330" y1="180" x2="420" y2="110"/>
+</svg>

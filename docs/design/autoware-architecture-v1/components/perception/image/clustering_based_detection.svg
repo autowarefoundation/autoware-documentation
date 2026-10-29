@@ -1,0 +1,282 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 806" role="img" aria-labelledby="clustering-based-detection-title">
+  <title id="clustering-based-detection-title">
+    The pointcloud map filter removes the points of the obstacle point cloud that match the point cloud map. In LiDAR clustering, Euclidean clustering, a convex hull conversion, and the lanelet filter
+    make objects for the lidar_clustering channel. In camera-LiDAR fusion, an optional segmentation filter, Euclidean clustering, ROI cluster fusion with a 2D detector, the low-intensity filter, a
+    convex hull conversion, and the lanelet filter make objects for the camera_lidar_fusion channel. Both go to the multi-object tracker.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-cyan: #00c8ff; --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.ai {
+  fill: color-mix(in srgb, var(--aw-cyan) 14%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-cyan) 70%, transparent);
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .card.ai {
+  fill: color-mix(in srgb, var(--aw-cyan) 8%, var(--aw-d-node));
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 65%, transparent);
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.ai {
+  fill: url("#aw-grad-ai");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-ai" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00c8ff"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="806"/>
+  <circle class="halo" cx="210" cy="400" r="170"/>
+  <circle class="halo cyan" cx="620" cy="450" r="200"/>
+
+  <!-- Shared input -->
+  <rect class="box muted" x="280" y="16" width="300" height="54" rx="12"/>
+  <text class="lbl" x="430" y="35" text-anchor="middle" dominant-baseline="central">Obstacle segmentation</text>
+  <text class="sub" x="430" y="55" text-anchor="middle" dominant-baseline="central">Points without the ground</text>
+
+  <rect class="card" x="280" y="106" width="300" height="56" rx="12"/>
+  <circle class="icon-bg" cx="308" cy="134" r="17"/>
+  <path class="icon-line" d="M300 128 H316 L310 135 V141 L306 139 V135 Z"/>
+  <text class="lbl" x="430" y="125" text-anchor="middle" dominant-baseline="central">Pointcloud map filter</text>
+  <text class="sub" x="430" y="145" text-anchor="middle" dominant-baseline="central">Removes points that match the map</text>
+
+  <rect class="box muted" x="40" y="111" width="180" height="46" rx="12"/>
+  <text class="lbl" x="130" y="134" text-anchor="middle" dominant-baseline="central">Point cloud map</text>
+
+  <path class="edge" d="M430 70 V98"/>
+  <path class="flow" pathLength="100" d="M430 70 V98"/>
+  <path class="edge head" d="M430 70 V98"/>
+  <path class="edge" d="M220 134 H272"/>
+  <path class="flow" pathLength="100" d="M220 134 H272"/>
+  <path class="edge head" d="M220 134 H272"/>
+  <path class="edge" d="M400 162 V184 H210 V232"/>
+  <path class="flow" pathLength="100" d="M400 162 V184 H210 V232"/>
+  <path class="edge head" d="M400 162 V184 H210 V232"/>
+  <path class="edge" d="M460 162 V184 H540 V232"/>
+  <path class="flow" pathLength="100" d="M460 162 V184 H540 V232"/>
+  <path class="edge head" d="M460 162 V184 H540 V232"/>
+
+  <!-- LiDAR clustering -->
+  <rect class="glass-panel" x="40" y="200" width="340" height="500" rx="16"/>
+  <text class="ttl" x="60" y="226">LiDAR clustering</text>
+
+  <rect class="card" x="80" y="240" width="260" height="50" rx="12"/>
+  <text class="lbl" x="210" y="257" text-anchor="middle" dominant-baseline="central">Euclidean clustering</text>
+  <text class="sub" x="210" y="275" text-anchor="middle" dominant-baseline="central">Voxel grid based</text>
+
+  <rect class="card" x="80" y="316" width="260" height="50" rx="12"/>
+  <text class="lbl" x="210" y="333" text-anchor="middle" dominant-baseline="central">Feature remover</text>
+  <text class="sub" x="210" y="351" text-anchor="middle" dominant-baseline="central">Convex hull shape</text>
+
+  <rect class="card" x="80" y="392" width="260" height="50" rx="12"/>
+  <text class="lbl" x="210" y="409" text-anchor="middle" dominant-baseline="central">Lanelet filter</text>
+  <text class="sub" x="210" y="427" text-anchor="middle" dominant-baseline="central">Keeps objects on the lanes</text>
+
+  <path class="edge" d="M210 290 V308"/>
+  <path class="flow" pathLength="100" d="M210 290 V308"/>
+  <path class="edge head" d="M210 290 V308"/>
+  <path class="edge" d="M210 366 V384"/>
+  <path class="flow" pathLength="100" d="M210 366 V384"/>
+  <path class="edge head" d="M210 366 V384"/>
+  <path class="edge accent" d="M210 442 V732"/>
+  <path class="flow flow-accent" pathLength="100" d="M210 442 V732"/>
+  <path class="edge accent head" d="M210 442 V732"/>
+  <text class="edge-lbl" x="210" y="580" text-anchor="middle" dominant-baseline="central">Channel lidar_clustering</text>
+
+  <!-- Camera-LiDAR fusion clustering -->
+  <rect class="glass-panel" x="420" y="200" width="400" height="500" rx="16"/>
+  <text class="ttl" x="800" y="226" text-anchor="end">Camera-LiDAR fusion</text>
+
+  <rect class="box muted" x="440" y="240" width="200" height="50" rx="12"/>
+  <text class="lbl" x="540" y="257" text-anchor="middle" dominant-baseline="central">Segmentation filter</text>
+  <text class="sub" x="540" y="275" text-anchor="middle" dominant-baseline="central">Optional</text>
+
+  <rect class="card" x="440" y="316" width="200" height="50" rx="12"/>
+  <text class="lbl" x="540" y="333" text-anchor="middle" dominant-baseline="central">Euclidean clustering</text>
+  <text class="sub" x="540" y="351" text-anchor="middle" dominant-baseline="central">Voxel grid based</text>
+
+  <rect class="card" x="440" y="392" width="200" height="50" rx="12"/>
+  <text class="lbl" x="540" y="409" text-anchor="middle" dominant-baseline="central">ROI cluster fusion</text>
+  <text class="sub" x="540" y="427" text-anchor="middle" dominant-baseline="central">Class from the 2D boxes</text>
+
+  <rect class="card ai" x="680" y="392" width="120" height="50" rx="12"/>
+  <text class="lbl" x="740" y="409" text-anchor="middle" dominant-baseline="central">2D detector</text>
+  <text class="sub" x="740" y="427" text-anchor="middle" dominant-baseline="central">YOLOX</text>
+
+  <rect class="card" x="440" y="468" width="200" height="50" rx="12"/>
+  <text class="lbl" x="540" y="485" text-anchor="middle" dominant-baseline="central">Low-intensity filter</text>
+  <text class="sub" x="540" y="503" text-anchor="middle" dominant-baseline="central">Raindrop clusters</text>
+
+  <rect class="card" x="440" y="544" width="200" height="50" rx="12"/>
+  <text class="lbl" x="540" y="561" text-anchor="middle" dominant-baseline="central">Feature remover</text>
+  <text class="sub" x="540" y="579" text-anchor="middle" dominant-baseline="central">Convex hull shape</text>
+
+  <rect class="card" x="440" y="620" width="200" height="50" rx="12"/>
+  <text class="lbl" x="540" y="637" text-anchor="middle" dominant-baseline="central">Lanelet filter</text>
+  <text class="sub" x="540" y="655" text-anchor="middle" dominant-baseline="central">Keeps objects on the lanes</text>
+
+  <path class="edge" d="M540 290 V308"/>
+  <path class="flow" pathLength="100" d="M540 290 V308"/>
+  <path class="edge head" d="M540 290 V308"/>
+  <path class="edge" d="M540 366 V384"/>
+  <path class="flow" pathLength="100" d="M540 366 V384"/>
+  <path class="edge head" d="M540 366 V384"/>
+  <path class="edge" d="M680 417 H648"/>
+  <path class="flow" pathLength="100" d="M680 417 H648"/>
+  <path class="edge head" d="M680 417 H648"/>
+  <path class="edge" d="M540 442 V460"/>
+  <path class="flow" pathLength="100" d="M540 442 V460"/>
+  <path class="edge head" d="M540 442 V460"/>
+  <path class="edge" d="M540 518 V536"/>
+  <path class="flow" pathLength="100" d="M540 518 V536"/>
+  <path class="edge head" d="M540 518 V536"/>
+  <path class="edge" d="M540 594 V612"/>
+  <path class="flow" pathLength="100" d="M540 594 V612"/>
+  <path class="edge head" d="M540 594 V612"/>
+  <path class="edge accent" d="M540 670 V732"/>
+  <path class="flow flow-accent" pathLength="100" d="M540 670 V732"/>
+  <path class="edge accent head" d="M540 670 V732"/>
+  <text class="edge-lbl" x="540" y="716" text-anchor="middle" dominant-baseline="central">Channel camera_lidar_fusion</text>
+
+  <!-- The tracker -->
+  <rect class="box primary" x="40" y="740" width="780" height="50" rx="12"/>
+  <circle class="icon-bg on" cx="332" cy="765" r="17"/>
+  <path class="icon-line" d="M323 774 L331 764 L341 758"/>
+  <circle class="icon-dot" cx="323" cy="774" r="2.4"/>
+  <circle class="icon-dot" cx="331" cy="764" r="2.4"/>
+  <circle class="icon-dot" cx="341" cy="758" r="2.4"/>
+  <text class="lbl on-primary" x="430" y="765" text-anchor="middle" dominant-baseline="central">Multi-object tracker</text>
+</svg>

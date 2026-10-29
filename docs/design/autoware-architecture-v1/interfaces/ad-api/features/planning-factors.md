@@ -40,7 +40,7 @@ As the vehicle approaches the stop position, this factor appears with a status o
 And when the vehicle reaches that position and stops, the status will be STOPPED.
 The pose indicates the stop position, or the base link if the stop position cannot be calculated.
 
-![velocity-factors](planning-factors/velocity-factors.drawio.svg)
+{{ diagram("planning-factors/velocity-factors.svg", "A velocity factor for a stop in front of an obstacle.") }}
 
 ## Steering factors
 
@@ -62,9 +62,9 @@ As the vehicle approaches the position to start steering, this factor appears wi
 And when the vehicle reaches that position, the status will be TURNING.
 The poses indicate the start and end position of the section where the status is TURNING.
 
-![steering-factors-1](planning-factors/steering-factors-1.drawio.svg)
+{{ diagram("planning-factors/steering-factors-1.svg", "A steering factor for a left turn at an intersection.") }}
 
 In cases such as lane change and avoidance, the vehicle will start steering at any position in the range depending on the situation.
 For these types, the section where the status is TURNING will be updated dynamically and the poses will follow that.
 
-![steering-factors-2](planning-factors/steering-factors-2.drawio.svg)
+{{ diagram("planning-factors/steering-factors-2.svg", "A steering factor for a lane change. The section can move forward while the vehicle drives (red).") }}

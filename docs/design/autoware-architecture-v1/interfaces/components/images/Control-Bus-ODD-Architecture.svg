@@ -1,0 +1,243 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 600" role="img" aria-labelledby="control-interface-title">
+  <title id="control-interface-title">
+    The Control component takes the trajectory and the vehicle signal commands from Planning, the kinematic state from Localization, and the status of the vehicle. Its vehicle command gate sends the
+    control, gear, turn indicator, and hazard light commands to the vehicle interface.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="600"/>
+  <circle class="halo" cx="300" cy="310" r="150"/>
+  <circle class="halo cyan" cx="330" cy="528" r="70"/>
+
+  <!-- Other components -->
+  <rect class="card" x="20" y="20" width="240" height="56" rx="12"/>
+  <text class="lbl" x="140" y="48" text-anchor="middle" dominant-baseline="central">Planning</text>
+  <rect class="card" x="310" y="20" width="240" height="56" rx="12"/>
+  <text class="lbl" x="430" y="48" text-anchor="middle" dominant-baseline="central">Localization</text>
+  <rect class="card" x="600" y="20" width="240" height="56" rx="12"/>
+  <text class="lbl" x="720" y="48" text-anchor="middle" dominant-baseline="central">AD API</text>
+
+  <!-- The Control component -->
+  <rect class="glass-panel" x="20" y="150" width="640" height="300" rx="18"/>
+  <text class="ttl" x="44" y="174">Control</text>
+
+  <rect class="card" x="50" y="190" width="220" height="56" rx="12"/>
+  <circle class="icon-bg" cx="80" cy="218" r="16"/>
+  <circle class="icon-line" cx="80" cy="218" r="7"/>
+  <path class="icon-line" d="M73 218 H87 M80 218 V225"/>
+  <text class="lbl" x="106" y="208" dominant-baseline="central">Trajectory follower</text>
+  <text class="sub" x="106" y="228" dominant-baseline="central">MPC and PID controllers</text>
+
+  <rect class="card" x="50" y="290" width="150" height="44" rx="12"/>
+  <text class="lbl" x="125" y="312" text-anchor="middle" dominant-baseline="central">Shift decider</text>
+
+  <rect class="card" x="330" y="190" width="310" height="56" rx="12"/>
+  <text class="lbl" x="485" y="210" text-anchor="middle" dominant-baseline="central">Operation mode transition manager</text>
+  <text class="sub" x="485" y="230" text-anchor="middle" dominant-baseline="central">Publishes the operation mode</text>
+
+  <rect class="box primary" x="50" y="380" width="470" height="50" rx="14"/>
+  <circle class="icon-bg on" cx="176" cy="405" r="16"/>
+  <path class="icon-line" d="M176 397 L183 400 V405 Q183 410 176 413 Q169 410 169 405 V400 Z"/>
+  <text class="lbl on-primary" x="285" y="405" text-anchor="middle" dominant-baseline="central">Vehicle command gate</text>
+
+  <!-- Inputs -->
+  <path class="edge accent" d="M200 76 V184"/>
+  <path class="flow flow-accent" pathLength="100" d="M200 76 V184"/>
+  <path class="edge accent head" d="M200 76 V184"/>
+  <text class="edge-lbl code" x="200" y="104" text-anchor="middle" dominant-baseline="central">/planning/trajectory</text>
+  <path class="edge" d="M32 76 V405 H44"/>
+  <path class="flow" pathLength="100" d="M32 76 V405 H44"/>
+  <path class="edge head" d="M32 76 V405 H44"/>
+  <text class="edge-lbl code" x="38" y="138" dominant-baseline="central">turn_indicators_cmd</text>
+  <text class="edge-lbl code" x="38" y="154" dominant-baseline="central">hazard_lights_cmd</text>
+
+  <path class="edge" d="M430 76 V184"/>
+  <path class="flow" pathLength="100" d="M430 76 V184"/>
+  <path class="edge head" d="M430 76 V184"/>
+  <path class="edge" d="M430 140 H250 V184"/>
+  <path class="flow" pathLength="100" d="M430 140 H250 V184"/>
+  <path class="edge head" d="M430 140 H250 V184"/>
+  <text class="edge-lbl code" x="430" y="104" text-anchor="middle" dominant-baseline="central">/localization/kinematic_state</text>
+
+  <path class="edge dash" d="M720 76 V218 H646"/>
+  <text class="edge-lbl code" x="720" y="130" text-anchor="middle" dominant-baseline="central">change_operation_mode</text>
+
+  <!-- Inside Control -->
+  <path class="edge" d="M125 246 V284"/>
+  <path class="flow" pathLength="100" d="M125 246 V284"/>
+  <path class="edge head" d="M125 246 V284"/>
+  <path class="edge accent" d="M240 246 V374"/>
+  <path class="flow flow-accent" pathLength="100" d="M240 246 V374"/>
+  <path class="edge accent head" d="M240 246 V374"/>
+  <text class="edge-lbl code" x="240" y="300" text-anchor="middle" dominant-baseline="central">control_cmd</text>
+  <path class="edge" d="M125 334 V374"/>
+  <path class="flow" pathLength="100" d="M125 334 V374"/>
+  <path class="edge head" d="M125 334 V374"/>
+  <text class="edge-lbl code" x="125" y="354" text-anchor="middle" dominant-baseline="central">gear_cmd</text>
+  <path class="edge" d="M420 246 V374"/>
+  <path class="flow" pathLength="100" d="M420 246 V374"/>
+  <path class="edge head" d="M420 246 V374"/>
+  <text class="edge-lbl code" x="420" y="310" text-anchor="middle" dominant-baseline="central">/system/operation_mode/state</text>
+
+  <!-- Outputs to the vehicle interface -->
+  <rect class="card" x="20" y="520" width="620" height="56" rx="12"/>
+  <text class="lbl" x="330" y="548" text-anchor="middle" dominant-baseline="central">Vehicle interface</text>
+
+  <path class="edge accent" d="M285 430 V514"/>
+  <path class="flow flow-accent" pathLength="100" d="M285 430 V514"/>
+  <path class="edge accent head" d="M285 430 V514"/>
+  <text class="edge-lbl code" x="285" y="462" text-anchor="middle" dominant-baseline="central">/control/command/control_cmd, gear_cmd,</text>
+  <text class="edge-lbl code" x="285" y="478" text-anchor="middle" dominant-baseline="central">turn_indicators_cmd, hazard_lights_cmd</text>
+  <path class="edge dash" d="M590 246 V514"/>
+  <text class="edge-lbl code" x="590" y="486" text-anchor="middle" dominant-baseline="central">/control/control_mode_request</text>
+
+  <!-- Status from the vehicle interface -->
+  <path class="edge" d="M640 548 H730 V330 H666"/>
+  <path class="flow" pathLength="100" d="M640 548 H730 V330 H666"/>
+  <path class="edge head" d="M640 548 H730 V330 H666"/>
+  <text class="edge-lbl code" x="740" y="384" dominant-baseline="central">/vehicle/status/</text>
+  <text class="edge-lbl code" x="740" y="400" dominant-baseline="central">steering_status</text>
+  <text class="edge-lbl code" x="740" y="416" dominant-baseline="central">gear_status</text>
+  <text class="edge-lbl code" x="740" y="432" dominant-baseline="central">control_mode</text>
+</svg>

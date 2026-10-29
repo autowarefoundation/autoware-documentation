@@ -9,13 +9,13 @@ The following communication types are considered:
 - CAN-FD
 - Ethernet
 
-![draw.io figure](image/radar-communication.drawio.svg)
+{{ diagram("image/radar-communication.svg", "The radar device and the ROS driver exchange data in both directions.") }}
 
 ## Software Interface
 
 Autoware support `ros-perception/radar_msgs/msg/RadarScan.msg` and `autoware_auto_perception_msgs/msg/TrackedObjects.msg` for Radar drivers.
 
-![draw.io figure](image/radar-driver.drawio.svg)
+{{ diagram("image/radar-driver.svg", "Inside the radar, target detection makes the scan points. Object tracking makes the tracks.") }}
 
 ROS driver receive the data from radar devices.
 

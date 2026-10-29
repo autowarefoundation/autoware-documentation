@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" role="img" aria-labelledby="radar-communication-title">
+  <title id="radar-communication-title">
+    The radar device sends scans, tracked objects, and diagnostics to the ROS driver. The ROS driver sends time synchronization and the ego vehicle status to the radar device.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="720" height="200"/>
+  <circle class="halo cyan" cx="360" cy="100" r="95"/>
+  <circle class="halo" cx="595" cy="104" r="90"/>
+
+  <rect class="box muted" x="40" y="72" width="170" height="64" rx="12"/>
+  <circle class="icon-bg" cx="70" cy="104" r="16"/>
+  <circle class="icon-dot" cx="64" cy="110" r="2.4"/>
+  <path class="icon-line" d="M64 102 A8 8 0 0 1 72 110"/>
+  <path class="icon-line" d="M64 95 A15 15 0 0 1 79 110"/>
+  <text class="lbl" x="140" y="104" text-anchor="middle" dominant-baseline="central">Radar device</text>
+
+  <rect class="box primary" x="510" y="72" width="170" height="64" rx="14"/>
+  <circle class="icon-bg on" cx="545" cy="104" r="18"/>
+  <rect class="icon-line" x="539" y="98" width="12" height="12" rx="2"/>
+  <path class="icon-line" d="M542 98 V94 M548 98 V94 M542 110 V114 M548 110 V114"/>
+  <text class="lbl on-primary" x="610" y="104" text-anchor="middle" dominant-baseline="central">ROS driver</text>
+
+  <!-- Device to driver -->
+  <path class="edge accent" d="M210 92 H502"/>
+  <path class="flow flow-accent" pathLength="100" d="M210 92 H502"/>
+  <path class="edge accent head" d="M210 92 H502"/>
+  <text class="sub" x="360" y="24" text-anchor="middle" dominant-baseline="central">Scan (RadarScan)</text>
+  <text class="sub" x="360" y="44" text-anchor="middle" dominant-baseline="central">Tracked objects (RadarTracks)</text>
+  <text class="sub" x="360" y="64" text-anchor="middle" dominant-baseline="central">Diagnostics</text>
+
+  <!-- Driver to device -->
+  <path class="edge" d="M510 116 H218"/>
+  <path class="flow" pathLength="100" d="M510 116 H218"/>
+  <path class="edge head" d="M510 116 H218"/>
+  <text class="sub" x="360" y="144" text-anchor="middle" dominant-baseline="central">Time synchronization</text>
+  <text class="sub" x="360" y="164" text-anchor="middle" dominant-baseline="central">Ego vehicle status</text>
+</svg>

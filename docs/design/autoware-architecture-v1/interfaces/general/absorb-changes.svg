@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" role="img" aria-labelledby="absorb-changes-title">
+  <title id="absorb-changes-title">
+    Without the AD API, each HMI must match one Autoware version. With the AD API, the HMI uses the same interface for every version, and each AD API implementation absorbs the differences.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="760" height="440"/>
+  <circle class="halo cyan" cx="380" cy="176" r="64"/>
+  <circle class="halo" cx="380" cy="318" r="116"/>
+
+  <!-- Without the AD API -->
+  <text class="ttl" x="40" y="26">Without AD API</text>
+  <path class="box muted" d="M40 44 L240 44 L240 84 L240 84 L190 84 L190 94 L150 94 L150 84 L130 84 L130 94 L90 94 L90 84 L40 84 Z"/>
+  <text class="lbl" x="140" y="64" text-anchor="middle" dominant-baseline="central">HMI for Core v1.0</text>
+  <path class="card" d="M40 90 L90 90 L90 100 L130 100 L130 90 L150 90 L150 100 L190 100 L190 90 L240 90 L240 136 L40 136 Z"/>
+  <text class="lbl" x="140" y="118" text-anchor="middle" dominant-baseline="central">Autoware Core v1.0</text>
+  <path class="box muted" d="M280 44 L480 44 L480 84 L480 84 L440 84 L440 94 L410 94 L410 84 L390 84 L390 94 L360 94 L360 84 L340 84 L340 94 L310 94 L310 84 L280 84 Z"/>
+  <text class="lbl" x="380" y="64" text-anchor="middle" dominant-baseline="central">HMI for Core v1.1</text>
+  <path class="card" d="M280 90 L310 90 L310 100 L340 100 L340 90 L360 90 L360 100 L390 100 L390 90 L410 90 L410 100 L440 100 L440 90 L480 90 L480 136 L280 136 Z"/>
+  <text class="lbl" x="380" y="118" text-anchor="middle" dominant-baseline="central">Autoware Core v1.1</text>
+  <path class="box muted" d="M520 44 L720 44 L720 94 L720 94 L680 84 L640 94 L600 84 L560 94 L520 84 Z"/>
+  <text class="lbl" x="620" y="64" text-anchor="middle" dominant-baseline="central">HMI for Universe</text>
+  <path class="card" d="M520 90 L560 100 L600 90 L640 100 L680 90 L720 100 L720 136 L520 136 Z"/>
+  <text class="lbl" x="620" y="118" text-anchor="middle" dominant-baseline="central">Autoware Universe</text>
+
+  <path class="edge accent" d="M380 156 V196"/>
+  <path class="flow flow-accent" pathLength="100" d="M380 156 V196"/>
+  <path class="edge accent head" d="M380 156 V196"/>
+
+  <!-- With the AD API -->
+  <text class="ttl" x="40" y="228">With AD API</text>
+  <path class="box muted" d="M40 246 L240 246 L240 286 L240 286 L170 286 L155 298 L125 298 L110 286 L40 286 Z"/>
+  <text class="lbl" x="140" y="266" text-anchor="middle" dominant-baseline="central">HMI</text>
+  <path class="box primary" d="M40 292 L110 292 L125 304 L155 304 L170 292 L240 292 L240 338 L240 338 L190 338 L190 348 L150 348 L150 338 L130 338 L130 348 L90 348 L90 338 L40 338 Z"/>
+  <text class="lbl on-primary" x="140" y="320" text-anchor="middle" dominant-baseline="central">AD API for Core v1.0</text>
+  <path class="card" d="M40 350 L90 350 L90 360 L130 360 L130 350 L150 350 L150 360 L190 360 L190 350 L240 350 L240 396 L40 396 Z"/>
+  <text class="lbl" x="140" y="378" text-anchor="middle" dominant-baseline="central">Autoware Core v1.0</text>
+  <path class="box muted" d="M280 246 L480 246 L480 286 L480 286 L410 286 L395 298 L365 298 L350 286 L280 286 Z"/>
+  <text class="lbl" x="380" y="266" text-anchor="middle" dominant-baseline="central">HMI</text>
+  <path
+    class="box primary"
+    d="M280 292 L350 292 L365 304 L395 304 L410 292 L480 292 L480 338 L480 338 L440 338 L440 348 L410 348 L410 338 L390 338 L390 348 L360 348 L360 338 L340 338 L340 348 L310 348 L310 338 L280 338 Z"
+  />
+  <text class="lbl on-primary" x="380" y="320" text-anchor="middle" dominant-baseline="central">AD API for Core v1.1</text>
+  <path class="card" d="M280 350 L310 350 L310 360 L340 360 L340 350 L360 350 L360 360 L390 360 L390 350 L410 350 L410 360 L440 360 L440 350 L480 350 L480 396 L280 396 Z"/>
+  <text class="lbl" x="380" y="378" text-anchor="middle" dominant-baseline="central">Autoware Core v1.1</text>
+  <path class="box muted" d="M520 246 L720 246 L720 286 L720 286 L650 286 L635 298 L605 298 L590 286 L520 286 Z"/>
+  <text class="lbl" x="620" y="266" text-anchor="middle" dominant-baseline="central">HMI</text>
+  <path class="box primary" d="M520 292 L590 292 L605 304 L635 304 L650 292 L720 292 L720 348 L720 348 L680 338 L640 348 L600 338 L560 348 L520 338 Z"/>
+  <text class="lbl on-primary" x="620" y="320" text-anchor="middle" dominant-baseline="central">AD API for Universe</text>
+  <path class="card" d="M520 350 L560 360 L600 350 L640 360 L680 350 L720 360 L720 396 L520 396 Z"/>
+  <text class="lbl" x="620" y="378" text-anchor="middle" dominant-baseline="central">Autoware Universe</text>
+</svg>

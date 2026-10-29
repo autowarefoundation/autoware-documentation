@@ -1,0 +1,227 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 480" role="img" aria-labelledby="high-level-perception-diagram-title">
+  <title id="high-level-perception-diagram-title">
+    Sensing, Localization, Map, and the API send data to the Perception component. Perception has four sub-components: object recognition, obstacle segmentation, occupancy grid map, and traffic light
+    recognition. Perception sends its results to Planning.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="480"/>
+  <circle class="halo" cx="420" cy="240" r="190"/>
+  <circle class="halo cyan" cx="700" cy="250" r="150"/>
+
+  <!-- The API layer -->
+  <rect class="box muted" x="420" y="16" width="260" height="54" rx="12"/>
+  <text class="lbl" x="550" y="35" text-anchor="middle" dominant-baseline="central">API</text>
+  <text class="sub" x="550" y="55" text-anchor="middle" dominant-baseline="central">V2X information</text>
+  <path class="edge" d="M550 70 V110"/>
+  <path class="flow" pathLength="100" d="M550 70 V110"/>
+  <path class="edge head" d="M550 70 V110"/>
+
+  <!-- The input components -->
+  <rect class="box muted" x="20" y="146" width="170" height="54" rx="12"/>
+  <text class="lbl" x="105" y="165" text-anchor="middle" dominant-baseline="central">Sensing</text>
+  <text class="sub" x="105" y="185" text-anchor="middle" dominant-baseline="central">Point cloud, images, radar</text>
+
+  <rect class="box muted" x="20" y="218" width="170" height="54" rx="12"/>
+  <text class="lbl" x="105" y="237" text-anchor="middle" dominant-baseline="central">Localization</text>
+  <text class="sub" x="105" y="257" text-anchor="middle" dominant-baseline="central">Ego pose and velocity</text>
+
+  <rect class="box muted" x="20" y="290" width="170" height="54" rx="12"/>
+  <text class="lbl" x="105" y="309" text-anchor="middle" dominant-baseline="central">Map</text>
+  <text class="sub" x="105" y="329" text-anchor="middle" dominant-baseline="central">Vector and point cloud maps</text>
+
+  <path class="edge" d="M190 173 H242"/>
+  <path class="flow" pathLength="100" d="M190 173 H242"/>
+  <path class="edge head" d="M190 173 H242"/>
+  <path class="edge" d="M190 245 H242"/>
+  <path class="flow" pathLength="100" d="M190 245 H242"/>
+  <path class="edge head" d="M190 245 H242"/>
+  <path class="edge" d="M190 317 H242"/>
+  <path class="flow" pathLength="100" d="M190 317 H242"/>
+  <path class="edge head" d="M190 317 H242"/>
+
+  <!-- The Perception component -->
+  <rect class="glass-panel" x="250" y="118" width="590" height="252" rx="16"/>
+  <text class="ttl" x="272" y="144">Perception</text>
+
+  <rect class="box primary" x="272" y="162" width="266" height="84" rx="12"/>
+  <circle class="icon-bg on" cx="308" cy="204" r="20"/>
+  <path class="icon-line" d="M300 201 V196 H305 M311 196 H316 V201 M316 207 V212 H311 M305 212 H300 V207"/>
+  <circle class="icon-dot" cx="308" cy="204" r="2.6"/>
+  <text class="lbl on-primary" x="340" y="194" dominant-baseline="central">Object recognition</text>
+  <text class="sub on-primary" x="340" y="215" dominant-baseline="central">Detection, tracking, prediction</text>
+
+  <rect class="card" x="556" y="162" width="266" height="84" rx="12"/>
+  <circle class="icon-bg" cx="592" cy="204" r="20"/>
+  <path class="icon-line" d="M582 212 H602"/>
+  <circle class="icon-dot" cx="586" cy="204" r="2"/>
+  <circle class="icon-dot" cx="591" cy="197" r="2"/>
+  <circle class="icon-dot" cx="597" cy="201" r="2"/>
+  <circle class="icon-dot" cx="594" cy="207" r="2"/>
+  <text class="lbl" x="624" y="194" dominant-baseline="central">Obstacle segmentation</text>
+  <text class="sub" x="624" y="215" dominant-baseline="central">Points of obstacles to avoid</text>
+
+  <rect class="card" x="272" y="264" width="266" height="84" rx="12"/>
+  <circle class="icon-bg" cx="308" cy="306" r="20"/>
+  <rect class="icon-line" x="300" y="298" width="16" height="16" rx="2"/>
+  <path class="icon-line" d="M305.3 298 V314 M310.7 298 V314 M300 303.3 H316 M300 308.7 H316"/>
+  <text class="lbl" x="340" y="296" dominant-baseline="central">Occupancy grid map</text>
+  <text class="sub" x="340" y="317" dominant-baseline="central">Blind spots and free space</text>
+
+  <rect class="card" x="556" y="264" width="266" height="84" rx="12"/>
+  <circle class="icon-bg" cx="592" cy="306" r="20"/>
+  <rect class="icon-line" x="586" y="294" width="12" height="24" rx="4"/>
+  <circle class="icon-dot" cx="592" cy="300" r="2.2"/>
+  <circle class="icon-dot" cx="592" cy="306" r="2.2"/>
+  <circle class="icon-dot" cx="592" cy="312" r="2.2"/>
+  <text class="lbl" x="624" y="296" dominant-baseline="central">Traffic light recognition</text>
+  <text class="sub" x="624" y="317" dominant-baseline="central">Colors and arrows of the signals</text>
+
+  <!-- The output to Planning -->
+  <path class="edge accent" d="M550 370 V412"/>
+  <path class="flow flow-accent" pathLength="100" d="M550 370 V412"/>
+  <path class="edge accent head" d="M550 370 V412"/>
+  <text class="edge-lbl" x="550" y="391" text-anchor="middle" dominant-baseline="central">Objects, obstacles, grid map, signals</text>
+  <rect class="box muted" x="420" y="420" width="260" height="46" rx="12"/>
+  <text class="lbl" x="550" y="443" text-anchor="middle" dominant-baseline="central">Planning</text>
+</svg>

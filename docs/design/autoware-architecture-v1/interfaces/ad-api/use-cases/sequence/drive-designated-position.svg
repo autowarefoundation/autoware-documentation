@@ -1,0 +1,217 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 900" role="img" aria-labelledby="adapi-drive-designated-position-title">
+  <title id="adapi-drive-designated-position-title">
+    The application sets a route. When the autonomous mode is available, the user requests a start and the application changes to the autonomous mode. At the goal, Autoware changes to the stop mode
+    and the application clears the route.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-indigo: var(--aw-indigo); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .edge.plain {
+  marker-end: none;
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="900"/>
+  <circle class="halo" cx="535" cy="470" r="240"/>
+
+  <!-- Participants and lifelines -->
+  <rect class="card" x="10" y="16" width="180" height="44" rx="12"/>
+  <circle class="icon-bg" cx="81" cy="38" r="14"/>
+  <circle class="icon-line" cx="81" cy="35" r="3.2"/>
+  <path class="icon-line" d="M75 45 Q75 39.5 81 39.5 Q87 39.5 87 45"/>
+  <text class="lbl" x="104" y="38" dominant-baseline="central">User</text>
+  <line class="edge plain dash" x1="100" y1="60" x2="100" y2="888"/>
+  <rect class="card" x="210" y="16" width="180" height="44" rx="12"/>
+  <circle class="icon-bg" cx="261" cy="38" r="14"/>
+  <rect class="icon-line" x="254" y="32" width="14" height="12" rx="2"/>
+  <path class="icon-line" d="M254 36 H268"/>
+  <text class="lbl" x="284" y="38" dominant-baseline="central">Application</text>
+  <line class="edge plain dash" x1="300" y1="60" x2="300" y2="888"/>
+  <rect class="box primary" x="430" y="16" width="210" height="44" rx="12"/>
+  <circle class="icon-bg on" cx="454" cy="38" r="14"/>
+  <path class="icon-line" d="M451 33 L446 38 L451 43 M457 33 L462 38 L457 43"/>
+  <text class="lbl on-primary" x="477" y="38" dominant-baseline="central">AD API (operation mode)</text>
+  <line class="edge plain dash" x1="535" y1="60" x2="535" y2="888"/>
+  <rect class="box primary" x="670" y="16" width="180" height="44" rx="12"/>
+  <circle class="icon-bg on" cx="705" cy="38" r="14"/>
+  <path class="icon-line" d="M702 33 L697 38 L702 43 M708 33 L713 38 L708 43"/>
+  <text class="lbl on-primary" x="728" y="38" dominant-baseline="central">AD API (routing)</text>
+  <line class="edge plain dash" x1="760" y1="60" x2="760" y2="888"/>
+
+  <!-- Messages -->
+
+  <!-- Before the start -->
+  <path class="edge" d="M533 94 H302"/>
+  <path class="flow" pathLength="100" d="M533 94 H302"/>
+  <path class="edge head" d="M533 94 H302"/>
+  <text class="edge-lbl" x="417" y="83" text-anchor="middle" dominant-baseline="central">/api/operation_mode/state: autonomous not available</text>
+  <path class="edge" d="M298 136 H102"/>
+  <path class="flow" pathLength="100" d="M298 136 H102"/>
+  <path class="edge head" d="M298 136 H102"/>
+  <text class="edge-lbl" x="200" y="125" text-anchor="middle" dominant-baseline="central">not ready</text>
+  <path class="edge" d="M302 178 H758"/>
+  <path class="flow" pathLength="100" d="M302 178 H758"/>
+  <path class="edge head" d="M302 178 H758"/>
+  <text class="edge-lbl" x="530" y="167" text-anchor="middle" dominant-baseline="central">/api/routing/set_route_points</text>
+  <path class="edge dash" d="M758 220 H302"/>
+  <text class="edge-lbl" x="530" y="209" text-anchor="middle" dominant-baseline="central">response status</text>
+  <path class="edge" d="M758 262 H302"/>
+  <path class="flow" pathLength="100" d="M758 262 H302"/>
+  <path class="edge head" d="M758 262 H302"/>
+  <text class="edge-lbl" x="530" y="251" text-anchor="middle" dominant-baseline="central">/api/routing/state: SET</text>
+  <path class="edge" d="M533 304 H302"/>
+  <path class="flow" pathLength="100" d="M533 304 H302"/>
+  <path class="edge head" d="M533 304 H302"/>
+  <text class="edge-lbl" x="417" y="293" text-anchor="middle" dominant-baseline="central">/api/operation_mode/state: autonomous available</text>
+  <path class="edge" d="M298 346 H102"/>
+  <path class="flow" pathLength="100" d="M298 346 H102"/>
+  <path class="edge head" d="M298 346 H102"/>
+  <text class="edge-lbl" x="200" y="335" text-anchor="middle" dominant-baseline="central">ready to start</text>
+
+  <!-- Start -->
+  <path class="edge" d="M102 388 H298"/>
+  <path class="flow" pathLength="100" d="M102 388 H298"/>
+  <path class="edge head" d="M102 388 H298"/>
+  <text class="edge-lbl" x="200" y="377" text-anchor="middle" dominant-baseline="central">request to start</text>
+  <path class="edge" d="M302 430 H533"/>
+  <path class="flow" pathLength="100" d="M302 430 H533"/>
+  <path class="edge head" d="M302 430 H533"/>
+  <text class="edge-lbl" x="417" y="419" text-anchor="middle" dominant-baseline="central">/api/operation_mode/change_to_autonomous</text>
+  <path class="edge dash" d="M533 472 H302"/>
+  <text class="edge-lbl" x="417" y="461" text-anchor="middle" dominant-baseline="central">response status</text>
+  <path class="edge" d="M533 514 H302"/>
+  <path class="flow" pathLength="100" d="M533 514 H302"/>
+  <path class="edge head" d="M533 514 H302"/>
+  <text class="edge-lbl" x="417" y="503" text-anchor="middle" dominant-baseline="central">/api/operation_mode/state: AUTONOMOUS</text>
+  <rect class="box muted" x="40" y="546" width="780" height="32" rx="10"/>
+  <text class="sub" x="430" y="562" text-anchor="middle" dominant-baseline="central">Driving</text>
+
+  <!-- Arrival -->
+  <path class="edge" d="M758 608 H302"/>
+  <path class="flow" pathLength="100" d="M758 608 H302"/>
+  <path class="edge head" d="M758 608 H302"/>
+  <text class="edge-lbl" x="530" y="597" text-anchor="middle" dominant-baseline="central">/api/routing/state: ARRIVED</text>
+  <path class="edge" d="M758 650 H537"/>
+  <path class="flow" pathLength="100" d="M758 650 H537"/>
+  <path class="edge head" d="M758 650 H537"/>
+  <text class="edge-lbl" x="647" y="639" text-anchor="middle" dominant-baseline="central">change to the stop mode</text>
+  <path class="edge" d="M533 692 H302"/>
+  <path class="flow" pathLength="100" d="M533 692 H302"/>
+  <path class="edge head" d="M533 692 H302"/>
+  <text class="edge-lbl" x="417" y="681" text-anchor="middle" dominant-baseline="central">/api/operation_mode/state: STOP</text>
+  <path class="edge" d="M298 734 H102"/>
+  <path class="flow" pathLength="100" d="M298 734 H102"/>
+  <path class="edge head" d="M298 734 H102"/>
+  <text class="edge-lbl" x="200" y="723" text-anchor="middle" dominant-baseline="central">arrived</text>
+  <path class="edge" d="M302 776 H758"/>
+  <path class="flow" pathLength="100" d="M302 776 H758"/>
+  <path class="edge head" d="M302 776 H758"/>
+  <text class="edge-lbl" x="530" y="765" text-anchor="middle" dominant-baseline="central">/api/routing/clear_route</text>
+  <path class="edge dash" d="M758 818 H302"/>
+  <text class="edge-lbl" x="530" y="807" text-anchor="middle" dominant-baseline="central">response status</text>
+  <path class="edge" d="M758 860 H302"/>
+  <path class="flow" pathLength="100" d="M758 860 H302"/>
+  <path class="edge head" d="M758 860 H302"/>
+  <text class="edge-lbl" x="530" y="849" text-anchor="middle" dominant-baseline="central">/api/routing/state: UNSET</text>
+</svg>

@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 260" role="img" aria-labelledby="adapi-mrm-behavior-title">
+  <title id="adapi-mrm-behavior-title">
+    The MRM behavior starts at NONE. It can change to COMFORTABLE_STOP, PULL_OVER, or EMERGENCY_STOP. COMFORTABLE_STOP and PULL_OVER can change to EMERGENCY_STOP.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-crimson: var(--aw-crimson); --aw-c-indigo: var(--aw-indigo); --aw-crimson: #dc143c; --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.warn {
+  fill: color-mix(in srgb, var(--aw-crimson) 10%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-c-crimson) 70%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .icon {
+  fill: var(--aw-d-muted);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="820" height="260"/>
+  <circle class="halo" cx="416" cy="130" r="125"/>
+  <circle class="halo cyan" cx="708" cy="110" r="100"/>
+
+  <!-- Initial state -->
+  <circle class="icon" cx="22" cy="110" r="9"/>
+  <path class="edge" d="M31 110 H52"/>
+  <path class="flow" pathLength="100" d="M31 110 H52"/>
+  <path class="edge head" d="M31 110 H52"/>
+
+  <!-- Behaviors -->
+  <rect class="card" x="56" y="82" width="160" height="56" rx="12"/>
+  <text class="lbl" x="136" y="110" text-anchor="middle" dominant-baseline="central">NONE</text>
+
+  <rect class="card" x="316" y="16" width="200" height="56" rx="12"/>
+  <text class="lbl" x="416" y="44" text-anchor="middle" dominant-baseline="central">COMFORTABLE_STOP</text>
+
+  <rect class="card" x="316" y="148" width="200" height="56" rx="12"/>
+  <text class="lbl" x="416" y="176" text-anchor="middle" dominant-baseline="central">PULL_OVER</text>
+
+  <rect class="box warn" x="616" y="82" width="184" height="56" rx="12"/>
+  <text class="lbl" x="708" y="110" text-anchor="middle" dominant-baseline="central">EMERGENCY_STOP</text>
+
+  <!-- Transitions -->
+  <path class="edge" d="M216 102 H266 V44 H312"/>
+  <path class="flow" pathLength="100" d="M216 102 H266 V44 H312"/>
+  <path class="edge head" d="M216 102 H266 V44 H312"/>
+  <path class="edge" d="M216 118 H266 V176 H312"/>
+  <path class="flow" pathLength="100" d="M216 118 H266 V176 H312"/>
+  <path class="edge head" d="M216 118 H266 V176 H312"/>
+  <path class="edge" d="M516 44 H566 V102 H612"/>
+  <path class="flow" pathLength="100" d="M516 44 H566 V102 H612"/>
+  <path class="edge head" d="M516 44 H566 V102 H612"/>
+  <path class="edge" d="M516 176 H566 V118 H612"/>
+  <path class="flow" pathLength="100" d="M516 176 H566 V118 H612"/>
+  <path class="edge head" d="M516 176 H566 V118 H612"/>
+  <path class="edge" d="M136 138 V236 H708 V142"/>
+  <path class="flow" pathLength="100" d="M136 138 V236 H708 V142"/>
+  <path class="edge head" d="M136 138 V236 H708 V142"/>
+</svg>

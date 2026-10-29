@@ -19,13 +19,13 @@ In order to avoid obstacles, Autoware regards the Buffer Zone as a drivable area
 
 - Vehicles are not allowed to pass through safety areas. It's important to differentiate between Buffer Zones and safety areas. - Do not create a Polygon for the Buffer Zone in areas where static objects like poles are present and vehicles cannot pass, even if a Buffer Zone is painted on the surface. Buffer Zones should be established only in areas where vehicle passage is feasible.
 
-![svg](../assets/vm-06-01_1.svg)
+{{ diagram("../assets/vm-06-01_1.svg", "A Buffer Zone: a hatched marking that vehicles can drive on.") }}
 
-![svg](../assets/vm-06-01_2.svg)
+{{ diagram("../assets/vm-06-01_2.svg", "A safety zone: vehicles must not drive through it.") }}
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](../assets/vm-06-01_3.svg)
+{{ diagram("../assets/vm-06-01_3.svg", "hatched_road_markings Polygons on a straight road and at an intersection.") }}
 
 #### Incorrect vector map <!-- omit in toc -->
 
@@ -52,11 +52,11 @@ Refer to [Web.Auto Documentation - Creation of No Parking Area](https://docs.web
 
 Since _no_parking_area_ does not allow for setting a goal, Autoware cannot park the vehicle there.
 
-![svg](../assets/vm-06-02_1.svg)
+{{ diagram("../assets/vm-06-02_1.svg", "A no parking sign and the yellow line along the curb.") }}
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](../assets/vm-06-02_2.svg)
+{{ diagram("../assets/vm-06-02_2.svg", "The road Lanelet refers to a no_parking_area Regulatory Element and its Polygon.") }}
 
 #### Incorrect vector map <!-- omit in toc -->
 
@@ -82,11 +82,11 @@ Refer to [Web.Auto Documentation - Creation of No Parking Area](https://docs.web
 
 Since _no_parking_area_ does not allow for setting a goal, Autoware cannot park the vehicle there.
 
-![svg](../assets/vm-06-03_1.svg)
+{{ diagram("../assets/vm-06-03_1.svg", "A no parking and no stopping sign and the yellow line along the curb.") }}
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](../assets/vm-06-03_2.svg)
+{{ diagram("../assets/vm-06-03_2.svg", "The road Lanelet refers to a no_parking_area Regulatory Element and its Polygon.") }}
 
 #### Incorrect vector map <!-- omit in toc -->
 
@@ -112,11 +112,11 @@ Refer to [Web.Auto Documentation - Creation of No Stopping Area](https://docs.we
 
 The vehicle does not make temporary stops in _no_stopping_area_. Since goals cannot be set in _no_stopping_area_, the vehicle cannot park there.
 
-![svg](../assets/vm-06-04_1.svg)
+{{ diagram("../assets/vm-06-04_1.svg", "A no stopping zone: the vehicle must drive through without stopping.") }}
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](../assets/vm-06-04_2.svg)
+{{ diagram("../assets/vm-06-04_2.svg", "The road Lanelet refers to a no_stopping_area Regulatory Element, its Polygon, and an optional stop line.") }}
 
 #### Incorrect vector map <!-- omit in toc -->
 
@@ -140,7 +140,7 @@ Refer to [Web.Auto Documentation - Creation of Detection Area](https://docs.web.
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](../assets/vm-06-05_1.svg)
+{{ diagram("../assets/vm-06-05_1.svg", "The detection_area Regulatory Element refers to the stop line and to the detection area Polygon.") }}
 
 #### Incorrect vector map <!-- omit in toc -->
 

@@ -8,70 +8,7 @@
 
 Autoware has the following repository structure defined by the [`autoware.repos`](https://github.com/autowarefoundation/autoware/blob/main/repositories/autoware.repos) file:
 
-```mermaid
-flowchart LR
-
-%% ====================
-%% Autoware Core
-%% ====================
-subgraph AutowareCore["Autoware Core"]
-    AM([autoware_msgs])
-    AAM([autoware_adapi_msgs])
-    AIM([autoware_internal_msgs])
-    ACM([autoware_cmake])
-    AU([autoware_utils])
-    AL2([autoware_lanelet2_extension])
-    ARP([autoware_rviz_plugins])
-    AC([autoware_core])
-
-    AM --> AC
-    AAM --> AC
-    AIM --> AC
-    ACM --> AC
-    AU --> AC
-    AL2 --> AC
-    ARP --> AC
-end
-
-%% ====================
-%% Autoware Universe
-%% ====================
-subgraph AutowareUniverse["Autoware Universe"]
-    T4([tier4_autoware_msgs])
-    CB([cuda_blackboard])
-    MTB([managed_transform_buffer])
-    U([autoware_universe])
-
-    T4 --> U
-    CB --> U
-    MTB --> U
-end
-
-AC --> U
-
-%% ====================
-%% Nebula
-%% ====================
-subgraph Nebula["Nebula"]
-    RSC([ros2_socketcan])
-    TD([transport_drivers])
-    N([nebula])
-
-    RSC --> N
-    TD --> N
-end
-
-%% ====================
-%% Launch
-%% ====================
-L([autoware_launch])
-SCD([sensor_component_description])
-
-N --> L
-U --> L
-AC --> L
-SCD --> L
-```
+{{ diagram("images/repository-structure.svg", "An arrow points from a group of repositories to the repositories that build on it.") }}
 
 !!! note
 
