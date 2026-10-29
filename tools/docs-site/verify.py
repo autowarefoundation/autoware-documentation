@@ -11,12 +11,17 @@ address, but it must still lead to a file with the same content.
 
 A reference that is broken in the bundle may stay broken in the site. A
 reference that works in the bundle must work in the site.
+
+A version that passed before, and whose built site, assembled pages and tool
+code did not change since, is not checked again. Releases never change, so
+usually only the default branch and the previews are checked.
 """
 
 import argparse
 from concurrent.futures import ProcessPoolExecutor
 import hashlib
 from html.parser import HTMLParser
+import json
 import os
 from pathlib import Path
 from pathlib import PurePosixPath
@@ -161,6 +166,86 @@ def verify_version(name, bundle, site, site_url):
     return problems
 
 
+# The code that decides how a version is assembled and checked. A change to it
+# checks every version again.
+TOOL_FILES = ["assemble.py", "verify.py", "versions.py"]
+
+
+def fingerprint(name, bundle, site):
+    """Return a hash of everything that the check of a version depends on.
+
+    That is the built site of the version, its assembled pages, and the code of
+    the tools. The shared files are named after their content, so the pages
+    that reference them cover them too.
+    """
+    digest = hashlib.sha256()
+    here = Path(__file__).parent
+    roots = [(Path(bundle), "bundle"), (Path(site) / name, "site")]
+    for tool in TOOL_FILES:
+        digest.update((here / tool).read_bytes())
+    for root, label in roots:
+        for path in sorted(root.rglob("*")):
+            if path.is_file():
+                digest.update(f"{label}/{path.relative_to(root).as_posix()}\0".encode())
+                digest.update(hashlib.sha256(path.read_bytes()).digest())
+    return digest.hexdigest()
+
+
+def check_version(name, bundle, site, site_url, verified):
+    """Check one version, unless the same version passed the check before.
+
+    Return its fingerprint, and its problems or None if the check was skipped.
+    """
+    current = fingerprint(name, bundle, site)
+    if verified == current:
+        return current, None
+    return current, verify_version(name, bundle, site, site_url)
+
+
+def verify_all(bundles, site, site_url, state=None):
+    """Check every version of the site and print the result.
+
+    `state` is a JSON file that keeps the fingerprint of each version that
+    passed. A version with the same fingerprint is skipped, because nothing it
+    depends on changed. Return True if every version passed.
+    """
+    site_url = site_url if site_url.endswith("/") else site_url + "/"
+    state = Path(state) if state else None
+    verified = json.loads(state.read_text(encoding="utf-8")) if state and state.exists() else {}
+    bundles = [bundle for bundle in sorted(Path(bundles).iterdir()) if bundle.is_dir()]
+    # The versions are independent, so they are checked at the same time.
+    with ProcessPoolExecutor() as pool:
+        results = list(
+            pool.map(
+                check_version,
+                [bundle.name for bundle in bundles],
+                bundles,
+                [Path(site)] * len(bundles),
+                [site_url] * len(bundles),
+                [verified.get(bundle.name) for bundle in bundles],
+            )
+        )
+    passed = {}
+    failed = False
+    for bundle, (current, problems) in zip(bundles, results):
+        if problems is None:
+            print(f"{bundle.name}: unchanged since it passed, not checked again")
+            passed[bundle.name] = current
+            continue
+        pages = len(list(bundle.rglob("*.html")))
+        print(f"{bundle.name}: {pages} pages, {len(problems)} problems")
+        for problem in problems[:20]:
+            print(f"  {problem}")
+        if problems:
+            failed = True
+        else:
+            passed[bundle.name] = current
+    if state:
+        state.parent.mkdir(parents=True, exist_ok=True)
+        state.write_text(json.dumps(passed, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    return not failed
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument(
@@ -168,27 +253,12 @@ def main():
     )
     parser.add_argument("--site", required=True, help="the assembled site")
     parser.add_argument("--site-url", required=True, help="address of the site root")
+    parser.add_argument(
+        "--state",
+        help="JSON file that keeps the versions that passed, so that they are not checked again",
+    )
     args = parser.parse_args()
-    site_url = args.site_url if args.site_url.endswith("/") else args.site_url + "/"
-
-    bundles = [bundle for bundle in sorted(Path(args.bundles).iterdir()) if bundle.is_dir()]
-    # The versions are independent, so they are checked at the same time.
-    with ProcessPoolExecutor() as pool:
-        results = pool.map(
-            verify_version,
-            [bundle.name for bundle in bundles],
-            bundles,
-            [Path(args.site)] * len(bundles),
-            [site_url] * len(bundles),
-        )
-    failed = False
-    for bundle, problems in zip(bundles, results):
-        pages = len(list(bundle.rglob("*.html")))
-        print(f"{bundle.name}: {pages} pages, {len(problems)} problems")
-        for problem in problems[:20]:
-            print(f"  {problem}")
-        failed = failed or bool(problems)
-    return 1 if failed else 0
+    return 0 if verify_all(args.bundles, args.site, args.site_url, args.state) else 1
 
 
 if __name__ == "__main__":

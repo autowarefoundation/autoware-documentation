@@ -14,6 +14,7 @@ from assemble import MEDIA_DIRECTORY
 from assemble import assemble
 from assemble import media_name
 import pytest
+from verify import verify_all
 from verify import verify_version
 
 SITE_URL = "https://example.org/docs/"
@@ -303,3 +304,25 @@ def test_the_media_name_depends_only_on_the_content(tmp_path):
     write(first, PNG)
     write(second, PNG)
     assert media_name(first) == media_name(second) == media_name_of(PNG, ".png")
+
+
+def test_verify_skips_a_version_that_passed_and_did_not_change(bundles, tmp_path, capsys):
+    output, _ = run(bundles, tmp_path)
+    state = tmp_path / "state" / "verified.json"
+
+    assert verify_all(bundles, output, SITE_URL, state)
+    assert "main: 1 pages, 0 problems" in capsys.readouterr().out
+
+    assert verify_all(bundles, output, SITE_URL, state)
+    out = capsys.readouterr().out
+    assert "main: unchanged since it passed" in out
+    assert "1.9.0: unchanged since it passed" in out
+
+    # A changed page is checked again. It fails, so it leaves the state.
+    page_path = output / "main" / "home" / "index.html"
+    page_path.write_text(read(page_path).replace("Hello", "Goodbye"), encoding="utf-8")
+    assert not verify_all(bundles, output, SITE_URL, state)
+    out = capsys.readouterr().out
+    assert "main: 1 pages, 1 problems" in out
+    assert "1.9.0: unchanged since it passed" in out
+    assert list(json.loads(read(state))) == ["1.9.0"]

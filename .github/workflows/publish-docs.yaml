@@ -65,17 +65,41 @@ jobs:
           ref: ${{ steps.default-branch.outputs.name }}
           persist-credentials: false
 
+      - name: Read the site address
+        id: site
+        run: echo "url=$(grep -oP '^site_url:\s+\K(.*)' mkdocs.yaml)" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      # Only the newest state of the site matters. A run that waits behind this one collects and publishes everything
+      # anyway, so this run skips the publication. It still comments on its pull request below.
+      - name: Look for a newer run
+        id: newer-start
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          newer=$(gh run list -R "$GITHUB_REPOSITORY" --workflow publish-docs.yaml --limit 20 \
+            --json databaseId,status \
+            --jq "[.[] | select(.databaseId > $GITHUB_RUN_ID and (.status == \"requested\" or .status == \"queued\" or .status == \"pending\" or .status == \"waiting\"))] | length")
+          if [ "$newer" -gt 0 ]; then
+            echo "::notice::A newer run of publish-docs waits, so this run leaves the publication to it."
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          fi
+        shell: bash
+
       - name: Set up Python
+        if: ${{ steps.newer-start.outputs.found != 'true' }}
         uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
       - name: Install the tools
+        if: ${{ steps.newer-start.outputs.found != 'true' }}
         run: pip3 install -r tools/docs-site/requirements.txt
         shell: bash
 
       - name: List the releases
         id: releases
+        if: ${{ steps.newer-start.outputs.found != 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -85,6 +109,7 @@ jobs:
 
       # The site of a release never changes, so its archive is downloaded once and kept in the cache.
       - name: Restore the release archives
+        if: ${{ steps.newer-start.outputs.found != 'true' }}
         uses: actions/cache@v6
         with:
           path: .release-archives
@@ -93,6 +118,7 @@ jobs:
             docs-release-archives-
 
       - name: Collect the built sites
+        if: ${{ steps.newer-start.outputs.found != 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -103,12 +129,8 @@ jobs:
             --release-cache .release-archives
         shell: bash
 
-      - name: Read the site address
-        id: site
-        run: echo "url=$(grep -oP '^site_url:\s+\K(.*)' mkdocs.yaml)" >> "$GITHUB_OUTPUT"
-        shell: bash
-
       - name: Assemble the site
+        if: ${{ steps.newer-start.outputs.found != 'true' }}
         run: |
           cd tools/docs-site
           python3 assemble.py \
@@ -120,22 +142,51 @@ jobs:
           du -sh "$RUNNER_TEMP/site"
         shell: bash
 
+      # verify.py keeps the versions that passed in this file. A version that did not change since is not checked again.
+      - name: Restore the versions that passed the check
+        if: ${{ steps.newer-start.outputs.found != 'true' }}
+        uses: actions/cache@v6
+        with:
+          path: .verified
+          key: docs-verified-${{ github.run_id }}
+          restore-keys: |
+            docs-verified-
+
       - name: Check every page against its built site
+        if: ${{ steps.newer-start.outputs.found != 'true' }}
         run: |
           cd tools/docs-site
           python3 verify.py \
             --bundles "$RUNNER_TEMP/bundles" \
             --site "$RUNNER_TEMP/site" \
-            --site-url "${{ steps.site.outputs.url }}"
+            --site-url "${{ steps.site.outputs.url }}" \
+            --state "$GITHUB_WORKSPACE/.verified/verified.json"
+        shell: bash
+
+      - name: Look for a newer run again
+        id: newer-upload
+        if: ${{ steps.newer-start.outputs.found != 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          newer=$(gh run list -R "$GITHUB_REPOSITORY" --workflow publish-docs.yaml --limit 20 \
+            --json databaseId,status \
+            --jq "[.[] | select(.databaseId > $GITHUB_RUN_ID and (.status == \"requested\" or .status == \"queued\" or .status == \"pending\" or .status == \"waiting\"))] | length")
+          if [ "$newer" -gt 0 ]; then
+            echo "::notice::A newer run of publish-docs waits, so this run leaves the publication to it."
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          fi
         shell: bash
 
       - name: Upload the site
+        if: ${{ steps.newer-start.outputs.found != 'true' && steps.newer-upload.outputs.found != 'true' }}
         uses: actions/upload-pages-artifact@v5
         with:
           path: ${{ runner.temp }}/site
 
       - name: Deploy the site
         id: deploy
+        if: ${{ steps.newer-start.outputs.found != 'true' && steps.newer-upload.outputs.found != 'true' }}
         uses: actions/deploy-pages@v5
 
       # The pull request comes from the GitHub API, never from the run or its artifact.
