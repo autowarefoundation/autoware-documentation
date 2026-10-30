@@ -14,13 +14,13 @@ This document contains step-by-step instruction on how to build [AWF Autoware Co
    cd autoware
    ```
 
-2. Import Simulator dependencies:
+2. Import Simulator dependencies. In Autoware 2.0.0, `repositories/simulator.repos` pins `scenario_simulator_v2` version 22.0.0:
 
    ```bash
    vcs import src < repositories/simulator.repos
    ```
 
-3. Install dependent ROS packages:
+3. Install dependent ROS packages. On Ubuntu 24.04, replace `humble` with `jazzy`:
 
    ```bash
    source /opt/ros/humble/setup.bash

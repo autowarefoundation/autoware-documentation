@@ -16,7 +16,12 @@
 
 ## Placing interactive dummy objects
 
-Click the `Interactive` button in the toolbar to create the next dummy object in interactive mode.
+Interactive mode is a property of each dummy object tool. It is off by default.
+
+1. Open the `Tool Properties` panel.
+2. Expand the tool of the object type, for example `2D Dummy Car`.
+3. Select the `Interactive` checkbox.
+4. Click the same tool in the toolbar.
 
 ![set-interactive-dummy-car](images/lane-following/check-interactive.png)
 

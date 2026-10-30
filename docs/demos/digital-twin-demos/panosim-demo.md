@@ -15,7 +15,7 @@ Based on PanoSim V32 and Autoware Universe, it includes bridge, map ,scenarios, 
 
 ## Development
 
-Currently, development is still ongoing, with many feature updates planned.
+The tutorial repository ships its own copy of the Autoware repository. Its `autoware.repos` file pins an old Autoware version: `v1.0`, with old repository names such as `autoware.universe`. The tutorial repository was last updated in January 2025. It does not target Autoware 2.0.0, so expect to adapt the bridge and the launch steps for a current Autoware version.
 
 !!! note
 

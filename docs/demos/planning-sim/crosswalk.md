@@ -12,7 +12,7 @@ When driving through a crosswalk, the ego vehicle evaluates **both** the presenc
 
 !!! tip
 
-    For these tutorials, it is easier to use **interactive dummy pedestrians** (see [Placing interactive dummy objects](placing-objects.md) above).
+    For these tutorials, it is easier to use **interactive dummy pedestrians** (see [Placing interactive dummy objects](placing-objects.md#placing-interactive-dummy-objects)).
 
     This way you can quickly add, move, and delete dummy pedestrians as needed.
 
@@ -20,17 +20,7 @@ When driving through a crosswalk, the ego vehicle evaluates **both** the presenc
 
 ### Behavior logic
 
-```mermaid
-flowchart TD
-    A["Approach **crosswalk**"] --> B{"Pedestrian somewhere on the **crosswalk**? <br/> (Pedestrian velocity is not important.)"}
-    B -- "No" --> C["Proceed without slowing down"]
-    B -- "Yes" --> D["Slow down and stop **one time**"]
-    D --> E["Wait a few seconds to confirm safe to proceed"]
-    E --> F{"Pedestrian or object on **planned path**?"}
-    F -- "Yes" --> G["Continue waiting / yield"]
-    F -- "No" --> H["Resume driving (will not stop again for this crosswalk)"]
-    H --> I["Crosswalk passed ➡️ behavior resets when encountering the same crosswalk again"]
-```
+{{ diagram("images/crosswalk-non-signalized-logic.svg", "At a crosswalk without a traffic light, the ego vehicle stops one time for a pedestrian on the crosswalk and resumes when nothing is on its planned path.") }}
 
 !!! example "Experiment"
 

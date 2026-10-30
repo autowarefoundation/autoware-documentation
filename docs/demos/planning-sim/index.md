@@ -4,9 +4,10 @@
 
 ### Download the sample map
 
-Use the [`demo_artifacts`](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/demo_artifacts) ansible role to download and extract the sample map into `~/autoware_data/maps/sample-map-planning/`:
+Use the [`demo_artifacts`](https://github.com/autowarefoundation/autoware/tree/2.0.0/ansible/roles/demo_artifacts) ansible role to download and extract the sample map into `~/autoware_data/maps/sample-map-planning/`. Run these commands in the root folder of the `autoware` repository:
 
 ```bash
+cd ~/autoware
 ansible-galaxy collection install -f -r "ansible-galaxy-requirements.yaml"
 ansible-playbook autoware.dev_env.install_dev_env --tags demo_artifacts --ask-become-pass
 ```
@@ -41,7 +42,7 @@ vad
 yabloc_pose_initializer
 ```
 
-If not, please, follow [Manual downloading of artifacts](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts).
+If not, download them with the [`artifacts`](https://github.com/autowarefoundation/autoware/tree/2.0.0/ansible/roles/artifacts) ansible role.
 
 ## Launch Autoware Planning Simulator
 
@@ -60,7 +61,7 @@ ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autowa
 
 !!! info "[Using Autoware Launch GUI](using-launch-gui.md)"
 
-    If you prefer a graphical user interface (GUI) over the command line for launching and managing your simulations, refer to the [Using Autoware Launch GUI](using-launch-gui.md) section at the end of this document for a step-by-step guide.
+    If you prefer a graphical user interface (GUI) over the command line for launching and managing your simulations, refer to the [Using Autoware Launch GUI](using-launch-gui.md) page for a step-by-step guide.
 
 ---
 
@@ -99,7 +100,7 @@ ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autowa
 The original Autoware is designed to operate at a wide speed range. But for safety reasons, the default maximum velocity has been limited to **15 km/h**.
 Because of this, even if you drag the slider to a higher speed in the RViz panel, the system will not allow it.
 
-To run Autoware at a higher speed, you can modify the `max_vel` parameter in the config file [autoware_launch/config/planning/scenario_planning/common/common.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/common/common.param.yaml) located in the `autoware_launch` repository.
+To run Autoware at a higher speed, you can modify the `max_vel` parameter in the config file [autoware_universe_launch/autoware_planning_config/config/scenario_planning/common/common.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_universe_launch/autoware_planning_config/config/scenario_planning/common/common.param.yaml) located in the `autoware_launch` repository.
 
 !!! example
 

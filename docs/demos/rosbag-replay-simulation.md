@@ -4,9 +4,10 @@
 
 ### Download the sample map and rosbag
 
-Use the [`demo_artifacts`](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/demo_artifacts) ansible role to download and extract both the sample map and the sample rosbag:
+Use the [`demo_artifacts`](https://github.com/autowarefoundation/autoware/tree/2.0.0/ansible/roles/demo_artifacts) ansible role to download and extract both the sample map and the sample rosbag. Run these commands in the root folder of the `autoware` repository:
 
 ```bash
+cd ~/autoware
 ansible-galaxy collection install -f -r "ansible-galaxy-requirements.yaml"
 ansible-playbook autoware.dev_env.install_dev_env --tags demo_artifacts --ask-become-pass
 ```
@@ -42,7 +43,7 @@ vad
 yabloc_pose_initializer
 ```
 
-If not, please, follow [Manual downloading of artifacts](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts).
+If not, download them with the [`artifacts`](https://github.com/autowarefoundation/autoware/tree/2.0.0/ansible/roles/artifacts) ansible role.
 
 !!! info
 
@@ -95,7 +96,7 @@ If not, please, follow [Manual downloading of artifacts](https://github.com/auto
 
 ## Using Autoware Launch GUI
 
-This section provides a step-by-step guide for using the Autoware Launch GUI to launch and manage your rosbag replay simulation. offering an alternative to the command-line instructions provided in the previous section.
+This section provides a step-by-step guide for using the Autoware Launch GUI to launch and manage your rosbag replay simulation. It is an alternative to the command-line instructions provided in the previous section.
 
 ### Getting Started with Autoware Launch GUI
 
@@ -108,7 +109,7 @@ This section provides a step-by-step guide for using the Autoware Launch GUI to 
 
 1. **Set Autoware Path:** In the GUI, set the path to your Autoware installation.
    ![GUI_screenshot_for_setting_Autoware_path](images/rosbag-replay/launch-gui/launch_gui_setup.png)
-2. **Select Launch File:** Choose `logging_simulator.launch.xml` for the lane driving scenario.
+2. **Select Launch File:** Choose `logging_simulator.launch.xml` for the rosbag replay simulation.
    ![GUI screenshot for selecting launch file](images/rosbag-replay/launch-gui/selecting_launch_file.png)
 3. **Customize Parameters:** Adjust parameters such as `map_path`, `vehicle_model`, and `sensor_model` as needed.
 
@@ -127,7 +128,7 @@ This section provides a step-by-step guide for using the Autoware Launch GUI to 
 
    ![GUI screenshot for adjusting playback speed](images/rosbag-replay/launch-gui/adjusting_flags.png)
 
-7. **Start Playback:** Click the play button to start the rosbag playback and have access to settings such as `pause/play`, `stop`, and `speed slider`5.
+7. **Start Playback:** Click the play button to start the rosbag playback and have access to settings such as `pause/play`, `stop`, and `speed slider`.
 
    ![GUI screenshot for starting playback](images/rosbag-replay/launch-gui/starting_playback.png)
 

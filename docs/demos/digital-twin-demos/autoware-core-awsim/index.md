@@ -3,7 +3,7 @@
 ## Installing Autoware
 
 This page describes the procedure for an environment where Autoware Core is already installed.
-If you have not yet installed Autoware, please refer to the [Installation](../../../installation/index.md).
+If you have not yet installed Autoware Core, refer to the [source installation](../../../installation/autoware/core-source-installation.md), the [Docker installation](../../../installation/autoware/core-docker-installation.md), or the [Debian package installation](../../../installation/autoware/core-debian-installation.md) guide.
 
 ## Download AWSIM
 
@@ -18,9 +18,9 @@ If you have not yet installed Autoware, please refer to the [Installation](../..
 ## Start simulation
 
 1. Launch Autoware according to the section below depending on your installation type.
-   - Launch Autoware for Docker installation
-   - Launch Autoware for source installation
-   - Launch Autoware for Debian Package installation
+   - [Launch Autoware for Docker installation](#launch-autoware-for-docker-installation)
+   - [Launch Autoware for source installation](#launch-autoware-for-source-installation)
+   - [Launch Autoware for Debian Package installation](#launch-autoware-for-debian-package-installation)
 
    The map will be displayed in Rviz as shown below.
    ![rviz](images/rviz.png)
@@ -43,11 +43,31 @@ If you have not yet installed Autoware, please refer to the [Installation](../..
 
    ![goal-pose](images/goal-pose.png)
 
-5. Start autonomous driving.
+5. Start autonomous driving. Autoware Core does not include the operation mode manager of Autoware Universe, so publish the operation mode and the gear command by hand. Open a new terminal and set up the same environment that you used to launch Autoware:
+
+   - For a Docker installation, open a shell in the running container and source the setup files:
+
+     ```bash
+     docker exec -it autoware-core bash
+     source /opt/ros/humble/setup.bash
+     source /opt/autoware/setup.bash
+     ```
+
+   - For a source installation, source the workspace:
+
+     ```bash
+     source $HOME/autoware_core_workspace/install/setup.bash
+     ```
+
+   - For a Debian package installation, source ROS 2:
+
+     ```bash
+     source /opt/ros/humble/setup.bash
+     ```
+
+   Then run these commands:
 
    ```bash
-   source $HOME/autoware_launch_workspace/install/setup.bash
-
    ros2 topic pub /system/operation_mode/state autoware_adapi_v1_msgs/msg/OperationModeState \
      "{mode: 2, is_autoware_control_enabled: true, is_autonomous_mode_available: true}" \
      --once --qos-durability transient_local
@@ -62,7 +82,7 @@ If you have not yet installed Autoware, please refer to the [Installation](../..
 
    ```bash
    xhost +local:
-   docker run --rm -it --net host -e DISPLAY=$DISPLAY -v $HOME/Downloads/Shinjuku-Map/map:/home/aw/autoware_data/maps ghcr.io/autowarefoundation/autoware:core-humble
+   docker run --rm -it --name autoware-core --net host -e DISPLAY=$DISPLAY -v $HOME/Downloads/Shinjuku-Map/map:/home/aw/autoware_data/maps ghcr.io/autowarefoundation/autoware:core-humble
    ```
 
 2. Run the following command in the docker container.
