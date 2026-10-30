@@ -20,33 +20,23 @@ In Autoware, coordinate systems are typically used to represent the position and
 
 2. ROS TF2
 
-   The `TF2` system maintains a tree of coordinate transformations to represent the relationships between different coordinate systems. Each coordinate system is given a unique name and they are connected by coordinate transformations. How to use `TF2`, refer to the [TF2 tutorial](http://docs.ros.org/en/galactic/Concepts/About-Tf2.html).
+   The `TF2` system maintains a tree of coordinate transformations to represent the relationships between different coordinate systems. Each coordinate system is given a unique name and they are connected by coordinate transformations. To learn how to use `TF2`, refer to the [TF2 documentation](https://docs.ros.org/en/humble/Concepts/Intermediate/About-Tf2.html).
 
 ## TF tree
 
 In Autoware, a common coordinate system structure is shown below:
 
-```mermaid
-graph TD
-    /earth --> /map
-    /map --> /base_link
-    /base_link --> /imu
-    /base_link --> /lidar
-    /base_link --> /gnss
-    /base_link --> /radar
-    /base_link --> /camera_link
-    /camera_link --> /camera_optical_link
-```
+{{ diagram("images/coordinate-system-tf-tree.svg", "The tf tree from the optional earth frame through map and base_link to the sensor frames.") }}
 
-- earth: `earth` coordinate system describe the position of any point on the earth in terms of geodetic longitude, latitude, and altitude. In Autoware, the `earth` frame is only used in the `GnssInsPositionStamped` message.
+- earth: `earth` coordinate system describe the position of any point on the earth in terms of geodetic longitude, latitude, and altitude. In Autoware, the `earth` frame is optional, and no default Autoware launch publishes the tf from `earth` to `map`. The map projection information on the `/map/map_projector_info` topic relates the `map` frame to the earth instead. For details, see the [TF tree of the localization component](../../../design/autoware-architecture-v1/components/localization/index.md#tf-tree).
 
-- map: `map` coordinate system is used to represent the location of points on a local map. Geographical coordinate system are mapped into plane rectangular coordinate system using UTM or MGRS. The `map` frame`s axes point to the East, North, Up directions as explained in [Coordinate Axes Conventions](#coordinate-axes-conventions).
+- map: `map` coordinate system is used to represent the location of points on a local map. Geographical coordinate system are mapped into plane rectangular coordinate system with a map projection. The `projector_type` field of the `autoware_map_msgs/msg/MapProjectorInfo` message gives the projection: `MGRS`, `LocalCartesianUTM`, `TransverseMercator`, or `LocalCartesian`. The value `Local` means that the map has local coordinates only, with no geographic reference. The `map` frame's axes point to the East, North, Up directions as explained in [Coordinate Axes Conventions](#coordinate-axes-conventions).
 
 - base_link: vehicle coordinate system, the origin of the coordinate system is the center of the rear axle of the vehicle.
 
-- imu, lidar, gnss, radar: these are sensor frames, transfer to vehicle coordinate system through mounting relationship.
+- imu, lidar, gnss, radar: these are sensor frames, transfer to vehicle coordinate system through mounting relationship. In the sample sensor kit, the sensor frames are children of `sensor_kit_base_link`, which is a child of `base_link`.
 
-- camera_link: `camera_link` is ROS standard camera coordinate system .
+- camera_link: `camera_link` is ROS standard camera coordinate system.
 
 - camera_optical_link: `camera_optical_link` is image standard camera coordinate system.
 
@@ -69,16 +59,15 @@ Without the EKF module the best we can do is to estimate `Map[map] --> sensor_by
 
 For the integrated GNSS/INS we use the following frames:
 
-```mermaid
-flowchart LR
-    earth --> Map[map] --> gnss_ins_by_gnss_ins --> base_link_by_gnss_ins
-```
+{{ diagram("images/gnss-ins-frames.svg", "The frames of an integrated GNSS/INS sensor, from earth through map to the base_link estimated by the sensor.") }}
 
-The `gnss_ins_by_gnss_ins` frame is obtained by the coordinates from GNSS/INS sensor. The coordinates are converted to `map` frame using the `gnss_poser` node.
+The `gnss_ins_by_gnss_ins` frame is obtained by the coordinates from GNSS/INS sensor. The coordinates are converted to `map` frame using the `gnss_poser` node of the `autoware_gnss_poser` package.
 
 Finally `gnss_ins_by_gnss_ins` frame represents the position of the `gnss_ins` estimated by the `gnss_ins` sensor in the `map`.
 
 Then by using the static transformation between `gnss_ins` and the `base_link` frame, we can obtain the `base_link_by_gnss_ins` frame. Which represents the `base_link` estimated by the `gnss_ins` sensor.
+
+In the current implementation, the `gnss_poser` node publishes this frame as `gnss_base_link`, the default value of its `gnss_base_frame` parameter. It publishes the tf from `map` to `gnss_base_link`.
 
 References:
 
@@ -120,11 +109,11 @@ References:
    The conversion relationship between every sensor coordinate system and `base_link` can be obtained through sensor calibration technology.
    Please consult the following link
    [calibrating your sensors](../../../tutorials/integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors/index.md) for instructions
-   on how to calibrate your sensors.
+   on how to calibrate your sensors. The vehicle description publishes the result as static tf from `base_link` to the sensor frames.
 
 2. Localization
 
-   The relationship between the `base_link` coordinate system and the `map` coordinate system is determined by the position and orientation of the vehicle, and can be obtained from the vehicle localization result.
+   The relationship between the `base_link` coordinate system and the `map` coordinate system is determined by the position and orientation of the vehicle, and can be obtained from the vehicle localization result. In Autoware, the EKF localizer publishes the tf from `map` to `base_link`.
 
 3. Geo-referencing of map data
 

@@ -5,7 +5,7 @@ Autoware ROS nodes have declared parameters which values are provided during the
 Find more information on parameters from the official ROS documentation:
 
 - [Understanding ROS 2 Parameters](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.html)
-- [About ROS 2 Parameters](https://docs.ros.org/en/humble/Concepts/About-ROS-2-Parameters.html)
+- [About ROS 2 Parameters](https://docs.ros.org/en/humble/Concepts/Basic/About-Parameters.html)
 
 ## Workflow
 
@@ -20,15 +20,9 @@ The rationale behind this workflow is to have a verified single source of truth 
 - [declare_parameter(...)](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb) throws an exception if an expected parameter is missing in the parameter file
 - the schema validates the parameter file in the CI and renders a parameter table, as depicted in the graphics below
 
-  ```mermaid
-  flowchart TD
-      NodeSchema[Schema file: *.schema.json]
-      ParameterFile[Parameter file: *.param.yaml]
-      WebDocumentation[Web documentation table]
+{{ diagram("images/parameter-schema-flow.svg", "The schema file validates the parameter file in the CI and generates the parameter table of the web documentation.") }}
 
-      NodeSchema -->|Validation| ParameterFile
-      NodeSchema -->|Generate| WebDocumentation
-  ```
+The `json-schema-check` workflow of Autoware Core and Autoware Universe runs the validation. To render the table, the README of a package calls the `json_to_markdown` macro of the documentation site of Autoware Core or Autoware Universe, with the path of the schema file. For an example, see the README of [`autoware_path_generator`](https://github.com/autowarefoundation/autoware_core/blob/1.10.0/planning/autoware_path_generator/README.md).
 
 Note: a parameter value can still be modified and bypass the validation, as there is no validation during runtime.
 
@@ -57,7 +51,7 @@ As there is no _default_value_ provided, the function throws an exception if a p
 
 The table has been derived from [Parameter Type](https://github.com/ros2/rcl_interfaces/blob/humble/rcl_interfaces/msg/ParameterType.msg) and [Parameter Value](https://github.com/ros2/rcl_interfaces/blob/humble/rcl_interfaces/msg/ParameterValue.msg).
 
-See example: _Lidar Apollo Segmentation TVM Nodes_ [declare function](https://github.com/autowarefoundation/autoware_universe/blob/f85c90b56ed4c7d6b52e787570e590cff786b28b/perception/lidar_apollo_segmentation_tvm_nodes/src/lidar_apollo_segmentation_tvm_node.cpp#L38)
+See example: _GNSS Poser_ [declare function](https://github.com/autowarefoundation/autoware_core/blob/1.10.0/sensing/autoware_gnss_poser/src/gnss_poser_node.cpp#L50-L60)
 
 ## Parameter File
 
@@ -78,7 +72,7 @@ Autoware has the following two types of parameter files for ROS packages:
 
 - **Node parameter file**
   - Node parameter files store the typical parameters provided for each package in Autoware.
-    - For example, [the parameter of `behavior_path_planner`](https://github.com/autowarefoundation/autoware_universe/tree/245242cee866de2d113e89c562353c5fc17f1f98/planning/behavior_path_planner/config)
+    - For example, [the parameter of `autoware_behavior_path_planner`](https://github.com/autowarefoundation/autoware_universe/tree/0.53.1/planning/behavior_path_planner/autoware_behavior_path_planner/config)
   - All nodes in Autoware must have a parameter file if ROS parameters are declared in the node.
   - For `FOO_package`, the parameter is expected to be stored in `FOO_package/config`.
   - The launch file for individual packages must load node parameter by default:
@@ -97,14 +91,14 @@ Autoware has the following two types of parameter files for ROS packages:
 - **Launch parameter file**
   - When a user creates a launch package for the user's vehicle, the user should copy node parameter files for the nodes that are used in the launch file as "launch parameter files".
   - Launch parameter files are then customized specifically for the user's vehicle.
-    - For example, [the customized parameter of `behavior_path_planner` stored under `autoware_launch`](https://github.com/autowarefoundation/autoware_launch/tree/5fa613b9d80bf4f0db77efde03a43f7ede6bac86/autoware_launch/config)
-  - Launch parameter files are stored under the `autoware_launch` package.
+    - For example, [the customized parameter of `autoware_behavior_path_planner` stored under `autoware_launch`](https://github.com/autowarefoundation/autoware_launch/tree/0.53.0/autoware_universe_launch/autoware_planning_config/config/scenario_planning/lane_driving/behavior_planning/behavior_path_planner)
+  - Launch parameter files are stored in the `autoware_launch` repository. The files of each component are in a `autoware_universe_launch/autoware_<component>_config` package, for example `autoware_planning_config`. The files of the system, the vehicle, and the simulator are in the `config` folder of the `autoware_launch` package.
 
 ### sync-params
 
 Despite being unused in `autoware_launch`, node parameter files must be updated after adding or removing parameters in the node implementations. Each node parameter file serves as the master file for the corresponding launch parameter file.
 
-In most cases, updating launch parameter files are automated by [sync-params](https://github.com/autowarefoundation/autoware_launch/actions/workflows/sync-params.yaml) workflow, given that the corresponding node parameter files have been properly updated.
+In most cases, updating launch parameter files are automated by [sync-params](https://github.com/autowarefoundation/autoware_launch/actions/workflows/sync-params.yaml) workflow, given that the corresponding node parameter files have been properly updated. The workflow runs every day for all the categories, and you can also run it by hand for one category.
 
 A launch parameter file managed by sync-params workflow has a sync-params comment header starting with `# This file is managed by sync-params workflow`.
 By default, a launch parameter file is identical to its corresponding node parameter file, except for the header.
@@ -160,7 +154,7 @@ perception: # category
         source: perception/autoware_image_object_locator/config/bbox_object_locator.param.yaml
         # List of launch parameter file paths in autoware_launch repository
         variants:
-          - path: autoware_launch/config/perception/object_recognition/detection/camera_vru_detection/near_range_camera_vru_detector.param.yaml
+          - path: autoware_universe_launch/autoware_perception_config/config/object_recognition/detection/camera_vru_detection/near_range_camera_vru_detector.param.yaml
 ```
 
 And then run `python .github/scripts/sync_params.py perception` (replace `perception` with your category) locally, which is the script that sync-params workflow uses under the hood.
@@ -172,7 +166,7 @@ To specify the new upstream, in cases such as when the node package has been mov
 
 ## JSON Schema
 
-[JSON Schema](https://json-schema.org/understanding-json-schema/about) is used the validate the parameter file(s) ensuring that it has the correct structure and content. Using JSON Schema for this purpose is considered best practice for cloud-native development. The schema template below shall be used as a starting point when defining the schema for a ROS node.
+[JSON Schema](https://json-schema.org/understanding-json-schema/about) is used to validate the parameter file(s) ensuring that it has the correct structure and content. Using JSON Schema for this purpose is considered best practice for cloud-native development. The schema template below shall be used as a starting point when defining the schema for a ROS node.
 
 ```json
 {
@@ -219,7 +213,7 @@ To specify the new upstream, in cases such as when the node package has been mov
 
 The schema file path is `INSERT_PATH_TO_PACKAGE/schema/` and the schema file name is `INSERT_NODE_NAME.schema.json`. To adapt the template to the ROS node, replace each `INSERT_...` and add all parameters `1..N`.
 
-See example: _Image Projection Based Fusion - Pointpainting_ [schema](https://github.com/autowarefoundation/autoware_universe/blob/main/perception/autoware_image_projection_based_fusion/schema/pointpainting.schema.json)
+See example: _Image Projection Based Fusion - Pointpainting_ [schema](https://github.com/autowarefoundation/autoware_universe/blob/0.53.1/perception/autoware_image_projection_based_fusion/schema/pointpainting.schema.json)
 
 ### Attributes
 
@@ -229,15 +223,15 @@ Parameters have several attributes, some are required and some optional. The opt
 
 - name
 - type
-  - see [JSON Schema types](http://json-schema.org/understanding-json-schema/reference/type.html)
+  - see [JSON Schema types](https://json-schema.org/understanding-json-schema/reference/type)
 - description
 
 #### Optional
 
 - default
-  - a tested and verified value, see [JSON Schema default](https://json-schema.org/understanding-json-schema/reference/generic.html)
+  - a tested and verified value, see [JSON Schema default](https://json-schema.org/understanding-json-schema/reference/annotations)
 - bound(s)
-  - type dependent, e.g., [integer](https://json-schema.org/understanding-json-schema/reference/numeric.html#integer), [range](https://json-schema.org/understanding-json-schema/reference/numeric.html#range) and [size](https://json-schema.org/understanding-json-schema/reference/object.html#size)
+  - type dependent, e.g., [integer](https://json-schema.org/understanding-json-schema/reference/numeric#integer), [range](https://json-schema.org/understanding-json-schema/reference/numeric#range) and [size](https://json-schema.org/understanding-json-schema/reference/object#size)
 
 ## Tips and Tricks
 

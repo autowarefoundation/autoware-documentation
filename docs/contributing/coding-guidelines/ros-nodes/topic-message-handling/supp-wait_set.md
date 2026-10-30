@@ -26,7 +26,7 @@ A single `rclcpp::WaitSet` object is able to observe multiple subscription objec
             return {};
           }
         }
-        received_all_mesages = true;
+        received_all_messages = true;
       }
 ```
 
@@ -40,7 +40,7 @@ This section explains how to code using `rclcpp::WaitSet` with a sample code bel
   - It periodically publishes `/chatter` every second, `/slower_chatter` every two seconds, and `/slowest_chatter` every three seconds.
 - [_ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples_](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp)
   - It queries `WaitSet` per one second and if there is a message available, it obtains the message with `take()`
-  - It has three subscriptions for `/chatter` `/slower_chatter`, and `/slower_chatter`
+  - It has three subscriptions for `/chatter`, `/slower_chatter`, and `/slowest_chatter`
 
 The following three steps are required to use `rclcpp::WaitSet`.
 
@@ -56,7 +56,7 @@ rclcpp::WaitSet wait_set_;
 ??? note
 
     There are several types of classes similar to the `rclcpp::WaitSet`. The `rclcpp::WaitSet` object can be configured during runtime. It is not thread-safe as explained in the [_API specification of `rclcpp::WaitSet`_](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1ad6fb19c154de27e92430309d2da25ac3.html)
-    The thread-safe classes that are replacements for `rclcpp::WaitSet' are provided by the`rclcpp' package as listed below.
+    The thread-safe classes that are replacements for `rclcpp::WaitSet` are provided by the `rclcpp` package as listed below.
 
     - [_Typedef rclcpp::ThreadSafeWaitSet_](https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/typedef_namespacerclcpp_1acaec573e71549fd3078644e18e7f7127.html)
       - Subscription, timer, etc. can only be registered to `ThreadSafeWaitSet` only in thread-safe state
@@ -84,7 +84,7 @@ The following is a snippet from [_ros2_subscription_examples/waitset_examples/sr
 ```
 
 In the code above, the `add_subscription()` method registers the created subscriptions with the `wait_set_` object.
-A `rclcpp::WaitSet`-based object basically handles objects each of which has a corresponding callback function. Not only`Subscription`based objects, but also `Timer`,`Service`or`Action`based objects can be observed by a `rclcpp::WaitSet` based object. A single`rclcpp::WaitSet` object accepts mixture of different types of objects.
+A `rclcpp::WaitSet`-based object basically handles objects each of which has a corresponding callback function. Not only `Subscription` based objects, but also `Timer`, `Service` or `Action` based objects can be observed by a `rclcpp::WaitSet` based object. A single `rclcpp::WaitSet` object accepts mixture of different types of objects.
 A sample code for registering timer triggers can be found here.
 
 ```c++
@@ -113,8 +113,8 @@ For step 1, here is a sample code taken from [_ros2_subscription_examples/waitse
       }
 ```
 
-In the code above, `auto wait_result = wait_set_.wait(std::chrono::milliseconds(0))` tests if a trigger in `wait_set_` has been called. The argument to the`wait()`method is the timeout duration. If it is greater than 0 milliseconds or seconds, this method will wait for a message to be received until the timeout expires.
-If`wait_result.kind() == rclcpp::WaitResultKind::Ready`is`true`, then any trigger has been invoked.
+In the code above, `auto wait_result = wait_set_.wait(std::chrono::milliseconds(0))` tests if a trigger in `wait_set_` has been called. The argument to the `wait()` method is the timeout duration. If it is greater than 0 milliseconds or seconds, this method will wait for a message to be received until the timeout expires.
+If `wait_result.kind() == rclcpp::WaitResultKind::Ready` is `true`, then any trigger has been invoked.
 
 For step 2, here is a sample code taken from [_ros2_subscription_examples/waitset_examples/src/timer_listener_triple_async.cpp at main · takam5f2/ros2_subscription_examples_](https://github.com/takam5f2/ros2_subscription_examples/blob/main/waitset_examples/src/timer_listener_triple_async.cpp).
 

@@ -26,6 +26,9 @@ autoware_gnss_poser
 ├─ schema
 │   └─ gnss_poser.schema.json
 │
+├─ design
+│   └─ GnssPoser.node.yaml
+│
 ├─ doc
 │   ├─ foo_document.md
 │   └─ foo_diagram.svg
@@ -54,7 +57,7 @@ autoware_gnss_poser
 ### Package name
 
 - All the packages in Autoware should be prefixed with `autoware_`.
-- Even if the package is exports a node, the package name **should NOT** have the `_node` suffix.
+- Even if the package exports a node, the package name **should NOT** have the `_node` suffix.
 - The package name should be in `snake_case`.
 
 | Package Name                      | OK  | Alternative                  |
@@ -83,6 +86,8 @@ The package folder name should be the same as the package name.
 
 - The [`project()`](https://cmake.org/cmake/help/latest/command/project.html) command should call the package name.
   - **Example:** `project(autoware_gnss_poser)`
+- Call `autoware_package()` from [`autoware_cmake`](https://github.com/autowarefoundation/autoware_cmake/tree/1.4.0/autoware_cmake) before you define the build targets. It sets the common options of Autoware.
+- End the file with `autoware_ament_auto_package()` instead of `ament_auto_package()`. It keeps the `autoware/<module>/` include structure on ROS 2 Humble, Jazzy, and Kilted. For the other build rules, see the [CMake guideline](../languages/cmake.md#use-the-autoware_ament_auto_package-macro).
 
 ##### Exporting a composable node component executables
 
@@ -106,6 +111,25 @@ rclcpp_components_register_node(${PROJECT_NAME}
   - **multiple composable node components,** the executable name is up to the developer.
 - All composable node component executables should have the `_node` suffix.
 
+###### Nodes that support Agnocast
+
+A node that supports Agnocast (see [Class design](./class-design.md#nodes-that-support-agnocast)) uses `autoware_agnocast_wrapper_register_node()` from [`autoware_agnocast_wrapper`](https://github.com/autowarefoundation/autoware_core/tree/1.10.0/common/autoware_agnocast_wrapper) instead of `rclcpp_components_register_node()`:
+
+```cmake
+ament_auto_add_library(${PROJECT_NAME} SHARED
+  src/gnss_poser_node.cpp
+)
+
+autoware_agnocast_wrapper_register_node(${PROJECT_NAME}
+  PLUGIN "autoware::gnss_poser::GNSSPoser"
+  EXECUTABLE ${PROJECT_NAME}_node
+)
+```
+
+- The macro registers the component, like `rclcpp_components_register_node()`. If you build with `ENABLE_AGNOCAST=1`, it also creates an executable that selects `rclcpp` or Agnocast at runtime from the `ENABLE_AGNOCAST` environment variable. Without Agnocast, it behaves like `rclcpp_components_register_node()`.
+- The naming rules for the executable stay the same.
+- The optional `ROS2_EXECUTOR` and `AGNOCAST_EXECUTOR` arguments select the executor of the executable. See [Task scheduling](./task-scheduling.md#select-the-executor).
+
 ##### Exporting a standalone node executable without composition _(discouraged for most cases)_
 
 Use of standalone executables **should be limited** to cases where specific needs such as debugging or tooling are required.
@@ -128,7 +152,7 @@ ament_auto_add_executable(${PROJECT_NAME}_node src/gnss_poser_node.cpp)
 
 - The node executable:
   - should have `_node` suffix.
-  - should start with `${PROJECT_NAME}
+  - should start with `${PROJECT_NAME}`
 
 ### `config` and `schema`
 
@@ -151,6 +175,16 @@ autoware_gnss_poser
 #### `schema`
 
 Place parameter definition files. See [Parameters](./parameters.md) for details.
+
+### `design`
+
+```txt
+autoware_gnss_poser
+└─ design
+    └─ GnssPoser.node.yaml
+```
+
+Place the node description files for [Autoware System Designer](https://github.com/autowarefoundation/autoware_system_designer) here. A `*.node.yaml` file describes one node: its package, plugin, and executable, its input and output topics with their message types and QoS, its parameter files, and its processes. Autoware System Designer reads these files to generate launch files and system diagrams. Most node packages of Autoware Core and Autoware Universe have one, for example [`design/GnssPoser.node.yaml` of `autoware_gnss_poser`](https://github.com/autowarefoundation/autoware_core/blob/1.10.0/sensing/autoware_gnss_poser/design/GnssPoser.node.yaml).
 
 ### `doc`
 
@@ -218,6 +252,8 @@ autoware_gnss_poser
 **Note:** If `ament_auto_package()` command is used in the `CMakeLists.txt` file and `autoware_gnss_poser/include` folder exists,
 this `include` folder will be exported to the `install` folder as part of [ament_auto_package.cmake](https://github.com/ament/ament_cmake/blob/79cc237f8eb819edf4c1c624b56451e0a05a45f8/ament_cmake_auto/cmake/ament_auto_package.cmake#L62-L66)
 
+`autoware_ament_auto_package()` exports the `include` folder in the same way. With the `USE_SCOPED_HEADER_INSTALL_DIR` option, it installs the headers in `include/${PROJECT_NAME}/` instead of `include/`. The source code still includes them as `<autoware/gnss_poser/exported_header.hpp>`.
+
 **Reference:** <https://docs.ros.org/en/humble/How-To-Guides/Ament-CMake-Documentation.html#adding-targets>
 
 ### `launch`
@@ -234,6 +270,16 @@ autoware_gnss_poser
   - **Rationale:** While the `.launch.py` extension is more flexible, it comes with a readability cost.
 - Avoid `autoware_` prefix in the launch file names.
   - **Rationale:** To avoid verbosity.
+- If the node supports Agnocast, include `agnocast_env.launch.xml` of `autoware_agnocast_wrapper` and give the node the `LD_PRELOAD` value that it sets. If Agnocast is not enabled, this value is the `LD_PRELOAD` of the environment, unchanged:
+
+  ```xml
+  <include file="$(find-pkg-share autoware_agnocast_wrapper)/launch/agnocast_env.launch.xml"/>
+
+  <node pkg="autoware_gnss_poser" exec="gnss_poser" name="gnss_poser" output="both">
+    ...
+    <env name="LD_PRELOAD" value="$(var ld_preload_value)"/>
+  </node>
+  ```
 
 ### `test`
 
@@ -248,6 +294,110 @@ Place source files for testing. See [unit testing](../../testing-guidelines/unit
 
 ## Python package
 
-!!! warning
+Most Autoware packages are C++ packages. A few packages are pure Python packages with the `ament_python` build type. We'll use the [`autoware_adapi_visualizers`](https://github.com/autowarefoundation/autoware_universe/tree/0.53.1/system/autoware_default_adapi_helpers/autoware_adapi_visualizers) package of Autoware Universe as an example.
 
-    Under Construction
+### Entire structure
+
+```txt
+autoware_adapi_visualizers
+├─ package.xml
+├─ setup.py
+├─ setup.cfg
+├─ README.md
+│
+├─ resource
+│   └─ autoware_adapi_visualizers
+│
+├─ autoware_adapi_visualizers
+│   ├─ __init__.py
+│   └─ planning_factors.py
+│
+├─ config
+│   └─ planning_factors.param.yaml
+│
+├─ launch
+│   └─ autoware_adapi_visualizers.launch.xml
+│
+└─ test
+    ├─ test_copyright.py
+    └─ test_pep257.py
+```
+
+- The `README.md` file and the `config` folder are not in the real package. They show where these files go.
+- The [package name](#package-name) rules are the same as for a C++ package.
+- The `config` and `launch` folders follow the same rules as for a C++ package. See [`config` and `schema`](#config-and-schema) and [`launch`](#launch).
+
+### `package.xml`
+
+- Set the build type to `ament_python` in the `<export>` tag:
+
+  ```xml
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+  ```
+
+- Add the dependencies that the Python code imports as `<exec_depend>`, for example `rclpy`.
+- Add the test tools as `<test_depend>`, for example `ament_copyright`, `ament_pep257`, and `python3-pytest`.
+
+### Python module folder
+
+- Put the Python code in a folder with the same name as the package, with an `__init__.py` file.
+- Give each executable a `main()` function.
+
+### `setup.py`
+
+`setup.py` installs the package. Use the package name as `name`, and list the executables as `console_scripts` entry points:
+
+```python
+package_name = "autoware_adapi_visualizers"
+
+setup(
+    name=package_name,
+    packages=[package_name],
+    data_files=[
+        ("share/ament_index/resource_index/packages", [f"resource/{package_name}"]),
+        (f"share/{package_name}", ["package.xml"]),
+        (f"share/{package_name}/launch", [f"launch/{package_name}.launch.xml"]),
+    ],
+    entry_points={
+        "console_scripts": ["planning_factors = autoware_adapi_visualizers.planning_factors:main"],
+    },
+    ...
+)
+```
+
+- `data_files` installs the files that are not Python code. List the `package.xml` file, the files in `resource`, and each launch file and parameter file. A file that is not in this list is not installed.
+- Each entry of `console_scripts` makes one executable: `<executable name> = <module>:<function>`.
+
+### `setup.cfg`
+
+`setup.cfg` installs the executables in `lib/<package name>`. `ros2 run` and the `exec` attribute of a launch file look for them there. This example is the `setup.cfg` file of [`autoware_debug_tools`](https://github.com/autowarefoundation/autoware_tools/tree/0.8.0/common/autoware_debug_tools) in Autoware Tools:
+
+```ini
+[develop]
+script_dir=$base/lib/autoware_debug_tools
+[install]
+install_scripts=$base/lib/autoware_debug_tools
+```
+
+### `resource`
+
+The `resource` folder contains one empty file with the same name as the package. `setup.py` installs it into the ament resource index, so that ROS 2 tools can find the package.
+
+### `test`
+
+Place the test files here. `colcon test` runs them with `pytest`. The `test_copyright.py` and `test_pep257.py` files run the `ament_copyright` and `ament_pep257` linters.
+
+### Python scripts in a C++ package
+
+A C++ package can also install Python scripts, for example tools for debugging. Place them in a `scripts` folder and install them from the `CMakeLists.txt` file:
+
+```cmake
+install(PROGRAMS
+  scripts/min_turning_radius_calculator.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+```
+
+This example comes from [`autoware_vehicle_info_utils`](https://github.com/autowarefoundation/autoware_core/tree/1.10.0/common/autoware_vehicle_info_utils) of Autoware Core. Start each script with `#!/usr/bin/env python3`. `install(PROGRAMS ...)` installs the script with the permission to execute it.

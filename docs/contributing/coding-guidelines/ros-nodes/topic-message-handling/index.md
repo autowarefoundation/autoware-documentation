@@ -8,7 +8,7 @@ You can find sample source code in [_ros2_subscription_examples_](https://github
 ## Conventional message handling manner
 
 At first, let us see a conventional manner of handling messages that is commonly used.
-[_ROS 2 Tutorials_](https://docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html#write-the-subscriber-node) is one of the most cited references for ROS 2 applications, including Autoware.
+[_ROS 2 Tutorials_](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html#write-the-subscriber-node) is one of the most cited references for ROS 2 applications, including Autoware.
 It implicitly recommends that each of messages received by subscriptions should be referred to and processed by a dedicated callback function. Autoware follows that manner thoroughly.
 
 ```c++
@@ -17,7 +17,7 @@ It implicitly recommends that each of messages received by subscriptions should 
     [this](SteeringReport::SharedPtr msg) { current_steer_ = msg->steering_tire_angle; });
 ```
 
-In the code above, when a topic message whose name is `input/steering` is received, an anonymous function whose description is `{current_steer_ = msg->steering_tier_angle;}` is executed as a callback in a thread. The callback function is always executed when the message is received, which leads to waste computing resource if the message is not always necessary. Besides, waking up a thread costs computational overhead.
+In the code above, when a topic message whose name is `input/steering` is received, an anonymous function whose description is `{current_steer_ = msg->steering_tire_angle;}` is executed as a callback in a thread. The callback function is always executed when the message is received, which leads to waste computing resource if the message is not always necessary. Besides, waking up a thread costs computational overhead.
 
 ## Recommended manner
 
@@ -54,7 +54,7 @@ You can see an example of the typical use of `take()` method in [_ros2_subscript
 #### Prevent calling a callback function
 
 To prevent a callback function from being called automatically, the callback function has to belong a callback group whose callback functions are not added to any executor.
-According to the [_API specification of `create_subscription`_](http://docs.ros.org/en/iron/p/rclcpp/generated/classrclcpp_1_1Node.html), registering a callback function to a `rclcpp::Subscription` based object is mandatory even if the callback function has no operation.
+According to the [_API specification of `create_subscription`_](https://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1Node.html), registering a callback function to a `rclcpp::Subscription` based object is mandatory even if the callback function has no operation.
 Here is a sample code snippet from [_ros2_subscription_examples/simple_examples/src/timer_listener.cpp_](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener.cpp).
 
 ```c++
@@ -110,7 +110,7 @@ When `take(msg, msg_info)` is called, if the size of the subscription queue is g
 
 #### 1.1 Obtain Serialized Message from Subscription
 
-ROS 2 provides Serialized Message function which supports communication with arbitrary message types as described in [_Class SerializedMessage_](http://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1SerializedMessage.html). It is used by `topic_state_monitor` in Autoware.
+ROS 2 provides Serialized Message function which supports communication with arbitrary message types as described in [_Class SerializedMessage_](https://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1SerializedMessage.html). It is used by `autoware_topic_state_monitor` in Autoware.
 You have to use the `take_serialized()` method instead of the `take()` method to obtain a `rclcpp::SerializedMessage` based message from a subscription.
 
 Here is a sample code snippet from [_ros2_subscription_examples/simple_examples/src/timer_listener_serialized_message.cpp_](https://github.com/takam5f2/ros2_subscription_examples/blob/main/simple_examples/src/timer_listener_serialized_message.cpp).
@@ -125,11 +125,11 @@ Here is a sample code snippet from [_ros2_subscription_examples/simple_examples/
       }
 ```
 
-In the code above, `msg` is created by `create_serialized_message()` to store a received message, whose type is `std::shared_ptr<rclcpp::SerializedMessage>`. You can obtain a message of type `rclcpp::SerializedMessage` using the `take_serialized()` method. Note that the `take_serialized()` method needs reference type data as its first argument. Since `msg` is a pointer, `*msg` should be passed as the first argument to the `take_serialized().
+In the code above, `msg` is created by `create_serialized_message()` to store a received message, whose type is `std::shared_ptr<rclcpp::SerializedMessage>`. You can obtain a message of type `rclcpp::SerializedMessage` using the `take_serialized()` method. Note that the `take_serialized()` method needs reference type data as its first argument. Since `msg` is a pointer, `*msg` should be passed as the first argument to the `take_serialized()`.
 
 !!! note
 
-    ROS 2's `rclcpp` supports both `rclcpp::LoanedMessage` and `rclcpp::SerializedMessage`. If [_zero copy communication via loaned messages_](https://design.ros2.org/articles/zero_copy.html) is introduced to Autoware, `take_loaned()` method should be used for communication via loaned messages instead. In this document, the explanation of the `take_loaned()` method is omitted because it is not used for Autoware in this time (May. 2024).
+    ROS 2's `rclcpp` supports both `rclcpp::LoanedMessage` and `rclcpp::SerializedMessage`. If [_zero copy communication via loaned messages_](https://design.ros2.org/articles/zero_copy.html) is introduced to Autoware, `take_loaned()` method should be used for communication via loaned messages instead. In this document, the explanation of the `take_loaned()` method is omitted because Autoware does not use it. Autoware uses Agnocast for zero-copy communication instead. See [Agnocast](#agnocast).
 
 ### 2. Obtain multiple data stored in Subscription Queue
 
@@ -168,7 +168,7 @@ Here is a sample code snippet from [_ros2_subscription_examples/simple_examples/
 
 In the code above, a message is taken by the `take_type_erased()` method before a registered callback function is called via the `handle_message()` method. Note that you must use `take_type_erased()` instead of `take()`. `take_type_erased()` needs `void` type data as its first argument. You must use the `get()` method to convert `msg` whose type is `shared_ptr<void>` to `void` type. Then the `handle_message()` method is called with the obtained message. A registered callback function is called within `handle_message()`.
 You don't need to take care of message type which is passed to `take_type_erased()` and `handle_message()`. You can define the message variable as `auto msg = sub_->create_message();`.
-You can also refer to [_the API document_](http://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1SubscriptionBase.html#_CPPv4N6rclcpp16SubscriptionBase16take_type_erasedEPvRN6rclcpp11MessageInfoE) as for `create_message()`, `take_type_erased()` and `handle_message()`.
+You can also refer to [_the API document_](https://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1SubscriptionBase.html#_CPPv4N6rclcpp16SubscriptionBase16take_type_erasedEPvRN6rclcpp11MessageInfoE) as for `create_message()`, `take_type_erased()` and `handle_message()`.
 
 ### 4. Obtain data by a callback function
 
@@ -178,7 +178,7 @@ One of the advantages of this manner is that you don't have to take care whether
 ## Appendix
 
 A callback function is used to obtain a topic message in many of ROS 2 applications. It is as like a rule or a custom. As this document page explains, you can use the `Subscription->take()` method to obtain a topic message without calling a subscription callback function.
-This manner is also documented in [_Template Class Subscription — rclcpp 16.0.8 documentation_](https://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1Subscription.html#_CPPv4N6rclcpp12Subscription4takeER14ROSMessageTypeRN6rclcpp11MessageInfoE).
+This manner is also documented in [_Template Class Subscription_ in the rclcpp documentation](https://docs.ros.org/en/humble/p/rclcpp/generated/classrclcpp_1_1Subscription.html#_CPPv4N6rclcpp12Subscription4takeER14ROSMessageTypeRN6rclcpp11MessageInfoE).
 
 Many of ROS 2 users may be afraid to use the `take()` method because they may not be so familiar with it and there is a lack of documentation about `take()`, but it is widely used in the `rclcpp::Executor` implementation as shown in [_rclcpp/executor.cpp_](https://github.com/ros2/rclcpp/blob/47c977d1bc82fc76dd21f870bcd3ea473eca2f59/rclcpp/src/rclcpp/executor.cpp#L643-L648) shown below. So it turns out that you are indirectly using the `take()` method, whether you know it or not.
 
@@ -201,7 +201,41 @@ If `rclcpp::Executor` based object, an executor, is programmed to call a callbac
 
 ---
 
-As of May 2024, the recommended manners are beginning to be used in Autoware Universe.
-See the following PR if you want an example in Autoware Universe.
+## Polling subscribers in Autoware
 
-[_feat(tier4_autoware_utils, obstacle_cruise): change to read topic by polling #6702_](https://github.com/autowarefoundation/autoware_universe/pull/6702)
+Autoware wraps the recommended manner in a polling subscriber class. The first use came with this pull request:
+
+- [_feat(tier4_autoware_utils, obstacle_cruise): change to read topic by polling #6702_](https://github.com/autowarefoundation/autoware_universe/pull/6702)
+
+In Autoware 2.0.0, use one of these classes:
+
+- `autoware_utils_rclcpp::InterProcessPollingSubscriber` in [`autoware_utils_rclcpp`](https://github.com/autowarefoundation/autoware_utils/tree/1.11.0/autoware_utils_rclcpp), for a node that inherits from `rclcpp::Node`.
+- `autoware::agnocast_wrapper::polling::create_polling_subscriber()` in [`autoware_agnocast_wrapper`](https://github.com/autowarefoundation/autoware_core/tree/1.10.0/common/autoware_agnocast_wrapper), for a node that inherits from `autoware::agnocast_wrapper::Node`. With Agnocast, the message stays in shared memory. Without Agnocast, it uses `InterProcessPollingSubscriber`.
+
+`InterProcessPollingSubscriber` puts its subscription in a callback group that is not added to the executor, and `take_data()` takes the message. This is [the manner 1](#1-obtain-data-by-calling-subscription-take). A policy selects what `take_data()` returns:
+
+| Policy                             | `take_data()` returns                                                            | QoS history depth                                               |
+| ---------------------------------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| `polling_policy::Latest` (default) | The latest message. It returns the same message again until a newer one arrives. | 1                                                               |
+| `polling_policy::Newest`           | The latest message once, then `nullptr` until a new message arrives.             | 1                                                               |
+| `polling_policy::All`              | All the messages in the queue that were not taken, oldest first, as a vector.    | Any depth. The Agnocast version does not accept 0 or `KeepAll`. |
+
+For example, the `autoware_path_generator` node of Autoware Core reads its inputs in its timer callback:
+
+```c++
+  autoware_utils_rclcpp::InterProcessPollingSubscriber<
+    LaneletRoute, autoware_utils_rclcpp::polling_policy::Newest>
+    route_subscriber_{this, "~/input/route", rclcpp::QoS{1}.transient_local()};
+  autoware_utils_rclcpp::InterProcessPollingSubscriber<Odometry> odometry_subscriber_{
+    this, "~/input/odometry"};
+```
+
+```c++
+  if (const auto msg = odometry_subscriber_.take_data()) {
+    // use msg
+  }
+```
+
+### Agnocast
+
+Agnocast is a zero-copy middleware that works together with ROS 2. When Agnocast is enabled, a node that uses `autoware_agnocast_wrapper` receives the messages through shared memory instead of DDS. The wrapper gives two ways to poll a message. `take()` copies the message out of the shared memory. The polling subscriber of `polling::create_polling_subscriber()` keeps the zero copy, so prefer it. For the rules, see the [README of `autoware_agnocast_wrapper`](https://github.com/autowarefoundation/autoware_core/blob/1.10.0/common/autoware_agnocast_wrapper/README.md#polling-subscriber-polling-namespace).

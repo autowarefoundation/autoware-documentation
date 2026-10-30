@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img" aria-labelledby="ros-nodes-coordinate-system-tf-tree-title">
+  <title id="ros-nodes-coordinate-system-tf-tree-title">
+    A common tf tree in Autoware: the optional earth frame is the parent of map, map is the parent of base_link, base_link is the parent of the sensor frames, and camera_link is the parent of
+    camera_optical_link.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.ext {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-dasharray: 6 5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .edge.plain {
+  marker-end: none;
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="760" height="420"/>
+  <circle class="halo" cx="380" cy="200" r="130"/>
+  <circle class="halo cyan" cx="640" cy="340" r="90"/>
+
+  <!-- earth -->
+  <rect class="box ext" x="320" y="16" width="120" height="44" rx="12"/>
+  <text class="code" x="380" y="38" text-anchor="middle" dominant-baseline="central">earth</text>
+  <text class="sub" x="456" y="31" dominant-baseline="central">Optional. No default Autoware</text>
+  <text class="sub" x="456" y="47" dominant-baseline="central">launch publishes this frame.</text>
+
+  <!-- map -->
+  <rect class="card" x="320" y="104" width="120" height="44" rx="12"/>
+  <text class="code" x="380" y="126" text-anchor="middle" dominant-baseline="central">map</text>
+  <text class="sub" x="456" y="126" dominant-baseline="central">Local map frame (ENU)</text>
+
+  <!-- base_link -->
+  <rect class="box primary" x="320" y="196" width="120" height="44" rx="12"/>
+  <text class="code on-primary" x="380" y="218" text-anchor="middle" dominant-baseline="central">base_link</text>
+  <text class="sub" x="456" y="211" dominant-baseline="central">Vehicle frame: the center</text>
+  <text class="sub" x="456" y="227" dominant-baseline="central">of the rear axle</text>
+
+  <!-- Sensor frames -->
+  <rect class="card" x="32" y="288" width="120" height="40" rx="12"/>
+  <text class="code" x="92" y="308" text-anchor="middle" dominant-baseline="central">imu</text>
+  <rect class="card" x="176" y="288" width="120" height="40" rx="12"/>
+  <text class="code" x="236" y="308" text-anchor="middle" dominant-baseline="central">lidar</text>
+  <rect class="card" x="320" y="288" width="120" height="40" rx="12"/>
+  <text class="code" x="380" y="308" text-anchor="middle" dominant-baseline="central">gnss</text>
+  <rect class="card" x="464" y="288" width="120" height="40" rx="12"/>
+  <text class="code" x="524" y="308" text-anchor="middle" dominant-baseline="central">radar</text>
+  <rect class="card" x="608" y="288" width="120" height="40" rx="12"/>
+  <text class="code" x="668" y="308" text-anchor="middle" dominant-baseline="central">camera_link</text>
+
+  <rect class="card" x="583" y="364" width="170" height="40" rx="12"/>
+  <text class="code" x="668" y="384" text-anchor="middle" dominant-baseline="central">camera_optical_link</text>
+
+  <text class="sub" x="32" y="368" dominant-baseline="central">Sensor frames. In the sample sensor kit, the sensors</text>
+  <text class="sub" x="32" y="386" dominant-baseline="central">are children of sensor_kit_base_link under base_link.</text>
+
+  <!-- Edges -->
+  <path class="edge dash" d="M380 60 V96"/>
+
+  <path class="edge accent" d="M380 148 V188"/>
+  <path class="flow flow-accent" pathLength="100" d="M380 148 V184"/>
+  <path class="edge accent head" d="M380 148 V188"/>
+
+  <path class="edge plain" d="M380 240 V262"/>
+  <path class="edge plain" d="M92 262 H668"/>
+  <path class="edge" d="M92 262 V280"/>
+  <path class="edge" d="M236 262 V280"/>
+  <path class="edge" d="M380 262 V280"/>
+  <path class="edge" d="M524 262 V280"/>
+  <path class="edge" d="M668 262 V280"/>
+  <path class="edge" d="M668 328 V356"/>
+</svg>
