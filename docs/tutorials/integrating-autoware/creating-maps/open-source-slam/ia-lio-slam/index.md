@@ -103,7 +103,7 @@ Check original repo link for example dataset.
 
 Thank you for citing [IA-LIO-SAM](https://github.com/minwoo0611/IA_LIO_SAM/blob/master/config/doc/KRS-2021-17.pdf) if you use any of this code.
 
-```bash
+```bibtex
 @article{jung2021intensity,
   title={Intensity and Ambient Enhanced Lidar-Inertial SLAM for Unstructured Construction Environment},
   author={Jung, Minwoo and Jung, Sangwoo and Jang, Hyesu and Kim, Ayoung},
@@ -118,7 +118,7 @@ Thank you for citing [IA-LIO-SAM](https://github.com/minwoo0611/IA_LIO_SAM/blob/
 
 Part of the code is adapted from [LIO-SAM (IROS-2020)](https://github.com/TixiaoShan/LIO-SAM).
 
-```bash
+```bibtex
 @inproceedings{legoloam2018shan,
   title={LeGO-LOAM: Lightweight and Ground-Optimized Lidar Odometry and Mapping on Variable Terrain},
   author={Shan, Tixiao and Englot, Brendan},

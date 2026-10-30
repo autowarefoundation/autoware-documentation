@@ -126,7 +126,7 @@ ros2 launch pc_utm_to_mgrs_converter pc_utm_to_mgrs_converter.launch.xml
 The conversion process will be started,
 you should see `Saved <YOUR-MAP-POINTS-SIZE> data points saved to <YOUR-OUTPUT-MAP-PATH>` message on your terminal.
 MGRS format pointcloud map should be saved on your output map directory.
-The converter writes the PCD file in ASCII format.
+The converter writes the PCD file in ASCII format. The output file contains only the X, Y, and Z fields. The converter does not keep other fields, for example intensity.
 
 ### Create the projection information file
 
@@ -137,5 +137,7 @@ projector_type: MGRS
 vertical_datum: EGM2008
 mgrs_grid: <YOUR-MGRS-GRID> # for example, 35TPF
 ```
+
+The converter does not print the MGRS grid. To find it, convert the latitude and longitude of the map origin to MGRS with an online converter. The grid is the grid zone and the 100 km square at the start of the result, for example `35TPF`.
 
 Use `EGM2008` as the vertical datum, because the converter writes orthometric heights. Your Lanelet2 map must use the same MGRS grid. For more information, see the [README of `autoware_map_projection_loader`](https://github.com/autowarefoundation/autoware_core/tree/main/map/autoware_map_projection_loader).

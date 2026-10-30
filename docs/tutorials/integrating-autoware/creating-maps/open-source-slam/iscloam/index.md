@@ -83,7 +83,7 @@ Blue: ISCLOAM ("Visual Odometry" in the plot legend). Red: ground truth. The lef
 
 If you use this work for your research, you may want to cite the paper below, your citation will be appreciated
 
-```bash
+```bibtex
 @inproceedings{wang2020intensity,
   author={H. {Wang} and C. {Wang} and L. {Xie}},
   booktitle={2020 IEEE International Conference on Robotics and Automation (ICRA)},

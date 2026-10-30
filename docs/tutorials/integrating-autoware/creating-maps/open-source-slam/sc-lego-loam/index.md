@@ -94,7 +94,7 @@ roslaunch lego_loam run.launch
 
 and
 
-```bash
+```bibtex
 @inproceedings{legoloam2018,
   title={LeGO-LOAM: Lightweight and Ground-Optimized Lidar Odometry and Mapping on Variable Terrain},
   author={Shan, Tixiao and Englot, Brendan},

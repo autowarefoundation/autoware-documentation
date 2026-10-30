@@ -251,7 +251,7 @@ please follow [convert-utm-to-mgrs-map](../../converting-utm-to-mgrs-map/index.m
 
 Thank you for citing LIO-SAM (IROS-2020) if you use any of this code.
 
-```bash
+```bibtex
 @inproceedings{liosam2020shan,
   title={LIO-SAM: Tightly-coupled Lidar Inertial Odometry via Smoothing and Mapping},
   author={Shan, Tixiao and Englot, Brendan and Meyers, Drew and Wang, Wei and Ratti, Carlo and Rus Daniela},
@@ -264,7 +264,7 @@ Thank you for citing LIO-SAM (IROS-2020) if you use any of this code.
 
 Part of the code is adapted from [LeGO-LOAM](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM).
 
-```bash
+```bibtex
 @inproceedings{legoloam2018shan,
   title={LeGO-LOAM: Lightweight and Ground-Optimized Lidar Odometry and Mapping on Variable Terrain},
   author={Shan, Tixiao and Englot, Brendan},

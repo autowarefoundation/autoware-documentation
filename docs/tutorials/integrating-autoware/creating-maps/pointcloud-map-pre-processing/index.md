@@ -13,7 +13,9 @@ For partial loading, the map must be divided into a grid of PCD files, and it ne
 ros2 launch autoware_pointcloud_divider pointcloud_divider.launch.xml input_pcd_or_dir:=<INPUT_DIR> output_pcd_dir:=<OUTPUT_DIR> prefix:=<PREFIX>
 ```
 
-Use absolute paths for `<INPUT_DIR>` and `<OUTPUT_DIR>`. The tool deletes all the files in `<OUTPUT_DIR>` before it runs.
+Use absolute paths for `<INPUT_DIR>` and `<OUTPUT_DIR>`. The tool deletes all the files in `<OUTPUT_DIR>` before it runs. Thus, do not use your map directory as `<OUTPUT_DIR>`.
+
+The tool writes the divided PCD files to the `<OUTPUT_DIR>/pointcloud_map.pcd/` directory and the metadata to `<OUTPUT_DIR>/pointcloud_map_metadata.yaml`. Copy both into your map directory, next to `lanelet2_map.osm` and `map_projector_info.yaml`. Autoware reads the metadata file from the map directory.
 
 At tutorial_vehicle implementation we will use the whole map,
 so we will downsample it with using [CloudCompare](https://www.cloudcompare.org/main.html).

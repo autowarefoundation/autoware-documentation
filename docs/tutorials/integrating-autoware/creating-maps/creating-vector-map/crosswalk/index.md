@@ -25,7 +25,7 @@ After the download is finished,
 we need to put lanelet2 map and pointcloud map on the same location.
 The directory structure should be like this:
 
-```bash
+```text
 <YOUR-MAP-DIRECTORY>/
  ├─ pointcloud_map.pcd
  ├─ lanelet2_map.osm
@@ -37,7 +37,7 @@ The `map_projector_info.yaml` file tells Autoware the projection of the map. Wri
 ```yaml
 projector_type: MGRS
 vertical_datum: WGS84
-mgrs_grid: <YOUR-MGRS-GRID> # for example, 35TPF for tutorial_vehicle
+mgrs_grid: <YOUR-MGRS-GRID> # for example, 35TPF
 ```
 
 Use the vertical datum of your point cloud map. For a point cloud map from the [UTM to MGRS converter](../../converting-utm-to-mgrs-map/index.md), use `EGM2008`. If the file does not exist, Autoware reads the MGRS grid from the Lanelet2 map. This fallback is deprecated.

@@ -8,7 +8,7 @@ This page explains how users can create maps that can be used for Autoware.
 
 Autoware reads the map files from the directory in the `map_path` launch argument:
 
-```bash
+```text
 <YOUR-MAP-DIRECTORY>/
 ├── lanelet2_map.osm               # the vector map
 ├── pointcloud_map.pcd             # the point cloud map, a file or a directory of PCD files

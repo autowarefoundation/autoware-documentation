@@ -108,7 +108,7 @@ Thanks for SC-A-LOAM(Scan context: Egocentric spatial descriptor for place recog
 
 ## Citation
 
-```bash
+```bibtex
 @misc{https://doi.org/10.48550/arxiv.2204.04932,
   doi = {10.48550/ARXIV.2204.04932},
 

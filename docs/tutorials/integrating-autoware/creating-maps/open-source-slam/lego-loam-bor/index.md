@@ -68,7 +68,7 @@ roslaunch lego_loam_bor run.launch rosbag:=/path/to/your/rosbag lidar_topic:=/ve
 
 Thank you for citing our _LeGO-LOAM_ paper if you use any of this code:
 
-```bash
+```bibtex
 @inproceedings{legoloam2018,
   title={LeGO-LOAM: Lightweight and Ground-Optimized Lidar Odometry and Mapping on Variable Terrain},
   author={Tixiao Shan and Brendan Englot},
