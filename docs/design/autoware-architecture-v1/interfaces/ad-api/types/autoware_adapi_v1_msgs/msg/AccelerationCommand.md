@@ -8,6 +8,7 @@ title: autoware_adapi_v1_msgs/msg/AccelerationCommand
 
 ```txt
 builtin_interfaces/Time stamp
+# [m/s^2]. Positive is acceleration, negative is deceleration.
 float32 acceleration
 ```
 

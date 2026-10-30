@@ -57,7 +57,7 @@ If the mode change is not possible through this interface, for example, only a h
 The mode change without using this interface may result in sudden changes in vehicle behavior.
 In this case, switch when the command difference is small, such as when the vehicle is stopped.
 
-## Use Cases
+## Use cases
 
 - Switch to manual driving.
 - Switch to Autoware control when the vehicle is stopped.

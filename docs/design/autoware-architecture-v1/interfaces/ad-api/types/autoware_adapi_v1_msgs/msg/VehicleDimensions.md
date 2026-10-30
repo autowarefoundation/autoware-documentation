@@ -9,15 +9,25 @@ used:
 {% block definition %}
 
 ```txt
+# [m]
 float32 wheel_radius
+# [m]
 float32 wheel_width
+# [m]
 float32 wheel_base
+# [m]
 float32 wheel_tread
+# [m]
 float32 front_overhang
+# [m]
 float32 rear_overhang
+# [m]
 float32 left_overhang
+# [m]
 float32 right_overhang
+# [m]
 float32 height
+# Vehicle footprint polygon in vehicle frame
 geometry_msgs/Polygon footprint
 ```
 

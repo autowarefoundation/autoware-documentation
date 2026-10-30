@@ -55,4 +55,4 @@ The [autoware_control_msgs/msg/Control](https://github.com/autowarefoundation/au
   - bool is_defined_acceleration
   - bool is_defined_jerk
 
-For a vehicle that takes pedal or torque commands, the [autoware_raw_vehicle_cmd_converter](https://github.com/autowarefoundation/autoware_universe/tree/main/vehicle/autoware_raw_vehicle_cmd_converter) converts this command into actuation commands. It uses the actuation status of the vehicle (`/vehicle/status/actuation_status`). See [Vehicle interface](vehicle-interface.md#vehicle-adapter).
+For a vehicle that takes pedal or torque commands, the [autoware_raw_vehicle_cmd_converter](https://github.com/autowarefoundation/autoware_universe/tree/main/vehicle/autoware_raw_vehicle_cmd_converter) converts this command into actuation commands. If its parameters ask for it, it also uses the actuation status of the vehicle (`/vehicle/status/actuation_status`). See [Vehicle interface](vehicle-interface.md#vehicle-adapter).

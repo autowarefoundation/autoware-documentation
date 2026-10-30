@@ -10,6 +10,7 @@ uses:
 {% block definition %}
 
 ```txt
+# List of cooperation commands to apply to planning modules
 autoware_adapi_v1_msgs/CooperationCommand[] commands
 ---
 autoware_adapi_v1_msgs/ResponseStatus status

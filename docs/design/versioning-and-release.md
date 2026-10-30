@@ -11,9 +11,9 @@ Recent releases came about every two to three months: `1.8.0` in May 2026, `1.9.
 !!! warning "Autoware has its own version number"
 
     The Autoware version does not follow the version of `autoware_core` or of any other sub-repository. For example, Autoware `2.0.0` uses `autoware_core` `1.10.0`.
-    Before Autoware `2.0.0`, the Autoware version was the same as the `autoware_core` version.
+    From Autoware `1.5.0` to `1.9.0`, the Autoware version was the same as the `autoware_core` version. The one exception is the patch release `1.7.1`, which uses `autoware_core` `1.7.0`.
 
-Each sub-repository tracks its own version. The `repositories/autoware.repos` file at each Autoware release tag records the version of each sub-repository.
+Each sub-repository tracks its own version. The `repositories/autoware.repos` file at each Autoware release tag records the version of each sub-repository. In Autoware `1.5.0` and earlier releases, this file is `autoware.repos` at the root of the repository.
 
 ## The release process
 

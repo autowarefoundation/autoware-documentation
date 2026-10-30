@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 320" role="img" aria-labelledby="vm-07-03_1-title">
+  <title id="vm-07-03_1-title">
+    The guard_rail Linestring runs on the ground under the outer edge of the rail, which is the part of the guardrail that sticks out most toward the road. The rail hangs out over the road, so the
+    Linestring is on the road surface.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-cyan: #00c8ff; --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-group: color-mix(in
+    srgb, var(--aw-c-indigo) 6%, var(--md-default-bg-color)); --aw-d-group-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 25%, transparent); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} .group {
+  fill: var(--aw-d-group);
+  stroke: var(--aw-d-group-stroke);
+  stroke-width: 1.5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .road {
+  fill: #5c6070;
+} .sidewalk {
+  fill: #b9bcc8;
+} .mark {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+} .mark.dash {
+  stroke-dasharray: 14 10;
+} .bound {
+  fill: none;
+  stroke: var(--aw-cyan);
+  stroke-width: 2.5;
+} .bound.point {
+  fill: var(--aw-cyan);
+  stroke: none;
+} .leader {
+  fill: none;
+  stroke: var(--aw-d-muted);
+  stroke-width: 1;
+} .note {
+  font-size: 13px;
+  fill: var(--aw-d-fg);
+} .note.good {
+  fill: var(--aw-c-green);
+} .note.code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+  </defs>
+
+  <!-- Top view -->
+  <rect class="group" x="10" y="10" width="540" height="300" rx="16"/>
+  <text class="ttl" x="30" y="32" dominant-baseline="central">Top view</text>
+
+  <rect class="sidewalk" x="30" y="90" width="500" height="50"/>
+  <rect class="road" x="30" y="140" width="500" height="156"/>
+  <path class="mark" d="M30 180 H530"/>
+  <path class="mark dash" d="M30 250 H530"/>
+
+  <!-- Guardrail: posts on the sidewalk, the rail on the road side of the posts, over the road -->
+  <rect class="box muted" x="64" y="126" width="12" height="12" rx="2"/>
+  <rect class="box muted" x="164" y="126" width="12" height="12" rx="2"/>
+  <rect class="box muted" x="264" y="126" width="12" height="12" rx="2"/>
+  <rect class="box muted" x="364" y="126" width="12" height="12" rx="2"/>
+  <rect class="box muted" x="464" y="126" width="12" height="12" rx="2"/>
+  <rect class="box" x="30" y="138" width="500" height="12" rx="3"/>
+
+  <!-- The guard_rail Linestring under the outer edge of the rail -->
+  <path class="bound" d="M30 150 H530"/>
+  <circle class="bound point" cx="50" cy="150" r="4"/>
+  <circle class="bound point" cx="280" cy="150" r="4"/>
+  <circle class="bound point" cx="510" cy="150" r="4"/>
+
+  <path class="leader" d="M372 66 L392 150"/>
+  <text class="note" x="296" y="58" dominant-baseline="central">Linestring</text>
+  <text class="code" x="370" y="58" dominant-baseline="central">type: guard_rail</text>
+  <path class="leader" d="M46 82 L68 126"/>
+  <text class="note" x="30" y="74" dominant-baseline="central">Post</text>
+  <path class="leader" d="M200 82 L210 138"/>
+  <text class="note" x="160" y="74" dominant-baseline="central">Rail</text>
+
+  <!-- Cross-section -->
+  <rect class="group" x="570" y="10" width="280" height="300" rx="16"/>
+  <text class="ttl" x="590" y="32" dominant-baseline="central">Cross-section</text>
+
+  <rect class="sidewalk" x="590" y="230" width="62" height="20"/>
+  <rect class="road" x="652" y="230" width="178" height="20"/>
+  <rect class="box muted" x="618" y="130" width="14" height="100" rx="2"/>
+  <rect class="box muted" x="632" y="148" width="14" height="10" rx="2"/>
+  <rect class="box" x="646" y="134" width="20" height="44" rx="4"/>
+
+  <path class="edge dash" d="M666 180 V222"/>
+  <circle class="bound point" cx="666" cy="230" r="5"/>
+
+  <path class="leader" d="M700 106 L666 134"/>
+  <text class="note" x="704" y="100" dominant-baseline="central">Outer edge</text>
+  <text class="note" x="704" y="118" dominant-baseline="central">of the rail</text>
+  <path class="leader" d="M720 194 L672 228"/>
+  <text class="note" x="724" y="188" dominant-baseline="central">Linestring</text>
+  <text class="note" x="621" y="266" text-anchor="middle" dominant-baseline="central">Sidewalk</text>
+  <text class="note" x="741" y="266" text-anchor="middle" dominant-baseline="central">Road</text>
+  <text class="note good" x="710" y="292" text-anchor="middle" dominant-baseline="central">Measure straight down from the edge</text>
+</svg>

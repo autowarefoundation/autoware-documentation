@@ -51,11 +51,13 @@ The Generator can be any autonomous driving stack capable of generating candidat
 
 Multiple Generators can be executed in parallel or selectively activated depending on the context.
 
-A generator publishes its candidates as an `autoware_internal_planning_msgs/msg/CandidateTrajectories` message. Each `CandidateTrajectory` in it has a `generator_id`, and the `GeneratorInfo` list maps each `generator_id` to a generator name. In Autoware Universe 0.53.1, these packages publish this message:
+A generator publishes its candidates as an `autoware_internal_planning_msgs/msg/CandidateTrajectories` message. Each `CandidateTrajectory` in it has a `generator_id`, and the `GeneratorInfo` list maps each `generator_id` to a generator name. In Autoware Universe 0.53.1, these generator packages publish this message:
 
 - `autoware_diffusion_planner`: the Diffusion Planner, a learned planner.
 - `autoware_minimum_rule_based_planner`: a minimal rule-based planner that follows the lanelet centerline. The ranker treats it as a backup planner.
 - `autoware_tensorrt_vad`: the VAD model, a monolithic learned driving model. It also publishes the best candidate as a `Trajectory`.
+
+`autoware_trajectory_modifier` and `autoware_trajectory_selector` also publish `CandidateTrajectories` messages, with the candidates that they processed.
 
 ### Selector
 

@@ -44,7 +44,7 @@ Heading rate: The vehicle interface can compute the heading rate instead of meas
 
 Lateral velocity: Some vehicle interfaces do not set the lateral velocity. For example, `pacmod_interface` does not set the `lateral_velocity` field, so its value is always 0.
 
-## Use Cases
+## Use cases
 
 - Control the vehicle for autonomous driving.
 - Display current velocity status to the operator.

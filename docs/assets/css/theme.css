@@ -1700,6 +1700,30 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
   fill: #00002a;
 }
 
+.aw-diagram .sign-panel {
+  fill: #0a5bb5;
+  stroke: #fff;
+  stroke-width: 4;
+}
+
+.aw-diagram .sign-fill {
+  fill: #fff;
+}
+
+.aw-diagram .sign-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.aw-diagram .sign-label {
+  font-size: 26px;
+  font-weight: 700;
+  fill: #fff;
+}
+
 .aw-diagram .light-housing {
   fill: #1b1d29;
   stroke: #8d91a0;

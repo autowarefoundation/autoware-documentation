@@ -54,6 +54,8 @@ This is service dependent. Autoware supports the following transitions by defaul
 
 {{ diagram("fail-safe/mrm-behavior.svg", "The default transitions between the MRM behaviors.") }}
 
+In `autoware_launch`, the MRM handler does not use the pull over (`use_pull_over` is `false`). It uses only the comfortable stop and the emergency stop.
+
 | State            | Value | Description                                                               |
 | ---------------- | ----- | ------------------------------------------------------------------------- |
 | NONE             | 1     | MRM is not operating or is operating but no special behavior is required. |

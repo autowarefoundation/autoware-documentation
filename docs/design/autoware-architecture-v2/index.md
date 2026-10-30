@@ -139,7 +139,7 @@ ansible-playbook autoware.dev_env.install_dev_env --tags artifacts --ask-become-
 ### Other learned driving packages
 
 - [`autoware_tensorrt_vad`](https://github.com/autowarefoundation/autoware_universe/tree/0.53.1/e2e/autoware_tensorrt_vad) is in the `e2e/` folder of Autoware Universe. It runs the VAD model, one network that maps six camera images to trajectories. The model is trained on CARLA simulation data. The package has its own launch file, and `autoware_launch` 0.53.0 does not include it.
-- The [Autoware Index](../../installation/autoware/autoware-index.md) lists AI inference packages outside the main workspace. Their models are on Hugging Face too.
+- Vision Pilot, an open-source end-to-end Level 2 ADAS system, is in the [Autoware Index](../../installation/autoware/autoware-index.md). It has its own repository, and the `autoware.repos` file does not include it.
 
 ## The rule-based stack
 

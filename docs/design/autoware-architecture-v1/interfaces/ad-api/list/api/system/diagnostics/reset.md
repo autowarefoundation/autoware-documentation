@@ -12,5 +12,6 @@ type:
 {% extends 'design/autoware-architecture-v1/interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
 Reset the latch state of the diagnostic graph.
+The default implementation accepts this request only when the MRM state is NORMAL or MRM_SUCCEEDED.
 See [diagnostics](../../../../features/diagnostics.md) for details.
 {% endblock %}

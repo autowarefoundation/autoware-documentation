@@ -140,7 +140,7 @@ Each `RadarClassification` has a `label` and a `probability`. The labels 0 to 8 
 
 [autoware_sensing_msgs/msg/RadarInfo.msg](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_sensing_msgs/msg/RadarInfo.msg) describes the radar: the range and the resolution of each field, the available classes, and if the dynamics are absolute or relative.
 
-The [radar_objects_adapter](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_radar_objects_adapter) package converts `RadarObjects` to `autoware_perception_msgs/msg/DetectedObjects`.
+The [radar_objects_adapter](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_radar_objects_adapter) package converts `RadarObjects` to `autoware_perception_msgs/msg/DetectedObjects` and `autoware_perception_msgs/msg/TrackedObjects`.
 
 ## Note
 

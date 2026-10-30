@@ -47,7 +47,7 @@ Hazard priority: If hazard lights are active, the vehicle hardware typically ove
 
 Logical state: This interface reports the logical activation state (e.g., stalk position or system state). It typically does not toggle ENABLE/DISABLE in sync with the physical blinking of the light bulbs.
 
-## Use Cases
+## Use cases
 
 - Control the vehicle for autonomous driving.
 - Display current turn indicators status to the operator.

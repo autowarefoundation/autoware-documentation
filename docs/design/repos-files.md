@@ -18,7 +18,7 @@ These files reside under [autoware/repositories](https://github.com/autowarefoun
 
   ***
 
-  This sets some of the `autoware.repos` repositories to the main branch for development.
+  This sets some of the `autoware.repos` repositories to their development branch. For most of them, this branch is `main`.
 
 - `tools.repos`
 

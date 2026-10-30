@@ -10,6 +10,7 @@ uses:
 {% block definition %}
 
 ```txt
+# Manual control mode to select (e.g., direct control, velocity control)
 autoware_adapi_v1_msgs/ManualControlMode mode
 ---
 autoware_adapi_v1_msgs/ResponseStatus status

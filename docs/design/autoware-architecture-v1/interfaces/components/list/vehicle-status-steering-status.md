@@ -44,7 +44,7 @@ Mechanical play: Due to mechanical backlash in the steering column, small moveme
 
 Tire deformation: This value represents the kinematic angle of the wheel assembly, not the actual slip angle of the tire contact patch.
 
-## Use Cases
+## Use cases
 
 - Control the vehicle for autonomous driving.
 - Display current steering status to the operator.

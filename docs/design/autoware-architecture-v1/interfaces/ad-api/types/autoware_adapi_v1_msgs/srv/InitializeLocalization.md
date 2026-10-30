@@ -9,12 +9,15 @@ uses:
 {% block definition %}
 
 ```txt
+# Initial pose for localization.
+# Empty array: request auto-initialization using GNSS.
+# Single element: use as initial guess for localization.
 geometry_msgs/PoseWithCovarianceStamped[<=1] pose
 ---
-uint16 ERROR_UNSAFE = 1
-uint16 ERROR_GNSS_SUPPORT = 2
-uint16 ERROR_GNSS = 3
-uint16 ERROR_ESTIMATION = 4
+uint16 ERROR_UNSAFE = 1      # Initialization rejected due to unsafe conditions
+uint16 ERROR_GNSS_SUPPORT = 2  # GNSS-based initialization not supported
+uint16 ERROR_GNSS = 3        # GNSS initialization failed
+uint16 ERROR_ESTIMATION = 4  # Pose estimation failed
 autoware_adapi_v1_msgs/ResponseStatus status
 ```
 
