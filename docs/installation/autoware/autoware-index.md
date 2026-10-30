@@ -56,9 +56,11 @@ There are two ways to generate the file:
    ```
 
    When combined, the `--packages`, `--repository`, `--tags`, and `--reference-design` filters are ANDed.
+   The file also includes the repositories of the registered packages that your selection depends on (`index_dependencies` in the registry), even when they do not match the filters.
    A [Reference Design](../../reference-design/index.md) entry is a complete system that others can reproduce, for example [Vision Pilot](https://github.com/autowarefoundation/vision_pilot).
    Use the `--rosdistro` value that matches your ROS 2 distribution.
    The available distributions are listed in the [autoware-index](https://github.com/autowarefoundation/autoware-index/tree/main/distributions) repository.
+   At the Autoware 2.0.0 release, the registry has only the `jazzy` distribution.
 
 3. Import the repositories and build your workspace as usual.
 
@@ -80,13 +82,13 @@ There are two ways to generate the file:
 ### Checking your workspace
 
 `aw-index-cli check` compares a composed `autoware-index.repos` file against the registry and the latest validation results.
-Run it from the workspace root; it discovers the file automatically.
+Run it from the workspace root. It finds the file automatically.
 
 ```bash
 aw-index-cli check
 ```
 
-It exits with `0` when all selected packages pass validation and match the registry, and with `1` when a package fails validation, has drifted from the registry, or was removed.
+It exits with `0` when all selected packages pass validation and match the registry, and with `1` when a package fails validation, has drifted from the registry, or was removed. It exits with `2` when it cannot run, for example when the `.repos` file is missing or the registry does not load.
 This makes it suitable as a CI gate after `vcs import`.
 
 ### Listing packages

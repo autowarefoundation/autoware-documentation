@@ -4,9 +4,11 @@
 
 - OS
   - [Ubuntu 22.04](https://releases.ubuntu.com/22.04/)
+  - [Ubuntu 24.04](https://releases.ubuntu.com/24.04/)
 
 - ROS
-  - ROS 2 Humble
+  - ROS 2 Humble (on Ubuntu 22.04)
+  - ROS 2 Jazzy (on Ubuntu 24.04)
 
   For ROS 2 system dependencies, refer to [REP-2000](https://www.ros.org/reps/rep-2000.html).
 
@@ -41,14 +43,23 @@ sudo apt-get -y install git
    bash ansible/scripts/install-ansible.sh
    source ~/.bashrc
    ansible-galaxy collection install -f -r ansible-galaxy-requirements.yaml
-   ansible-playbook autoware.dev_env.install_dev_env
+   ansible-playbook autoware.dev_env.install_dev_env --ask-become-pass
    ```
 
    To install without **NVIDIA GPU** support:
 
    ```bash
-   ansible-playbook autoware.dev_env.install_dev_env --skip-tags nvidia
+   ansible-playbook autoware.dev_env.install_dev_env --skip-tags nvidia --ask-become-pass
    ```
+
+   The playbook reads your Ubuntu version and selects the versions of ROS 2 and the NVIDIA libraries:
+
+   | Ubuntu | ROS 2  | CUDA | TensorRT                                   |
+   | ------ | ------ | ---- | ------------------------------------------ |
+   | 22.04  | Humble | 12.8 | 10.8 on amd64, 10.3 on arm64 (Jetson Orin) |
+   | 24.04  | Jazzy  | 13.0 | 10.13                                      |
+
+   The playbook stops on other Ubuntu versions.
 
    If you encounter any build issues, please consult the [Troubleshooting](../../community/support/troubleshooting/index.md#build-issues) section for assistance.
 
@@ -73,6 +84,9 @@ sudo apt-get -y install git
     - [Install ROS 2 Dev Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2_dev_tools#manual-installation)
     - [Install Nvidia CUDA](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/cuda#manual-installation)
     - [Install Nvidia cuDNN and TensorRT](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/tensorrt#manual-installation)
+    - [Install spconv](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/spconv#manual-installation) (for sparse convolutions)
+    - [Install acados](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/acados#readme)
+    - [Install Agnocast](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/agnocast#installation)
     - [Install the Autoware RViz Theme](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/qt5ct_setup#readme) (only affects Autoware RViz)
     - [Download the Artifacts](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts#readme) (for perception inference)
 
@@ -106,6 +120,8 @@ sudo apt-get -y install git
    >
    > ➡️ Check the readme of the extra packages for more information.
 
+   The `tools.repos` file adds [autoware_tools](https://github.com/autowarefoundation/autoware_tools), and the `simulator.repos` file adds [scenario_simulator_v2](https://github.com/tier4/scenario_simulator_v2). Import them only if you need them. For a description of each file, see [`repositories/*.repos` files](../../design/repos-files.md).
+
 2. Add community packages to your workspace. _(optional)_ <span class="aw-badge-new">NEW</span>
 
    The [Autoware Index](autoware-index.md) is a registry of community packages that extend Autoware, each built and tested against the latest Autoware release.
@@ -122,6 +138,8 @@ sudo apt-get -y install git
    Autoware requires some ROS 2 packages in addition to the core components.
    The tool `rosdep` allows an automatic search and installation of such dependencies.
    You might need to run `rosdep update` before `rosdep install`.
+
+   On Ubuntu 24.04, replace `humble` with `jazzy`.
 
    ```bash
    source /opt/ros/humble/setup.bash
@@ -158,7 +176,7 @@ sudo apt-get -y install git
 
     ```bash
     ansible-galaxy collection install -f -r ansible-galaxy-requirements.yaml
-    ansible-playbook autoware.dev_env.install_dev_env --tags artifacts
+    ansible-playbook autoware.dev_env.install_dev_env --tags artifacts --ask-become-pass
     ```
 
     `autoware_livox_tag_filter` moved from `autoware_universe` to the [Autoware Index](autoware-index.md). If you use it, add it to your workspace with `aw-index-cli`.
@@ -212,6 +230,8 @@ sudo apt-get -y install git
    > ```
 
 3. Install dependent ROS packages.
+
+   On Ubuntu 24.04, replace `humble` with `jazzy`.
 
    ```bash
    source /opt/ros/humble/setup.bash

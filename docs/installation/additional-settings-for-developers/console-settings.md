@@ -2,8 +2,9 @@
 
 ## Colorizing logger output
 
-By default, ROS 2 logger doesn't colorize the output.
-To colorize it, add the following to your `~/.bashrc`:
+By default, the ROS 2 logger colorizes the output only when it writes directly to a terminal.
+The nodes that `ros2 launch` starts do not write to a terminal, so their output has no color.
+To always colorize it, add the following to your `~/.bashrc`:
 
 ```bash
 export RCUTILS_COLORIZED_OUTPUT=1
@@ -18,7 +19,7 @@ To customize it, add the following to your `~/.bashrc`:
 export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})"
 ```
 
-For more options, see [here](https://docs.ros.org/en/rolling/Tutorials/Demos/Logging-and-logger-configuration.html#console-output-formatting).
+For more options, see [Console output formatting](https://docs.ros.org/en/jazzy/Tutorials/Demos/Logging-and-logger-configuration.html#console-output-formatting) in the ROS 2 documentation.
 
 ## Colorized GoogleTest output
 
