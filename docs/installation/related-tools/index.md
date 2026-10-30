@@ -15,11 +15,11 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 
 ## Simulators
 
-The [planning simulation](../../demos/planning-sim/index.md) needs no extra simulator. Its simple simulator (`autoware_simple_planning_simulator`) is part of the Autoware Core repositories in `autoware.repos`. The planning simulation page explains how to download its sample map. For other simulators, use the guides below:
+The [planning simulation](../../simulation/planning-simulation/index.md) needs no extra simulator. Its simple simulator (`autoware_simple_planning_simulator`) is part of the Autoware Core repositories in `autoware.repos`. The planning simulation page explains how to download its sample map. For other simulators, use the guides below:
 
-- [scenario_simulator_v2](https://github.com/tier4/scenario_simulator_v2): runs scenarios against Autoware. The `repositories/simulator.repos` file pins its version (22.0.0 for Autoware 2.0.0). For the build steps, see [Scenario simulator installation](../../demos/scenario-simulation/scenario-simulator/installation.md).
-- [AWSIM](https://github.com/autowarefoundation/AWSIM): a Unity-based simulator for end-to-end simulation. See the [AWSIM tutorial](../../demos/digital-twin-demos/awsim-tutorial.md).
-- [CARLA](https://carla.org/): an Unreal-based simulator that connects to Autoware through `autoware_carla_interface`. See the [CARLA tutorial](../../demos/digital-twin-demos/carla-tutorial.md).
+- [scenario_simulator_v2](https://github.com/tier4/scenario_simulator_v2): runs scenarios against Autoware. The `repositories/simulator.repos` file pins its version (22.0.0 for Autoware 2.0.0). For the build steps, see [Scenario simulator installation](../../simulation/scenario-simulation/scenario-simulator/installation.md).
+- [AWSIM](https://github.com/autowarefoundation/AWSIM): a Unity-based simulator for end-to-end simulation. See the [AWSIM tutorial](../../simulation/digital-twin-simulation/awsim-tutorial.md).
+- [CARLA](https://carla.org/): an Unreal-based simulator that connects to Autoware through `autoware_carla_interface`. See the [CARLA tutorial](../../simulation/digital-twin-simulation/carla-tutorial.md).
 
 The `autoware` repository also has Docker Compose stacks for the AWSIM, CARLA, and scenario simulator demos. See [Pre-configured demo scenarios](../autoware/docker-installation.md#pre-configured-demo-scenarios).
 

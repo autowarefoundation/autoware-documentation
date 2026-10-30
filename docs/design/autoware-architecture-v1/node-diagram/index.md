@@ -14,7 +14,7 @@ Use one of these tools to see every node and topic of your setup.
 
 - :fa-cl-s fa-diagram-project: **rqt_graph**
 
-  Launch Autoware, for example with the [planning simulation](../../../demos/planning-sim/index.md). Then run `rqt_graph` in another terminal. It shows the nodes and topics that run now.
+  Launch Autoware, for example with the [planning simulation](../../../simulation/planning-simulation/index.md). Then run `rqt_graph` in another terminal. It shows the nodes and topics that run now.
 
 - :fa-cl-s fa-sitemap: **Autoware System Designer**
 

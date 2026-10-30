@@ -414,7 +414,7 @@ None in particular.
 
 If an exclusive bicycle lane exists, create a Lanelet with _subtype:bicycle_lane_ for it. The bicycle lane and the road Lanelet next to it must share a Linestring. In left-hand traffic, the bicycle lane is on the left side of the road Lanelet. In right-hand traffic, it is on the right side. A bicycle lane connects only to other bicycle lanes. Autoware supports _subtype:bicycle_lane_ in maps with _format_version_ 2 or later. See [Bicycle lane in the autoware_lanelet2_extension documentation](https://github.com/autowarefoundation/autoware_lanelet2_extension/blob/main/autoware_lanelet2_extension/docs/extra_lanelet_subtypes.md#bicycle-lane-format_version--2).
 
-Older maps model the bicycle lane as a Lanelet with _subtype:road_. In that case, set _lane_change = no_ on the Linestring that the bicycle lane shares with the road. For bicycle lanes at intersections, assign a _yield_ designation beneath the _right_of_way_ for lanes that intersect with the vehicle's left-turn lane. (Refer to [vm-03-10](./category_intersection.md#vm-03-10-right-of-way-with-signal) and [vm-03-11](./category_intersection.md#vm-03-11-right-of-way-without-signal) for right_of_way).
+Older maps model the bicycle lane as a Lanelet with _subtype:road_. In that case, set _lane_change = no_ on the Linestring that the bicycle lane shares with the road. For bicycle lanes at intersections, assign a _yield_ designation beneath the _right_of_way_ for lanes that intersect with the vehicle's left-turn lane. (Refer to [vm-03-10](category_intersection.md#vm-03-10-right-of-way-with-signal) and [vm-03-11](category_intersection.md#vm-03-11-right-of-way-without-signal) for right_of_way).
 
 ##### Behavior of Autoware <!-- omit in toc -->
 

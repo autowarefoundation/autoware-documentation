@@ -6,7 +6,7 @@ The compatibility test tool is used to verify whether a digital-twin simulator w
 
 - The package is part of [autoware_tools](https://github.com/autowarefoundation/autoware_tools). Autoware 2.0.0 uses `autoware_tools` 0.8.0, which `repositories/tools.repos` imports.
 - It is a ROS 2 Python package. The test cases use `pytest` and `rclpy`.
-- As of January 26, 2023, it had been tested only with [**MORAI SIM: Drive Demo**](../../demos/digital-twin-demos/MORAI_Sim-tutorial.md).
+- As of January 26, 2023, it had been tested only with [**MORAI SIM: Drive Demo**](MORAI_Sim-tutorial.md).
 - For full source code and instructions, see:
   [autoware_tools/simulator/simulator_compatibility_test](https://github.com/autowarefoundation/autoware_tools/tree/main/simulator/simulator_compatibility_test#simulator_compatibility_test)
 

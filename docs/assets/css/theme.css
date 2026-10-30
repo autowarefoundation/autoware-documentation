@@ -611,7 +611,7 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
 }
 
 /*
- * Demo cards (docs/demos/index.md): a screenshot with a label next to the title, the tested components as tags,
+ * Simulation cards (docs/simulation/index.md): a screenshot with a label next to the title, the tested components as tags,
  * and the buttons. The image moves above the text on small screens.
  */
 .md-typeset .aw-demo {

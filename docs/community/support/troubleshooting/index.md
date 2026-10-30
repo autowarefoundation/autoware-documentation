@@ -196,7 +196,7 @@ If you have any of these symptoms, see the [Performance troubleshooting](perform
 
 ### Map does not display when running the Planning Simulator
 
-When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because [the map path has not been specified correctly in the launch command](../../../demos/planning-sim/lane-driving.md). You can confirm if this is the case by searching for `No such file or directory: {path-to-map-dir}/lanelet2_map.osm` or `No lanelet2 map files found from {path-to-map-dir}/lanelet2_map.osm` errors in the log.
+When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because [the map path has not been specified correctly in the launch command](../../../simulation/planning-simulation/lane-driving.md). You can confirm if this is the case by searching for `No such file or directory: {path-to-map-dir}/lanelet2_map.osm` or `No lanelet2 map files found from {path-to-map-dir}/lanelet2_map.osm` errors in the log.
 
 Another possible reason is that map loading is taking a long time due to poor DDS performance. For this, see the [Performance troubleshooting](performance-troubleshooting.md) page.
 

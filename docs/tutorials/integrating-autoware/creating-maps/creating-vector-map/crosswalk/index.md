@@ -67,7 +67,7 @@ ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autowa
 4. After that, please press `Shift`, then click right click button for inserting pedestrians.
 5. You can control inserted pedestrian via dragging right click.
 
-For more information about interactive dummy objects, see [placing interactive dummy objects](../../../../../demos/planning-sim/placing-objects.md#placing-interactive-dummy-objects).
+For more information about interactive dummy objects, see [placing interactive dummy objects](../../../../../simulation/planning-simulation/placing-objects.md#placing-interactive-dummy-objects).
 
 Crosswalk markers on rviz:
 

@@ -72,7 +72,7 @@ void convert_ackermann_to_differential(
 
 For information about other factors
 that need to be considered when creating a `vehicle_interface` package,
-refer to the [creating `vehicle_interface` page](./creating-vehicle-interface.md).
+refer to the [creating `vehicle_interface` page](creating-vehicle-interface.md).
 
 ### 2.2 Set an appropriate `wheel_base`
 

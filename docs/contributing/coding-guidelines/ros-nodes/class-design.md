@@ -60,7 +60,7 @@ RCLCPP_COMPONENTS_REGISTER_NODE(autoware::gnss_poser::GNSSPoser)
 ```
 
 - The component should be registered at the end of the `gnss_poser_node.cpp` file, outside the namespaces.
-- A node that supports Agnocast uses the same macro in the source file. The CMake registration is different. See [Directory structure](./directory-structure.md#exporting-a-composable-node-component-executables).
+- A node that supports Agnocast uses the same macro in the source file. The CMake registration is different. See [Directory structure](directory-structure.md#exporting-a-composable-node-component-executables).
 
 #### Nodes that support Agnocast
 
@@ -109,7 +109,7 @@ double lerp(const double src_val, const double dst_val, const double ratio);
 ```
 
 - Put everything under the `autoware::` namespace, followed by the package name without the `autoware_` prefix. **Example:** `autoware::interpolation`.
-- Put the exported headers in `include/autoware/interpolation/`. See [Exporting headers](./directory-structure.md#exporting-headers).
+- Put the exported headers in `include/autoware/interpolation/`. See [Exporting headers](directory-structure.md#exporting-headers).
 - Build the library as a shared library, with the package name as the target name:
 
   ```cmake
@@ -119,7 +119,7 @@ double lerp(const double src_val, const double dst_val, const double ratio);
   )
   ```
 
-- Do not make core library classes depend on `rclcpp::Node` (advisory). If a class writes logs, give it an `rclcpp::Logger`. See [Console logging](./console-logging.md#do-not-depend-on-rclcppnode-in-core-library-classes-but-depend-only-on-rclcpplogginghpp-advisory-non-automated).
+- Do not make core library classes depend on `rclcpp::Node` (advisory). If a class writes logs, give it an `rclcpp::Logger`. See [Console logging](console-logging.md#do-not-depend-on-rclcppnode-in-core-library-classes-but-depend-only-on-rclcpplogginghpp-advisory-non-automated).
 
 #### Separate the algorithm from the node
 

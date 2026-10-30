@@ -16,7 +16,7 @@ Autoware constantly incorporates new features.
 It is crucial to initially confirm that it operates as expected with the current version, which helps in problem troubleshooting.
 
 In this context, AWSIM is presumed.
-Therefore, [AWSIM simulator demo](../../demos/digital-twin-demos/awsim-tutorial.md) can be useful.
+Therefore, [AWSIM simulator](../../simulation/digital-twin-simulation/awsim-tutorial.md) can be useful.
 If you are using actual hardware, please refer to the [Tutorials](../index.md).
 
 ## 2. Recording a rosbag using Autoware
@@ -47,7 +47,7 @@ If you want to replace this with a different approach, implement a node which pr
 ## 4. Evaluating by a rosbag-based simulator
 
 Once the new node is implemented, it is time to evaluate it.
-[logging_simulator](../../demos/rosbag-replay-simulation.md) is a tool of how to evaluate the new node using the rosbag captured in step 2.
+[logging_simulator](../../simulation/rosbag-replay-simulation.md) is a tool of how to evaluate the new node using the rosbag captured in step 2.
 
 When you run the logging_simulator, you can set `planning:=false` or `control:=false` to disable the launch of specific component nodes.
 

@@ -43,7 +43,7 @@ The next diagram shows how these launch files include each other, with the local
 
 ### Add a new package in Autoware
 
-If a newly created package has executable node, we expect example launch files and configurations within the package, just like the recommended structure shown in the previous [directory structure](./directory-structure.md) page.
+If a newly created package has executable node, we expect example launch files and configurations within the package, just like the recommended structure shown in the previous [directory structure](directory-structure.md) page.
 
 ### Integrate a new package in `autoware_launch`
 
@@ -53,7 +53,7 @@ For example, to add a node to the localization component:
 
 1. Include the launch file of your package from the correct launch file in `autoware_universe_launch/autoware_localization_launch/launch`. Some node packages are included directly from `autoware_launch/launch/components/component_localization.launch.xml`, for example `autoware_pose_estimator_arbiter`.
 2. Add the launch parameter file of your node to `autoware_universe_launch/autoware_localization_config/config`, and pass its path to your launch file.
-3. Register the pair of the node parameter file and the launch parameter file in the sync-params configuration. See [sync-params](./parameters.md#sync-params).
+3. Register the pair of the node parameter file and the launch parameter file in the sync-params configuration. See [sync-params](parameters.md#sync-params).
 
 ## Parameter and system topology management
 
@@ -70,4 +70,4 @@ Taking the localization module as an example, in the `autoware_launch` repositor
 
 To use your own parameter files for all the localization nodes, set `localization_config_pkg` to your own package with the same `config/` layout. To change only a few files, override the `*_param_path` arguments.
 
-See [sync-params](./parameters.md#sync-params) to learn how these launch parameter files can be updated.
+See [sync-params](parameters.md#sync-params) to learn how these launch parameter files can be updated.

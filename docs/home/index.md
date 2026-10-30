@@ -23,7 +23,7 @@ hide:
 <div class="aw-hero__actions" markdown>
 
 [:fa-cl-s fa-circle-down: Install Autoware](../installation/index.md){ .md-button .md-button--primary }
-[:fa-cl-s fa-gamepad: Quick start demos](../demos/index.md){ .md-button }
+[:fa-cl-s fa-gamepad: Run in simulation](../simulation/index.md){ .md-button }
 
 </div>
 
@@ -52,9 +52,9 @@ hide:
 
   Set up Autoware from source or with Docker.
 
-- :fa-cl-s fa-gamepad: **[Quick start demos](../demos/index.md)**
+- :fa-cl-s fa-gamepad: **[Simulation](../simulation/index.md)**
 
-  Run Autoware in a simulator with ready-made demos.
+  Run Autoware in a planning, rosbag replay, scenario, or digital twin simulation.
 
 - :fa-cl-s fa-book: **[Tutorials](../tutorials/index.md)**
 

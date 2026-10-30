@@ -6,8 +6,8 @@ The drawings on this page use left-hand traffic, as in Japan: vehicles drive on 
 
 There are two types of requirements for crosswalks. Both can apply to a single crosswalk.
 
-- [vm-05-01](./category_crosswalk.md#vm-05-01-crosswalks-across-the-road) : Crosswalks across the road
-- [vm-05-02](./category_crosswalk.md#vm-05-02-crosswalks-with-pedestrian-signals) : Crosswalks with pedestrian signals
+- [vm-05-01](category_crosswalk.md#vm-05-01-crosswalks-across-the-road) : Crosswalks across the road
+- [vm-05-02](category_crosswalk.md#vm-05-02-crosswalks-with-pedestrian-signals) : Crosswalks with pedestrian signals
 
 A crosswalk at an intersection must also meet the requirements of the intersection.
 

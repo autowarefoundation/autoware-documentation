@@ -2,14 +2,14 @@
 
 This section explains how to run your vehicle with Autoware. It explains how Autoware launches these components:
 
-- [Vehicle](./vehicle/index.md)
-- [System](./system/index.md)
-- [Map](./map/index.md)
-- [Sensing](./sensing/index.md)
-- [Localization](./localization/index.md)
-- [Perception](./perception/index.md)
-- [Planning](./planning/index.md)
-- [Control](./control/index.md)
+- [Vehicle](vehicle/index.md)
+- [System](system/index.md)
+- [Map](map/index.md)
+- [Sensing](sensing/index.md)
+- [Localization](localization/index.md)
+- [Perception](perception/index.md)
+- [Planning](planning/index.md)
+- [Control](control/index.md)
 
 ## Prerequisites for launching Autoware on a real vehicle
 
@@ -142,11 +142,11 @@ Traffic light recognition uses a high-accuracy detector by default. The `traffic
 + <arg name="traffic_light_recognition/use_high_accuracy_detection" default="false" description="enable to use high accuracy detection for traffic light recognition"/>
 ```
 
-For more information, see the [Launch perception](./perception/index.md) page.
+For more information, see the [Launch perception](perception/index.md) page.
 
 ### Planning and control
 
-The `planning_module_preset` and `control_module_preset` arguments select a module preset file. A preset file enables or disables the planning and control modules. The default value of both arguments is `default`. The `planning_setting` argument selects the source of the trajectory: `rule_based` (the default) or `diffusion_planner`. For more information, see the [Launch planning](./planning/index.md) and [Launch control](./control/index.md) pages.
+The `planning_module_preset` and `control_module_preset` arguments select a module preset file. A preset file enables or disables the planning and control modules. The default value of both arguments is `default`. The `planning_setting` argument selects the source of the trajectory: `rule_based` (the default) or `diffusion_planner`. For more information, see the [Launch planning](planning/index.md) and [Launch control](control/index.md) pages.
 
 ## Launch Autoware
 

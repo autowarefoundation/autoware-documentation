@@ -25,7 +25,7 @@
   - `autoware_sensor_driver_launch`: the launch files of the LiDAR drivers, one file for each LiDAR model
   - `autoware_sensing_launch`: the launch files of the pointcloud preprocessing, the concatenation, and other processing units
 
-Please refer to the [creating sensor model](./creating-sensor-model/index.md) page
+Please refer to the [creating sensor model](creating-sensor-model/index.md) page
 for creating your individual sensor model.
 
 For reference,
@@ -51,7 +51,7 @@ sample_sensor_kit_launch/
   - `<YOUR_VEHICLE_NAME>_vehicle_description`
   - `<YOUR_VEHICLE_NAME>_vehicle_launch`
 
-Please consult the [creating vehicle model](./creating-vehicle-model/index.md) page
+Please consult the [creating vehicle model](creating-vehicle-model/index.md) page
 for creating your individual vehicle model.
 
 As a reference,

@@ -172,7 +172,7 @@ ros2 run autoware_dependency_checker dependency_checker.sh
 
 ## Perception component communication
 
-To see which ROS topics are being subscribed and published to, launch Autoware and run `rqt_graph`. For example, start the [rosbag replay simulation](../../demos/rosbag-replay-simulation.md), and then run:
+To see which ROS topics are being subscribed and published to, launch Autoware and run `rqt_graph`. For example, start the [rosbag replay simulation](../../simulation/rosbag-replay-simulation.md), and then run:
 
 ```bash
 ros2 run rqt_graph rqt_graph

@@ -1,6 +1,6 @@
 # Tutorials
 
-The tutorials show how to do real tasks with Autoware, step by step. They assume that you installed Autoware and ran the [demos](../demos/index.md). Use the [installation](../installation/index.md) pages first if you have not done that.
+The tutorials show how to do real tasks with Autoware, step by step. They assume that you installed Autoware and ran it in a [simulation](../simulation/index.md). Use the [installation](../installation/index.md) pages first if you have not done that.
 
 The tutorials have three parts:
 
@@ -51,4 +51,4 @@ Evaluation and research:
 - [Planning evaluation using scenarios](others/planning-evaluation-using-scenarios.md): create scenarios, run them in Scenario Simulator, and read the results of the Autoware Evaluator.
 - [Lane detection methods](others/lane-detection-methods.md): compare lane detection and multitask detection methods.
 
-For the evaluation of Autoware components in simulation, also see [Simulation and evaluation](../simulation-evaluation/index.md).
+For the evaluation of Autoware components in simulation, also see [Simulation and evaluation](../simulation/evaluation/index.md).

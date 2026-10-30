@@ -28,7 +28,7 @@ In 2023, ITRI ran the final integration tests on its public road bus. Then it re
 - [Autoware Technical Steering Committee, October 2023](https://autoware.org/autoware-technical-steering-committee-october-2023/): the Bus ODD demo recording in Taiwan
 - [Autoware Technical Steering Committee, November 2023](https://autoware.org/autoware-technical-steering-committee-update-november-2023-autoware-foundation/): scenario tests on ITRI scenes
 - [Vehicle interface](../../tutorials/integrating-autoware/creating-vehicle-interface-package/vehicle-interface.md): a tutorial that explains the inputs and outputs of a vehicle interface
-- [MORAI Sim: Drive](../../demos/digital-twin-demos/MORAI_Sim-tutorial.md): a simulator page that links to a tutorial for the ITRI bus ODD
+- [MORAI Sim: Drive](../../simulation/digital-twin-simulation/MORAI_Sim-tutorial.md): a simulator page that links to a tutorial for the ITRI bus ODD
 
 ## Targeted use cases
 

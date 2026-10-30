@@ -4,11 +4,11 @@ Divided pointcloud map is necessary when handling large pointcloud map, in which
 
 ## Tutorial
 
-In this tutorial, you divide the pointcloud map of the rosbag replay demo into a grid of small PCD files. Then you start the logging simulator with the divided map.
+In this tutorial, you divide the pointcloud map of the rosbag replay simulation into a grid of small PCD files. Then you start the logging simulator with the divided map.
 
 ### Download the sample map
 
-Use the `demo_artifacts` Ansible role to download the sample map, as in [the demo for rosbag replay simulation](../../demos/rosbag-replay-simulation.md):
+Use the `demo_artifacts` Ansible role to download the sample map, as in [rosbag replay simulation](../../simulation/rosbag-replay-simulation.md):
 
 ```bash
 cd ~/autoware
@@ -78,7 +78,7 @@ ros2 launch autoware_launch logging_simulator.launch.xml \
   vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
 ```
 
-For playing rosbag to simulate Autoware, please refer to the instruction in [the demo for rosbag replay simulation](../../demos/rosbag-replay-simulation.md).
+For playing rosbag to simulate Autoware, please refer to the instruction in [rosbag replay simulation](../../simulation/rosbag-replay-simulation.md).
 
 ## Related links
 

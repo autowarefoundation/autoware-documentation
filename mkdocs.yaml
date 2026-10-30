@@ -90,6 +90,30 @@ plugins:
         design/autoware-interfaces/ad-api/list/api/localization/index.md: design/autoware-architecture-v1/interfaces/ad-api/features/localization.md
         design/autoware-interfaces/ad-api/list/api/routing/index.md: design/autoware-architecture-v1/interfaces/ad-api/features/routing.md
         design/autoware-interfaces/components/vehicle-dimensions.md: design/autoware-architecture-v1/interfaces/components/vehicle-dimensions.md
+        demos/digital-twin-demos/MORAI_Sim-tutorial.md: simulation/digital-twin-simulation/MORAI_Sim-tutorial.md
+        demos/digital-twin-demos/autoware-core-awsim/index.md: simulation/digital-twin-simulation/autoware-core-awsim/index.md
+        demos/digital-twin-demos/awsim-tutorial.md: simulation/digital-twin-simulation/awsim-tutorial.md
+        demos/digital-twin-demos/carla-tutorial.md: simulation/digital-twin-simulation/carla-tutorial.md
+        demos/digital-twin-demos/panosim-demo.md: simulation/digital-twin-simulation/panosim-demo.md
+        demos/index.md: simulation/index.md
+        demos/planning-sim/avoidance.md: simulation/planning-simulation/avoidance.md
+        demos/planning-sim/crosswalk.md: simulation/planning-simulation/crosswalk.md
+        demos/planning-sim/index.md: simulation/planning-simulation/index.md
+        demos/planning-sim/lane-change.md: simulation/planning-simulation/lane-change.md
+        demos/planning-sim/lane-driving.md: simulation/planning-simulation/lane-driving.md
+        demos/planning-sim/parking.md: simulation/planning-simulation/parking.md
+        demos/planning-sim/placing-objects.md: simulation/planning-simulation/placing-objects.md
+        demos/planning-sim/pull-over-out.md: simulation/planning-simulation/pull-over-out.md
+        demos/planning-sim/traffic-light.md: simulation/planning-simulation/traffic-light.md
+        demos/planning-sim/using-launch-gui.md: simulation/planning-simulation/using-launch-gui.md
+        demos/rosbag-replay-simulation.md: simulation/rosbag-replay-simulation.md
+        demos/scenario-simulation/driving-log-replayer.md: simulation/scenario-simulation/driving-log-replayer.md
+        demos/scenario-simulation/scenario-simulator/installation.md: simulation/scenario-simulation/scenario-simulator/installation.md
+        demos/scenario-simulation/scenario-simulator/random-test-simulation.md: simulation/scenario-simulation/scenario-simulator/random-test-simulation.md
+        demos/scenario-simulation/scenario-simulator/scenario-test-simulation.md: simulation/scenario-simulation/scenario-simulator/scenario-test-simulation.md
+        simulation-evaluation/components_evaluation/localization_evaluation/urban-environment-evaluation.md: simulation/evaluation/urban-environment-localization.md
+        simulation-evaluation/digital-twin-simulation/compatibility-test.md: simulation/digital-twin-simulation/compatibility-test.md
+        simulation-evaluation/index.md: simulation/index.md
   # https://zensical.org/docs/setup/search/
   - search:
       separator: '[\s\-_,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
