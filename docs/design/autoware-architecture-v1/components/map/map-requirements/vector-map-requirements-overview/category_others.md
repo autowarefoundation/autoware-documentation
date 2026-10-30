@@ -82,7 +82,7 @@ Use the same position rules for Linestrings of fences (_type:fence_).
 
 ##### Supplemental information <!-- omit in toc -->
 
-With the default parameters of `autoware_launch`, the obstacle velocity limiter uses _guard_rail_ Linestrings as static obstacles (`obstacles.static_map_tags`). It decreases the velocity of the vehicle when the vehicle drives close to a guardrail, for example in a curve. The run out module cuts the predicted paths of objects at _guard_rail_ and _fence_ Linestrings (see vm-07-02). The drivable area expansion does not use these Linestrings by default. Its parameter `avoid_linestring.types` contains only _road_border_ and _curbstone_.
+With the default parameters of `autoware_launch`, the obstacle velocity limiter uses _guard_rail_ Linestrings as static obstacles (`obstacles.static_map_tags`). It decreases the velocity of the vehicle when the vehicle drives close to a guardrail, for example in a curve. The run out module cuts the predicted paths of objects at _guard_rail_ and _fence_ Linestrings (see [vm-07-02](#vm-07-02-range-of-detecting-pedestrians-who-enter-the-road)). The drivable area expansion does not use these Linestrings by default. Its parameter `avoid_linestring.types` contains only _road_border_ and _curbstone_.
 
 #### Preferred vector map <!-- omit in toc -->
 

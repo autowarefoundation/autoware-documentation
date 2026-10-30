@@ -13,7 +13,7 @@ Autoware 2.0 uses Architecture 2.0, which adds AI planning next to the rule-base
 
 - :fa-cl-s fa-diagram-project: **[Architecture 2.0](autoware-architecture-v2/index.md)**
 
-  The architecture of Autoware 2.0: generators make candidate trajectories, and a selector checks them and picks one. In Autoware 2.0.0, you select one generator at launch.
+  The architecture of Autoware 2.0: generators make candidate trajectories, and a selector checks them and picks one. In Autoware 2.0.0, you select one generator at launch, and the selector does not run yet.
 
 - :fa-cl-s fa-cubes: **[Components](autoware-architecture-v1/components/sensing/index.md)**
 

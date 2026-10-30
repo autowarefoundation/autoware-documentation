@@ -10,19 +10,19 @@ Autoware uses high-definition point cloud maps and vector maps of the driving en
 
 The Map component reads files. It does not subscribe to topics from other components.
 
-| Name                     | File                               | Description                                                                                                                                                                                                                                              |
-| ------------------------ | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Point cloud map          | `*.pcd` files, or a folder of them | The 3D point cloud map. Localization and Perception use it.                                                                                                                                                                                              |
-| Point cloud map metadata | `pointcloud_map_metadata.yaml`     | The grid cells of a divided point cloud map. Partial and differential loading use it.                                                                                                                                                                    |
-| Lanelet2 map             | `*.osm` file, or a folder of them  | The vector map in the [Autoware Lanelet2 format](https://github.com/autowarefoundation/autoware_lanelet2_extension/blob/main/autoware_lanelet2_extension/docs/lanelet2_format_extension.md).                                                             |
-| Lanelet2 map metadata    | `lanelet2_map_metadata.yaml`       | The grid cells of a divided Lanelet2 map. A Lanelet2 map in more than one file must have it. For a map in one file, the loader calculates the cell from the map if the file does not exist.                                                              |
-| Map projector info       | `map_projector_info.yaml`          | The projection from latitude and longitude to the local `map` frame. If the file does not exist, the projection loader reads the Lanelet2 map. It uses `MGRS` if a point of the map has latitude and longitude values, and `Local` if no point has them. |
+| Name                     | File                               | Description                                                                                                                                                                                                                                                                                       |
+| ------------------------ | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Point cloud map          | `*.pcd` files, or a folder of them | The 3D point cloud map. Localization and Perception use it.                                                                                                                                                                                                                                       |
+| Point cloud map metadata | `pointcloud_map_metadata.yaml`     | The grid cells of a divided point cloud map. Partial and differential loading use it.                                                                                                                                                                                                             |
+| Lanelet2 map             | `*.osm` file, or a folder of them  | The vector map in the [Autoware Lanelet2 format](https://github.com/autowarefoundation/autoware_lanelet2_extension/blob/main/autoware_lanelet2_extension/docs/lanelet2_format_extension.md).                                                                                                      |
+| Lanelet2 map metadata    | `lanelet2_map_metadata.yaml`       | The grid cells of a divided Lanelet2 map. A Lanelet2 map in more than one file must have it. For a map in one file, the loader calculates the cell from the map if the file does not exist.                                                                                                       |
+| Map projector info       | `map_projector_info.yaml`          | The projection from latitude and longitude to the local `map` frame. If the file does not exist, the projection loader reads the Lanelet2 map. It uses `MGRS` if a point of the map has a latitude or longitude that is not zero. It uses `Local` if all points have zero latitude and longitude. |
 
 ## Outputs
 
 ### Map projector info
 
-The `autoware_map_projection_loader` node publishes the projection of the map.
+The `map_projection_loader` node (executable `autoware_map_projection_loader_node`) publishes the projection of the map.
 
 | Name               | Topic                     | Type                                                                                                                                               | Description                                                                                                                            |
 | ------------------ | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -30,7 +30,7 @@ The `autoware_map_projection_loader` node publishes the projection of the map.
 
 ### Point cloud map
 
-The `autoware_pointcloud_map_loader` node of the [`autoware_map_loader`](https://github.com/autowarefoundation/autoware_core/tree/main/map/autoware_map_loader) package loads the point cloud files. It sends the map to the other nodes in the configurations below. The parameter file of the node turns each configuration on or off. The metadata topic and the differential loading service are always on.
+The `pointcloud_map_loader` node (executable `autoware_pointcloud_map_loader`) of the [`autoware_map_loader`](https://github.com/autowarefoundation/autoware_core/tree/main/map/autoware_map_loader) package loads the point cloud files. It sends the map to the other nodes in the configurations below. The parameter file of the node turns each configuration on or off. The metadata topic and the differential loading service are always on.
 
 | Name                                 | Topic or service                                 | Type                                                                                                                                                                       | Default | Description                                                                                       |
 | ------------------------------------ | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------- |
@@ -45,7 +45,7 @@ See the [README of autoware_map_msgs](https://github.com/autowarefoundation/auto
 
 ### Lanelet2 map
 
-The `autoware_lanelet2_map_loader` node of the `autoware_map_loader` package loads the Lanelet2 file and publishes it as one binary message. It projects the latitude and longitude of each point to the `map` frame with the map projector info.
+The `lanelet2_map_loader` node (executable `autoware_lanelet2_map_loader`) of the `autoware_map_loader` package loads the Lanelet2 file and publishes it as one binary message. It projects the latitude and longitude of each point to the `map` frame with the map projector info.
 
 | Name                          | Topic or service                         | Type                                                                                                                                                           | Description                                                                  |
 | ----------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
@@ -75,7 +75,7 @@ The `GetSelectedLanelet2Map` service has this request and response:
 
 ### Lanelet2 map visualization
 
-The `autoware_lanelet2_map_visualizer` node turns `/map/vector_map` into markers for RViz.
+The `lanelet2_map_visualization` node (executable `autoware_lanelet2_map_visualizer`) turns `/map/vector_map` into markers for RViz.
 
 | Name                 | Topic                    | Type                                                                                                                                | Description                             |
 | -------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
@@ -83,11 +83,11 @@ The `autoware_lanelet2_map_visualizer` node turns `/map/vector_map` into markers
 
 ### Viewer frame
 
-The `autoware_vector_map_tf_generator` node publishes a static transform from `map` to `viewer` at the mean position of the points of the Lanelet2 map. RViz uses the `viewer` frame to show the map.
+The `vector_map_tf_generator` node (executable `autoware_vector_map_tf_generator`) publishes a static transform from `map` to `viewer` at the mean position of the points of the Lanelet2 map. RViz uses the `viewer` frame to show the map.
 
 ### Map hash
 
-The `map_hash_generator` node of the `autoware_map_loader` package identifies the loaded map for applications outside Autoware. It calculates the SHA-256 hash of the Lanelet2 map file and of the point cloud map files once, when it starts.
+The `map_hash_generator` node of the `autoware_map_loader` package identifies the loaded map for applications outside Autoware. It calculates the SHA-256 hash of the Lanelet2 map file and of the point cloud map files once, when it starts. If the Lanelet2 map is a folder of files, the node leaves the Lanelet2 hash empty, and the Lanelet2 map XML service returns an empty text.
 
 | Name             | Topic or service                              | Type                                                                                                                                                    | Description                                                           |
 | ---------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |

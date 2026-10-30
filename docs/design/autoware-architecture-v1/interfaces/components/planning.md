@@ -32,7 +32,7 @@ The acceleration is a separate topic today. The [autoware_localization_msgs/msg/
 | Occupancy grid map | `/perception/occupancy_grid_map/map`                    | [nav_msgs/msg/OccupancyGrid](https://github.com/ros2/common_interfaces/blob/rolling/nav_msgs/msg/OccupancyGrid.msg)                                                          | Contains the presence of obstacles and blind spot information (represented as UNKNOWN).                                                                                                                                         |
 | Traffic signal     | `/perception/traffic_light_recognition/traffic_signals` | [autoware_perception_msgs/msg/TrafficLightGroupArray](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/TrafficLightGroupArray.msg) | Contains the traffic signal information such as a color (green, amber, red) and an arrow (right, left, straight).                                                                                                               |
 
-The type of the `Obstacles` information is a sensor message type (`PointCloud2`) today.
+The type of the `Obstacles` information is a sensor message type (`PointCloud2`) today. The plan is to replace it with a type that does not depend on a sensor.
 
 ### From API
 

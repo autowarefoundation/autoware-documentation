@@ -121,7 +121,7 @@ Refer to [Web.Auto Documentation - Creation of No Stopping Area](https://docs.we
 
 The vehicle does not make temporary stops in a _no_stopping_area_. If a stopped vehicle ahead blocks the area, the vehicle stops before the area. The goal planner does not select a goal in a _no_stopping_area_, so the vehicle cannot park there.
 
-The no stopping area module reads the Regulatory Element from the Lanelets on the path of the vehicle. The goal planner reads it only from the Lanelets in which it looks for a goal, as in vm-06-02. If the road has a road shoulder, the road shoulder Lanelet must also refer to the Regulatory Element (_subtype:no_stopping_area_).
+The no stopping area module reads the Regulatory Element from the Lanelets on the path of the vehicle. The goal planner reads it only from the Lanelets in which it looks for a goal, as in [vm-06-02](#vm-06-02-no-parking-signs). If the road has a road shoulder, the road shoulder Lanelet must also refer to the Regulatory Element (_subtype:no_stopping_area_).
 
 {{ diagram("../assets/vm-06-04_1.svg", "A no stopping zone: the vehicle must drive through without stopping.") }}
 

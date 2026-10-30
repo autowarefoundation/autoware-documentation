@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 320" role="img" aria-labelledby="vm-07-03_1-title">
-  <title id="vm-07-03_1-title">The guard_rail Linestring runs on the ground under the outer edge of the rail, which is the part of the guardrail that sticks out most toward the road.</title>
+  <title id="vm-07-03_1-title">
+    The guard_rail Linestring runs on the ground under the outer edge of the rail, which is the part of the guardrail that sticks out most toward the road. The rail hangs out over the road, so the
+    Linestring is on the road surface.
+  </title>
   <style data-aw-standalone="">
     svg { --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-cyan: #00c8ff; --aw-d-bg: color-mix(in
     srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-group: color-mix(in
@@ -79,12 +82,12 @@
   <rect class="group" x="10" y="10" width="540" height="300" rx="16"/>
   <text class="ttl" x="30" y="32" dominant-baseline="central">Top view</text>
 
-  <rect class="sidewalk" x="30" y="90" width="500" height="70"/>
-  <rect class="road" x="30" y="160" width="500" height="136"/>
-  <path class="mark" d="M30 164 H530"/>
+  <rect class="sidewalk" x="30" y="90" width="500" height="50"/>
+  <rect class="road" x="30" y="140" width="500" height="156"/>
+  <path class="mark" d="M30 180 H530"/>
   <path class="mark dash" d="M30 250 H530"/>
 
-  <!-- Guardrail: posts and the rail on the road side of the posts -->
+  <!-- Guardrail: posts on the sidewalk, the rail on the road side of the posts, over the road -->
   <rect class="box muted" x="64" y="126" width="12" height="12" rx="2"/>
   <rect class="box muted" x="164" y="126" width="12" height="12" rx="2"/>
   <rect class="box muted" x="264" y="126" width="12" height="12" rx="2"/>
@@ -110,8 +113,8 @@
   <rect class="group" x="570" y="10" width="280" height="300" rx="16"/>
   <text class="ttl" x="590" y="32" dominant-baseline="central">Cross-section</text>
 
-  <rect class="sidewalk" x="590" y="230" width="90" height="20"/>
-  <rect class="road" x="680" y="230" width="150" height="20"/>
+  <rect class="sidewalk" x="590" y="230" width="62" height="20"/>
+  <rect class="road" x="652" y="230" width="178" height="20"/>
   <rect class="box muted" x="618" y="130" width="14" height="100" rx="2"/>
   <rect class="box muted" x="632" y="148" width="14" height="10" rx="2"/>
   <rect class="box" x="646" y="134" width="20" height="44" rx="4"/>
@@ -124,7 +127,7 @@
   <text class="note" x="704" y="118" dominant-baseline="central">of the rail</text>
   <path class="leader" d="M720 194 L672 228"/>
   <text class="note" x="724" y="188" dominant-baseline="central">Linestring</text>
-  <text class="note" x="635" y="266" text-anchor="middle" dominant-baseline="central">Sidewalk</text>
-  <text class="note" x="755" y="266" text-anchor="middle" dominant-baseline="central">Road</text>
+  <text class="note" x="621" y="266" text-anchor="middle" dominant-baseline="central">Sidewalk</text>
+  <text class="note" x="741" y="266" text-anchor="middle" dominant-baseline="central">Road</text>
   <text class="note good" x="710" y="292" text-anchor="middle" dominant-baseline="central">Measure straight down from the edge</text>
 </svg>
