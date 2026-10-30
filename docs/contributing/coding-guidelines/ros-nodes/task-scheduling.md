@@ -16,7 +16,7 @@ An executor calls these callbacks. A callback group tells the executor which cal
 
 ## Run the main processing from a timer
 
-Most processing nodes of Autoware run their main logic at a fixed rate, in a timer callback. The callback takes the newest input messages with polling subscribers, computes the output, and publishes it. The [topic message handling guideline](./topic-message-handling/index.md) explains the polling subscribers.
+Many nodes of Autoware, for example in planning, control, and localization, run their main logic at a fixed rate, in a timer callback. The callback takes the newest input messages with polling subscribers, computes the output, and publishes it. The [topic message handling guideline](./topic-message-handling/index.md) explains the polling subscribers.
 
 The `autoware_simple_pure_pursuit` node of Autoware Core is a short example. Its constructor creates a timer with a period of 30 ms:
 
@@ -49,9 +49,9 @@ If an input is not available yet, the callback returns and tries again in the ne
 
 ### Use the clock of the node
 
-Create a timer with `rclcpp::create_timer(this, get_clock(), period, callback)`. This timer uses the clock of the node. When the `use_sim_time` parameter is `true`, the clock of the node follows the `/clock` topic of a simulator or of `ros2 bag play`. As a result, the node runs at the correct rate in the simulators and with recorded data.
+Create a timer with `rclcpp::create_timer(this, get_clock(), period, callback)`. This timer uses the clock of the node. When the `use_sim_time` parameter is `true`, the clock of the node follows the `/clock` topic of a simulator or of `ros2 bag play --clock`. As a result, the node runs at the correct rate in the simulators and with recorded data.
 
-`create_wall_timer()` always uses the system clock. Use it only for work that must follow the real time, also in a simulation. Most nodes in Autoware Core and Autoware Universe use `rclcpp::create_timer()`.
+`create_wall_timer()` always uses the steady clock and ignores `use_sim_time`. Use it only for work that must follow the real time, also in a simulation. Most nodes in Autoware Core and Autoware Universe use `rclcpp::create_timer()`.
 
 ### Timers in nodes that support Agnocast
 
@@ -136,6 +136,8 @@ The executor of a standalone node executable is set in the `CMakeLists.txt` file
   AGNOCAST_EXECUTOR AgnocastOnlyCallbackIsolatedExecutor
   ```
 
-  An executor whose name starts with `AgnocastOnly` requires a node that inherits from `autoware::agnocast_wrapper::Node`. For the list of the executors, see the [README of `autoware_agnocast_wrapper`](https://github.com/autowarefoundation/autoware_core/blob/1.10.0/common/autoware_agnocast_wrapper/README.md#registering-a-node-with-autoware_agnocast_wrapper_register_node).
+  An executor whose name starts with `AgnocastOnly` requires a node that inherits from `autoware::agnocast_wrapper::Node`. The opposite is also true: when Agnocast is enabled, a node that inherits from `autoware::agnocast_wrapper::Node` stops at construction unless `AGNOCAST_EXECUTOR` is an `AgnocastOnly` executor. Autoware Core and Autoware Universe use `AgnocastOnlyCallbackIsolatedExecutor` for these nodes. For the list of the executors, see the [README of `autoware_agnocast_wrapper`](https://github.com/autowarefoundation/autoware_core/blob/1.10.0/common/autoware_agnocast_wrapper/README.md#registering-a-node-with-autoware_agnocast_wrapper_register_node).
 
-When a launch file loads the node into a component container, the executor of the container runs the node, and the setting in `CMakeLists.txt` has no effect. `component_container` has a single-threaded executor, and `component_container_mt` has a multi-threaded executor. `agnocast_env.launch.xml` of `autoware_agnocast_wrapper` selects the container executable from its `use_multithread` argument and from the `ENABLE_AGNOCAST` environment variable.
+When a launch file loads the node into a component container, the executor of the container runs the node, and the setting in `CMakeLists.txt` has no effect. `component_container` has a single-threaded executor, and `component_container_mt` has a multi-threaded executor. `agnocast_env.launch.xml` of `autoware_agnocast_wrapper` selects the container executable from its `use_multithread` and `use_agnocast` arguments. The default of `use_agnocast` is the value of the `ENABLE_AGNOCAST` environment variable.
+
+When Agnocast is enabled, a node that inherits from `autoware::agnocast_wrapper::Node` cannot be loaded into a component container. It runs as its own process, with the executor that `CMakeLists.txt` selects.

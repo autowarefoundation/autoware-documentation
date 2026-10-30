@@ -34,7 +34,7 @@ In Autoware, a common coordinate system structure is shown below:
 
 - base_link: vehicle coordinate system, the origin of the coordinate system is the center of the rear axle of the vehicle.
 
-- imu, lidar, gnss, radar: these are sensor frames, transfer to vehicle coordinate system through mounting relationship. In the sample sensor kit, the sensor frames are children of `sensor_kit_base_link`, which is a child of `base_link`.
+- imu, lidar, gnss, radar: these are sensor frames, transfer to vehicle coordinate system through mounting relationship. In the sample sensor kit, most sensor frames are children of `sensor_kit_base_link`, which is a child of `base_link`. The rear LiDAR (`velodyne_rear`) is a direct child of `base_link`.
 
 - camera_link: `camera_link` is ROS standard camera coordinate system.
 

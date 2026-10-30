@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img" aria-labelledby="ros-nodes-coordinate-system-tf-tree-title">
   <title id="ros-nodes-coordinate-system-tf-tree-title">
-    A common tf tree in Autoware: the optional earth frame is the parent of map, map is the parent of base_link, base_link is the parent of the sensor frames, and camera_link is the parent of
+    A common tf tree in Autoware: the optional earth frame is the parent of map, map is the parent of base_link, base_link is the parent of the sensor frames (in the sample sensor kit, most of them
+    through sensor_kit_base_link), and camera_link is the parent of
     camera_optical_link.
   </title>
   <style data-aw-standalone="">
@@ -151,8 +152,9 @@
   <rect class="card" x="583" y="364" width="170" height="40" rx="12"/>
   <text class="code" x="668" y="384" text-anchor="middle" dominant-baseline="central">camera_optical_link</text>
 
-  <text class="sub" x="32" y="368" dominant-baseline="central">Sensor frames. In the sample sensor kit, the sensors</text>
-  <text class="sub" x="32" y="386" dominant-baseline="central">are children of sensor_kit_base_link under base_link.</text>
+  <text class="sub" x="32" y="362" dominant-baseline="central">Sensor frames. In the sample sensor kit, most sensors are</text>
+  <text class="sub" x="32" y="380" dominant-baseline="central">children of sensor_kit_base_link under base_link. The rear</text>
+  <text class="sub" x="32" y="398" dominant-baseline="central">LiDAR (velodyne_rear) is a direct child of base_link.</text>
 
   <!-- Edges -->
   <path class="edge dash" d="M380 60 V96"/>

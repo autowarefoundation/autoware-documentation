@@ -23,7 +23,7 @@ The `autoware_launch` repository (version 0.53.0 in Autoware 2.0.0) contains the
 - `tier4_universe_launch/tier4_<name>_launch`: the launch files of the system, the API, the simulator, and the vehicle.
 - `sensor_kit/<name>_sensor_kit_launch`: the launch and description packages of each sensor kit, for example `sample_sensor_kit_launch` and `sample_sensor_kit_description`.
 - `vehicle/<name>_vehicle_launch`: the launch and description packages of each vehicle, for example `sample_vehicle_launch` and `sample_vehicle_description`.
-- `autoware_sample_designs`: an example that defines the system with [Autoware System Designer](https://github.com/autowarefoundation/autoware_system_designer) and generates the launch files from it.
+- `autoware_sample_designs`: an example that defines the system with [Autoware System Designer](https://github.com/autowarefoundation/autoware_system_designer/tree/v0.4.2) and generates the launch files from it.
 
 The package `autoware_launch` itself provides the general entrypoint to call other modularized launch files and start the Autoware nodes.
 
@@ -39,7 +39,7 @@ The package `autoware_launch` itself provides the general entrypoint to call oth
 
 The next diagram shows how these launch files include each other, with the localization component as an example. The names are from `autoware_launch` 0.53.0.
 
-{{ diagram("images/launch-file-tree.svg", "The simulator launch files include autoware.launch.xml, which includes the component launch files and then the launch files of the node packages.") }}
+{{ diagram("images/launch-file-tree.svg", "The simulator launch files include autoware.launch.xml. It includes the component launch files. These include the launch files of autoware_localization_launch, which include the launch files of the node packages.") }}
 
 ### Add a new package in Autoware
 
@@ -51,7 +51,7 @@ In order to automatically load the newly added package (in `autoware_core` or `a
 
 For example, to add a node to the localization component:
 
-1. Include the launch file of your package from the correct launch file in `autoware_universe_launch/autoware_localization_launch/launch`.
+1. Include the launch file of your package from the correct launch file in `autoware_universe_launch/autoware_localization_launch/launch`. Some node packages are included directly from `autoware_launch/launch/components/component_localization.launch.xml`, for example `autoware_pose_estimator_arbiter`.
 2. Add the launch parameter file of your node to `autoware_universe_launch/autoware_localization_config/config`, and pass its path to your launch file.
 3. Register the pair of the node parameter file and the launch parameter file in the sync-params configuration. See [sync-params](./parameters.md#sync-params).
 

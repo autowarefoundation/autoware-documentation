@@ -123,12 +123,14 @@ ament_auto_add_library(${PROJECT_NAME} SHARED
 autoware_agnocast_wrapper_register_node(${PROJECT_NAME}
   PLUGIN "autoware::gnss_poser::GNSSPoser"
   EXECUTABLE ${PROJECT_NAME}_node
+  AGNOCAST_EXECUTOR AgnocastOnlyCallbackIsolatedExecutor
 )
 ```
 
 - The macro registers the component, like `rclcpp_components_register_node()`. If you build with `ENABLE_AGNOCAST=1`, it also creates an executable that selects `rclcpp` or Agnocast at runtime from the `ENABLE_AGNOCAST` environment variable. Without Agnocast, it behaves like `rclcpp_components_register_node()`.
 - The naming rules for the executable stay the same.
 - The optional `ROS2_EXECUTOR` and `AGNOCAST_EXECUTOR` arguments select the executor of the executable. See [Task scheduling](./task-scheduling.md#select-the-executor).
+- If the node inherits from `autoware::agnocast_wrapper::Node`, set `AGNOCAST_EXECUTOR` to an executor whose name starts with `AgnocastOnly`. Otherwise, the node stops at construction when Agnocast is enabled. Autoware Core and Autoware Universe use `AgnocastOnlyCallbackIsolatedExecutor`.
 
 ##### Exporting a standalone node executable without composition _(discouraged for most cases)_
 
@@ -184,7 +186,7 @@ autoware_gnss_poser
     └─ GnssPoser.node.yaml
 ```
 
-Place the node description files for [Autoware System Designer](https://github.com/autowarefoundation/autoware_system_designer) here. A `*.node.yaml` file describes one node: its package, plugin, and executable, its input and output topics with their message types and QoS, its parameter files, and its processes. Autoware System Designer reads these files to generate launch files and system diagrams. Most node packages of Autoware Core and Autoware Universe have one, for example [`design/GnssPoser.node.yaml` of `autoware_gnss_poser`](https://github.com/autowarefoundation/autoware_core/blob/1.10.0/sensing/autoware_gnss_poser/design/GnssPoser.node.yaml).
+Place the node description files for [Autoware System Designer](https://github.com/autowarefoundation/autoware_system_designer/tree/v0.4.2) here. A `*.node.yaml` file describes one node: its package, plugin, and executable, its input and output topics with their message types and QoS, its parameter files, and its processes. Autoware System Designer reads these files to generate launch files and system diagrams. Most node packages of Autoware Core and Autoware Universe have one, for example [`design/GnssPoser.node.yaml` of `autoware_gnss_poser`](https://github.com/autowarefoundation/autoware_core/blob/1.10.0/sensing/autoware_gnss_poser/design/GnssPoser.node.yaml).
 
 ### `doc`
 
@@ -275,7 +277,7 @@ autoware_gnss_poser
   ```xml
   <include file="$(find-pkg-share autoware_agnocast_wrapper)/launch/agnocast_env.launch.xml"/>
 
-  <node pkg="autoware_gnss_poser" exec="gnss_poser" name="gnss_poser" output="both">
+  <node pkg="autoware_gnss_poser" exec="autoware_gnss_poser_node" name="gnss_poser" output="both">
     ...
     <env name="LD_PRELOAD" value="$(var ld_preload_value)"/>
   </node>
@@ -325,7 +327,7 @@ autoware_adapi_visualizers
 
 - The `README.md` file and the `config` folder are not in the real package. They show where these files go.
 - The [package name](#package-name) rules are the same as for a C++ package.
-- The `config` and `launch` folders follow the same rules as for a C++ package. See [`config` and `schema`](#config-and-schema) and [`launch`](#launch).
+- The `config` and `launch` folders follow the same rules as for a C++ package. See [`config` and `schema`](#config-and-schema) and [`launch`](#launch). The name of the real launch file has the `autoware_` prefix. Give a new launch file a name without it, for example `planning_factors.launch.xml`.
 
 ### `package.xml`
 

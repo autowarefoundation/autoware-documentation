@@ -92,7 +92,7 @@ Autoware has the following two types of parameter files for ROS packages:
   - When a user creates a launch package for the user's vehicle, the user should copy node parameter files for the nodes that are used in the launch file as "launch parameter files".
   - Launch parameter files are then customized specifically for the user's vehicle.
     - For example, [the customized parameter of `autoware_behavior_path_planner` stored under `autoware_launch`](https://github.com/autowarefoundation/autoware_launch/tree/0.53.0/autoware_universe_launch/autoware_planning_config/config/scenario_planning/lane_driving/behavior_planning/behavior_path_planner)
-  - Launch parameter files are stored in the `autoware_launch` repository. The files of each component are in a `autoware_universe_launch/autoware_<component>_config` package, for example `autoware_planning_config`. The files of the system, the vehicle, and the simulator are in the `config` folder of the `autoware_launch` package.
+  - Launch parameter files are stored in the `autoware_launch` repository. The files of each component are in an `autoware_universe_launch/autoware_<component>_config` package, for example `autoware_planning_config`. The files of the system, the vehicle, and the simulator are in the `config` folder of the `autoware_launch` package.
 
 ### sync-params
 
