@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img" aria-labelledby="carla-bridge-title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 530" role="img" aria-labelledby="carla-bridge-title">
   <title id="carla-bridge-title">
-    The autoware_carla_interface bridge sends CARLA sensor data, vehicle status, and the clock to Autoware, and sends the control commands of Autoware back to CARLA.
+    The autoware_carla_interface bridge sends CARLA sensor data, vehicle status, and the clock to Autoware, and sends the control commands, the turn indicator and hazard light commands, and the
+    initial pose of Autoware back to CARLA.
   </title>
   <style data-aw-standalone="">
     svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
@@ -150,87 +151,95 @@
   </defs>
 
   <!-- Background: a faint dot grid and soft glows -->
-  <rect class="dots" x="0" y="0" width="900" height="500"/>
-  <circle class="halo" cx="300" cy="260" r="180"/>
-  <circle class="halo cyan" cx="640" cy="200" r="130"/>
+  <rect class="dots" x="0" y="0" width="900" height="530"/>
+  <circle class="halo" cx="300" cy="290" r="180"/>
+  <circle class="halo cyan" cx="640" cy="230" r="130"/>
 
   <!-- Autoware -->
-  <rect class="card" x="250" y="18" width="400" height="80" rx="14"/>
-  <circle class="icon-bg" cx="284" cy="58" r="18"/>
-  <rect class="icon-line" x="275" y="52" width="18" height="9" rx="3"/>
-  <path class="icon-line" d="M278 52 L281 47 H287 L290 52"/>
-  <circle class="icon-dot" cx="279" cy="63" r="2.2"/>
-  <circle class="icon-dot" cx="289" cy="63" r="2.2"/>
-  <text class="lbl" x="314" y="40" dominant-baseline="central">Autoware</text>
-  <text class="code" x="314" y="60" dominant-baseline="central">e2e_simulator.launch.xml</text>
-  <text class="sub" x="314" y="80" dominant-baseline="central">simulator_type:=carla, sensor_model:=carla_sensor_kit</text>
+  <rect class="card" x="170" y="18" width="560" height="80" rx="14"/>
+  <circle class="icon-bg" cx="204" cy="58" r="18"/>
+  <rect class="icon-line" x="195" y="52" width="18" height="9" rx="3"/>
+  <path class="icon-line" d="M198 52 L201 47 H207 L210 52"/>
+  <circle class="icon-dot" cx="199" cy="63" r="2.2"/>
+  <circle class="icon-dot" cx="209" cy="63" r="2.2"/>
+  <text class="lbl" x="234" y="40" dominant-baseline="central">Autoware</text>
+  <text class="code" x="234" y="60" dominant-baseline="central">e2e_simulator.launch.xml</text>
+  <text class="sub" x="234" y="80" dominant-baseline="central">simulator_type:=carla, sensor_model:=carla_sensor_kit</text>
 
   <!-- The bridge -->
-  <rect class="glass-panel" x="150" y="150" width="600" height="196" rx="18"/>
-  <text class="ttl" x="170" y="172" dominant-baseline="central">Bridge</text>
-  <text class="code" x="290" y="172" dominant-baseline="central">autoware_carla_interface.launch.xml</text>
+  <rect class="glass-panel" x="150" y="180" width="600" height="196" rx="18"/>
+  <text class="ttl" x="170" y="202" dominant-baseline="central">Bridge</text>
+  <text class="code" x="316" y="202" dominant-baseline="central">autoware_carla_interface.launch.xml</text>
 
-  <rect class="box primary" x="170" y="192" width="230" height="136" rx="14"/>
-  <circle class="icon-bg on" cx="196" cy="218" r="15"/>
-  <path class="icon-line" d="M189 214 H203 M199 210 L203 214 L199 218 M203 222 H189 M193 218 L189 222 L193 226"/>
-  <text class="code lbl on-primary" x="285" y="252" text-anchor="middle" dominant-baseline="central">autoware_carla_interface</text>
-  <text class="sub on-primary" x="285" y="274" text-anchor="middle" dominant-baseline="central">Spawns the ego vehicle</text>
-  <text class="sub on-primary" x="285" y="292" text-anchor="middle" dominant-baseline="central">Publishes sensors and status</text>
-  <text class="sub on-primary" x="285" y="310" text-anchor="middle" dominant-baseline="central">Ticks the simulation clock</text>
+  <rect class="box primary" x="170" y="222" width="230" height="136" rx="14"/>
+  <circle class="icon-bg on" cx="196" cy="248" r="15"/>
+  <path class="icon-line" d="M189 244 H203 M199 240 L203 244 L199 248 M203 252 H189 M193 248 L189 252 L193 256"/>
+  <text class="code lbl on-primary" x="285" y="282" text-anchor="middle" dominant-baseline="central">autoware_carla_interface</text>
+  <text class="sub on-primary" x="285" y="304" text-anchor="middle" dominant-baseline="central">Spawns the ego vehicle</text>
+  <text class="sub on-primary" x="285" y="322" text-anchor="middle" dominant-baseline="central">Publishes sensors and status</text>
+  <text class="sub on-primary" x="285" y="340" text-anchor="middle" dominant-baseline="central">Ticks the simulation clock</text>
 
-  <rect class="box" x="476" y="192" width="260" height="58" rx="10"/>
-  <text class="code" x="606" y="212" text-anchor="middle" dominant-baseline="central">autoware_raw_vehicle_cmd_converter</text>
-  <text class="sub" x="606" y="232" text-anchor="middle" dominant-baseline="central">Calibrated for the CARLA Prius</text>
+  <rect class="box" x="476" y="222" width="260" height="58" rx="10"/>
+  <text class="code" x="606" y="242" text-anchor="middle" dominant-baseline="central">autoware_raw_vehicle_cmd_converter</text>
+  <text class="sub" x="606" y="262" text-anchor="middle" dominant-baseline="central">Calibrated for the CARLA Prius</text>
 
-  <rect class="box muted" x="476" y="268" width="260" height="60" rx="10"/>
-  <text class="code" x="606" y="288" text-anchor="middle" dominant-baseline="central">multi_camera_combiner</text>
-  <text class="sub" x="606" y="308" text-anchor="middle" dominant-baseline="central">Joins six cameras for RViz</text>
+  <rect class="box muted" x="476" y="298" width="260" height="60" rx="10"/>
+  <text class="code" x="606" y="318" text-anchor="middle" dominant-baseline="central">multi_camera_combiner</text>
+  <text class="sub" x="606" y="338" text-anchor="middle" dominant-baseline="central">Joins six cameras for RViz</text>
 
-  <path class="edge" d="M476 221 H402"/>
-  <text class="edge-lbl" x="438" y="207" text-anchor="middle" dominant-baseline="central">actuation</text>
-  <text class="edge-lbl" x="438" y="235" text-anchor="middle" dominant-baseline="central">command</text>
-  <path class="edge" d="M400 298 H474"/>
-  <text class="edge-lbl" x="438" y="284" text-anchor="middle" dominant-baseline="central">camera</text>
-  <text class="edge-lbl" x="438" y="312" text-anchor="middle" dominant-baseline="central">images</text>
+  <path class="edge" d="M476 251 H402"/>
+  <text class="edge-lbl" x="438" y="237" text-anchor="middle" dominant-baseline="central">actuation</text>
+  <text class="edge-lbl" x="438" y="265" text-anchor="middle" dominant-baseline="central">command</text>
+  <path class="edge" d="M400 328 H474"/>
+  <text class="edge-lbl" x="438" y="314" text-anchor="middle" dominant-baseline="central">camera</text>
+  <text class="edge-lbl" x="438" y="342" text-anchor="middle" dominant-baseline="central">images</text>
 
   <!-- Bridge to Autoware -->
-  <path class="edge accent" d="M230 192 V100"/>
-  <path class="flow flow-accent" pathLength="100" d="M230 192 V104"/>
-  <path class="edge accent head" d="M230 192 V100"/>
-  <text class="edge-lbl code" x="222" y="106" text-anchor="end" dominant-baseline="central">/sensing/*</text>
-  <text class="edge-lbl code" x="222" y="122" text-anchor="end" dominant-baseline="central">/vehicle/status/*</text>
-  <text class="edge-lbl code" x="222" y="138" text-anchor="end" dominant-baseline="central">/clock</text>
+  <path class="edge accent" d="M230 222 V100"/>
+  <path class="flow flow-accent" pathLength="100" d="M230 222 V104"/>
+  <path class="edge accent head" d="M230 222 V100"/>
+  <text class="edge-lbl code" x="222" y="114" text-anchor="end" dominant-baseline="central">/sensing/*</text>
+  <text class="edge-lbl code" x="222" y="130" text-anchor="end" dominant-baseline="central">/vehicle/status/*</text>
+  <text class="edge-lbl code" x="222" y="146" text-anchor="end" dominant-baseline="central">/clock</text>
 
-  <!-- Autoware to the bridge -->
-  <path class="edge" d="M606 98 V190"/>
-  <path class="flow" pathLength="100" d="M606 98 V186"/>
-  <path class="edge head" d="M606 98 V190"/>
-  <text class="edge-lbl code" x="614" y="128" dominant-baseline="central">/control/command/control_cmd</text>
+  <!-- Autoware to the bridge: lights and the initial pose -->
+  <path class="edge" d="M300 98 V220"/>
+  <path class="flow" pathLength="100" d="M300 98 V216"/>
+  <path class="edge head" d="M300 98 V220"/>
+  <text class="edge-lbl code" x="308" y="118" dominant-baseline="central">/control/command/turn_indicators_cmd</text>
+  <text class="edge-lbl code" x="308" y="134" dominant-baseline="central">/control/command/hazard_lights_cmd</text>
+  <text class="edge-lbl code" x="308" y="150" dominant-baseline="central">/initialpose</text>
+
+  <!-- Autoware to the bridge: control commands -->
+  <path class="edge" d="M606 98 V220"/>
+  <path class="flow" pathLength="100" d="M606 98 V216"/>
+  <path class="edge head" d="M606 98 V220"/>
+  <text class="edge-lbl code" x="614" y="134" dominant-baseline="central">/control/command/control_cmd</text>
 
   <!-- CARLA -->
-  <rect class="card" x="250" y="410" width="400" height="76" rx="14"/>
-  <circle class="icon-bg" cx="284" cy="448" r="18"/>
-  <circle class="icon-line" cx="284" cy="448" r="8"/>
-  <ellipse class="icon-line" cx="284" cy="448" rx="3.8" ry="8"/>
-  <path class="icon-line" d="M276 448 H292"/>
-  <text class="lbl" x="314" y="430" dominant-baseline="central">CARLA server</text>
-  <text class="code" x="314" y="450" dominant-baseline="central">carlasim/carla:0.9.16</text>
-  <text class="sub" x="314" y="470" dominant-baseline="central">RPC port 2000</text>
+  <rect class="card" x="250" y="440" width="400" height="76" rx="14"/>
+  <circle class="icon-bg" cx="284" cy="478" r="18"/>
+  <circle class="icon-line" cx="284" cy="478" r="8"/>
+  <ellipse class="icon-line" cx="284" cy="478" rx="3.8" ry="8"/>
+  <path class="icon-line" d="M276 478 H292"/>
+  <text class="lbl" x="314" y="460" dominant-baseline="central">CARLA server</text>
+  <text class="code" x="314" y="480" dominant-baseline="central">carlasim/carla:0.9.16</text>
+  <text class="sub" x="314" y="500" dominant-baseline="central">RPC port 2000</text>
 
   <!-- The bridge and CARLA -->
-  <path class="edge accent" d="M220 410 V330"/>
-  <path class="flow flow-accent" pathLength="100" d="M220 410 V334"/>
-  <path class="edge accent head" d="M220 410 V330"/>
-  <text class="edge-lbl" x="212" y="366" text-anchor="end" dominant-baseline="central">Sensor data</text>
-  <text class="edge-lbl" x="212" y="382" text-anchor="end" dominant-baseline="central">and ego state</text>
-  <path class="edge" d="M340 328 V408"/>
-  <path class="flow" pathLength="100" d="M340 328 V404"/>
-  <path class="edge head" d="M340 328 V408"/>
-  <text class="edge-lbl" x="348" y="374" dominant-baseline="central">Vehicle control</text>
+  <path class="edge accent" d="M220 440 V360"/>
+  <path class="flow flow-accent" pathLength="100" d="M220 440 V364"/>
+  <path class="edge accent head" d="M220 440 V360"/>
+  <text class="edge-lbl" x="212" y="396" text-anchor="end" dominant-baseline="central">Sensor data</text>
+  <text class="edge-lbl" x="212" y="412" text-anchor="end" dominant-baseline="central">and ego state</text>
+  <path class="edge" d="M340 358 V438"/>
+  <path class="flow" pathLength="100" d="M340 358 V434"/>
+  <path class="edge head" d="M340 358 V438"/>
+  <text class="edge-lbl" x="348" y="404" dominant-baseline="central">Vehicle control</text>
 
   <!-- Spectator camera -->
-  <rect class="box muted" x="700" y="418" width="180" height="60" rx="10"/>
-  <text class="code" x="790" y="438" text-anchor="middle" dominant-baseline="central">spectator_follow</text>
-  <text class="sub" x="790" y="458" text-anchor="middle" dominant-baseline="central">Chase camera, optional</text>
-  <path class="edge dash" d="M700 448 H652"/>
+  <rect class="box muted" x="700" y="448" width="180" height="60" rx="10"/>
+  <text class="code" x="790" y="468" text-anchor="middle" dominant-baseline="central">spectator_follow</text>
+  <text class="sub" x="790" y="488" text-anchor="middle" dominant-baseline="central">Chase camera, optional</text>
+  <path class="edge dash" d="M700 478 H652"/>
 </svg>

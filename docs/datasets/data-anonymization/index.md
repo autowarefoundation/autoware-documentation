@@ -34,7 +34,7 @@ wget https://github.com/autowarefoundation/autoware_rosbag2_anonymizer/releases/
 
 !!! warning
 
-    Be sure you have installed the ROS 2 on your system.
+    Install ROS 2 on your system first. Then source its setup file, for example `source /opt/ros/jazzy/setup.bash`. The command below needs the `ROS_DISTRO` variable that this file sets.
 
 ```bash
 sudo apt install ros-$ROS_DISTRO-rosbag2-storage-mcap
@@ -88,7 +88,7 @@ as dictionaries under the prompts key. Each dictionary should have two keys:
 You should set your configuration in the configuration files under config folder according to the usage. Following
 instructions will guide you to set each configuration file.
 
-The examples show the keys that the code of the tool reads. The model paths point to the files that you downloaded in the installation step.
+The examples show the keys that the code of the tool reads. The model paths point to the files that you downloaded in the installation step. The configuration files in the repository can miss keys or use old key names. Copy the keys from the examples on this page.
 
 - `config/anonymize_with_unified_model.yaml`
 
@@ -97,7 +97,7 @@ rosbag:
   input_bags_folder: "/path/to/input_bag_folder" # Path to the input folder which contains ROS 2 bag files
   output_bags_folder: "/path/to/output_folder" # Path to the output ROS 2 bag folder
   output_save_compressed_image: True # Save images as compressed images (True or False)
-  output_storage_id: "mcap" # Storage id for the output bag file (`sqlite3` or `mcap`)
+  output_storage_id: "sqlite3" # Storage id for the output bag file (`sqlite3` or `mcap`)
 
 grounding_dino:
   config_path: "./GroundingDINO_SwinB.cfg.py" # Path to the GroundingDINO configuration file
@@ -209,6 +209,35 @@ debug:
   print_on_terminal: False
 ```
 
+- `config/validation.yaml`
+
+```yaml
+dataset:
+  input_dataset_yaml: "path/to/data.yaml" # Path to the config file of the dataset in YOLO format
+  max_samples: -1 # Number of samples to validate (int), -1 for all samples in the dataset
+
+grounding_dino:
+  config_path: "./GroundingDINO_SwinB.cfg.py"
+  checkpoint_path: "./groundingdino_swinb_cogcoor.pth"
+  box_threshold: 0.1 # Threshold for the bounding box (float)
+  text_threshold: 0.1 # Threshold for the text (float)
+  nms_threshold: 0.1 # Threshold for the non-maximum suppression (float)
+
+openclip:
+  run: True # Use OpenCLIP to validate the detections (True or False)
+  model_name: "ViT-B-32"
+  pretrained_model: "laion2b_s34b_b79k"
+  score_threshold: 0.7 # Validity threshold for the OpenCLIP model (float)
+
+yolo:
+  model: "./yolo11x_anonymizer.pt"
+  config_path: "./yolo_config.yaml"
+  confidence: 0.15 # Confidence threshold for the YOLO model (float)
+
+bbox_validation:
+  iou_threshold: 0.9 # Threshold for the intersection over union (float), if the intersection over union is greater than this threshold, the object will be selected as inside the validation prompt
+```
+
 ## Usage
 
 The tool provides two options to anonymize images in ROS 2 bag files.
@@ -275,9 +304,7 @@ python3 main.py config/yolo_train.yaml --yolo_train
 
 #### Step 5: Anonymize images in ROS 2 bag files
 
-Anonymize images in ROS 2 bag files with the trained YOLO model. If you want to anonymize your ROS 2 bag file with only
-YOLO model, you should use following command. But we recommend to use the unified model for better results. You can
-follow the Option 1 for the unified model with the YOLO model trained by you.
+Anonymize the images in ROS 2 bag files with the trained YOLO model. To use only the YOLO model, run the following command. For better results, use the unified model of Option 1 with your trained YOLO model.
 
 You should set your configuration in config/yolo_anonymize.yaml file.
 

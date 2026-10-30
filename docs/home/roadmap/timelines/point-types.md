@@ -39,10 +39,11 @@ What is ready:
 
 - The [`autoware_point_types`](https://github.com/autowarefoundation/autoware_core/tree/1.10.0/common/autoware_point_types) package of Autoware Core defines the point types `PointXYZI`, `PointXYZIRC`, `PointXYZIRCT`, `PointXYZIRADRT`, `PointXYZIRCAEDT`, and `PointXYZCPE`. It registers the types for PCL and defines field generators for `point_cloud_msg_wrapper`.
 - The `memory.hpp` header of this package has a layout check for each type, for example `is_data_layout_compatible_with_point_xyzirc()`. This check is the compatibility test of the second step.
-- Some nodes of `autoware_pointcloud_preprocessor` already use the wrapper: the concatenation nodes, the time synchronizer, and the ring outlier filter.
+- Some nodes of `autoware_pointcloud_preprocessor` already use the wrapper: the concatenation nodes and the time synchronizer.
 
 What is left:
 
 - Many nodes still copy point data with `memcpy`, for example in `autoware_ground_filter`, `autoware_crop_box_filter`, `autoware_pointcloud_preprocessor`, and `autoware_compare_map_segmentation`.
 - Many nodes still read point data with `PointCloud2Iterator<>`, for example in `autoware_pointcloud_preprocessor`, `autoware_probabilistic_occupancy_grid_map`, and `autoware_image_projection_based_fusion`.
+- The ring outlier filter of `autoware_pointcloud_preprocessor` reads and writes the raw point buffer directly, with no wrapper.
 - Autoware 2.0.0 has no node that converts outside point types to the Autoware point types.

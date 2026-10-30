@@ -14,6 +14,7 @@ When installing CUDA, errors may occur because of version conflicts. To resolve 
     "libcudnn*"         \
     "libnvinfer*"       \
     "libnvonnxparsers*" \
+    "libnvparsers*"     \
     "tensorrt*"         \
     "nvidia*"
 
@@ -28,6 +29,7 @@ When installing CUDA, errors may occur because of version conflicts. To resolve 
     "libcudnn*"         \
     "libnvinfer*"       \
     "libnvonnxparsers*" \
+    "libnvparsers*"     \
     "tensorrt*"         \
     "nvidia*"
 
