@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 240" role="img" aria-labelledby="wheel-dimensions-title">
+  <title id="wheel-dimensions-title">wheel_width is the width of the tire in the front view. wheel_radius is the distance from the center of the wheel to the edge of the tire in the side view.</title>
+  <style data-aw-standalone="">
+    svg { --aw-c-indigo: var(--aw-indigo); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.both {
+  marker-start: url("#aw-arrow");
+} .leader {
+  fill: none;
+  stroke: var(--aw-d-muted);
+  stroke-width: 1;
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .wheel {
+  fill: #1b1d29;
+} .rim {
+  fill: none;
+  stroke: #c9ccd8;
+  stroke-width: 2.5;
+} .hub {
+  fill: #c9ccd8;
+}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background: a faint dot grid -->
+  <rect class="dots" x="0" y="0" width="760" height="240"/>
+
+  <!-- Front view -->
+  <text class="ttl" x="230" y="20" text-anchor="middle">Front view</text>
+  <rect class="wheel" x="200" y="40" width="60" height="140" rx="12"/>
+  <path class="leader" d="M200 120 V214 M260 120 V214"/>
+  <path class="edge both" d="M202 206 H258"/>
+  <text class="code lbl" x="230" y="228" text-anchor="middle" dominant-baseline="central">wheel_width</text>
+
+  <!-- Side view -->
+  <text class="ttl" x="570" y="20" text-anchor="middle">Side view</text>
+  <circle class="wheel" cx="570" cy="110" r="70"/>
+  <circle class="rim" cx="570" cy="110" r="36"/>
+  <circle class="rim" cx="570" cy="110" r="22"/>
+  <circle class="hub" cx="570" cy="110" r="7"/>
+  <path class="leader" d="M570 110 V214 M640 110 V214"/>
+  <path class="edge both" d="M572 206 H638"/>
+  <text class="code lbl" x="605" y="228" text-anchor="middle" dominant-baseline="central">wheel_radius</text>
+</svg>

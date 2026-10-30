@@ -1221,6 +1221,375 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
   }
 }
 
+/*
+ * Diagrams (see tools/diagrams/README.md). The diagram() macro puts each SVG into the page, so its classes take
+ * these colors and follow the dark mode. The tokens are on the body, so the shared arrow heads get them too.
+ */
+[data-md-color-scheme] {
+  --aw-d-bg: var(--md-default-bg-color);
+  --aw-d-fg: var(--md-default-fg-color);
+  --aw-d-muted: var(--md-default-fg-color--light);
+  --aw-d-line: #8d90a3;
+  --aw-d-accent: var(--aw-c-cyan);
+  --aw-d-node: var(--md-default-bg-color);
+  --aw-d-node-stroke: color-mix(in srgb, var(--aw-c-indigo) 45%, transparent);
+  --aw-d-group: color-mix(in srgb, var(--aw-c-indigo) 6%, var(--md-default-bg-color));
+  --aw-d-group-stroke: color-mix(in srgb, var(--aw-c-indigo) 25%, transparent);
+}
+
+/* The lines are solid, so that a line does not show through its arrow head. */
+[data-md-color-scheme="slate"] {
+  --aw-d-line: #747a9c;
+}
+
+.aw-diagram-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.aw-d-arrow {
+  fill: var(--aw-d-line);
+}
+
+.aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+}
+
+.md-typeset .aw-diagram {
+  --aw-d-bg: color-mix(in srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color));
+
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1rem;
+  margin: 1.6em 0;
+  overflow-x: auto;
+  background-color: var(--aw-d-bg);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.9rem;
+}
+
+.md-typeset .aw-diagram > svg {
+  display: block;
+  width: 100%;
+  min-width: 34rem;
+  height: auto;
+  margin: 0 auto;
+  font-family: var(--md-text-font-family);
+}
+
+.md-typeset .aw-diagram > figcaption {
+  max-width: none;
+  margin: 0.8rem 0 0;
+  font-size: 0.65rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* Boxes */
+.aw-diagram .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+}
+
+.aw-diagram .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+}
+
+.aw-diagram .box.ai {
+  fill: color-mix(in srgb, var(--aw-cyan) 14%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-cyan) 70%, transparent);
+}
+
+.aw-diagram .box.ok {
+  fill: color-mix(in srgb, var(--aw-green) 14%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-c-green) 70%, transparent);
+}
+
+.aw-diagram .box.warn {
+  fill: color-mix(in srgb, var(--aw-crimson) 10%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-c-crimson) 70%, transparent);
+}
+
+.aw-diagram .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+}
+
+.aw-diagram .box.ext {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-dasharray: 6 5;
+}
+
+.aw-diagram .group {
+  fill: var(--aw-d-group);
+  stroke: var(--aw-d-group-stroke);
+  stroke-width: 1.5;
+}
+
+.aw-diagram .group.ai {
+  fill: color-mix(in srgb, var(--aw-cyan) 7%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-cyan) 45%, transparent);
+}
+
+.aw-diagram .group.dashed {
+  stroke-dasharray: 7 5;
+}
+
+/* Text */
+.aw-diagram text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+}
+
+.aw-diagram .lbl {
+  font-weight: 600;
+}
+
+.aw-diagram .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+}
+
+.aw-diagram .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+}
+
+.aw-diagram .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.aw-diagram .on-primary {
+  fill: #fff;
+}
+
+.aw-diagram .on-primary.sub {
+  fill: #ffffffc7;
+}
+
+.aw-diagram .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+}
+
+/* Lines */
+.aw-diagram .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+}
+
+.aw-diagram .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+}
+
+.aw-diagram .edge.both {
+  marker-start: url("#aw-arrow");
+}
+
+.aw-diagram .edge.accent.both {
+  marker-start: url("#aw-arrow-accent");
+}
+
+.aw-diagram .edge.dash {
+  stroke-dasharray: 6 5;
+}
+
+.aw-diagram .edge.plain {
+  marker-end: none;
+}
+
+.aw-diagram .icon {
+  fill: var(--aw-d-muted);
+}
+
+.aw-d-arrow--route {
+  fill: var(--aw-c-green);
+}
+
+/*
+ * Map illustrations: roads, lane markings, lanelets, and vehicles. The road colors stay the same in both modes,
+ * because they show real road surfaces.
+ */
+.aw-diagram .road {
+  fill: #5c6070;
+}
+
+.aw-diagram .shoulder {
+  fill: #8d91a0;
+}
+
+.aw-diagram .sidewalk {
+  fill: #b9bcc8;
+}
+
+.aw-diagram .mark {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+}
+
+.aw-diagram .mark.dash {
+  stroke-dasharray: 14 10;
+}
+
+.aw-diagram .mark.yellow {
+  stroke: #ffc233;
+}
+
+.aw-diagram .mark.thick {
+  stroke-width: 7;
+}
+
+.aw-diagram .lanelet {
+  fill: color-mix(in srgb, var(--aw-indigo) 38%, transparent);
+  stroke: none;
+}
+
+.aw-diagram .lanelet.alt {
+  fill: color-mix(in srgb, var(--aw-cyan) 40%, transparent);
+}
+
+.aw-diagram .lanelet.bad {
+  fill: color-mix(in srgb, var(--aw-crimson) 35%, transparent);
+}
+
+.aw-diagram .area {
+  fill: color-mix(in srgb, var(--aw-green) 25%, transparent);
+  stroke: var(--aw-c-green);
+  stroke-width: 2;
+  stroke-dasharray: 6 4;
+}
+
+.aw-diagram .area.warn {
+  fill: color-mix(in srgb, var(--aw-crimson) 22%, transparent);
+  stroke: var(--aw-c-crimson);
+}
+
+.aw-diagram .bound {
+  fill: none;
+  stroke: var(--aw-cyan);
+  stroke-width: 2.5;
+}
+
+.aw-diagram .bound.alt {
+  stroke: #ff7076;
+}
+
+.aw-diagram .bound.point {
+  fill: var(--aw-cyan);
+  stroke: none;
+}
+
+.aw-diagram .route {
+  fill: none;
+  stroke: var(--aw-c-green);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  marker-end: url("#aw-arrow-route");
+}
+
+.aw-diagram .route.plain {
+  marker-end: none;
+}
+
+.aw-diagram .car {
+  fill: var(--aw-indigo);
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+
+.aw-diagram .car.other {
+  fill: var(--aw-crimson);
+}
+
+.aw-diagram .car.npc {
+  fill: #8d91a0;
+}
+
+.aw-diagram .glass {
+  fill: #ffffffb3;
+}
+
+.aw-diagram .sign {
+  fill: #fff;
+  stroke: var(--aw-crimson);
+  stroke-width: 5;
+}
+
+.aw-diagram .sign-text {
+  font-weight: 700;
+  fill: #00002a;
+}
+
+.aw-diagram .light-housing {
+  fill: #1b1d29;
+  stroke: #8d91a0;
+  stroke-width: 1.5;
+}
+
+.aw-diagram .light-red {
+  fill: #ff3b4e;
+}
+
+.aw-diagram .light-yellow {
+  fill: #ffc233;
+}
+
+.aw-diagram .light-green {
+  fill: #00e678;
+}
+
+.aw-diagram .light-off {
+  fill: #4a4d5c;
+}
+
+.aw-diagram .leader {
+  fill: none;
+  stroke: var(--aw-d-muted);
+  stroke-width: 1;
+}
+
+.aw-diagram .note {
+  font-size: 13px;
+  fill: var(--aw-d-fg);
+}
+
+.aw-diagram .note.bad {
+  fill: var(--aw-c-crimson);
+}
+
+.aw-diagram .note.good {
+  fill: var(--aw-c-green);
+}
+
+.aw-diagram .note.code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+}
+
+.aw-diagram .mark-text {
+  font-size: 13px;
+  font-weight: 700;
+  fill: #fff;
+}
+
 /* ROS 2 commands in code blocks (see ros2-highlight.js). */
 [data-md-color-scheme="default"] {
   --aw-ros-arg: #6a3fd6;
@@ -1271,4 +1640,286 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
 .md-typeset .aw-ros-val,
 .md-typeset .aw-ros-val.nv {
   color: var(--aw-ros-val);
+}
+
+/*
+ * Illustration layer for the main diagrams: glass panels, glows, icons, a glass car, and data that flows along the
+ * lines. Use it only for a few overview diagrams (see tools/diagrams/README.md).
+ */
+[data-md-color-scheme="default"] {
+  --aw-glass-a: #ffffffd9;
+  --aw-glass-b: #f0f6ff8c;
+  --aw-halo-opacity: 0.22;
+  --aw-car-shadow: #00002a40;
+  --aw-flow-tone: 22%;
+  --aw-flow-traj-a: #e3e0ff;
+  --aw-flow-traj-b: #d6f7ff;
+}
+
+[data-md-color-scheme="slate"] {
+  --aw-glass-a: #ffffff17;
+  --aw-glass-b: #ffffff08;
+  --aw-halo-opacity: 0.5;
+  --aw-car-shadow: #00000099;
+  --aw-flow-tone: 40%;
+  --aw-flow-traj-a: #c8c2ff;
+  --aw-flow-traj-b: #aeeeff;
+}
+
+.aw-glass-a {
+  stop-color: var(--aw-glass-a);
+}
+
+.aw-glass-b {
+  stop-color: var(--aw-glass-b);
+}
+
+.aw-flow-traj-a {
+  stop-color: var(--aw-flow-traj-a);
+}
+
+.aw-flow-traj-b {
+  stop-color: var(--aw-flow-traj-b);
+}
+
+.aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+}
+
+.aw-diagram .dots {
+  fill: url("#aw-dots");
+}
+
+/* A soft glow. It fades to nothing at its radius, so keep the circle inside the viewBox. */
+.aw-diagram .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+}
+
+.aw-diagram .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+}
+
+.aw-diagram .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+}
+
+.aw-diagram .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+}
+
+.aw-diagram .card.ai {
+  fill: color-mix(in srgb, var(--aw-cyan) 8%, var(--aw-d-node));
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 65%, transparent);
+}
+
+.aw-diagram .icon-bg {
+  fill: url("#aw-grad-primary");
+}
+
+.aw-diagram .icon-bg.ai {
+  fill: url("#aw-grad-ai");
+}
+
+.aw-diagram .icon-bg.on {
+  fill: #ffffff2e;
+}
+
+.aw-diagram .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.aw-diagram .icon-dot {
+  fill: #fff;
+}
+
+.aw-diagram .pill {
+  fill: #ffffff24;
+  stroke: #ffffff59;
+}
+
+.aw-diagram .pill-text {
+  font-size: 12px;
+  font-weight: 600;
+  fill: #fff;
+}
+
+.aw-diagram .traj {
+  fill: none;
+  stroke: url("#aw-grad-traj");
+  stroke-width: 2.5;
+  marker-end: url("#aw-arrow-accent");
+}
+
+.aw-diagram .glow {
+  filter: url("#aw-glow");
+}
+
+/*
+ * Two pulses of light that travel along a line. Each pulse has the color of its line, a little lighter: add flow-accent
+ * or flow-traj for those lines. The path has pathLength="100", so every line has the same rhythm,
+ * whatever its length.
+ */
+.aw-diagram .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+}
+
+.aw-diagram .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+}
+
+.aw-diagram .flow.flow-traj {
+  stroke: url("#aw-grad-traj-light");
+}
+
+.aw-diagram .flow.flow-route {
+  stroke: color-mix(in srgb, var(--aw-c-green) var(--aw-flow-tone), #fff);
+}
+
+/* A copy of a line with only its arrow head. Draw it after the flow, so that the arrow head stays on top. */
+.aw-diagram .edge.head,
+.aw-diagram .edge.accent.head,
+.aw-diagram .traj.head,
+.aw-diagram .route.head {
+  stroke: none;
+}
+
+@keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+}
+
+.aw-diagram .car-body {
+  fill: url("#aw-grad-car");
+}
+
+.aw-diagram .car-body.other {
+  fill: url("#aw-grad-car-other");
+}
+
+.aw-diagram .car-body.npc {
+  fill: url("#aw-grad-car-npc");
+}
+
+/* Other road users in the same glass style: a pedestrian, a traffic cone, a bicycle, and a truck. */
+.aw-diagram .ped-body {
+  fill: url("#aw-grad-car-other");
+  stroke: #fff;
+  stroke-width: 1;
+}
+
+.aw-diagram .ped-head {
+  fill: #ffe1d2;
+  stroke: #fff;
+  stroke-width: 1;
+}
+
+.aw-diagram .cone {
+  fill: url("#aw-grad-cone");
+  stroke: #fff;
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+
+.aw-diagram .cone-stripe {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+}
+
+.aw-diagram .cone-base {
+  fill: #c2410c;
+}
+
+.aw-diagram .bike-wheel {
+  fill: #1b1d29;
+}
+
+.aw-diagram .bike-frame {
+  fill: none;
+  stroke: #c9ccd8;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.aw-diagram .truck-box {
+  fill: url("#aw-grad-truck");
+  stroke: #ffffffb3;
+  stroke-width: 1;
+}
+
+.aw-diagram .truck-rib {
+  fill: none;
+  stroke: #8d91a0;
+  stroke-width: 1;
+  opacity: 0.6;
+}
+
+.aw-diagram .car-glass {
+  fill: url("#aw-grad-car-glass");
+  stroke: #ffffffb3;
+  stroke-width: 1;
+}
+
+.aw-diagram .car-shine {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.75;
+}
+
+.aw-diagram .wheel {
+  fill: #1b1d29;
+}
+
+.aw-diagram .rim {
+  fill: none;
+  stroke: #c9ccd8;
+  stroke-width: 2.5;
+}
+
+.aw-diagram .hub {
+  fill: #c9ccd8;
+}
+
+.aw-diagram .car-shadow {
+  fill: var(--aw-car-shadow);
+  filter: url("#aw-soft");
+}
+
+.aw-diagram .headlight {
+  fill: #9ff3ff;
+  filter: url("#aw-glow");
+}
+
+.aw-diagram .lidar {
+  fill: url("#aw-grad-ai");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aw-diagram .flow {
+    display: none;
+    animation: none;
+  }
 }

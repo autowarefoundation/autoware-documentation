@@ -1,6 +1,6 @@
 # Localization
 
-![Node diagram](images/Localization-Bus-ODD-Architecture.drawio.svg)
+{{ diagram("images/Localization-Bus-ODD-Architecture.svg", "The main nodes and data flows of the Localization component in the default setup.") }}
 
 ## Inputs
 

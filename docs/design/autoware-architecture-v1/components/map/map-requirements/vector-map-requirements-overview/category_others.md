@@ -25,11 +25,11 @@ Check the range of sensors on your vehicle.
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](../assets/vm-07-01_1.svg)
+{{ diagram("../assets/vm-07-01_1.svg", "Lanelets on all the lanes in the sensor range, also on the crossing road.") }}
 
 #### Incorrect vector map <!-- omit in toc -->
 
-![svg](../assets/vm-07-01_2.svg)
+{{ diagram("../assets/vm-07-01_2.svg", "Lanelets only on the route of the vehicle.") }}
 
 ---
 
@@ -47,7 +47,7 @@ Setting up a linestring of the following type instructs Autoware to disregard th
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](../assets/vm-05-04_1.svg)
+{{ diagram("../assets/vm-05-04_1.svg", "A fence Linestring between the road and the area next to it.") }}
 
 #### Incorrect vector map <!-- omit in toc -->
 
@@ -87,7 +87,7 @@ Follow the same position guidelines for Linestrings of fences (_type:fence_).
 
 The height of a Point should be based on the ellipsoidal height (WGS84), in meters.
 
-![svg](../assets/vm-07-04_height_en.svg)
+{{ diagram("../assets/vm-07-04_height_en.svg", "Ellipsoidal height and orthometric height of a point.") }}
 
 #### Preferred vector map <!-- omit in toc -->
 

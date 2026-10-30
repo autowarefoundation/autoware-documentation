@@ -8,22 +8,7 @@ This pipeline covers the flow of data from drivers to the perception stack.
 
 ## Recommended processing pipeline
 
-```mermaid
-graph TD
-    Driver["Lidar Driver"] -->|"Cloud XYZIRCAEDT"| FilterPR["Polygon Remover Filter / CropBox Filter"]
-
-    subgraph "sensing"
-    FilterPR -->|"Cloud XYZIRCAEDT"| FilterDC["Motion Distortion Corrector Filter"]
-    FilterDC -->|"Cloud XYZIRCAEDT"| FilterOF["Outlier Remover Filter"]
-    FilterOF -->|"Cloud XYZIRC"| FilterDS["Downsampler Filter"]
-    FilterDS -->|"Cloud XYZIRC"| FilterTrans["Cloud Transformer"]
-    FilterTrans -->|"Cloud XYZIRC"| FilterC
-
-    FilterX["..."] -->|"Cloud XYZIRC (i)"| FilterC["Cloud Concatenator"]
-    end
-
-    FilterC -->|"Cloud XYZIRC"| SegGr["Ground Segmentation"]
-```
+{{ diagram("image/point-cloud-pipeline.svg", "Each LiDAR has its own preprocessing chain. The concatenation node merges all LiDARs into one point cloud.") }}
 
 ## List of modules
 
@@ -31,7 +16,7 @@ The modules used here are from [pointcloud_preprocessor package](https://github.
 
 For details about the modules, see [the following table](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_pointcloud_preprocessor#inner-workings--algorithms).
 
-It is recommended that these modules are used in a single container as components. For details see [ROS 2 Composition](https://docs.ros.org/en/rolling/Tutorials/Intermediate/Composition.html)
+It is recommended that these modules are used in a single container as components. For details see [ROS 2 Composition](https://docs.ros.org/en/jazzy/Tutorials/Intermediate/Composition.html)
 
 ## Point cloud fields
 

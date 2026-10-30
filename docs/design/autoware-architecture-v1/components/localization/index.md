@@ -168,7 +168,7 @@ Two architectures are defined, "Required" and "Recommended". However, the "Requi
 
 ### Required Architecture
 
-![required-architecture](../../image/localization/required-architecture.png)
+{{ diagram("image/required-architecture.svg", "The inputs and outputs that every localization implementation must provide.") }}
 
 #### Input
 
@@ -201,7 +201,7 @@ Two architectures are defined, "Required" and "Recommended". However, the "Requi
 
 ### Recommended Architecture
 
-![recommended-architecture](../../image/localization/recommended-architecture.png)
+{{ diagram("image/recommended-architecture.svg", "The recommended architecture, with the Autoware packages that implement each part.") }}
 
 #### Pose Estimator
 
@@ -229,7 +229,7 @@ Two architectures are defined, "Required" and "Recommended". However, the "Requi
 
 #### TF tree
 
-![tf-tree](../../image/localization/tf-tree.png)
+{{ diagram("image/tf-tree.svg", "The tf tree of Autoware. The localization component publishes the tf from map to base_link. The earth frame is optional.") }}
 
 |   frame   | meaning                                                                                        |
 | :-------: | :--------------------------------------------------------------------------------------------- |

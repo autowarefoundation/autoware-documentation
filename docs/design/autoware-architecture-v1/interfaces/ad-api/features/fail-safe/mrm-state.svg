@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" role="img" aria-labelledby="adapi-mrm-state-title">
+  <title id="adapi-mrm-state-title">
+    The MRM state starts at NORMAL. When an abnormality is detected, it changes to MRM_OPERATING. MRM_OPERATING changes to MRM_SUCCEEDED or MRM_FAILED, and both can change back to MRM_OPERATING. When
+    the abnormality is resolved, the state changes back to NORMAL.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-crimson: var(--aw-crimson); --aw-c-cyan: #0098c7; --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-crimson: #dc143c; --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-green: #00e678; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.ok {
+  fill: color-mix(in srgb, var(--aw-green) 14%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-c-green) 70%, transparent);
+} .box.warn {
+  fill: color-mix(in srgb, var(--aw-crimson) 10%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-c-crimson) 70%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.both {
+  marker-start: url("#aw-arrow");
+} .edge.accent.both {
+  marker-start: url("#aw-arrow-accent");
+} .icon {
+  fill: var(--aw-d-muted);
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="800" height="300"/>
+  <circle class="halo" cx="136" cy="170" r="110"/>
+  <circle class="halo cyan" cx="540" cy="150" r="145"/>
+
+  <!-- Initial state -->
+  <circle class="icon" cx="22" cy="170" r="9"/>
+  <path class="edge accent" d="M31 170 H52"/>
+  <path class="flow flow-accent" pathLength="100" d="M31 170 H52"/>
+  <path class="edge accent head" d="M31 170 H52"/>
+
+  <!-- NORMAL -->
+  <rect class="box ok" x="56" y="142" width="160" height="56" rx="12"/>
+  <text class="lbl" x="136" y="170" text-anchor="middle" dominant-baseline="central">NORMAL</text>
+
+  <!-- MRM states -->
+  <rect class="glass-panel" x="290" y="16" width="494" height="270" rx="16"/>
+  <text class="ttl" x="310" y="42">MRM</text>
+
+  <rect class="box warn" x="316" y="142" width="190" height="56" rx="12"/>
+  <text class="lbl" x="411" y="170" text-anchor="middle" dominant-baseline="central">MRM_OPERATING</text>
+
+  <rect class="card" x="584" y="70" width="176" height="56" rx="12"/>
+  <text class="lbl" x="672" y="98" text-anchor="middle" dominant-baseline="central">MRM_SUCCEEDED</text>
+
+  <rect class="card" x="584" y="214" width="176" height="56" rx="12"/>
+  <text class="lbl" x="672" y="242" text-anchor="middle" dominant-baseline="central">MRM_FAILED</text>
+
+  <!-- Transitions -->
+  <path class="edge accent" d="M216 170 H312"/>
+  <path class="flow flow-accent" pathLength="100" d="M216 170 H312"/>
+  <path class="edge accent head" d="M216 170 H312"/>
+  <path class="edge both" d="M510 160 H545 V98 H580"/>
+  <path class="edge both" d="M510 180 H545 V242 H580"/>
+  <path class="edge" d="M290 60 H136 V138"/>
+  <path class="flow" pathLength="100" d="M290 60 H136 V138"/>
+  <path class="edge head" d="M290 60 H136 V138"/>
+</svg>

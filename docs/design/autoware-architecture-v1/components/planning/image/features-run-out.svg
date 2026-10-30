@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" role="img" aria-labelledby="features-run-out-title">
+  <title id="features-run-out-title">A pedestrian on the sidewalk moves toward the path, so the ego vehicle stops before the place where they would meet.</title>
+  <style data-aw-standalone="">
+    svg { --aw-c-crimson: var(--aw-crimson); --aw-c-cyan: #0098c7; --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-car-shadow: #00002a40; --aw-crimson: #dc143c; --aw-cyan: #00c8ff; --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-flow-tone: 22%; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .aw-d-arrow--route {
+  fill: var(--aw-c-green);
+} .road {
+  fill: #5c6070;
+} .sidewalk {
+  fill: #b9bcc8;
+} .mark {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+} .mark.dash {
+  stroke-dasharray: 14 10;
+} .lanelet {
+  fill: color-mix(in srgb, var(--aw-indigo) 38%, transparent);
+  stroke: none;
+} .lanelet.alt {
+  fill: color-mix(in srgb, var(--aw-cyan) 40%, transparent);
+} .lanelet.bad {
+  fill: color-mix(in srgb, var(--aw-crimson) 35%, transparent);
+} .bound {
+  fill: none;
+  stroke: var(--aw-cyan);
+  stroke-width: 2.5;
+} .bound.alt {
+  stroke: #ff7076;
+} .route {
+  fill: none;
+  stroke: var(--aw-c-green);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  marker-end: url("#aw-arrow-route");
+} .leader {
+  fill: none;
+  stroke: var(--aw-d-muted);
+  stroke-width: 1;
+} .note {
+  font-size: 13px;
+  fill: var(--aw-d-fg);
+} .note.bad {
+  fill: var(--aw-c-crimson);
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-route {
+  stroke: color-mix(in srgb, var(--aw-c-green) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} .car-body {
+  fill: url("#aw-grad-car");
+} .ped-body {
+  fill: url("#aw-grad-car-other");
+  stroke: #fff;
+  stroke-width: 1;
+} .ped-head {
+  fill: #ffe1d2;
+  stroke: #fff;
+  stroke-width: 1;
+} .car-glass {
+  fill: url("#aw-grad-car-glass");
+  stroke: #ffffffb3;
+  stroke-width: 1;
+} .car-shadow {
+  fill: var(--aw-car-shadow);
+  filter: url("#aw-soft");
+} .headlight {
+  fill: #9ff3ff;
+  filter: url("#aw-glow");
+} .lidar {
+  fill: url("#aw-grad-ai");
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-route" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--route" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <filter id="aw-glow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="aw-grad-ai" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00c8ff"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-car" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2a1fa8"/>
+      <stop offset="0.35" stop-color="#3f2ee3"/>
+      <stop offset="0.75" stop-color="#2a6df2"/>
+      <stop offset="1" stop-color="#00b4ff"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-car-glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#bfeeff" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#7fd8ff" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-car-other" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a50f2d"/>
+      <stop offset="0.5" stop-color="#dc143c"/>
+      <stop offset="1" stop-color="#ff6a7c"/>
+    </linearGradient>
+    <filter id="aw-soft" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feGaussianBlur stdDeviation="3.5"/>
+    </filter>
+  </defs>
+  <rect class="sidewalk" x="0" y="14" width="760" height="30"/>
+
+  <!-- Road: two lanes in the same direction. The ego lane is on top. -->
+  <rect class="road" x="0" y="44" width="760" height="120"/>
+  <line class="mark" x1="0" y1="50" x2="760" y2="50"/>
+  <line class="mark" x1="0" y1="158" x2="760" y2="158"/>
+  <line class="mark dash" x1="0" y1="104" x2="760" y2="104"/>
+
+  <!-- Area after the stop point -->
+  <rect class="lanelet bad" x="480" y="63" width="240" height="28"/>
+
+  <!-- Pedestrian who moves toward the path -->
+  <g class="pedestrian">
+    <ellipse class="car-shadow" cx="560" cy="37" rx="8" ry="2.5"/>
+    <path class="ped-body" d="M553 36 V25 Q553 18 560 18 Q567 18 567 25 V36 Z"/>
+    <circle class="ped-head" cx="560" cy="11" r="5.5"/>
+  </g>
+  <path class="edge accent" d="M575 30 L575 64"/>
+
+  <!-- Planned path and stop point -->
+  <path class="route" d="M150 77 H460"/>
+  <path class="flow flow-route" pathLength="100" d="M150 77 H460"/>
+  <path class="route head" d="M150 77 H460"/>
+  <line class="bound alt" x1="480" y1="56" x2="480" y2="98"/>
+
+  <!-- Ego vehicle -->
+  <g transform="translate(99 57) rotate(90 11 20)">
+    <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
+    <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
+    <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
+    <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
+    <circle class="lidar" cx="11" cy="22" r="3.2"/>
+    <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
+    <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
+  </g>
+  <text class="note" x="480" y="184" text-anchor="middle" dominant-baseline="central">Stop before the predicted collision point</text>
+  <line class="leader" x1="480" y1="176" x2="480" y2="100"/>
+</svg>

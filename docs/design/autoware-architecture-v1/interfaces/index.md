@@ -8,15 +8,15 @@ Autoware defines three categories of interfaces. The first one is Autoware AD AP
 
 - Applications can operate multiple and various vehicles in a common way.
 
-  ![unified-access](general/unified-access.drawio.svg)
+  {{ diagram("general/unified-access.svg", "One FMS operates a car, a bus, and a truck through the same AD API.") }}
 
 - Applications are not affected by version updates and implementation changes.
 
-  ![absorb-changes](general/absorb-changes.drawio.svg)
+  {{ diagram("general/absorb-changes.svg", "Without the AD API, each HMI must match one Autoware version. With the AD API, the HMI stays the same.") }}
 
 - Developers only need to know the interface to add new features and hardware.
 
-  ![new-feature](general/new-feature.drawio.svg)
+  {{ diagram("general/new-feature.svg", "A new component connects to the component interface only.") }}
 
 ## Requirements
 
@@ -49,7 +49,7 @@ AD API implementation is also a component.
 Since the functional elements required for AD API are defined as the component interface, other components do not need to consider AD API directly.
 Tools for evaluation and debugging, such as simulators, access both AD API and the component interface.
 
-![architecture](general/architecture.drawio.svg)
+{{ diagram("general/architecture.svg", "Applications use the AD API. Components use and implement the component interface.") }}
 
 The component interface has a hierarchical specification.
 The top-level architecture consists of some components. Each component has some options of the next-level architecture.
@@ -60,7 +60,7 @@ A sub-component can be combined with others that adopt the same architecture.
 Third parties can define and publish their own architecture and interface for open source development.
 It is desirable to propose them for standardization if they are sufficiently evaluated.
 
-![component](general/hierarchy.drawio.svg)
+{{ diagram("general/hierarchy.svg", "The next-level architecture of a component can be monolithic or made of sub-components.") }}
 
 ## Features
 

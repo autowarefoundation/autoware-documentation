@@ -31,7 +31,7 @@ When pedestrians or cyclists are on the crosswalk, Autoware will come to a stop 
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](../assets/vm-05-01_1.svg)
+{{ diagram("../assets/vm-05-01_1.svg", "The crosswalk Regulatory Element refers to the crosswalk Lanelet, the crosswalk Polygon, and the stop lines.") }}
 
 #### Incorrect vector map <!-- omit in toc -->
 
@@ -61,7 +61,7 @@ Refer to [vm-04-02](category_traffic_light.md#vm-04-02-traffic-light-position-an
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](../assets/vm-05-02_1.svg)
+{{ diagram("../assets/vm-05-02_1.svg", "The crosswalk Lanelet refers to a traffic_light Regulatory Element for the pedestrian lights.") }}
 
 #### Incorrect vector map <!-- omit in toc -->
 
@@ -84,7 +84,7 @@ To ensure a constant deceleration to a safe speed when traversing a crosswalk, a
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](../assets/vm-05-03_2.svg)
+{{ diagram("../assets/vm-05-03_2.svg", "The safety slow down tags are on the crosswalk Lanelet.") }}
 
 #### Incorrect vector map <!-- omit in toc -->
 
@@ -108,7 +108,7 @@ However, if there is a guardrail, wall, or fence between the road and sidewalk, 
 
 #### Preferred vector map <!-- omit in toc -->
 
-![svg](../assets/vm-05-04_1.svg)
+{{ diagram("../assets/vm-05-04_1.svg", "A fence Linestring separates the area from the road.") }}
 
 #### Incorrect vector map <!-- omit in toc -->
 

@@ -6,7 +6,7 @@ This page provides specific specifications about the Interface of the Planning C
 
 ## Input
 
-![planning-input](images/planning-interface-input.drawio.svg)
+{{ diagram("images/planning-interface-input.svg", "Inputs come from other components.") }}
 
 ### From Map Component
 
@@ -50,7 +50,7 @@ This page provides specific specifications about the Interface of the Planning C
 
 ## Output
 
-![planning-output](images/planning-interface-output.drawio.svg)
+{{ diagram("images/planning-interface-output.svg", "Outputs go to other components.") }}
 
 ### To Control
 
@@ -78,7 +78,7 @@ This page provides specific specifications about the Interface of the Planning C
 
 This section explains the communication between the different planning modules shown in the [Planning Architecture Design](../../components/planning/index.md#high-level-design).
 
-![planning-internal](images/planning-interface-internal.drawio.svg)
+{{ diagram("images/planning-interface-internal.svg", "Internal interfaces connect the modules inside the Planning component.") }}
 
 ### From Mission Planning to Scenario Planning
 

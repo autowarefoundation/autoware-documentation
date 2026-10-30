@@ -16,7 +16,7 @@ This document presents the design concept of the Control Component. The content 
 
 The Control Component generates the control signal to which the Vehicle Component subscribes. The generated control signals are computed based on the reference trajectories from the Planning Component.
 
-![control-component](image/control-component.drawio.svg)
+{{ diagram("image/control-component.svg", "The trajectory follower makes the control command, and the vehicle command gate selects the command that goes to the vehicle.") }}
 
 The Control Component consists of two modules. The `trajectory_follower` module generates a vehicle control command to follow the reference trajectory received from the planning module. The command includes, for example, the desired steering angle and target speed. The `vehicle_command_gate` is responsible for filtering the control command to prevent abnormal values and then sending it to the vehicle. This gate also allows switching between multiple sources such as the MRM (minimal risk maneuver) module or some remote control module, in addition to the trajectory follower.
 
@@ -49,7 +49,7 @@ If the information is not known in advance, an automatic calibration tool can be
 
 This configuration is summarized in the following diagram.
 
-![vehicle-abstraction](image/vehicle-interface-hw-abstraction.drawio.svg)
+{{ diagram("image/vehicle-interface-hw-abstraction.svg", "An adapter converts the generic control command into commands for each drive-by-wire interface.") }}
 
 ### Examples of several vehicle interfaces
 

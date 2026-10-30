@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 470" role="img" aria-labelledby="adapi-initialize-pose-input-title">
+  <title id="adapi-initialize-pose-input-title">
+    The user gives a pose in the GUI. The application calls the localization initialize API with that pose, and AD API forwards the request to Autoware.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-indigo: var(--aw-indigo); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .on-primary {
+  fill: #fff;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .edge.plain {
+  marker-end: none;
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="840" height="470"/>
+  <circle class="halo" cx="530" cy="250" r="200"/>
+
+  <!-- Participants and lifelines -->
+  <rect class="card" x="15" y="16" width="150" height="44" rx="12"/>
+  <circle class="icon-bg" cx="74" cy="38" r="14"/>
+  <rect class="icon-line" x="67" y="32" width="14" height="12" rx="2"/>
+  <path class="icon-line" d="M67 36 H81"/>
+  <text class="lbl" x="97" y="38" dominant-baseline="central">GUI</text>
+  <line class="edge plain dash" x1="90" y1="60" x2="90" y2="458"/>
+  <rect class="card" x="225" y="16" width="150" height="44" rx="12"/>
+  <circle class="icon-bg" cx="261" cy="38" r="14"/>
+  <rect class="icon-line" x="254" y="32" width="14" height="12" rx="2"/>
+  <path class="icon-line" d="M254 36 H268"/>
+  <text class="lbl" x="284" y="38" dominant-baseline="central">Application</text>
+  <line class="edge plain dash" x1="300" y1="60" x2="300" y2="458"/>
+  <rect class="box primary" x="455" y="16" width="150" height="44" rx="12"/>
+  <circle class="icon-bg on" cx="504" cy="38" r="14"/>
+  <path class="icon-line" d="M501 33 L496 38 L501 43 M507 33 L512 38 L507 43"/>
+  <text class="lbl on-primary" x="527" y="38" dominant-baseline="central">AD API</text>
+  <line class="edge plain dash" x1="530" y1="60" x2="530" y2="458"/>
+  <rect class="card" x="665" y="16" width="150" height="44" rx="12"/>
+  <circle class="icon-bg" cx="706" cy="38" r="14"/>
+  <path class="icon-line" d="M701 34 L711 34 M701 34 L706 43 M711 34 L706 43"/>
+  <circle class="icon-dot" cx="701" cy="34" r="2.4"/>
+  <circle class="icon-dot" cx="711" cy="34" r="2.4"/>
+  <circle class="icon-dot" cx="706" cy="43" r="2.4"/>
+  <text class="lbl" x="729" y="38" dominant-baseline="central">Autoware</text>
+  <line class="edge plain dash" x1="740" y1="60" x2="740" y2="458"/>
+
+  <!-- Messages -->
+  <path class="edge" d="M92 94 H298"/>
+  <path class="flow" pathLength="100" d="M92 94 H298"/>
+  <path class="edge head" d="M92 94 H298"/>
+  <text class="edge-lbl" x="195" y="83" text-anchor="middle" dominant-baseline="central">pose</text>
+  <path class="edge" d="M302 136 H528"/>
+  <path class="flow" pathLength="100" d="M302 136 H528"/>
+  <path class="edge head" d="M302 136 H528"/>
+  <text class="edge-lbl" x="415" y="125" text-anchor="middle" dominant-baseline="central">/api/localization/initialize (pose)</text>
+  <path class="edge" d="M532 178 H738"/>
+  <path class="flow" pathLength="100" d="M532 178 H738"/>
+  <path class="edge head" d="M532 178 H738"/>
+  <text class="edge-lbl" x="635" y="167" text-anchor="middle" dominant-baseline="central">initialize the pose</text>
+  <path class="edge" d="M738 220 H532"/>
+  <path class="flow" pathLength="100" d="M738 220 H532"/>
+  <path class="edge head" d="M738 220 H532"/>
+  <text class="edge-lbl" x="635" y="209" text-anchor="middle" dominant-baseline="central">INITIALIZING</text>
+  <path class="edge" d="M528 262 H302"/>
+  <path class="flow" pathLength="100" d="M528 262 H302"/>
+  <path class="edge head" d="M528 262 H302"/>
+  <text class="edge-lbl" x="415" y="251" text-anchor="middle" dominant-baseline="central">/api/localization/initialization_state</text>
+  <path class="edge" d="M738 304 H532"/>
+  <path class="flow" pathLength="100" d="M738 304 H532"/>
+  <path class="edge head" d="M738 304 H532"/>
+  <text class="edge-lbl" x="635" y="293" text-anchor="middle" dominant-baseline="central">INITIALIZED or UNINITIALIZED</text>
+  <path class="edge" d="M528 346 H302"/>
+  <path class="flow" pathLength="100" d="M528 346 H302"/>
+  <path class="edge head" d="M528 346 H302"/>
+  <text class="edge-lbl" x="415" y="335" text-anchor="middle" dominant-baseline="central">/api/localization/initialization_state</text>
+  <path class="edge dash" d="M738 388 H532"/>
+  <text class="edge-lbl" x="635" y="377" text-anchor="middle" dominant-baseline="central">response status</text>
+  <path class="edge dash" d="M528 430 H302"/>
+  <text class="edge-lbl" x="415" y="419" text-anchor="middle" dominant-baseline="central">response status</text>
+</svg>

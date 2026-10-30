@@ -24,7 +24,7 @@ Autoware control mode has four operation modes.
 | Local      | Manually control the vehicle from nearby with some device such as a joystick. |
 | Remote     | Manually control the vehicle from a web application on the cloud.             |
 
-![operation-mode-architecture](operation_mode/architecture.drawio.svg)
+{{ diagram("operation_mode/architecture.svg", "The operation mode selects the command under Autoware control. The driver controls the vehicle under direct control.") }}
 
 ## States
 

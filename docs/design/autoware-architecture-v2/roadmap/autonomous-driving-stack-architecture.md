@@ -2,9 +2,7 @@
 
 ## Traditional Robotics Stack
 
-![Architecture diagram of traditional robotics stack for autonomous driving](media/architecture_figure01.png)
-
-<p align="center"><strong>Figure 1:</strong> Architecture diagram of traditional robotics stack for autonomous driving</p>
+{{ diagram("media/architecture_figure01.svg", "Figure 1: The traditional robotics stack for autonomous driving.") }}
 
 Early architectures for autonomous driving were architected as per a traditional robotics stack comprising hand-coded algorithms for perception, localization and planning, as illustrated in Figure 1. Whilst such approaches are able to achieve robust performance in known scenarios and constrained Operational Design Domains, there are certain drawbacks of this classical architecture.
 
@@ -18,9 +16,7 @@ This evolution is being driven by our core value of developing ‘cutting edge�
 
 The Autoware E2E stack aims to achieve global scalability across (Operational Design Domains) ODDs by utilizing data-centric End-to-End AI through which hand-coded modules will be replaced in a modular and incremental fashion by neural networks - which have shown great promise in being able to handle diverse and complex driving scenarios across domains.
 
-![Definition of SAE Level 4+ autonomous driving](media/architecture_figure02.png)
-
-<p align="center"><strong>Figure 2:</strong> Definition of SAE Level 4+ autonomous driving</p>
+{{ diagram("media/architecture_figure02.svg", "Figure 2: The roadmap definition of Level 4+ autonomous driving, compared with SAE Levels 3, 4, and 5.") }}
 
 In particular, we aim to achieve SAE Level 4+ autonomous driving functionality through Autoware E2E, in which the autonomous system is able to operate without any human intervention and is able to dynamically adapt to new scenarios which the system has not previously encountered - as illustrated in Figure 2.
 
@@ -32,9 +28,7 @@ The Autoware E2E architecture will be implemented in an evolutionary fashion in 
 
 Step 1 aims to introduce a learned planning module which is able to ingest a world state consisting of the ego-vehicle’s localized position with respect to an HD map, alongside key perception information including elements such as 3D bounding boxes of other foreground objects, traffic light state etc.
 
-![Learned planner](media/architecture_figure03.png)
-
-<p align="center"><strong>Figure 3:</strong> Autoware E2E - Learned Planning architecture</p>
+{{ diagram("media/architecture_figure03.svg", "Figure 3: Step 1, the learned planning architecture.") }}
 
 The learned planning module is able to take this ‘local world representation’ from upstream perception and localization processes and devises an optimal trajectory which aligns with the overall navigation goal as determined by the mission plan.
 
@@ -46,15 +40,11 @@ Step 2 builds on top of the milestone achievement of Step 1 and introduces learn
 
 Option A:
 
-![Learned Perception and Learned Planning supported by an HD-map](media/architecture_figure04.png)
-
-<p align="center"><strong>Figure 4:</strong> Autoware E2E - Learned Perception and Learned Planning supported by an HD-map</p>
+{{ diagram("media/architecture_figure04.svg", "Figure 4: Step 2, option A. Learned perception and learned planning with an HD map.") }}
 
 Option B:
 
-![Learned Perception and Learned Planning supported by a standard 2D-map](media/architecture_figure05.png)
-
-<p align="center"><strong>Figure 5:</strong> Autoware E2E - Learned Perception and Learned Planning supported by a standard 2D-map</p>
+{{ diagram("media/architecture_figure05.svg", "Figure 5: Step 2, option B. Learned perception and learned planning with a standard 2D map.") }}
 
 In Step 2, the entire autonomous driving stack is learned and trainable End-to-End, however, there is an interface between the learned perception module and the learned planning module, where the outputs of the learned perception modules need to satisfy the requirements of the learned planning module. This approach decouples perception and planning and allows for introspection of the full End-to-End stack, allowing for easier debugging and testing.
 
@@ -68,15 +58,11 @@ Similar to Step 2, there are two options which can be leveraged to implement Ste
 
 Option A:
 
-![Monolithic Learned Driving model supported by an HD-map](media/architecture_figure06.png)
-
-<p align="center"><strong>Figure 6:</strong> Autoware E2E - Monolithic Learned Driving model supported by an HD-map</p>
+{{ diagram("media/architecture_figure06.svg", "Figure 6: Step 3, option A. A monolithic learned driving model with an HD map.") }}
 
 Option B:
 
-![Monolithic Learned Driving model supported by a standard 2D-map](media/architecture_figure07.png)
-
-<p align="center"><strong>Figure 7:</strong> Autoware E2E - Monolithic Learned Driving model supported by a standard 2D-map</p>
+{{ diagram("media/architecture_figure07.svg", "Figure 7: Step 3, option B. A monolithic learned driving model with a standard 2D map.") }}
 
 Multiple Neural network architectures can be applied for ‘Learned Driving’ models, however, they can broadly be categorised as belonging to two types; convolutional neural network models and vision-language-action models.
 
@@ -112,12 +98,8 @@ A Safety Guardian module is responsible for cross-referencing the Safety Percept
 
 Option A:
 
-![Learned Hybrid model supported by an HD-map](media/architecture_figure08.png)
-
-<p align="center"><strong>Figure 8:</strong> Autoware E2E - Learned Hybrid model supported by an HD-map</p>
+{{ diagram("media/architecture_figure08.svg", "Figure 8: Step 4, option A. A learned hybrid model with an HD map.") }}
 
 Option B:
 
-![Learned Hybrid model supported by a standard 2D-map](media/architecture_figure09.png)
-
-<p align="center"><strong>Figure 9:</strong> Autoware E2E - Learned Hybrid model supported by a standard 2D-map</p>
+{{ diagram("media/architecture_figure09.svg", "Figure 9: Step 4, option B. A learned hybrid model with a standard 2D map.") }}

@@ -1,0 +1,276 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 564" role="img" aria-labelledby="high-level-map-diagram-title">
+  <title id="high-level-map-diagram-title">
+    The map component reads the projection info, Lanelet2 map, and point cloud map files. Its loader nodes publish the map projector info, the vector map, and the point cloud map to the other
+    components. Helper nodes publish visualization markers, the viewer transform, the map hash, and the Lanelet2 file for the map API.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="564"/>
+  <circle class="halo" cx="370" cy="286" r="230"/>
+  <circle class="halo cyan" cx="704" cy="250" r="150"/>
+
+  <!-- Column titles -->
+  <text class="ttl" x="12" y="60">Map files</text>
+  <text class="ttl" x="560" y="60">Outputs and users</text>
+
+  <!-- The map component -->
+  <rect class="glass-panel" x="214" y="36" width="312" height="512" rx="20"/>
+  <text class="ttl" x="232" y="60">Map component (/map)</text>
+
+  <!-- Row A: projection -->
+  <rect class="box muted" x="12" y="76" width="176" height="72" rx="12"/>
+  <text class="lbl" x="100" y="102" text-anchor="middle" dominant-baseline="central">Projection info</text>
+  <text class="code" x="100" y="124" text-anchor="middle" dominant-baseline="central">map_projector_info.yaml</text>
+
+  <rect class="box primary" x="232" y="76" width="276" height="72" rx="14"/>
+  <circle class="icon-bg on" cx="262" cy="112" r="18"/>
+  <circle class="icon-line" cx="262" cy="112" r="8"/>
+  <ellipse class="icon-line" cx="262" cy="112" rx="3.8" ry="8"/>
+  <path class="icon-line" d="M254 112 H270"/>
+  <text class="lbl on-primary" x="290" y="102" dominant-baseline="central">map_projection_loader</text>
+  <text class="sub on-primary" x="290" y="124" dominant-baseline="central">autoware_map_projection_loader</text>
+
+  <rect class="card" x="560" y="76" width="288" height="72" rx="14"/>
+  <text class="code" x="704" y="96" text-anchor="middle" dominant-baseline="central">/map/map_projector_info</text>
+  <text class="sub" x="704" y="116" text-anchor="middle" dominant-baseline="central">To sensing (GNSS), localization,</text>
+  <text class="sub" x="704" y="132" text-anchor="middle" dominant-baseline="central">and the AD API</text>
+
+  <path class="edge" d="M188 112 H224"/>
+  <path class="flow" pathLength="100" d="M188 112 H224"/>
+  <path class="edge head" d="M188 112 H224"/>
+  <path class="edge accent" d="M508 112 H552"/>
+  <path class="flow flow-accent" pathLength="100" d="M508 112 H552"/>
+  <path class="edge accent head" d="M508 112 H552"/>
+
+  <!-- Projection to the Lanelet2 loader -->
+  <path class="edge" d="M370 148 V182"/>
+  <path class="flow" pathLength="100" d="M370 148 V182"/>
+  <path class="edge head" d="M370 148 V182"/>
+  <text class="edge-lbl" x="380" y="168" dominant-baseline="central">projector info</text>
+
+  <!-- Row B: Lanelet2 map -->
+  <rect class="box muted" x="12" y="188" width="176" height="72" rx="12"/>
+  <text class="lbl" x="100" y="214" text-anchor="middle" dominant-baseline="central">Lanelet2 map</text>
+  <text class="code" x="100" y="236" text-anchor="middle" dominant-baseline="central">lanelet2_map.osm</text>
+
+  <rect class="box primary" x="232" y="188" width="276" height="72" rx="14"/>
+  <circle class="icon-bg on" cx="262" cy="224" r="18"/>
+  <path class="icon-line" d="M257 215 L253 233 M267 215 L271 233"/>
+  <path class="icon-line" d="M262 215 V219 M262 222 V226 M262 229 V233"/>
+  <text class="lbl on-primary" x="290" y="214" dominant-baseline="central">lanelet2_map_loader</text>
+  <text class="sub on-primary" x="290" y="236" dominant-baseline="central">autoware_map_loader</text>
+
+  <rect class="card" x="560" y="188" width="288" height="72" rx="14"/>
+  <text class="code" x="704" y="208" text-anchor="middle" dominant-baseline="central">/map/vector_map</text>
+  <text class="sub" x="704" y="228" text-anchor="middle" dominant-baseline="central">To localization, perception,</text>
+  <text class="sub" x="704" y="244" text-anchor="middle" dominant-baseline="central">planning, and control</text>
+
+  <path class="edge" d="M188 224 H224"/>
+  <path class="flow" pathLength="100" d="M188 224 H224"/>
+  <path class="edge head" d="M188 224 H224"/>
+  <path class="edge accent" d="M508 224 H552"/>
+  <path class="flow flow-accent" pathLength="100" d="M508 224 H552"/>
+  <path class="edge accent head" d="M508 224 H552"/>
+
+  <!-- Lanelet2 loader to the helper nodes -->
+  <path class="edge" d="M370 260 V294"/>
+  <path class="flow" pathLength="100" d="M370 260 V294"/>
+  <path class="edge head" d="M370 260 V294"/>
+  <text class="edge-lbl" x="380" y="280" dominant-baseline="central">vector map</text>
+
+  <!-- Row C: helper nodes -->
+  <rect class="box muted" x="232" y="300" width="276" height="112" rx="12"/>
+  <text class="lbl" x="370" y="320" text-anchor="middle" dominant-baseline="central">Helper nodes</text>
+  <text class="code" x="370" y="344" text-anchor="middle" dominant-baseline="central">lanelet2_map_visualization</text>
+  <text class="code" x="370" y="362" text-anchor="middle" dominant-baseline="central">vector_map_tf_generator</text>
+  <text class="code" x="370" y="380" text-anchor="middle" dominant-baseline="central">map_hash_generator</text>
+  <text class="sub" x="370" y="398" text-anchor="middle" dominant-baseline="central">(the hash generator reads the map files)</text>
+
+  <rect class="card" x="560" y="300" width="288" height="112" rx="14"/>
+  <text class="sub" x="704" y="320" text-anchor="middle" dominant-baseline="central">For RViz and the map API</text>
+  <text class="code" x="704" y="344" text-anchor="middle" dominant-baseline="central">/map/vector_map_marker</text>
+  <text class="code" x="704" y="362" text-anchor="middle" dominant-baseline="central">/tf_static (map to viewer)</text>
+  <text class="code" x="704" y="380" text-anchor="middle" dominant-baseline="central">/api/autoware/get/map/info/hash</text>
+  <text class="code" x="704" y="398" text-anchor="middle" dominant-baseline="central">/api/autoware/get/map/lanelet/xml</text>
+
+  <path class="edge" d="M508 356 H552"/>
+  <path class="flow" pathLength="100" d="M508 356 H552"/>
+  <path class="edge head" d="M508 356 H552"/>
+
+  <!-- Row D: point cloud map -->
+  <rect class="box muted" x="12" y="432" width="176" height="100" rx="12"/>
+  <text class="lbl" x="100" y="460" text-anchor="middle" dominant-baseline="central">Point cloud map</text>
+  <text class="code" x="100" y="484" text-anchor="middle" dominant-baseline="central">pointcloud_map.pcd</text>
+  <text class="sub" x="100" y="504" text-anchor="middle" dominant-baseline="central">and its metadata file</text>
+
+  <rect class="box primary" x="232" y="432" width="276" height="100" rx="14"/>
+  <circle class="icon-bg on" cx="262" cy="482" r="18"/>
+  <circle class="icon-dot" cx="255" cy="476" r="2.2"/>
+  <circle class="icon-dot" cx="263" cy="473" r="2.2"/>
+  <circle class="icon-dot" cx="270" cy="478" r="2.2"/>
+  <circle class="icon-dot" cx="258" cy="484" r="2.2"/>
+  <circle class="icon-dot" cx="266" cy="485" r="2.2"/>
+  <circle class="icon-dot" cx="254" cy="490" r="2.2"/>
+  <circle class="icon-dot" cx="262" cy="492" r="2.2"/>
+  <circle class="icon-dot" cx="270" cy="490" r="2.2"/>
+  <text class="lbl on-primary" x="290" y="470" dominant-baseline="central">pointcloud_map_loader</text>
+  <text class="sub on-primary" x="290" y="494" dominant-baseline="central">autoware_map_loader</text>
+
+  <rect class="card" x="560" y="432" width="288" height="100" rx="14"/>
+  <text class="code" x="704" y="450" text-anchor="middle" dominant-baseline="central">/map/pointcloud_map</text>
+  <text class="code" x="704" y="468" text-anchor="middle" dominant-baseline="central">/map/pointcloud_map_metadata</text>
+  <text class="code" x="704" y="486" text-anchor="middle" dominant-baseline="central">/map/get_*_pointcloud_map</text>
+  <text class="sub" x="704" y="504" text-anchor="middle" dominant-baseline="central">(partial, differential, selected)</text>
+  <text class="sub" x="704" y="520" text-anchor="middle" dominant-baseline="central">To localization and perception</text>
+
+  <path class="edge" d="M188 482 H224"/>
+  <path class="flow" pathLength="100" d="M188 482 H224"/>
+  <path class="edge head" d="M188 482 H224"/>
+  <path class="edge accent" d="M508 482 H552"/>
+  <path class="flow flow-accent" pathLength="100" d="M508 482 H552"/>
+  <path class="edge accent head" d="M508 482 H552"/>
+</svg>

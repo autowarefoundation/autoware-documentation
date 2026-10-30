@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 250" role="img" aria-labelledby="interface-hierarchy-title">
+  <title id="interface-hierarchy-title">
+    The same component, with two inputs and one output, has three possible next-level architectures: a monolithic one, type A, where two sub-components each take one input and a third sub-component
+    merges their results into the output, and type B, where one input passes through a chain of two sub-components into the sub-component that takes the other input and makes the output.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="250"/>
+  <circle class="halo" cx="440" cy="110" r="104"/>
+  <circle class="halo cyan" cx="746" cy="110" r="100"/>
+
+  <!-- Monolithic architecture -->
+  <path class="edge" d="M14 70 H48"/>
+  <path class="flow" pathLength="100" d="M14 70 H48"/>
+  <path class="edge head" d="M14 70 H48"/>
+  <path class="edge" d="M14 150 H48"/>
+  <path class="flow" pathLength="100" d="M14 150 H48"/>
+  <path class="edge head" d="M14 150 H48"/>
+  <rect class="card" x="54" y="30" width="180" height="160" rx="12"/>
+  <text class="sub" x="144" y="110" text-anchor="middle" dominant-baseline="central">All in one</text>
+  <path class="edge" d="M234 110 H268"/>
+  <path class="flow" pathLength="100" d="M234 110 H268"/>
+  <path class="edge head" d="M234 110 H268"/>
+  <text class="lbl" x="144" y="222" text-anchor="middle" dominant-baseline="central">Monolithic architecture</text>
+
+  <!-- Next-level architecture, type A -->
+  <rect class="glass-panel" x="340" y="30" width="200" height="160" rx="18"/>
+  <path class="edge" d="M300 70 H350"/>
+  <path class="flow" pathLength="100" d="M300 70 H350"/>
+  <path class="edge head" d="M300 70 H350"/>
+  <path class="edge" d="M300 150 H350"/>
+  <path class="flow" pathLength="100" d="M300 150 H350"/>
+  <path class="edge head" d="M300 150 H350"/>
+  <rect class="card" x="356" y="52" width="66" height="36" rx="12"/>
+  <rect class="card" x="356" y="132" width="66" height="36" rx="12"/>
+  <rect class="card" x="458" y="52" width="66" height="116" rx="12"/>
+  <path class="edge" d="M422 70 H452"/>
+  <path class="flow" pathLength="100" d="M422 70 H452"/>
+  <path class="edge head" d="M422 70 H452"/>
+  <path class="edge" d="M422 150 H452"/>
+  <path class="flow" pathLength="100" d="M422 150 H452"/>
+  <path class="edge head" d="M422 150 H452"/>
+  <path class="edge" d="M524 110 H574"/>
+  <path class="flow" pathLength="100" d="M524 110 H574"/>
+  <path class="edge head" d="M524 110 H574"/>
+  <text class="lbl" x="440" y="222" text-anchor="middle" dominant-baseline="central">Next-level architecture (type A)</text>
+
+  <!-- Next-level architecture, type B -->
+  <rect class="glass-panel" x="646" y="30" width="200" height="160" rx="18"/>
+  <path class="edge" d="M606 70 H656"/>
+  <path class="flow" pathLength="100" d="M606 70 H656"/>
+  <path class="edge head" d="M606 70 H656"/>
+  <path class="edge" d="M606 150 H656"/>
+  <path class="flow" pathLength="100" d="M606 150 H656"/>
+  <path class="edge head" d="M606 150 H656"/>
+  <rect class="card" x="662" y="52" width="168" height="36" rx="12"/>
+  <rect class="card" x="662" y="132" width="66" height="36" rx="12"/>
+  <rect class="card" x="764" y="132" width="66" height="36" rx="12"/>
+  <path class="edge" d="M728 150 H758"/>
+  <path class="flow" pathLength="100" d="M728 150 H758"/>
+  <path class="edge head" d="M728 150 H758"/>
+  <path class="edge" d="M797 132 V94"/>
+  <path class="flow" pathLength="100" d="M797 132 V94"/>
+  <path class="edge head" d="M797 132 V94"/>
+  <path class="edge" d="M830 70 H856"/>
+  <path class="flow" pathLength="100" d="M830 70 H856"/>
+  <path class="edge head" d="M830 70 H856"/>
+  <text class="lbl" x="746" y="222" text-anchor="middle" dominant-baseline="central">Next-level architecture (type B)</text>
+</svg>

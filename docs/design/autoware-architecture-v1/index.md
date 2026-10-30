@@ -20,7 +20,7 @@ Note that the initial focus of this architecture design was solely on driving ca
 
 ## High-level architecture design
 
-![Overview](image/autoware-architecture-overview.drawio.svg)
+{{ diagram("image/autoware-architecture-overview.svg", "The stacks of the rule-based architecture and the data flow between them.") }}
 
 Autoware's architecture consists of the following seven stacks. Each linked page contains a more detailed set of requirements and use cases specific to that stack:
 

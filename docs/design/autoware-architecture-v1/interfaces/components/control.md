@@ -1,6 +1,6 @@
 # Control
 
-![Node diagram](images/Control-Bus-ODD-Architecture.drawio.svg)
+{{ diagram("images/Control-Bus-ODD-Architecture.svg", "The main nodes and topics of the Control component.") }}
 
 ## Inputs
 

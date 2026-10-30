@@ -1,0 +1,263 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 784" role="img" aria-labelledby="point-cloud-pipeline-title">
+  <title id="point-cloud-pipeline-title">
+    For each LiDAR, the driver output goes through two crop box filters, the distortion corrector, and the ring outlier filter. The concatenation node merges the point clouds of all LiDARs and sends
+    them to perception and localization.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="784"/>
+  <circle class="halo" cx="226" cy="270" r="200"/>
+  <circle class="halo cyan" cx="430" cy="600" r="160"/>
+
+  <!-- The pipeline of one LiDAR -->
+  <rect class="glass-panel" x="16" y="16" width="420" height="496" rx="18"/>
+  <text class="ttl" x="36" y="40">Per LiDAR</text>
+
+  <rect class="box muted" x="40" y="56" width="220" height="48" rx="12"/>
+  <circle class="icon-bg" cx="70" cy="80" r="14"/>
+  <circle class="icon-line" cx="70" cy="80" r="7"/>
+  <path class="icon-line" d="M70 80 L75 75"/>
+  <circle class="icon-dot" cx="70" cy="80" r="2.2"/>
+  <text class="lbl" x="150" y="72" text-anchor="middle" dominant-baseline="central">LiDAR driver</text>
+  <text class="sub" x="150" y="91" text-anchor="middle" dominant-baseline="central">Nebula</text>
+
+  <path class="edge accent" d="M150 104 V144"/>
+  <path class="flow flow-accent" pathLength="100" d="M150 104 V144"/>
+  <path class="edge accent head" d="M150 104 V144"/>
+  <text class="code" x="164" y="116" dominant-baseline="central">pointcloud_raw_ex</text>
+  <text class="sub" x="164" y="134" dominant-baseline="central">PointXYZIRCAEDT</text>
+
+  <rect class="card" x="40" y="152" width="220" height="48" rx="12"/>
+  <text class="lbl" x="150" y="168" text-anchor="middle" dominant-baseline="central">Crop box filter</text>
+  <text class="sub" x="150" y="187" text-anchor="middle" dominant-baseline="central">Removes the vehicle body</text>
+
+  <path class="edge accent" d="M150 200 V240"/>
+  <path class="flow flow-accent" pathLength="100" d="M150 200 V240"/>
+  <path class="edge accent head" d="M150 200 V240"/>
+  <text class="code" x="164" y="220" dominant-baseline="central">self_cropped/pointcloud_ex</text>
+
+  <rect class="card" x="40" y="248" width="220" height="48" rx="12"/>
+  <text class="lbl" x="150" y="264" text-anchor="middle" dominant-baseline="central">Crop box filter</text>
+  <text class="sub" x="150" y="283" text-anchor="middle" dominant-baseline="central">Removes the mirrors</text>
+
+  <path class="edge accent" d="M150 296 V336"/>
+  <path class="flow flow-accent" pathLength="100" d="M150 296 V336"/>
+  <path class="edge accent head" d="M150 296 V336"/>
+  <text class="code" x="164" y="316" dominant-baseline="central">mirror_cropped/pointcloud_ex</text>
+
+  <rect class="card" x="40" y="344" width="220" height="48" rx="12"/>
+  <text class="lbl" x="150" y="360" text-anchor="middle" dominant-baseline="central">Distortion corrector</text>
+  <text class="sub" x="150" y="379" text-anchor="middle" dominant-baseline="central">Compensates the ego motion</text>
+
+  <path class="edge accent" d="M150 392 V432"/>
+  <path class="flow flow-accent" pathLength="100" d="M150 392 V432"/>
+  <path class="edge accent head" d="M150 392 V432"/>
+  <text class="code" x="164" y="412" dominant-baseline="central">rectified/pointcloud_ex</text>
+
+  <rect class="card" x="40" y="440" width="220" height="48" rx="12"/>
+  <text class="lbl" x="150" y="456" text-anchor="middle" dominant-baseline="central">Ring outlier filter</text>
+  <text class="sub" x="150" y="475" text-anchor="middle" dominant-baseline="central">Removes noise points</text>
+
+  <!-- Inputs from outside the LiDAR pipeline -->
+  <rect class="box muted" x="480" y="344" width="290" height="48" rx="12"/>
+  <text class="lbl" x="625" y="360" text-anchor="middle" dominant-baseline="central">Twist and IMU</text>
+  <text class="sub" x="625" y="379" text-anchor="middle" dominant-baseline="central">Velocity converter, IMU corrector</text>
+  <path class="edge" d="M480 368 H268"/>
+  <path class="flow" pathLength="100" d="M480 368 H268"/>
+  <path class="edge head" d="M480 368 H268"/>
+  <!-- The concatenation node also reads the twist for its motion compensation -->
+  <path class="edge" d="M770 368 H800 V552"/>
+  <path class="flow" pathLength="100" d="M770 368 H800 V552"/>
+  <path class="edge head" d="M770 368 H800 V552"/>
+  <text class="sub edge-lbl" x="800" y="512" text-anchor="middle" dominant-baseline="central">twist</text>
+
+  <rect class="box muted" x="480" y="440" width="290" height="48" rx="12"/>
+  <text class="lbl" x="625" y="456" text-anchor="middle" dominant-baseline="central">Other LiDARs</text>
+  <text class="sub" x="625" y="475" text-anchor="middle" dominant-baseline="central">The same pipeline</text>
+
+  <!-- Concatenation -->
+  <path class="edge accent" d="M150 488 V552"/>
+  <path class="flow flow-accent" pathLength="100" d="M150 488 V552"/>
+  <path class="edge accent head" d="M150 488 V552"/>
+  <text class="code" x="164" y="522" dominant-baseline="central">pointcloud_before_sync</text>
+  <text class="sub" x="164" y="540" dominant-baseline="central">PointXYZIRC</text>
+  <path class="edge" d="M625 488 V552"/>
+  <path class="flow" pathLength="100" d="M625 488 V552"/>
+  <path class="edge head" d="M625 488 V552"/>
+
+  <rect class="box primary" x="40" y="560" width="780" height="64" rx="14"/>
+  <circle class="icon-bg on" cx="82" cy="592" r="18"/>
+  <path class="icon-line" d="M73 584 Q79 584 82 592 M73 600 Q79 600 82 592 M73 592 H91"/>
+  <circle class="icon-dot" cx="91" cy="592" r="2.6"/>
+  <text class="lbl on-primary" x="430" y="582" text-anchor="middle" dominant-baseline="central">Concatenate and time sync</text>
+  <text class="sub on-primary" x="430" y="604" text-anchor="middle" dominant-baseline="central">Matches the clouds by time, compensates the motion, and transforms them to base_link</text>
+
+  <!-- Users -->
+  <path class="edge accent" d="M160 624 V692"/>
+  <path class="flow flow-accent" pathLength="100" d="M160 624 V692"/>
+  <path class="edge accent head" d="M160 624 V692"/>
+  <path class="edge accent" d="M430 624 V692"/>
+  <path class="flow flow-accent" pathLength="100" d="M430 624 V692"/>
+  <path class="edge accent head" d="M430 624 V692"/>
+  <path class="edge accent" d="M700 624 V692"/>
+  <path class="flow flow-accent" pathLength="100" d="M700 624 V692"/>
+  <path class="edge accent head" d="M700 624 V692"/>
+  <text class="code edge-lbl" x="430" y="650" text-anchor="middle" dominant-baseline="central">/sensing/lidar/concatenated/pointcloud</text>
+  <text class="sub edge-lbl" x="430" y="670" text-anchor="middle" dominant-baseline="central">PointXYZIRC</text>
+
+  <rect class="card" x="40" y="700" width="240" height="64" rx="12"/>
+  <text class="lbl" x="160" y="722" text-anchor="middle" dominant-baseline="central">Ground segmentation</text>
+  <text class="sub" x="160" y="743" text-anchor="middle" dominant-baseline="central">Perception</text>
+
+  <rect class="card" x="310" y="700" width="240" height="64" rx="12"/>
+  <text class="lbl" x="430" y="722" text-anchor="middle" dominant-baseline="central">LiDAR object detection</text>
+  <text class="sub" x="430" y="743" text-anchor="middle" dominant-baseline="central">Perception</text>
+
+  <rect class="card" x="580" y="700" width="240" height="64" rx="12"/>
+  <text class="lbl" x="700" y="722" text-anchor="middle" dominant-baseline="central">Crop and downsample</text>
+  <text class="sub" x="700" y="743" text-anchor="middle" dominant-baseline="central">Localization, NDT input</text>
+</svg>

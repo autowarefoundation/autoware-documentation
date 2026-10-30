@@ -1,0 +1,243 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" role="img" aria-labelledby="vehicle-interface-title">
+  <title id="vehicle-interface-title">
+    The Control component sends vehicle commands to the vehicle interface component and gets vehicle statuses back. Inside the component, an optional vehicle command adapter converts the commands into
+    the vehicle format. The vehicle interface talks to the vehicle with the vehicle-specific protocol.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-car-shadow: #00002a40; --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.ext {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-dasharray: 6 5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} .car-body {
+  fill: url("#aw-grad-car");
+} .car-glass {
+  fill: url("#aw-grad-car-glass");
+  stroke: #ffffffb3;
+  stroke-width: 1;
+} .car-shine {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.75;
+} .wheel {
+  fill: #1b1d29;
+} .rim {
+  fill: none;
+  stroke: #c9ccd8;
+  stroke-width: 2.5;
+} .car-shadow {
+  fill: var(--aw-car-shadow);
+  filter: url("#aw-soft");
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-car" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2a1fa8"/>
+      <stop offset="0.35" stop-color="#3f2ee3"/>
+      <stop offset="0.75" stop-color="#2a6df2"/>
+      <stop offset="1" stop-color="#00b4ff"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-car-glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#bfeeff" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#7fd8ff" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+    <filter id="aw-soft" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feGaussianBlur stdDeviation="3.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="760" height="520"/>
+  <circle class="halo" cx="560" cy="262" r="110"/>
+  <circle class="halo cyan" cx="380" cy="446" r="72"/>
+
+  <rect class="card" x="20" y="16" width="720" height="56" rx="12"/>
+  <text class="lbl" x="380" y="44" text-anchor="middle" dominant-baseline="central">Control component</text>
+
+  <path class="edge accent" d="M190 72 V140"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 72 V140"/>
+  <path class="edge accent head" d="M190 72 V140"/>
+  <text class="edge-lbl" x="190" y="104" text-anchor="middle" dominant-baseline="central">Vehicle commands</text>
+  <path class="edge" d="M570 140 V78"/>
+  <path class="flow" pathLength="100" d="M570 140 V78"/>
+  <path class="edge head" d="M570 140 V78"/>
+  <text class="edge-lbl" x="570" y="104" text-anchor="middle" dominant-baseline="central">Vehicle statuses</text>
+
+  <!-- The vehicle interface component -->
+  <rect class="glass-panel" x="20" y="140" width="720" height="244" rx="18"/>
+  <text class="ttl" x="40" y="166">Vehicle interface component</text>
+
+  <rect class="box ext" x="90" y="186" width="280" height="56" rx="12"/>
+  <text class="lbl" x="230" y="207" text-anchor="middle" dominant-baseline="central">Vehicle command adapter</text>
+  <text class="sub" x="230" y="227" text-anchor="middle" dominant-baseline="central">Optional</text>
+
+  <path class="edge dash" d="M190 242 V318"/>
+  <text class="edge-lbl" x="190" y="272" text-anchor="middle" dominant-baseline="central">Vehicle commands</text>
+  <text class="edge-lbl" x="190" y="288" text-anchor="middle" dominant-baseline="central">(vehicle format)</text>
+  <path class="edge dash" d="M330 318 V248"/>
+  <text class="edge-lbl" x="330" y="272" text-anchor="middle" dominant-baseline="central">Vehicle statuses</text>
+  <text class="edge-lbl" x="330" y="288" text-anchor="middle" dominant-baseline="central">(vehicle format)</text>
+
+  <rect class="box primary" x="60" y="318" width="640" height="52" rx="14"/>
+  <circle class="icon-bg on" cx="294" cy="344" r="17"/>
+  <circle class="icon-line" cx="294" cy="344" r="8"/>
+  <path class="icon-line" d="M286 344 H302 M294 344 V352"/>
+  <text class="lbl on-primary" x="380" y="344" text-anchor="middle" dominant-baseline="central">Vehicle interface</text>
+
+  <!-- The vehicle -->
+  <path class="edge accent" d="M190 370 V448"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 370 V448"/>
+  <path class="edge accent head" d="M190 370 V448"/>
+  <text class="edge-lbl" x="190" y="406" text-anchor="middle" dominant-baseline="central">Vehicle commands</text>
+  <text class="edge-lbl" x="190" y="422" text-anchor="middle" dominant-baseline="central">(vehicle format and protocol)</text>
+  <path class="edge" d="M570 448 V376"/>
+  <path class="flow" pathLength="100" d="M570 448 V376"/>
+  <path class="edge head" d="M570 448 V376"/>
+  <text class="edge-lbl" x="570" y="406" text-anchor="middle" dominant-baseline="central">Vehicle statuses</text>
+  <text class="edge-lbl" x="570" y="422" text-anchor="middle" dominant-baseline="central">(vehicle format and protocol)</text>
+
+  <rect class="card" x="20" y="448" width="720" height="56" rx="12"/>
+  <ellipse class="car-shadow" cx="374" cy="496" rx="46" ry="3"/>
+  <path class="car-body" d="M330 488 v-14 q0-5 5-6 l16-3 l12-12 h28 l14 12 h8 q6 0 6 6 v17 z"/>
+  <path class="car-glass" d="M355 464 L365 455 H390 L401 464 Z"/>
+  <path class="car-shine" d="M340 472 H414"/>
+  <circle class="wheel" cx="347" cy="490" r="6"/>
+  <circle class="rim" cx="347" cy="490" r="3"/>
+  <circle class="wheel" cx="397" cy="490" r="6"/>
+  <circle class="rim" cx="397" cy="490" r="3"/>
+  <text class="lbl" x="440" y="476" dominant-baseline="central">Vehicle</text>
+</svg>

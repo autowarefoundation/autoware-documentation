@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 360" role="img" aria-labelledby="vehicle-dimensions-title">
+  <title id="vehicle-dimensions-title">
+    A top view of the vehicle with its dimensions: front_overhang, wheel_base, and rear_overhang add up to vehicle_length. left_overhang, wheel_tread, and right_overhang add up to
+    vehicle_width, measured to the tips of the side mirrors. The
+    front wheels show a positive steering angle, which turns the vehicle to the left.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-car-shadow: #00002a40; --aw-cyan: #00c8ff; --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.both {
+  marker-start: url("#aw-arrow");
+} .edge.accent.both {
+  marker-start: url("#aw-arrow-accent");
+} .bound {
+  fill: none;
+  stroke: var(--aw-cyan);
+  stroke-width: 2.5;
+} .bound.point {
+  fill: var(--aw-cyan);
+  stroke: none;
+} .leader {
+  fill: none;
+  stroke: var(--aw-d-muted);
+  stroke-width: 1;
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .car-body {
+  fill: url("#aw-grad-car");
+} .car-glass {
+  fill: url("#aw-grad-car-glass");
+  stroke: #ffffffb3;
+  stroke-width: 1;
+} .wheel {
+  fill: #1b1d29;
+} .car-shadow {
+  fill: var(--aw-car-shadow);
+  filter: url("#aw-soft");
+}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-car" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2a1fa8"/>
+      <stop offset="0.35" stop-color="#3f2ee3"/>
+      <stop offset="0.75" stop-color="#2a6df2"/>
+      <stop offset="1" stop-color="#00b4ff"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-car-glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#bfeeff" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#7fd8ff" stop-opacity="0.35"/>
+    </linearGradient>
+    <filter id="aw-soft" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feGaussianBlur stdDeviation="3.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid -->
+  <rect class="dots" x="0" y="0" width="860" height="360"/>
+
+  <!-- The vehicle, front to the right -->
+  <rect class="car-shadow" x="203" y="45" width="420" height="200" rx="6"/>
+  <!-- Side mirrors: they set the left-most and right-most points -->
+  <path class="wheel" d="M444 44 L450 28 Q458 26 466 28 L468 44 Z"/>
+  <path class="wheel" d="M444 236 L450 252 Q458 254 466 252 L468 236 Z"/>
+  <rect class="car-body" x="310" y="-70" width="200" height="420" rx="6" transform="rotate(90 410 140)"/>
+  <rect class="car-glass" x="470" y="56" width="22" height="168" rx="3"/>
+  <rect class="car-glass" x="222" y="64" width="14" height="152" rx="3"/>
+  <rect class="wheel" x="269" y="62" width="44" height="16" rx="4"/>
+  <rect class="wheel" x="269" y="202" width="44" height="16" rx="4"/>
+  <rect class="wheel" x="510" y="62" width="44" height="16" rx="4" transform="rotate(-30 532 70)"/>
+  <rect class="wheel" x="510" y="202" width="44" height="16" rx="4" transform="rotate(-30 532 210)"/>
+  <!-- Steering angle of the front-left wheel, from straight ahead toward the left side -->
+  <path class="icon-line" d="M532 70 H576 M532 70 L568.4 49 M568 70 A36 36 0 0 0 563.2 52"/>
+  <text class="sub on-primary" x="574" y="57">+30°</text>
+
+  <path class="edge accent" d="M291 140 H700"/>
+  <text class="lbl" x="710" y="140" dominant-baseline="central">+x</text>
+  <circle class="bound point" cx="291" cy="140" r="5"/>
+  <text class="sub on-primary" x="300" y="160">base_link</text>
+
+  <!-- Extension lines -->
+  <path class="leader" d="M200 240 V332 M291 78 V292 M532 218 V292 M620 240 V332"/>
+  <path class="leader" d="M446 28 H130 M269 70 H130 M269 210 H130 M446 252 H130"/>
+  <path class="leader" d="M468 28 H790 M468 252 H790"/>
+
+  <!-- Length -->
+  <path class="edge both" d="M202 280 H289"/>
+  <text class="code" x="194" y="280" text-anchor="end" dominant-baseline="central">rear_overhang</text>
+  <path class="edge both" d="M293 280 H530"/>
+  <text class="code" x="411" y="300" text-anchor="middle" dominant-baseline="central">wheel_base</text>
+  <path class="edge both" d="M534 280 H618"/>
+  <text class="code" x="626" y="280" dominant-baseline="central">front_overhang</text>
+  <path class="edge both" d="M202 324 H618"/>
+  <text class="code lbl" x="411" y="340" text-anchor="middle" dominant-baseline="central">vehicle_length</text>
+
+  <!-- Width -->
+  <path class="edge both" d="M150 30 V68"/>
+  <text class="code" x="140" y="49" text-anchor="end" dominant-baseline="central">left_overhang</text>
+  <path class="edge both" d="M150 72 V208"/>
+  <text class="code" x="140" y="140" text-anchor="end" dominant-baseline="central">wheel_tread</text>
+  <path class="edge both" d="M150 212 V250"/>
+  <text class="code" x="140" y="231" text-anchor="end" dominant-baseline="central">right_overhang</text>
+  <path class="edge both" d="M770 30 V250"/>
+  <text class="code lbl" x="786" y="140" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 786 140)">vehicle_width</text>
+
+  <text class="sub on-primary" x="330" y="56">Left side</text>
+  <text class="sub on-primary" x="330" y="232">Right side</text>
+</svg>

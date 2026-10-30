@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 320" role="img" aria-labelledby="adapi-steering-factors-1-title">
+  <title id="adapi-steering-factors-1-title">
+    The vehicle turns left at an intersection. The steering factor has the status APPROACHING before the turn and TURNING between the start pose and the end pose of the turn.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-car-shadow: #00002a40; --aw-cyan: #00c8ff; --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-green: #00e678; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.ok {
+  fill: color-mix(in srgb, var(--aw-green) 14%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-c-green) 70%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .icon {
+  fill: var(--aw-d-muted);
+} .aw-d-arrow--route {
+  fill: var(--aw-c-green);
+} .road {
+  fill: #5c6070;
+} .mark {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+} .mark.dash {
+  stroke-dasharray: 14 10;
+} .bound {
+  fill: none;
+  stroke: var(--aw-cyan);
+  stroke-width: 2.5;
+} .route {
+  fill: none;
+  stroke: var(--aw-c-green);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  marker-end: url("#aw-arrow-route");
+} .note {
+  font-size: 13px;
+  fill: var(--aw-d-fg);
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-route {
+  stroke: color-mix(in srgb, var(--aw-c-green) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} .car-body {
+  fill: url("#aw-grad-car");
+} .car-glass {
+  fill: url("#aw-grad-car-glass");
+  stroke: #ffffffb3;
+  stroke-width: 1;
+} .car-shadow {
+  fill: var(--aw-car-shadow);
+  filter: url("#aw-soft");
+} .headlight {
+  fill: #9ff3ff;
+  filter: url("#aw-glow");
+} .lidar {
+  fill: url("#aw-grad-ai");
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-route" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--route" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <filter id="aw-glow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="aw-grad-ai" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00c8ff"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-car" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2a1fa8"/>
+      <stop offset="0.35" stop-color="#3f2ee3"/>
+      <stop offset="0.75" stop-color="#2a6df2"/>
+      <stop offset="1" stop-color="#00b4ff"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-car-glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#bfeeff" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#7fd8ff" stop-opacity="0.35"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+    <filter id="aw-soft" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feGaussianBlur stdDeviation="3.5"/>
+    </filter>
+  </defs>
+
+  <!-- Status -->
+  <circle class="icon" cx="22" cy="36" r="9"/>
+  <path class="edge" d="M31 36 H56"/>
+  <path class="flow" pathLength="100" d="M31 36 H56"/>
+  <path class="edge head" d="M31 36 H56"/>
+  <rect class="card" x="60" y="14" width="160" height="44" rx="12"/>
+  <text class="lbl" x="140" y="36" text-anchor="middle" dominant-baseline="central">APPROACHING</text>
+  <path class="edge" d="M220 36 H296"/>
+  <path class="flow" pathLength="100" d="M220 36 H296"/>
+  <path class="edge head" d="M220 36 H296"/>
+  <rect class="box ok" x="300" y="14" width="160" height="44" rx="12"/>
+  <text class="lbl" x="380" y="36" text-anchor="middle" dominant-baseline="central">TURNING</text>
+
+  <!-- Roads -->
+  <rect class="road" x="0" y="110" width="820" height="140"/>
+  <rect class="road" x="620" y="0" width="120" height="320"/>
+  <path class="mark" d="M0 110 H620 M740 110 H820 M0 250 H620 M740 250 H820"/>
+  <path class="mark" d="M620 110 V0 M740 110 V0 M620 250 V320 M740 250 V320"/>
+  <path class="mark dash" d="M0 180 H610 M750 180 H820"/>
+  <path class="mark dash" d="M680 100 V0 M680 260 V320"/>
+
+  <!-- Ego vehicle and path -->
+  <g transform="translate(131 125) rotate(90 11 20)">
+    <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
+    <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
+    <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
+    <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
+    <circle class="lidar" cx="11" cy="22" r="3.2"/>
+    <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
+    <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
+  </g>
+  <path class="route" d="M180 145 H650 V14"/>
+  <path class="flow flow-route" pathLength="100" d="M180 145 H650 V14"/>
+  <path class="route head" d="M180 145 H650 V14"/>
+
+  <!-- Start and end poses of the turn -->
+  <path class="bound" d="M560 120 V170"/>
+  <text class="note" x="560" y="96" text-anchor="middle" dominant-baseline="central">pose[0]</text>
+  <path class="bound" d="M626 64 H674"/>
+  <text class="note" x="752" y="64" dominant-baseline="central">pose[1]</text>
+</svg>

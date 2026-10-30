@@ -1,149 +1,105 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-<svg
-  width="108.515mm"
-  height="53.564999mm"
-  viewBox="0 0 108.515 53.564999"
-  version="1.1"
-  id="svg1"
-  inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
-  sodipodi:docname="vm-01-04_3.svg"
-  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-  xmlns="http://www.w3.org/2000/svg"
-  xmlns:svg="http://www.w3.org/2000/svg"
->
-  <sodipodi:namedview
-    id="namedview1"
-    pagecolor="#ffffff"
-    bordercolor="#000000"
-    borderopacity="0.25"
-    inkscape:showpageshadow="2"
-    inkscape:pageopacity="0.0"
-    inkscape:pagecheckerboard="0"
-    inkscape:deskcolor="#d1d1d1"
-    inkscape:document-units="mm"
-    inkscape:zoom="1.7131103"
-    inkscape:cx="193.79955"
-    inkscape:cy="90.186839"
-    inkscape:window-width="3840"
-    inkscape:window-height="2123"
-    inkscape:window-x="0"
-    inkscape:window-y="0"
-    inkscape:window-maximized="1"
-    inkscape:current-layer="layer1"
-  />
-  <defs id="defs1">
-    <clipPath id="c0_12">
-      <path d="M 0,825 V 0 h 1100 v 825 z" id="path2"/>
-    </clipPath>
-    <clipPath id="clipPath1">
-      <path d="M 0,825 V 0 h 1100 v 825 z" id="path1"/>
-    </clipPath>
-  </defs>
-  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-53.710419,-124.61875)">
-    <path fill-rule="evenodd" d="m 55.709949,128.72596 h 20.584583 v 44.68812 H 55.709949 Z" class="g3_12" id="path60" style="display:block;fill:#999999;stroke-width:0.264583"/>
-    <path d="m 55.709949,128.72596 h 20.584583 v 44.68812 H 55.709949 Z" class="g4_12" id="path61" style="display:block;fill:none;stroke:#595959;stroke-width:0.302948;stroke-linejoin:round"/>
-    <path fill-rule="evenodd" d="m 57.826615,128.72596 0.05292,44.3177 z" class="g1_12" id="path62" style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583"/>
-    <path d="m 57.826615,128.72596 0.05292,44.3177" class="g5_12" id="path63" style="display:block;fill:none;stroke:#f3f3f3;stroke-width:0.909373;stroke-linejoin:round"/>
-    <path fill-rule="evenodd" d="m 74.812865,128.83179 -0.07937,44.45 z" class="g1_12" id="path64" style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583"/>
-    <path d="m 74.812865,128.83179 -0.07937,44.45" class="g5_12" id="path65" style="display:block;fill:none;stroke:#f3f3f3;stroke-width:0.909373;stroke-linejoin:round"/>
-    <path fill-rule="evenodd" d="m 66.346199,128.83179 -0.07937,44.45 z" class="g1_12" id="path66" style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583"/>
-    <path d="m 66.346199,128.83179 -0.07937,44.45" class="g5_12" id="path67" style="display:block;fill:none;stroke:#f3f3f3;stroke-width:0.909373;stroke-linejoin:round"/>
-    <path fill-rule="evenodd" d="m 58.011824,128.91116 h 8.255 v 44.31771 h -8.255 z" class="g6_12" id="path68" style="display:block;fill:#ea9999;fill-opacity:0.37;stroke-width:0.264583"/>
-    <path fill-rule="evenodd" d="m 66.399115,156.34846 h 8.281459 v 16.88041 h -8.281459 z" class="ga_12" id="path69" style="display:block;fill:#9fc5e8;fill-opacity:0.41;stroke-width:0.264583"/>
-    <path fill-rule="evenodd" d="m 85.263907,126.00075 h 70.273333 v 22.03979 H 85.263907 Z" class="g1_12" id="path70" style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583"/>
-    <g clip-path="url(#c0_12)" id="g78" style="display:block" transform="matrix(0.26458333,0,0,0.26458333,-118.20067,-18.302997)">
-      <text x="779.29999" y="571.79999" class="s7_12" id="text70" style="font-size:16.81px;font-family:ArialMT_bb;white-space:pre;fill:#000000">
-        <tspan sodipodi:role="line" id="tspan224" x="779.29999" y="571.79999">Linestring:</tspan>
-        <tspan sodipodi:role="line" id="tspan225" x="779.29999" y="592.8125">Two lanelets do NOT refer</tspan>
-        <tspan sodipodi:role="line" x="779.29999" y="613.82501" id="tspan226">to the same linestring.</tspan>
-      </text>
-    </g>
-    <path fill-rule="evenodd" d="m 66.399115,128.91116 h 8.281459 v 27.4373 h -8.281459 z" class="g7_12" id="path78" style="display:block;fill:#f4cccc;fill-opacity:0.43;stroke-width:0.264583"/>
-    <path fill-rule="evenodd" d="m 66.372657,128.91116 v 44.45 z" class="g1_12" id="path79" style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583"/>
-    <path d="m 66.372657,128.91116 v 44.45" class="g8_12" id="path80" style="display:block;fill:none;stroke:#ff9900;stroke-width:0.302948;stroke-linejoin:round"/>
-    <path fill-rule="evenodd" d="m 57.853074,128.91116 v 44.45 z" class="g1_12" id="path85" style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583"/>
-    <path d="m 57.853074,128.91116 v 44.45" class="g8_12" id="path86" style="display:block;fill:none;stroke:#ff9900;stroke-width:0.302948;stroke-linejoin:round"/>
-    <path fill-rule="evenodd" d="m 74.812865,128.91116 v 44.45 z" class="g1_12" id="path87" style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583"/>
-    <path d="m 74.812865,128.91116 v 44.45" class="g8_12" id="path88" style="display:block;fill:none;stroke:#ff9900;stroke-width:0.302948;stroke-linejoin:round"/>
-    <path fill-rule="evenodd" d="m 84.179115,133.56783 -16.721666,6.90563 z" class="g1_12" id="path89" style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583"/>
-    <path d="m 84.179115,133.56783 -15.054791,6.21771" class="g4_12" id="path90" style="display:block;fill:none;stroke:#595959;stroke-width:0.302948;stroke-linejoin:round"/>
-    <path
-      fill-rule="evenodd"
-      d="m 68.939115,139.30929 -1.084791,0.97896 1.481666,-0.0529 z"
-      class="g9_12"
-      id="path91"
-      style="display:block;fill:#595959;stroke:#595959;stroke-width:0.302948;stroke-miterlimit:10"
-    />
-    <path
-      fill-rule="evenodd"
-      d="m 76.982449,128.72596 v 0 c 0.238125,0 0.449791,0.0794 0.608541,0.26458 0.185209,0.15875 0.264584,0.37042 0.264584,0.60854 v 11.95917 c 0,0.47625 0.396875,0.87312 0.873125,0.87312 -0.47625,0 -0.873125,0.39688 -0.873125,0.87313 v 11.95916 c 0,0.50271 -0.396875,0.89959 -0.873125,0.89959 z"
-      class="g1_12"
-      id="path92"
-      style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583"
-    />
-    <path
-      fill-rule="evenodd"
-      d="m 76.982449,128.72596 v 0 c 0.238125,0 0.449791,0.0794 0.608541,0.26458 0.185209,0.15875 0.264584,0.37042 0.264584,0.60854 v 11.95917 c 0,0.47625 0.396875,0.87312 0.873125,0.87312 -0.47625,0 -0.873125,0.39688 -0.873125,0.87313 v 11.95916 c 0,0.50271 -0.396875,0.89959 -0.873125,0.89959 z"
-      class="g1_12"
-      id="path93"
-      style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583"
-    />
-    <path
-      d="m 76.982449,128.72596 v 0 c 0.238125,0 0.449791,0.0794 0.608541,0.26458 0.185209,0.15875 0.264584,0.37042 0.264584,0.60854 v 11.95917 c 0,0.47625 0.396875,0.87312 0.873125,0.87312 -0.47625,0 -0.873125,0.39688 -0.873125,0.87313 v 11.95916 c 0,0.50271 -0.396875,0.89959 -0.873125,0.89959"
-      class="g4_12"
-      id="path94"
-      style="display:block;fill:none;stroke:#595959;stroke-width:0.302948;stroke-linejoin:round"
-    />
-    <path
-      fill-rule="evenodd"
-      d="m 76.982449,156.69241 v 0 c 0.238125,0 0.449791,0.10584 0.608541,0.26459 0.185209,0.15875 0.264584,0.39687 0.264584,0.60854 v 6.61458 c 0,0.47625 0.396875,0.87313 0.873125,0.87313 -0.47625,0 -0.873125,0.39687 -0.873125,0.87312 v 6.61459 c 0,0.47625 -0.396875,0.87312 -0.873125,0.87312 z"
-      class="g1_12"
-      id="path95"
-      style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583"
-    />
-    <path
-      fill-rule="evenodd"
-      d="m 76.982449,156.69241 v 0 c 0.238125,0 0.449791,0.10584 0.608541,0.26459 0.185209,0.15875 0.264584,0.39687 0.264584,0.60854 v 6.61458 c 0,0.47625 0.396875,0.87313 0.873125,0.87313 -0.47625,0 -0.873125,0.39687 -0.873125,0.87312 v 6.61459 c 0,0.47625 -0.396875,0.87312 -0.873125,0.87312 z"
-      class="g1_12"
-      id="path96"
-      style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583"
-    />
-    <path
-      d="m 76.982449,156.69241 v 0 c 0.238125,0 0.449791,0.10584 0.608541,0.26459 0.185209,0.15875 0.264584,0.39687 0.264584,0.60854 v 6.61458 c 0,0.47625 0.396875,0.87313 0.873125,0.87313 -0.47625,0 -0.873125,0.39687 -0.873125,0.87312 v 6.61459 c 0,0.47625 -0.396875,0.87312 -0.873125,0.87312"
-      class="g4_12"
-      id="path97"
-      style="display:block;fill:none;stroke:#595959;stroke-width:0.302948;stroke-linejoin:round"
-    />
-    <path fill-rule="evenodd" d="M 78.728699,142.43137 87.142448,161.402 Z" class="g1_12" id="path98" style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583"/>
-    <path d="M 78.728699,142.43137 87.142448,161.402" class="g4_12" id="path99" style="display:block;fill:none;stroke:#595959;stroke-width:0.302948;stroke-linejoin:round"/>
-    <path fill-rule="evenodd" d="M 78.728699,165.05325 87.11599,163.942 Z" class="g1_12" id="path100" style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583"/>
-    <path d="M 78.728699,165.05325 87.11599,163.942" class="g4_12" id="path101" style="display:block;fill:none;stroke:#595959;stroke-width:0.302948;stroke-linejoin:round"/>
-    <path fill-rule="evenodd" d="m 85.237448,155.13137 h 72.019582 v 16.64229 H 85.237448 Z" class="g1_12" id="path102" style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583"/>
-    <g clip-path="url(#c0_12)" id="g106" style="display:block" transform="matrix(0.26458333,0,0,0.26458333,-118.20067,-18.302997)">
-      <text x="779.20001" y="681.90002" class="s7_12" id="text102" style="font-size:16.81px;font-family:ArialMT_bb;white-space:pre;fill:#000000">
-        <tspan sodipodi:role="line" id="tspan227" x="779.20001" y="681.90002">Two Lanelets are NOT the same</tspan>
-        <tspan sodipodi:role="line" id="tspan228" x="779.20001" y="702.91254">length.</tspan>
-      </text>
-    </g>
-    <path fill-rule="evenodd" d="m 70.473699,143.59554 v 11.50937 z" class="g1_12" id="path116" style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583"/>
-    <path d="m 70.473699,143.59554 v 7.85812" class="gb_12" id="path117" style="display:block;fill:none;stroke:#000000;stroke-width:0.60616;stroke-linejoin:round"/>
-    <path
-      fill-rule="evenodd"
-      d="m 69.49474,151.45366 0.978959,2.75167 1.005416,-2.75167 z"
-      class="gc_12"
-      id="path118"
-      style="display:block;fill:#000000;stroke:#000000;stroke-width:0.60616;stroke-miterlimit:10"
-    />
-    <path fill-rule="evenodd" d="M 62.086407,154.60221 V 143.09283 Z" class="g1_12" id="path119" style="display:block;fill:#000000;fill-opacity:0;stroke-width:0.264583"/>
-    <path d="m 62.086407,154.60221 v -7.88459" class="gb_12" id="path120" style="display:block;fill:none;stroke:#000000;stroke-width:0.60616;stroke-linejoin:round"/>
-    <path
-      fill-rule="evenodd"
-      d="m 63.091824,146.71762 -1.005417,-2.75166 -1.005417,2.75166 z"
-      class="gc_12"
-      id="path121"
-      style="display:block;fill:#000000;stroke:#000000;stroke-width:0.60616;stroke-miterlimit:10"
-    />
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" role="img" aria-labelledby="vm-01-04_3-title">
+  <title id="vm-01-04_3-title">Incorrect: each direction has its own linestring at the road center line, and the opposite lane is split, so the lanelets do not have the same length.</title>
+  <style data-aw-standalone="">
+    svg { --aw-c-crimson: var(--aw-crimson); --aw-c-indigo: var(--aw-indigo); --aw-crimson: #dc143c; --aw-cyan: #00c8ff; --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-muted: var(--md-default-fg-color--light); --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .road {
+  fill: #5c6070;
+} .mark {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+} .lanelet {
+  fill: color-mix(in srgb, var(--aw-indigo) 38%, transparent);
+  stroke: none;
+} .lanelet.alt {
+  fill: color-mix(in srgb, var(--aw-cyan) 40%, transparent);
+} .lanelet.bad {
+  fill: color-mix(in srgb, var(--aw-crimson) 35%, transparent);
+} .bound {
+  fill: none;
+  stroke: var(--aw-cyan);
+  stroke-width: 2.5;
+} .bound.alt {
+  stroke: #ff7076;
+} .bound.point {
+  fill: var(--aw-cyan);
+  stroke: none;
+} .leader {
+  fill: none;
+  stroke: var(--aw-d-muted);
+  stroke-width: 1;
+} .note {
+  font-size: 13px;
+  fill: var(--aw-d-fg);
+} .note.bad {
+  fill: var(--aw-c-crimson);
+}
+  </style>
+
+  <!-- Road surface and lane markings -->
+  <rect class="road" x="120" y="20" width="144" height="360"/>
+  <path class="mark" d="M132 20 V380"/>
+  <path class="mark" d="M192 20 V380"/>
+  <path class="mark" d="M252 20 V380"/>
+
+  <!-- Lanelets: the opposite lane is split at y = 230 -->
+  <rect class="lanelet" x="132" y="40" width="60" height="320"/>
+  <rect class="lanelet alt" x="192" y="40" width="60" height="190"/>
+  <rect class="lanelet" x="192" y="230" width="60" height="130"/>
+  <path class="mark" d="M162 230 V170 M155 179 L162 170 L169 179"/>
+  <path class="mark" d="M222 110 V170 M215 161 L222 170 L229 161"/>
+  <path class="mark" d="M222 265 V325 M215 316 L222 325 L229 316"/>
+
+  <!-- Linestrings: two at the road center line -->
+  <path class="bound" d="M132 40 L132 120 L132 200 L132 280 L132 360"/>
+  <circle class="bound point" cx="132" cy="40" r="3.5"/>
+  <circle class="bound point" cx="132" cy="120" r="3.5"/>
+  <circle class="bound point" cx="132" cy="200" r="3.5"/>
+  <circle class="bound point" cx="132" cy="280" r="3.5"/>
+  <circle class="bound point" cx="132" cy="360" r="3.5"/>
+  <path class="bound" d="M187 40 L187 120 L187 200 L187 280 L187 360"/>
+  <circle class="bound point" cx="187" cy="40" r="3.5"/>
+  <circle class="bound point" cx="187" cy="120" r="3.5"/>
+  <circle class="bound point" cx="187" cy="200" r="3.5"/>
+  <circle class="bound point" cx="187" cy="280" r="3.5"/>
+  <circle class="bound point" cx="187" cy="360" r="3.5"/>
+  <path class="bound alt" d="M197 40 L197 135 L197 230"/>
+  <circle class="bound point" cx="197" cy="40" r="3.5"/>
+  <circle class="bound point" cx="197" cy="135" r="3.5"/>
+  <circle class="bound point" cx="197" cy="230" r="3.5"/>
+  <path class="bound alt" d="M197 230 L197 295 L197 360"/>
+  <circle class="bound point" cx="197" cy="230" r="3.5"/>
+  <circle class="bound point" cx="197" cy="295" r="3.5"/>
+  <circle class="bound point" cx="197" cy="360" r="3.5"/>
+  <path class="bound alt" d="M252 40 L252 135 L252 230"/>
+  <circle class="bound point" cx="252" cy="40" r="3.5"/>
+  <circle class="bound point" cx="252" cy="135" r="3.5"/>
+  <circle class="bound point" cx="252" cy="230" r="3.5"/>
+  <path class="bound alt" d="M252 230 L252 295 L252 360"/>
+  <circle class="bound point" cx="252" cy="230" r="3.5"/>
+  <circle class="bound point" cx="252" cy="295" r="3.5"/>
+  <circle class="bound point" cx="252" cy="360" r="3.5"/>
+  <path class="bound alt" d="M197 230 H252"/>
+
+  <!-- Length of the lanelets: one for the ego lane, two for the opposite lane -->
+  <path class="leader" d="M102 40 L114 40"/>
+  <path class="leader" d="M102 360 L114 360"/>
+  <path class="leader" d="M108 40 L108 360"/>
+  <path class="leader" d="M276 40 L288 40"/>
+  <path class="leader" d="M276 222 L288 222"/>
+  <path class="leader" d="M282 40 L282 222"/>
+  <path class="leader" d="M276 238 L288 238"/>
+  <path class="leader" d="M276 360 L288 360"/>
+  <path class="leader" d="M282 238 L282 360"/>
+
+  <!-- Notes -->
+  <text class="note bad" x="330" y="104">The two directions do not</text>
+  <text class="note bad" x="330" y="122">use the same linestring.</text>
+  <path class="leader" d="M324 100 L197 96"/>
+  <text class="note bad" x="330" y="244">The opposite lane is split, so the</text>
+  <text class="note bad" x="330" y="262">lanelets do not have the same length.</text>
+  <path class="leader" d="M324 238 L244 230"/>
 </svg>

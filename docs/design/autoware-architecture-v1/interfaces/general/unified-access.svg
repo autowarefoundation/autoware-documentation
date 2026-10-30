@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" role="img" aria-labelledby="unified-access-title">
+  <title id="unified-access-title">One fleet management system operates a car, a bus, and a truck in the same way, because each vehicle runs Autoware with the same AD API.</title>
+  <style data-aw-standalone="">
+    svg { --aw-c-indigo: var(--aw-indigo); --aw-car-shadow: #00002a40; --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.plain {
+  marker-end: none;
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .car-body {
+  fill: url("#aw-grad-car");
+} .car-glass {
+  fill: url("#aw-grad-car-glass");
+  stroke: #ffffffb3;
+  stroke-width: 1;
+} .car-shine {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.75;
+} .wheel {
+  fill: #1b1d29;
+} .rim {
+  fill: none;
+  stroke: #c9ccd8;
+  stroke-width: 2.5;
+} .car-shadow {
+  fill: var(--aw-car-shadow);
+  filter: url("#aw-soft");
+}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-car" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2a1fa8"/>
+      <stop offset="0.35" stop-color="#3f2ee3"/>
+      <stop offset="0.75" stop-color="#2a6df2"/>
+      <stop offset="1" stop-color="#00b4ff"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-car-glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#bfeeff" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#7fd8ff" stop-opacity="0.35"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+    <filter id="aw-soft" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feGaussianBlur stdDeviation="3.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="760" height="330"/>
+  <circle class="halo" cx="380" cy="60" r="58"/>
+  <circle class="halo cyan" cx="380" cy="254" r="74"/>
+
+  <!-- The application -->
+  <rect class="box primary" x="270" y="20" width="220" height="60" rx="14"/>
+  <circle class="icon-bg on" cx="302" cy="50" r="18"/>
+  <path class="icon-line" d="M294 55 H309 A4.5 4.5 0 0 0 308 46 A6.5 6.5 0 0 0 296 47 A4 4 0 0 0 294 55 Z"/>
+  <text class="lbl on-primary" x="330" y="41" dominant-baseline="central">FMS</text>
+  <text class="sub on-primary" x="330" y="61" dominant-baseline="central">Fleet management system</text>
+
+  <path class="edge plain" d="M380 80 V112 M130 112 H630 M130 112 V140 M380 112 V140 M630 112 V140"/>
+
+  <!-- One AD API per vehicle -->
+  <rect class="card" x="40" y="140" width="180" height="44" rx="12"/>
+  <text class="lbl" x="130" y="162" text-anchor="middle" dominant-baseline="central">AD API</text>
+  <rect class="card" x="290" y="140" width="180" height="44" rx="12"/>
+  <text class="lbl" x="380" y="162" text-anchor="middle" dominant-baseline="central">AD API</text>
+  <rect class="card" x="540" y="140" width="180" height="44" rx="12"/>
+  <text class="lbl" x="630" y="162" text-anchor="middle" dominant-baseline="central">AD API</text>
+
+  <path class="edge plain" d="M130 184 V212 M380 184 V212 M630 184 V212"/>
+
+  <!-- The vehicles -->
+  <rect class="card" x="40" y="212" width="180" height="96" rx="12"/>
+  <ellipse class="car-shadow" cx="130" cy="281" rx="60" ry="4"/>
+  <path class="car-body" d="M72 270 v-16 q0-6 6-8 l24-4 l18-18 h40 l20 18 h10 q8 0 8 8 v20 z"/>
+  <path class="car-glass" d="M107 241 L121 227 H158 L173 241 Z"/>
+  <path class="car-shine" d="M82 252 H186"/>
+  <circle class="wheel" cx="96" cy="272" r="9"/>
+  <circle class="rim" cx="96" cy="272" r="4.5"/>
+  <circle class="wheel" cx="164" cy="272" r="9"/>
+  <circle class="rim" cx="164" cy="272" r="4.5"/>
+  <text class="sub" x="130" y="294" text-anchor="middle" dominant-baseline="central">Car</text>
+
+  <rect class="card" x="290" y="212" width="180" height="96" rx="12"/>
+  <ellipse class="car-shadow" cx="382" cy="281" rx="68" ry="4"/>
+  <path class="car-body" d="M314 270 v-40 q0-8 8-8 h112 q10 0 12 10 l4 38 z"/>
+  <rect class="car-glass" x="322" y="230" width="24" height="14" rx="3"/>
+  <rect class="car-glass" x="352" y="230" width="24" height="14" rx="3"/>
+  <rect class="car-glass" x="382" y="230" width="24" height="14" rx="3"/>
+  <path class="car-glass" d="M412 230 H436 Q440 230 441 235 L442 244 H412 Z"/>
+  <path class="car-shine" d="M322 253 H442"/>
+  <circle class="wheel" cx="340" cy="272" r="9"/>
+  <circle class="rim" cx="340" cy="272" r="4.5"/>
+  <circle class="wheel" cx="424" cy="272" r="9"/>
+  <circle class="rim" cx="424" cy="272" r="4.5"/>
+  <text class="sub" x="380" y="294" text-anchor="middle" dominant-baseline="central">Bus</text>
+
+  <rect class="card" x="540" y="212" width="180" height="96" rx="12"/>
+  <ellipse class="car-shadow" cx="630" cy="281" rx="66" ry="4"/>
+  <path class="car-body" d="M566 270 v-26 l10-14 h26 v40 z M606 270 v-48 h88 v48 z"/>
+  <path class="car-glass" d="M571 244 L579 234 H597 V244 Z"/>
+  <path class="car-shine" d="M614 230 H686"/>
+  <circle class="wheel" cx="588" cy="272" r="9"/>
+  <circle class="rim" cx="588" cy="272" r="4.5"/>
+  <circle class="wheel" cx="672" cy="272" r="9"/>
+  <circle class="rim" cx="672" cy="272" r="4.5"/>
+  <text class="sub" x="630" y="294" text-anchor="middle" dominant-baseline="central">Truck</text>
+</svg>

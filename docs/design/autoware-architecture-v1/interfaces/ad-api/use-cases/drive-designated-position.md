@@ -7,6 +7,4 @@
 
 ## Sequence
 
-```plantuml
-{% include 'design/autoware-architecture-v1/interfaces/ad-api/use-cases/sequence/drive-designated-position.plantuml' %}
-```
+{{ diagram("sequence/drive-designated-position.svg", "Set a route, start autonomous driving, and clear the route at the goal.") }}

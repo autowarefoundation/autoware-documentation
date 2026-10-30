@@ -27,7 +27,7 @@ Radar based 3D detector with radar objects consists of
 - Radar object tracking
 - Merger of tracked object
 
-![Radar based 3D detector](image/radar-based-3d-detector.drawio.svg)
+{{ diagram("image/radar-based-3d-detector.svg", "The radar pipeline from the radar driver to prediction.") }}
 
 ### Interface
 
@@ -50,7 +50,7 @@ Radar based 3D detector with radar objects consists of
 
 ### Noise filter and radar faraway dynamic 3D object detection
 
-![faraway object detection](image/faraway-object-detection.drawio.svg)
+{{ diagram("image/faraway-object-detection.svg", "The noise filter and the faraway detection of radar objects.") }}
 
 This function filters noise objects and detects faraway (> 100m) dynamic vehicles.
 The main idea is that in the case where LiDAR is used, near range can be detected accurately using LiDAR pointcloud and the main role of radar is to detect distant objects that cannot be detected with LiDAR alone.

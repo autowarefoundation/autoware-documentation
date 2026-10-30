@@ -2,7 +2,7 @@
 
 This page describes the Vehicle Interface Component. Please refer to the [Vehicle Interface design document](../../components/vehicle/index.md) for high-level concepts and data flow.
 
-![Vehicle interface diagram](images/vehicle-interface.drawio.svg)
+{{ diagram("images/vehicle-interface.svg", "The vehicle interface component sits between the Control component and the vehicle.") }}
 
 The `Vehicle Interface Component` receives `Vehicle commands` and publishes `Vehicle statuses`.
 It communicates with the vehicle by the vehicle-specific protocol.

@@ -6,7 +6,7 @@
 
 This diagram describes the pre-process pipeline for radar objects.
 
-![radar-objects-sensing](image/radar-objects-sensing.drawio.svg)
+{{ diagram("image/radar-objects-sensing.svg", "Each radar has a noise filter and a message converter. The object merger merges all radars for perception.") }}
 
 ### Interface
 

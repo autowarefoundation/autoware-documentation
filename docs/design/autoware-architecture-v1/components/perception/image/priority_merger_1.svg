@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 340" role="img" aria-labelledby="priority-merger-1-title">
+  <title id="priority-merger-1-title">
+    Timing of a synchronized object merger. The data of frame t arrives at the base 3D detector and at the cluster-based detector. The cluster-based detector finishes later. The object merger merges
+    and publishes frame t only after the slower detector finishes. The cluster-based result of frame t+1 is lost, so the merger publishes no output for frame t+1, although the base 3D result of t+1 is
+    there.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} .box.ext {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-dasharray: 6 5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .edge.plain {
+  marker-end: none;
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="340"/>
+  <circle class="halo" cx="430" cy="190" r="140"/>
+
+  <!-- Time axis -->
+  <path class="edge" d="M190 50 H836"/>
+  <text class="sub" x="836" y="30" text-anchor="end" dominant-baseline="central">Time</text>
+  <text class="sub" x="230" y="30" text-anchor="middle" dominant-baseline="central">t</text>
+  <path class="edge plain dash" d="M230 50 V302"/>
+  <text class="sub" x="430" y="30" text-anchor="middle" dominant-baseline="central">t+1</text>
+  <path class="edge plain dash" d="M430 50 V302"/>
+  <text class="sub" x="630" y="30" text-anchor="middle" dominant-baseline="central">t+2</text>
+  <path class="edge plain dash" d="M630 50 V302"/>
+
+  <!-- Row names -->
+  <text x="20" y="100" dominant-baseline="central">Data acquisition</text>
+  <text x="20" y="160" dominant-baseline="central">Base 3D detection</text>
+  <text x="20" y="220" dominant-baseline="central">Cluster-based detection</text>
+  <text x="20" y="280" dominant-baseline="central">Object merger</text>
+
+  <!-- Frames -->
+  <rect class="box muted" x="225" y="86" width="10" height="28" rx="3"/>
+  <rect class="box muted" x="425" y="86" width="10" height="28" rx="3"/>
+  <rect class="box muted" x="625" y="86" width="10" height="28" rx="3"/>
+  <rect class="card" x="325" y="146" width="10" height="28" rx="3"/>
+  <text class="sub" x="340" y="160" dominant-baseline="central">t</text>
+  <rect class="card" x="525" y="146" width="10" height="28" rx="3"/>
+  <text class="sub" x="540" y="160" dominant-baseline="central">t+1</text>
+  <rect class="card" x="725" y="146" width="10" height="28" rx="3"/>
+  <text class="sub" x="740" y="160" dominant-baseline="central">t+2</text>
+  <rect class="card" x="395" y="206" width="10" height="28" rx="3"/>
+  <text class="sub" x="410" y="220" dominant-baseline="central">t</text>
+  <rect class="box ext" x="595" y="206" width="10" height="28" rx="3"/>
+  <text class="edge-lbl" x="588" y="220" text-anchor="end" dominant-baseline="central">t+1 lost</text>
+  <rect class="card" x="795" y="206" width="10" height="28" rx="3"/>
+  <text class="sub" x="810" y="220" dominant-baseline="central">t+2</text>
+  <rect class="box primary" x="395" y="266" width="10" height="28" rx="3"/>
+  <text class="sub" x="410" y="280" dominant-baseline="central">t</text>
+  <rect class="box ext" x="595" y="266" width="10" height="28" rx="3"/>
+  <text class="edge-lbl" x="588" y="280" text-anchor="end" dominant-baseline="central">no t+1 output</text>
+  <rect class="box primary" x="795" y="266" width="10" height="28" rx="3"/>
+  <text class="sub" x="810" y="280" dominant-baseline="central">t+2</text>
+
+  <!-- Processing of frame t -->
+  <path class="edge accent" d="M236 108 L320 152"/>
+  <path class="flow flow-accent" pathLength="100" d="M236 108 L320 152"/>
+  <path class="edge accent head" d="M236 108 L320 152"/>
+  <path class="edge accent" d="M236 114 Q300 200 390 216"/>
+  <path class="flow flow-accent" pathLength="100" d="M236 114 Q300 200 390 216"/>
+  <path class="edge accent head" d="M236 114 Q300 200 390 216"/>
+  <text class="sub" x="292" y="118" dominant-baseline="central">Processing time</text>
+  <path class="edge dash" d="M334 176 L392 268"/>
+  <path class="edge" d="M400 234 V262"/>
+  <path class="flow" pathLength="100" d="M400 234 V262"/>
+  <path class="edge head" d="M400 234 V262"/>
+  <text class="edge-lbl" x="392" y="320" dominant-baseline="central">Frame t: merged only after the slower input arrives</text>
+</svg>

@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 346" role="img" aria-labelledby="adapi-fail-safe-architecture-title">
+  <title id="adapi-fail-safe-architecture-title">
+    The fail-safe module changes the mode of the Autoware planner and selects the command in the command selector. The command selector receives MRM commands from independent MRM planners and from the
+    Autoware planner, the autonomous command, and the commands of other modes.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-crimson: var(--aw-crimson); --aw-c-cyan: #0098c7; --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-crimson: #dc143c; --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-green: #00e678; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.ok {
+  fill: color-mix(in srgb, var(--aw-green) 14%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-c-green) 70%, transparent);
+} .box.warn {
+  fill: color-mix(in srgb, var(--aw-crimson) 10%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-c-crimson) 70%, transparent);
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .on-primary {
+  fill: #fff;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="346"/>
+  <circle class="halo" cx="120" cy="173" r="115"/>
+  <circle class="halo cyan" cx="525" cy="260" r="85"/>
+
+  <!-- Fail-safe module -->
+  <rect class="box primary" x="20" y="16" width="130" height="314" rx="12"/>
+  <circle class="icon-bg on" cx="85" cy="125" r="18"/>
+  <path class="icon-line" d="M85 115 L93 118.5 V124.5 Q93 131 85 134.5 Q77 131 77 124.5 V118.5 Z"/>
+  <path class="icon-line" d="M81.5 124.5 L84 127 L88.5 122"/>
+  <text class="lbl on-primary" x="85" y="163" text-anchor="middle" dominant-baseline="central">Fail-safe</text>
+  <text class="lbl on-primary" x="85" y="183" text-anchor="middle" dominant-baseline="central">module</text>
+
+  <!-- Planners -->
+  <rect class="card" x="550" y="16" width="150" height="54" rx="12"/>
+  <text class="lbl" x="625" y="43" text-anchor="middle" dominant-baseline="central">Autoware planner</text>
+
+  <rect class="box muted" x="720" y="16" width="120" height="54" rx="12"/>
+  <text class="lbl" x="780" y="35" text-anchor="middle" dominant-baseline="central">Other mode</text>
+  <text class="lbl" x="780" y="53" text-anchor="middle" dominant-baseline="central">planners</text>
+
+  <rect class="card" x="226" y="78" width="140" height="54" rx="12"/>
+  <rect class="card" x="218" y="86" width="140" height="54" rx="12"/>
+  <rect class="card" x="210" y="94" width="140" height="54" rx="12"/>
+  <text class="lbl" x="280" y="112" text-anchor="middle" dominant-baseline="central">Independent</text>
+  <text class="lbl" x="280" y="130" text-anchor="middle" dominant-baseline="central">MRM planners</text>
+
+  <!-- Commands -->
+  <rect class="box warn" x="210" y="192" width="140" height="54" rx="12"/>
+  <text class="lbl" x="280" y="219" text-anchor="middle" dominant-baseline="central">MRM commands</text>
+
+  <rect class="box warn" x="380" y="192" width="140" height="54" rx="12"/>
+  <text class="lbl" x="450" y="219" text-anchor="middle" dominant-baseline="central">MRM command</text>
+
+  <rect class="box ok" x="550" y="192" width="150" height="54" rx="12"/>
+  <text class="lbl" x="625" y="211" text-anchor="middle" dominant-baseline="central">Autonomous</text>
+  <text class="lbl" x="625" y="229" text-anchor="middle" dominant-baseline="central">command</text>
+
+  <rect class="box muted" x="720" y="192" width="120" height="54" rx="12"/>
+  <text class="lbl" x="780" y="211" text-anchor="middle" dominant-baseline="central">Other mode</text>
+  <text class="lbl" x="780" y="229" text-anchor="middle" dominant-baseline="central">commands</text>
+
+  <path class="edge" d="M280 148 V188"/>
+
+  <path class="flow" pathLength="100" d="M280 148 V188"/>
+
+  <path class="edge head" d="M280 148 V188"/>
+  <path class="edge" d="M625 70 V188"/>
+  <path class="flow" pathLength="100" d="M625 70 V188"/>
+  <path class="edge head" d="M625 70 V188"/>
+  <path class="edge" d="M625 130 H450 V188"/>
+  <path class="flow" pathLength="100" d="M625 130 H450 V188"/>
+  <path class="edge head" d="M625 130 H450 V188"/>
+  <path class="edge" d="M780 70 V188"/>
+  <path class="flow" pathLength="100" d="M780 70 V188"/>
+  <path class="edge head" d="M780 70 V188"/>
+
+  <!-- Command selector -->
+  <rect class="card" x="210" y="276" width="630" height="54" rx="12"/>
+  <circle class="icon-bg" cx="441" cy="303" r="16"/>
+  <path class="icon-line" d="M434 296 L441 303 L434 310 M441 303 H449 M446 299.5 L449.5 303 L446 306.5"/>
+  <circle class="icon-dot" cx="434" cy="296" r="2.4"/>
+  <circle class="icon-dot" cx="434" cy="310" r="2.4"/>
+  <text class="lbl" x="525" y="303" text-anchor="middle" dominant-baseline="central">Command selector</text>
+
+  <path class="edge" d="M280 246 V272"/>
+
+  <path class="flow" pathLength="100" d="M280 246 V272"/>
+
+  <path class="edge head" d="M280 246 V272"/>
+  <path class="edge" d="M450 246 V272"/>
+  <path class="flow" pathLength="100" d="M450 246 V272"/>
+  <path class="edge head" d="M450 246 V272"/>
+  <path class="edge" d="M625 246 V272"/>
+  <path class="flow" pathLength="100" d="M625 246 V272"/>
+  <path class="edge head" d="M625 246 V272"/>
+  <path class="edge" d="M780 246 V272"/>
+  <path class="flow" pathLength="100" d="M780 246 V272"/>
+  <path class="edge head" d="M780 246 V272"/>
+
+  <!-- Fail-safe module outputs -->
+  <path class="edge accent" d="M150 43 H546"/>
+  <path class="flow flow-accent" pathLength="100" d="M150 43 H546"/>
+  <path class="edge accent head" d="M150 43 H546"/>
+  <text class="edge-lbl" x="460" y="43" text-anchor="middle" dominant-baseline="central">change mode</text>
+  <path class="edge accent" d="M150 303 H206"/>
+  <path class="flow flow-accent" pathLength="100" d="M150 303 H206"/>
+  <path class="edge accent head" d="M150 303 H206"/>
+  <text class="edge-lbl" x="178" y="288" text-anchor="middle" dominant-baseline="central">select</text>
+</svg>

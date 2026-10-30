@@ -8,12 +8,8 @@
 
 - Initialization of the pose using input.
 
-  ```plantuml
-  {% include 'design/autoware-architecture-v1/interfaces/ad-api/use-cases/sequence/initialize-pose-input.plantuml' %}
-  ```
+{{ diagram("sequence/initialize-pose-input.svg", "Initialize the pose with a pose from the user.") }}
 
 - Initialization of the pose using GNSS.
 
-  ```plantuml
-  {% include 'design/autoware-architecture-v1/interfaces/ad-api/use-cases/sequence/initialize-pose-gnss.plantuml' %}
-  ```
+{{ diagram("sequence/initialize-pose-gnss.svg", "Initialize the pose with the GNSS pose.") }}

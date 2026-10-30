@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 644" role="img" aria-labelledby="radar-objects-sensing-title">
+  <title id="radar-objects-sensing-title">
+    For each radar, the driver publishes RadarTracks, the noise filter removes noise tracks, and the message converter makes DetectedObjects in base_link with the ego odometry. The object merger
+    merges all radars and sends the objects to perception.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-group: color-mix(in
+    srgb, var(--aw-c-indigo) 6%, var(--md-default-bg-color)); --aw-d-group-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 25%, transparent); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} .group {
+  fill: var(--aw-d-group);
+  stroke: var(--aw-d-group-stroke);
+  stroke-width: 1.5;
+} .group.dashed {
+  stroke-dasharray: 7 5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="644"/>
+  <circle class="halo" cx="186" cy="260" r="170"/>
+  <circle class="halo cyan" cx="438" cy="500" r="130"/>
+
+  <rect class="glass-panel" x="16" y="16" width="828" height="508" rx="18"/>
+  <text class="ttl" x="36" y="40">Sensing</text>
+
+  <!-- The pipeline of one radar -->
+  <rect class="group dashed" x="36" y="56" width="300" height="364" rx="16"/>
+  <text class="ttl" x="56" y="80">Pipeline for each radar</text>
+
+  <rect class="box muted" x="56" y="96" width="260" height="44" rx="12"/>
+  <circle class="icon-bg" cx="86" cy="118" r="14"/>
+  <circle class="icon-dot" cx="81" cy="123" r="2.2"/>
+  <path class="icon-line" d="M81 116 A7 7 0 0 1 88 123"/>
+  <path class="icon-line" d="M81 110 A13 13 0 0 1 94 123"/>
+  <text class="lbl" x="186" y="118" text-anchor="middle" dominant-baseline="central">Radar device</text>
+
+  <path class="edge" d="M186 140 V168"/>
+  <path class="flow" pathLength="100" d="M186 140 V168"/>
+  <path class="edge head" d="M186 140 V168"/>
+  <text class="sub" x="198" y="154" dominant-baseline="central">CAN or Ethernet</text>
+
+  <rect class="card" x="56" y="176" width="260" height="44" rx="12"/>
+  <text class="lbl" x="186" y="198" text-anchor="middle" dominant-baseline="central">Radar driver</text>
+
+  <path class="edge accent" d="M186 220 V248"/>
+  <path class="flow flow-accent" pathLength="100" d="M186 220 V248"/>
+  <path class="edge accent head" d="M186 220 V248"/>
+  <text class="code" x="198" y="234" dominant-baseline="central">RadarTracks</text>
+
+  <rect class="card" x="56" y="256" width="260" height="56" rx="12"/>
+  <text class="lbl" x="186" y="276" text-anchor="middle" dominant-baseline="central">Noise filter</text>
+  <text class="sub" x="186" y="296" text-anchor="middle" dominant-baseline="central">Y-axis velocity threshold</text>
+
+  <path class="edge accent" d="M186 312 V340"/>
+  <path class="flow flow-accent" pathLength="100" d="M186 312 V340"/>
+  <path class="edge accent head" d="M186 312 V340"/>
+  <text class="code" x="198" y="326" dominant-baseline="central">RadarTracks</text>
+
+  <rect class="card" x="56" y="348" width="260" height="56" rx="12"/>
+  <text class="lbl" x="186" y="368" text-anchor="middle" dominant-baseline="central">Message converter</text>
+  <text class="sub" x="186" y="388" text-anchor="middle" dominant-baseline="central">Sensor frame to base_link</text>
+
+  <!-- Ego odometry -->
+  <rect class="box muted" x="480" y="354" width="260" height="44" rx="12"/>
+  <text class="code" x="610" y="376" text-anchor="middle" dominant-baseline="central">/localization/kinematic_state</text>
+  <path class="edge" d="M480 376 H324"/>
+  <path class="flow" pathLength="100" d="M480 376 H324"/>
+  <path class="edge head" d="M480 376 H324"/>
+  <text class="edge-lbl" x="408" y="376" text-anchor="middle" dominant-baseline="central">Odometry</text>
+
+  <!-- Other radars -->
+  <rect class="box muted" x="580" y="96" width="240" height="56" rx="12"/>
+  <circle class="icon-bg" cx="610" cy="124" r="14"/>
+  <circle class="icon-dot" cx="605" cy="129" r="2.2"/>
+  <path class="icon-line" d="M605 122 A7 7 0 0 1 612 129"/>
+  <path class="icon-line" d="M605 116 A13 13 0 0 1 618 129"/>
+  <text class="lbl" x="700" y="116" text-anchor="middle" dominant-baseline="central">Other radars</text>
+  <text class="sub" x="700" y="136" text-anchor="middle" dominant-baseline="central">The same pipeline</text>
+  <path class="edge accent" d="M790 152 V442"/>
+  <path class="flow flow-accent" pathLength="100" d="M790 152 V442"/>
+  <path class="edge accent head" d="M790 152 V442"/>
+  <text class="code" x="778" y="431" text-anchor="end" dominant-baseline="central">DetectedObjects</text>
+
+  <!-- Merger -->
+  <path class="edge accent" d="M186 404 V442"/>
+  <path class="flow flow-accent" pathLength="100" d="M186 404 V442"/>
+  <path class="edge accent head" d="M186 404 V442"/>
+  <text class="code" x="198" y="431" dominant-baseline="central">DetectedObjects</text>
+
+  <rect class="box primary" x="56" y="450" width="764" height="56" rx="14"/>
+  <circle class="icon-bg on" cx="96" cy="478" r="18"/>
+  <path class="icon-line" d="M87 470 Q93 470 96 478 M87 486 Q93 486 96 478 M87 478 H105"/>
+  <circle class="icon-dot" cx="105" cy="478" r="2.6"/>
+  <text class="lbl on-primary" x="438" y="470" text-anchor="middle" dominant-baseline="central">Object merger</text>
+  <text class="sub on-primary" x="438" y="490" text-anchor="middle" dominant-baseline="central">Merges the DetectedObjects of all radars</text>
+
+  <!-- Perception -->
+  <path class="edge accent" d="M438 506 V564"/>
+  <path class="flow flow-accent" pathLength="100" d="M438 506 V564"/>
+  <path class="edge accent head" d="M438 506 V564"/>
+  <text class="code" x="452" y="544" dominant-baseline="central">/sensing/radar/detected_objects</text>
+
+  <rect class="card" x="278" y="572" width="320" height="56" rx="12"/>
+  <text class="lbl" x="438" y="592" text-anchor="middle" dominant-baseline="central">Radar detection and tracking</text>
+  <text class="sub" x="438" y="612" text-anchor="middle" dominant-baseline="central">Perception</text>
+</svg>

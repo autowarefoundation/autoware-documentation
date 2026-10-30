@@ -8,12 +8,8 @@
 
 - Change the mode with software switch.
 
-  ```plantuml
-  {% include 'design/autoware-architecture-v1/interfaces/ad-api/use-cases/sequence/operation-mode-software.plantuml' %}
-  ```
+{{ diagram("sequence/operation-mode-software.svg", "Change the mode with a software switch in the application.") }}
 
 - Change the mode with hardware switch.
 
-  ```plantuml
-  {% include 'design/autoware-architecture-v1/interfaces/ad-api/use-cases/sequence/operation-mode-hardware.plantuml' %}
-  ```
+{{ diagram("sequence/operation-mode-hardware.svg", "Change the mode with a hardware switch on the vehicle.") }}

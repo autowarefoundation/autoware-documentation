@@ -1,0 +1,263 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-labelledby="vehicle-interface-hw-abstraction-title">
+  <title id="vehicle-interface-hw-abstraction-title">
+    Vehicles have different drive-by-wire interfaces. The control component sends a generic control command to an adapter. The adapter uses the vehicle configuration, which OEMs give or calibration
+    tools make and update, and sends an actuation command to the vehicle interface. The vehicle interface talks to the vehicle driver with the vehicle-specific protocol and sends the status back.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-group: color-mix(in
+    srgb, var(--aw-c-indigo) 6%, var(--md-default-bg-color)); --aw-d-group-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 25%, transparent); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} .group {
+  fill: var(--aw-d-group);
+  stroke: var(--aw-d-group-stroke);
+  stroke-width: 1.5;
+} .group.dashed {
+  stroke-dasharray: 7 5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="720" height="720"/>
+  <circle class="halo" cx="440" cy="370" r="150"/>
+  <circle class="halo cyan" cx="440" cy="250" r="100"/>
+
+  <!-- Examples of drive-by-wire interfaces -->
+  <rect class="group dashed" x="200" y="16" width="504" height="112" rx="16"/>
+  <text class="ttl" x="216" y="38">Drive-by-wire interfaces differ</text>
+
+  <rect class="box muted" x="214" y="50" width="136" height="64" rx="12"/>
+  <text class="sub" x="282" y="64" text-anchor="middle" dominant-baseline="central">Steering voltage</text>
+  <text class="sub" x="282" y="82" text-anchor="middle" dominant-baseline="central">Engine torque</text>
+  <text class="sub" x="282" y="100" text-anchor="middle" dominant-baseline="central">Brake pressure</text>
+
+  <rect class="box muted" x="362" y="50" width="136" height="64" rx="12"/>
+  <text class="sub" x="430" y="64" text-anchor="middle" dominant-baseline="central">Steering angle</text>
+  <text class="sub" x="430" y="82" text-anchor="middle" dominant-baseline="central">Accel pedal</text>
+  <text class="sub" x="430" y="100" text-anchor="middle" dominant-baseline="central">Brake pedal</text>
+
+  <rect class="box muted" x="510" y="50" width="136" height="64" rx="12"/>
+  <text class="sub" x="578" y="73" text-anchor="middle" dominant-baseline="central">Yaw rate</text>
+  <text class="sub" x="578" y="91" text-anchor="middle" dominant-baseline="central">Velocity</text>
+
+  <text class="sub" x="676" y="82" text-anchor="middle" dominant-baseline="central">...</text>
+
+  <path class="edge dash" d="M452 128 V172"/>
+  <text class="edge-lbl" x="452" y="150" text-anchor="middle" dominant-baseline="central">Autoware abstracts them</text>
+
+  <!-- Autoware -->
+  <rect class="glass-panel" x="200" y="180" width="504" height="390" rx="18"/>
+  <text class="ttl" x="216" y="202">Autoware</text>
+
+  <rect class="card" x="330" y="216" width="220" height="56" rx="12"/>
+  <circle class="icon-bg" cx="356" cy="244" r="16"/>
+  <circle class="icon-line" cx="356" cy="244" r="7.5"/>
+  <path class="icon-line" d="M348.5 244 H363.5 M356 244 V251.5"/>
+  <text class="lbl" x="452" y="236" text-anchor="middle" dominant-baseline="central">Control component</text>
+  <text class="sub" x="452" y="256" text-anchor="middle" dominant-baseline="central">Makes generic commands</text>
+
+  <path class="edge accent" d="M440 272 V330"/>
+  <path class="flow flow-accent" pathLength="100" d="M440 272 V330"/>
+  <path class="edge accent head" d="M440 272 V330"/>
+  <text class="code" x="452" y="288" dominant-baseline="central">Control</text>
+  <text class="sub" x="452" y="304" dominant-baseline="central">Steering tire angle and rate,</text>
+  <text class="sub" x="452" y="320" dominant-baseline="central">velocity, acceleration, jerk</text>
+
+  <rect class="box primary" x="330" y="338" width="220" height="64" rx="14"/>
+  <text class="lbl on-primary" x="440" y="358" text-anchor="middle" dominant-baseline="central">Adapter</text>
+  <text class="sub on-primary" x="440" y="380" text-anchor="middle" dominant-baseline="central">Makes vehicle-specific commands</text>
+
+  <path class="edge accent" d="M480 402 V468"/>
+  <path class="flow flow-accent" pathLength="100" d="M480 402 V468"/>
+  <path class="edge accent head" d="M480 402 V468"/>
+  <text class="code" x="492" y="418" dominant-baseline="central">ActuationCommand</text>
+  <text class="sub" x="492" y="434" dominant-baseline="central">Accel, brake, and</text>
+  <text class="sub" x="492" y="450" dominant-baseline="central">steering commands</text>
+
+  <path class="edge" d="M380 476 V410"/>
+  <path class="flow" pathLength="100" d="M380 476 V410"/>
+  <path class="edge head" d="M380 476 V410"/>
+  <text class="edge-lbl" x="380" y="440" text-anchor="middle" dominant-baseline="central">Status</text>
+
+  <rect class="card" x="330" y="476" width="220" height="64" rx="12"/>
+  <text class="lbl" x="440" y="496" text-anchor="middle" dominant-baseline="central">Vehicle interface</text>
+  <text class="sub" x="440" y="518" text-anchor="middle" dominant-baseline="central">Uses the vehicle-specific protocol</text>
+
+  <!-- Configuration and calibration -->
+  <text class="sub" x="100" y="300" text-anchor="middle" dominant-baseline="central">Given by OEMs, or made and</text>
+  <text class="sub" x="100" y="316" text-anchor="middle" dominant-baseline="central">updated by calibration tools</text>
+
+  <rect class="box muted" x="16" y="338" width="168" height="64" rx="12"/>
+  <text class="lbl" x="100" y="358" text-anchor="middle" dominant-baseline="central">Vehicle configuration</text>
+  <text class="sub" x="100" y="380" text-anchor="middle" dominant-baseline="central">Accel, brake, steer maps</text>
+
+  <rect class="box muted" x="16" y="452" width="168" height="64" rx="12"/>
+  <text class="lbl" x="100" y="472" text-anchor="middle" dominant-baseline="central">Calibration tools</text>
+  <text class="sub" x="100" y="494" text-anchor="middle" dominant-baseline="central">Accel brake map calibrator</text>
+
+  <path class="edge" d="M184 370 H322"/>
+  <path class="flow" pathLength="100" d="M184 370 H322"/>
+  <path class="edge head" d="M184 370 H322"/>
+  <path class="edge" d="M100 452 V410"/>
+  <path class="flow" pathLength="100" d="M100 452 V410"/>
+  <path class="edge head" d="M100 452 V410"/>
+
+  <!-- Vehicle -->
+  <rect class="glass-panel" x="200" y="610" width="504" height="94" rx="18"/>
+  <text class="ttl" x="216" y="632">Vehicle</text>
+
+  <path class="edge accent" d="M480 540 V618"/>
+  <path class="flow flow-accent" pathLength="100" d="M480 540 V618"/>
+  <path class="edge accent head" d="M480 540 V618"/>
+  <text class="edge-lbl" x="490" y="580" dominant-baseline="central">Actuation</text>
+  <path class="edge" d="M400 626 V548"/>
+  <path class="flow" pathLength="100" d="M400 626 V548"/>
+  <path class="edge head" d="M400 626 V548"/>
+  <text class="edge-lbl" x="390" y="580" text-anchor="end" dominant-baseline="central">Status</text>
+
+  <rect class="card" x="330" y="626" width="220" height="56" rx="12"/>
+  <circle class="icon-bg" cx="356" cy="654" r="16"/>
+  <path class="icon-line" d="M346 657.5 V652.5 L349.5 647 Q350.5 645.5 352.5 645.5 H359.5 Q361.5 645.5 362.5 647 L366 652.5 V657.5 Z"/>
+  <circle class="icon-dot" cx="350.5" cy="658" r="2.4"/>
+  <circle class="icon-dot" cx="361.5" cy="658" r="2.4"/>
+  <text class="lbl" x="452" y="654" text-anchor="middle" dominant-baseline="central">Vehicle driver</text>
+</svg>

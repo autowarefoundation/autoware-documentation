@@ -1,0 +1,335 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 884" role="img" aria-labelledby="reference-implementation-add-new-modules-title">
+  <title id="reference-implementation-add-new-modules-title">
+    Where you can extend the current implementation: plugin modules in the behavior path, behavior velocity, and motion velocity planners and in the planning validator, new ROS nodes between the
+    existing nodes, and new scenarios next to lane driving and parking.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-group: color-mix(in
+    srgb, var(--aw-c-indigo) 6%, var(--md-default-bg-color)); --aw-d-group-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 25%, transparent); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} .box.ext {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-dasharray: 6 5;
+} .group {
+  fill: var(--aw-d-group);
+  stroke: var(--aw-d-group-stroke);
+  stroke-width: 1.5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="884"/>
+  <circle class="halo" cx="226" cy="310" r="210"/>
+  <circle class="halo cyan" cx="600" cy="170" r="110"/>
+  <circle class="halo" cx="430" cy="754" r="115"/>
+
+  <!-- Lane driving scenario -->
+  <rect class="glass-panel" x="16" y="16" width="420" height="590" rx="18"/>
+  <text class="ttl" x="34" y="40">Lane driving</text>
+
+  <!-- Behavior planning: nodes that load modules as plugins -->
+  <rect class="group" x="24" y="50" width="404" height="262" rx="16"/>
+  <text class="ttl" x="38" y="68">Behavior planning</text>
+  <rect class="card" x="32" y="76" width="388" height="100" rx="12"/>
+  <circle class="icon-bg" cx="56" cy="96" r="12"/>
+  <path class="icon-line" d="M56 103 V97 L51 91 M56 97 L61 91"/>
+  <circle class="icon-dot" cx="51" cy="91" r="2"/>
+  <circle class="icon-dot" cx="61" cy="91" r="2"/>
+  <text class="lbl" x="226" y="96" text-anchor="middle" dominant-baseline="central">behavior_path_planner</text>
+  <rect class="box muted" x="40" y="112" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="99.3" y="124" text-anchor="middle" dominant-baseline="central">Lane change</text>
+  <rect class="box muted" x="166.7" y="112" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="226" y="124" text-anchor="middle" dominant-baseline="central">Static avoidance</text>
+  <rect class="box muted" x="293.3" y="112" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="352.7" y="124" text-anchor="middle" dominant-baseline="central">Start planner</text>
+  <rect class="box muted" x="40" y="142" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="99.3" y="154" text-anchor="middle" dominant-baseline="central">Goal planner</text>
+  <rect class="box muted" x="166.7" y="142" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="226" y="154" text-anchor="middle" dominant-baseline="central">Side shift</text>
+  <rect class="box ext" x="293.3" y="142" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="352.7" y="154" text-anchor="middle" dominant-baseline="central">New module</text>
+  <path class="edge" d="M226 176 V198"/>
+  <path class="flow" pathLength="100" d="M226 176 V198"/>
+  <path class="edge head" d="M226 176 V198"/>
+  <text class="edge-lbl" x="236" y="188" dominant-baseline="central">path_with_lane_id</text>
+  <rect class="card" x="32" y="204" width="388" height="100" rx="12"/>
+  <circle class="icon-bg" cx="56" cy="224" r="12"/>
+  <rect class="icon-line" x="51.5" y="215.5" width="9" height="17" rx="3"/>
+  <circle class="icon-dot" cx="56" cy="220" r="1.7"/>
+  <circle class="icon-dot" cx="56" cy="224" r="1.7"/>
+  <circle class="icon-dot" cx="56" cy="228" r="1.7"/>
+  <text class="lbl" x="226" y="224" text-anchor="middle" dominant-baseline="central">behavior_velocity_planner</text>
+  <rect class="box muted" x="40" y="240" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="99.3" y="252" text-anchor="middle" dominant-baseline="central">Crosswalk</text>
+  <rect class="box muted" x="166.7" y="240" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="226" y="252" text-anchor="middle" dominant-baseline="central">Intersection</text>
+  <rect class="box muted" x="293.3" y="240" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="352.7" y="252" text-anchor="middle" dominant-baseline="central">Traffic light</text>
+  <rect class="box muted" x="40" y="270" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="99.3" y="282" text-anchor="middle" dominant-baseline="central">Stop line</text>
+  <rect class="box muted" x="166.7" y="270" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="226" y="282" text-anchor="middle" dominant-baseline="central">Detection area</text>
+  <rect class="box ext" x="293.3" y="270" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="352.7" y="282" text-anchor="middle" dominant-baseline="central">New module</text>
+
+  <!-- Motion planning: a chain of ROS nodes on the trajectory -->
+  <rect class="group" x="24" y="328" width="404" height="270" rx="16"/>
+  <text class="ttl" x="38" y="346">Motion planning</text>
+  <path class="edge" d="M226 304 V348"/>
+  <path class="flow" pathLength="100" d="M226 304 V348"/>
+  <path class="edge head" d="M226 304 V348"/>
+  <text class="edge-lbl" x="236" y="320" dominant-baseline="central">path</text>
+  <rect class="card" x="32" y="354" width="388" height="40" rx="12"/>
+  <circle class="icon-bg" cx="56" cy="374" r="12"/>
+  <path class="icon-line" d="M49 377 Q56 366 63 377"/>
+  <circle class="icon-dot" cx="49" cy="377" r="1.8"/>
+  <circle class="icon-dot" cx="56" cy="371.5" r="1.8"/>
+  <circle class="icon-dot" cx="63" cy="377" r="1.8"/>
+  <text class="lbl" x="226" y="374" text-anchor="middle" dominant-baseline="central">elastic_band_smoother and path_optimizer</text>
+  <path class="edge" d="M226 394 V416"/>
+  <path class="flow" pathLength="100" d="M226 394 V416"/>
+  <path class="edge head" d="M226 394 V416"/>
+  <text class="edge-lbl" x="236" y="406" dominant-baseline="central">trajectory</text>
+  <rect class="box ext" x="32" y="422" width="388" height="40" rx="12"/>
+  <text class="lbl" x="226" y="442" text-anchor="middle" dominant-baseline="central">New ROS node</text>
+  <path class="edge" d="M226 462 V484"/>
+  <path class="flow" pathLength="100" d="M226 462 V484"/>
+  <path class="edge head" d="M226 462 V484"/>
+  <text class="edge-lbl" x="236" y="474" dominant-baseline="central">trajectory</text>
+  <rect class="card" x="32" y="490" width="388" height="100" rx="12"/>
+  <circle class="icon-bg" cx="56" cy="510" r="12"/>
+  <path class="icon-line" d="M49 513 A7 7 0 0 1 63 513"/>
+  <path class="icon-line" d="M56 513 L59.5 507.5"/>
+  <circle class="icon-dot" cx="56" cy="513" r="1.8"/>
+  <text class="lbl" x="226" y="510" text-anchor="middle" dominant-baseline="central">motion_velocity_planner</text>
+  <rect class="box muted" x="40" y="526" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="99.3" y="538" text-anchor="middle" dominant-baseline="central">Obstacle stop</text>
+  <rect class="box muted" x="166.7" y="526" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="226" y="538" text-anchor="middle" dominant-baseline="central">Obstacle cruise</text>
+  <rect class="box muted" x="293.3" y="526" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="352.7" y="538" text-anchor="middle" dominant-baseline="central">Slow down</text>
+  <rect class="box muted" x="40" y="556" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="99.3" y="568" text-anchor="middle" dominant-baseline="central">Run out</text>
+  <rect class="box muted" x="166.7" y="556" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="226" y="568" text-anchor="middle" dominant-baseline="central">Out of lane</text>
+  <rect class="box ext" x="293.3" y="556" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="352.7" y="568" text-anchor="middle" dominant-baseline="central">New module</text>
+
+  <!-- Parking scenario -->
+  <rect class="glass-panel" x="452" y="16" width="196" height="590" rx="18"/>
+  <text class="ttl" x="470" y="40">Parking</text>
+  <rect class="card" x="466" y="52" width="168" height="46" rx="12"/>
+  <text class="lbl" x="550" y="75" text-anchor="middle" dominant-baseline="central">costmap_generator</text>
+  <rect class="card" x="466" y="140" width="168" height="46" rx="12"/>
+  <text class="lbl" x="550" y="163" text-anchor="middle" dominant-baseline="central">freespace_planner</text>
+  <path class="edge" d="M550 98 V134"/>
+  <path class="flow" pathLength="100" d="M550 98 V134"/>
+  <path class="edge head" d="M550 98 V134"/>
+  <text class="edge-lbl" x="558" y="116" dominant-baseline="central">occupancy_grid</text>
+  <rect class="box ext" x="466" y="228" width="168" height="40" rx="12"/>
+  <text class="lbl" x="550" y="248" text-anchor="middle" dominant-baseline="central">New ROS node</text>
+  <path class="edge" d="M550 186 V222"/>
+  <path class="flow" pathLength="100" d="M550 186 V222"/>
+  <path class="edge head" d="M550 186 V222"/>
+  <text class="edge-lbl" x="558" y="204" dominant-baseline="central">trajectory</text>
+
+  <!-- New scenario -->
+  <rect class="box ext" x="664" y="16" width="180" height="590" rx="16"/>
+  <text class="lbl" x="754" y="292" text-anchor="middle" dominant-baseline="central">New scenario</text>
+  <text class="sub" x="754" y="314" text-anchor="middle" dominant-baseline="central">For example, highway driving</text>
+
+  <!-- Scenario selection -->
+  <rect class="card" x="236" y="630" width="388" height="46" rx="12"/>
+  <circle class="icon-bg" cx="262" cy="653" r="14"/>
+  <path class="icon-line" d="M255 653 H260 L267 648 M260 653 L267 658"/>
+  <circle class="icon-dot" cx="267" cy="648" r="2"/>
+  <circle class="icon-dot" cx="267" cy="658" r="2"/>
+  <text class="lbl" x="430" y="644" text-anchor="middle" dominant-baseline="central">scenario_selector</text>
+  <text class="sub" x="430" y="664" text-anchor="middle" dominant-baseline="central">Switches between the scenarios</text>
+  <path class="edge accent" d="M200 590 V653 H230"/>
+  <path class="flow flow-accent" pathLength="100" d="M200 590 V653 H230"/>
+  <path class="edge accent head" d="M200 590 V653 H230"/>
+  <text class="edge-lbl" x="190" y="630" text-anchor="end" dominant-baseline="central">trajectory</text>
+  <path class="edge accent" d="M550 268 V624"/>
+  <path class="flow flow-accent" pathLength="100" d="M550 268 V624"/>
+  <path class="edge accent head" d="M550 268 V624"/>
+  <text class="edge-lbl" x="558" y="440" dominant-baseline="central">trajectory</text>
+  <path class="edge accent" d="M754 606 V653 H630"/>
+  <path class="flow flow-accent" pathLength="100" d="M754 606 V653 H630"/>
+  <path class="edge accent head" d="M754 606 V653 H630"/>
+  <text class="edge-lbl" x="764" y="630" dominant-baseline="central">trajectory</text>
+  <rect class="card" x="236" y="700" width="388" height="40" rx="12"/>
+  <circle class="icon-bg" cx="260" cy="720" r="12"/>
+  <path class="icon-line" d="M253 725 C259 725 261 715 267 715"/>
+  <text class="lbl" x="430" y="720" text-anchor="middle" dominant-baseline="central">velocity_smoother</text>
+  <path class="edge accent" d="M430 676 V694"/>
+  <path class="flow flow-accent" pathLength="100" d="M430 676 V694"/>
+  <path class="edge accent head" d="M430 676 V694"/>
+  <text class="edge-lbl" x="446" y="685" dominant-baseline="central">trajectory</text>
+
+  <!-- Validation -->
+  <rect class="card" x="236" y="764" width="388" height="100" rx="12"/>
+  <circle class="icon-bg" cx="260" cy="784" r="12"/>
+  <path class="icon-line" d="M260 777 L266 779.5 V784 Q266 789 260 791 Q254 789 254 784 V779.5 Z"/>
+  <path class="icon-line" d="M257.5 784 L259.5 786 L263 782"/>
+  <text class="lbl" x="430" y="784" text-anchor="middle" dominant-baseline="central">planning_validator</text>
+  <rect class="box muted" x="244" y="800" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="303.3" y="812" text-anchor="middle" dominant-baseline="central">Latency</text>
+  <rect class="box muted" x="370.7" y="800" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="430" y="812" text-anchor="middle" dominant-baseline="central">Trajectory</text>
+  <rect class="box muted" x="497.3" y="800" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="556.7" y="812" text-anchor="middle" dominant-baseline="central">Intersection</text>
+  <rect class="box muted" x="244" y="830" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="303.3" y="842" text-anchor="middle" dominant-baseline="central">Rear collision</text>
+  <rect class="box ext" x="370.7" y="830" width="118.7" height="24" rx="8"/>
+  <text class="sub" x="430" y="842" text-anchor="middle" dominant-baseline="central">New checker</text>
+  <path class="edge accent" d="M430 740 V758"/>
+  <path class="flow flow-accent" pathLength="100" d="M430 740 V758"/>
+  <path class="edge accent head" d="M430 740 V758"/>
+  <text class="edge-lbl" x="446" y="749" dominant-baseline="central">trajectory</text>
+
+  <!-- Output to the control component -->
+  <path class="edge accent" d="M624 814 H720"/>
+  <path class="flow flow-accent" pathLength="100" d="M624 814 H720"/>
+  <path class="edge accent head" d="M624 814 H720"/>
+  <text class="edge-lbl" x="672" y="802" text-anchor="middle" dominant-baseline="central">trajectory</text>
+  <text class="lbl" x="728" y="814" dominant-baseline="central">To control</text>
+
+  <!-- Legend -->
+  <rect class="group" x="648" y="676" width="196" height="102" rx="16"/>
+  <text class="ttl" x="662" y="694">Legend</text>
+  <rect class="card" x="662" y="704" width="40" height="18" rx="6"/>
+  <text class="sub" x="712" y="713" dominant-baseline="central">ROS node</text>
+  <rect class="box muted" x="662" y="728" width="40" height="18" rx="6"/>
+  <text class="sub" x="712" y="737" dominant-baseline="central">Plugin module</text>
+  <rect class="box ext" x="662" y="752" width="40" height="18" rx="6"/>
+  <text class="sub" x="712" y="761" dominant-baseline="central">Where you can extend</text>
+</svg>

@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 470" role="img" aria-labelledby="adapi-diagnostics-data-title">
+  <title id="adapi-diagnostics-data-title">
+    The messages of the example graph. DiagGraphStruct has the paths of the nodes, the parents and names of the leaf diagnostics, and the links between the nodes. DiagGraphStatus has the levels of the
+    nodes and the leaf diagnostics, in the same order as the struct.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.plain {
+  marker-end: none;
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="860" height="470"/>
+  <circle class="halo" cx="300" cy="230" r="215"/>
+  <circle class="halo cyan" cx="722" cy="230" r="120"/>
+
+  <!-- DiagGraphStruct -->
+  <rect class="glass-panel" x="16" y="16" width="570" height="438" rx="16"/>
+  <text class="lbl" x="36" y="42">DiagGraphStruct</text>
+  <text class="code" x="36" y="68">nodes</text>
+  <rect class="card" x="92" y="82" width="210" height="216" rx="12"/>
+  <path class="edge plain" d="M92 106 H302"/>
+  <path class="edge plain" d="M92 130 H302"/>
+  <path class="edge plain" d="M92 154 H302"/>
+  <path class="edge plain" d="M92 178 H302"/>
+  <path class="edge plain" d="M92 202 H302"/>
+  <path class="edge plain" d="M92 226 H302"/>
+  <path class="edge plain" d="M92 250 H302"/>
+  <path class="edge plain" d="M92 274 H302"/>
+  <text class="sub" x="84" y="94" text-anchor="end" dominant-baseline="central">nodes[0]</text>
+  <text class="code" x="102" y="94" dominant-baseline="central">path: /mode/autonomous</text>
+  <text class="sub" x="84" y="118" text-anchor="end" dominant-baseline="central">nodes[1]</text>
+  <text class="code" x="102" y="118" dominant-baseline="central">path: /mode/emergency</text>
+  <text class="sub" x="84" y="142" text-anchor="end" dominant-baseline="central">nodes[2]</text>
+  <text class="code" x="102" y="142" dominant-baseline="central">path: /module/perception</text>
+  <text class="sub" x="84" y="166" text-anchor="end" dominant-baseline="central">nodes[3]</text>
+  <text class="code" x="102" y="166" dominant-baseline="central">path: /module/localization</text>
+  <text class="sub" x="84" y="190" text-anchor="end" dominant-baseline="central">nodes[4]</text>
+  <text class="code" x="102" y="190" dominant-baseline="central">path: /module/vehicle</text>
+  <text class="sub" x="84" y="214" text-anchor="end" dominant-baseline="central">nodes[5]</text>
+  <text class="code" x="102" y="214" dominant-baseline="central">path: /sensor/camera</text>
+  <text class="sub" x="84" y="238" text-anchor="end" dominant-baseline="central">nodes[6]</text>
+  <text class="code" x="102" y="238" dominant-baseline="central">path: /sensor/lidar</text>
+  <text class="sub" x="84" y="262" text-anchor="end" dominant-baseline="central">nodes[7]</text>
+  <text class="code" x="102" y="262" dominant-baseline="central">path: /sensor/imu</text>
+  <text class="sub" x="84" y="286" text-anchor="end" dominant-baseline="central">nodes[8]</text>
+  <text class="code" x="102" y="286" dominant-baseline="central">path: /vehicle/interface</text>
+  <text class="code" x="36" y="326">diags</text>
+  <rect class="card" x="92" y="340" width="210" height="96" rx="12"/>
+  <path class="edge plain" d="M92 364 H302"/>
+  <path class="edge plain" d="M92 388 H302"/>
+  <path class="edge plain" d="M92 412 H302"/>
+  <text class="sub" x="84" y="352" text-anchor="end" dominant-baseline="central">diags[0]</text>
+  <text class="code" x="102" y="352" dominant-baseline="central">parent: 5, name: camera</text>
+  <text class="sub" x="84" y="376" text-anchor="end" dominant-baseline="central">diags[1]</text>
+  <text class="code" x="102" y="376" dominant-baseline="central">parent: 6, name: lidar</text>
+  <text class="sub" x="84" y="400" text-anchor="end" dominant-baseline="central">diags[2]</text>
+  <text class="code" x="102" y="400" dominant-baseline="central">parent: 7, name: imu</text>
+  <text class="sub" x="84" y="424" text-anchor="end" dominant-baseline="central">diags[3]</text>
+  <text class="code" x="102" y="424" dominant-baseline="central">parent: 8, name: vehicle</text>
+  <text class="code" x="318" y="68">links</text>
+  <rect class="card" x="374" y="82" width="200" height="216" rx="12"/>
+  <path class="edge plain" d="M374 106 H574"/>
+  <path class="edge plain" d="M374 130 H574"/>
+  <path class="edge plain" d="M374 154 H574"/>
+  <path class="edge plain" d="M374 178 H574"/>
+  <path class="edge plain" d="M374 202 H574"/>
+  <path class="edge plain" d="M374 226 H574"/>
+  <path class="edge plain" d="M374 250 H574"/>
+  <path class="edge plain" d="M374 274 H574"/>
+  <text class="sub" x="366" y="94" text-anchor="end" dominant-baseline="central">links[0]</text>
+  <text class="code" x="384" y="94" dominant-baseline="central">parent: 0, child: 2</text>
+  <text class="sub" x="366" y="118" text-anchor="end" dominant-baseline="central">links[1]</text>
+  <text class="code" x="384" y="118" dominant-baseline="central">parent: 0, child: 3</text>
+  <text class="sub" x="366" y="142" text-anchor="end" dominant-baseline="central">links[2]</text>
+  <text class="code" x="384" y="142" dominant-baseline="central">parent: 0, child: 4</text>
+  <text class="sub" x="366" y="166" text-anchor="end" dominant-baseline="central">links[3]</text>
+  <text class="code" x="384" y="166" dominant-baseline="central">parent: 1, child: 4</text>
+  <text class="sub" x="366" y="190" text-anchor="end" dominant-baseline="central">links[4]</text>
+  <text class="code" x="384" y="190" dominant-baseline="central">parent: 2, child: 5</text>
+  <text class="sub" x="366" y="214" text-anchor="end" dominant-baseline="central">links[5]</text>
+  <text class="code" x="384" y="214" dominant-baseline="central">parent: 2, child: 6</text>
+  <text class="sub" x="366" y="238" text-anchor="end" dominant-baseline="central">links[6]</text>
+  <text class="code" x="384" y="238" dominant-baseline="central">parent: 3, child: 6</text>
+  <text class="sub" x="366" y="262" text-anchor="end" dominant-baseline="central">links[7]</text>
+  <text class="code" x="384" y="262" dominant-baseline="central">parent: 3, child: 7</text>
+  <text class="sub" x="366" y="286" text-anchor="end" dominant-baseline="central">links[8]</text>
+  <text class="code" x="384" y="286" dominant-baseline="central">parent: 4, child: 8</text>
+
+  <!-- DiagGraphStatus -->
+  <rect class="glass-panel" x="600" y="16" width="244" height="438" rx="16"/>
+  <text class="lbl" x="620" y="42">DiagGraphStatus</text>
+  <text class="code" x="620" y="68">nodes</text>
+  <rect class="card" x="676" y="82" width="150" height="216" rx="12"/>
+  <path class="edge plain" d="M676 106 H826"/>
+  <path class="edge plain" d="M676 130 H826"/>
+  <path class="edge plain" d="M676 154 H826"/>
+  <path class="edge plain" d="M676 178 H826"/>
+  <path class="edge plain" d="M676 202 H826"/>
+  <path class="edge plain" d="M676 226 H826"/>
+  <path class="edge plain" d="M676 250 H826"/>
+  <path class="edge plain" d="M676 274 H826"/>
+  <text class="sub" x="668" y="94" text-anchor="end" dominant-baseline="central">nodes[0]</text>
+  <text class="code" x="686" y="94" dominant-baseline="central">level: ERROR</text>
+  <text class="sub" x="668" y="118" text-anchor="end" dominant-baseline="central">nodes[1]</text>
+  <text class="code" x="686" y="118" dominant-baseline="central">level: OK</text>
+  <text class="sub" x="668" y="142" text-anchor="end" dominant-baseline="central">nodes[2]</text>
+  <text class="code" x="686" y="142" dominant-baseline="central">level: ERROR</text>
+  <text class="sub" x="668" y="166" text-anchor="end" dominant-baseline="central">nodes[3]</text>
+  <text class="code" x="686" y="166" dominant-baseline="central">level: OK</text>
+  <text class="sub" x="668" y="190" text-anchor="end" dominant-baseline="central">nodes[4]</text>
+  <text class="code" x="686" y="190" dominant-baseline="central">level: OK</text>
+  <text class="sub" x="668" y="214" text-anchor="end" dominant-baseline="central">nodes[5]</text>
+  <text class="code" x="686" y="214" dominant-baseline="central">level: ERROR</text>
+  <text class="sub" x="668" y="238" text-anchor="end" dominant-baseline="central">nodes[6]</text>
+  <text class="code" x="686" y="238" dominant-baseline="central">level: OK</text>
+  <text class="sub" x="668" y="262" text-anchor="end" dominant-baseline="central">nodes[7]</text>
+  <text class="code" x="686" y="262" dominant-baseline="central">level: OK</text>
+  <text class="sub" x="668" y="286" text-anchor="end" dominant-baseline="central">nodes[8]</text>
+  <text class="code" x="686" y="286" dominant-baseline="central">level: OK</text>
+  <text class="code" x="620" y="326">diags</text>
+  <rect class="card" x="676" y="340" width="150" height="96" rx="12"/>
+  <path class="edge plain" d="M676 364 H826"/>
+  <path class="edge plain" d="M676 388 H826"/>
+  <path class="edge plain" d="M676 412 H826"/>
+  <text class="sub" x="668" y="352" text-anchor="end" dominant-baseline="central">diags[0]</text>
+  <text class="code" x="686" y="352" dominant-baseline="central">level: ERROR</text>
+  <text class="sub" x="668" y="376" text-anchor="end" dominant-baseline="central">diags[1]</text>
+  <text class="code" x="686" y="376" dominant-baseline="central">level: OK</text>
+  <text class="sub" x="668" y="400" text-anchor="end" dominant-baseline="central">diags[2]</text>
+  <text class="code" x="686" y="400" dominant-baseline="central">level: OK</text>
+  <text class="sub" x="668" y="424" text-anchor="end" dominant-baseline="central">diags[3]</text>
+  <text class="code" x="686" y="424" dominant-baseline="central">level: OK</text>
+</svg>

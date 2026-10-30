@@ -6,7 +6,7 @@
 
 This diagram describes the pre-process pipeline for radar pointcloud.
 
-![radar-pointcloud-sensing](image/radar-pointcloud-sensing.drawio.svg)
+{{ diagram("image/radar-pointcloud-sensing.svg", "The radar scan goes through a noise filter, then to a PointCloud2 converter and to a static points filter.") }}
 
 ### Interface
 

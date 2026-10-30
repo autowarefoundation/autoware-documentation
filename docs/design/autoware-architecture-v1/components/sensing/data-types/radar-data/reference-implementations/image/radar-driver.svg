@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 316" role="img" aria-labelledby="radar-driver-title">
+  <title id="radar-driver-title">
+    Inside the radar, the antenna feeds target detection. Target detection outputs the scan points as RadarScan and feeds the occupancy grid and the object tracking. The object tracking outputs
+    RadarTracks, and the occupancy grid outputs a cost map.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .icon {
+  fill: var(--aw-d-muted);
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="760" height="316"/>
+  <circle class="halo" cx="290" cy="110" r="105"/>
+  <circle class="halo cyan" cx="650" cy="150" r="100"/>
+
+  <rect class="glass-panel" x="16" y="16" width="560" height="176" rx="18"/>
+  <text class="ttl" x="36" y="40">Radar internal</text>
+
+  <rect class="card" x="36" y="104" width="110" height="48" rx="12"/>
+  <text class="lbl" x="91" y="128" text-anchor="middle" dominant-baseline="central">Antenna</text>
+
+  <rect class="card" x="186" y="104" width="150" height="48" rx="12"/>
+  <text class="lbl" x="261" y="128" text-anchor="middle" dominant-baseline="central">Target detection</text>
+
+  <rect class="card" x="400" y="40" width="156" height="48" rx="12"/>
+  <text class="lbl" x="478" y="64" text-anchor="middle" dominant-baseline="central">Occupancy grid</text>
+
+  <rect class="card" x="400" y="120" width="156" height="48" rx="12"/>
+  <text class="lbl" x="478" y="144" text-anchor="middle" dominant-baseline="central">Object tracking</text>
+
+  <path class="edge" d="M146 128 H178"/>
+  <path class="flow" pathLength="100" d="M146 128 H178"/>
+  <path class="edge head" d="M146 128 H178"/>
+  <path class="edge accent" d="M336 144 H392"/>
+  <path class="flow flow-accent" pathLength="100" d="M336 144 H392"/>
+  <path class="edge accent head" d="M336 144 H392"/>
+  <path class="edge accent" d="M336 116 H366 V64 H392"/>
+  <path class="flow flow-accent" pathLength="100" d="M336 116 H366 V64 H392"/>
+  <path class="edge accent head" d="M336 116 H366 V64 H392"/>
+
+  <!-- Outputs -->
+  <path class="edge" d="M556 64 H612"/>
+  <path class="flow" pathLength="100" d="M556 64 H612"/>
+  <path class="edge head" d="M556 64 H612"/>
+  <text class="sub" x="622" y="64" dominant-baseline="central">Cost map</text>
+
+  <path class="edge accent" d="M556 144 H612"/>
+  <path class="flow flow-accent" pathLength="100" d="M556 144 H612"/>
+  <path class="edge accent head" d="M556 144 H612"/>
+  <rect class="icon" x="626" y="132" width="50" height="28" rx="2"/>
+  <path class="icon" d="M626 132 l12 -12 h50 l-12 12 z"/>
+  <path class="icon" d="M676 160 v-28 l12 -12 v28 z"/>
+  <text class="code" x="622" y="182" dominant-baseline="central">RadarTracks</text>
+
+  <path class="edge accent" d="M261 152 V226"/>
+  <path class="flow flow-accent" pathLength="100" d="M261 152 V226"/>
+  <path class="edge accent head" d="M261 152 V226"/>
+  <circle class="icon" cx="236" cy="246" r="5"/>
+  <circle class="icon" cx="254" cy="238" r="5"/>
+  <circle class="icon" cx="272" cy="244" r="5"/>
+  <circle class="icon" cx="288" cy="236" r="5"/>
+  <circle class="icon" cx="246" cy="260" r="5"/>
+  <circle class="icon" cx="266" cy="262" r="5"/>
+  <circle class="icon" cx="284" cy="256" r="5"/>
+  <text class="code" x="261" y="290" text-anchor="middle" dominant-baseline="central">RadarScan</text>
+</svg>
