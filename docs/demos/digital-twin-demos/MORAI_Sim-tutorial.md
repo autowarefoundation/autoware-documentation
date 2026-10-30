@@ -4,7 +4,11 @@
 
     Any kind of for-profit activity with the trial version of the MORAI SIM:Drive is strictly prohibited.
 
+[MORAI SIM: Drive](https://www.morai.ai) is a commercial driving simulator by MORAI. Autoware 2.0.0 imports the MORAI message package ([`morai_msgs`](https://github.com/MORAI-Autonomous/MORAI-ROS2_morai_msgs)) through `repositories/autoware.repos`.
+
 ## Hardware requirements
+
+This page was written in October 2022, for release 22.R3 of MORAI SIM: Drive. The requirements below are from that time. For the requirements of the current release, see the MORAI SIM manual.
 
 | Minimum PC Specs |                                                      |
 | :--------------- | :--------------------------------------------------- |
@@ -31,11 +35,11 @@ CAUTION: Do not use the Launchers in the following manual
 
 ## Technical Documents
 
-as Oct. 2022, our simulation version is _ver.22.R3_ but the english manual is under construction.
+The [MORAI SIM documentation](https://help-morai-sim.scrollhelp.site/) has the manuals of all releases. As of October 2026, the latest MORAI SIM: Drive manual is for release 26.R1 and is in Korean. The latest English manual is for release [23.R1](https://help-morai-sim.scrollhelp.site/en/morai-sim-drive/23.R1.0/).
 
-Be aware that the following manuals are for _ver.22.R2_
+The manual and the tutorials below are for release 22.R2:
 
-- [MORAI Sim:Drive Manual](https://morai-sim--drive-user-manual--en-22-r2.scrollhelp.site/msdume2/)
+- [MORAI Sim:Drive Manual (22.R2)](https://morai-sim--drive-user-manual--en-22-r2.scrollhelp.site/msdume2/)
 - [ITRI BUS Odd tutorial](https://morai.atlassian.net/wiki/external/1158610949/ZDE2Mjk0MTc5OTAxNGZmZjg3ZDMxZjQxNzFkNTgxYWM?atlOrigin=eyJpIjoiNDc1OGNkMjkxMTMzNDVjOGExMGFiMDY0M2ZmNzkwMjkiLCJwIjoiYyJ9)
 - [Tutorial for rosbag replay with Tacoma Airport](https://morai.atlassian.net/wiki/external/1098547535/MTJjMDRmZDlhZDhiNDI2YzhkNzgzMWJiMjNiYTYxMzc?atlOrigin=eyJpIjoiZTc5NzBlM2VkMmFiNDZlM2JlZjk1N2Q3ZjZjYWYwZjMiLCJwIjoiYyJ9)
 
