@@ -58,7 +58,8 @@ extra_javascript:
   - assets/js/mathjax.js
   - assets/js/hidden-page-nav.js
   - assets/js/header-home-link.js
-  - assets/js/ros2-highlight.js
+  - assets/js/interface-highlight.js
+  - assets/js/shell-highlight.js
   - assets/js/media-kit.js
   - assets/js/hero-video.js
   - https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6
@@ -109,7 +110,9 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:zensical.extensions.emoji.twemoji
       emoji_generator: !!python/name:zensical.extensions.emoji.to_svg
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      # Gives each code block a `language-*` class (see shell-highlight.js).
+      pygments_lang_class: true
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
