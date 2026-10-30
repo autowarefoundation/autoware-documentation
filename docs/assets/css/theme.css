@@ -1752,56 +1752,72 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
   fill: #fff;
 }
 
-/* ROS 2 commands in code blocks (see ros2-highlight.js). */
+/* Shell commands in code blocks (see shell-highlight.js and interface-highlight.js). */
 [data-md-color-scheme="default"] {
-  --aw-ros-arg: #6a3fd6;
-  --aw-ros-val: #b8450f;
+  --aw-sh-arg: #6a3fd6;
+  --aw-sh-val: #b8450f;
 }
 
 [data-md-color-scheme="slate"] {
-  --aw-ros-arg: #b3a9ff;
-  --aw-ros-val: #ff9e6b;
+  --aw-sh-arg: #b3a9ff;
+  --aw-sh-val: #ff9e6b;
 }
 
-.md-typeset .aw-ros-bin {
+.md-typeset .highlight .aw-sh-cmd {
   font-weight: 700;
   color: var(--aw-c-indigo);
 }
 
-.md-typeset .aw-ros-verb {
+.md-typeset .highlight .aw-sh-sudo {
+  font-weight: 700;
+  color: var(--aw-c-crimson);
+}
+
+.md-typeset .highlight .aw-sh-sub {
   font-weight: 700;
   color: var(--aw-c-cyan);
 }
 
-.md-typeset .aw-ros-pkg {
+.md-typeset .highlight .aw-sh-pkg {
   font-weight: 700;
   color: var(--aw-c-green);
 }
 
-.md-typeset .aw-ros-file,
-.md-typeset .aw-ros-type {
+.md-typeset .highlight .aw-sh-file,
+.md-typeset .highlight .aw-sh-type {
   color: var(--aw-c-green);
 }
 
-.md-typeset .aw-ros-name {
+.md-typeset .highlight .aw-sh-name,
+.md-typeset .highlight .aw-sh-url {
   color: var(--aw-c-cyan);
 }
 
-.md-typeset .aw-ros-flag {
+.md-typeset .highlight .aw-sh-flag {
   color: var(--md-default-fg-color--light);
 }
 
-.md-typeset .aw-ros-arg {
-  color: var(--aw-ros-arg);
+.md-typeset .highlight .aw-sh-arg {
+  color: var(--aw-sh-arg);
 }
 
-.md-typeset .aw-ros-op {
+.md-typeset .highlight .aw-sh-op {
   color: var(--md-default-fg-color--light);
 }
 
-.md-typeset .aw-ros-val,
-.md-typeset .aw-ros-val.nv {
-  color: var(--aw-ros-val);
+.md-typeset .highlight .aw-sh-val {
+  color: var(--aw-sh-val);
+}
+
+.md-typeset .highlight .aw-sh-sep {
+  font-weight: 700;
+  color: var(--aw-c-crimson);
+}
+
+/* A placeholder that the reader replaces, for example `<YOUR-DIR>`. */
+.md-typeset .highlight .aw-sh-ph {
+  font-style: italic;
+  color: var(--aw-c-crimson);
 }
 
 /*
