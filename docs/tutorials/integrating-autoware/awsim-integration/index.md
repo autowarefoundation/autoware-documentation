@@ -65,7 +65,7 @@ When your vehicle and your environment run in AWSIM, launch Autoware with `e2e_s
 ros2 launch autoware_launch e2e_simulator.launch.xml map_path:=<YOUR-MAP-PATH> vehicle_model:=<YOUR-VEHICLE-MODEL> sensor_model:=<YOUR-SENSOR-MODEL>
 ```
 
-The default value of `simulator_type` is `awsim`, and `use_sim_time` is `true` by default. With `simulator_type:=awsim`, the diagnostic graph is `config/system/diagnostics/autoware-awsim.yaml` of `autoware_launch`. The `vehicle/awsim_labs_vehicle_launch` and `sensor_kit/awsim_labs_sensor_kit_launch` directories of [`autoware_launch`](https://github.com/autowarefoundation/autoware_launch/tree/0.53.0) are examples of the vehicle and sensor kit packages for AWSIM. For the AWSIM demo of Autoware, see the [AWSIM tutorial](../../../demos/digital-twin-demos/awsim-tutorial.md).
+The default value of `simulator_type` is `awsim`, and `use_sim_time` is `true` by default. With `simulator_type:=awsim`, the diagnostic graph is `config/system/diagnostics/autoware-awsim.yaml` of `autoware_launch`. The `vehicle/awsim_labs_vehicle_launch` and `sensor_kit/awsim_labs_sensor_kit_launch` directories of [`autoware_launch`](https://github.com/autowarefoundation/autoware_launch/tree/0.53.0) are examples of the vehicle and sensor kit packages for AWSIM. For the AWSIM demo of Autoware, see the [AWSIM tutorial](../../../simulation/digital-twin-simulation/awsim-tutorial.md).
 
 ## Others
 

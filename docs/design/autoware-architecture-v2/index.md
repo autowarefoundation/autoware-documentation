@@ -104,7 +104,7 @@ The launch files are in [`autoware_planning_launch`](https://github.com/autoware
 
 The Diffusion Planner uses TensorRT, so you need an NVIDIA GPU.
 
-1. Follow the [planning simulation](../../demos/planning-sim/index.md) preparation steps. They download the sample map and make sure that the AI models are on your computer.
+1. Follow the [planning simulation](../../simulation/planning-simulation/index.md) preparation steps. They download the sample map and make sure that the AI models are on your computer.
 2. Make sure that the model folder exists:
 
    ```bash
@@ -122,7 +122,7 @@ The Diffusion Planner uses TensorRT, so you need an NVIDIA GPU.
      planning_setting:=diffusion_planner
    ```
 
-4. Set the initial pose and the goal pose in RViz, as in the [planning simulation](../../demos/planning-sim/index.md) demo.
+4. Set the initial pose and the goal pose in RViz, as in the [planning simulation](../../simulation/planning-simulation/index.md) demo.
 
 At the first launch, the Diffusion Planner builds a TensorRT engine from the ONNX model. As a result, the first start takes longer than the next starts.
 

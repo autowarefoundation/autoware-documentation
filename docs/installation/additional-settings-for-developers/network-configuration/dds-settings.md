@@ -2,7 +2,7 @@
 
 ## Enable localhost-only communication
 
-1. [Enable `multicast` for `lo`](./enable-multicast-for-lo.md)
+1. [Enable `multicast` for `lo`](enable-multicast-for-lo.md)
 2. Make sure `export ROS_LOCALHOST_ONLY=1` **is NOT** present in `.bashrc`.
    - See [About `ROS_LOCALHOST_ONLY` environment variable](#about-ros_localhost_only-environment-variable) for more information.
 

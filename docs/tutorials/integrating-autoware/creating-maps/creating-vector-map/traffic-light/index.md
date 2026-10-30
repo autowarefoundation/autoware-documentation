@@ -69,7 +69,7 @@ ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autowa
 5. Click `2D Goal Pose` button on rviz or press `G` and give a pose for goal point.
 6. You can see the traffic light marker on the rviz screen if you set the traffic light color as `RED`.
 
-For more information about `TrafficLightPublishPanel`, see the [traffic light recognition simulation](../../../../../demos/planning-sim/traffic-light.md).
+For more information about `TrafficLightPublishPanel`, see the [traffic light recognition simulation](../../../../../simulation/planning-simulation/traffic-light.md).
 
 Traffic Light markers on rviz:
 

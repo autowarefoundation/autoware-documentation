@@ -16,7 +16,7 @@ An executor calls these callbacks. A callback group tells the executor which cal
 
 ## Run the main processing from a timer
 
-Many nodes of Autoware, for example in planning, control, and localization, run their main logic at a fixed rate, in a timer callback. The callback takes the newest input messages with polling subscribers, computes the output, and publishes it. The [topic message handling guideline](./topic-message-handling/index.md) explains the polling subscribers.
+Many nodes of Autoware, for example in planning, control, and localization, run their main logic at a fixed rate, in a timer callback. The callback takes the newest input messages with polling subscribers, computes the output, and publishes it. The [topic message handling guideline](topic-message-handling/index.md) explains the polling subscribers.
 
 The `autoware_simple_pure_pursuit` node of Autoware Core is a short example. Its constructor creates a timer with a period of 30 ms:
 
@@ -45,7 +45,7 @@ void SimplePurePursuitNode::on_timer()
 }
 ```
 
-If an input is not available yet, the callback returns and tries again in the next period. To report this, use throttled logging. See [Console logging](./console-logging.md).
+If an input is not available yet, the callback returns and tries again in the next period. To report this, use throttled logging. See [Console logging](console-logging.md).
 
 ### Use the clock of the node
 
@@ -55,7 +55,7 @@ Create a timer with `rclcpp::create_timer(this, get_clock(), period, callback)`.
 
 ### Timers in nodes that support Agnocast
 
-`autoware::agnocast_wrapper::Node` (see [Class design](./class-design.md#nodes-that-support-agnocast)) has no `create_timer()` member. Use the free function `autoware::agnocast_wrapper::create_timer()` with the same arguments, and store the timer as `AUTOWARE_TIMER_PTR`. This example comes from `autoware_ekf_localizer`:
+`autoware::agnocast_wrapper::Node` (see [Class design](class-design.md#nodes-that-support-agnocast)) has no `create_timer()` member. Use the free function `autoware::agnocast_wrapper::create_timer()` with the same arguments, and store the timer as `AUTOWARE_TIMER_PTR`. This example comes from `autoware_ekf_localizer`:
 
 ```cpp
 timer_control_ = autoware::agnocast_wrapper::create_timer(
@@ -73,7 +73,7 @@ timer_ = rclcpp::create_timer(
   std::bind(&PathGenerator::run, this));
 ```
 
-Add the parameter to the parameter file and to the schema file. See [Parameters](./parameters.md).
+Add the parameter to the parameter file and to the schema file. See [Parameters](parameters.md).
 
 ## Use callback groups for callbacks that run in parallel
 
@@ -105,7 +105,7 @@ Follow these rules:
 
 - Use `rclcpp::CallbackGroupType::MutuallyExclusive` groups. Autoware Core and Autoware Universe use them in almost all cases.
 - Protect the data that callbacks of different groups share, for example with `std::mutex`. `autoware_ndt_scan_matcher` keeps such data in a `Guarded` object, which gives access to the value only while it holds a mutex lock.
-- A callback group with the second argument of `create_callback_group()` set to `false` is not added to the executor of the node. The executor does not run its callbacks. The polling subscribers use such a group. See [Prevent calling a callback function](./topic-message-handling/index.md#prevent-calling-a-callback-function).
+- A callback group with the second argument of `create_callback_group()` set to `false` is not added to the executor of the node. The executor does not run its callbacks. The polling subscribers use such a group. See [Prevent calling a callback function](topic-message-handling/index.md#prevent-calling-a-callback-function).
 
 ### Do not wait for a response in the group that receives it
 

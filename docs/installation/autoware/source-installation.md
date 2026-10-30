@@ -162,9 +162,9 @@ sudo apt-get -y install git
 
    If there is any build issue, refer to [Troubleshooting](../../community/support/troubleshooting/index.md#build-issues).
 
-6. Follow the steps in [Network Configuration](../../installation/additional-settings-for-developers/network-configuration/index.md) before running Autoware.
+6. Follow the steps in [Network Configuration](../additional-settings-for-developers/network-configuration/index.md) before running Autoware.
 
-7. Apply the settings recommended in [Console settings for ROS 2](../../installation/additional-settings-for-developers/console-settings.md) for a better development experience. _(optional)_
+7. Apply the settings recommended in [Console settings for ROS 2](../additional-settings-for-developers/console-settings.md) for a better development experience. _(optional)_
 
 ## How to update a workspace
 

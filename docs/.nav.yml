@@ -1,11 +1,10 @@
 nav:
   - home
   - installation
-  - demos
+  - simulation
   - tutorials
   - Architecture design: design
   - reference-design
-  - Simulation & evaluation: simulation-evaluation
   - contributing
   - datasets
   - community

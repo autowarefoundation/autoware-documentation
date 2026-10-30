@@ -23,7 +23,7 @@ The [`component_localization.launch.xml`](https://github.com/autowarefoundation/
 
 The localization launch files support several pose estimators and twist estimators. `component_localization.launch.xml` has two arguments that select the estimators:
 
-- **`pose_source:`** This argument selects the pose estimator. The options are `ndt` (the default), `yabloc`, `eagleye`, `artag`, and `lidar-marker`. By default, Autoware launches [ndt_scan_matcher](https://autowarefoundation.github.io/autoware_core/main/localization/autoware_ndt_scan_matcher/) as the pose estimator. You can use YabLoc as a camera-based localization method. For more information about YabLoc, see the [YabLoc documentation](https://autowarefoundation.github.io/autoware_universe/main/localization/yabloc/). You can also use Eagleye as a localization method that uses GNSS, IMU, and wheel odometry. For more information, see the [Eagleye](./eagleye/index.md) page.
+- **`pose_source:`** This argument selects the pose estimator. The options are `ndt` (the default), `yabloc`, `eagleye`, `artag`, and `lidar-marker`. By default, Autoware launches [ndt_scan_matcher](https://autowarefoundation.github.io/autoware_core/main/localization/autoware_ndt_scan_matcher/) as the pose estimator. You can use YabLoc as a camera-based localization method. For more information about YabLoc, see the [YabLoc documentation](https://autowarefoundation.github.io/autoware_universe/main/localization/yabloc/). You can also use Eagleye as a localization method that uses GNSS, IMU, and wheel odometry. For more information, see the [Eagleye](eagleye/index.md) page.
 
   To run several pose estimators, join their names with underscores, for example `ndt_yabloc`. Then Autoware also launches the [pose_estimator_arbiter](https://autowarefoundation.github.io/autoware_universe/main/localization/autoware_pose_estimator_arbiter/), which selects the active pose estimator.
 
@@ -40,7 +40,7 @@ The localization launch files support several pose estimators and twist estimato
   ros2 launch autoware_launch autoware.launch.xml ... pose_source:=eagleye
   ```
 
-- **`twist_source:`** This argument selects the twist estimator. The options are `gyro_odom` (the default) and `eagleye`. By default, Autoware launches [gyro_odometer](https://autowarefoundation.github.io/autoware_core/main/localization/autoware_gyro_odometer/) as the twist estimator. You can also use Eagleye as the twist source. For more information, see the [Eagleye](./eagleye/index.md) page. To change the twist source to Eagleye, update `component_localization.launch.xml` like this:
+- **`twist_source:`** This argument selects the twist estimator. The options are `gyro_odom` (the default) and `eagleye`. By default, Autoware launches [gyro_odometer](https://autowarefoundation.github.io/autoware_core/main/localization/autoware_gyro_odometer/) as the twist estimator. You can also use Eagleye as the twist source. For more information, see the [Eagleye](eagleye/index.md) page. To change the twist source to Eagleye, update `component_localization.launch.xml` like this:
 
   ```diff
   - <arg name="twist_source" default="gyro_odom" description="select twist_estimator. gyro_odom, eagleye"/>

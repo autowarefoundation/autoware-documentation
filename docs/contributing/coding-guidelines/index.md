@@ -1,6 +1,6 @@
 # Coding guidelines
 
-This section describes how to write code for Autoware. The [language-specific guidelines](#language-specific-guidelines) describe the formatters, linters, and conventions for each file type. The [ROS nodes guidelines](./ros-nodes/directory-structure.md) describe how to structure a ROS 2 package and node.
+This section describes how to write code for Autoware. The [language-specific guidelines](#language-specific-guidelines) describe the formatters, linters, and conventions for each file type. The [ROS nodes guidelines](ros-nodes/directory-structure.md) describe how to structure a ROS 2 package and node.
 
 ## Common guidelines
 
@@ -23,16 +23,16 @@ Also, keep in mind the following concepts.
 
 ## Language-specific guidelines
 
-| Language or file type                           | Main automated checks                                                                      |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| [C++](./languages/cpp.md)                       | ClangFormat, cpplint, `ros-include-guard`, Clang-Tidy, Cppcheck                            |
-| [Python](./languages/python.md)                 | Black, isort, flake8 (`flake8-ros`)                                                        |
-| [Shell scripts](./languages/shell-scripts.md)   | ShellCheck, shfmt                                                                          |
-| [Markdown](./languages/markdown.md)             | markdownlint, Prettier, CSpell                                                             |
-| [CMake](./languages/cmake.md)                   | `ament_cmake_lint_cmake`, compiler warnings set by `autoware_package()`                    |
-| [package.xml](./languages/package-xml.md)       | `sort-package-xml`, `prettier-package-xml`, `check-package-depends`, `ament_cmake_xmllint` |
-| [Docker](./languages/docker.md)                 | hadolint                                                                                   |
-| [GitHub Actions](./languages/github-actions.md) | yamllint, Prettier                                                                         |
+| Language or file type                         | Main automated checks                                                                      |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| [C++](languages/cpp.md)                       | ClangFormat, cpplint, `ros-include-guard`, Clang-Tidy, Cppcheck                            |
+| [Python](languages/python.md)                 | Black, isort, flake8 (`flake8-ros`)                                                        |
+| [Shell scripts](languages/shell-scripts.md)   | ShellCheck, shfmt                                                                          |
+| [Markdown](languages/markdown.md)             | markdownlint, Prettier, CSpell                                                             |
+| [CMake](languages/cmake.md)                   | `ament_cmake_lint_cmake`, compiler warnings set by `autoware_package()`                    |
+| [package.xml](languages/package-xml.md)       | `sort-package-xml`, `prettier-package-xml`, `check-package-depends`, `ament_cmake_xmllint` |
+| [Docker](languages/docker.md)                 | hadolint                                                                                   |
+| [GitHub Actions](languages/github-actions.md) | yamllint, Prettier                                                                         |
 
 ## Automated checks
 
@@ -55,13 +55,13 @@ For the CI workflows that run these checks on a pull request, see [CI checks](..
 For Autoware-specific styles, refer to the following:
 
 - Use the `autoware_` prefix for package names.
-  - cf. [Directory structure guideline, Package name](./ros-nodes/directory-structure.md#package-name)
+  - cf. [Directory structure guideline, Package name](ros-nodes/directory-structure.md#package-name)
   - cf. [Prefix packages with autoware\_](https://github.com/orgs/autowarefoundation/discussions/4097)
 - Add implementations within the `autoware` namespace.
-  - cf. [Class design guideline, Namespaces](./ros-nodes/class-design.md#namespaces)
+  - cf. [Class design guideline, Namespaces](ros-nodes/class-design.md#namespaces)
   - cf. [Prefix packages with autoware\_, Option 3:](https://github.com/orgs/autowarefoundation/discussions/4097#discussioncomment-8384169)
 - The header files to be exported must be placed in the `PACKAGE_NAME/include/autoware/` directory.
-  - cf. [Directory structure guideline, Exporting headers](./ros-nodes/directory-structure.md#exporting-headers)
+  - cf. [Directory structure guideline, Exporting headers](ros-nodes/directory-structure.md#exporting-headers)
 - In `CMakeLists.txt`, use `autoware_package()`.
-  - cf. [CMake guideline](./languages/cmake.md)
+  - cf. [CMake guideline](languages/cmake.md)
   - cf. [autoware_cmake README](https://github.com/autowarefoundation/autoware_cmake/tree/1.4.0/autoware_cmake)

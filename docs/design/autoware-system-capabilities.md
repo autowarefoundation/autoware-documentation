@@ -14,7 +14,7 @@ Autoware offers a complete suite of capabilities for autonomous driving system d
 
 - :fa-cl-s fa-vr-cardboard: **Simulation support**
 
-  Autoware works with simulation platforms to validate algorithms and scenarios before real-world deployment. See the [quick start demos](../demos/index.md).
+  Autoware works with simulation platforms to validate algorithms and scenarios before real-world deployment. See [Simulation](../simulation/index.md).
 
 - :fa-cl-s fa-toolbox: **Tools**
 

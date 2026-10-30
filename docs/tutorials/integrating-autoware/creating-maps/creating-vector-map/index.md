@@ -21,9 +21,9 @@ please check the [official guide](https://docs.web.auto/en/user-manuals/vector-m
 
 You can follow these pages for creating a Lanelet2 map and understanding its regulatory elements.
 
-- [Lanelet2](./lanelet2/index.md)
-- [Crosswalk](./crosswalk/index.md)
-- [Stop Line](./stop-line/index.md)
-- [Traffic Light](./traffic-light/index.md)
-- [Speed Bump](./speed-bump/index.md)
-- [Detection Area](./detection-area/index.md)
+- [Lanelet2](lanelet2/index.md)
+- [Crosswalk](crosswalk/index.md)
+- [Stop Line](stop-line/index.md)
+- [Traffic Light](traffic-light/index.md)
+- [Speed Bump](speed-bump/index.md)
+- [Detection Area](detection-area/index.md)

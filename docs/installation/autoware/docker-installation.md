@@ -91,9 +91,9 @@ Rather than crafting your own `docker run` command, the [`docker/examples/demos/
 
 Inside the container, run the Autoware tutorials by following these links:
 
-[Planning Simulation](../../demos/planning-sim/index.md)
+[Planning Simulation](../../simulation/planning-simulation/index.md)
 
-[Rosbag Replay Simulation](../../demos/rosbag-replay-simulation.md).
+[Rosbag Replay Simulation](../../simulation/rosbag-replay-simulation.md).
 
 ## Deployment
 

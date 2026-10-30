@@ -41,7 +41,7 @@ Two ways are available:
 
 In RViz, set the initial pose with **Init by GNSS**, set a goal, wait for the route, and engage.
 
-The [CARLA simulator demo page](../../../demos/digital-twin-demos/carla-tutorial.md) also lists community projects that connect Autoware and CARLA.
+The [CARLA simulator page](../../../simulation/digital-twin-simulation/carla-tutorial.md) also lists community projects that connect Autoware and CARLA.
 
 ## Timeline
 

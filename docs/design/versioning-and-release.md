@@ -23,7 +23,7 @@ Autoware has many repositories that must work together. A release follows these 
 
 1. **Release the sub-repositories.** We release all the _required_ sub-repositories, such as `autoware_core` and `autoware_universe`. A repository that did not change keeps its existing version.
 2. **Update the references.** We update the versions of the sub-repositories in the `repositories/autoware.repos` file.
-3. **Test the system.** We test the system manually with various [demos](../demos/index.md), and we make sure that the CI for the build passes.
+3. **Test the system.** We test the system manually in the [simulations](../simulation/index.md), and we make sure that the CI for the build passes.
 4. **Release Autoware.** We make the Autoware release.
 
 </div>

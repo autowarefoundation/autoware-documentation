@@ -10,8 +10,8 @@ This page assumes that every computer uses CycloneDDS (`rmw_cyclonedds_cpp`), th
 
 Do these steps on every computer:
 
-1. Apply the [DDS settings](./dds-settings.md): the kernel buffer sizes, the `~/cyclonedds.xml` file, and the `RMW_IMPLEMENTATION` and `CYCLONEDDS_URI` environment variables.
-2. Use the same `ROS_DOMAIN_ID` on every computer. If you do not set it, ROS 2 uses `0`. For details, see [About `ROS_DOMAIN_ID` environment variable](./dds-settings.md#about-ros_domain_id-environment-variable).
+1. Apply the [DDS settings](dds-settings.md): the kernel buffer sizes, the `~/cyclonedds.xml` file, and the `RMW_IMPLEMENTATION` and `CYCLONEDDS_URI` environment variables.
+2. Use the same `ROS_DOMAIN_ID` on every computer. If you do not set it, ROS 2 uses `0`. For details, see [About `ROS_DOMAIN_ID` environment variable](dds-settings.md#about-ros_domain_id-environment-variable).
 3. Connect the computers to the same network and give them addresses in the same subnet. Point clouds and images need a high bandwidth. For example, the [multi PC AWSIM test](https://github.com/orgs/autowarefoundation/discussions/3813) connected the two computers directly with a 10 Gigabit Ethernet link.
 4. If a firewall runs on a computer, allow UDP traffic from the other computers. DDS uses UDP for discovery and for data.
 
@@ -47,7 +47,7 @@ With this setting, you can manually set the network interface to use.
 
     `ip -brief address` lists the network interfaces and their addresses. The `ifconfig` command of the `net-tools` package shows the same information.
 
-The full file with a manually set interface looks like this. Only the `NetworkInterface` line differs from the file on the [DDS settings](./dds-settings.md#cyclonedds-configuration) page:
+The full file with a manually set interface looks like this. Only the `NetworkInterface` line differs from the file on the [DDS settings](dds-settings.md#cyclonedds-configuration) page:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>

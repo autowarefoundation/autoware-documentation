@@ -1,4 +1,4 @@
-# Planning simulator demo with Autoware Launch GUI
+# Planning simulation with Autoware Launch GUI
 
 This section provides a step-by-step guide on using the Autoware Launch GUI for planning simulations, offering an alternative to the command-line instructions provided in the Basic simulations section.
 

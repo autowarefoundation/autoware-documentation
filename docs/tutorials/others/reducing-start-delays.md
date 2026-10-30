@@ -19,7 +19,7 @@ First, let us look at the start delay when a human is driving.
 The following figure shows the start delay when a human driver switches the gear
 from _parked_ to _drive_ and instantly releases the brake to push the throttle pedal and make the velocity of the vehicle increase.
 
-![Manual driving delays](./images/start-delays/manual_driving.png)
+![Manual driving delays](images/start-delays/manual_driving.png)
 
 There are multiple things to note from this figure.
 

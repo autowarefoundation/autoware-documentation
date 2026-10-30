@@ -4,11 +4,11 @@ The pages in this section change the configuration of your computer and your she
 
 ## Console settings
 
-By default, ROS 2 prints log messages without the source location, and without color when `ros2 launch` starts the nodes. This page sets environment variables in `~/.bashrc` that color the logger output, add the function, file, and line number to each message, and color the GoogleTest output of `colcon test`. These settings are optional. See [Console settings for ROS 2](./console-settings.md).
+By default, ROS 2 prints log messages without the source location, and without color when `ros2 launch` starts the nodes. This page sets environment variables in `~/.bashrc` that color the logger output, add the function, file, and line number to each message, and color the GoogleTest output of `colcon test`. These settings are optional. See [Console settings for ROS 2](console-settings.md).
 
 ## Network configuration
 
-Autoware sends large messages, such as point clouds and images, between its nodes. Without network tuning, these messages do not arrive. The [network configuration pages](./network-configuration/index.md) explain how to:
+Autoware sends large messages, such as point clouds and images, between its nodes. Without network tuning, these messages do not arrive. The [network configuration pages](network-configuration/index.md) explain how to:
 
 - Tune the Linux kernel buffers and configure CycloneDDS, the default middleware of Autoware.
 - Enable multicast on the loopback interface for communication on one computer.

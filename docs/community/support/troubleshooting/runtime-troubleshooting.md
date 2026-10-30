@@ -15,7 +15,7 @@ When running Autoware on **ROS 2 Jazzy** (Ubuntu 24.04) with `RMW_IMPLEMENTATION
 [component_container_mt-16]   what():  failed to initialize rcl node: error not set, at ./src/rcl/node.c:252
 ```
 
-This often occurs when launching demos that use many nodes (e.g. [Planning simulation](../../../demos/planning-sim/index.md)).
+This often occurs when launching demos that use many nodes (e.g. [Planning simulation](../../../simulation/planning-simulation/index.md)).
 
 ### Cause
 

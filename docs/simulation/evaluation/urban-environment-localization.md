@@ -4,7 +4,7 @@
 
 ### Related links
 
-- Data collection documentation: [İstanbul Open Dataset](../../../datasets/index.md#istanbul-open-dataset)
+- Data collection documentation: [İstanbul Open Dataset](../../datasets/index.md#istanbul-open-dataset)
 - The issue of this evaluation: [Evaluate current Localization accuracy of current NDT scan matching against Localization dataset](https://github.com/autowarefoundation/autoware_universe/issues/7652)
 
 ### Purpose
@@ -25,7 +25,7 @@ The data contains data from the following sensors:
 - 1 x Applanix POS LVX GNSS/INS System
 - 1 x Hesai Pandar XT32 LiDAR
 
-You can find the data collected for testing and mapping in this [İstanbul Open Dataset](../../../datasets/index.md#istanbul-open-dataset).
+You can find the data collected for testing and mapping in this [İstanbul Open Dataset](../../datasets/index.md#istanbul-open-dataset).
 
 !!! note
 

@@ -1,4 +1,4 @@
-# PanoSim simulator demo
+# PanoSim simulator
 
 ## Overview
 

@@ -113,7 +113,7 @@ rclcpp_components_register_node(${PROJECT_NAME}
 
 ###### Nodes that support Agnocast
 
-A node that supports Agnocast (see [Class design](./class-design.md#nodes-that-support-agnocast)) uses `autoware_agnocast_wrapper_register_node()` from [`autoware_agnocast_wrapper`](https://github.com/autowarefoundation/autoware_core/tree/1.10.0/common/autoware_agnocast_wrapper) instead of `rclcpp_components_register_node()`:
+A node that supports Agnocast (see [Class design](class-design.md#nodes-that-support-agnocast)) uses `autoware_agnocast_wrapper_register_node()` from [`autoware_agnocast_wrapper`](https://github.com/autowarefoundation/autoware_core/tree/1.10.0/common/autoware_agnocast_wrapper) instead of `rclcpp_components_register_node()`:
 
 ```cmake
 ament_auto_add_library(${PROJECT_NAME} SHARED
@@ -129,7 +129,7 @@ autoware_agnocast_wrapper_register_node(${PROJECT_NAME}
 
 - The macro registers the component, like `rclcpp_components_register_node()`. If you build with `ENABLE_AGNOCAST=1`, it also creates an executable that selects `rclcpp` or Agnocast at runtime from the `ENABLE_AGNOCAST` environment variable. Without Agnocast, it behaves like `rclcpp_components_register_node()`.
 - The naming rules for the executable stay the same.
-- The optional `ROS2_EXECUTOR` and `AGNOCAST_EXECUTOR` arguments select the executor of the executable. See [Task scheduling](./task-scheduling.md#select-the-executor).
+- The optional `ROS2_EXECUTOR` and `AGNOCAST_EXECUTOR` arguments select the executor of the executable. See [Task scheduling](task-scheduling.md#select-the-executor).
 - If the node inherits from `autoware::agnocast_wrapper::Node`, set `AGNOCAST_EXECUTOR` to an executor whose name starts with `AgnocastOnly`. Otherwise, the node stops at construction when Agnocast is enabled. Autoware Core and Autoware Universe use `AgnocastOnlyCallbackIsolatedExecutor`.
 
 ##### Exporting a standalone node executable without composition _(discouraged for most cases)_
@@ -176,7 +176,7 @@ autoware_gnss_poser
 
 #### `schema`
 
-Place parameter definition files. See [Parameters](./parameters.md) for details.
+Place parameter definition files. See [Parameters](parameters.md) for details.
 
 ### `design`
 
@@ -231,7 +231,7 @@ autoware_gnss_poser
     - **Rationale:** To distinguish from other source files.
   - **NOT** have `autoware_` prefix.
     - **Rationale:** To avoid verbosity.
-- See [Class design](./class-design.md) for more details on how to construct `gnss_poser_node.hpp` and `gnss_poser_node.cpp` files.
+- See [Class design](class-design.md) for more details on how to construct `gnss_poser_node.hpp` and `gnss_poser_node.cpp` files.
 - It is up to developer how to organize the source files under `src`.
   - **Note:** The `include` folder under `src` is optional.
 

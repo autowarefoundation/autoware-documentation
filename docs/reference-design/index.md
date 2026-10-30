@@ -10,7 +10,7 @@ The [Autoware Index](../installation/autoware/autoware-index.md) at [index.autow
 aw-index-cli compose --rosdistro jazzy --reference-design --stdout | vcs import src
 ```
 
-The get started pages provide a decision tree to find the reference design guideline that meets your needs. You select the guideline by technology maturity, environment, location, and vehicle size. To start, see [Find your reference design](./get-started/find-your-reference-design.md).
+The get started pages provide a decision tree to find the reference design guideline that meets your needs. You select the guideline by technology maturity, environment, location, and vehicle size. To start, see [Find your reference design](get-started/find-your-reference-design.md).
 
 Below are the lists of the design guidelines.
 
