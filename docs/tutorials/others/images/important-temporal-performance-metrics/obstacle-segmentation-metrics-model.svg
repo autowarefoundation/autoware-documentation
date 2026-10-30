@@ -1,0 +1,244 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 592" role="img" aria-labelledby="temporal-metrics-obstacle-segmentation-title">
+  <title id="temporal-metrics-obstacle-segmentation-title">
+    Model for the temporal performance metrics between obstacle segmentation and planning: LiDAR data goes through sensing, obstacle segmentation, and the occupancy grid map to the behavior velocity
+    planner and the behavior path planner, and numbered checkpoints (CPS) mark where messages are sent and consumed.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-group: color-mix(in
+    srgb, var(--aw-c-indigo) 6%, var(--md-default-bg-color)); --aw-d-group-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 25%, transparent); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} .group {
+  fill: var(--aw-d-group);
+  stroke: var(--aw-d-group-stroke);
+  stroke-width: 1.5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .icon {
+  fill: var(--aw-d-muted);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .pill-text {
+  font-size: 12px;
+  font-weight: 600;
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect class="dots" x="0" y="0" width="960" height="592"/>
+  <circle class="halo cyan" cx="470" cy="110" r="110"/>
+  <circle class="halo" cx="520" cy="340" r="150"/>
+
+  <!-- Sensors and perception -->
+  <rect class="box muted" x="16" y="72" width="84" height="72" rx="10"/>
+  <ellipse class="icon" cx="58" cy="86" rx="13" ry="4"/>
+  <rect class="icon" x="45" y="86" width="26" height="12"/>
+  <ellipse class="icon" cx="58" cy="98" rx="13" ry="4"/>
+  <text class="lbl" x="58" y="124" text-anchor="middle" dominant-baseline="central">LiDARs</text>
+  <rect class="card" x="124" y="72" width="128" height="72" rx="12"/>
+  <text class="lbl" x="188" y="92" text-anchor="middle" dominant-baseline="central">Sensing</text>
+  <text class="sub" x="188" y="112" text-anchor="middle" dominant-baseline="central">preprocessing and</text>
+  <text class="sub" x="188" y="128" text-anchor="middle" dominant-baseline="central">concatenation</text>
+  <rect class="card" x="292" y="72" width="160" height="72" rx="12"/>
+  <text class="lbl" x="372" y="100" text-anchor="middle" dominant-baseline="central">Obstacle</text>
+  <text class="lbl" x="372" y="118" text-anchor="middle" dominant-baseline="central">segmentation</text>
+  <rect class="card" x="580" y="72" width="160" height="72" rx="12"/>
+  <text class="lbl" x="660" y="100" text-anchor="middle" dominant-baseline="central">Occupancy</text>
+  <text class="lbl" x="660" y="118" text-anchor="middle" dominant-baseline="central">grid map</text>
+
+  <!-- Planning -->
+  <rect class="card" x="272" y="228" width="200" height="228" rx="12"/>
+  <text class="lbl" x="372" y="424" text-anchor="middle" dominant-baseline="central">Planning</text>
+  <text class="sub" x="372" y="442" text-anchor="middle" dominant-baseline="central">Behavior velocity planner</text>
+  <rect class="box" x="304" y="286" width="136" height="36" rx="10"/>
+  <text class="sub" x="372" y="304" text-anchor="middle" dominant-baseline="central">subscription callback</text>
+  <rect class="box" x="304" y="366" width="136" height="36" rx="10"/>
+  <text class="sub" x="372" y="384" text-anchor="middle" dominant-baseline="central">subscription callback</text>
+  <rect class="card" x="560" y="228" width="200" height="228" rx="12"/>
+  <text class="lbl" x="660" y="424" text-anchor="middle" dominant-baseline="central">Planning</text>
+  <text class="sub" x="660" y="442" text-anchor="middle" dominant-baseline="central">Behavior path planner</text>
+  <rect class="box" x="592" y="286" width="136" height="36" rx="10"/>
+  <text class="sub" x="660" y="304" text-anchor="middle" dominant-baseline="central">subscription callback</text>
+  <rect class="box" x="592" y="366" width="136" height="36" rx="10"/>
+  <text class="sub" x="660" y="384" text-anchor="middle" dominant-baseline="central">timer callback</text>
+
+  <!-- Inter-component communication -->
+  <path class="edge accent" fill="none" d="M100 108 H116"/>
+  <path class="flow flow-accent" pathLength="100" d="M100 108 H116"/>
+  <path class="edge accent head" fill="none" d="M100 108 H116"/>
+  <path class="edge accent" fill="none" d="M252 108 H284"/>
+  <path class="flow flow-accent" pathLength="100" d="M252 108 H284"/>
+  <path class="edge accent head" fill="none" d="M252 108 H284"/>
+  <path class="edge" fill="none" d="M188 72 V44 H660 V64"/>
+  <path class="flow" pathLength="100" d="M188 72 V44 H660 V64"/>
+  <path class="edge head" fill="none" d="M188 72 V44 H660 V64"/>
+  <text class="edge-lbl" x="420" y="44" text-anchor="middle" dominant-baseline="central">Raw pointcloud</text>
+  <path class="edge accent" fill="none" d="M452 108 H572"/>
+  <path class="flow flow-accent" pathLength="100" d="M452 108 H572"/>
+  <path class="edge accent head" fill="none" d="M452 108 H572"/>
+  <text class="edge-lbl" x="516" y="94" text-anchor="middle" dominant-baseline="central">Obstacle pointcloud</text>
+  <path class="edge accent" fill="none" d="M372 144 V278"/>
+  <path class="flow flow-accent" pathLength="100" d="M372 144 V278"/>
+  <path class="edge accent head" fill="none" d="M372 144 V278"/>
+  <path class="edge accent" fill="none" d="M660 144 V278"/>
+  <path class="flow flow-accent" pathLength="100" d="M660 144 V278"/>
+  <path class="edge accent head" fill="none" d="M660 144 V278"/>
+  <path class="edge" fill="none" d="M592 384 H448"/>
+  <path class="flow" pathLength="100" d="M592 384 H448"/>
+  <path class="edge head" fill="none" d="M592 384 H448"/>
+  <text class="edge-lbl" x="516" y="370" text-anchor="middle" dominant-baseline="central">Path</text>
+  <path class="edge accent" fill="none" d="M304 384 H200"/>
+  <path class="flow flow-accent" pathLength="100" d="M304 384 H200"/>
+  <path class="edge accent head" fill="none" d="M304 384 H200"/>
+  <text class="edge-lbl" x="192" y="376" text-anchor="end" dominant-baseline="central">Path to</text>
+  <text class="edge-lbl" x="192" y="392" text-anchor="end" dominant-baseline="central">motion planning</text>
+
+  <!-- Intra-component communication -->
+  <path class="edge dash" fill="none" d="M372 322 V358"/>
+  <path class="edge dash" fill="none" d="M660 322 V358"/>
+
+  <!-- Checkpoints -->
+  <circle class="icon-bg" cx="100" cy="72" r="11"/>
+  <text class="pill-text" x="100" y="72" text-anchor="middle" dominant-baseline="central">0</text>
+  <circle class="icon-bg" cx="124" cy="72" r="11"/>
+  <text class="pill-text" x="124" y="72" text-anchor="middle" dominant-baseline="central">1</text>
+  <circle class="icon-bg" cx="252" cy="72" r="11"/>
+  <text class="pill-text" x="252" y="72" text-anchor="middle" dominant-baseline="central">2</text>
+  <circle class="icon-bg" cx="580" cy="72" r="11"/>
+  <text class="pill-text" x="580" y="72" text-anchor="middle" dominant-baseline="central">3</text>
+  <circle class="icon-bg" cx="740" cy="72" r="11"/>
+  <text class="pill-text" x="740" y="72" text-anchor="middle" dominant-baseline="central">4</text>
+  <circle class="icon-bg" cx="292" cy="72" r="11"/>
+  <text class="pill-text" x="292" y="72" text-anchor="middle" dominant-baseline="central">5</text>
+  <circle class="icon-bg" cx="452" cy="72" r="11"/>
+  <text class="pill-text" x="452" y="72" text-anchor="middle" dominant-baseline="central">6</text>
+  <circle class="icon-bg" cx="592" cy="286" r="11"/>
+  <text class="pill-text" x="592" y="286" text-anchor="middle" dominant-baseline="central">7</text>
+  <circle class="icon-bg" cx="728" cy="286" r="11"/>
+  <text class="pill-text" x="728" y="286" text-anchor="middle" dominant-baseline="central">8</text>
+  <circle class="icon-bg" cx="592" cy="366" r="11"/>
+  <text class="pill-text" x="592" y="366" text-anchor="middle" dominant-baseline="central">9</text>
+  <circle class="icon-bg" cx="728" cy="366" r="11"/>
+  <text class="pill-text" x="728" y="366" text-anchor="middle" dominant-baseline="central">10</text>
+  <circle class="icon-bg" cx="304" cy="286" r="11"/>
+  <text class="pill-text" x="304" y="286" text-anchor="middle" dominant-baseline="central">11</text>
+  <circle class="icon-bg" cx="440" cy="286" r="11"/>
+  <text class="pill-text" x="440" y="286" text-anchor="middle" dominant-baseline="central">12</text>
+  <circle class="icon-bg" cx="304" cy="366" r="11"/>
+  <text class="pill-text" x="304" y="366" text-anchor="middle" dominant-baseline="central">13</text>
+  <circle class="icon-bg" cx="440" cy="366" r="11"/>
+  <text class="pill-text" x="440" y="366" text-anchor="middle" dominant-baseline="central">14</text>
+
+  <!-- Legend -->
+  <rect class="group" x="16" y="476" width="928" height="100" rx="16"/>
+  <rect class="card" x="32" y="491" width="28" height="18" rx="5"/>
+  <text x="68" y="500" dominant-baseline="central">Key component</text>
+  <rect class="box" x="196" y="491" width="28" height="18" rx="5"/>
+  <text x="232" y="500" dominant-baseline="central">Callback</text>
+  <circle class="icon-bg" cx="346" cy="500" r="11"/>
+  <text class="pill-text" x="346" y="500" text-anchor="middle" dominant-baseline="central">n</text>
+  <text x="364" y="500" dominant-baseline="central">CPS #n: checkpoint for segmentation and planning components</text>
+  <path class="edge" fill="none" d="M32 528 H62"/>
+  <text x="72" y="528" dominant-baseline="central">Inter-component communication</text>
+  <path class="edge dash" fill="none" d="M300 528 H330"/>
+  <text x="340" y="528" dominant-baseline="central">Intra-component communication</text>
+  <text class="sub" x="32" y="556" dominant-baseline="central">A callback marks the time when the input message is consumed, not the time when it is received.</text>
+</svg>

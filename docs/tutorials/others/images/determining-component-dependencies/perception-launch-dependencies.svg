@@ -1,0 +1,292 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1104" role="img" aria-labelledby="perception-launch-dependencies-title">
+  <title id="perception-launch-dependencies-title">
+    Dependencies of autoware_perception_launch in Autoware 2.0.0: it runs 44 perception packages, which depend on 55 more packages of libraries, messages, and GPU tools, and it needs autoware_cmake to
+    build and autoware_lint_common to test.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .edge.plain {
+  marker-end: none;
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect class="dots" x="0" y="0" width="960" height="1104"/>
+  <circle class="halo cyan" cx="480" cy="330" r="260"/>
+  <circle class="halo" cx="480" cy="860" r="220"/>
+
+  <!-- The launch package and its build and test dependencies -->
+  <rect class="box primary" x="300" y="20" width="360" height="60" rx="14"/>
+  <text class="lbl on-primary" x="480" y="42" text-anchor="middle" dominant-baseline="central">autoware_perception_launch</text>
+  <text class="sub on-primary" x="480" y="62" text-anchor="middle" dominant-baseline="central">launch files of the perception component</text>
+  <rect class="box muted" x="760" y="16" width="184" height="32" rx="10"/>
+  <text class="code" x="852" y="32" text-anchor="middle" dominant-baseline="central">autoware_cmake</text>
+  <rect class="box muted" x="760" y="56" width="184" height="32" rx="10"/>
+  <text class="code" x="852" y="72" text-anchor="middle" dominant-baseline="central">autoware_lint_common</text>
+  <path class="edge" fill="none" d="M660 36 H700 V32 H752"/>
+  <path class="flow" pathLength="100" d="M660 36 H700 V32 H752"/>
+  <path class="edge head" fill="none" d="M660 36 H700 V32 H752"/>
+  <text class="edge-lbl" x="706" y="20" text-anchor="middle" dominant-baseline="central">build</text>
+  <path class="edge dash" fill="none" d="M660 64 H700 V72 H752"/>
+  <path class="flow" pathLength="100" d="M660 64 H700 V72 H752"/>
+  <path class="edge dash head" fill="none" d="M660 64 H700 V72 H752"/>
+  <text class="edge-lbl" x="706" y="86" text-anchor="middle" dominant-baseline="central">test</text>
+
+  <!-- Direct run dependencies -->
+  <path class="edge accent" fill="none" d="M480 80 V112"/>
+  <path class="flow flow-accent" pathLength="100" d="M480 80 V112"/>
+  <path class="edge accent head" fill="none" d="M480 80 V112"/>
+  <text class="edge-lbl" x="540" y="96" text-anchor="middle" dominant-baseline="central">exec_depend</text>
+  <rect class="glass-panel" x="16" y="120" width="928" height="480" rx="18"/>
+  <text class="ttl" x="32" y="140" dominant-baseline="central">Direct run dependencies: 44 packages</text>
+  <rect class="card" x="32" y="160" width="288" height="195" rx="12"/>
+  <text class="ttl" x="48" y="180" dominant-baseline="central">Obstacle segmentation, grid map</text>
+  <text class="code" x="48" y="202" dominant-baseline="central">pointcloud_preprocessor</text>
+  <text class="code" x="48" y="219" dominant-baseline="central">cuda_pointcloud_preprocessor</text>
+  <text class="code" x="48" y="236" dominant-baseline="central">ground_segmentation</text>
+  <text class="code" x="48" y="253" dominant-baseline="central">ground_segmentation_cuda</text>
+  <text class="code" x="48" y="270" dominant-baseline="central">ptv3</text>
+  <text class="code" x="48" y="287" dominant-baseline="central">compare_map_segmentation</text>
+  <text class="code" x="48" y="304" dominant-baseline="central">elevation_map_loader</text>
+  <text class="code" x="48" y="321" dominant-baseline="central">occupancy_grid_map_outlier_filter</text>
+  <text class="code" x="48" y="338" dominant-baseline="central">probabilistic_occupancy_grid_map</text>
+  <rect class="card" x="32" y="371" width="288" height="212" rx="12"/>
+  <text class="ttl" x="48" y="391" dominant-baseline="central">Traffic light recognition</text>
+  <text class="code" x="48" y="413" dominant-baseline="central">traffic_light_map_based_detector</text>
+  <text class="code" x="48" y="430" dominant-baseline="central">traffic_light_fine_detector</text>
+  <text class="code" x="48" y="447" dominant-baseline="central">traffic_light_classifier</text>
+  <text class="code" x="48" y="464" dominant-baseline="central">traffic_light_occlusion_predictor</text>
+  <text class="code" x="48" y="481" dominant-baseline="central">traffic_light_multi_camera_fusion</text>
+  <text class="code" x="48" y="498" dominant-baseline="central">traffic_light_arbiter</text>
+  <text class="code" x="48" y="515" dominant-baseline="central">traffic_light_selector</text>
+  <text class="code" x="48" y="532" dominant-baseline="central">traffic_light_category_merger</text>
+  <text class="code" x="48" y="549" dominant-baseline="central">crosswalk_traffic_light_estimator</text>
+  <text class="code" x="48" y="566" dominant-baseline="central">traffic_light_visualization</text>
+  <rect class="card" x="336" y="160" width="288" height="297" rx="12"/>
+  <text class="ttl" x="352" y="180" dominant-baseline="central">Object detection</text>
+  <text class="code" x="352" y="202" dominant-baseline="central">lidar_centerpoint</text>
+  <text class="code" x="352" y="219" dominant-baseline="central">lidar_transfusion</text>
+  <text class="code" x="352" y="236" dominant-baseline="central">bevfusion</text>
+  <text class="code" x="352" y="253" dominant-baseline="central">lidar_apollo_instance_segmentation</text>
+  <text class="code" x="352" y="270" dominant-baseline="central">euclidean_cluster</text>
+  <text class="code" x="352" y="287" dominant-baseline="central">shape_estimation</text>
+  <text class="code" x="352" y="304" dominant-baseline="central">detected_object_feature_remover</text>
+  <text class="code" x="352" y="321" dominant-baseline="central">raindrop_cluster_filter</text>
+  <text class="code" x="352" y="338" dominant-baseline="central">image_projection_based_fusion</text>
+  <text class="code" x="352" y="355" dominant-baseline="central">image_object_locator</text>
+  <text class="code" x="352" y="372" dominant-baseline="central">image_transport_decompressor</text>
+  <text class="code" x="352" y="389" dominant-baseline="central">tensorrt_yolox</text>
+  <text class="code" x="352" y="406" dominant-baseline="central">tensorrt_bevdet</text>
+  <text class="code" x="352" y="423" dominant-baseline="central">detection_by_tracker</text>
+  <text class="code" x="352" y="440" dominant-baseline="central">detected_object_validation</text>
+  <rect class="card" x="640" y="160" width="288" height="178" rx="12"/>
+  <text class="ttl" x="656" y="180" dominant-baseline="central">Merging, tracking, prediction</text>
+  <text class="code" x="656" y="202" dominant-baseline="central">object_merger</text>
+  <text class="code" x="656" y="219" dominant-baseline="central">simple_object_merger</text>
+  <text class="code" x="656" y="236" dominant-baseline="central">tracking_object_merger</text>
+  <text class="code" x="656" y="253" dominant-baseline="central">object_sorter</text>
+  <text class="code" x="656" y="270" dominant-baseline="central">multi_object_tracker</text>
+  <text class="code" x="656" y="287" dominant-baseline="central">bytetrack</text>
+  <text class="code" x="656" y="304" dominant-baseline="central">map_based_prediction</text>
+  <text class="code" x="656" y="321" dominant-baseline="central">simpl_prediction</text>
+  <rect class="card" x="640" y="354" width="288" height="76" rx="12"/>
+  <text class="ttl" x="656" y="374" dominant-baseline="central">Configuration, middleware</text>
+  <text class="code" x="656" y="396" dominant-baseline="central">perception_config</text>
+  <text class="code" x="656" y="413" dominant-baseline="central">agnocast_wrapper</text>
+
+  <!-- Indirect dependencies -->
+  <path class="edge accent" fill="none" d="M480 600 V640"/>
+  <path class="flow flow-accent" pathLength="100" d="M480 600 V640"/>
+  <path class="edge accent head" fill="none" d="M480 600 V640"/>
+  <text class="edge-lbl" x="540" y="620" text-anchor="middle" dominant-baseline="central">depend on</text>
+  <rect class="glass-panel" x="16" y="648" width="928" height="404" rx="18"/>
+  <text class="ttl" x="32" y="668" dominant-baseline="central">Indirect dependencies: 55 packages</text>
+  <rect class="card" x="32" y="688" width="896" height="348" rx="12"/>
+  <text class="ttl" x="48" y="710" dominant-baseline="central">Libraries</text>
+  <text class="code" x="48" y="732" dominant-baseline="central">utils</text>
+  <text class="code" x="48" y="749" dominant-baseline="central">utils_{debug, diagnostics,</text>
+  <text class="code" x="62" y="766" dominant-baseline="central">geometry, logging, math,</text>
+  <text class="code" x="62" y="783" dominant-baseline="central">pcl, rclcpp, system, tf,</text>
+  <text class="code" x="62" y="800" dominant-baseline="central">uuid, visualization}</text>
+  <text class="code" x="48" y="817" dominant-baseline="central">motion_utils</text>
+  <text class="code" x="48" y="834" dominant-baseline="central">interpolation</text>
+  <text class="code" x="48" y="851" dominant-baseline="central">kalman_filter</text>
+  <text class="code" x="48" y="868" dominant-baseline="central">lanelet2_extension</text>
+  <text class="code" x="48" y="885" dominant-baseline="central">lanelet2_utils</text>
+  <text class="ttl" x="272" y="710" dominant-baseline="central"/>
+  <text class="code" x="272" y="732" dominant-baseline="central">object_recognition_utils</text>
+  <text class="code" x="272" y="749" dominant-baseline="central">traffic_light_utils</text>
+  <text class="code" x="272" y="766" dominant-baseline="central">grid_map_utils</text>
+  <text class="code" x="272" y="783" dominant-baseline="central">pcl_extensions</text>
+  <text class="code" x="272" y="800" dominant-baseline="central">point_types</text>
+  <text class="code" x="272" y="817" dominant-baseline="central">vehicle_info_utils</text>
+  <text class="code" x="272" y="834" dominant-baseline="central">qos_utils</text>
+  <text class="code" x="272" y="851" dominant-baseline="central">pyplot</text>
+  <text class="code" x="272" y="868" dominant-baseline="central">test_utils</text>
+  <text class="ttl" x="496" y="710" dominant-baseline="central">Messages</text>
+  <text class="code" x="496" y="732" dominant-baseline="central">adapi_v1_msgs</text>
+  <text class="code" x="496" y="749" dominant-baseline="central">common_msgs</text>
+  <text class="code" x="496" y="766" dominant-baseline="central">internal_msgs</text>
+  <text class="code" x="496" y="783" dominant-baseline="central">internal_debug_msgs</text>
+  <text class="code" x="496" y="800" dominant-baseline="central">internal_localization_msgs</text>
+  <text class="code" x="496" y="817" dominant-baseline="central">internal_metric_msgs</text>
+  <text class="code" x="496" y="834" dominant-baseline="central">internal_perception_msgs</text>
+  <text class="code" x="496" y="851" dominant-baseline="central">internal_planning_msgs</text>
+  <text class="code" x="496" y="868" dominant-baseline="central">map_msgs</text>
+  <text class="code" x="496" y="885" dominant-baseline="central">perception_msgs</text>
+  <text class="code" x="496" y="902" dominant-baseline="central">planning_msgs</text>
+  <text class="code" x="496" y="919" dominant-baseline="central">sensing_msgs</text>
+  <text class="code" x="496" y="936" dominant-baseline="central">vehicle_msgs</text>
+  <text class="ttl" x="720" y="710" dominant-baseline="central">GPU and machine learning</text>
+  <text class="code" x="720" y="732" dominant-baseline="central">tensorrt_common</text>
+  <text class="code" x="720" y="749" dominant-baseline="central">tensorrt_classifier</text>
+  <text class="code" x="720" y="766" dominant-baseline="central">tensorrt_plugins</text>
+  <text class="code" x="720" y="783" dominant-baseline="central">cuda_utils</text>
+  <text class="code" x="720" y="800" dominant-baseline="central">cuda_dependency_meta</text>
+  <line class="edge plain dash" x1="720" y1="812" x2="912" y2="812"/>
+  <text class="ttl" x="720" y="828" dominant-baseline="central">Full names</text>
+  <text class="code" x="720" y="850" dominant-baseline="central">tier4_debug_msgs</text>
+  <text class="code" x="720" y="867" dominant-baseline="central">tier4_external_api_msgs</text>
+  <text class="code" x="720" y="884" dominant-baseline="central">tier4_perception_msgs</text>
+  <text class="code" x="720" y="901" dominant-baseline="central">perception_utils</text>
+  <text class="code" x="720" y="918" dominant-baseline="central">bevdet_vendor</text>
+  <text class="code" x="720" y="935" dominant-baseline="central">cuda_blackboard</text>
+  <text class="code" x="720" y="952" dominant-baseline="central">managed_transform_buffer</text>
+  <text class="code" x="720" y="969" dominant-baseline="central">negotiated</text>
+  <text class="code" x="720" y="986" dominant-baseline="central">negotiated_interfaces</text>
+  <text class="code" x="720" y="1003" dominant-baseline="central">mussp</text>
+  <text class="code" x="720" y="1020" dominant-baseline="central">pointcloud_to_laserscan</text>
+
+  <!-- Note -->
+  <text class="sub" x="16" y="1074" dominant-baseline="central">Package names leave out the autoware_ prefix, except in the list of full names.</text>
+  <text class="sub" x="16" y="1090" dominant-baseline="central">Source: colcon graph --packages-up-to autoware_perception_launch, Autoware 2.0.0.</text>
+</svg>

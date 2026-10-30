@@ -42,7 +42,7 @@ It is advisable to thoroughly read the [Design page](../../design/index.md), con
 For example, a node doing NDT, a LiDAR-based localization method, is [ndt_scan_matcher](https://github.com/autowarefoundation/autoware_core/tree/main/localization/autoware_ndt_scan_matcher).
 If you want to replace this with a different approach, implement a node which produces the same topics and provides the same services.
 
-`ndt_scan_matcher` is launched as [pose_estimator](https://github.com/autowarefoundation/autoware_launch/blob/main/tier4_universe_launch/tier4_localization_launch/launch/pose_twist_estimator/ndt_scan_matcher.launch.xml), so it is necessary to replace the launch file as well.
+`ndt_scan_matcher` is launched as [pose_estimator](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_universe_launch/autoware_localization_launch/launch/pose_twist_estimator/ndt_scan_matcher.launch.xml) by the `autoware_localization_launch` package of `autoware_launch`, so it is necessary to replace the launch file as well.
 
 ## 4. Evaluating by a rosbag-based simulator
 

@@ -10,7 +10,7 @@ The essential thing for debug is to print the program information clearly, which
 
 ### Using command line tools
 
-ROS 2 includes a suite of command-line tools for introspecting a ROS 2 system. The main entry point for the tools is the command `ros2`, which itself has various sub-commands for introspecting and working with nodes, topics, services, and more. How to use the ROS 2 command line tool refer to tutorial [CLI tools](http://docs.ros.org/en/galactic/Tutorials/Beginner-CLI-Tools.html).
+ROS 2 includes a suite of command-line tools for introspecting a ROS 2 system. The main entry point for the tools is the command `ros2`, which itself has various sub-commands for introspecting and working with nodes, topics, services, and more. How to use the ROS 2 command line tool refer to tutorial [CLI tools](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools.html).
 
 ### Using rviz2
 
@@ -64,7 +64,7 @@ ros2 run rqt_console rqt_console
 
 ### Using ros2_graph
 
-[`ros2_graph`](https://github.com/kiwicampus/ros2_graph) can be used to generate [mermaid](https://mermaid.js.org/#/) description of ROS 2 graphs to add on your markdown files.
+[`ros2_graph`](https://github.com/kiwicampus/ros2_graph) can be used to generate [mermaid](https://mermaid.js.org/) description of ROS 2 graphs to add on your markdown files.
 
 It can also be used as a colorful alternative to `rqt_graph` even though it would require some tool to render the generated mermaid diagram.
 
@@ -88,9 +88,9 @@ ros2_graph /turtlesim /teleop_turtle
 
 You can then visualize these graphs with:
 
-- [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor/)
+- [Mermaid Live Editor](https://mermaid.live/)
 - Visual Studio Code extension [mermaid preview](https://marketplace.visualstudio.com/items?itemName=vstirbu.vscode-mermaid-preview)
-- JetBrains IDEs [with native support](https://www.jetbrains.com/go/guide/tips/mermaid-js-support-in-markdown/)
+- JetBrains IDEs [with native support](https://www.jetbrains.com/guide/go/tips/mermaid-js-support-in-markdown/)
 
 ### Using ros2doctor
 
@@ -104,11 +104,11 @@ It has the ability to list "Subscribers without publishers" for all topics in th
 
 And this information can help you find if a necessary node isn't running.
 
-For more details, see the following official documentation for [Using ros2doctor to identify issues](https://docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.html).
+For more details, see the following official documentation for [Using ros2doctor to identify issues](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.html).
 
 ## Using a debugger with breakpoints
 
-Many IDE(e.g. Visual Studio Code, CLion) supports debugging C/C++ executable with GBD on linux platform. The following lists some references for using the debugger:
+Many IDEs (for example Visual Studio Code and CLion) support debugging C/C++ executables with GDB on Linux. The following lists some references for using the debugger:
 
 - <https://code.visualstudio.com/docs/cpp/cpp-debug>
 - <https://www.jetbrains.com/help/clion/debugging-code.html#useful-debugger-shortcuts>
