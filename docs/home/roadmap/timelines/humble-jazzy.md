@@ -1,56 +1,28 @@
 # ROS 2 Humble to Jazzy transition
 
-Tracked in [Support ROS 2 Jazzy Jalisco #6695](https://github.com/autowarefoundation/autoware/issues/6695).
+Tracked in [Support ROS 2 Jazzy Jalisco #6695](https://github.com/autowarefoundation/autoware/issues/6695). The issue is closed. Autoware 2.0.0 supports both ROS 2 distributions.
 
-- ROS 2 Humble will reach the end of life on May 2027.
-- ROS 2 Jazzy has been released in May 2024 and will be supported until May 2029.
+- ROS 2 Humble reaches its end of life in May 2027.
+- ROS 2 Jazzy was released in May 2024 and has support until May 2029.
 
 This timeline is for Autoware's transition:
 
 - **From:** Ubuntu 22.04 | ROS 2 **Humble**
 - **To:** Ubuntu 24.04 | ROS 2 **Jazzy**
 
-```mermaid
-timeline
-    title ROS 2 Humble to Jazzy Transition
-    2026 Feb : Jazzy Docker Beta
-             : Optional CI Checks
-    2026 Apr : Jazzy Full Support
-             : Dual CI Coverage
-    2027 Jan : Humble Soft-Freeze
-             : Standard Support Ends
-    2027 May : Jazzy Exclusive Mode
-             : Humble End of Support
-```
+{{ diagram("images/humble-jazzy-timeline.svg", "The transition timeline: Humble and Jazzy have full support side by side until January 2027, and from May 2027 Autoware supports only Jazzy.") }}
 
-```mermaid
-gantt
-    title ROS 2 Transition: Humble to Jazzy
-    dateFormat  YYYY-MM-DD
-    axisFormat  %b '%y
-    tickInterval 1month
+## Status in Autoware 2.0.0
 
-    %% Define Milestones (Vertical markers for key dates)
-    section Key Events
-    Jazzy Docker Beta       :milestone, m1, 2026-02-01, 0d
-    Jazzy Full Support    :milestone, m2, 2026-04-01, 0d
-    Humble Soft-Freeze      :milestone, m3, 2027-01-01, 0d
-    Jazzy Exclusive         :milestone, m4, 2027-05-01, 0d
+The milestones of February and April 2026 are complete. In Autoware 2.0.0:
 
-    %% Section 1: The Outgoing Platform
-    section ROS 2 Humble
-    Standard Support        :active,    h_std,  2026-01-01, 2027-01-01
-    Low Maintenance (Crit Fixes) :crit, h_low,  after h_std, 2027-05-01
-    End of Support          :done,      h_end,  after h_low, 1d
+- The `autoware.dev_env.install_dev_env` Ansible playbook installs ROS 2 Humble on Ubuntu 22.04 and ROS 2 Jazzy on Ubuntu 24.04. It stops on other Ubuntu versions. See [`install_dev_env.yaml`](https://github.com/autowarefoundation/autoware/blob/2.0.0/ansible/playbooks/install_dev_env.yaml).
+- The Docker images are built for Humble and Jazzy, for amd64 and arm64, for example `ghcr.io/autowarefoundation/autoware:universe-cuda-jazzy-2.0.0`. Jazzy is the default `ROS_DISTRO` in [`docker-bake.hcl`](https://github.com/autowarefoundation/autoware/blob/2.0.0/docker/docker-bake.hcl).
+- A pull request to `autoware`, `autoware_core`, or `autoware_universe` must pass the required build checks for both Humble and Jazzy before it can merge.
 
-    %% Section 2: The Incoming Platform
-    section ROS 2 Jazzy
-    Docker Base Preview     :           j_beta, 2026-02-01, 2026-04-01
-    Full Support (Ubuntu 24.04) :active, j_std,  after j_beta, 2027-06-01
+## Next steps
 
-    %% Section 3: Developer Action Items
-    section CI Policy
-    Optional Checks:           ci_opt, 2026-02-01, 2026-04-01
-    Mandatory Dual Coverage :crit,      ci_man, 2026-04-01, 2027-05-01
-    Jazzy Only              :active,    ci_jaz, after ci_man, 2027-06-01
-```
+The milestones after Autoware 2.0.0 are the plan from the tracking issue:
+
+1. **2027 January:** Humble soft-freeze. The standard support for Humble ends. After this date, Humble gets only critical fixes.
+2. **2027 May:** Jazzy exclusive mode. The CI checks only Jazzy, and the support for Humble ends.
