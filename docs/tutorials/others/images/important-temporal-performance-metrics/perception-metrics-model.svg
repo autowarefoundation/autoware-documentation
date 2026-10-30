@@ -4,14 +4,12 @@
     checkpoints (CPP) mark where messages are sent and consumed.
   </title>
   <style data-aw-standalone="">
-    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-cyan: #00c8ff; --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-cyan: #00c8ff; --aw-d-bg: color-mix(in
     srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-group: color-mix(in
     srgb, var(--aw-c-indigo) 6%, var(--md-default-bg-color)); --aw-d-group-stroke: color-mix(in
     srgb, var(--aw-c-indigo) 25%, transparent); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
-    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
   fill: var(--aw-d-line);
-} .aw-d-arrow--accent {
-  fill: var(--aw-d-accent);
 } .box {
   fill: var(--aw-d-node);
   stroke: var(--aw-d-node-stroke);
@@ -42,10 +40,6 @@
   stroke: var(--aw-d-line);
   stroke-width: 1.6;
   marker-end: url("#aw-arrow");
-} .edge.accent {
-  stroke: var(--aw-d-accent);
-  stroke-width: 2;
-  marker-end: url("#aw-arrow-accent");
 } .edge.dash {
   stroke-dasharray: 6 5;
 } .icon {
@@ -76,36 +70,11 @@
   font-size: 12px;
   font-weight: 600;
   fill: #fff;
-} .flow {
-  fill: none;
-  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-dasharray: 6 44;
-  animation: aw-flow 2.4s linear infinite;
-} .flow.flow-accent {
-  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
-} .edge.head, .edge.accent.head, .traj.head, .route.head {
-  stroke: none;
-} @keyframes aw-flow {
-  from {
-    stroke-dashoffset: 6;
-  }
-
-  to {
-    stroke-dashoffset: -94;
-  }
-} @media (prefers-reduced-motion: reduce) {.flow {
-    display: none;
-    animation: none;
-  }}
+}
   </style>
   <defs data-aw-standalone="">
     <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
-    </marker>
-    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
     </marker>
     <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
       <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
@@ -188,80 +157,46 @@
   <!-- Tracking, prediction, and planning -->
   <rect class="card" x="752" y="164" width="180" height="152" rx="12"/>
   <text class="lbl" x="842" y="184" text-anchor="middle" dominant-baseline="central">Tracking</text>
-  <rect class="box" x="774" y="200" width="136" height="36" rx="10"/>
-  <text class="sub" x="842" y="218" text-anchor="middle" dominant-baseline="central">subscription callback</text>
-  <rect class="box" x="774" y="262" width="136" height="36" rx="10"/>
-  <text class="sub" x="842" y="280" text-anchor="middle" dominant-baseline="central">timer callback</text>
+  <rect class="box" x="774" y="198" width="136" height="32" rx="10"/>
+  <text class="sub" x="842" y="214" text-anchor="middle" dominant-baseline="central">subscription callback</text>
+  <rect class="box" x="774" y="270" width="136" height="32" rx="10"/>
+  <text class="sub" x="842" y="286" text-anchor="middle" dominant-baseline="central">timer callback</text>
   <rect class="card" x="752" y="348" width="180" height="72" rx="12"/>
   <text class="lbl" x="842" y="384" text-anchor="middle" dominant-baseline="central">Prediction</text>
   <rect class="card" x="752" y="452" width="180" height="248" rx="12"/>
   <text class="lbl" x="842" y="664" text-anchor="middle" dominant-baseline="central">Planning</text>
   <text class="sub" x="842" y="682" text-anchor="middle" dominant-baseline="central">Behavior path planner</text>
-  <rect class="box" x="774" y="468" width="136" height="36" rx="10"/>
-  <text class="sub" x="842" y="486" text-anchor="middle" dominant-baseline="central">subscription callback</text>
-  <rect class="box" x="774" y="528" width="136" height="36" rx="10"/>
-  <text class="sub" x="842" y="546" text-anchor="middle" dominant-baseline="central">subscription callback</text>
-  <rect class="box" x="774" y="592" width="136" height="44" rx="10"/>
-  <text class="sub" x="842" y="606" text-anchor="middle" dominant-baseline="central">timer callback</text>
-  <text class="sub" x="842" y="622" text-anchor="middle" dominant-baseline="central">(10 Hz)</text>
+  <rect class="box" x="774" y="466" width="136" height="32" rx="10"/>
+  <text class="sub" x="842" y="482" text-anchor="middle" dominant-baseline="central">subscription callback</text>
+  <rect class="box" x="774" y="526" width="136" height="32" rx="10"/>
+  <text class="sub" x="842" y="542" text-anchor="middle" dominant-baseline="central">subscription callback</text>
+  <rect class="box" x="774" y="598" width="136" height="40" rx="10"/>
+  <text class="sub" x="842" y="610" text-anchor="middle" dominant-baseline="central">timer callback</text>
+  <text class="sub" x="842" y="626" text-anchor="middle" dominant-baseline="central">(10 Hz)</text>
 
   <!-- Inter-component communication -->
-  <path class="edge" fill="none" d="M264 100 H952 V546 H918"/>
-  <path class="flow" pathLength="100" d="M264 100 H952 V546 H918"/>
-  <path class="edge head" fill="none" d="M264 100 H952 V546 H918"/>
+  <path class="edge" fill="none" d="M264 100 H952 V542 H918"/>
   <path class="edge" fill="none" d="M100 100 H116"/>
-  <path class="flow" pathLength="100" d="M100 100 H116"/>
-  <path class="edge head" fill="none" d="M100 100 H116"/>
   <path class="edge" fill="none" d="M100 200 H116"/>
-  <path class="flow" pathLength="100" d="M100 200 H116"/>
-  <path class="edge head" fill="none" d="M100 200 H116"/>
   <path class="edge" fill="none" d="M264 200 H476"/>
-  <path class="flow" pathLength="100" d="M264 200 H476"/>
-  <path class="edge head" fill="none" d="M264 200 H476"/>
-  <path class="edge accent" fill="none" d="M100 362 H116"/>
-  <path class="flow flow-accent" pathLength="100" d="M100 362 H116"/>
-  <path class="edge accent head" fill="none" d="M100 362 H116"/>
-  <path class="edge accent" fill="none" d="M264 362 H280 V308 H288"/>
-  <path class="flow flow-accent" pathLength="100" d="M264 362 H280 V308 H288"/>
-  <path class="edge accent head" fill="none" d="M264 362 H280 V308 H288"/>
-  <path class="edge accent" fill="none" d="M280 362 V432 H288"/>
-  <path class="flow flow-accent" pathLength="100" d="M280 362 V432 H288"/>
-  <path class="edge accent head" fill="none" d="M280 362 V432 H288"/>
+  <path class="edge" fill="none" d="M100 362 H116"/>
+  <path class="edge" fill="none" d="M264 362 H280 V308 H288"/>
+  <path class="edge" fill="none" d="M280 362 V432 H288"/>
   <path class="edge" fill="none" d="M444 290 H462 V214 H476"/>
-  <path class="flow" pathLength="100" d="M444 290 H462 V214 H476"/>
-  <path class="edge head" fill="none" d="M444 290 H462 V214 H476"/>
   <path class="edge" fill="none" d="M444 304 H476"/>
-  <path class="flow" pathLength="100" d="M444 304 H476"/>
-  <path class="edge head" fill="none" d="M444 304 H476"/>
   <path class="edge" fill="none" d="M444 336 H470 V420 H476"/>
-  <path class="flow" pathLength="100" d="M444 336 H470 V420 H476"/>
-  <path class="edge head" fill="none" d="M444 336 H470 V420 H476"/>
-  <path class="edge accent" fill="none" d="M444 444 H476"/>
-  <path class="flow flow-accent" pathLength="100" d="M444 444 H476"/>
-  <path class="edge accent head" fill="none" d="M444 444 H476"/>
+  <path class="edge" fill="none" d="M444 444 H476"/>
   <path class="edge" fill="none" d="M604 196 H620"/>
-  <path class="flow" pathLength="100" d="M604 196 H620"/>
-  <path class="edge head" fill="none" d="M604 196 H620"/>
   <path class="edge" fill="none" d="M604 304 H620"/>
-  <path class="flow" pathLength="100" d="M604 304 H620"/>
-  <path class="edge head" fill="none" d="M604 304 H620"/>
-  <path class="edge accent" fill="none" d="M604 432 H620"/>
-  <path class="flow flow-accent" pathLength="100" d="M604 432 H620"/>
-  <path class="edge accent head" fill="none" d="M604 432 H620"/>
-  <path class="edge accent" fill="none" d="M724 218 H766"/>
-  <path class="flow flow-accent" pathLength="100" d="M724 218 H766"/>
-  <path class="edge accent head" fill="none" d="M724 218 H766"/>
-  <path class="edge accent" fill="none" d="M842 316 V340"/>
-  <path class="flow flow-accent" pathLength="100" d="M842 316 V340"/>
-  <path class="edge accent head" fill="none" d="M842 316 V340"/>
-  <path class="edge accent" fill="none" d="M842 420 V460"/>
-  <path class="flow flow-accent" pathLength="100" d="M842 420 V460"/>
-  <path class="edge accent head" fill="none" d="M842 420 V460"/>
+  <path class="edge" fill="none" d="M604 432 H620"/>
+  <path class="edge" fill="none" d="M724 214 H766"/>
+  <path class="edge" fill="none" d="M842 316 V340"/>
+  <path class="edge" fill="none" d="M842 420 V458"/>
 
   <!-- Intra-component communication -->
-  <path class="edge dash" fill="none" d="M842 236 V254"/>
-  <path class="edge dash" fill="none" d="M774 486 H764 V614 H766"/>
-  <path class="edge dash" fill="none" d="M842 564 V584"/>
+  <path class="edge dash" fill="none" d="M842 230 V262"/>
+  <path class="edge dash" fill="none" d="M774 482 H764 V618 H766"/>
+  <path class="edge dash" fill="none" d="M842 558 V590"/>
 
   <!-- Checkpoints -->
   <circle class="icon-bg" cx="100" cy="64" r="11"/>
@@ -306,28 +241,28 @@
   <text class="pill-text" x="628" y="164" text-anchor="middle" dominant-baseline="central">19</text>
   <circle class="icon-bg" cx="724" cy="164" r="11"/>
   <text class="pill-text" x="724" y="164" text-anchor="middle" dominant-baseline="central">20</text>
-  <circle class="icon-bg" cx="774" cy="200" r="11"/>
-  <text class="pill-text" x="774" y="200" text-anchor="middle" dominant-baseline="central">21</text>
-  <circle class="icon-bg" cx="774" cy="262" r="11"/>
-  <text class="pill-text" x="774" y="262" text-anchor="middle" dominant-baseline="central">22</text>
+  <circle class="icon-bg" cx="774" cy="198" r="11"/>
+  <text class="pill-text" x="774" y="198" text-anchor="middle" dominant-baseline="central">21</text>
+  <circle class="icon-bg" cx="774" cy="270" r="11"/>
+  <text class="pill-text" x="774" y="270" text-anchor="middle" dominant-baseline="central">22</text>
   <circle class="icon-bg" cx="932" cy="164" r="11"/>
   <text class="pill-text" x="932" y="164" text-anchor="middle" dominant-baseline="central">23</text>
   <circle class="icon-bg" cx="752" cy="348" r="11"/>
   <text class="pill-text" x="752" y="348" text-anchor="middle" dominant-baseline="central">24</text>
   <circle class="icon-bg" cx="932" cy="348" r="11"/>
   <text class="pill-text" x="932" y="348" text-anchor="middle" dominant-baseline="central">25</text>
-  <circle class="icon-bg" cx="774" cy="528" r="11"/>
-  <text class="pill-text" x="774" y="528" text-anchor="middle" dominant-baseline="central">26</text>
-  <circle class="icon-bg" cx="910" cy="528" r="11"/>
-  <text class="pill-text" x="910" y="528" text-anchor="middle" dominant-baseline="central">27</text>
-  <circle class="icon-bg" cx="774" cy="468" r="11"/>
-  <text class="pill-text" x="774" y="468" text-anchor="middle" dominant-baseline="central">28</text>
-  <circle class="icon-bg" cx="910" cy="468" r="11"/>
-  <text class="pill-text" x="910" y="468" text-anchor="middle" dominant-baseline="central">29</text>
-  <circle class="icon-bg" cx="774" cy="592" r="11"/>
-  <text class="pill-text" x="774" y="592" text-anchor="middle" dominant-baseline="central">30</text>
-  <circle class="icon-bg" cx="910" cy="592" r="11"/>
-  <text class="pill-text" x="910" y="592" text-anchor="middle" dominant-baseline="central">31</text>
+  <circle class="icon-bg" cx="774" cy="526" r="11"/>
+  <text class="pill-text" x="774" y="526" text-anchor="middle" dominant-baseline="central">26</text>
+  <circle class="icon-bg" cx="910" cy="526" r="11"/>
+  <text class="pill-text" x="910" y="526" text-anchor="middle" dominant-baseline="central">27</text>
+  <circle class="icon-bg" cx="774" cy="466" r="11"/>
+  <text class="pill-text" x="774" y="466" text-anchor="middle" dominant-baseline="central">28</text>
+  <circle class="icon-bg" cx="910" cy="466" r="11"/>
+  <text class="pill-text" x="910" y="466" text-anchor="middle" dominant-baseline="central">29</text>
+  <circle class="icon-bg" cx="774" cy="598" r="11"/>
+  <text class="pill-text" x="774" y="598" text-anchor="middle" dominant-baseline="central">30</text>
+  <circle class="icon-bg" cx="910" cy="598" r="11"/>
+  <text class="pill-text" x="910" y="598" text-anchor="middle" dominant-baseline="central">31</text>
 
   <!-- Legend -->
   <rect class="group" x="16" y="724" width="928" height="100" rx="16"/>
@@ -338,6 +273,8 @@
   <circle class="icon-bg" cx="346" cy="748" r="11"/>
   <text class="pill-text" x="346" y="748" text-anchor="middle" dominant-baseline="central">n</text>
   <text x="364" y="748" dominant-baseline="central">CPP #n: checkpoint for perception components</text>
+  <rect class="card ai" x="700" y="739" width="28" height="18" rx="5"/>
+  <text x="736" y="748" dominant-baseline="central">DNN-based component</text>
   <path class="edge" fill="none" d="M32 776 H62"/>
   <text x="72" y="776" dominant-baseline="central">Inter-component communication</text>
   <path class="edge dash" fill="none" d="M300 776 H330"/>

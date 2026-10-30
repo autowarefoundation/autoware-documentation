@@ -9,14 +9,15 @@ The launch files on this page are in the `autoware_launch` package of the [autow
 
 ## Running 3D object detection without CUDA
 
-The `lidar_detection_model` argument of [`component_perception.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/components/component_perception.launch.xml) selects the LiDAR object detector. Its value has the form `model_type/model_name`. If you leave out the `model_name` part, the default parameters of the model are used. The model types are:
+The `lidar_detection_model` argument of [`component_perception.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/0.53.0/autoware_launch/launch/components/component_perception.launch.xml) selects the LiDAR object detector. Its value has the form `model_type/model_name`. If you leave out the `model_name` part, the default parameters of the model are used. The model types are:
 
 - `centerpoint` (the default)
 - `transfusion`
 - `bevfusion`
-- `pointpainting`
 - `apollo`
 - `clustering`
+
+The description of the argument also names `pointpainting`. The `pointpainting` detector needs camera images, and it runs only in the camera-LiDAR pipeline. `component_perception.launch.xml` does not start this pipeline. As a result, `pointpainting` starts no neural network detector here.
 
 All model types except `clustering` run a neural network with TensorRT and need CUDA. With `clustering`, Autoware starts no neural network detector. It uses only the rule-based detector, which is built on the [`euclidean_cluster`](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_euclidean_cluster) package and runs on the CPU.
 
@@ -36,9 +37,9 @@ If you did not build the workspace with `--symlink-install`, rebuild `autoware_l
 
 ## Running traffic light detection without CUDA
 
-Traffic light recognition has two steps: detection finds the traffic lights in the camera image, and classification finds their color and arrows. The launch file [`component_traffic_light.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/components/component_traffic_light.launch.xml) starts both steps.
+Traffic light recognition has two steps: detection finds the traffic lights in the camera image, and classification finds their color and arrows. The launch file [`component_traffic_light.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/0.53.0/autoware_launch/launch/components/component_traffic_light.launch.xml) starts both steps.
 
-To run traffic light detection without CUDA, set the `traffic_light_recognition/use_high_accuracy_detection` argument of `autoware.launch.xml` to `false`. Then the YOLOX-based detectors (`autoware_traffic_light_fine_detector` or the whole-image detector), which need CUDA, do not start. Instead, the [`autoware_traffic_light_map_based_detector`](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_traffic_light_map_based_detector) package calculates where the traffic lights appear in the image from the vector map. The default value of this argument is `true` in `autoware.launch.xml` and `false` in `e2e_simulator.launch.xml`. For other launch files, change the default value in `autoware.launch.xml`:
+To run traffic light detection without CUDA, set the `traffic_light_recognition/use_high_accuracy_detection` argument of `autoware.launch.xml` to `false`. Then the YOLOX-based detectors (`autoware_traffic_light_fine_detector` or the whole-image detector), which need CUDA, do not start. Instead, the [`autoware_traffic_light_map_based_detector`](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_traffic_light_map_based_detector) package calculates where the traffic lights appear in the image from the vector map. The default value of this argument is `true` in `autoware.launch.xml`. `e2e_simulator.launch.xml` always sets it to `false`. For other launch files, change the default value in `autoware.launch.xml`:
 
 ```xml
 <arg name="traffic_light_recognition/use_high_accuracy_detection" default="false" description="enable to use high accuracy detection for traffic light recognition"/>

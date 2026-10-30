@@ -20,6 +20,8 @@ In the graph, a blue edge is a build dependency, a red edge is a run dependency,
 
 {{ diagram("images/determining-component-dependencies/perception-launch-dependencies.svg", "The packages that autoware_perception_launch depends on in Autoware 2.0.0, grouped by function.") }}
 
+The diagram does not show which package depends on which. To see each dependency, open the `graph.png` file from the `colcon graph` command.
+
 To generate a list of dependencies, use:
 
 ```bash

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1104" role="img" aria-labelledby="perception-launch-dependencies-title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1140" role="img" aria-labelledby="perception-launch-dependencies-title">
   <title id="perception-launch-dependencies-title">
     Dependencies of autoware_perception_launch in Autoware 2.0.0: it runs 44 perception packages, which depend on 55 more packages of libraries, messages, and GPU tools, and it needs autoware_cmake to
     build and autoware_lint_common to test.
@@ -140,7 +140,7 @@
     </filter>
   </defs>
 
-  <rect class="dots" x="0" y="0" width="960" height="1104"/>
+  <rect class="dots" x="0" y="0" width="960" height="1140"/>
   <circle class="halo cyan" cx="480" cy="330" r="260"/>
   <circle class="halo" cx="480" cy="860" r="220"/>
 
@@ -242,7 +242,6 @@
   <text class="code" x="48" y="851" dominant-baseline="central">kalman_filter</text>
   <text class="code" x="48" y="868" dominant-baseline="central">lanelet2_extension</text>
   <text class="code" x="48" y="885" dominant-baseline="central">lanelet2_utils</text>
-  <text class="ttl" x="272" y="710" dominant-baseline="central"/>
   <text class="code" x="272" y="732" dominant-baseline="central">object_recognition_utils</text>
   <text class="code" x="272" y="749" dominant-baseline="central">traffic_light_utils</text>
   <text class="code" x="272" y="766" dominant-baseline="central">grid_map_utils</text>
@@ -252,6 +251,12 @@
   <text class="code" x="272" y="834" dominant-baseline="central">qos_utils</text>
   <text class="code" x="272" y="851" dominant-baseline="central">pyplot</text>
   <text class="code" x="272" y="868" dominant-baseline="central">test_utils</text>
+  <line class="edge plain dash" x1="272" y1="880" x2="464" y2="880"/>
+  <text class="code" x="272" y="896" dominant-baseline="central">perception_utils</text>
+  <text class="code" x="272" y="913" dominant-baseline="central">managed_transform_buffer</text>
+  <text class="code" x="272" y="930" dominant-baseline="central">negotiated</text>
+  <text class="code" x="272" y="947" dominant-baseline="central">mussp</text>
+  <text class="code" x="272" y="964" dominant-baseline="central">pointcloud_to_laserscan</text>
   <text class="ttl" x="496" y="710" dominant-baseline="central">Messages</text>
   <text class="code" x="496" y="732" dominant-baseline="central">adapi_v1_msgs</text>
   <text class="code" x="496" y="749" dominant-baseline="central">common_msgs</text>
@@ -266,6 +271,11 @@
   <text class="code" x="496" y="902" dominant-baseline="central">planning_msgs</text>
   <text class="code" x="496" y="919" dominant-baseline="central">sensing_msgs</text>
   <text class="code" x="496" y="936" dominant-baseline="central">vehicle_msgs</text>
+  <line class="edge plain dash" x1="496" y1="948" x2="688" y2="948"/>
+  <text class="code" x="496" y="964" dominant-baseline="central">tier4_debug_msgs</text>
+  <text class="code" x="496" y="981" dominant-baseline="central">tier4_external_api_msgs</text>
+  <text class="code" x="496" y="998" dominant-baseline="central">tier4_perception_msgs</text>
+  <text class="code" x="496" y="1015" dominant-baseline="central">negotiated_interfaces</text>
   <text class="ttl" x="720" y="710" dominant-baseline="central">GPU and machine learning</text>
   <text class="code" x="720" y="732" dominant-baseline="central">tensorrt_common</text>
   <text class="code" x="720" y="749" dominant-baseline="central">tensorrt_classifier</text>
@@ -273,20 +283,12 @@
   <text class="code" x="720" y="783" dominant-baseline="central">cuda_utils</text>
   <text class="code" x="720" y="800" dominant-baseline="central">cuda_dependency_meta</text>
   <line class="edge plain dash" x1="720" y1="812" x2="912" y2="812"/>
-  <text class="ttl" x="720" y="828" dominant-baseline="central">Full names</text>
-  <text class="code" x="720" y="850" dominant-baseline="central">tier4_debug_msgs</text>
-  <text class="code" x="720" y="867" dominant-baseline="central">tier4_external_api_msgs</text>
-  <text class="code" x="720" y="884" dominant-baseline="central">tier4_perception_msgs</text>
-  <text class="code" x="720" y="901" dominant-baseline="central">perception_utils</text>
-  <text class="code" x="720" y="918" dominant-baseline="central">bevdet_vendor</text>
-  <text class="code" x="720" y="935" dominant-baseline="central">cuda_blackboard</text>
-  <text class="code" x="720" y="952" dominant-baseline="central">managed_transform_buffer</text>
-  <text class="code" x="720" y="969" dominant-baseline="central">negotiated</text>
-  <text class="code" x="720" y="986" dominant-baseline="central">negotiated_interfaces</text>
-  <text class="code" x="720" y="1003" dominant-baseline="central">mussp</text>
-  <text class="code" x="720" y="1020" dominant-baseline="central">pointcloud_to_laserscan</text>
+  <text class="code" x="720" y="828" dominant-baseline="central">bevdet_vendor</text>
+  <text class="code" x="720" y="845" dominant-baseline="central">cuda_blackboard</text>
 
-  <!-- Note -->
-  <text class="sub" x="16" y="1074" dominant-baseline="central">Package names leave out the autoware_ prefix, except in the list of full names.</text>
-  <text class="sub" x="16" y="1090" dominant-baseline="central">Source: colcon graph --packages-up-to autoware_perception_launch, Autoware 2.0.0.</text>
+  <!-- Notes -->
+  <text class="sub" x="16" y="1074" dominant-baseline="central">Package names leave out the autoware_ prefix. Names under a dashed line are full names.</text>
+  <text class="sub" x="16" y="1090" dominant-baseline="central">Not shown: rclcpp_components and topic_tools, two exec_depend packages that come from ROS, not from the workspace.</text>
+  <text class="sub" x="16" y="1106" dominant-baseline="central">The diagram does not show which package depends on which. The graph of the colcon graph command shows each edge.</text>
+  <text class="sub" x="16" y="1122" dominant-baseline="central">Source: colcon graph --packages-up-to autoware_perception_launch, Autoware 2.0.0.</text>
 </svg>

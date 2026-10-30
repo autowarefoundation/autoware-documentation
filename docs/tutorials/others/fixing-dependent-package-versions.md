@@ -3,11 +3,7 @@
 Autoware manages dependent package versions in `repositories/autoware.repos`.
 For example, let's say you make a branch in autoware_universe and add new features.
 Suppose you update other dependencies with `vcs pull` after cutting a branch from autoware_universe. Then the version of autoware_universe you are developing and other dependencies will become inconsistent, and the entire Autoware build will fail.
-We recommend saving the dependent package versions by executing the following command when starting the development.
-
-```bash
-vcs export src --exact > repositories/my_autoware.repos
-```
+We recommend saving the dependent package versions when you start the development, as described in [Save the versions of your workspace](#save-the-versions-of-your-workspace).
 
 This page explains how Autoware pins the versions, and how you save and restore the versions of your own workspace. For a description of all `.repos` files, see [`repositories/*.repos` files](../../design/repos-files.md).
 
