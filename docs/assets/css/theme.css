@@ -480,11 +480,11 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
     0 0 0 1px var(--md-default-fg-color--lightest);
 }
 
-.aw-hero__video iframe {
+.aw-hero__video video {
   display: block;
   width: 100%;
   height: 100%;
-  border: 0;
+  object-fit: cover;
 }
 
 @media screen and (max-width: 59.984375em) {
