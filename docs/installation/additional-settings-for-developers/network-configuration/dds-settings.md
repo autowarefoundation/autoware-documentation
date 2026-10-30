@@ -59,7 +59,7 @@ net.ipv4.ipfrag_time = 3
 net.ipv4.ipfrag_high_thresh = 134217728
 ```
 
-### CycloneDDS Configuration
+### CycloneDDS configuration
 
 Save the following file as `~/cyclonedds.xml`.
 
@@ -89,7 +89,7 @@ Save the following file as `~/cyclonedds.xml`.
 
 !!! note "When using CycloneDDS on ROS 2 Jazzy (Ubuntu 24.04)"
 
-    On ROS 2 Jazzy, the default maximum Participant Index in rmw_cyclonedds_cpp is limited to around 32, which can cause a "Failed to find a free participant index for domain 0" error when running many nodes (e.g. planning simulator). Adding the `<Discovery>` section above with `ParticipantIndex` set to `none` avoids this error. For more details, see [Runtime Troubleshooting: CycloneDDS failed to find a free participant index](../../../community/support/troubleshooting/runtime-troubleshooting.md#cyclonedds-failed-to-find-a-free-participant-index).
+    On ROS 2 Jazzy, the default maximum Participant Index in rmw_cyclonedds_cpp is limited to around 32, which can cause a "Failed to find a free participant index for domain 0" error when running many nodes (e.g. planning simulator). Adding the `<Discovery>` section above with `ParticipantIndex` set to `none` avoids this error. For more details, see [Runtime troubleshooting: CycloneDDS failed to find a free participant index](../../../community/support/troubleshooting/runtime-troubleshooting.md#cyclonedds-failed-to-find-a-free-participant-index).
 
 Then add the following lines to your `~/.bashrc` file.
 
@@ -115,6 +115,7 @@ You can refer to [Eclipse Cyclone DDS: Run-time configuration documentation](htt
 
 Previously, we used to set `export ROS_LOCALHOST_ONLY=1` to enable localhost-only communication.
 But because of [an ongoing issue](https://github.com/ros2/rmw_cyclonedds/issues/370), this method doesn't work.
+ROS 2 also [deprecated `ROS_LOCALHOST_ONLY` in the Iron release](https://docs.ros.org/en/jazzy/Releases/Release-Iron-Irwini.html), so it is deprecated in ROS 2 Jazzy too. The `~/cyclonedds.xml` file above limits CycloneDDS to `lo` instead.
 
 !!! warning
 
@@ -126,9 +127,9 @@ But because of [an ongoing issue](https://github.com/ros2/rmw_cyclonedds/issues/
 
 ### About `ROS_DOMAIN_ID` environment variable
 
-We can also set `export ROS_DOMAIN_ID=3(or any number 1 to 255)` (`0` by default) to avoid interference with other ROS 2 nodes on the same network.
+We can also set `export ROS_DOMAIN_ID=3` (`0` by default) to avoid interference with other ROS 2 nodes on the same network. The [ROS 2 documentation](https://docs.ros.org/en/jazzy/Concepts/Intermediate/About-Domain-ID.html) recommends a value from `0` to `101` on Linux.
 
-But since `255` is a very small number, it might interfere with other computers on the same network unless you make sure everyone has a unique domain ID.
+But since this range is small, it might interfere with other computers on the same network unless you make sure everyone has a unique domain ID.
 
 Another problem is that if someone runs a test that uses ROS 2 [launch_testing](https://github.com/ros2/launch/blob/a317c54bbbf2dfeec35fbb6d2b5913939d02750d/launch_testing/README.md) framework,
 by default it will use a random domain ID to isolate between tests even on the same machine.

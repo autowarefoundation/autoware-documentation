@@ -2,7 +2,7 @@
 
 ## Target platforms
 
-Autoware officially supports the platforms listed below.
+Autoware 2.0.0 officially supports Ubuntu 22.04 with ROS 2 Humble and Ubuntu 24.04 with ROS 2 Jazzy, on the hardware listed below.
 Support for additional platforms may be introduced in future releases.
 
 <div class="aw-specs" markdown>
@@ -71,7 +71,7 @@ For installation types, see the subsections below. If any issues occur during in
 
 Autoware publishes prebuilt Docker images on GHCR that let you run and develop Autoware easily on your host machine, ensuring the same environment for development and deployment without installing dependencies.
 
-For containerized deployment patterns and integrations beyond local development, see [Open AD Kit](https://autoware.org/open-ad-kit/) — the first [SOAFEE Blueprint](https://www.soafee.io/charter/) for autonomous driving — and the [Open AD Kit Documentation](https://autowarefoundation.github.io/openadkit/).
+For containerized deployment patterns and integrations beyond local development, see [Open AD Kit](https://autoware.org/open-ad-kit/) (the first [SOAFEE Blueprint](https://www.soafee.io/charter/) for autonomous driving) and the [Open AD Kit Documentation](https://autowarefoundation.github.io/openadkit/).
 
 </div>
 
@@ -113,7 +113,7 @@ Note that some problems may occur depending on your local environment.
 
 <div class="aw-method__body" markdown>
 
-### 3. Debian Package installation
+### 3. Debian package installation
 
 Autoware Core packages are available on the ROS build farm.
 If you have an environment where ROS is set up, Autoware packages can be easily installed and used with other packages in the ROS ecosystem.
@@ -149,6 +149,6 @@ Once you have a source workspace set up, you can pull additional packages from t
 
 - :fa-cl-s fa-sliders: **[Additional settings for developers](additional-settings-for-developers/index.md)**
 
-  There are also tools and settings for developers, such as Shells or IDEs.
+  There are also settings for developers, such as the ROS 2 console output and the network configuration for DDS and Zenoh.
 
 </div>
