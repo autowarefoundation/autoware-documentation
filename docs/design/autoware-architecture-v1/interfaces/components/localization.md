@@ -1,152 +1,39 @@
 # Localization
 
+This page describes the interface of the Localization component. See the [Localization component design](../../components/localization/index.md) for the concepts.
+
+The Localization component estimates the pose, the velocity, and the acceleration of the vehicle. The diagram shows the default setup of [`autoware_launch`](https://github.com/autowarefoundation/autoware_launch/tree/main/autoware_universe_launch/autoware_localization_launch): the `ndt` pose source and the `gyro_odom` twist source. Other pose sources are YabLoc, Eagleye, AR tags, and LiDAR markers.
+
 {{ diagram("images/Localization-Bus-ODD-Architecture.svg", "The main nodes and data flows of the Localization component in the default setup.") }}
+
+The pose initializer also calls the NDT scan matcher to align the first pose with the point cloud map.
 
 ## Inputs
 
-### Pointcloud Map
+| Name              | Topic or service                                            | Type                                                                                                                                                                             | Description                                                                                                                                                                                       |
+| ----------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Point cloud map   | `/map/get_differential_pointcloud_map` (service)            | [autoware_map_msgs/srv/GetDifferentialPointCloudMap](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_map_msgs/srv/GetDifferentialPointCloudMap.srv)       | The NDT scan matcher loads the map areas around the vehicle. See the outputs of [Map](map.md).                                                                                                    |
+| Point cloud map   | `/map/get_partial_pointcloud_map` (service)                 | [autoware_map_msgs/srv/GetPartialPointCloudMap](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_map_msgs/srv/GetPartialPointCloudMap.srv)                 | The pose initializer uses the map to fit the height of a GNSS pose. If the map loader does not enable partial loading, it uses the `/map/pointcloud_map` topic instead.                           |
+| LiDAR point cloud | `/sensing/lidar/concatenated/pointcloud`                    | [sensor_msgs/msg/PointCloud2](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg)                                                            | The point cloud for NDT matching. It must first go through the [point cloud preprocessing](../../components/sensing/data-types/point-cloud.md). Localization then crops and downsamples it again. |
+| GNSS pose         | `/sensing/gnss/pose_with_covariance`                        | [geometry_msgs/msg/PoseWithCovarianceStamped](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/PoseWithCovarianceStamped.msg)                            | The pose from GNSS. The pose initializer uses it for automatic initialization, and the NDT scan matcher can use it for regularization.                                                            |
+| IMU data          | `/sensing/imu/imu_data`                                     | [sensor_msgs/msg/Imu](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Imu.msg)                                                                            | The angular velocity of the vehicle, after the IMU corrector.                                                                                                                                     |
+| Vehicle twist     | `/sensing/vehicle_velocity_converter/twist_with_covariance` | [geometry_msgs/msg/TwistWithCovarianceStamped](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/TwistWithCovarianceStamped.msg)                          | The velocity of the vehicle. `autoware_vehicle_velocity_converter` makes it from `/vehicle/status/velocity_status` (`autoware_vehicle_msgs/msg/VelocityReport`).                                  |
+| Initialize        | `/localization/initialize` (service)                        | [autoware_localization_msgs/srv/InitializeLocalization](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_localization_msgs/srv/InitializeLocalization.srv) | A request to initialize the pose. The `AUTO` method uses the GNSS pose. The `DIRECT` method uses the given pose as it is. The AD API calls this service.                                          |
 
-Environment map created with point cloud, published by the map server.
+The GNSS pose comes from the Sensing component. Its `gnss_poser` node makes it from the GNSS position (`sensor_msgs/msg/NavSatFix`) and the GNSS-INS orientation ([autoware_sensing_msgs/msg/GnssInsOrientationStamped](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_sensing_msgs/msg/GnssInsOrientationStamped.msg)). See [Sensing](sensing.md).
 
-- sensor_msgs/msg/PointCloud2
-
-A 3d point cloud map is used for LiDAR-based localization in Autoware.
-
-### Manual Initial Pose
-
-Start pose of ego, published by the user interface.
-
-- geometry_msgs/msg/PoseWithCovarianceStamped
-  - std_msgs/msg/Header header
-  - geometry_msgs/msg/PoseWithCovariance pose
-    - geometry_msgs/msg/Pose pose
-      - geometry_msgs/msg/Point position
-      - geometry_msg/msg/Quaternion orientation
-    - double[36] covariance
-
-### 3D-LiDAR Scanning
-
-LiDAR scanning for NDT matching, published by the LiDAR sensor.
-
-- sensor_msgs/msg/PointCloud2
-
-The raw 3D-LiDAR data needs to be processed by the [point cloud pre-processing modules](../../components/sensing/data-types/point-cloud.md) before being used for localization.
-
-### Automatic Initial pose
-
-Start pose of ego, calculated from INS(Inertial navigation sensor) sensing data.
-
-- geometry_msgs/msg/PoseWithCovarianceStamped
-  - std_msgs/msg/Header header
-  - geometry_msgs/msg/PoseWithCovariance pose
-    - geometry_msgs/msg/Pose pose
-      - geometry_msgs/msg/Point position
-      - geometry_msg/msg/Quaternion orientation
-    - double[36] covariance
-
-When the initial pose is not set manually, the message can be used for automatic pose initialization.
-
-Current Geographic coordinate of the ego, published by the GNSS sensor.
-
-- sensor_msgs/msg/NavSatFix
-  - std_msgs/msg/Header header
-  - sensor_msgs/msg/NavSatStatus status
-  - double latitude
-  - double longitude
-  - double altitude
-  - double[9] position_covariance
-  - unit8 position_covariance_type
-
-Current orientation of the ego, published by the GNSS-INS.
-
-- autoware_sensing_msgs/msg/GnssInsOrientationStamped
-  - std_msgs/Header header
-  - autoware_sensing_msgs/msg/GnssInsOrientation orientation
-    - geometry_msgs/Quaternion orientation
-    - float32 rmse_rotation_x
-    - float32 rmse_rotation_y
-    - float32 rmse_rotation_z
-
-### IMU Data
-
-Current orientation, angular velocity and linear acceleration of ego, calculated from IMU sensing data.
-
-- sensor_msgs/msg/Imu
-  - std_msgs/msg/Header header
-  - geometry_msgs/msg/Quaternion orientation
-  - double[9] orientation_covariance
-  - geometry_msgs/msg/Vector3 angular_velocity
-  - double[9] angular_velocity_covariance
-  - geometry_msgs/msg/Vector3 linear_acceleration
-  - double[9] linear_acceleration_covariance
-
-### Vehicle Velocity Status
-
-Current velocity of the ego vehicle, published by the vehicle interface.
-
-- autoware_vehicle_msgs/msg/VelocityReport
-  - std_msgs/msg/Header header;
-  - float longitudinal_velocity;
-  - float lateral_velocity;
-  - float heading_rate;
-
-Before the velocity input localization interface, module `autoware_vehicle_velocity_converter` converts message type `autoware_vehicle_msgs/msg/VelocityReport` to `geometry_msgs/msg/TwistWithCovarianceStamped`.
+In RViz, the **2D Pose Estimate** tool publishes `/initialpose`. The initial pose adaptor of [`autoware_adapi_adaptors`](https://github.com/autowarefoundation/autoware_core/tree/main/api/autoware_adapi_adaptors) turns it into a call of the AD API `/api/localization/initialize`. The AD API then calls `/localization/initialize`.
 
 ## Outputs
 
-### Vehicle pose
+| Name                    | Topic                                                          | Type                                                                                                                                                                                                          | Description                                                                                             |
+| ----------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Vehicle kinematic state | `/localization/kinematic_state`                                | [nav_msgs/msg/Odometry](https://github.com/ros2/common_interfaces/blob/rolling/nav_msgs/msg/Odometry.msg)                                                                                                     | The current pose and twist of the vehicle. Planning, Control, Perception, and others use it.            |
+| Vehicle acceleration    | `/localization/acceleration`                                   | [geometry_msgs/msg/AccelWithCovarianceStamped](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/AccelWithCovarianceStamped.msg)                                                       | The current acceleration of the vehicle, from the `autoware_twist2accel` node.                          |
+| Vehicle pose            | `/localization/pose_with_covariance`                           | [geometry_msgs/msg/PoseWithCovarianceStamped](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/PoseWithCovarianceStamped.msg)                                                         | The current pose of the vehicle, from the EKF localizer.                                                |
+| Vehicle twist           | `/localization/pose_twist_fusion_filter/twist_with_covariance` | [geometry_msgs/msg/TwistWithCovarianceStamped](https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/TwistWithCovarianceStamped.msg)                                                       | The current twist of the vehicle, from the EKF localizer.                                               |
+| Transform               | `/tf`                                                          | [tf2_msgs/msg/TFMessage](https://github.com/ros2/geometry2/blob/rolling/tf2_msgs/msg/TFMessage.msg)                                                                                                           | The transform from `map` to `base_link`.                                                                |
+| Initialization state    | `/localization/initialization_state`                           | [autoware_adapi_v1_msgs/msg/LocalizationInitializationState](https://github.com/autowarefoundation/autoware_adapi_msgs/blob/main/autoware_adapi_v1_msgs/localization/msg/LocalizationInitializationState.msg) | The state of the pose initialization.                                                                   |
+| Localization accuracy   | `/diagnostics`                                                 | [diagnostic_msgs/msg/DiagnosticArray](https://github.com/ros2/common_interfaces/blob/rolling/diagnostic_msgs/msg/DiagnosticArray.msg)                                                                         | The `autoware_localization_error_monitor` node reports when the error ellipse of the pose is too large. |
 
-Current pose of ego, calculated from localization interface.
-
-- geometry_msgs/msg/PoseWithCovarianceStamped
-  - std_msgs/msg/Header header
-  - geometry_msg/PoseWithCovariance pose
-    - geometry_msgs/msg/Pose pose
-      - geometry_msgs/msg/Point position
-      - geometry_msgs/msg/Quaternion orientation
-    - double[36] covariance
-
-### Vehicle velocity
-
-Current velocity of ego, calculated from localization interface.
-
-- geometry_msgs/msg/TwistWithCovarianceStamped
-  - std_msgs/msg/Header header
-  - geometry_msg/TwistWithCovariance twist
-    - geometry_msgs/msg/Twist twist
-      - geometry_msgs/msg/Vector3 linear
-      - geometry_msgs/msg/Vector3 angular
-    - double[36] covariance
-
-### Vehicle acceleration
-
-Current acceleration of ego, calculated from localization interface.
-
-- geometry_msgs/msg/AccelWithCovarianceStamped
-  - std_msgs/msg/Header header
-  - geometry_msg/AccelWithCovariance accel
-    - geometry_msgs/msg/Accel accel
-      - geometry_msgs/msg/Vector3 linear
-      - geometry_msgs/msg/Vector3 angular
-    - double[36] covariance
-
-### Vehicle kinematic state
-
-Current pose, velocity and acceleration of ego, calculated from localization interface.
-
-**Note:** Kinematic state contains pose, velocity and acceleration. In the future, [pose](#vehicle-pose), [velocity](#vehicle-velocity) and [acceleration](#vehicle-acceleration) will not be used as output for localization.
-
-- autoware_msgs/autoware_localization_msgs/msg/KinematicState
-  - std_msgs/msg/Header header
-  - string child_frame_id
-  - geometry_msgs/PoseWithCovariance pose_with_covariance
-  - geometry_msgs/TwistWithCovariance twist_with_covariance
-  - geometry_msgs/AccelWithCovariance accel_with_covariance
-
-The message will be subscribed by the planning and control module.
-
-### Localization Accuracy
-
-Diagnostics information that indicates if the localization module works properly.
-
-TBD.
+Use `/localization/kinematic_state` for the pose and the velocity of the vehicle. The [autoware_localization_msgs/msg/KinematicState](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_localization_msgs/msg/KinematicState.msg) message holds a pose, a twist, and an acceleration in one message, but no node in the default setup publishes it.

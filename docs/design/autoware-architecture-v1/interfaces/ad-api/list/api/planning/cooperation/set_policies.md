@@ -20,4 +20,5 @@ type:
 {% block description %}
 Set the default decision that is used instead when the operator's decision is undecided.
 For details, see the [cooperation](../../../../features/cooperation.md).
+The default implementation does not provide this API yet.
 {% endblock %}

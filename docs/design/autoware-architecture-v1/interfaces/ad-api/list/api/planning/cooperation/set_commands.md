@@ -18,4 +18,5 @@ type:
 {% block description %}
 Set the operator's decision for cooperation.
 For details, see the [cooperation](../../../../features/cooperation.md).
+The default implementation does not provide this API yet.
 {% endblock %}

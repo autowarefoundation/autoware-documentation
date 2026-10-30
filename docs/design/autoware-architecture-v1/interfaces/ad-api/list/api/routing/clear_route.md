@@ -11,5 +11,5 @@ type:
 
 {% extends 'design/autoware-architecture-v1/interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Clear the route. This API fails when the vehicle is using the route.
+Clear the route. This API fails when the vehicle is using the route, that is, while it moves in autonomous mode under Autoware control.
 {% endblock %}

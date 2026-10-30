@@ -6,11 +6,13 @@ type:
   name: autoware_adapi_v1_msgs/msg/DiagGraphStatus
   msg:
     - name: stamp
-      text: Timestamp when this message was sent
+      text: Timestamp when this message was sent.
     - name: id
       text: ID to check correspondence between struct and status.
     - name: nodes
       text: Dynamic data for nodes in diagnostic graph.
+    - name: diags
+      text: Dynamic data for leaf diagnostics in diagnostic graph.
 ---
 
 {% extends 'design/autoware-architecture-v1/interfaces/templates/autoware-interface.jinja2' %}

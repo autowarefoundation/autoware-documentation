@@ -1,6 +1,12 @@
-## Category:Intersection
+---
+title: Intersection
+---
+
+The drawings on this page use left-hand traffic, as in Japan: vehicles drive on the left side of the road, and a right turn crosses the opposing lane. For right-hand traffic, swap left and right.
 
 ---
+
+## Requirements
 
 ### vm-03-01 Intersection criteria
 
@@ -20,8 +26,8 @@ For detailed information, refer to the respective requirements on this page.
 
 ##### Autoware modules <!-- omit in toc -->
 
-- The requirements for _turn_direction_ and _right_of_way_ are related to the intersection module, which plans velocity to avoid collisions with other vehicles, taking traffic light instructions into account.
-- The requirements for _intersection_area_ are related to the avoidance module, which plans routes that evade by veering out of lanes in the intersections.
+- The intersection module uses _turn_direction_ and _right_of_way_. It plans the velocity to avoid collisions with other vehicles, and it takes the traffic lights into account. The blind spot module uses _turn_direction_ to check for bicycles and pedestrians on the side of a turning vehicle.
+- The static obstacle avoidance module uses the _intersection_area_ tag. It can plan a path that leaves the lane inside the intersection area (parameter `use_intersection_areas`, `true` by default). The lane change module also reads the _intersection_area_ tag. The intersection module can use the intersection area to detect vehicles outside the lanelets (parameter `use_intersection_area`, `false` by default).
 
 #### Preferred vector map <!-- omit in toc -->
 
@@ -36,7 +42,7 @@ None in particular.
 - [Intersection - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_intersection_module/)
 - [Blind Spot design - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_blind_spot_module/)
 - [Static Avoidance - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_static_obstacle_avoidance_module/)
-- [Dynamic Avoidance - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_dynamic_obstacle_avoidance_module/)
+- [Lane Change - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_lane_change_module/)
 
 ---
 
@@ -52,9 +58,9 @@ Add the following tag to the Lanelets in the intersection:
 
 Also, if the left or right Linestrings of Lanelets at the intersection lack road paintings, designate these as _type:virtual_.
 
-##### Behavior of Autoware： <!-- omit in toc -->
+##### Behavior of Autoware <!-- omit in toc -->
 
-Autoware will start flashing the turn signals (blinkers) 30 meters as default before turn_direction-tagged Lanelet. If you change the blinking timing, add the following tags:
+Autoware turns on the turn signal (blinker) before a Lanelet with _turn_direction_ left or right. By default, the turn signal starts when the distance to the start of that Lanelet is less than 30 m plus the distance that the vehicle drives in 3 s at its current speed. The parameters are `turn_signal_intersection_search_distance` and `turn_signal_search_time` of the behavior path planner. To change the distance for one Lanelet, add the following tag to it. This value then replaces the whole default distance.
 
 - key: _turn_signal_distance_
 - value: numerical value (m)
@@ -73,13 +79,13 @@ None in particular.
 
 - [Intersection - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_intersection_module/)
 - [Blind Spot design - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_blind_spot_module/)
-- [virtual_traffic_light in behavior_velocity_planner - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_virtual_traffic_light_module/)
+- [Turn signal design - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_planner_common/docs/behavior_path_planner_turn_signal_design/)
 
 ---
 
 ### vm-03-03 Lanelet width in the intersection
 
-#### Detail of requirements： <!-- omit in toc -->
+#### Detail of requirements <!-- omit in toc -->
 
 Lanelets in the intersection should have a consistent width. Additionally, draw Linestrings with smooth curves.
 
@@ -155,6 +161,8 @@ If there are guide lines in the intersection, draw the Lanelet following them.
 
 In cases where the Lanelets branches off, begin the branching at the end of the guide line. However, it is not necessary to share points or linestrings between Lanelets.
 
+A guide line is a road painting. Give the Linestring along a dashed guide line _type:line_thin_ and _subtype:dashed_, not _type:virtual_. Use _type:virtual_ only for the bounds without road paintings, as in [vm-03-02](#vm-03-02-lanelets-turn-direction-and-virtual-linestring). [Lanelet2](https://github.com/fzi-forschungszentrum-informatik/Lanelet2/blob/master/lanelet2_core/doc/LinestringTagging.md) defines _virtual_ as a non-physical lane boundary. Camera-based localization (YabLoc) uses _line_thin_ Linestrings as road markings, but not _virtual_ Linestrings. Lanelet2 permits a lane change across a _line_thin_ _dashed_ Linestring. To prohibit it, add _lane_change=no_ (see [vm-01-02](category_lane.md#vm-01-02-allowance-for-lane-changes)).
+
 {{ diagram("../assets/vm-03-06_1.svg", "Guide lines for a right turn. On the right, the lane branches into two lanes.") }}
 
 #### Preferred vector map <!-- omit in toc -->
@@ -199,8 +207,8 @@ When connecting multiple lanes with Lanelets at an intersection, those Lanelets 
 
 Encircle the intersection's drivable area with a Polygon (_type:intersection_area_). The boundary of this intersection's Polygon should be defined by the objects below.
 
-- Linestrings (_subtype:road_border_)
-- Straight lines at the connection points of lanelets in the intersection."
+- Linestrings (_type:road_border_)
+- Straight lines at the connection points of lanelets in the intersection.
 
 #### Preferred vector map <!-- omit in toc -->
 
@@ -213,9 +221,8 @@ None in particular.
 #### Related Autoware module
 
 - [Intersection - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_intersection_module/)
-- [Blind Spot design - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_blind_spot_module/)
 - [Static Avoidance - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_static_obstacle_avoidance_module/)
-- [Dynamic Avoidance - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_dynamic_obstacle_avoidance_module/)
+- [Lane Change - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_lane_change_module/)
 
 ---
 
@@ -276,6 +283,7 @@ None in particular.
 #### Related Autoware module
 
 - [Intersection - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_intersection_module/)
+- [How to set the RightOfWay tag - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_intersection_module/#how-towhy-set-rightofway-tag)
 
 ---
 
@@ -285,7 +293,7 @@ None in particular.
 
 Set the regulatory element 'right_of_way' for Lanelets that meet all of the following criteria:
 
-- Lanelets in the intersection with a _turn_direction_ of _right_ or _left_.
+- Lanelets in the intersection with a _turn_direction_ of _right_ or _left_. A lanelet with _turn_direction_ _straight_ also needs it in the cases below.
 - Lanelets that intersect with the vehicle's lanelet.
 - There are **no** traffic lights at the intersection.
 
@@ -293,11 +301,11 @@ Set the regulatory element 'right_of_way' for Lanelets that meet all of the foll
 
 #### Preferred vector map <!-- omit in toc -->
 
-##### ① The vehicle on the priority lane <!-- omit in toc -->
+##### Case 1: the vehicle is on the priority lane <!-- omit in toc -->
 
 {{ diagram("../assets/vm-03-11_2.svg", "Case 1: the crossing lanes and the opposing right turn are yield lanes.") }}
 
-##### ② The vehicle on the non-priority lane <!-- omit in toc -->
+##### Case 2: the vehicle is on the non-priority lane <!-- omit in toc -->
 
 A regulatory element is not necessary. However, when the vehicle goes straight, it has relative priority over other vehicles turning right from the opposing non-priority road. Therefore, settings for _right_of_way_ and _yield_ are required in this case.
 
@@ -310,6 +318,7 @@ None in particular.
 #### Related Autoware module
 
 - [Intersection - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_intersection_module/)
+- [How to set the RightOfWay tag - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_intersection_module/#how-towhy-set-rightofway-tag)
 
 ---
 
@@ -345,10 +354,10 @@ Set _location=private_ for Lanelets within private property.
 
 When a road, which enters or exits private property, intersects with a sidewalk, create a Lanelet for that sidewalk (_subtype:walkway_).
 
-##### Behavior of Autoware： <!-- omit in toc -->
+##### Behavior of Autoware <!-- omit in toc -->
 
-- The vehicle stops temporarily before entering the sidewalk.
-- The vehicle comes to a stop before merging onto the public road.
+- The vehicle stops temporarily before entering the sidewalk. The walkway module does this for a _subtype:walkway_ Lanelet.
+- The vehicle comes to a stop before merging onto the public road. The intersection module does this ("merge from private") when the Lanelet of the vehicle has _location=private_ and crosses Lanelets that are not private.
 
 {{ diagram("../assets/vm-03-13_1.svg", "Vehicles enter and leave a private area across the sidewalk.") }}
 
@@ -362,7 +371,8 @@ None in particular.
 
 #### Related Autoware module
 
-- [Intersection - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_intersection_module/)
+- [Merge from private - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_intersection_module/#merge-from-private)
+- [Walkway - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_walkway_module/)
 
 ---
 
@@ -374,7 +384,9 @@ If there is a stop line ahead of the guide lines in the intersection, ensure the
 
 - Create a Lanelet for the guide lines.
 - The Lanelet for the guide lines references a Regulatory Element (_subtype:road_marking_).
-- The Regulatory Element refers to the _stop_line_'s Linestring."
+- The Regulatory Element refers to the _stop_line_'s Linestring.
+
+The intersection module uses this stop line as the default stop line of the Lanelet.
 
 Refer to [Web.Auto Documentation - Creation of Regulatory Element](https://docs.web.auto/en/user-manuals/vector-map-builder/how-to-use/edit-maps#creation-of-regulatory-element) for the method of creation in Vector Map Builder.
 
@@ -398,15 +410,15 @@ None in particular.
 
 #### Detail of requirements <!-- omit in toc -->
 
-If an exclusive bicycle lane exists, create a Lanelet (_subtype:road_). The section adjoining the road should share a Linestring. For bicycle lanes at intersections, assign a yield*lane designation beneath the \_right_of_way* for lanes that intersect with the vehicle's left-turn lane. (Refer to [vm-03-10](./category_intersection.md#vm-03-10-right-of-way-with-signal) and [vm-03-11](./category_intersection.md#vm-03-11-right-of-way-without-signal) for right_of_way).
+If an exclusive bicycle lane exists, create a Lanelet with _subtype:bicycle_lane_ for it. The bicycle lane and the road Lanelet next to it must share a Linestring. In left-hand traffic, the bicycle lane is on the left side of the road Lanelet. In right-hand traffic, it is on the right side. A bicycle lane connects only to other bicycle lanes. Autoware supports _subtype:bicycle_lane_ in maps with _format_version_ 2 or later. See [Bicycle lane in the autoware_lanelet2_extension documentation](https://github.com/autowarefoundation/autoware_lanelet2_extension/blob/main/autoware_lanelet2_extension/docs/extra_lanelet_subtypes.md#bicycle-lane-format_version--2).
 
-In addition, set _lane_change = no_ as OptionalTags.
+Older maps model the bicycle lane as a Lanelet with _subtype:road_. In that case, set _lane_change = no_ on the Linestring that the bicycle lane shares with the road. For bicycle lanes at intersections, assign a _yield_ designation beneath the _right_of_way_ for lanes that intersect with the vehicle's left-turn lane. (Refer to [vm-03-10](./category_intersection.md#vm-03-10-right-of-way-with-signal) and [vm-03-11](./category_intersection.md#vm-03-11-right-of-way-without-signal) for right_of_way).
 
-##### Behavior of Autoware： <!-- omit in toc -->
+##### Behavior of Autoware <!-- omit in toc -->
 
-The blind spot (entanglement check) feature verifies the lanelet(subtype:road) and decides if the vehicle can proceed.
+The blind spot module checks the side of a turning vehicle for bicycles and pedestrians. It uses the _road_shoulder_ or _bicycle_lane_ Lanelet next to the outermost road Lanelet on the turning side. If there is none, it uses the outermost road Lanelet.
 
-![png](../assets/vm-03-15_1.png)
+![Road sign for an exclusive bicycle lane](../assets/vm-03-15_1.png)
 
 {{ diagram("../assets/vm-03-15_2.svg", "A road with an exclusive bicycle lane on each side.") }}
 

@@ -12,7 +12,7 @@ Autoware has the following repository structure defined by the [`autoware.repos`
 
 !!! note
 
-    Some repositories are omitted to keep the diagram simple.
+    The diagram shows the repositories of Autoware 2.0.0. It leaves out some external packages of Universe, for example vendor packages of third-party libraries.
 
 ## Important repositories
 
@@ -26,24 +26,24 @@ Here is an overview of the most important repositories:
 
 ### `autoware_universe`
 
-- Contains experimental, cutting-ege packages useful for self-driving.
+- Contains experimental, cutting-edge packages useful for self-driving.
 - It has sensing, perception, localization, planning, control packages.
 - Maintained by the Autoware Foundation and the community.
   - Hosted under autowarefoundation organization. But through the `CODEOWNERS` mechanism, the community can also maintain the repository.
 
 ### `autoware_msgs`
 
-- Contains the message definitions for **inter-component** communication. (e.g., perception to planning)
+- Contains the message definitions for **inter-component** communication. (for example, perception to planning)
 - Can also be used by simulation software to communicate with Autoware.
 
 ### `autoware_internal_msgs`
 
-- Contains the message definitions for **intra-component** communication. (e.g., within perception)
+- Contains the message definitions for **intra-component** communication. (for example, within perception)
 
 ### `autoware_adapi_msgs`
 
 - Contains the message definitions for **external API communication** between Autoware and **outside systems**  
-  (e.g., vehicle HMI, remote operators, fleet management systems, simulators, or user applications)
+  (for example, vehicle HMI, remote operators, fleet management systems, simulators, or user applications)
 
 ### `autoware_launch`
 
@@ -59,3 +59,18 @@ Here is an overview of the most important repositories:
 ### `autoware_utils`
 
 - Contains many sub-packages for common utilities such as `autoware_utils_math`, `autoware_utils_geometry`, `autoware_utils_system`, etc.
+
+### `autoware_simple_planning_simulator`
+
+- Contains the packages for planning simulation: the simple planning simulator, the dummy perception publisher, and a learning-based vehicle model.
+- These packages came from Autoware Universe. They give a standalone simulation environment for testing and development.
+
+### `autoware_system_designer`
+
+- Contains a toolset to describe an Autoware system in YAML files: its nodes, modules, and connections.
+- It generates system artifacts from these files, for example ROS 2 launch files, diagrams, and parameter templates.
+
+### `agnocast`
+
+- Contains Agnocast, a true zero-copy inter-process communication (IPC) middleware that is compatible with `rclcpp`.
+- It supports all ROS message types, including the message structures that `rosidl` generates.

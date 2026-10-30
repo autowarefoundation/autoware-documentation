@@ -1,13 +1,19 @@
-## Category:Crosswalk
+---
+title: Crosswalk
+---
 
-There are two types of requirements for crosswalks, and they can both be applicable to a single crosswalk.
+The drawings on this page use left-hand traffic, as in Japan: vehicles drive on the left side of the road. For right-hand traffic, swap left and right. In the map drawings, a colored area is a Lanelet, a dashed area is a Polygon, and a line with dots is a Linestring and its points.
+
+There are two types of requirements for crosswalks. Both can apply to a single crosswalk.
 
 - [vm-05-01](./category_crosswalk.md#vm-05-01-crosswalks-across-the-road) : Crosswalks across the road
 - [vm-05-02](./category_crosswalk.md#vm-05-02-crosswalks-with-pedestrian-signals) : Crosswalks with pedestrian signals
 
-In the case of crosswalks at intersections, they must also meet the requirements of the intersection.
+A crosswalk at an intersection must also meet the requirements of the intersection.
 
 ---
+
+## Requirements
 
 ### vm-05-01 Crosswalks across the road
 
@@ -17,17 +23,17 @@ Necessary requirements for creation:
 
 1. Create a Lanelet for the crosswalk (_subtype:crosswalk_).
 2. If there is a stop line before the crosswalk, create a Linestring (_type:stop_line_). Create stop lines for the opposing traffic lane in the same way.
-3. Create a Polygon (_type:crosswalk_polygon_) to cover the crosswalk.
-4. The Lanelet of the road refers to the regulatory element (_subtype:crosswalk_), and the regulatory element refers to the created Lanelet, Linestring, and Polygon.
+3. Create a Polygon to cover the crosswalk. The regulatory element refers to it with the role _crosswalk_polygon_. Autoware does not read a type tag on this Polygon.
+4. The Lanelet of the road refers to the regulatory element (_subtype:crosswalk_). The regulatory element refers to the crosswalk Lanelet (role _refers_), the stop line Linestrings (role _ref_line_), and the Polygon (role _crosswalk_polygon_).
 
-##### Supplemental information
+##### Supplemental information <!-- omit in toc -->
 
 - Link the regulatory element to the lanelet(s) of the road that intersects with the crosswalk.
-- The stop lines linked to the regulatory element do not necessarily have to exist on the road Lanelets linked with the regulatory element.
+- The stop lines linked to the regulatory element do not have to be on the road Lanelets linked with the regulatory element.
 
-##### Behavior of Autoware： <!-- omit in toc -->
+##### Behavior of Autoware <!-- omit in toc -->
 
-When pedestrians or cyclists are on the crosswalk, Autoware will come to a stop before the stop line and wait for them to pass. Once they have cleared the area, Autoware will begin to move forward.
+When pedestrians or cyclists are on the crosswalk, Autoware stops before the stop line and waits for them to pass. When they have cleared the area, Autoware starts to move forward.
 
 #### Preferred vector map <!-- omit in toc -->
 
@@ -53,11 +59,18 @@ Necessary requirements for creation:
 - Create a Traffic Light Linestring. If multiple traffic lights exist, create multiple Linestrings.
   - Linestring
     - _type:traffic_light_
-    - _subtype:red_green_
+    - _subtype_: see the supplemental information
     - _height_:value
-- Ensure the crosswalk's Lanelet references a Regulatory Element (_subtype:traffic_light_). Also, ensure the Regulatory Element references Linestring (_type:traffic_light_).
+- Make sure that the crosswalk Lanelet refers to a Regulatory Element (_subtype:traffic_light_). Also make sure that the Regulatory Element refers to the Linestrings (_type:traffic_light_).
 
-Refer to [vm-04-02](category_traffic_light.md#vm-04-02-traffic-light-position-and-size) for more about traffic light object.
+##### Supplemental information <!-- omit in toc -->
+
+Autoware knows that a traffic light is for pedestrians because a crosswalk Lanelet refers to its Regulatory Element. It does not use the subtype for this. The subtype controls the camera detection:
+
+- If the camera must detect the pedestrian light, give the Linestring a subtype other than _solid_, for example _subtype:red_green_. The map-based detector skips traffic light Linestrings that have no subtype or that have _subtype:solid_.
+- If the Linestring has _subtype:solid_, as in the example of the [Autoware Lanelet2 extension](https://github.com/autowarefoundation/autoware_lanelet2_extension/blob/main/autoware_lanelet2_extension/docs/extra_regulatory_elements.md#traffic-lights-for-crosswalks), the camera does not detect it. The crosswalk traffic light estimator then estimates the state of the pedestrian light from the vehicle traffic lights.
+
+Refer to [vm-04-02](category_traffic_light.md#vm-04-02-traffic-light-position-and-size) for more about the traffic light object.
 
 #### Preferred vector map <!-- omit in toc -->
 
@@ -77,10 +90,12 @@ None in particular.
 
 #### Detail of requirements <!-- omit in toc -->
 
-To ensure a constant deceleration to a safe speed when traversing a crosswalk, add the following tags to the crosswalk's Lanelet (_subtype:crosswalk_):
+To make the vehicle slow down to a safe speed when it passes a crosswalk, add the following tags to the crosswalk Lanelet (_subtype:crosswalk_):
 
 - _safety_slow_down_speed_ [m/s]: The maximum velocity while crossing.
-- _safety_slow_down_distance_ [m]: The starting point of the area where the maximum speed applies, measured from the vehicle's front bumper to the crosswalk.
+- _safety_slow_down_distance_ [m]: The start of the area where the maximum speed applies, measured from the front bumper of the vehicle to the crosswalk.
+
+The vehicle slows down even when there are no pedestrians or cyclists near the crosswalk. If the Lanelet has _safety_slow_down_speed_ but no _safety_slow_down_distance_, the crosswalk module uses a distance of 2.0 m.
 
 #### Preferred vector map <!-- omit in toc -->
 
@@ -100,11 +115,11 @@ None in particular.
 
 #### Detail of requirements <!-- omit in toc -->
 
-Autoware detects pedestrians and bicycles crossing the crosswalk, as well as those that might cross. However, areas near the crosswalk, such as fenced kindergartens, playgrounds, or parks, where many people are moving, can affect crosswalk detection due to predicted paths of people and bicycles from these areas.
+Autoware detects pedestrians and bicycles that cross the crosswalk, and also those that can cross it. But areas near the crosswalk where many people move, such as fenced kindergartens, playgrounds, or parks, can affect the crosswalk detection. The predicted paths of people and bicycles from these areas can go to the crosswalk.
 
-Surround areas not connected to the crosswalk with Linestring (_type:fence_), which does not need to be linked to anything.
+Surround the areas that are not connected to the crosswalk with a Linestring (_type:fence_). You do not need to link this Linestring to anything.
 
-However, if there is a guardrail, wall, or fence between the road and sidewalk, with another fence behind it, the second fence may be omitted. Nevertheless, areas around crosswalks are not subject to this omission and must be created without exclusion.
+If there is a guardrail, wall, or fence between the road and the sidewalk, with another fence behind it, you can omit the second fence. But do not omit fences in the areas around crosswalks.
 
 #### Preferred vector map <!-- omit in toc -->
 

@@ -7,6 +7,8 @@ type:
   req:
     - name: header
       text: header for pose transformation
+    - name: option
+      text: route options, see [routing](../../../features/routing.md)
     - name: goal
       text: goal pose
     - name: segments
@@ -18,6 +20,6 @@ type:
 
 {% extends 'design/autoware-architecture-v1/interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Set the route with the waypoint segments in lanelet format. If start pose is not specified, the current pose will be used.
+Set the route with the waypoint segments in lanelet format. The current pose of the vehicle is the start of the route.
 This API only accepts the route when the route state is UNSET. In any other state, clear the route first.
 {% endblock %}
