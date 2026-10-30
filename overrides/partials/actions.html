@@ -1,0 +1,39 @@
+<!-- prettier-ignore -->
+{#-
+  The page actions of the theme, with two changes: the view button opens the
+  page on GitHub (/blob/) instead of the raw Markdown file (/raw/), and the
+  titles say that both buttons go to the documentation repository on GitHub.
+-#}
+{% if "content.action.copy" in features and page.markdown_url %}
+<button
+  type="button"
+  title="{{ lang.t('action.copy') }}"
+  aria-label="{{ lang.t('action.copy') }}"
+  class="md-content__button md-icon"
+  data-md-copy-url="{{ page.markdown_url | url }}"
+>
+  {% set icon = config.theme.icon.copy or "material/content-copy" %} {% include ".icons/" ~ icon ~
+  ".svg" %}
+</button>
+{% endif %} {% if page.edit_url %} {% if "content.action.edit" in features %}
+<a
+  href="{{ page.edit_url }}"
+  title="Edit this page on GitHub"
+  aria-label="Edit this page on GitHub"
+  class="md-content__button md-icon"
+  rel="edit"
+>
+  {% set icon = config.theme.icon.edit or "material/file-edit-outline" %} {% include ".icons/" ~
+  icon ~ ".svg" %}
+</a>
+{% endif %} {% if "content.action.view" in features %}
+<a
+  href="{{ page.edit_url | replace('/edit/', '/blob/') }}"
+  title="View this page on GitHub"
+  aria-label="View this page on GitHub"
+  class="md-content__button md-icon"
+>
+  {% set icon = config.theme.icon.view or "material/file-eye-outline" %} {% include ".icons/" ~ icon
+  ~ ".svg" %}
+</a>
+{% endif %} {% endif %}
