@@ -1,0 +1,273 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1080" role="img" aria-labelledby="system-launch-flow-title">
+  <title id="system-launch-flow-title">
+    autoware.launch.xml includes tier4_system_component.launch.xml, which includes system.launch.xml of tier4_system_launch and logging.launch.xml of autoware_diagnostic_graph_utils. system.launch.xml
+    always launches seven packages, and it launches the other packages when their launch arguments allow it.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-group: color-mix(in
+    srgb, var(--aw-c-indigo) 6%, var(--md-default-bg-color)); --aw-d-group-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 25%, transparent); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} .group {
+  fill: var(--aw-d-group);
+  stroke: var(--aw-d-group-stroke);
+  stroke-width: 1.5;
+} .group.dashed {
+  stroke-dasharray: 7 5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="960" height="1080"/>
+  <circle class="halo" cx="170" cy="170" r="140"/>
+  <circle class="halo cyan" cx="640" cy="420" r="220"/>
+  <circle class="halo" cx="640" cy="820" r="140"/>
+
+  <!-- Launch chain -->
+  <rect class="box primary" x="24" y="24" width="290" height="60" rx="14"/>
+  <circle class="icon-bg on" cx="55" cy="54" r="17"/>
+  <path class="icon-line" d="M50.75 46.5625 L62.4375 54 L50.75 61.4375 Z"/>
+  <text class="code lbl on-primary" x="84" y="45" dominant-baseline="central">autoware.launch.xml</text>
+  <text class="sub on-primary" x="84" y="63" dominant-baseline="central">autoware_launch</text>
+  <rect class="card" x="24" y="128" width="290" height="56" rx="12"/>
+  <text class="code lbl" x="169" y="147" text-anchor="middle" dominant-baseline="central">tier4_system_component.launch.xml</text>
+  <text class="sub" x="169" y="165" text-anchor="middle" dominant-baseline="central">autoware_launch</text>
+  <rect class="card" x="24" y="228" width="290" height="56" rx="12"/>
+  <text class="code lbl" x="169" y="247" text-anchor="middle" dominant-baseline="central">system.launch.xml</text>
+  <text class="sub" x="169" y="265" text-anchor="middle" dominant-baseline="central">tier4_system_launch</text>
+  <text class="sub" x="169" y="304" text-anchor="middle" dominant-baseline="central">Most nodes run in the /system namespace.</text>
+  <text class="sub" x="169" y="322" text-anchor="middle" dominant-baseline="central">Parameter files: autoware_launch/config/system/</text>
+
+  <!-- Logging of the diagnostic graph -->
+  <rect class="card" x="344" y="128" width="274" height="56" rx="12"/>
+  <text class="code lbl" x="481" y="147" text-anchor="middle" dominant-baseline="central">logging.launch.xml</text>
+  <text class="sub" x="481" y="165" text-anchor="middle" dominant-baseline="central">autoware_diagnostic_graph_utils</text>
+  <text class="sub" x="634" y="147" dominant-baseline="central">Logs the errors of the</text>
+  <text class="sub" x="634" y="165" dominant-baseline="central">diagnostic graph</text>
+
+  <!-- Always launched -->
+  <rect class="glass-panel" x="344" y="216" width="596" height="384" rx="18"/>
+  <text class="ttl" x="360" y="242">Always launched</text>
+  <rect class="box" x="360" y="260" width="274" height="72" rx="12"/>
+  <text class="code lbl" x="497" y="287" text-anchor="middle" dominant-baseline="central">duplicated_node_checker.launch.xml</text>
+  <text class="sub" x="497" y="305" text-anchor="middle" dominant-baseline="central">autoware_duplicated_node_checker</text>
+  <rect class="box" x="650" y="260" width="274" height="72" rx="12"/>
+  <text class="code lbl" x="787" y="287" text-anchor="middle" dominant-baseline="central">processing_time_checker.launch.xml</text>
+  <text class="sub" x="787" y="305" text-anchor="middle" dominant-baseline="central">autoware_processing_time_checker</text>
+  <rect class="box" x="360" y="344" width="274" height="72" rx="12"/>
+  <text class="code lbl" x="497" y="362" text-anchor="middle" dominant-baseline="central">pipeline_latency_monitor</text>
+  <text class="code lbl" x="497" y="380" text-anchor="middle" dominant-baseline="central">.launch.xml</text>
+  <text class="sub" x="497" y="398" text-anchor="middle" dominant-baseline="central">autoware_pipeline_latency_monitor</text>
+  <rect class="box" x="650" y="344" width="274" height="72" rx="12"/>
+  <text class="code lbl" x="787" y="371" text-anchor="middle" dominant-baseline="central">component_state_monitor.launch.py</text>
+  <text class="sub" x="787" y="389" text-anchor="middle" dominant-baseline="central">autoware_component_state_monitor</text>
+  <rect class="box" x="360" y="428" width="274" height="72" rx="12"/>
+  <text class="code lbl" x="497" y="446" text-anchor="middle" dominant-baseline="central">mrm_emergency_stop_operator</text>
+  <text class="code lbl" x="497" y="464" text-anchor="middle" dominant-baseline="central">.launch.py</text>
+  <text class="sub" x="497" y="482" text-anchor="middle" dominant-baseline="central">autoware_mrm_emergency_stop_operator</text>
+  <rect class="box" x="650" y="428" width="274" height="72" rx="12"/>
+  <text class="code lbl" x="787" y="455" text-anchor="middle" dominant-baseline="central">aggregator.launch.xml</text>
+  <text class="sub" x="787" y="473" text-anchor="middle" dominant-baseline="central">autoware_diagnostic_graph_aggregator</text>
+  <rect class="box" x="360" y="512" width="274" height="72" rx="12"/>
+  <text class="code lbl" x="497" y="539" text-anchor="middle" dominant-baseline="central">hazard_status_converter.launch.xml</text>
+  <text class="sub" x="497" y="557" text-anchor="middle" dominant-baseline="central">autoware_hazard_status_converter</text>
+
+  <!-- Groups that depend on launch arguments -->
+  <rect class="group dashed" x="344" y="620" width="290" height="132" rx="16"/>
+  <text class="code" x="360" y="642" dominant-baseline="central">launch_system_monitor:=true</text>
+  <rect class="box" x="360" y="660" width="258" height="72" rx="12"/>
+  <text class="code lbl" x="489" y="678" text-anchor="middle" dominant-baseline="central">system_monitor.launch.xml</text>
+  <text class="sub" x="489" y="696" text-anchor="middle" dominant-baseline="central">autoware_system_monitor</text>
+  <text class="sub" x="489" y="714" text-anchor="middle" dominant-baseline="central">Default: true</text>
+  <rect class="group dashed" x="650" y="620" width="290" height="132" rx="16"/>
+  <text class="code" x="666" y="642" dominant-baseline="central">launch_dummy_diag_publisher:=true</text>
+  <rect class="box muted" x="666" y="660" width="258" height="72" rx="12"/>
+  <text class="code lbl" x="795" y="678" text-anchor="middle" dominant-baseline="central">dummy_diag_publisher.launch.xml</text>
+  <text class="sub" x="795" y="696" text-anchor="middle" dominant-baseline="central">autoware_dummy_diag_publisher</text>
+  <text class="sub" x="795" y="714" text-anchor="middle" dominant-baseline="central">Default: false</text>
+  <rect class="group dashed" x="344" y="772" width="596" height="132" rx="16"/>
+  <text class="code" x="360" y="794" dominant-baseline="central">use_control_command_gate:=false (the default)</text>
+  <rect class="box" x="360" y="812" width="274" height="72" rx="12"/>
+  <text class="code lbl" x="497" y="830" text-anchor="middle" dominant-baseline="central">mrm_comfortable_stop_operator</text>
+  <text class="code lbl" x="497" y="848" text-anchor="middle" dominant-baseline="central">.launch.py</text>
+  <text class="sub" x="497" y="866" text-anchor="middle" dominant-baseline="central">autoware_mrm_comfortable_stop_operator</text>
+  <rect class="box" x="650" y="812" width="274" height="72" rx="12"/>
+  <text class="code lbl" x="787" y="839" text-anchor="middle" dominant-baseline="central">mrm_handler.launch.xml</text>
+  <text class="sub" x="787" y="857" text-anchor="middle" dominant-baseline="central">autoware_mrm_handler</text>
+  <rect class="group dashed" x="344" y="924" width="596" height="132" rx="16"/>
+  <text class="code" x="360" y="946" dominant-baseline="central">use_control_command_gate:=true</text>
+  <rect class="box muted" x="360" y="964" width="274" height="72" rx="12"/>
+  <text class="code lbl" x="497" y="991" text-anchor="middle" dominant-baseline="central">switcher.launch.xml</text>
+  <text class="sub" x="497" y="1009" text-anchor="middle" dominant-baseline="central">autoware_command_mode_switcher</text>
+  <rect class="box muted" x="650" y="964" width="274" height="72" rx="12"/>
+  <text class="code lbl" x="787" y="991" text-anchor="middle" dominant-baseline="central">decider.launch.xml</text>
+  <text class="sub" x="787" y="1009" text-anchor="middle" dominant-baseline="central">autoware_command_mode_decider</text>
+
+  <!-- Includes of system.launch.xml -->
+
+  <!-- Lines: optional ones first, the main flow on top -->
+  <path class="edge dash" d="M330 256 V990.0 H338"/>
+  <path class="flow" pathLength="100" d="M330 256 V990.0 H338"/>
+  <path class="edge dash head" d="M330 256 V990.0 H338"/>
+  <path class="edge dash" d="M330 256 V610 H795.0 V614"/>
+  <path class="flow" pathLength="100" d="M330 256 V610 H795.0 V614"/>
+  <path class="edge dash head" d="M330 256 V610 H795.0 V614"/>
+  <path class="edge" d="M314 156 H338"/>
+  <path class="flow" pathLength="100" d="M314 156 H338"/>
+  <path class="edge head" d="M314 156 H338"/>
+  <path class="edge" d="M330 256 V686.0 H338"/>
+  <path class="flow" pathLength="100" d="M330 256 V686.0 H338"/>
+  <path class="edge head" d="M330 256 V686.0 H338"/>
+  <path class="edge" d="M330 256 V838.0 H338"/>
+  <path class="flow" pathLength="100" d="M330 256 V838.0 H338"/>
+  <path class="edge head" d="M330 256 V838.0 H338"/>
+  <path class="edge accent" d="M169 84 V122"/>
+  <path class="flow flow-accent" pathLength="100" d="M169 84 V122"/>
+  <path class="edge accent head" d="M169 84 V122"/>
+  <path class="edge accent" d="M169 184 V222"/>
+  <path class="flow flow-accent" pathLength="100" d="M169 184 V222"/>
+  <path class="edge accent head" d="M169 184 V222"/>
+  <path class="edge accent" d="M314 256 H338"/>
+  <path class="flow flow-accent" pathLength="100" d="M314 256 H338"/>
+  <path class="edge accent head" d="M314 256 H338"/>
+  <text class="edge-lbl code" x="181" y="103" text-anchor="start" dominant-baseline="central">launch_system:=true</text>
+</svg>

@@ -1,19 +1,10 @@
-# Planning Launch Files
+# Planning launch files
 
 ## Overview
 
-The Autoware planning stacks start
-launching at `autoware_launch.xml` as mentioned on the [Launch Autoware](../index.md) page.
-The `autoware_launch` package includes `tier4_planning_component.launch.xml`
-for initiating planning launch files invocation from `autoware_launch.xml`.
-The diagram below illustrates the flow of Autoware planning launch files within the autoware_launch and autoware_universe packages.
+The Autoware planning stack starts with `autoware.launch.xml`, as the [Launch Autoware](../index.md) page explains. If `launch_planning` is `true`, `autoware.launch.xml` includes `component_planning.launch.xml` of the `autoware_launch` package. This file includes `planning.launch.xml` of the [`autoware_planning_launch`](https://github.com/autowarefoundation/autoware_launch/tree/0.53.0/autoware_universe_launch/autoware_planning_launch) package. The following diagram shows the planning launch flow in the `autoware_launch` repository.
 
-<figure markdown>
-  ![planning-launch-flow](images/planning_launch_flow.svg){ align=center }
-  <figcaption>
-    Autoware planning launch flow diagram
-  </figcaption>
-</figure>
+{{ diagram("images/planning-launch-flow.svg", "planning.launch.xml reads a module preset and includes mission planning, the trajectory source that planning_setting selects, and the planning validator.") }}
 
 !!! note
 
@@ -26,65 +17,53 @@ The diagram below illustrates the flow of Autoware planning launch files within 
     if we define an argument at the top-level launch,
     it will override the value on lower-level launches.
 
-## tier4_planning_component.launch.xml
+## component_planning.launch.xml
 
-The `tier4_planning_component.launch.xml` launch file is the main planning component launch at the `autoware_launch` package.
-This launch file calls `planning.launch.xml` at [tier4_planning_launch](https://github.com/autowarefoundation/autoware_launch/tree/main/tier4_universe_launch/tier4_planning_launch) package from `autoware_universe` repository.
-We can modify planning launch arguments at tier4_planning_component.launch.xml.
-Also,
-we can add any other necessary arguments
-that we want
-to change it since `tier4_planning_component.launch.xml` is the top-level launch file of other planning launch files.
-Here are some predefined planning launch arguments:
+The [`component_planning.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/0.53.0/autoware_launch/launch/components/component_planning.launch.xml) launch file is the main planning launch file of the `autoware_launch` package. It includes [`planning.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/0.53.0/autoware_universe_launch/autoware_planning_launch/launch/planning.launch.xml) of `autoware_planning_launch`. The parameter files are in the [`autoware_planning_config`](https://github.com/autowarefoundation/autoware_launch/tree/0.53.0/autoware_universe_launch/autoware_planning_config) package. `component_planning.launch.xml` gives these arguments of `autoware.launch.xml` to the planning launch files:
 
-- **`use_experimental_lane_change_function:`** This argument enables
-  `enable_collision_check_at_prepare_phase`, `use_predicted_path_outside_lanelet`,
-  and `use_all_predicted_path` options for Autoware for experimental lane changing
-  (for more information, please refer to [lane_change documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_lane_change_module/)).
-  The default value is True.
-  To set it to False, make the following change in the `tier4_planning_component.launch.xml` file:
+- **`planning_setting:`** This argument selects the source of the trajectory. With `rule_based` (the default), the scenario planning modules make the trajectory. With `diffusion_planner`, the learned [Diffusion Planner](https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_diffusion_planner/) makes it. In both cases, the planning validator checks the trajectory and publishes `/planning/trajectory`.
+- **`planning_module_preset:`** This argument selects the module preset. `planning.launch.xml` includes the file `config/preset/<planning_module_preset>_preset.yaml` of `autoware_planning_config`. The default value is `default`, which selects [`default_preset.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.53.0/autoware_universe_launch/autoware_planning_config/config/preset/default_preset.yaml).
+
+## Module preset
+
+The preset file declares the launch arguments that enable or disable the planning modules. For more information, see [how to enable or disable a planning module](https://autowarefoundation.github.io/autoware_universe/main/planning/#how-to-enable-or-disable-planning-module). These are some of its arguments:
+
+- **`launch_obstacle_cruise_module:`** This argument enables the [obstacle cruise module](https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_cruise_module/) of the motion velocity planner. The motion velocity planner also has the [obstacle stop module](https://autowarefoundation.github.io/autoware_core/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_stop_module/) (`launch_obstacle_stop_module`) and the obstacle slow down module (`launch_obstacle_slow_down_module`). All three are `true` by default. To disable the obstacle cruise module, change the preset file:
 
   ```diff
-  - <arg name="use_experimental_lane_change_function" default="true"/>
-  + <arg name="use_experimental_lane_change_function" default="false"/>
+    - arg:
+        name: launch_obstacle_cruise_module
+  -     default: "true"
+  +     default: "false"
   ```
 
-- **`cruise_planner_type:`** There are two types of cruise planners in Autoware: [obstacle_stop_planner](https://autowarefoundation.github.io/autoware_core/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_stop_module/)
-  and [obstacle_cruise_planner](https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_cruise_module/). For specifications on these cruise planner types,
-  please refer to the package documentation. The default cruise planner is `obstacle_stop_planner`.
-  To change it to obstacle_cruise_planner, update the argument value in the `tier4_planning_component.launch.xml` file:
+- **`launch_surround_obstacle_checker:`** This argument enables the [surround_obstacle_checker](https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_surround_obstacle_checker/). The default value is `false`. To enable it, change the preset file:
 
   ```diff
-  - <arg name="cruise_planner_type" default="obstacle_stop_planner" description="options: obstacle_stop_planner, obstacle_cruise_planner, none"/>
-  + <arg name="cruise_planner_type" default="obstacle_cruise_planner" description="options: obstacle_stop_planner, obstacle_cruise_planner, none"/>
+    - arg:
+        name: launch_surround_obstacle_checker
+  -     default: "false"
+  +     default: "true"
   ```
 
-- **`use_surround_obstacle_check:`** This argument enables the [surround_obstacle_checker](https://autowarefoundation.github.io/autoware_universe/main/planning/autoware_surround_obstacle_checker/)
-  for Autoware. If you want to disable it, you can do in the
-  `tier4_planning_component.launch.xml` file:
+- **`velocity_smoother_type:`** This argument selects the type of the smoother of the [velocity_smoother](https://autowarefoundation.github.io/autoware_core/main/planning/autoware_velocity_smoother/) package. For the available smoother types, see its documentation. For example, to change the smoother type from `JerkFiltered` to `L2`, change the preset file:
 
   ```diff
-  - <arg name="use_surround_obstacle_check" default="true"/>
-  + <arg name="use_surround_obstacle_check" default="false"/>
-  ```
-
-- **`velocity_smoother_type:`** This argument specifies the type of smoother
-  for the [motion_velocity_smoother](https://autowarefoundation.github.io/autoware_core/main/planning/autoware_velocity_smoother/) package. Please consult the documentation
-  for detailed information about available smoother types. For instance, if
-  you wish to change your smoother type from JerkFiltered to L2, you can do
-  in the tier4_planning_component.launch.xml file.:
-
-  ```diff
-  - <arg name="velocity_smoother_type" default="JerkFiltered" description="options: JerkFiltered, L2, Analytical, Linf(Unstable)"/>
-  + <arg name="velocity_smoother_type" default="L2" description="options: JerkFiltered, L2, Analytical, Linf(Unstable)"/>
+    - arg:
+        name: velocity_smoother_type
+  -     default: JerkFiltered
+  +     default: L2
   ```
 
 !!! note
 
-    You can also use this arguments as command line arguments:
+    You can also use these arguments as command-line arguments:
     ```bash
-    ros2 launch autoware_launch autoware.launch.xml ... use_surround_obstacle_check:=false velocity_smoother_type:=L2 ...
+    ros2 launch autoware_launch autoware.launch.xml ... launch_surround_obstacle_checker:=true velocity_smoother_type:=L2 ...
     ```
 
-The predefined arguments in tier4_planning_component.launch.xml have been explained above.
-However, numerous planning arguments are included in the autoware_launch planning config parameters.
+Autoware 2.0.0 has no `use_experimental_lane_change_function`, `cruise_planner_type`, or `use_surround_obstacle_check` argument. The preset arguments above replace the last two.
+
+To keep your changes apart from the default preset, copy `default_preset.yaml` to a new file, for example `my_preset.yaml`, in the same directory. Build `autoware_planning_config` again, so that the install directory has the new file. Then launch Autoware with `planning_module_preset:=my`.
+
+The parameters of each planning module are in the `autoware_planning_config` package, for example in `config/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/`.

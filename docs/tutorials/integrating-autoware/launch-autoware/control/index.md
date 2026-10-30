@@ -1,19 +1,10 @@
-# Control Launch Files
+# Control launch files
 
 ## Overview
 
-The Autoware control stacks start
-launching at `autoware_launch.xml` as mentioned on the [Launch Autoware](../index.md) page.
-The `autoware_launch` package includes `tier4_control_component.launch.xml`
-for initiating control launch files invocation from `autoware_launch.xml`.
-The diagram below illustrates the flow of Autoware control launch files within the autoware_launch and autoware_universe packages.
+The Autoware control stack starts with `autoware.launch.xml`, as the [Launch Autoware](../index.md) page explains. If `launch_control` is `true`, `autoware.launch.xml` includes `component_control.launch.xml` of the `autoware_launch` package. This file includes `control.launch.xml` of the [`autoware_control_launch`](https://github.com/autowarefoundation/autoware_launch/tree/0.53.0/autoware_universe_launch/autoware_control_launch) package. The following diagram shows the control launch flow in the `autoware_launch` repository.
 
-<figure markdown>
-  ![control-launch-flow](images/control_launch_flow.svg){ align=center }
-  <figcaption>
-    Autoware control launch flow diagram
-  </figcaption>
-</figure>
+{{ diagram("images/control-launch-flow.svg", "control.launch.xml reads a module preset and includes the trajectory follower, command gate, external command, and control checker launch files.") }}
 
 !!! note
 
@@ -26,55 +17,54 @@ The diagram below illustrates the flow of Autoware control launch files within t
     if we define an argument at the top-level launch,
     it will override the value on lower-level launches.
 
-## tier4_control_component.launch.xml
+## component_control.launch.xml
 
-The tier4_control_component.launch.xml launch file is the main control component launch in the autoware_launch package.
-This launch file calls control.launch.xml from the [tier4_control_launch](https://github.com/autowarefoundation/autoware_launch/tree/main/tier4_universe_launch/tier4_control_launch) package
-within the autoware_universe repository.
-We can modify control launch arguments in tier4_control_component.launch.xml.
-Additionally,
-we can add any other necessary arguments
-that need adjustment since tier4_control_component.launch.xml serves as the top-level launch file for other control launch files.
-Here are some predefined control launch arguments:
+The [`component_control.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/0.53.0/autoware_launch/launch/components/component_control.launch.xml) launch file is the main control launch file of the `autoware_launch` package. It includes [`control.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/0.53.0/autoware_universe_launch/autoware_control_launch/launch/control.launch.xml) of `autoware_control_launch`. The parameter files are in the [`autoware_control_config`](https://github.com/autowarefoundation/autoware_launch/tree/0.53.0/autoware_universe_launch/autoware_control_config) package. `control.launch.xml` puts the composable nodes into two containers in the `/control` namespace: `control_container` and `control_check_container`. You can change the control launch arguments in `component_control.launch.xml`. These are some of its arguments:
 
-- **`lateral_controller_mode:`** This argument determines
-  the lateral controller algorithm.
-  The default value is `mpc`.
-  To change it to pure pursuit,
-  make the following update in your `tier4_control_component.launch.xml` file:
+- **`lateral_controller_mode:`** This argument selects the lateral controller algorithm. The default value is `mpc` ([MPC lateral controller](https://autowarefoundation.github.io/autoware_universe/main/control/autoware_mpc_lateral_controller/)). To change it to [pure pursuit](https://autowarefoundation.github.io/autoware_universe/main/control/autoware_pure_pursuit/), update your `component_control.launch.xml` file:
 
   ```diff
   - <arg name="lateral_controller_mode" default="mpc"/>
   + <arg name="lateral_controller_mode" default="pure_pursuit"/>
   ```
 
-- **`enable_autonomous_emergency_braking:`** This argument enables autonomous emergency
-  braking under specific conditions.
-  Please refer to the [Autonomous emergency braking (AEB)](https://autowarefoundation.github.io/autoware_universe/main/control/autoware_autonomous_emergency_braking/) page for
-  more information.
-  To enable it, update the value in the `tier4_control_component.launch.xml` file:
+- **`use_individual_control_param:`** If this argument is `true`, the lateral and longitudinal controllers read their parameters from `config/trajectory_follower/<vehicle_id>/` of `autoware_control_config`. The default value is `false`.
+
+- **`module_preset:`** This argument selects the module preset. `autoware.launch.xml` gives it the value of `control_module_preset`. The default value is `default`, which selects [`default_preset.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.53.0/autoware_universe_launch/autoware_control_config/config/preset/default_preset.yaml) of `autoware_control_config`.
+
+## Module preset
+
+The preset file declares the launch arguments that enable or disable the control modules. These are some of its arguments:
+
+- **`launch_autonomous_emergency_braking:`** This argument enables autonomous emergency braking under specific conditions. For more information, see the [Autonomous emergency braking (AEB)](https://autowarefoundation.github.io/autoware_universe/main/control/autoware_autonomous_emergency_braking/) page. The default value is `true`. To disable it, update the preset file:
 
   ```diff
-  - <arg name="enable_autonomous_emergency_braking" default="false"/>
-  + <arg name="enable_autonomous_emergency_braking" default="true"/>
+    - arg:
+        name: launch_autonomous_emergency_braking
+  -     default: "true"
+  +     default: "false"
   ```
 
-- **`enable_predicted_path_checker:`** This argument enables the predicted path checker module.
-  Please refer to the [Predicted Path Checker](https://autowarefoundation.github.io/autoware_universe/main/control/autoware_predicted_path_checker/) page for
-  more information.
-  To enable it, update the value in the `tier4_control_component.launch.xml` file:
+- **`launch_predicted_path_checker:`** This argument enables the predicted path checker module. For more information, see the [Predicted Path Checker](https://autowarefoundation.github.io/autoware_universe/main/control/autoware_predicted_path_checker/) page. The default value is `false`. To enable it, update the preset file:
 
   ```diff
-  - <arg name="enable_predicted_path_checker" default="false"/>
-  + <arg name="enable_predicted_path_checker" default="true"/>
+    - arg:
+        name: launch_predicted_path_checker
+  -     default: "false"
+  +     default: "true"
   ```
+
+- **`trajectory_follower_mode:`** This argument selects the trajectory follower. The options are `trajectory_follower_node` (the default), `smart_mpc_trajectory_follower`, and `none`.
+
+The preset file also has `launch_lane_departure_checker`, `launch_control_validator`, `launch_collision_detector`, `launch_obstacle_collision_checker`, `launch_external_cmd_selector`, `launch_external_cmd_converter`, and `launch_control_evaluator`.
 
 !!! note
 
-    You can also use this arguments as command line arguments:
+    You can also use these arguments as command-line arguments:
     ```bash
-    ros2 launch autoware_launch autoware.launch.xml ... enable_predicted_path_checker:=true lateral_controller_mode:=pure_pursuit ...
+    ros2 launch autoware_launch autoware.launch.xml ... launch_predicted_path_checker:=true lateral_controller_mode:=pure_pursuit ...
     ```
 
-The predefined arguments in tier4_control_component.launch.xml have been explained above.
-However, numerous control arguments are included in the autoware_launch control config parameters.
+Autoware 2.0.0 has no `enable_autonomous_emergency_braking` or `enable_predicted_path_checker` argument. The `launch_autonomous_emergency_braking` and `launch_predicted_path_checker` arguments of the preset replace them.
+
+The parameters of each control module are in the `autoware_control_config` package, for example in `config/trajectory_follower/lateral/mpc.param.yaml`.

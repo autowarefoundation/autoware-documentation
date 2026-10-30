@@ -1,0 +1,244 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" role="img" aria-labelledby="camera-connection-architecture-title">
+  <title id="camera-connection-architecture-title">
+    A GMSL2 camera goes through a dedicated device driver and a USB camera goes through the UVC driver. Both drivers expose the camera as a V4L2 device. ros2_v4l2_camera reads the V4L2 device and
+    publishes image_raw to Autoware and to accelerated_image_processor, which publishes image_raw/compressed for logging. sensor_trigger sends FSYNC signals to the GMSL2 interface through GPIO.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} .box.ext {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-dasharray: 6 5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.both {
+  marker-start: url("#aw-arrow");
+} .edge.accent.both {
+  marker-start: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .edge.plain {
+  marker-end: none;
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="960" height="720"/>
+  <circle class="halo cyan" cx="590" cy="430" r="170"/>
+  <circle class="halo" cx="300" cy="420" r="140"/>
+
+  <!-- Legend -->
+  <rect class="card" x="560" y="18" width="56" height="26" rx="8"/>
+  <text class="sub" x="628" y="31" dominant-baseline="central">Users must configure it</text>
+  <rect class="box ext" x="560" y="54" width="56" height="26" rx="8"/>
+  <text class="sub" x="628" y="67" dominant-baseline="central">Users must implement it for their camera and ECU type</text>
+  <rect class="box muted" x="160" y="18" width="56" height="26" rx="8"/>
+  <text class="sub" x="228" y="31" dominant-baseline="central">Other components</text>
+
+  <!-- The computer: interfaces, Linux kernel, and applications -->
+  <rect class="glass-panel" x="148" y="100" width="796" height="530" rx="18"/>
+  <path class="edge plain dash" d="M478 92 V650"/>
+
+  <!-- Devices -->
+  <rect class="box muted" x="14" y="306" width="120" height="44" rx="12"/>
+  <circle class="icon-bg" cx="43" cy="328" r="15"/>
+  <path class="icon-line" d="M34.5625 323.312 H46.75 V332.688 H34.5625 Z M46.75 327.062 L51.4375 324.25 V331.75 L46.75 328.938"/>
+  <text class="lbl" x="70" y="328" dominant-baseline="central">Camera</text>
+  <rect class="box muted" x="164" y="308" width="84" height="40" rx="12"/>
+  <text class="lbl" x="206" y="328" text-anchor="middle" dominant-baseline="central">GMSL2</text>
+  <rect class="box muted" x="14" y="486" width="120" height="44" rx="12"/>
+  <circle class="icon-bg" cx="43" cy="508" r="15"/>
+  <path class="icon-line" d="M34.5625 503.312 H46.75 V512.688 H34.5625 Z M46.75 507.062 L51.4375 504.25 V511.75 L46.75 508.938"/>
+  <text class="lbl" x="70" y="508" dominant-baseline="central">Camera</text>
+  <rect class="box muted" x="164" y="488" width="84" height="40" rx="12"/>
+  <text class="lbl" x="206" y="508" text-anchor="middle" dominant-baseline="central">USB</text>
+
+  <!-- Linux kernel layer -->
+  <rect class="box muted" x="266" y="180" width="120" height="40" rx="12"/>
+  <text class="lbl" x="326" y="200" text-anchor="middle" dominant-baseline="central">GPIO</text>
+  <rect class="box ext" x="266" y="306" width="124" height="44" rx="12"/>
+  <text x="328" y="328" text-anchor="middle" dominant-baseline="central">Device driver</text>
+  <rect class="box muted" x="266" y="488" width="124" height="40" rx="12"/>
+  <text x="328" y="508" text-anchor="middle" dominant-baseline="central">UVC driver</text>
+  <rect class="box muted" x="408" y="270" width="56" height="290" rx="12"/>
+  <text class="lbl" x="436" y="415" text-anchor="middle" dominant-baseline="central">V4L2</text>
+
+  <!-- Application layer -->
+  <rect class="card" x="500" y="120" width="200" height="56" rx="12"/>
+  <circle class="icon-bg" cx="531" cy="148" r="17"/>
+  <path class="icon-line" d="M526.75 140.562 L538.438 148 L526.75 155.438 Z"/>
+  <text class="code lbl" x="560" y="148" dominant-baseline="central">sensor_trigger</text>
+  <rect class="card" x="500" y="260" width="170" height="340" rx="12"/>
+  <text class="code lbl" x="585" y="430" text-anchor="middle" dominant-baseline="central">ros2_v4l2_camera</text>
+  <rect class="box muted" x="750" y="260" width="174" height="60" rx="12"/>
+  <text class="lbl" x="837" y="290" text-anchor="middle" dominant-baseline="central">Autoware</text>
+  <rect class="card" x="712" y="400" width="214" height="60" rx="12"/>
+  <text class="code lbl" x="819" y="430" text-anchor="middle" dominant-baseline="central">accelerated_image_processor</text>
+  <rect class="box muted" x="750" y="540" width="174" height="60" rx="12"/>
+  <text x="837" y="570" text-anchor="middle" dominant-baseline="central">Logging and other uses</text>
+
+  <!-- Lines -->
+
+  <!-- Layers -->
+  <text class="sub" x="77" y="690" text-anchor="middle" dominant-baseline="central">Devices</text>
+  <text class="sub" x="203" y="690" text-anchor="middle" dominant-baseline="central">Interfaces</text>
+  <text class="sub" x="366" y="690" text-anchor="middle" dominant-baseline="central">Linux kernel layer</text>
+  <text class="sub" x="713" y="690" text-anchor="middle" dominant-baseline="central">Application layer</text>
+
+  <!-- Lines: optional ones first, the main flow on top -->
+  <path class="edge both" d="M140 328 H158"/>
+  <path class="edge both" d="M140 508 H158"/>
+  <path class="edge plain" d="M248 328 H266"/>
+  <path class="edge plain" d="M248 508 H266"/>
+  <path class="edge plain" d="M390 328 H408"/>
+  <path class="edge plain" d="M390 508 H408"/>
+  <path class="edge" d="M500 148 H326 V174"/>
+  <path class="flow" pathLength="100" d="M500 148 H326 V174"/>
+  <path class="edge head" d="M500 148 H326 V174"/>
+  <path class="edge" d="M326 220 V262 H206 V302"/>
+  <path class="flow" pathLength="100" d="M326 220 V262 H206 V302"/>
+  <path class="edge head" d="M326 220 V262 H206 V302"/>
+  <path class="edge both" d="M18 668 H136"/>
+  <path class="edge both" d="M156 668 H250"/>
+  <path class="edge both" d="M266 668 H466"/>
+  <path class="edge both" d="M490 668 H936"/>
+  <path class="edge accent" d="M464 328 H494"/>
+  <path class="flow flow-accent" pathLength="100" d="M464 328 H494"/>
+  <path class="edge accent head" d="M464 328 H494"/>
+  <path class="edge accent" d="M464 508 H494"/>
+  <path class="flow flow-accent" pathLength="100" d="M464 508 H494"/>
+  <path class="edge accent head" d="M464 508 H494"/>
+  <path class="edge accent" d="M670 430 H706"/>
+  <path class="flow flow-accent" pathLength="100" d="M670 430 H706"/>
+  <path class="edge accent head" d="M670 430 H706"/>
+  <path class="edge accent" d="M670 430 H690 V290 H744"/>
+  <path class="flow flow-accent" pathLength="100" d="M670 430 H690 V290 H744"/>
+  <path class="edge accent head" d="M670 430 H690 V290 H744"/>
+  <path class="edge accent" d="M837 460 V534"/>
+  <path class="flow flow-accent" pathLength="100" d="M837 460 V534"/>
+  <path class="edge accent head" d="M837 460 V534"/>
+  <text class="edge-lbl" x="412" y="134" text-anchor="middle" dominant-baseline="central">FSYNC signals</text>
+  <text class="edge-lbl code" x="690" y="360" text-anchor="middle" dominant-baseline="central">image_raw</text>
+  <text class="edge-lbl code" x="827" y="497" text-anchor="end" dominant-baseline="central">image_raw/compressed</text>
+</svg>

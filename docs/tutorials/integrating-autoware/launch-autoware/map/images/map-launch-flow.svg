@@ -1,0 +1,276 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 768" role="img" aria-labelledby="map-launch-flow-title">
+  <title id="map-launch-flow-title">
+    autoware.launch.xml includes component_map.launch.xml of autoware_launch. It includes agnocast_env.launch.xml and, in the map namespace, five launch files of autoware_map_launch. Each launch file
+    starts its nodes when its use_ argument is true, which is the default.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="960" height="768"/>
+  <circle class="halo" cx="170" cy="120" r="110"/>
+  <circle class="halo cyan" cx="620" cy="380" r="220"/>
+  <circle class="halo" cx="300" cy="628" r="120"/>
+
+  <!-- Launch chain -->
+  <rect class="box primary" x="40" y="24" width="260" height="60" rx="14"/>
+  <circle class="icon-bg on" cx="71" cy="54" r="17"/>
+  <path class="icon-line" d="M66.75 46.5625 L78.4375 54 L66.75 61.4375 Z"/>
+  <text class="code lbl on-primary" x="100" y="45" dominant-baseline="central">autoware.launch.xml</text>
+  <text class="sub on-primary" x="100" y="63" dominant-baseline="central">autoware_launch</text>
+  <rect class="card" x="40" y="128" width="260" height="56" rx="12"/>
+  <text class="code lbl" x="170" y="147" text-anchor="middle" dominant-baseline="central">component_map.launch.xml</text>
+  <text class="sub" x="170" y="165" text-anchor="middle" dominant-baseline="central">autoware_launch</text>
+
+  <!-- Executor selection -->
+  <rect class="card" x="380" y="128" width="280" height="56" rx="12"/>
+  <text class="code lbl" x="520" y="147" text-anchor="middle" dominant-baseline="central">agnocast_env.launch.xml</text>
+  <text class="sub" x="520" y="165" text-anchor="middle" dominant-baseline="central">autoware_agnocast_wrapper</text>
+  <text class="sub" x="676" y="147" dominant-baseline="central">Selects the executor and gives</text>
+  <text class="sub" x="676" y="165" dominant-baseline="central">ld_preload_value to the nodes</text>
+
+  <!-- Map namespace -->
+  <rect class="glass-panel" x="20" y="236" width="920" height="482" rx="18"/>
+  <text class="ttl" x="36" y="262">Namespace /map</text>
+  <text class="sub" x="924" y="258" text-anchor="end" dominant-baseline="central">Launch files: autoware_map_launch. Parameter files: autoware_map_config.</text>
+  <rect class="card" x="236" y="300" width="316" height="52" rx="12"/>
+  <circle class="icon-bg" cx="265" cy="326" r="15"/>
+  <path class="icon-line" d="M260.312 318.5 H266.875 L270.625 322.25 V333.5 H260.312 Z M263.125 326 H267.812 M263.125 329.75 H267.812"/>
+  <text class="code lbl" x="292" y="317" dominant-baseline="central">pointcloud_map_loader.launch.xml</text>
+  <text class="sub" x="292" y="335" dominant-baseline="central">autoware_map_launch</text>
+  <rect class="box" x="610" y="300" width="310" height="52" rx="12"/>
+  <circle class="icon-bg" cx="639" cy="326" r="15"/>
+  <path class="icon-line" d="M639 317.562 L646.5 321.781 V330.219 L639 334.438 L631.5 330.219 V321.781 Z M631.5 321.781 L639 326 L646.5 321.781 M639 326 V334.438"/>
+  <text class="code lbl" x="666" y="317" dominant-baseline="central">pointcloud_map_loader</text>
+  <text class="sub" x="666" y="335" dominant-baseline="central">autoware_map_loader</text>
+  <rect class="card" x="236" y="401" width="316" height="52" rx="12"/>
+  <circle class="icon-bg" cx="265" cy="427" r="15"/>
+  <path class="icon-line" d="M260.312 419.5 H266.875 L270.625 423.25 V434.5 H260.312 Z M263.125 427 H267.812 M263.125 430.75 H267.812"/>
+  <text class="code lbl" x="292" y="418" dominant-baseline="central">lanelet2_map_loader.launch.xml</text>
+  <text class="sub" x="292" y="436" dominant-baseline="central">autoware_map_launch</text>
+  <rect class="box" x="610" y="370" width="310" height="52" rx="12"/>
+  <circle class="icon-bg" cx="639" cy="396" r="15"/>
+  <path class="icon-line" d="M639 387.562 L646.5 391.781 V400.219 L639 404.438 L631.5 400.219 V391.781 Z M631.5 391.781 L639 396 L646.5 391.781 M639 396 V404.438"/>
+  <text class="code lbl" x="666" y="387" dominant-baseline="central">lanelet2_map_loader</text>
+  <text class="sub" x="666" y="405" dominant-baseline="central">autoware_map_loader</text>
+  <rect class="box" x="610" y="432" width="310" height="52" rx="12"/>
+  <circle class="icon-bg" cx="639" cy="458" r="15"/>
+  <path class="icon-line" d="M639 449.562 L646.5 453.781 V462.219 L639 466.438 L631.5 462.219 V453.781 Z M631.5 453.781 L639 458 L646.5 453.781 M639 458 V466.438"/>
+  <text class="code lbl" x="666" y="449" dominant-baseline="central">lanelet2_map_visualization</text>
+  <text class="sub" x="666" y="467" dominant-baseline="central">autoware_lanelet2_map_visualizer</text>
+  <rect class="card" x="236" y="502" width="316" height="52" rx="12"/>
+  <circle class="icon-bg" cx="265" cy="528" r="15"/>
+  <path class="icon-line" d="M260.312 520.5 H266.875 L270.625 524.25 V535.5 H260.312 Z M263.125 528 H267.812 M263.125 531.75 H267.812"/>
+  <text class="code lbl" x="292" y="519" dominant-baseline="central">vector_map_tf_generator.launch.xml</text>
+  <text class="sub" x="292" y="537" dominant-baseline="central">autoware_map_launch</text>
+  <rect class="box" x="610" y="502" width="310" height="52" rx="12"/>
+  <circle class="icon-bg" cx="639" cy="528" r="15"/>
+  <path class="icon-line" d="M639 519.562 L646.5 523.781 V532.219 L639 536.438 L631.5 532.219 V523.781 Z M631.5 523.781 L639 528 L646.5 523.781 M639 528 V536.438"/>
+  <text class="code lbl" x="666" y="519" dominant-baseline="central">vector_map_tf_generator</text>
+  <text class="sub" x="666" y="537" dominant-baseline="central">autoware_map_tf_generator</text>
+  <rect class="card" x="236" y="572" width="316" height="52" rx="12"/>
+  <circle class="icon-bg" cx="265" cy="598" r="15"/>
+  <path class="icon-line" d="M260.312 590.5 H266.875 L270.625 594.25 V605.5 H260.312 Z M263.125 598 H267.812 M263.125 601.75 H267.812"/>
+  <text class="code lbl" x="292" y="589" dominant-baseline="central">map_hash_generator.launch.xml</text>
+  <text class="sub" x="292" y="607" dominant-baseline="central">autoware_map_launch</text>
+  <rect class="box" x="610" y="572" width="310" height="52" rx="12"/>
+  <circle class="icon-bg" cx="639" cy="598" r="15"/>
+  <path class="icon-line" d="M639 589.562 L646.5 593.781 V602.219 L639 606.438 L631.5 602.219 V593.781 Z M631.5 593.781 L639 598 L646.5 593.781 M639 598 V606.438"/>
+  <text class="code lbl" x="666" y="589" dominant-baseline="central">map_hash_generator</text>
+  <text class="sub" x="666" y="607" dominant-baseline="central">autoware_map_loader</text>
+  <rect class="card" x="236" y="642" width="316" height="52" rx="12"/>
+  <circle class="icon-bg" cx="265" cy="668" r="15"/>
+  <path class="icon-line" d="M260.312 660.5 H266.875 L270.625 664.25 V675.5 H260.312 Z M263.125 668 H267.812 M263.125 671.75 H267.812"/>
+  <text class="code lbl" x="292" y="659" dominant-baseline="central">map_projection_loader.launch.xml</text>
+  <text class="sub" x="292" y="677" dominant-baseline="central">autoware_map_launch</text>
+  <rect class="card" x="610" y="642" width="310" height="52" rx="12"/>
+  <circle class="icon-bg" cx="639" cy="668" r="15"/>
+  <path class="icon-line" d="M634.312 660.5 H640.875 L644.625 664.25 V675.5 H634.312 Z M637.125 668 H641.812 M637.125 671.75 H641.812"/>
+  <text class="code lbl" x="666" y="659" dominant-baseline="central">map_projection_loader.launch.xml</text>
+  <text class="sub" x="666" y="677" dominant-baseline="central">autoware_map_projection_loader</text>
+  <text class="sub" x="480" y="744" text-anchor="middle" dominant-baseline="central">Each use_ argument is true by default. The nodes run as separate processes, not in a container.</text>
+
+  <!-- Lines: optional ones first, the main flow on top -->
+  <path class="edge" d="M300 156 H374"/>
+  <path class="flow" pathLength="100" d="M300 156 H374"/>
+  <path class="edge head" d="M300 156 H374"/>
+  <path class="edge" d="M552 326.0 H604"/>
+  <path class="flow" pathLength="100" d="M552 326.0 H604"/>
+  <path class="edge head" d="M552 326.0 H604"/>
+  <path class="edge" d="M552 427.0 H582 V396.0 H604"/>
+  <path class="flow" pathLength="100" d="M552 427.0 H582 V396.0 H604"/>
+  <path class="edge head" d="M552 427.0 H582 V396.0 H604"/>
+  <path class="edge" d="M552 427.0 H582 V458.0 H604"/>
+  <path class="flow" pathLength="100" d="M552 427.0 H582 V458.0 H604"/>
+  <path class="edge head" d="M552 427.0 H582 V458.0 H604"/>
+  <path class="edge" d="M552 528.0 H604"/>
+  <path class="flow" pathLength="100" d="M552 528.0 H604"/>
+  <path class="edge head" d="M552 528.0 H604"/>
+  <path class="edge" d="M552 598.0 H604"/>
+  <path class="flow" pathLength="100" d="M552 598.0 H604"/>
+  <path class="edge head" d="M552 598.0 H604"/>
+  <path class="edge" d="M552 668.0 H604"/>
+  <path class="flow" pathLength="100" d="M552 668.0 H604"/>
+  <path class="edge head" d="M552 668.0 H604"/>
+  <path class="edge accent" d="M170 84 V122"/>
+  <path class="flow flow-accent" pathLength="100" d="M170 84 V122"/>
+  <path class="edge accent head" d="M170 84 V122"/>
+  <path class="edge accent" d="M170 184 V280 H60 V326.0 H230"/>
+  <path class="flow flow-accent" pathLength="100" d="M170 184 V280 H60 V326.0 H230"/>
+  <path class="edge accent head" d="M170 184 V280 H60 V326.0 H230"/>
+  <path class="edge accent" d="M170 184 V280 H60 V427.0 H230"/>
+  <path class="flow flow-accent" pathLength="100" d="M170 184 V280 H60 V427.0 H230"/>
+  <path class="edge accent head" d="M170 184 V280 H60 V427.0 H230"/>
+  <path class="edge accent" d="M170 184 V280 H60 V528.0 H230"/>
+  <path class="flow flow-accent" pathLength="100" d="M170 184 V280 H60 V528.0 H230"/>
+  <path class="edge accent head" d="M170 184 V280 H60 V528.0 H230"/>
+  <path class="edge accent" d="M170 184 V280 H60 V598.0 H230"/>
+  <path class="flow flow-accent" pathLength="100" d="M170 184 V280 H60 V598.0 H230"/>
+  <path class="edge accent head" d="M170 184 V280 H60 V598.0 H230"/>
+  <path class="edge accent" d="M170 184 V280 H60 V668.0 H230"/>
+  <path class="flow flow-accent" pathLength="100" d="M170 184 V280 H60 V668.0 H230"/>
+  <path class="edge accent head" d="M170 184 V280 H60 V668.0 H230"/>
+  <text class="edge-lbl code" x="182" y="103" text-anchor="start" dominant-baseline="central">launch_map:=true</text>
+  <text class="edge-lbl code" x="148" y="312" text-anchor="middle" dominant-baseline="central">use_pointcloud_map</text>
+  <text class="edge-lbl code" x="148" y="413" text-anchor="middle" dominant-baseline="central">use_lanelet2_map</text>
+  <text class="edge-lbl code" x="148" y="514" text-anchor="middle" dominant-baseline="central">use_map_tf_generator</text>
+  <text class="edge-lbl code" x="148" y="584" text-anchor="middle" dominant-baseline="central">use_map_hash_generator</text>
+  <text class="edge-lbl code" x="148" y="654" text-anchor="middle" dominant-baseline="central">use_map_projection</text>
+</svg>

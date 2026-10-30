@@ -6,5 +6,5 @@ nav:
   - 4. Creating maps: creating-maps
   - 5. Launch Autoware: launch-autoware
   - 6. Tuning parameters and performance: tuning-parameters-and-performance
-  - 7. AWSIM Integration: awsim-integration
-  - 8. Integrating Sensors: integrating-sensors
+  - 7. AWSIM integration: awsim-integration
+  - 8. Integrating sensors: integrating-sensors

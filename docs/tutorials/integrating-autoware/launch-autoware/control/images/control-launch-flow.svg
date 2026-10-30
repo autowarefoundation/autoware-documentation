@@ -1,0 +1,328 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1254" role="img" aria-labelledby="control-launch-flow-title">
+  <title id="control-launch-flow-title">
+    autoware.launch.xml includes component_control.launch.xml, which includes control.launch.xml of autoware_control_launch. control.launch.xml reads a module preset of autoware_control_config. In the
+    control namespace it includes the trajectory follower, the command gate, the external command, and the control checker launch files, and the control evaluator.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-group: color-mix(in
+    srgb, var(--aw-c-indigo) 6%, var(--md-default-bg-color)); --aw-d-group-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 25%, transparent); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} .group {
+  fill: var(--aw-d-group);
+  stroke: var(--aw-d-group-stroke);
+  stroke-width: 1.5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="960" height="1254"/>
+  <circle class="halo" cx="190" cy="150" r="130"/>
+  <circle class="halo" cx="640" cy="258" r="100"/>
+  <circle class="halo cyan" cx="480" cy="760" r="260"/>
+
+  <!-- Launch chain -->
+  <rect class="box primary" x="40" y="24" width="300" height="60" rx="14"/>
+  <circle class="icon-bg on" cx="71" cy="54" r="17"/>
+  <path class="icon-line" d="M66.75 46.5625 L78.4375 54 L66.75 61.4375 Z"/>
+  <text class="code lbl on-primary" x="100" y="45" dominant-baseline="central">autoware.launch.xml</text>
+  <text class="sub on-primary" x="100" y="63" dominant-baseline="central">autoware_launch</text>
+  <rect class="card" x="40" y="128" width="300" height="56" rx="12"/>
+  <text class="code lbl" x="190" y="147" text-anchor="middle" dominant-baseline="central">component_control.launch.xml</text>
+  <text class="sub" x="190" y="165" text-anchor="middle" dominant-baseline="central">autoware_launch</text>
+  <text class="code" x="360" y="138" dominant-baseline="central">lateral_controller_mode: mpc (default) or pure_pursuit</text>
+  <text class="code" x="360" y="156" dominant-baseline="central">longitudinal_controller_mode: pid</text>
+  <text class="code" x="360" y="174" dominant-baseline="central">control_module_preset: default</text>
+  <rect class="card" x="40" y="228" width="300" height="60" rx="12"/>
+  <circle class="icon-bg" cx="71" cy="258" r="17"/>
+  <path class="icon-line" d="M65.6875 249.5 H73.125 L77.375 253.75 V266.5 H65.6875 Z M68.875 258 H74.1875 M68.875 262.25 H74.1875"/>
+  <text class="code lbl" x="100" y="249" dominant-baseline="central">control.launch.xml</text>
+  <text class="sub" x="100" y="267" dominant-baseline="central">autoware_control_launch</text>
+
+  <!-- Module preset -->
+  <rect class="card" x="440" y="228" width="380" height="60" rx="12"/>
+  <circle class="icon-bg" cx="471" cy="258" r="17"/>
+  <path class="icon-line" d="M462.5 253.75 H479.5 M462.5 262.25 H479.5"/>
+  <circle class="icon-dot" cx="467.812" cy="253.75" r="2.975"/>
+  <circle class="icon-dot" cx="474.188" cy="262.25" r="2.975"/>
+  <text class="code lbl" x="500" y="249" dominant-baseline="central">preset/default_preset.yaml</text>
+  <text class="sub" x="500" y="267" dominant-baseline="central">autoware_control_config: the launch_* arguments</text>
+
+  <!-- Namespace /control -->
+  <rect class="glass-panel" x="20" y="336" width="920" height="872" rx="18"/>
+  <text class="ttl" x="924" y="362" text-anchor="end">Namespace /control</text>
+  <rect class="group" x="52" y="384" width="420" height="306" rx="14"/>
+  <text class="code" x="68" y="406" dominant-baseline="central">trajectory_follower</text>
+  <rect class="card" x="68" y="418" width="388" height="52" rx="12"/>
+  <circle class="icon-bg" cx="97" cy="444" r="15"/>
+  <path class="icon-line" d="M92.3125 436.5 H98.875 L102.625 440.25 V451.5 H92.3125 Z M95.125 444 H99.8125 M95.125 447.75 H99.8125"/>
+  <text class="code lbl" x="124" y="435" dominant-baseline="central">trajectory_follower.launch.xml</text>
+  <text class="sub" x="124" y="453" dominant-baseline="central">autoware_control_launch</text>
+  <rect class="box" x="100" y="480" width="356" height="60" rx="10"/>
+  <text class="code lbl" x="278" y="492" text-anchor="middle" dominant-baseline="central">controller_node_exe</text>
+  <text class="sub" x="278" y="510" text-anchor="middle" dominant-baseline="central">autoware_trajectory_follower_node</text>
+  <text class="sub" x="278" y="528" text-anchor="middle" dominant-baseline="central">Composable node, for the default mode</text>
+  <rect class="box muted" x="100" y="548" width="356" height="60" rx="10"/>
+  <text class="code lbl" x="278" y="560" text-anchor="middle" dominant-baseline="central">pympc_trajectory_follower.py</text>
+  <text class="sub" x="278" y="578" text-anchor="middle" dominant-baseline="central">autoware_smart_mpc_trajectory_follower</text>
+  <text class="sub" x="278" y="596" text-anchor="middle" dominant-baseline="central">Mode smart_mpc_trajectory_follower</text>
+  <rect class="box" x="100" y="616" width="356" height="60" rx="10"/>
+  <text class="code lbl" x="278" y="628" text-anchor="middle" dominant-baseline="central">lane_departure_checker_node</text>
+  <text class="sub" x="278" y="646" text-anchor="middle" dominant-baseline="central">autoware_lane_departure_checker</text>
+  <text class="sub" x="278" y="664" text-anchor="middle" dominant-baseline="central">If launch_lane_departure_checker is true</text>
+  <rect class="group" x="52" y="708" width="420" height="374" rx="14"/>
+  <text class="code" x="68" y="730" dominant-baseline="central">command_gate</text>
+  <rect class="card" x="68" y="742" width="388" height="52" rx="12"/>
+  <circle class="icon-bg" cx="97" cy="768" r="15"/>
+  <path class="icon-line" d="M92.3125 760.5 H98.875 L102.625 764.25 V775.5 H92.3125 Z M95.125 768 H99.8125 M95.125 771.75 H99.8125"/>
+  <text class="code lbl" x="124" y="759" dominant-baseline="central">command_gate.launch.xml</text>
+  <text class="sub" x="124" y="777" dominant-baseline="central">autoware_control_launch</text>
+  <rect class="box" x="100" y="804" width="356" height="60" rx="10"/>
+  <text class="code lbl" x="278" y="816" text-anchor="middle" dominant-baseline="central">vehicle_cmd_gate</text>
+  <text class="sub" x="278" y="834" text-anchor="middle" dominant-baseline="central">autoware_vehicle_cmd_gate</text>
+  <text class="sub" x="278" y="852" text-anchor="middle" dominant-baseline="central">Composable node, unless use_control_command_gate</text>
+  <rect class="box" x="100" y="872" width="356" height="60" rx="10"/>
+  <text class="code lbl" x="278" y="884" text-anchor="middle" dominant-baseline="central">operation_mode_transition_manager</text>
+  <text class="sub" x="278" y="902" text-anchor="middle" dominant-baseline="central">autoware_operation_mode_transition_manager</text>
+  <text class="sub" x="278" y="920" text-anchor="middle" dominant-baseline="central">Composable node</text>
+  <rect class="box" x="100" y="940" width="356" height="60" rx="10"/>
+  <text class="code lbl" x="278" y="952" text-anchor="middle" dominant-baseline="central">autoware_shift_decider</text>
+  <text class="sub" x="278" y="970" text-anchor="middle" dominant-baseline="central">autoware_shift_decider</text>
+  <text class="sub" x="278" y="988" text-anchor="middle" dominant-baseline="central">Node</text>
+  <rect class="box muted" x="100" y="1008" width="356" height="60" rx="10"/>
+  <text class="code lbl" x="278" y="1020" text-anchor="middle" dominant-baseline="central">control_command_gate, stop_mode_operator</text>
+  <text class="sub" x="278" y="1038" text-anchor="middle" dominant-baseline="central">Launch files of their autoware_ packages</text>
+  <text class="sub" x="278" y="1056" text-anchor="middle" dominant-baseline="central">If use_control_command_gate is true</text>
+  <rect class="group" x="500" y="384" width="420" height="238" rx="14"/>
+  <text class="code" x="516" y="406" dominant-baseline="central">external_command</text>
+  <rect class="card" x="516" y="418" width="388" height="52" rx="12"/>
+  <circle class="icon-bg" cx="545" cy="444" r="15"/>
+  <path class="icon-line" d="M540.312 436.5 H546.875 L550.625 440.25 V451.5 H540.312 Z M543.125 444 H547.812 M543.125 447.75 H547.812"/>
+  <text class="code lbl" x="572" y="435" dominant-baseline="central">external_command.launch.xml</text>
+  <text class="sub" x="572" y="453" dominant-baseline="central">autoware_control_launch</text>
+  <rect class="box" x="548" y="480" width="356" height="60" rx="10"/>
+  <text class="code lbl" x="726" y="492" text-anchor="middle" dominant-baseline="central">external_cmd_selector.launch.py</text>
+  <text class="sub" x="726" y="510" text-anchor="middle" dominant-baseline="central">autoware_external_cmd_selector</text>
+  <text class="sub" x="726" y="528" text-anchor="middle" dominant-baseline="central">If launch_external_cmd_selector is true</text>
+  <rect class="box" x="548" y="548" width="356" height="60" rx="10"/>
+  <text class="code lbl" x="726" y="560" text-anchor="middle" dominant-baseline="central">external_cmd_converter.launch.py</text>
+  <text class="sub" x="726" y="578" text-anchor="middle" dominant-baseline="central">autoware_external_cmd_converter</text>
+  <text class="sub" x="726" y="596" text-anchor="middle" dominant-baseline="central">If launch_external_cmd_converter is true</text>
+  <rect class="group" x="500" y="640" width="420" height="442" rx="14"/>
+  <text class="code" x="516" y="662" dominant-baseline="central">control_checker</text>
+  <rect class="card" x="516" y="674" width="388" height="52" rx="12"/>
+  <circle class="icon-bg" cx="545" cy="700" r="15"/>
+  <path class="icon-line" d="M540.312 692.5 H546.875 L550.625 696.25 V707.5 H540.312 Z M543.125 700 H547.812 M543.125 703.75 H547.812"/>
+  <text class="code lbl" x="572" y="691" dominant-baseline="central">control_checker.launch.xml</text>
+  <text class="sub" x="572" y="709" dominant-baseline="central">autoware_control_launch</text>
+  <rect class="box" x="548" y="736" width="356" height="60" rx="10"/>
+  <text class="code lbl" x="726" y="748" text-anchor="middle" dominant-baseline="central">control_validator</text>
+  <text class="sub" x="726" y="766" text-anchor="middle" dominant-baseline="central">autoware_control_validator</text>
+  <text class="sub" x="726" y="784" text-anchor="middle" dominant-baseline="central">If launch_control_validator is true</text>
+  <rect class="box" x="548" y="804" width="356" height="60" rx="10"/>
+  <text class="code lbl" x="726" y="816" text-anchor="middle" dominant-baseline="central">autonomous_emergency_braking</text>
+  <text class="sub" x="726" y="834" text-anchor="middle" dominant-baseline="central">autoware_autonomous_emergency_braking</text>
+  <text class="sub" x="726" y="852" text-anchor="middle" dominant-baseline="central">If launch_autonomous_emergency_braking is true</text>
+  <rect class="box" x="548" y="872" width="356" height="60" rx="10"/>
+  <text class="code lbl" x="726" y="884" text-anchor="middle" dominant-baseline="central">collision_detector</text>
+  <text class="sub" x="726" y="902" text-anchor="middle" dominant-baseline="central">autoware_collision_detector</text>
+  <text class="sub" x="726" y="920" text-anchor="middle" dominant-baseline="central">If launch_collision_detector is true</text>
+  <rect class="box muted" x="548" y="940" width="356" height="60" rx="10"/>
+  <text class="code lbl" x="726" y="952" text-anchor="middle" dominant-baseline="central">obstacle_collision_checker</text>
+  <text class="sub" x="726" y="970" text-anchor="middle" dominant-baseline="central">autoware_obstacle_collision_checker</text>
+  <text class="sub" x="726" y="988" text-anchor="middle" dominant-baseline="central">If launch_obstacle_collision_checker is true</text>
+  <rect class="box muted" x="548" y="1008" width="356" height="60" rx="10"/>
+  <text class="code lbl" x="726" y="1020" text-anchor="middle" dominant-baseline="central">predicted_path_checker</text>
+  <text class="sub" x="726" y="1038" text-anchor="middle" dominant-baseline="central">autoware_predicted_path_checker</text>
+  <text class="sub" x="726" y="1056" text-anchor="middle" dominant-baseline="central">If launch_predicted_path_checker is true</text>
+
+  <!-- Control evaluator -->
+  <rect class="box" x="52" y="1100" width="868" height="52" rx="12"/>
+  <circle class="icon-bg" cx="81" cy="1126" r="15"/>
+  <path class="icon-line" d="M72.5625 1126 H77.25 L80.0625 1120.38 L82.875 1131.62 L85.6875 1126 H89.4375"/>
+  <text class="code lbl" x="108" y="1117" dominant-baseline="central">control_evaluator.launch.xml</text>
+  <text class="sub" x="108" y="1135" dominant-baseline="central">autoware_control_evaluator, if launch_control_evaluator is true</text>
+  <text class="sub" x="52" y="1170" dominant-baseline="central">Containers: control_container and control_check_container. The parameter files are in autoware_control_config.</text>
+  <text class="sub" x="480" y="1230" text-anchor="middle" dominant-baseline="central">Default values come from default_preset.yaml: the gray boxes are off by default.</text>
+
+  <!-- Lines: optional ones first, the main flow on top -->
+  <path class="edge" d="M434 258 H346"/>
+  <path class="flow" pathLength="100" d="M434 258 H346"/>
+  <path class="edge head" d="M434 258 H346"/>
+  <path class="edge" d="M84 470 V510.0 H94"/>
+  <path class="edge" d="M84 470 V578.0 H94"/>
+  <path class="edge" d="M84 470 V646.0 H94"/>
+  <path class="edge" d="M84 794 V834.0 H94"/>
+  <path class="edge" d="M84 794 V902.0 H94"/>
+  <path class="edge" d="M84 794 V970.0 H94"/>
+  <path class="edge" d="M84 794 V1038.0 H94"/>
+  <path class="edge" d="M532 470 V510.0 H542"/>
+  <path class="edge" d="M532 470 V578.0 H542"/>
+  <path class="edge" d="M532 726 V766.0 H542"/>
+  <path class="edge" d="M532 726 V834.0 H542"/>
+  <path class="edge" d="M532 726 V902.0 H542"/>
+  <path class="edge" d="M532 726 V970.0 H542"/>
+  <path class="edge" d="M532 726 V1038.0 H542"/>
+  <path class="edge" d="M190 288 V360 H36 V1126 H46"/>
+  <path class="flow" pathLength="100" d="M190 288 V360 H36 V1126 H46"/>
+  <path class="edge head" d="M190 288 V360 H36 V1126 H46"/>
+  <path class="edge accent" d="M190 84 V122"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 84 V122"/>
+  <path class="edge accent head" d="M190 84 V122"/>
+  <path class="edge accent" d="M190 184 V222"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 184 V222"/>
+  <path class="edge accent head" d="M190 184 V222"/>
+  <path class="edge accent" d="M190 288 V360 H36 V444 H62"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 288 V360 H36 V444 H62"/>
+  <path class="edge accent head" d="M190 288 V360 H36 V444 H62"/>
+  <path class="edge accent" d="M190 288 V360 H36 V768 H62"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 288 V360 H36 V768 H62"/>
+  <path class="edge accent head" d="M190 288 V360 H36 V768 H62"/>
+  <path class="edge accent" d="M190 288 V360 H486 V444 H510"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 288 V360 H486 V444 H510"/>
+  <path class="edge accent head" d="M190 288 V360 H486 V444 H510"/>
+  <path class="edge accent" d="M190 288 V360 H486 V700 H510"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 288 V360 H486 V700 H510"/>
+  <path class="edge accent head" d="M190 288 V360 H486 V700 H510"/>
+  <text class="edge-lbl code" x="202" y="103" text-anchor="start" dominant-baseline="central">launch_control:=true</text>
+  <text class="edge-lbl" x="390" y="246" text-anchor="middle" dominant-baseline="central">includes</text>
+</svg>

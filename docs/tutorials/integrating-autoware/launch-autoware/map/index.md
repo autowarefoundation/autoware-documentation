@@ -1,20 +1,10 @@
-# Map Launch Files
+# Map launch files
 
 ## Overview
 
-The Autoware map stacks start
-launching at `autoware_launch.xml` as we mentioned at [Launch Autoware](../index.md) page.
-The `autoware_launch` package includes `tier4_map_component.launch.xml`
-for starting map launch files invocation from `autoware_launch.xml`.
-This diagram describes some of the Autoware map launch files flow at `autoware_launch`
-and `autoware_universe` packages.
+The Autoware map stack starts with `autoware.launch.xml`, as the [Launch Autoware](../index.md) page explains. If `launch_map` is `true`, `autoware.launch.xml` includes [`component_map.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/0.53.0/autoware_launch/launch/components/component_map.launch.xml) of the `autoware_launch` package. This file includes the launch files of the [`autoware_map_launch`](https://github.com/autowarefoundation/autoware_launch/tree/0.53.0/autoware_universe_launch/autoware_map_launch) package. The following diagram shows the map launch flow in the `autoware_launch` repository.
 
-<figure markdown>
-  ![map-launch-flow](images/map_launch_flow.svg){ align=center }
-  <figcaption>
-    Autoware map launch flow diagram
-  </figcaption>
-</figure>
+{{ diagram("images/map-launch-flow.svg", "component_map.launch.xml includes five launch files of autoware_map_launch in the map namespace, and each one starts its map nodes.") }}
 
 !!! note
 
@@ -27,23 +17,25 @@ and `autoware_universe` packages.
     if we define an argument at the top-level launch,
     it will override the value on lower-level launches.
 
-The map.launch.py launch file from the tier4_map_launch package directly includes
-the necessary node definitions for mapping. In the current design of Autoware, the `lanelet2_map_loader`,
-`lanelet2_map_visualization`, `pointcloud_map_loader`, and `vector_map_tf_generator` composable
-nodes are included in the `map_container`.
+`component_map.launch.xml` makes the paths of the map files from `map_path`, `pointcloud_map_file`, and `lanelet2_map_file`. It also gives the nodes the paths of `pointcloud_map_metadata.yaml`, `lanelet2_map_metadata.yaml`, and `map_projector_info.yaml` in `map_path`. Then, in the `/map` namespace, it starts these nodes:
 
-We don't have many modification options in the map launching files
-(as the parameters are included in the config files).
-However, you can specify the names for your pointcloud and lanelet2 map during the launch
-(the default values are pointcloud_map.pcd and lanelet2_map.osm).
-For instance, if you wish to change your map file names, you can run Autoware using
-the following command line arguments:
+| Argument                 | Launch file                          | Nodes                                                                                                                  |
+| ------------------------ | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| `use_pointcloud_map`     | `pointcloud_map_loader.launch.xml`   | `pointcloud_map_loader` of `autoware_map_loader`                                                                       |
+| `use_lanelet2_map`       | `lanelet2_map_loader.launch.xml`     | `lanelet2_map_loader` of `autoware_map_loader`, and `lanelet2_map_visualization` of `autoware_lanelet2_map_visualizer` |
+| `use_map_tf_generator`   | `vector_map_tf_generator.launch.xml` | `vector_map_tf_generator` of `autoware_map_tf_generator`                                                               |
+| `use_map_hash_generator` | `map_hash_generator.launch.xml`      | `map_hash_generator` of `autoware_map_loader`                                                                          |
+| `use_map_projection`     | `map_projection_loader.launch.xml`   | The map projection loader of `autoware_map_projection_loader`                                                          |
+
+All these arguments are `true` by default. In Autoware 2.0.0, the map nodes run as separate processes. They are not in a `map_container` any more. `component_map.launch.xml` also includes `agnocast_env.launch.xml` of `autoware_agnocast_wrapper`, which selects the executor of the nodes. The parameter files of the map nodes are in the [`autoware_map_config`](https://github.com/autowarefoundation/autoware_launch/tree/0.53.0/autoware_universe_launch/autoware_map_config) package.
+
+You do not have many configuration choices in the map launch files, because the parameters are in the configuration files. But you can set the names of your point cloud map and your Lanelet2 map when you launch Autoware. The default values are `pointcloud_map.pcd` and `lanelet2_map.osm`. For example, to change the names of your map files, launch Autoware with these command-line arguments:
 
 ```bash
 ros2 launch autoware_launch autoware.launch.xml ... pointcloud_map_file:=<YOUR-PCD-FILE-NAME> lanelet2_map_file:=<YOUR-LANELET2-MAP-NAME> ...
 ```
 
-Or you can change it on your `autoware.launch.xml` launch file:
+Or you can change them in your `autoware.launch.xml` launch file:
 
 ```diff
 - <arg name="lanelet2_map_file" default="lanelet2_map.osm" description="lanelet2 map file name"/>

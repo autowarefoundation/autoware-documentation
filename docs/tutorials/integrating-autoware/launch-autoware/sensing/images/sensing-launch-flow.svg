@@ -1,0 +1,307 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1158" role="img" aria-labelledby="sensing-launch-flow-title">
+  <title id="sensing-launch-flow-title">
+    autoware.launch.xml includes component_sensing.launch.xml, which includes sensing.launch.xml of the sensor kit launch package. In sample_sensor_kit_launch, sensing.launch.xml includes the
+    LiDAR, IMU, and GNSS launch files and the vehicle velocity converter. For each LiDAR, lidar.launch.xml includes a container, the driver, and the preprocessor. Then it concatenates the point
+    clouds.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-group: color-mix(in
+    srgb, var(--aw-c-indigo) 6%, var(--md-default-bg-color)); --aw-d-group-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 25%, transparent); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.ext {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-dasharray: 6 5;
+} .group {
+  fill: var(--aw-d-group);
+  stroke: var(--aw-d-group-stroke);
+  stroke-width: 1.5;
+} .group.dashed {
+  stroke-dasharray: 7 5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="960" height="1158"/>
+  <circle class="halo" cx="190" cy="140" r="120"/>
+  <circle class="halo cyan" cx="640" cy="470" r="230"/>
+  <circle class="halo" cx="640" cy="880" r="160"/>
+
+  <!-- Launch chain -->
+  <rect class="box primary" x="40" y="24" width="300" height="60" rx="14"/>
+  <circle class="icon-bg on" cx="71" cy="54" r="17"/>
+  <path class="icon-line" d="M66.75 46.5625 L78.4375 54 L66.75 61.4375 Z"/>
+  <text class="code lbl on-primary" x="100" y="45" dominant-baseline="central">autoware.launch.xml</text>
+  <text class="sub on-primary" x="100" y="63" dominant-baseline="central">autoware_launch</text>
+  <rect class="card" x="40" y="128" width="300" height="56" rx="12"/>
+  <text class="code lbl" x="190" y="147" text-anchor="middle" dominant-baseline="central">component_sensing.launch.xml</text>
+  <text class="sub" x="190" y="165" text-anchor="middle" dominant-baseline="central">autoware_launch</text>
+  <text class="sub" x="360" y="147" dominant-baseline="central">Passes launch_sensing_driver as launch_driver,</text>
+  <text class="sub" x="360" y="165" dominant-baseline="central">and the mirror.param.yaml file of the vehicle</text>
+
+  <!-- Namespace /sensing -->
+  <rect class="glass-panel" x="20" y="244" width="920" height="864" rx="18"/>
+  <text class="ttl" x="924" y="270" text-anchor="end">Namespace /sensing</text>
+  <rect class="card" x="72" y="280" width="332" height="64" rx="12"/>
+  <circle class="icon-bg" cx="103" cy="312" r="17"/>
+  <path class="icon-line" d="M97.6875 303.5 H105.125 L109.375 307.75 V320.5 H97.6875 Z M100.875 312 H106.188 M100.875 316.25 H106.188"/>
+  <text class="code lbl" x="132" y="294" dominant-baseline="central">sensing.launch.xml</text>
+  <text class="code" x="132" y="312" dominant-baseline="central">&lt;sensor_model&gt;_launch</text>
+  <text class="sub" x="132" y="330" dominant-baseline="central">For example sample_sensor_kit_launch</text>
+  <rect class="card" x="72" y="368" width="332" height="52" rx="12"/>
+  <circle class="icon-bg" cx="101" cy="394" r="15"/>
+  <path class="icon-line" d="M96.3125 386.5 H102.875 L106.625 390.25 V401.5 H96.3125 Z M99.125 394 H103.812 M99.125 397.75 H103.812"/>
+  <text class="code lbl" x="128" y="385" dominant-baseline="central">lidar.launch.xml</text>
+  <text class="code" x="128" y="403" dominant-baseline="central">&lt;sensor_model&gt;_launch</text>
+  <rect class="group dashed" x="436" y="368" width="500" height="208" rx="16"/>
+  <text class="ttl" x="452" y="394">For each LiDAR: top, left, right, rear</text>
+  <rect class="card" x="448" y="404" width="476" height="48" rx="12"/>
+  <circle class="icon-bg" cx="477" cy="428" r="15"/>
+  <path class="icon-line" d="M472.312 420.5 H478.875 L482.625 424.25 V435.5 H472.312 Z M475.125 428 H479.812 M475.125 431.75 H479.812"/>
+  <text class="code lbl" x="504" y="419" dominant-baseline="central">pointcloud_container.launch.xml</text>
+  <text class="sub" x="504" y="437" dominant-baseline="central">autoware_sensing_launch</text>
+  <rect class="card" x="448" y="460" width="476" height="48" rx="12"/>
+  <circle class="icon-bg" cx="477" cy="484" r="15"/>
+  <path class="icon-line" d="M472.312 476.5 H478.875 L482.625 480.25 V491.5 H472.312 Z M475.125 484 H479.812 M475.125 487.75 H479.812"/>
+  <text class="code lbl" x="504" y="475" dominant-baseline="central">velodyne_VLS128.launch.xml, velodyne_VLP16.launch.xml</text>
+  <text class="sub" x="504" y="493" dominant-baseline="central">autoware_sensor_driver_launch: the Nebula driver</text>
+  <rect class="card" x="448" y="516" width="476" height="48" rx="12"/>
+  <circle class="icon-bg" cx="477" cy="540" r="15"/>
+  <path class="icon-line" d="M472.312 532.5 H478.875 L482.625 536.25 V547.5 H472.312 Z M475.125 540 H479.812 M475.125 543.75 H479.812"/>
+  <text class="code lbl" x="504" y="531" dominant-baseline="central">pointcloud_preprocessor_cpu.launch.xml</text>
+  <text class="sub" x="504" y="549" dominant-baseline="central">autoware_sensing_launch</text>
+  <rect class="card" x="448" y="590" width="476" height="48" rx="12"/>
+  <circle class="icon-bg" cx="477" cy="614" r="15"/>
+  <path class="icon-line" d="M472.312 606.5 H478.875 L482.625 610.25 V621.5 H472.312 Z M475.125 614 H479.812 M475.125 617.75 H479.812"/>
+  <text class="code lbl" x="504" y="605" dominant-baseline="central">pointcloud_concatenation_cpu.launch.xml</text>
+  <text class="sub" x="504" y="623" dominant-baseline="central">autoware_sensing_launch: concatenates the point clouds</text>
+  <rect class="box ext" x="72" y="662" width="332" height="52" rx="12"/>
+  <text class="code lbl" x="238" y="679" text-anchor="middle" dominant-baseline="central">camera.launch.xml</text>
+  <text class="code" x="238" y="697" text-anchor="middle" dominant-baseline="central">&lt;sensor_model&gt;_launch</text>
+  <text class="sub" x="448" y="688" dominant-baseline="central">The sample sensor kit has this file, but sensing.launch.xml does not include it.</text>
+  <rect class="card" x="72" y="734" width="332" height="52" rx="12"/>
+  <circle class="icon-bg" cx="101" cy="760" r="15"/>
+  <path class="icon-line" d="M96.3125 752.5 H102.875 L106.625 756.25 V767.5 H96.3125 Z M99.125 760 H103.812 M99.125 763.75 H103.812"/>
+  <text class="code lbl" x="128" y="751" dominant-baseline="central">imu.launch.xml</text>
+  <text class="code" x="128" y="769" dominant-baseline="central">&lt;sensor_model&gt;_launch</text>
+  <rect class="box ext" x="448" y="734" width="476" height="48" rx="12"/>
+  <circle class="icon-bg" cx="477" cy="758" r="15"/>
+  <path class="icon-line" d="M477 749.562 L484.5 753.781 V762.219 L477 766.438 L469.5 762.219 V753.781 Z M469.5 753.781 L477 758 L484.5 753.781 M477 758 V766.438"/>
+  <text class="code lbl" x="504" y="749" dominant-baseline="central">tag_serial_driver</text>
+  <text class="sub" x="504" y="767" dominant-baseline="central">tamagawa_imu_driver node: commented out in the sample</text>
+  <rect class="card" x="448" y="790" width="476" height="48" rx="12"/>
+  <circle class="icon-bg" cx="477" cy="814" r="15"/>
+  <path class="icon-line" d="M472.312 806.5 H478.875 L482.625 810.25 V821.5 H472.312 Z M475.125 814 H479.812 M475.125 817.75 H479.812"/>
+  <text class="code lbl" x="504" y="805" dominant-baseline="central">imu_corrector.launch.xml</text>
+  <text class="sub" x="504" y="823" dominant-baseline="central">autoware_imu_corrector</text>
+  <rect class="card" x="448" y="846" width="476" height="48" rx="12"/>
+  <circle class="icon-bg" cx="477" cy="870" r="15"/>
+  <path class="icon-line" d="M472.312 862.5 H478.875 L482.625 866.25 V877.5 H472.312 Z M475.125 870 H479.812 M475.125 873.75 H479.812"/>
+  <text class="code lbl" x="504" y="861" dominant-baseline="central">gyro_bias_estimator.launch.xml</text>
+  <text class="sub" x="504" y="879" dominant-baseline="central">autoware_imu_corrector</text>
+  <rect class="card" x="72" y="916" width="332" height="52" rx="12"/>
+  <circle class="icon-bg" cx="101" cy="942" r="15"/>
+  <path class="icon-line" d="M96.3125 934.5 H102.875 L106.625 938.25 V949.5 H96.3125 Z M99.125 942 H103.812 M99.125 945.75 H103.812"/>
+  <text class="code lbl" x="128" y="933" dominant-baseline="central">gnss.launch.xml</text>
+  <text class="code" x="128" y="951" dominant-baseline="central">&lt;sensor_model&gt;_launch</text>
+  <rect class="box" x="448" y="916" width="476" height="48" rx="12"/>
+  <circle class="icon-bg" cx="477" cy="940" r="15"/>
+  <path class="icon-line" d="M477 931.562 L484.5 935.781 V944.219 L477 948.438 L469.5 944.219 V935.781 Z M469.5 935.781 L477 940 L484.5 935.781 M477 940 V948.438"/>
+  <text class="lbl" x="504" y="931" dominant-baseline="central">GNSS driver: ublox_gps or septentrio_gnss_driver</text>
+  <text class="sub" x="504" y="949" dominant-baseline="central">Selected by gnss_receiver, if launch_driver is true</text>
+  <rect class="card" x="448" y="972" width="476" height="48" rx="12"/>
+  <circle class="icon-bg" cx="477" cy="996" r="15"/>
+  <path class="icon-line" d="M472.312 988.5 H478.875 L482.625 992.25 V1003.5 H472.312 Z M475.125 996 H479.812 M475.125 999.75 H479.812"/>
+  <text class="code lbl" x="504" y="987" dominant-baseline="central">gnss_poser.launch.xml</text>
+  <text class="sub" x="504" y="1005" dominant-baseline="central">autoware_gnss_poser</text>
+  <rect class="card" x="72" y="1040" width="332" height="52" rx="12"/>
+  <circle class="icon-bg" cx="101" cy="1066" r="15"/>
+  <path class="icon-line" d="M96.3125 1058.5 H102.875 L106.625 1062.25 V1073.5 H96.3125 Z M99.125 1066 H103.812 M99.125 1069.75 H103.812"/>
+  <text class="code lbl" x="128" y="1057" dominant-baseline="central">vehicle_velocity_converter.launch.xml</text>
+  <text class="sub" x="128" y="1075" dominant-baseline="central">autoware_vehicle_velocity_converter</text>
+  <text class="sub" x="448" y="1057" dominant-baseline="central">Converts /vehicle/status/velocity_status into</text>
+  <text class="sub" x="448" y="1075" dominant-baseline="central">/sensing/vehicle_velocity_converter/twist_with_covariance</text>
+  <text class="sub" x="480" y="1134" text-anchor="middle" dominant-baseline="central">The files of the sensor kit come from sample_sensor_kit_launch. Your sensor kit can include other files.</text>
+
+  <!-- Lines: optional ones first, the main flow on top -->
+  <path class="edge dash" d="M102 344 V352 H48 V688.0 H66"/>
+  <path class="flow" pathLength="100" d="M102 344 V352 H48 V688.0 H66"/>
+  <path class="edge dash head" d="M102 344 V352 H48 V688.0 H66"/>
+  <path class="edge" d="M404 394 H430"/>
+  <path class="flow" pathLength="100" d="M404 394 H430"/>
+  <path class="edge head" d="M404 394 H430"/>
+  <path class="edge" d="M404 394 H428 V614.0 H442"/>
+  <path class="flow" pathLength="100" d="M404 394 H428 V614.0 H442"/>
+  <path class="edge head" d="M404 394 H428 V614.0 H442"/>
+  <path class="edge dash" d="M404 760 H428 V758.0 H442"/>
+  <path class="flow" pathLength="100" d="M404 760 H428 V758.0 H442"/>
+  <path class="edge dash head" d="M404 760 H428 V758.0 H442"/>
+  <path class="edge" d="M404 760 H428 V814.0 H442"/>
+  <path class="flow" pathLength="100" d="M404 760 H428 V814.0 H442"/>
+  <path class="edge head" d="M404 760 H428 V814.0 H442"/>
+  <path class="edge" d="M404 760 H428 V870.0 H442"/>
+  <path class="flow" pathLength="100" d="M404 760 H428 V870.0 H442"/>
+  <path class="edge head" d="M404 760 H428 V870.0 H442"/>
+  <path class="edge" d="M404 942 H428 V940.0 H442"/>
+  <path class="flow" pathLength="100" d="M404 942 H428 V940.0 H442"/>
+  <path class="edge head" d="M404 942 H428 V940.0 H442"/>
+  <path class="edge" d="M404 942 H428 V996.0 H442"/>
+  <path class="flow" pathLength="100" d="M404 942 H428 V996.0 H442"/>
+  <path class="edge head" d="M404 942 H428 V996.0 H442"/>
+  <path class="edge accent" d="M190 84 V122"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 84 V122"/>
+  <path class="edge accent head" d="M190 84 V122"/>
+  <path class="edge accent" d="M190 184 V278"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 184 V278"/>
+  <path class="edge accent head" d="M190 184 V278"/>
+  <path class="edge accent" d="M102 344 V352 H48 V394 H66"/>
+  <path class="flow flow-accent" pathLength="100" d="M102 344 V352 H48 V394 H66"/>
+  <path class="edge accent head" d="M102 344 V352 H48 V394 H66"/>
+  <path class="edge accent" d="M102 344 V352 H48 V760 H66"/>
+  <path class="flow flow-accent" pathLength="100" d="M102 344 V352 H48 V760 H66"/>
+  <path class="edge accent head" d="M102 344 V352 H48 V760 H66"/>
+  <path class="edge accent" d="M102 344 V352 H48 V942 H66"/>
+  <path class="flow flow-accent" pathLength="100" d="M102 344 V352 H48 V942 H66"/>
+  <path class="edge accent head" d="M102 344 V352 H48 V942 H66"/>
+  <path class="edge accent" d="M102 344 V352 H48 V1066.0 H66"/>
+  <path class="flow flow-accent" pathLength="100" d="M102 344 V352 H48 V1066.0 H66"/>
+  <path class="edge accent head" d="M102 344 V352 H48 V1066.0 H66"/>
+  <text class="edge-lbl code" x="202" y="103" text-anchor="start" dominant-baseline="central">launch_sensing:=true</text>
+</svg>
