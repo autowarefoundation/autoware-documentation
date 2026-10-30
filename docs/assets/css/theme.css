@@ -1074,6 +1074,89 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
   }
 }
 
+/* Media kit: logo tiles on fixed backgrounds, and color swatches. Both show fixed colors in both schemes. */
+.md-typeset .aw-logos,
+.md-typeset .aw-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  gap: 0.8rem;
+  margin: 1em 0;
+}
+
+.md-typeset .aw-logo-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  width: auto;
+  margin: 0;
+  padding: 1.4rem 0.8rem 0.9rem;
+  border-radius: 0.6rem;
+  box-shadow: inset 0 0 0 1px var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .aw-logo-tile img {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.md-typeset .aw-logo-tile figcaption {
+  max-width: none;
+  margin: 0;
+  font-size: 0.65rem;
+  font-style: normal;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.md-typeset .aw-logo-tile--light {
+  color: #000000de;
+  background-color: #fff;
+}
+
+.md-typeset .aw-logo-tile--light a {
+  color: var(--aw-indigo);
+}
+
+.md-typeset .aw-logo-tile--dark {
+  color: #fff;
+  background-color: var(--aw-navy);
+}
+
+.md-typeset .aw-logo-tile--dark a {
+  color: var(--aw-cyan);
+}
+
+.md-typeset .aw-swatch {
+  overflow: hidden;
+  border-radius: 0.6rem;
+  box-shadow: inset 0 0 0 1px var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .aw-swatch__color {
+  display: flex;
+  align-items: flex-end;
+  height: 4.5rem;
+  padding: 0.5rem 0.7rem;
+  font-weight: 700;
+  color: var(--aw-swatch-fg);
+  background: var(--aw-swatch);
+  box-shadow: inset 0 0 0 1px var(--md-default-fg-color--lighter);
+}
+
+.md-typeset .aw-swatch__info {
+  padding: 0.5rem 0.7rem 0.6rem;
+  font-size: 0.65rem;
+  line-height: 1.6;
+}
+
+.md-typeset .aw-gradient-bar {
+  height: 2.4rem;
+  margin: 1em 0;
+  background: var(--aw-gradient);
+  border-radius: 0.6rem;
+}
+
 /* Numbered steps: an ordered list with gradient number badges. */
 .md-typeset .aw-steps > ol {
   padding: 0;
