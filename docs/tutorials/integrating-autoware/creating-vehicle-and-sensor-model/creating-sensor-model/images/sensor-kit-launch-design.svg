@@ -1,0 +1,289 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="sensor-kit-launch-design-title">
+  <title id="sensor-kit-launch-design-title">
+    The sensor kit launch starts the drivers of the LiDAR, IMU, camera, and GNSS sensors. The LiDAR data goes through the crop box filter, the distortion corrector, the ring outlier filter, and the
+    concatenation. The IMU data goes through the IMU corrector, the camera image through image_proc, and the GNSS data through gnss_poser.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-cyan: #00c8ff; --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-group: color-mix(in
+    srgb, var(--aw-c-indigo) 6%, var(--md-default-bg-color)); --aw-d-group-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 25%, transparent); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.ai {
+  fill: color-mix(in srgb, var(--aw-cyan) 14%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-cyan) 70%, transparent);
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} .group {
+  fill: var(--aw-d-group);
+  stroke: var(--aw-d-group-stroke);
+  stroke-width: 1.5;
+} .group.ai {
+  fill: color-mix(in srgb, var(--aw-cyan) 7%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-cyan) 45%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .card.ai {
+  fill: color-mix(in srgb, var(--aw-cyan) 8%, var(--aw-d-node));
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 65%, transparent);
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.ai {
+  fill: url("#aw-grad-ai");
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-ai" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00c8ff"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="960" height="600"/>
+  <circle class="halo" cx="140" cy="390" r="130"/>
+  <circle class="halo cyan" cx="874" cy="518" r="70"/>
+
+  <!-- Sensors -->
+  <rect class="card" x="60" y="16" width="160" height="52" rx="12"/>
+  <circle class="icon-bg" cx="88" cy="42" r="14"/>
+  <rect class="icon-line" x="82" y="34" width="12" height="16" rx="3"/>
+  <path class="icon-line" d="M82 42 H94"/>
+  <text class="lbl" x="110" y="42" dominant-baseline="central">LiDAR sensor</text>
+
+  <rect class="card" x="250" y="16" width="160" height="52" rx="12"/>
+  <circle class="icon-bg" cx="278" cy="42" r="14"/>
+  <rect class="icon-line" x="272" y="36" width="12" height="12" rx="2"/>
+  <circle class="icon-dot" cx="278" cy="42" r="2.2"/>
+  <text class="lbl" x="300" y="42" dominant-baseline="central">IMU sensor</text>
+
+  <rect class="card" x="440" y="16" width="160" height="52" rx="12"/>
+  <circle class="icon-bg" cx="468" cy="42" r="14"/>
+  <rect class="icon-line" x="460" y="36" width="16" height="12" rx="2"/>
+  <circle class="icon-line" cx="468" cy="42" r="3.5"/>
+  <text class="lbl" x="490" y="42" dominant-baseline="central">Camera sensor</text>
+
+  <rect class="card" x="620" y="16" width="160" height="52" rx="12"/>
+  <circle class="icon-bg" cx="648" cy="42" r="14"/>
+  <circle class="icon-dot" cx="643" cy="47" r="2.2"/>
+  <path class="icon-line" d="M643 40 A7 7 0 0 1 650 47"/>
+  <path class="icon-line" d="M643 34 A13 13 0 0 1 656 47"/>
+  <text class="lbl" x="670" y="42" dominant-baseline="central">GNSS sensor</text>
+
+  <!-- Sensor kit launch -->
+  <rect class="glass-panel" x="20" y="96" width="764" height="488" rx="18"/>
+  <text class="ttl" x="256" y="566">Sensor kit launch</text>
+  <text class="code" x="404" y="562" dominant-baseline="central">&lt;sensor_model&gt;_launch/launch/sensing.launch.xml</text>
+
+  <!-- Drivers -->
+  <rect class="box" x="60" y="140" width="160" height="56" rx="10"/>
+  <text class="lbl" x="140" y="160" text-anchor="middle" dominant-baseline="central">LiDAR driver</text>
+  <text class="sub" x="140" y="180" text-anchor="middle" dominant-baseline="central">Nebula</text>
+
+  <rect class="box" x="250" y="140" width="160" height="56" rx="10"/>
+  <text class="lbl" x="330" y="168" text-anchor="middle" dominant-baseline="central">IMU driver</text>
+
+  <rect class="box" x="440" y="140" width="160" height="56" rx="10"/>
+  <text class="lbl" x="520" y="168" text-anchor="middle" dominant-baseline="central">Camera driver</text>
+
+  <rect class="box" x="620" y="140" width="160" height="56" rx="10"/>
+  <text class="lbl" x="700" y="168" text-anchor="middle" dominant-baseline="central">GNSS/INS driver</text>
+
+  <!-- Second stage of the IMU, camera, and GNSS pipelines -->
+  <rect class="card" x="250" y="228" width="160" height="56" rx="12"/>
+  <text class="lbl" x="330" y="248" text-anchor="middle" dominant-baseline="central">IMU corrector</text>
+  <text class="sub" x="330" y="268" text-anchor="middle" dominant-baseline="central">and gyro bias estimator</text>
+
+  <rect class="card" x="440" y="228" width="160" height="56" rx="12"/>
+  <text class="lbl" x="520" y="248" text-anchor="middle" dominant-baseline="central">image_proc</text>
+  <text class="sub" x="520" y="268" text-anchor="middle" dominant-baseline="central">Image rectification</text>
+
+  <rect class="card" x="620" y="228" width="160" height="56" rx="12"/>
+  <text class="lbl" x="700" y="248" text-anchor="middle" dominant-baseline="central">GNSS poser</text>
+  <text class="sub" x="700" y="268" text-anchor="middle" dominant-baseline="central">NavSatFix to pose</text>
+
+  <!-- LiDAR preprocessing -->
+  <rect class="group ai" x="32" y="214" width="216" height="256" rx="16"/>
+  <rect class="card" x="60" y="226" width="160" height="48" rx="12"/>
+  <text class="lbl" x="140" y="242" text-anchor="middle" dominant-baseline="central">Crop box filter</text>
+  <text class="sub" x="140" y="260" text-anchor="middle" dominant-baseline="central">Vehicle body and mirrors</text>
+  <rect class="card" x="60" y="298" width="160" height="40" rx="12"/>
+  <text class="lbl" x="140" y="318" text-anchor="middle" dominant-baseline="central">Distortion corrector</text>
+  <rect class="card" x="60" y="362" width="160" height="40" rx="12"/>
+  <text class="lbl" x="140" y="382" text-anchor="middle" dominant-baseline="central">Ring outlier filter</text>
+  <text class="ttl" x="140" y="432" text-anchor="middle">Pointcloud preprocessor</text>
+  <text class="code" x="140" y="452" text-anchor="middle" dominant-baseline="central">autoware_sensing_launch</text>
+
+  <rect class="box primary" x="60" y="490" width="160" height="56" rx="10"/>
+  <text class="lbl on-primary" x="140" y="510" text-anchor="middle" dominant-baseline="central">Concatenation</text>
+  <text class="sub on-primary" x="140" y="530" text-anchor="middle" dominant-baseline="central">All LiDARs, time sync</text>
+
+  <!-- Outputs -->
+  <rect class="box muted" x="800" y="234" width="148" height="44" rx="10"/>
+  <text class="lbl" x="874" y="256" text-anchor="middle" dominant-baseline="central">GNSS/INS pose</text>
+  <rect class="box muted" x="800" y="302" width="148" height="44" rx="10"/>
+  <text class="lbl" x="874" y="324" text-anchor="middle" dominant-baseline="central">Rectified image</text>
+  <rect class="box muted" x="800" y="372" width="148" height="44" rx="10"/>
+  <text class="lbl" x="874" y="394" text-anchor="middle" dominant-baseline="central">IMU data</text>
+  <rect class="box muted" x="800" y="496" width="148" height="44" rx="10"/>
+  <text class="lbl" x="874" y="510" text-anchor="middle" dominant-baseline="central">Concatenated</text>
+  <text class="lbl" x="874" y="527" text-anchor="middle" dominant-baseline="central">pointcloud</text>
+
+  <!-- Sensors to drivers -->
+  <path class="edge" d="M140 68 V132"/>
+  <path class="flow" pathLength="100" d="M140 68 V132"/>
+  <path class="edge head" d="M140 68 V132"/>
+  <path class="edge" d="M330 68 V132"/>
+  <path class="flow" pathLength="100" d="M330 68 V132"/>
+  <path class="edge head" d="M330 68 V132"/>
+  <path class="edge" d="M520 68 V132"/>
+  <path class="flow" pathLength="100" d="M520 68 V132"/>
+  <path class="edge head" d="M520 68 V132"/>
+  <path class="edge" d="M700 68 V132"/>
+  <path class="flow" pathLength="100" d="M700 68 V132"/>
+  <path class="edge head" d="M700 68 V132"/>
+
+  <!-- Drivers to the second stage -->
+  <path class="edge" d="M330 196 V220"/>
+  <path class="edge" d="M520 196 V220"/>
+  <path class="edge" d="M700 196 V220"/>
+  <path class="edge accent" d="M140 196 V218"/>
+  <path class="edge accent" d="M140 274 V290"/>
+  <path class="edge accent" d="M140 338 V354"/>
+  <path class="edge accent" fill="none" d="M60 382 H44 V518 H52"/>
+  <path class="flow flow-accent" pathLength="100" d="M60 382 H44 V518 H52"/>
+  <path class="edge accent head" fill="none" d="M60 382 H44 V518 H52"/>
+
+  <!-- Second stage to the outputs -->
+  <path class="edge" d="M780 256 H792"/>
+  <path class="edge" fill="none" d="M520 284 V324 H792"/>
+  <path class="flow" pathLength="100" d="M520 284 V324 H792"/>
+  <path class="edge head" fill="none" d="M520 284 V324 H792"/>
+  <path class="edge" fill="none" d="M330 284 V394 H792"/>
+  <path class="flow" pathLength="100" d="M330 284 V394 H792"/>
+  <path class="edge head" fill="none" d="M330 284 V394 H792"/>
+  <path class="edge accent" d="M220 518 H792"/>
+  <path class="flow flow-accent" pathLength="100" d="M220 518 H792"/>
+  <path class="edge accent head" d="M220 518 H792"/>
+</svg>

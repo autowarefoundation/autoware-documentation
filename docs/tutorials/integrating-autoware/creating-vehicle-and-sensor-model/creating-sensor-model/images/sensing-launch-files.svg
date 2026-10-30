@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-labelledby="sensing-launch-files-title">
+  <title id="sensing-launch-files-title">
+    component_sensing.launch.xml includes sensing.launch.xml of the sensor kit. sensing.launch.xml includes the LiDAR, camera, IMU, GNSS, and vehicle velocity converter launch files, and these include
+    the shared launch files of autoware_sensor_driver_launch, autoware_sensing_launch, autoware_imu_corrector, and autoware_gnss_poser.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-cyan: #00c8ff; --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-group: color-mix(in
+    srgb, var(--aw-c-indigo) 6%, var(--md-default-bg-color)); --aw-d-group-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 25%, transparent); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.ai {
+  fill: color-mix(in srgb, var(--aw-cyan) 14%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-cyan) 70%, transparent);
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} .group {
+  fill: var(--aw-d-group);
+  stroke: var(--aw-d-group-stroke);
+  stroke-width: 1.5;
+} .group.ai {
+  fill: color-mix(in srgb, var(--aw-cyan) 7%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-cyan) 45%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .edge.plain {
+  marker-end: none;
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .card.ai {
+  fill: color-mix(in srgb, var(--aw-cyan) 8%, var(--aw-d-node));
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 65%, transparent);
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="960" height="620"/>
+  <circle class="halo" cx="120" cy="300" r="110"/>
+  <circle class="halo cyan" cx="710" cy="140" r="120"/>
+
+  <!-- Entry point -->
+  <rect class="box muted" x="16" y="176" width="184" height="72" rx="10"/>
+  <text class="code" x="108" y="196" text-anchor="middle" dominant-baseline="central">component_sensing</text>
+  <text class="code" x="108" y="212" text-anchor="middle" dominant-baseline="central">.launch.xml</text>
+  <text class="sub" x="108" y="232" text-anchor="middle" dominant-baseline="central">autoware_launch</text>
+
+  <rect class="box primary" x="16" y="288" width="184" height="64" rx="10"/>
+  <text class="code on-primary" x="108" y="310" text-anchor="middle" dominant-baseline="central">sensing.launch.xml</text>
+  <text class="sub on-primary" x="108" y="332" text-anchor="middle" dominant-baseline="central">&lt;sensor_model&gt;_launch</text>
+
+  <path class="edge accent" d="M108 248 V280"/>
+  <path class="flow flow-accent" pathLength="100" d="M108 248 V280"/>
+  <path class="edge accent head" d="M108 248 V280"/>
+
+  <!-- Launch files of the sensor kit -->
+  <rect class="box" x="240" y="104" width="196" height="60" rx="10"/>
+  <text class="code" x="338" y="124" text-anchor="middle" dominant-baseline="central">lidar.launch.xml</text>
+  <text class="sub" x="338" y="146" text-anchor="middle" dominant-baseline="central">One group for each LiDAR</text>
+
+  <rect class="box" x="240" y="282" width="196" height="52" rx="10"/>
+  <text class="code" x="338" y="300" text-anchor="middle" dominant-baseline="central">camera.launch.xml</text>
+  <text class="sub" x="338" y="318" text-anchor="middle" dominant-baseline="central">Not included by the sample</text>
+
+  <rect class="box" x="240" y="368" width="196" height="48" rx="10"/>
+  <text class="code" x="338" y="392" text-anchor="middle" dominant-baseline="central">imu.launch.xml</text>
+
+  <rect class="box" x="240" y="458" width="196" height="48" rx="10"/>
+  <text class="code" x="338" y="482" text-anchor="middle" dominant-baseline="central">gnss.launch.xml</text>
+
+  <rect class="box" x="240" y="540" width="196" height="56" rx="10"/>
+  <text class="code" x="338" y="558" text-anchor="middle" dominant-baseline="central">vehicle_velocity_converter</text>
+  <text class="code" x="338" y="576" text-anchor="middle" dominant-baseline="central">.launch.xml</text>
+
+  <!-- From sensing.launch.xml to each launch file -->
+  <path class="edge plain" d="M200 320 H218"/>
+  <path class="edge plain" d="M218 134 V568"/>
+  <path class="edge" d="M218 134 H232"/>
+  <path class="edge dash" d="M218 308 H232"/>
+  <path class="edge" d="M218 392 H232"/>
+  <path class="edge" d="M218 482 H232"/>
+  <path class="edge" d="M218 568 H232"/>
+
+  <!-- LiDAR: driver layer -->
+  <rect class="group" x="466" y="16" width="238" height="228" rx="16"/>
+  <text class="ttl" x="480" y="38">Driver layer</text>
+  <text class="code" x="480" y="56" dominant-baseline="central">autoware_sensor_driver_launch</text>
+  <rect class="card" x="488" y="76" width="196" height="56" rx="12"/>
+  <text class="code" x="586" y="96" text-anchor="middle" dominant-baseline="central">velodyne_VLP16.launch.xml</text>
+  <text class="sub" x="586" y="116" text-anchor="middle" dominant-baseline="central">One file for each LiDAR model</text>
+  <rect class="card" x="488" y="168" width="196" height="56" rx="12"/>
+  <text class="code" x="586" y="188" text-anchor="middle" dominant-baseline="central">nebula_velodyne.launch.xml</text>
+  <text class="sub" x="586" y="208" text-anchor="middle" dominant-baseline="central">Nebula driver node</text>
+  <path class="edge" d="M586 132 V160"/>
+  <path class="flow" pathLength="100" d="M586 132 V160"/>
+  <path class="edge head" d="M586 132 V160"/>
+
+  <!-- LiDAR: processing units -->
+  <rect class="group ai" x="712" y="16" width="238" height="228" rx="16"/>
+  <text class="ttl" x="726" y="38">Processing units</text>
+  <text class="code" x="726" y="56" dominant-baseline="central">autoware_sensing_launch</text>
+  <rect class="card ai" x="722" y="72" width="218" height="48" rx="12"/>
+  <text class="code" x="831" y="88" text-anchor="middle" dominant-baseline="central">pointcloud_container</text>
+  <text class="code" x="831" y="104" text-anchor="middle" dominant-baseline="central">.launch.xml</text>
+  <rect class="card ai" x="722" y="128" width="218" height="48" rx="12"/>
+  <text class="code" x="831" y="144" text-anchor="middle" dominant-baseline="central">pointcloud_preprocessor_cpu</text>
+  <text class="code" x="831" y="160" text-anchor="middle" dominant-baseline="central">.launch.xml</text>
+  <rect class="card ai" x="722" y="184" width="218" height="48" rx="12"/>
+  <text class="code" x="831" y="200" text-anchor="middle" dominant-baseline="central">pointcloud_concatenation_cpu</text>
+  <text class="code" x="831" y="216" text-anchor="middle" dominant-baseline="central">.launch.xml</text>
+
+  <!-- From lidar.launch.xml to the driver and the processing units -->
+  <path class="edge accent" fill="none" d="M436 134 H456 V104 H478"/>
+  <path class="flow flow-accent" pathLength="100" d="M436 134 H456 V104 H478"/>
+  <path class="edge accent head" fill="none" d="M436 134 H456 V104 H478"/>
+  <path class="edge accent" fill="none" d="M456 134 V262 H828 V252"/>
+  <path class="flow flow-accent" pathLength="100" d="M456 134 V262 H828 V252"/>
+  <path class="edge accent head" fill="none" d="M456 134 V262 H828 V252"/>
+  <text class="edge-lbl" x="640" y="262" text-anchor="middle" dominant-baseline="central">Once for each LiDAR, the concatenation once</text>
+
+  <!-- IMU -->
+  <rect class="group" x="476" y="348" width="468" height="88" rx="16"/>
+  <text class="ttl" x="490" y="368">IMU correction</text>
+  <text class="code" x="620" y="368" dominant-baseline="central">autoware_imu_corrector</text>
+  <rect class="card" x="488" y="380" width="208" height="44" rx="12"/>
+  <text class="code" x="592" y="402" text-anchor="middle" dominant-baseline="central">imu_corrector.launch.xml</text>
+  <rect class="card" x="706" y="380" width="228" height="44" rx="12"/>
+  <text class="code" x="820" y="402" text-anchor="middle" dominant-baseline="central">gyro_bias_estimator.launch.xml</text>
+  <path class="edge" d="M436 392 H468"/>
+  <path class="flow" pathLength="100" d="M436 392 H468"/>
+  <path class="edge head" d="M436 392 H468"/>
+
+  <!-- GNSS -->
+  <rect class="card" x="488" y="458" width="208" height="48" rx="12"/>
+  <text class="code" x="592" y="474" text-anchor="middle" dominant-baseline="central">gnss_poser.launch.xml</text>
+  <text class="sub" x="592" y="492" text-anchor="middle" dominant-baseline="central">autoware_gnss_poser</text>
+  <path class="edge" d="M436 482 H480"/>
+  <path class="flow" pathLength="100" d="M436 482 H480"/>
+  <path class="edge head" d="M436 482 H480"/>
+</svg>

@@ -89,7 +89,7 @@ Convert your split ROS 2 bag file to ROS 1 bag file:
 pip3 install rosbags
 
 # convert bag
-rosbags-convert <YOUR-SPLITTED-ROS2-BAG-FOLDER> --dst <OUTPUT-BAG-FILE>
+rosbags-convert --src <YOUR-SPLITTED-ROS2-BAG-FOLDER> --dst <OUTPUT-BAG-FILE>
 ```
 
 ## Lidar-Imu Calibration
@@ -182,7 +182,7 @@ sensors:
 - `path_bag` is the path to the rosbag file, but you need to give the path inside
   the container, not your local system. For example,
   if you have a rosbag file in the `OA-LICalib/data` directory,
-  you need to give the path as `/root/calib_ws/src/OA-LICalib/data/rosbag2_2023_08_18-14_42_12_0.bag`
+  you need to give the path as `/root/catkin_oa_calib/src/OA-LICalib/data/rosbag2_2023_08_18-14_42_12_0.bag`
 
 ```yaml
 topic_lidar: /sensing/lidar/top/pointcloud_raw
@@ -194,7 +194,7 @@ selected_segment:
   - {
       start_time: 0,
       end_time: 40,
-      path_bag: /root/calib_ws/src/OA-LICalib/data/rosbag2_2023_08_18-14_42_12_0.bag,
+      path_bag: /root/catkin_oa_calib/src/OA-LICalib/data/rosbag2_2023_08_18-14_42_12_0.bag,
     }
 ```
 
@@ -206,7 +206,7 @@ cd /root/catkin_oa_calib
 catkin_make -DCATKIN_WHITELIST_PACKAGES=""
 
 source devel/setup.bash
-roslaunch oalicalib li_calib.launch
+roslaunch oa_licalib li_calib.launch
 ```
 
 After running the calibration tool, you can track the calibration process

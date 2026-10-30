@@ -17,20 +17,22 @@
 - **Usage:** The sensor model is utilized in Autoware for launching sensors,
   configuring their pipeline, and describing calibration values.
 
-- The sensor model (sensor kit) consists of the following three packages:
-  - `common_sensor_launch`
+- The sensor model (sensor kit) consists of the following two packages:
   - `<YOUR_VEHICLE_NAME>_sensor_kit_description`
   - `<YOUR_VEHICLE_NAME>_sensor_kit_launch`
+
+- The sensor kit uses shared launch files from two packages of the `autoware_launch` repository:
+  - `autoware_sensor_driver_launch`: the launch files of the LiDAR drivers, one file for each LiDAR model
+  - `autoware_sensing_launch`: the launch files of the pointcloud preprocessing, the concatenation, and other processing units
 
 Please refer to the [creating sensor model](./creating-sensor-model/index.md) page
 for creating your individual sensor model.
 
 For reference,
-here is the folder structure for the [sample_sensor_kit_launch](https://github.com/autowarefoundation/sample_sensor_kit_launch) package in Autoware:
+here is the folder structure for the [sample_sensor_kit_launch](https://github.com/autowarefoundation/autoware_launch/tree/main/sensor_kit/sample_sensor_kit_launch) folder in the `autoware_launch` repository:
 
 ```diff
 sample_sensor_kit_launch/
-├─ common_sensor_launch/
 ├─ sample_sensor_kit_description/
 └─ sample_sensor_kit_launch/
 ```
@@ -53,7 +55,7 @@ Please consult the [creating vehicle model](./creating-vehicle-model/index.md) p
 for creating your individual vehicle model.
 
 As a reference,
-here is the folder structure for the [sample_vehicle_launch](https://github.com/autowarefoundation/sample_vehicle_launch) package in Autoware:
+here is the folder structure for the [sample_vehicle_launch](https://github.com/autowarefoundation/autoware_launch/tree/main/vehicle/sample_vehicle_launch) folder in the `autoware_launch` repository:
 
 ```diff
 sample_vehicle_launch/

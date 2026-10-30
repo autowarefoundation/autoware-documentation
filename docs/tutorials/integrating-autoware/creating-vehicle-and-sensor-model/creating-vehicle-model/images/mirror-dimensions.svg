@@ -1,0 +1,214 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 710" role="img" aria-labelledby="mirror-dimensions-title">
+  <title id="mirror-dimensions-title">
+    The six parameters of mirror.param.yaml give the box around the side mirrors, measured from base_link: the longitudinal and lateral offsets in the top-down view and the height offsets in the side
+    view.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-crimson: var(--aw-crimson); --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-car-shadow: #00002a40; --aw-crimson: #dc143c; --aw-cyan: #00c8ff; --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.both {
+  marker-start: url("#aw-arrow");
+} .edge.accent.both {
+  marker-start: url("#aw-arrow-accent");
+} .bound {
+  fill: none;
+  stroke: var(--aw-cyan);
+  stroke-width: 2.5;
+} .bound.point {
+  fill: var(--aw-cyan);
+  stroke: none;
+} .leader {
+  fill: none;
+  stroke: var(--aw-d-muted);
+  stroke-width: 1;
+} .note {
+  font-size: 13px;
+  fill: var(--aw-d-fg);
+} .note.bad {
+  fill: var(--aw-c-crimson);
+} .note.code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .car-body {
+  fill: url("#aw-grad-car");
+} .car-glass {
+  fill: url("#aw-grad-car-glass");
+  stroke: #ffffffb3;
+  stroke-width: 1;
+} .car-shine {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.75;
+} .wheel {
+  fill: #1b1d29;
+} .rim {
+  fill: none;
+  stroke: #c9ccd8;
+  stroke-width: 2.5;
+} .hub {
+  fill: #c9ccd8;
+} .car-shadow {
+  fill: var(--aw-car-shadow);
+  filter: url("#aw-soft");
+} .headlight {
+  fill: #9ff3ff;
+  filter: url("#aw-glow");
+}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <filter id="aw-glow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="aw-grad-car" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2a1fa8"/>
+      <stop offset="0.35" stop-color="#3f2ee3"/>
+      <stop offset="0.75" stop-color="#2a6df2"/>
+      <stop offset="1" stop-color="#00b4ff"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-car-glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#bfeeff" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#7fd8ff" stop-opacity="0.35"/>
+    </linearGradient>
+    <filter id="aw-soft" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feGaussianBlur stdDeviation="3.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid -->
+  <rect class="dots" x="0" y="0" width="900" height="710"/>
+
+  <!-- Top-down view, front to the right -->
+  <text class="ttl" x="24" y="30">Top-down view</text>
+  <rect class="car-shadow" x="203" y="125" width="420" height="200" rx="6"/>
+  <!-- Side mirrors: they set the box that the crop box filter removes -->
+  <path class="wheel" d="M440 120 L446 96 Q456 90 468 94 L472 120 Z"/>
+  <path class="wheel" d="M440 320 L446 344 Q456 350 468 346 L472 320 Z"/>
+  <rect class="car-body" x="200" y="120" width="420" height="200" rx="6"/>
+  <rect class="car-glass" x="476" y="136" width="22" height="168" rx="3"/>
+  <rect class="car-glass" x="222" y="144" width="14" height="152" rx="3"/>
+  <rect class="wheel" x="268" y="124" width="44" height="16" rx="4"/>
+  <rect class="wheel" x="268" y="300" width="44" height="16" rx="4"/>
+  <rect class="wheel" x="510" y="124" width="44" height="16" rx="4"/>
+  <rect class="wheel" x="510" y="300" width="44" height="16" rx="4"/>
+  <text class="sub on-primary" x="330" y="160">Left side (+y)</text>
+  <text class="sub on-primary" x="330" y="292">Right side (−y)</text>
+  <text class="sub on-primary" x="600" y="224" text-anchor="end" dominant-baseline="central">Front</text>
+
+  <!-- base_link axes -->
+  <path class="edge accent" d="M290 220 H392"/>
+  <text class="lbl on-primary" x="402" y="220" dominant-baseline="central">x</text>
+  <path class="edge accent" d="M290 220 V184"/>
+  <text class="lbl on-primary" x="290" y="172" text-anchor="middle" dominant-baseline="central">y</text>
+  <circle class="bound point" cx="290" cy="220" r="5"/>
+  <text class="sub on-primary" x="300" y="240">base_link</text>
+
+  <!-- Extension lines -->
+  <path class="leader" d="M290 124 V12 M440 96 V44 M472 92 V12"/>
+  <path class="leader" d="M472 92 H700 M620 220 H700 M472 348 H700"/>
+
+  <!-- Longitudinal offsets -->
+  <path class="edge both" d="M292 20 H470"/>
+  <text class="code" x="484" y="20" dominant-baseline="central">max_longitudinal_offset</text>
+  <path class="edge both" d="M292 52 H438"/>
+  <text class="code" x="484" y="52" dominant-baseline="central">min_longitudinal_offset</text>
+
+  <!-- Lateral offsets -->
+  <path class="edge both" d="M680 94 V218"/>
+  <text class="code" x="694" y="156" dominant-baseline="central">max_lateral_offset</text>
+  <path class="edge both" d="M680 222 V346"/>
+  <text class="code" x="694" y="276" dominant-baseline="central">min_lateral_offset</text>
+  <text class="note bad" x="694" y="298" dominant-baseline="central">Negative value</text>
+
+  <g transform="translate(0 -50)">
+    <!-- Right side view, front to the right -->
+    <text class="ttl" x="24" y="424">Right side view</text>
+    <ellipse class="car-shadow" cx="470" cy="684" rx="220" ry="8"/>
+    <path class="car-body" d="M260 640 Q260 600 280 596 L360 590 L420 520 Q432 506 450 506 L560 506 Q574 506 584 518 L630 590 Q676 596 680 620 L680 652 Q680 660 670 660 L270 660 Q260 660 260 650 Z"/>
+    <path class="car-glass" d="M432 590 L452 522 Q458 516 466 516 L556 516 Q566 516 572 524 L610 590 Z"/>
+    <rect class="car-body" x="508" y="516" width="5" height="74"/>
+    <path class="car-shine" d="M290 612 Q470 604 668 610"/>
+    <rect class="headlight" x="672" y="606" width="8" height="8" rx="4"/>
+    <circle class="wheel" cx="350" cy="650" r="30"/>
+    <circle class="rim" cx="350" cy="650" r="17"/>
+    <circle class="hub" cx="350" cy="650" r="6"/>
+    <circle class="wheel" cx="592" cy="650" r="30"/>
+    <circle class="rim" cx="592" cy="650" r="17"/>
+    <circle class="hub" cx="592" cy="650" r="6"/>
+    <!-- The side mirror -->
+    <path class="wheel" d="M608 590 L612 572 Q620 568 628 574 L628 590 Z"/>
+
+    <!-- base_link axes -->
+    <path class="edge accent" d="M350 680 H420"/>
+    <text class="lbl" x="430" y="680" dominant-baseline="central">x</text>
+    <text class="lbl" x="362" y="618" dominant-baseline="central">z</text>
+    <path class="edge accent" d="M350 680 V614"/>
+    <circle class="bound point" cx="350" cy="680" r="5"/>
+    <text class="sub" x="350" y="704" text-anchor="middle" dominant-baseline="central">base_link (on the ground)</text>
+
+    <!-- Extension lines -->
+    <path class="leader" d="M212 680 H760"/>
+    <path class="leader" d="M608 590 H212"/>
+    <path class="leader" d="M628 572 H760"/>
+
+    <!-- Height offsets -->
+    <path class="edge both" d="M224 592 V678"/>
+    <text class="code" x="214" y="635" text-anchor="end" dominant-baseline="central">min_height_offset</text>
+    <path class="edge both" d="M744 574 V678"/>
+    <text class="code" x="756" y="626" dominant-baseline="central">max_height_offset</text>
+  </g>
+</svg>
