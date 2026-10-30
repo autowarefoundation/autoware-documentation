@@ -61,8 +61,8 @@ Use include guards in header files. The `ros-include-guard` hook of [tier4/pre-c
 These tools run in the CI of `autoware_core` and `autoware_universe`, not in pre-commit:
 
 - Clang-Tidy checks the changed files of a pull request with the `.clang-tidy-ci` file of the repository. The configuration treats all enabled warnings as errors.
-- Cppcheck checks the changed files with the `cppcheck-differential` workflow.
-- `ament_cmake_cppcheck` runs during `colcon test` for each package that depends on [`autoware_lint_common`](https://github.com/autowarefoundation/autoware_cmake/tree/main/autoware_lint_common).
+- Cppcheck checks all C++ files of the packages that the pull request changes, with the `cppcheck-differential` workflow. It can report problems in files that the pull request does not change.
+- `ament_cmake_cppcheck` runs during `colcon test` for each package that depends on [`autoware_lint_common`](https://github.com/autowarefoundation/autoware_cmake/tree/1.4.0/autoware_lint_common).
 
 ## Style rules
 

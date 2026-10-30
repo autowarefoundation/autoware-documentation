@@ -19,7 +19,7 @@ Also, keep in mind the following concepts.
 - When it comes to code reviews, don't spend too much time on trivial disagreements. For details see:
   - <https://en.wikipedia.org/wiki/Law_of_triviality>
   - <https://steemit.com/programming/@emrebeyler/code-reviews-and-parkinson-s-law-of-triviality>
-- Please follow the guidelines for each language.
+- Follow the [language-specific guidelines](#language-specific-guidelines) for each language.
 
 ## Language-specific guidelines
 
@@ -46,7 +46,7 @@ Most of these rules are checked by tools, so you do not have to remember them. A
 pre-commit run -a
 ```
 
-`colcon test` runs the linters that need a built package. A package that adds `ament_lint_auto` and [`autoware_lint_common`](https://github.com/autowarefoundation/autoware_cmake/tree/main/autoware_lint_common) as test dependencies runs `ament_cmake_copyright`, `ament_cmake_cppcheck`, `ament_cmake_lint_cmake`, and `ament_cmake_xmllint`. `autoware_lint_common` does not include `cpplint`, `flake8`, or `uncrustify`, because pre-commit runs those tools faster and with any version.
+`colcon test` runs the linters that need a built package. A package that adds `ament_lint_auto` and [`autoware_lint_common`](https://github.com/autowarefoundation/autoware_cmake/tree/1.4.0/autoware_lint_common) as test dependencies runs `ament_cmake_copyright`, `ament_cmake_cppcheck`, `ament_cmake_lint_cmake`, and `ament_cmake_xmllint`. `autoware_lint_common` does not include `cpplint`, `flake8`, or `uncrustify`, because pre-commit runs those tools faster and with any version.
 
 For the CI workflows that run these checks on a pull request, see [CI checks](../pull-request-guidelines/ci-checks.md).
 
@@ -64,4 +64,4 @@ For Autoware-specific styles, refer to the following:
   - cf. [Directory structure guideline, Exporting headers](./ros-nodes/directory-structure.md#exporting-headers)
 - In `CMakeLists.txt`, use `autoware_package()`.
   - cf. [CMake guideline](./languages/cmake.md)
-  - cf. [autoware_cmake README](https://github.com/autowarefoundation/autoware_cmake/tree/main/autoware_cmake)
+  - cf. [autoware_cmake README](https://github.com/autowarefoundation/autoware_cmake/tree/1.4.0/autoware_cmake)

@@ -1,6 +1,8 @@
+<!-- cspell: ignore DONT -->
+
 # CMake
 
-This page describes how to write the `CMakeLists.txt` file of an Autoware package. Autoware packages use [ament_cmake_auto](https://github.com/ament/ament_cmake/tree/humble/ament_cmake_auto) and the macros of [autoware_cmake](https://github.com/autowarefoundation/autoware_cmake/tree/main/autoware_cmake). With these tools, a package declares its dependencies only once, in `package.xml`.
+This page describes how to write the `CMakeLists.txt` file of an Autoware package. Autoware packages use [ament_cmake_auto](https://github.com/ament/ament_cmake/tree/humble/ament_cmake_auto) and the macros of [autoware_cmake](https://github.com/autowarefoundation/autoware_cmake/tree/1.4.0/autoware_cmake). With these tools, a package declares its dependencies only once, in `package.xml`.
 
 ## References
 
@@ -17,12 +19,15 @@ In short, the ROS 2 style asks for these rules:
 
 ## Use the autoware_package macro
 
-To reduce duplications in `CMakeLists.txt`, there is the `autoware_package()` macro. Call it directly after `project()` and before you define build targets. See the [README](https://github.com/autowarefoundation/autoware_cmake/tree/main/autoware_cmake) for details.
+To reduce duplications in `CMakeLists.txt`, there is the `autoware_package()` macro. Call it directly after `project()` and before you define build targets. See the [README](https://github.com/autowarefoundation/autoware_cmake/tree/1.4.0/autoware_cmake) for details.
 
-`autoware_package()` does these steps ([source](https://github.com/autowarefoundation/autoware_cmake/blob/main/autoware_cmake/cmake/autoware_package.cmake)):
+`autoware_package()` does these steps ([source](https://github.com/autowarefoundation/autoware_cmake/blob/1.4.0/autoware_cmake/cmake/autoware_package.cmake)):
 
 - It sets the C++ standard to C++17, if the package does not set `CMAKE_CXX_STANDARD`.
 - It adds the `-Wall -Wextra -Wpedantic` compiler options and treats warnings as errors.
+- With Clang, it adds the `-Wno-gnu-anonymous-struct -Wno-nested-anon-types` options to ignore warnings from PCL headers.
+- It defines `BOOST_ALLOW_DEPRECATED_HEADERS` to hide the deprecation messages of Boost.
+- It defines `EIGEN_DONT_PARALLELIZE`, so Eigen does not start its own OpenMP threads. PCL 1.14 adds `-fopenmp` to all packages that use it. Without this definition, the Eigen threads can wait in busy loops and slow down the other callbacks.
 - It defines a macro for the ROS distribution, for example `ROS_DISTRO_HUMBLE` or `ROS_DISTRO_JAZZY`. Use it when code must differ between distributions.
 - It calls `ament_auto_find_build_dependencies()`, which finds all build dependencies in `package.xml`.
 - It adds the Eigen include directory as a system include directory.
@@ -41,7 +46,7 @@ The package must declare `autoware_cmake` as a build tool dependency in `package
 
 End `CMakeLists.txt` with `autoware_ament_auto_package()` instead of `ament_auto_package()`. The macro installs the libraries, the executables, and the exported headers. It also exports each build dependency that is a run dependency too. It accepts the same `INSTALL_TO_PATH` and `INSTALL_TO_SHARE` arguments as `ament_auto_package()`.
 
-Use `INSTALL_TO_SHARE` to install directories such as `launch` and `config` to `share/<package_name>/`. The `USE_SCOPED_HEADER_INSTALL_DIR` option installs the headers to `include/<package_name>/` instead of `include/`. Many packages of `autoware_core` use this option. For the background, see the [autoware_cmake README](https://github.com/autowarefoundation/autoware_cmake/tree/main/autoware_cmake#autoware_ament_auto_packagecmake).
+Use `INSTALL_TO_SHARE` to install directories such as `launch` and `config` to `share/<package_name>/`. The `USE_SCOPED_HEADER_INSTALL_DIR` option installs the headers to `include/<package_name>/` instead of `include/`. Many packages of `autoware_core` use this option. For the background, see the [autoware_cmake README](https://github.com/autowarefoundation/autoware_cmake/tree/1.4.0/autoware_cmake#autoware_ament_auto_packagecmake).
 
 ## Example
 
