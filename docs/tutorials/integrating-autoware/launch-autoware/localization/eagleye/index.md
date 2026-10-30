@@ -27,7 +27,7 @@ In the second way, Eagleye gives both the twist and the pose to the EKF localize
 
 {{ diagram("images/eagleye-pose-twist.svg", "Eagleye gives both the twist and the pose to the EKF localizer.") }}
 
-`component_localization.launch.xml` of `autoware_launch` includes `eagleye/eagleye_rt.launch.xml` of `autoware_localization_launch` for both ways. For more information, see the [Localization launch files](../index.md) page.
+`component_localization.launch.xml` of `autoware_launch` includes `pose_twist_estimator/eagleye/eagleye_rt.launch.xml` of `autoware_localization_launch` for both ways. For more information, see the [Localization launch files](../index.md) page.
 
 **Note: RTK positioning is required when using Eagleye as the pose estimator.**
 On the other hand, it is not mandatory when using it as the twist estimator.

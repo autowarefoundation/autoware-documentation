@@ -176,6 +176,7 @@
   <text class="sub" x="169" y="265" text-anchor="middle" dominant-baseline="central">tier4_system_launch</text>
   <text class="sub" x="169" y="304" text-anchor="middle" dominant-baseline="central">Most nodes run in the /system namespace.</text>
   <text class="sub" x="169" y="322" text-anchor="middle" dominant-baseline="central">Parameter files: autoware_launch/config/system/</text>
+  <text class="sub" x="169" y="340" text-anchor="middle" dominant-baseline="central">Gray boxes are off by default.</text>
 
   <!-- Logging of the diagnostic graph -->
   <rect class="card" x="344" y="128" width="274" height="56" rx="12"/>

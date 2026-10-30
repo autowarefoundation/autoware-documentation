@@ -53,11 +53,11 @@ The localization launch files support several pose estimators and twist estimato
   ros2 launch autoware_launch autoware.launch.xml ... twist_source:=eagleye
   ```
 
-- **`input_pointcloud:`** This argument sets the input point cloud of the localization point cloud pipeline in the `util` launch file. If NDT is a pose source, this pipeline downsamples the point cloud for NDT. The default value is `/sensing/lidar/concatenated/pointcloud`, which is the output of the [point cloud preprocessing](https://autowarefoundation.github.io/autoware_universe/main/sensing/autoware_pointcloud_preprocessor/) pipeline of sensing. You can change this value to the topic of one LiDAR, for example:
+- **`input_pointcloud:`** This argument sets the input point cloud of the localization point cloud pipeline in the `util` launch file. If NDT is a pose source, this pipeline downsamples the point cloud for NDT. The default value is `/sensing/lidar/concatenated/pointcloud`, which is the output of the [point cloud preprocessing](https://autowarefoundation.github.io/autoware_universe/main/sensing/autoware_pointcloud_preprocessor/) pipeline of sensing. You can change this value to the topic of one LiDAR. In `sample_sensor_kit_launch`, each LiDAR publishes its preprocessed point cloud on `/sensing/lidar/<name>/pointcloud_before_sync`. For example:
 
   ```diff
   - <arg name="input_pointcloud" default="/sensing/lidar/concatenated/pointcloud" description="The topic will be used in the localization util module"/>
-  + <arg name="input_pointcloud" default="/sensing/lidar/top/outlier_filtered/pointcloud" description="The topic will be used in the localization util module"/>
+  + <arg name="input_pointcloud" default="/sensing/lidar/top/pointcloud_before_sync" description="The topic will be used in the localization util module"/>
   ```
 
 - **`gnss_enabled:`** If this argument is `true` (the default), the pose initializer uses the GNSS pose for the initial position estimation.

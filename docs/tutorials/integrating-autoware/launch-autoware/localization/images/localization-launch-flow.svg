@@ -181,7 +181,7 @@
   <!-- Namespace /localization -->
   <rect class="glass-panel" x="12" y="236" width="936" height="710" rx="18"/>
   <text class="ttl" x="932" y="262" text-anchor="end">Namespace /localization</text>
-  <text class="sub" x="480" y="928" text-anchor="middle" dominant-baseline="central">The launch files in both groups are in autoware_localization_launch.</text>
+  <text class="sub" x="480" y="928" text-anchor="middle" dominant-baseline="central">The launch files in both groups are in autoware_localization_launch. Gray boxes are off by default.</text>
 
   <!-- Pose and twist estimators -->
   <rect class="group" x="28" y="284" width="444" height="626" rx="16"/>

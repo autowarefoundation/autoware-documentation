@@ -60,7 +60,7 @@ ros2 launch autoware_launch autoware.launch.xml vehicle_model:=YOUR_VEHICLE sens
     launch_control:=false
 ```
 
-`autoware.launch.xml` does not start the nodes itself. For each component, it includes a component launch file from the [`launch/components`](https://github.com/autowarefoundation/autoware_launch/tree/0.53.0/autoware_launch/launch/components) directory, for example `component_planning.launch.xml`. The component launch files include the feature launch files of the `autoware_<component>_launch` packages. These launch files read the parameter files of the `autoware_<component>_config` packages. The vehicle, the system, and the API use the `tier4_<name>_launch` packages. The `autoware_launch` repository has this layout:
+`autoware.launch.xml` starts only RViz and the shared point cloud container itself. For the vehicle, it includes `vehicle.launch.xml` of `tier4_vehicle_launch` directly. For each other component, it includes a component launch file from the [`launch/components`](https://github.com/autowarefoundation/autoware_launch/tree/0.53.0/autoware_launch/launch/components) directory, for example `component_planning.launch.xml`. Most component launch files include the feature launch files of the `autoware_<component>_launch` packages. These launch files read the parameter files of the `autoware_<component>_config` packages. The sensing component includes `sensing.launch.xml` of your sensor kit. The system and the API use the `tier4_<name>_launch` packages. The `autoware_launch` repository has this layout:
 
 ```text
 <YOUR-AUTOWARE-DIR>/
@@ -133,7 +133,7 @@ The `data_path` argument sets the directory of the machine learning models (the 
 + <arg name="data_path" default="<YOUR-AUTOWARE-DATA-PATH>" description="packages data and artifacts directory path"/>
 ```
 
-Autoware 2.0.0 has no `perception_mode` argument. `component_perception.launch.xml` starts a LiDAR-only pipeline, because the sensor kits of `autoware_launch` have only LiDARs. For a setup with cameras or radars, your component launch file can include another object recognition launch file of `autoware_perception_launch`, for example `object_recognition_camera_lidar_radar.launch.xml`. For the list of these files, see the [Perception component reference implementation](../../../design/autoware-architecture-v1/components/perception/reference_implementation.md#launch-files).
+Autoware 2.0.0 has no `perception_mode` argument. `component_perception.launch.xml` starts a LiDAR-only object recognition pipeline. The sensor kits of `autoware_launch` have no radars, and object recognition does not use their cameras. For a setup with cameras or radars, your component launch file can include another object recognition launch file of `autoware_perception_launch`, for example `object_recognition_camera_lidar_radar.launch.xml`. For the list of these files, see the [Perception component reference implementation](../../../design/autoware-architecture-v1/components/perception/reference_implementation.md#launch-files).
 
 Traffic light recognition uses a high-accuracy detector by default. The `traffic_light_recognition/use_high_accuracy_detection` argument enables it. For more information, see the [traffic_light_fine_detector](https://autowarefoundation.github.io/autoware_universe/main/perception/autoware_traffic_light_fine_detector/) page. If you do not want to use the high-accuracy detector, disable it. Then Autoware uses the rough detector, which projects the traffic lights of the map into the camera image:
 

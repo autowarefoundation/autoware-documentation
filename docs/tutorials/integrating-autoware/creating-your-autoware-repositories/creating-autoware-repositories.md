@@ -134,7 +134,7 @@ on how to create and customize each of your vehicle's packages:
 
 - [Creating vehicle and sensor models](../creating-vehicle-and-sensor-model/index.md)
   - [Creating sensor model](../creating-vehicle-and-sensor-model/creating-sensor-model/index.md)
-  - [Creating individual params](../creating-vehicle-and-sensor-model/creating-individual-params/index.md)
+  - [Sensor calibration files](../creating-vehicle-and-sensor-model/creating-individual-params/index.md)
   - [Creating vehicle model](../creating-vehicle-and-sensor-model/creating-vehicle-model/index.md)
 - [creating-vehicle-interface-package](../creating-vehicle-interface-package/ackermann-kinematic-model.md)
 - [customizing-for-differential-drive-model](../creating-vehicle-interface-package/customizing-for-differential-drive-model.md)

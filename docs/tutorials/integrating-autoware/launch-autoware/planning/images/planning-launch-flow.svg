@@ -24,9 +24,6 @@
 } .box.ai {
   fill: color-mix(in srgb, var(--aw-cyan) 14%, var(--aw-d-bg));
   stroke: color-mix(in srgb, var(--aw-cyan) 70%, transparent);
-} .box.muted {
-  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
-  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
 } .group {
   fill: var(--aw-d-group);
   stroke: var(--aw-d-group-stroke);
@@ -277,17 +274,19 @@
   <path class="icon-line" d="M523.438 1096 H528.75 L531.938 1089.62 L535.125 1102.38 L538.312 1096 H542.562"/>
   <text class="code lbl" x="562" y="1087" dominant-baseline="central">planning_evaluator.launch.xml</text>
   <text class="sub" x="562" y="1105" dominant-baseline="central">autoware_planning_evaluator</text>
-  <rect class="box muted" x="80" y="1136" width="828" height="44" rx="12"/>
+  <rect class="box" x="80" y="1136" width="828" height="44" rx="12"/>
   <text class="code lbl" x="494" y="1149" text-anchor="middle" dominant-baseline="central">remaining_distance_time_calculator.launch.xml</text>
-  <text class="sub" x="494" y="1167" text-anchor="middle" dominant-baseline="central">autoware_remaining_distance_time_calculator, if launch_remaining_distance_time_calculator is true</text>
+  <text class="sub" x="494" y="1167" text-anchor="middle" dominant-baseline="central">
+    autoware_remaining_distance_time_calculator, if launch_remaining_distance_time_calculator is true (true in default_preset.yaml)
+  </text>
 
   <!-- Lines: optional ones first, the main flow on top -->
   <path class="edge dash" d="M190 288 V360 H38 V976 H58"/>
   <path class="flow" pathLength="100" d="M190 288 V360 H38 V976 H58"/>
   <path class="edge dash head" d="M190 288 V360 H38 V976 H58"/>
-  <path class="edge" d="M434 258 H346"/>
-  <path class="flow" pathLength="100" d="M434 258 H346"/>
-  <path class="edge head" d="M434 258 H346"/>
+  <path class="edge" d="M346 258 H434"/>
+  <path class="flow" pathLength="100" d="M346 258 H434"/>
+  <path class="edge head" d="M346 258 H434"/>
   <path class="edge" d="M100 586 V618.0 H114"/>
   <path class="edge" d="M100 586 V666.0 H114"/>
   <path class="edge" d="M100 586 V714.0 H114"/>

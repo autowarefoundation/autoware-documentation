@@ -1,8 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-labelledby="autoware-launch-overview-title">
   <title id="autoware-launch-overview-title">
-    autoware.launch.xml of the autoware_launch repository includes one component launch file for each component. These files include the feature launch files of the autoware_*_launch packages, which
-    read the parameter files of the autoware_*_config packages. The vehicle, system, and API use the tier4_*_launch packages. The launch files start the nodes of autoware_core and autoware_universe
-    and override their default parameters.
+    autoware.launch.xml of the autoware_launch repository includes vehicle.launch.xml of tier4_vehicle_launch directly, and one component launch file for each other component. The component files
+    include
+    the feature launch files of the autoware_*_launch packages, which read the parameter files of the autoware_*_config packages. The sensing component includes the sensing.launch.xml file of the
+    sensor kit.
+    The system and the API use the tier4_*_launch packages, and vehicle.launch.xml includes vehicle_interface.launch.xml of the vehicle package. The launch files start the nodes of autoware_core and
+    autoware_universe and override their default parameters.
   </title>
   <style data-aw-standalone="">
     svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
@@ -185,13 +188,20 @@
   <path class="icon-line" d="M401.438 193.188 V188.938 L404.625 183.625 H417.375 L420.562 188.938 V193.188 Z"/>
   <circle class="icon-dot" cx="405.688" cy="195.312" r="2.55"/>
   <circle class="icon-dot" cx="416.312" cy="195.312" r="2.55"/>
-  <text class="code lbl" x="440" y="181" dominant-baseline="central">sensor_kit/, vehicle/</text>
-  <text class="sub" x="440" y="199" dominant-baseline="central">Sensor kit and vehicle packages</text>
+  <text class="code lbl" x="440" y="181" dominant-baseline="central">sensor_kit/</text>
+  <text class="sub" x="440" y="199" dominant-baseline="central">Sensor kits, sensing.launch.xml</text>
   <rect class="card" x="680" y="60" width="240" height="60" rx="12"/>
   <circle class="icon-bg" cx="711" cy="90" r="17"/>
   <path class="icon-line" d="M705.688 81.5 H713.125 L717.375 85.75 V98.5 H705.688 Z M708.875 90 H714.188 M708.875 94.25 H714.188"/>
   <text class="code lbl" x="740" y="81" dominant-baseline="central">tier4_*_launch</text>
   <text class="sub" x="740" y="99" dominant-baseline="central">Vehicle, system, and API</text>
+  <rect class="card" x="730" y="160" width="190" height="60" rx="12"/>
+  <circle class="icon-bg" cx="761" cy="190" r="17"/>
+  <path class="icon-line" d="M751.438 193.188 V188.938 L754.625 183.625 H767.375 L770.562 188.938 V193.188 Z"/>
+  <circle class="icon-dot" cx="755.688" cy="195.312" r="2.55"/>
+  <circle class="icon-dot" cx="766.312" cy="195.312" r="2.55"/>
+  <text class="code lbl" x="790" y="181" dominant-baseline="central">vehicle/</text>
+  <text class="sub" x="790" y="199" dominant-baseline="central">Vehicle packages</text>
 
   <!-- Nodes -->
   <rect class="glass-panel" x="20" y="376" width="920" height="140" rx="18"/>
@@ -261,6 +271,9 @@
   <path class="edge" d="M300 190 H374"/>
   <path class="flow" pathLength="100" d="M300 190 H374"/>
   <path class="edge head" d="M300 190 H374"/>
+  <path class="edge" d="M880 120 V154"/>
+  <path class="flow" pathLength="100" d="M880 120 V154"/>
+  <path class="edge head" d="M880 120 V154"/>
   <path class="edge accent" d="M170 120 V154"/>
   <path class="flow flow-accent" pathLength="100" d="M170 120 V154"/>
   <path class="edge accent head" d="M170 120 V154"/>
@@ -288,17 +301,19 @@
   <path class="edge accent" d="M170 320 V350 H604.0 V386"/>
   <path class="flow flow-accent" pathLength="100" d="M170 320 V350 H604.0 V386"/>
   <path class="edge accent head" d="M170 320 V350 H604.0 V386"/>
-  <path class="edge accent" d="M800 120 V360 H710 V386"/>
-  <path class="flow flow-accent" pathLength="100" d="M800 120 V360 H710 V386"/>
-  <path class="edge accent head" d="M800 120 V360 H710 V386"/>
-  <path class="edge accent" d="M800 120 V360 H802 V386"/>
-  <path class="flow flow-accent" pathLength="100" d="M800 120 V360 H802 V386"/>
-  <path class="edge accent head" d="M800 120 V360 H802 V386"/>
-  <path class="edge accent" d="M800 120 V360 H894 V386"/>
-  <path class="flow flow-accent" pathLength="100" d="M800 120 V360 H894 V386"/>
-  <path class="edge accent head" d="M800 120 V360 H894 V386"/>
+  <path class="edge accent" d="M700 120 V360 H710 V386"/>
+  <path class="flow flow-accent" pathLength="100" d="M700 120 V360 H710 V386"/>
+  <path class="edge accent head" d="M700 120 V360 H710 V386"/>
+  <path class="edge accent" d="M700 120 V360 H802 V386"/>
+  <path class="flow flow-accent" pathLength="100" d="M700 120 V360 H802 V386"/>
+  <path class="edge accent head" d="M700 120 V360 H802 V386"/>
+  <path class="edge accent" d="M700 120 V360 H894 V386"/>
+  <path class="flow flow-accent" pathLength="100" d="M700 120 V360 H894 V386"/>
+  <path class="edge accent head" d="M700 120 V360 H894 V386"/>
   <text class="edge-lbl" x="340" y="278" text-anchor="middle" dominant-baseline="central">Parameters</text>
   <text class="edge-lbl" x="337" y="178" text-anchor="middle" dominant-baseline="central">Sensing</text>
-  <text class="edge-lbl" x="487" y="76" text-anchor="middle" dominant-baseline="central">System and API through tier4_*_component.launch.xml</text>
+  <text class="edge-lbl" x="487" y="76" text-anchor="middle" dominant-baseline="central">Vehicle: vehicle.launch.xml directly</text>
+  <text class="edge-lbl" x="487" y="104" text-anchor="middle" dominant-baseline="central">System and API: tier4_*_component.launch.xml</text>
+  <text class="edge-lbl" x="872" y="137" text-anchor="end" dominant-baseline="central">vehicle_interface.launch.xml</text>
   <text class="edge-lbl" x="420" y="350" text-anchor="middle" dominant-baseline="central">Launch the nodes and override their parameters</text>
 </svg>

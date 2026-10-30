@@ -262,6 +262,7 @@
   <text class="sub" x="640" y="762" dominant-baseline="central">All launch files on this page are in</text>
   <text class="sub" x="640" y="780" dominant-baseline="central">autoware_perception_launch, unless</text>
   <text class="sub" x="640" y="798" dominant-baseline="central">the diagram names another package.</text>
+  <text class="sub" x="640" y="826" dominant-baseline="central">Gray boxes are off by default.</text>
 
   <!-- Lines: optional ones first, the main flow on top -->
   <path class="edge dash" d="M210 184 V254 H38 V308 H58"/>

@@ -62,7 +62,7 @@ The preset file declares the launch arguments that enable or disable the plannin
     ros2 launch autoware_launch autoware.launch.xml ... launch_surround_obstacle_checker:=true velocity_smoother_type:=L2 ...
     ```
 
-Autoware 2.0.0 has no `use_experimental_lane_change_function`, `cruise_planner_type`, or `use_surround_obstacle_check` argument. The preset arguments above replace the last two.
+Autoware 2.0.0 has no `use_experimental_lane_change_function`, `cruise_planner_type`, or `use_surround_obstacle_check` argument. The preset arguments above replace the last two. `use_experimental_lane_change_function` changed the collision check of the lane change module. Its options are now lane change parameters, for example `use_all_predicted_paths` in the `collision_check` section of `config/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/lane_change/lane_change.param.yaml` of `autoware_planning_config`.
 
 To keep your changes apart from the default preset, copy `default_preset.yaml` to a new file, for example `my_preset.yaml`, in the same directory. Build `autoware_planning_config` again, so that the install directory has the new file. Then launch Autoware with `planning_module_preset:=my`.
 

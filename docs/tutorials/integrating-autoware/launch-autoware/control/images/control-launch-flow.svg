@@ -285,9 +285,9 @@
   <text class="sub" x="480" y="1230" text-anchor="middle" dominant-baseline="central">Default values come from default_preset.yaml: the gray boxes are off by default.</text>
 
   <!-- Lines: optional ones first, the main flow on top -->
-  <path class="edge" d="M434 258 H346"/>
-  <path class="flow" pathLength="100" d="M434 258 H346"/>
-  <path class="edge head" d="M434 258 H346"/>
+  <path class="edge" d="M346 258 H434"/>
+  <path class="flow" pathLength="100" d="M346 258 H434"/>
+  <path class="edge head" d="M346 258 H434"/>
   <path class="edge" d="M84 470 V510.0 H94"/>
   <path class="edge" d="M84 470 V578.0 H94"/>
   <path class="edge" d="M84 470 V646.0 H94"/>

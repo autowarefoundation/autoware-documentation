@@ -48,7 +48,7 @@ The [`component_perception.launch.xml`](https://github.com/autowarefoundation/au
 
 - **`lidar_detection_model:`** This argument selects the LiDAR detection model. The default value is `centerpoint`. For the other models, see the [Perception component reference implementation](../../../../design/autoware-architecture-v1/components/perception/reference_implementation.md#launch-files).
 
-- **`use_cuda_ground_segmentation` and `use_semantic_segmentation_ptv3`:** These arguments select another ground segmentation backend: the CUDA version of the rule-based filter, or the PTv3 semantic segmentation. The default value of both is `false`. If `use_semantic_segmentation_ptv3` is `true`, object recognition also uses `object_recognition_lidar_ptv3.launch.xml`.
+- **`use_cuda_ground_segmentation` and `use_semantic_segmentation_ptv3`:** These arguments select another ground segmentation backend: the CUDA version of the rule-based filter, or the PTv3 semantic segmentation. The default value of both is `false`. If `use_semantic_segmentation_ptv3` is `true`, object recognition uses `object_recognition_lidar_ptv3.launch.xml` instead of `object_recognition_lidar.launch.xml`. Then `detected_objects_filter_method`, `detected_objects_validation_method`, and `use_object_validator` have no effect.
 
 !!! note
 
@@ -61,7 +61,7 @@ The [`component_perception.launch.xml`](https://github.com/autowarefoundation/au
 
 ## Use cameras and radars
 
-The sensor kits of `autoware_launch` have only LiDARs. So `component_perception.launch.xml` uses `object_recognition_lidar.launch.xml`, and Autoware 2.0.0 has no `perception_mode` argument. If your vehicle has cameras or radars, include another object recognition launch file of `autoware_perception_launch` in your fork of `component_perception.launch.xml`, for example `object_recognition_camera_lidar_radar.launch.xml`. For the list of these files and their detectors, see the [Perception component reference implementation](../../../../design/autoware-architecture-v1/components/perception/reference_implementation.md#launch-files).
+Object recognition in `autoware_launch` uses only LiDARs. The sensor kits have no radars, and object recognition does not use their cameras. So `component_perception.launch.xml` uses `object_recognition_lidar.launch.xml`, and Autoware 2.0.0 has no `perception_mode` argument. If your vehicle has cameras or radars, include another object recognition launch file of `autoware_perception_launch` in your fork of `component_perception.launch.xml`, for example `object_recognition_camera_lidar_radar.launch.xml`. For the list of these files and their detectors, see the [Perception component reference implementation](../../../../design/autoware-architecture-v1/components/perception/reference_implementation.md#launch-files).
 
 These launch files have arguments for the camera topics. Give them the topics of your cameras, for example:
 
