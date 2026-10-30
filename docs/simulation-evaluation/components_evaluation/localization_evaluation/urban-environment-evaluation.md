@@ -1,19 +1,22 @@
-### Introduction
+# Localization evaluation in an urban environment
 
-#### Related Links
+## Introduction
 
-Data Collection Documentation --> [İstanbul Open Dataset](../../../datasets/index.md#istanbul-open-dataset)
+### Related links
 
-#### Purpose
+- Data collection documentation: [İstanbul Open Dataset](../../../datasets/index.md#istanbul-open-dataset)
+- The issue of this evaluation: [Evaluate current Localization accuracy of current NDT scan matching against Localization dataset](https://github.com/autowarefoundation/autoware_universe/issues/7652)
+
+### Purpose
 
 The purpose of this test is to see the performance of the current NDT based default autoware localization system in an urban environment and evaluate its results. Our expectation is to see the deficiencies of the localization and understand which situations we need to improve.
 
-#### Test Environment
+### Test environment
 
 The test data was collected in Istanbul. It also includes some scenarios that may be challenging for localization, such as tunnels and bridges. You can find the entire route marked in the image below.
 ![ist_dataset_route_3_resized](https://github.com/user-attachments/assets/e04c77b4-5192-4faf-839c-12429138708f)
 
-#### Test Dataset & Map
+### Test dataset and map
 
 Test and Mapping datasets are same and the dataset contains data from the portable mapping kit used for general mapping purposes.
 
@@ -24,26 +27,33 @@ The data contains data from the following sensors:
 
 You can find the data collected for testing and mapping in this [İstanbul Open Dataset](../../../datasets/index.md#istanbul-open-dataset).
 
-> <span style="color:green">**NOTE !**</span> </br>  
-> Since there was no velocity source coming from the vehicle during all these tests, the twist message coming from GNSS/INS was given to ekf_localizer as the linear&angular velocity source. </br>
-> In order to understand whether this increases the error in cases where the GNSS/INS error increases in the tunnel and how it affects the system, localization in the tunnel was tested by giving only the pose from the NDT, without giving this velocity to ekf_localizer. </br>  
-> The video of this test is [here](https://youtu.be/6On130bjQUY?si=vumtij7a66WBIV3z). </br>
-> As seen in the video, when velocity is not given, localization in the tunnel deteriorates more quickly.
-> It is also predicted that if the IMU Twist message combined (/localization/twist_estimator/twist_with_covariance) with the linear velocity from the vehicle is given instead of the GNSS/INS Twist message, the performance in the tunnel will increase. However, this test cannot be done with the current data.
+!!! note
 
-#### Expected Tests
+    Since there was no velocity source coming from the vehicle during all these tests, the twist message coming from GNSS/INS was given to ekf_localizer as the linear and angular velocity source.
+
+    In order to understand whether this increases the error in cases where the GNSS/INS error increases in the tunnel and how it affects the system, localization in the tunnel was tested by giving only the pose from the NDT, without giving this velocity to ekf_localizer. See the [video of this test](https://youtu.be/6On130bjQUY?si=vumtij7a66WBIV3z).
+
+    As seen in the video, when velocity is not given, localization in the tunnel deteriorates more quickly.
+
+    It is also predicted that if the IMU twist message combined with the linear velocity from the vehicle (`/localization/twist_estimator/twist_with_covariance`) is given instead of the GNSS/INS twist message, the performance in the tunnel will increase. However, this test cannot be done with the current data.
+
+### Expected tests
 
 1.) Firstly, it is aimed to detect the points where the localization is completely broken and to roughly control the localization.
 
 2.) By extracting the metrics, it is aimed to see concretely how much the localization error has increased and what the level of performance is.
 
-### How to Reproduce Tests
+## How to reproduce tests
 
-#### Test With Raw Data
+!!! warning "Written for the Autoware version of September 2024"
 
-If you test with raw data, you need to follow these `Test With Raw Data` instructions. Since you need to repeat all preprocessing operations on the input data in this test, you need to test by switching to the test branches in the sensor kit and individual params repos. You can perform these steps by following the instructions below.
+    These steps check out the `evaluate_localization_issue_7652` branch of personal forks of `autoware_launch`, `autoware_individual_params`, and `sample_sensor_kit_launch`. The branches are from August and September 2024 and are based on the Autoware of that time. They do not apply to an Autoware 2.0.0 workspace. In Autoware 2.0.0, `sample_sensor_kit_launch` is part of the `autoware_launch` repository (`src/launcher/autoware_launch/sensor_kit/sample_sensor_kit_launch`), and `repositories/autoware.repos` does not import `autoware_individual_params`. To repeat the test, use an Autoware workspace from September 2024.
 
-##### Installation
+### Test with raw data
+
+If you test with raw data, you need to follow these `Test with raw data` instructions. Since you need to repeat all preprocessing operations on the input data in this test, you need to test by switching to the test branches in the sensor kit and individual params repos. You can perform these steps by following the instructions below.
+
+#### Installation
 
 If the `gdown` command is not available, install it first:
 
@@ -62,9 +72,9 @@ mkdir ~/autoware_ista_map
 gdown --id 1WPWmFCjV7eQee4kyBpmGNlX7awerCPxc -O ~/autoware_ista_map/
 ```
 
-> <span style="color:green">**NOTE !**</span></br>  
-> You also need to add `lanelet2_map.osm` file to autoware_ista_map folder. Since no lanelet file is created for this map at the
-> moment, you can run any `lanelet2_map.osm` file by placing it in this folder.
+!!! note
+
+    You also need to add `lanelet2_map.osm` file to autoware_ista_map folder. Since no lanelet file is created for this map at the moment, you can run any `lanelet2_map.osm` file by placing it in this folder.
 
 2.) Download the test rosbag files.
 
@@ -75,7 +85,7 @@ mkdir ~/autoware_ista_data
 gdown --id 1uta5Xr_ftV4jERxPNVqooDvWerK0dn89 -O ~/autoware_ista_data/
 ```
 
-##### Prepare Autoware to Test
+#### Prepare Autoware for the test
 
 1.) Checkout autoware_launch:
 
@@ -111,25 +121,25 @@ cd ~/autoware
 colcon build --symlink-install --packages-select sample_sensor_kit_launch autoware_individual_params autoware_launch common_sensor_launch
 ```
 
-##### Launch Autoware
+#### Launch Autoware
 
 ```bash
 source ~/autoware/install/setup.bash
 ros2 launch autoware_launch logging_simulator.launch.xml map_path:=~/autoware_ista_map/ vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
 ```
 
-##### Run Rosbag
+#### Run the rosbag
 
 ```bash
 source ~/autoware/install/setup.bash
-ros2 bag play ~/autoware_ista_data/rosbag2_2024_09_11-17_53_54_0.db3
+ros2 bag play ~/autoware_ista_data/test_20240930_134039_0.db3
 ```
 
-#### Localization Test Only
+### Localization test only
 
-If you only want to see the localization performance, follow the `Localization Test Only` instructions. For those who only want to perform localization tests, a second test bag file and a separate launch file have been created for this test. You can perform this test by following the instructions below.
+If you only want to see the localization performance, follow the `Localization test only` instructions. For those who only want to perform localization tests, a second test bag file and a separate launch file have been created for this test. You can perform this test by following the instructions below.
 
-##### Installation
+#### Installation
 
 If the `gdown` command is not available, install it first:
 
@@ -148,9 +158,9 @@ mkdir ~/autoware_ista_map
 gdown --id 1WPWmFCjV7eQee4kyBpmGNlX7awerCPxc -O ~/autoware_ista_map/
 ```
 
-> <span style="color:green">**NOTE !**</span></br>
-> You also need to add `lanelet2_map.osm` file to autoware_ista_map folder. Since no lanelet file is created for this map at the
-> moment, you can run any `lanelet2_map.osm` file by placing it in this folder.
+!!! note
+
+    You also need to add `lanelet2_map.osm` file to autoware_ista_map folder. Since no lanelet file is created for this map at the moment, you can run any `lanelet2_map.osm` file by placing it in this folder.
 
 2.) Download the test rosbag files.
 
@@ -161,7 +171,7 @@ mkdir ~/autoware_ista_data
 gdown --id 1yEB5j74gPLLbkkf87cuCxUgHXTkgSZbn -O ~/autoware_ista_data/
 ```
 
-##### Prepare Autoware to Test
+#### Prepare Autoware for the test
 
 1.) Checkout autoware_launch:
 
@@ -179,27 +189,27 @@ cd ~/autoware
 colcon build --symlink-install --packages-select autoware_launch
 ```
 
-##### Launch Autoware
+#### Launch Autoware
 
 ```bash
 source ~/autoware/install/setup.bash
 ros2 launch autoware_launch urban_environment_localization_test.launch.xml map_path:=~/autoware_ista_map/
 ```
 
-##### Run Rosbag
+#### Run the rosbag
 
 ```bash
 source ~/autoware/install/setup.bash
 ros2 bag play ~/autoware_ista_data/rosbag2_2024_09_12-14_59_58_0.db3
 ```
 
-### Test Results
+## Test results
 
-#### Test 1: Simple Test of Localization
+### Test 1: Simple test of localization
 
 Simply put, how localization works in an urban environment was tested and the results were recorded on video.
 Here is the [test video](https://youtu.be/DQsk3rY7NjY?si=NkJYIZoPd6HqLIHp).
-[<img src="https://github.com/user-attachments/assets/e0f7edbf-0596-4806-8dcd-b4156584e4c0" width="60%">](https://youtu.be/Bk4Oyk6FOg0?t=6")
+[<img src="https://github.com/user-attachments/assets/e0f7edbf-0596-4806-8dcd-b4156584e4c0" width="60%">](https://youtu.be/DQsk3rY7NjY?si=NkJYIZoPd6HqLIHp)
 
 We can see from video that there is a localization error in the longitudinal axis along the Eurasia tunnel. As expected, NDT based localization does not work properly here. However, since the NDT score cannot detect the distortion here, localization is not completely broken until the end of the tunnel. Localization is completely broken at the exit of the tunnel. I re-initialized the localization after vehicle exit the tunnel.
 
@@ -207,11 +217,11 @@ From this point on, we move on to the bridge scenario. This is one of the bridge
 
 After this part there is another tunnel(Kagithane - Bomonti) and localization behaves similar to Eurasia tunnel. However, at the exit of this tunnel, it recovers localization on its own without the need for re-initialization.
 
-##### Test 1 Summary
+#### Test 1 summary
 
 In summary, the places where there was visible deterioration with our test route were the tunnels. This was already an expected situation. Apart from this, we anticipated that we could have problems on the bridges, but I could not observe any deterioration in the localization on the bridges. Of course, it is useful to remind you at this point that these tests were conducted with a single data.
 
-#### Test 2: Comparing Results with Ground Truth
+### Test 2: Comparing results with ground truth
 
 1.) How NDT score changed ?
 
@@ -225,7 +235,7 @@ NDT Score (Nearest Voxel Transformation Likelihood) Threshold = 2.3
 
 Ground Truth : In these tests, the post-processed GNSS / INS data was used as ground truth. Since the error of this ground truth data also decreases in the tunnel environment, it is necessary to evaluate these regions by taking into account the Ground Truth error.
 
-During these tests, I compared the NDT and EKF exposures with Ground Truth and presented the results. I am sharing the test results below as png. However, if you want to examine this data in more detail, I have created an executable file for you to visualize and take a closer look at. You can access this executable file from [here](https://drive.google.com/drive/folders/1ges_2q8qljgLfwjZbv2Bn35Rv5awhd_U?usp=sharing). Currently there is only a version that works on Ubuntu at this link, but I plan to add it for Windows as well.
+During these tests, I compared the NDT and EKF exposures with Ground Truth and presented the results. I am sharing the test results below as png. However, if you want to examine this data in more detail, I have created an executable file for you to visualize and take a closer look at. You can access this executable file from [here](https://drive.google.com/drive/folders/1ges_2q8qljgLfwjZbv2Bn35Rv5awhd_U?usp=sharing). Currently there is only a version that works on Ubuntu at this link.
 You need to follow these steps:
 
 ```bash
@@ -233,7 +243,7 @@ cd /your/path/show_evaluation_ubuntu
 ./pose_main
 ```
 
-You can also update configurations with changing /configs/evaluation_pose.yaml
+You can also change the configuration in `/configs/evaluation_pose.yaml`.
 
 2d Trajectory :
 ![2D_Trajectory drawio](https://github.com/user-attachments/assets/4eebd34f-dc87-4a2d-a4f9-07f068a7d8d7)

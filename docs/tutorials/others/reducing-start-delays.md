@@ -69,7 +69,7 @@ This delay can be reduced by tuning the vehicle.
 ## Throttle response
 
 For vehicles with throttle control,
-one of the main cause of start delays is due to the
+one of the main causes of start delays is due to the
 [throttle response](https://en.wikipedia.org/wiki/Throttle_response) of the vehicle.
 When pushing the throttle pedal, the wheels of the vehicle do not instantly start rotating.
 This is partly due to the inertia of the vehicle,
@@ -98,28 +98,32 @@ increase the initial acceleration output by Autoware,
 or modify the acceleration to throttle mapping.
 
 The initial acceleration output by Autoware can be tuned in the
-[`motion_velocity_smoother`](https://autowarefoundation.github.io/autoware_core/main/planning/autoware_velocity_smoother)
+[`velocity_smoother`](https://autowarefoundation.github.io/autoware_core/main/planning/autoware_velocity_smoother/)
 with parameters `engage_velocity` and `engage_acceleration`.
 However, the [`vehicle_cmd_gate`](https://autowarefoundation.github.io/autoware_universe/main/control/autoware_vehicle_cmd_gate/)
 applies a filter on the control command to prevent too sudden changes in jerk and acceleration,
 limiting the maximum allowed acceleration while the ego vehicle is stopped.
 
 Alternatively, the mapping of acceleration can be tuned to increase the throttle corresponding to the initial acceleration.
-If we look at an example
-[acceleration map](https://github.com/tier4/autoware_individual_params/blob/main/individual_params/config/default/pacmod/accel_map.csv),
+The `csv_path_accel_map` and `csv_path_brake_map` parameters in the
+[`raw_vehicle_cmd_converter` parameter file of `autoware_launch`](https://github.com/autowarefoundation/autoware_launch/blob/0.53.0/autoware_launch/config/vehicle/raw_vehicle_cmd_converter/raw_vehicle_cmd_converter.param.yaml)
+set the map files.
+By default, they point to the maps in the `autoware_raw_vehicle_cmd_converter` package.
+If we look at this default
+[acceleration map](https://github.com/autowarefoundation/autoware_universe/blob/0.53.1/vehicle/autoware_raw_vehicle_cmd_converter/data/default/accel_map.csv),
 it does the following conversion:
-when the ego velocity is `0` (first column), acceleration values between `0.631` (first row) and `0.836` (second row)
+when the ego velocity is `0` (first column), acceleration values between `0.3` (first row) and `0.6` (second row)
 are converted to a throttle between `0%` and `10%`.
-This means that any initial acceleration bellow `0.631m/s²` will not produce any throttle.
+This means that any initial acceleration below `0.3m/s²` will not produce any throttle.
 Keep in mind that after tuning the acceleration map,
 it may be necessary to also update the
-[`brake map`](https://github.com/tier4/autoware_individual_params/blob/main/individual_params/config/default/pacmod/brake_map.csv).
+[`brake map`](https://github.com/autowarefoundation/autoware_universe/blob/0.53.1/vehicle/autoware_raw_vehicle_cmd_converter/data/default/brake_map.csv).
 
-| default | _0_     | 1.39  | 2.78  | 4.17  | 5.56   | 6.94   | 8.33   | 9.72   | 11.11  | 12.5   | 13.89  |
-| ------- | ------- | ----- | ----- | ----- | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
-| 0       | _0.631_ | 0.11  | -0.04 | -0.04 | -0.041 | -0.096 | -0.137 | -0.178 | -0.234 | -0.322 | -0.456 |
-| 0.1     | _0.836_ | 0.57  | 0.379 | 0.17  | 0.08   | 0.07   | 0.068  | 0.027  | -0.03  | -0.117 | -0.251 |
-| 0.2     | _1.129_ | 0.863 | 0.672 | 0.542 | 0.4    | 0.38   | 0.361  | 0.32   | 0.263  | 0.176  | 0.042  |
-| 0.3     | _1.559_ | 1.293 | 1.102 | 0.972 | 0.887  | 0.832  | 0.791  | 0.75   | 0.694  | 0.606  | 0.472  |
-| 0.4     | _2.176_ | 1.909 | 1.718 | 1.588 | 1.503  | 1.448  | 1.408  | 1.367  | 1.31   | 1.222  | 1.089  |
-| 0.5     | _3.027_ | 2.76  | 2.57  | 2.439 | 2.354  | 2.299  | 2.259  | 2.218  | 2.161  | 2.074  | 1.94   |
+| default | _0_    | 1.39  | 2.78 | 4.17  | 5.56 | 6.94  | 8.33  | 9.72  | 11.11 | 12.50 | 13.89 |
+| ------- | ------ | ----- | ---- | ----- | ---- | ----- | ----- | ----- | ----- | ----- | ----- |
+| 0       | _0.3_  | -0.05 | -0.3 | -0.39 | -0.4 | -0.41 | -0.42 | -0.44 | -0.46 | -0.48 | -0.5  |
+| 0.1     | _0.6_  | 0.42  | 0.24 | 0.18  | 0.12 | 0.05  | -0.08 | -0.16 | -0.2  | -0.24 | -0.28 |
+| 0.2     | _1.15_ | 0.98  | 0.78 | 0.6   | 0.48 | 0.34  | 0.26  | 0.2   | 0.1   | 0.05  | -0.03 |
+| 0.3     | _1.75_ | 1.6   | 1.42 | 1.3   | 1.14 | 1     | 0.9   | 0.8   | 0.72  | 0.64  | 0.58  |
+| 0.4     | _2.65_ | 2.48  | 2.3  | 2.13  | 1.95 | 1.75  | 1.58  | 1.45  | 1.32  | 1.2   | 1.1   |
+| 0.5     | _3.3_  | 3.25  | 3.12 | 2.92  | 2.68 | 2.35  | 2.17  | 1.98  | 1.88  | 1.73  | 1.61  |

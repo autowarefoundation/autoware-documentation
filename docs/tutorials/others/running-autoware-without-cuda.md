@@ -3,25 +3,53 @@
 Although CUDA installation is recommended to achieve better performance for object detection and traffic light recognition in Autoware Universe, it is possible to run these algorithms without CUDA.
 The following subsections briefly explain how to run each algorithm in such an environment.
 
-## Running 2D/3D object detection without CUDA
+To install Autoware without the NVIDIA libraries (CUDA, cuDNN, and TensorRT), run the Ansible playbook with `--skip-tags nvidia`. See the [source installation](../../installation/autoware/source-installation.md) page. The packages that need CUDA or TensorRT check for these libraries at build time. If CMake does not find them, the packages leave out their GPU code.
 
-Autoware Universe's object detection can be run using one of five possible configurations:
+The launch files on this page are in the `autoware_launch` package of the [autoware_launch](https://github.com/autowarefoundation/autoware_launch) repository (version 0.53.0 in Autoware 2.0.0).
 
-- `lidar_centerpoint`
-- `lidar_apollo_instance_segmentation`
-- `lidar-apollo` + `tensorrt_yolo`
-- `lidar-centerpoint` + `tensorrt_yolo`
-- `euclidean_cluster`
+## Running 3D object detection without CUDA
 
-Of these five configurations, only the last one (`euclidean_cluster`) can be run without CUDA. For more details, refer to the [`euclidean_cluster` module's README file](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_euclidean_cluster).
+The `lidar_detection_model` argument of [`component_perception.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/0.53.0/autoware_launch/launch/components/component_perception.launch.xml) selects the LiDAR object detector. Its value has the form `model_type/model_name`. If you leave out the `model_name` part, the default parameters of the model are used. The model types are:
+
+- `centerpoint` (the default)
+- `transfusion`
+- `bevfusion`
+- `apollo`
+- `clustering`
+
+The description of the argument also names `pointpainting`. The `pointpainting` detector needs camera images, and it runs only in the camera-LiDAR pipeline. `component_perception.launch.xml` does not start this pipeline. As a result, `pointpainting` starts no neural network detector here.
+
+All model types except `clustering` run a neural network with TensorRT and need CUDA. With `clustering`, Autoware starts no neural network detector. It uses only the rule-based detector, which is built on the [`euclidean_cluster`](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_euclidean_cluster) package and runs on the CPU.
+
+The top-level launch files, for example `autoware.launch.xml` and `logging_simulator.launch.xml`, do not pass `lidar_detection_model` to the component launch file. To select `clustering`, change the default value in `autoware_launch/launch/components/component_perception.launch.xml`:
+
+```xml
+<arg name="lidar_detection_model" default="clustering" description="If the model name is not declared, the default model in the detection composition will be used"/>
+```
+
+Keep the other GPU options of the same file at their default value `false`:
+
+- `use_cuda_ground_segmentation`: the CUDA backend of ground segmentation
+- `use_semantic_segmentation_ptv3`: the PTv3 neural network for ground segmentation
+- `cuda_pointcloud_preprocessing`: the CUDA backend of the common pointcloud downsampling
+
+If you did not build the workspace with `--symlink-install`, rebuild `autoware_launch` after you change a launch file.
 
 ## Running traffic light detection without CUDA
 
-For traffic light recognition (both detection and classification), there are two modules that require CUDA:
+Traffic light recognition has two steps: detection finds the traffic lights in the camera image, and classification finds their color and arrows. The launch file [`component_traffic_light.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/0.53.0/autoware_launch/launch/components/component_traffic_light.launch.xml) starts both steps.
 
-- `traffic_light_ssd_fine_detector`
-- `traffic_light_classifier`
+To run traffic light detection without CUDA, set the `traffic_light_recognition/use_high_accuracy_detection` argument of `autoware.launch.xml` to `false`. Then the YOLOX-based detectors (`autoware_traffic_light_fine_detector` or the whole-image detector), which need CUDA, do not start. Instead, the [`autoware_traffic_light_map_based_detector`](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_traffic_light_map_based_detector) package calculates where the traffic lights appear in the image from the vector map. The default value of this argument is `true` in `autoware.launch.xml`. `e2e_simulator.launch.xml` always sets it to `false`. For other launch files, change the default value in `autoware.launch.xml`:
 
-To run traffic light detection without CUDA, set [`enable_fine_detection` to `false` in the traffic light launch file](https://github.com/autowarefoundation/autoware_universe/blob/9445f3a7acd645d12a64507c3d3bfa57e74a3634/launch/tier4_perception_launch/launch/traffic_light_recognition/traffic_light.launch.xml#L3). Doing so disables the `traffic_light_ssd_fine_detector` such that traffic light detection is handled by the `map_based_traffic_light_detector` module instead.
+```xml
+<arg name="traffic_light_recognition/use_high_accuracy_detection" default="false" description="enable to use high accuracy detection for traffic light recognition"/>
+```
 
-To run traffic light classification without CUDA, set [`use_gpu` to `false` in the traffic light classifier launch file](https://github.com/autowarefoundation/autoware_universe/blob/9445f3a7acd645d12a64507c3d3bfa57e74a3634/perception/traffic_light_classifier/launch/traffic_light_classifier.launch.xml#L7). Doing so will force the `traffic_light_classifier` to use a different classification algorithm that does not require CUDA or a GPU.
+To run traffic light classification without CUDA, set the classifier type to `0` (HSV filter) in `component_traffic_light.launch.xml`. There is one argument for car traffic lights and one for pedestrian traffic lights:
+
+```xml
+<arg name="traffic_light_recognition/classification/car/classifier_type" default="0" description="0=HSVFilter, 1=CNN, 2=LAMPClassifier"/>
+<arg name="traffic_light_recognition/classification/pedestrian/classifier_type" default="0" description="0=HSVFilter, 1=CNN, 2=LampRecognizer"/>
+```
+
+The default value `1` selects a CNN classifier, and `2` selects a lamp recognizer. Both use TensorRT and need CUDA. The HSV filter classifies the color of the light in the HSV color space and runs on the CPU. For details, see the [`autoware_traffic_light_classifier`](https://github.com/autowarefoundation/autoware_universe/tree/main/perception/autoware_traffic_light_classifier) README.

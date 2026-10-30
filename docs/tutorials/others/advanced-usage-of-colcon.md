@@ -18,11 +18,11 @@ You should take care of this especially when you have multiple workspaces.
 Run `echo $COLCON_PREFIX_PATH` to check whether workspaces are overlaid.
 If you find some workspaces are unnecessarily overlaid, remove all built files, restart the terminal to clean environment variables, and re-build the workspace.
 
-For more details about `workspace overlaying`, refer to the [ROS 2 documentation](https://docs.ros.org/en/rolling/Tutorials/Workspace/Creating-A-Workspace.html#source-the-overlay).
+For more details about `workspace overlaying`, refer to the [ROS 2 documentation](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html#source-the-overlay).
 
 ## Cleaning up the build artifacts
 
-`colcon` sometimes causes errors of because of the old cache.
+`colcon` sometimes causes errors because of the old cache.
 To remove the cache and rebuild the workspace, run the following command:
 
 ```bash
@@ -83,9 +83,10 @@ cat << EOS > ~/.colcon/defaults.yaml
         "symlink-install": true
     }
 }
+EOS
 ```
 
-For more details, see [here](https://colcon.readthedocs.io/en/released/user/configuration.html#defaults-yaml).
+For more details, see [the `defaults.yaml` section of the colcon documentation](https://colcon.readthedocs.io/en/released/user/configuration.html#defaults-yaml).
 
 ## Generating compile_commands.json
 
@@ -105,7 +106,7 @@ To see the compiler and linker invocations for a package, use `VERBOSE=1` and `-
 VERBOSE=1 colcon build --packages-up-to <package_name> --event-handlers console_cohesion+
 ```
 
-For other options, see [here](https://colcon.readthedocs.io/en/released/reference/event-handler-arguments.html).
+For other options, see [the event handler arguments of colcon](https://colcon.readthedocs.io/en/released/reference/event-handler-arguments.html).
 
 ## Using Ccache to speed up recompilation
 
@@ -136,7 +137,7 @@ sudo apt update && sudo apt install ccache
    echo "max_size = 60G" >> ~/.cache/ccache/ccache.conf
    ```
 
-### Step 3: Integrate Ccache with Your Environment
+### Step 3: Integrate Ccache with your environment
 
 To ensure Ccache is used for compilation, add the following lines to your `.bashrc` file.
 This will redirect GCC and G++ calls through Ccache.
@@ -149,7 +150,7 @@ export CCACHE_DIR="$HOME/.cache/ccache/"
 
 After adding these lines, reload your `.bashrc` or restart your terminal session to apply the changes.
 
-### Step 4: Verify Ccache is Working
+### Step 4: Verify Ccache is working
 
 To confirm Ccache is correctly set up and being used, you can check the statistics of cache usage:
 
