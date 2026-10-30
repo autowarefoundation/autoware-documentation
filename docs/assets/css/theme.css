@@ -1190,6 +1190,35 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
   line-height: 1.6;
 }
 
+.md-typeset .aw-fonts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: 0.8rem;
+  margin: 1em 0;
+}
+
+.md-typeset .aw-font {
+  overflow: hidden;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.6rem;
+}
+
+.md-typeset .aw-font__sample {
+  display: flex;
+  align-items: center;
+  min-height: 5.5rem;
+  padding: 0.8rem;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  background-color: var(--md-code-bg-color);
+}
+
+.md-typeset .aw-font__info {
+  padding: 0.6rem 0.8rem 0.7rem;
+  font-size: 0.65rem;
+  line-height: 1.5;
+}
+
 .md-typeset .aw-gradient-bar {
   height: 2.4rem;
   margin: 1em 0;

@@ -154,8 +154,30 @@ Cyan and green are too light on a white background. Indigo and crimson are too d
 
 ## Fonts
 
-- [Roboto](https://fonts.google.com/specimen/Roboto) for text.
-- [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono) for code.
+Autoware uses three fonts. All of them are free on Google Fonts.
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Noto+Sans:wght@400;700&family=Outfit:wght@500;700&display=swap">
+
+<div class="aw-fonts" markdown>
+
+<div class="aw-font">
+  <div class="aw-font__sample" style="font-family: Outfit, sans-serif; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Autoware headline</div>
+  <div class="aw-font__info"><strong><a href="https://fonts.google.com/specimen/Outfit">Outfit</a></strong><br>Headings. Use Outfit Bold for headlines and Outfit Medium for subheads, both in capital letters.</div>
+</div>
+
+<div class="aw-font">
+  <div class="aw-font__sample" style="font-family: Montserrat, sans-serif">Open-source software for autonomous driving</div>
+  <div class="aw-font__info"><strong><a href="https://fonts.google.com/specimen/Montserrat">Montserrat</a></strong><br>Text. Use Montserrat Medium for introductions and Montserrat Regular for paragraphs.</div>
+</div>
+
+<div class="aw-font">
+  <div class="aw-font__sample" style="font-family: 'Noto Sans', sans-serif">Open-source software for autonomous driving</div>
+  <div class="aw-font__info"><strong><a href="https://fonts.google.com/specimen/Noto+Sans">Noto Sans</a></strong><br>Other alphabets, for example Greek and Cyrillic. Other Noto fonts cover Chinese, Japanese, and Arabic.</div>
+</div>
+
+</div>
+
+This documentation site uses Roboto for text and Roboto Mono for code.
 
 ## Use the colors in this site
 
