@@ -14,10 +14,10 @@ The included specific areas into the dataset are:
 - Viaducts, road junctions, highways, dense urban areas...
 
 <p align='center'>
-    <img src="images/ist_dataset_route_3_resized.png" alt="ist_dataset_route2" width="80%"/>
+    <img src="images/ist_dataset_route_3_resized.png" alt="The route of the Istanbul Open Dataset" width="80%"/>
 </p>
 
-### Leo Drive - Mapping Kit Sensor Data
+### Leo Drive - Mapping kit sensor data
 
 This dataset contains data from the portable mapping kit used for general mapping purposes.
 
@@ -28,7 +28,7 @@ The data contains data from the following sensors:
 
 **For sensor calibrations, `/tf_static` topic is added.**
 
-### Data Links
+### Data links
 
 - You can find the produced full point cloud map, corner feature point cloud map and
   surface feature point cloud map here:
@@ -44,7 +44,7 @@ The data contains data from the following sensors:
   - [https://drive.google.com/drive/folders/1HmWYkxF5XvVCR27R8W7ZqO7An4HlJ6lD?usp=drive_link](https://drive.google.com/drive/folders/1HmWYkxF5XvVCR27R8W7ZqO7An4HlJ6lD?usp=drive_link)
   - Point clouds are collected as PCAP and feature-matched GNSS/INS data exported to a txt file.
 
-### Localization Performance Evaluation with Autoware
+### Localization performance evaluation with Autoware
 
 The report of the performance evaluation of the current Autoware with the collected data can be found in the link below.
 
@@ -54,7 +54,7 @@ The report of the performance evaluation of the current Autoware with the collec
 
 ### Topic list
 
-For collecting the GNSS/INS data, [this](https://github.com/autowarefoundation/applanix) repository is used.
+For collecting the GNSS/INS data, the [applanix](https://github.com/autowarefoundation/applanix) repository is used.
 
 For collecting the LiDAR data,
 [nebula](https://github.com/tier4/nebula/tree/6d55141ef3cf39d5612e34f2646834d6cd4a7ae3)
@@ -71,7 +71,7 @@ repository is used.
 | `/pandar_points`                                      | `sensor_msgs/msg/PointCloud2`                         |
 | `/tf_static`                                          | `tf2_msgs/msg/TFMessage`                              |
 
-#### Message Explanations
+#### Message explanations
 
 Used drivers for sensors give output in default ROS 2 message types and their own ROS 2 message
 types for additional information. Following topics are the default ROS 2 message types:
@@ -173,6 +173,6 @@ aws s3 sync s3://autoware-files/recordings/bags/2022-08-22_leo_drive_isuzu_bags/
 This dataset contains pcap files and ros2 bag files from Ouster OS1-64 Lidar.
 The pcap file and ros2 bag file is recorded in the same time with slight difference in duration.
 
-[Click here to download (~553MB)](https://autoware-files.s3.us-west-2.amazonaws.com/recordings/bags/Lidar_Data_220414_bag_pcap.zip)
+[Download the lidar data (about 553 MB)](https://autoware-files.s3.us-west-2.amazonaws.com/recordings/bags/Lidar_Data_220414_bag_pcap.zip)
 
-[Reference Issue](https://github.com/autowarefoundation/autoware_universe/issues/562#issuecomment-1102662448)
+For the background of this dataset, see [autoware_universe#562](https://github.com/autowarefoundation/autoware_universe/issues/562#issuecomment-1102662448).

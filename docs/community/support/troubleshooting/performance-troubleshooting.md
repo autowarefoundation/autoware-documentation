@@ -1,4 +1,4 @@
-# Performance Troubleshooting
+# Performance troubleshooting
 
 Overall symptoms:
 
@@ -9,7 +9,7 @@ Overall symptoms:
 - Point clouds or markers flicker on RViz2
 - When multiple subscribers use the same publishers, the message rate drops
 
-## Diagnostic Steps
+## Diagnostic steps
 
 ### Check if multicast is enabled
 
@@ -50,9 +50,9 @@ Check the `~/.bash_history` file to see if there are any `colcon build` directiv
 
 Even if a build starts with these flags but same workspace gets compiled without these flags, it will still be a slow build in the end.
 
-In addition, the nodes will run slow in general, especially the `pointcloud_preprocessor` nodes.
+In addition, the nodes will run slow in general, especially the `autoware_pointcloud_preprocessor` nodes.
 
-Example issue: [issue2597](https://github.com/autowarefoundation/autoware_universe/issues/2597#issuecomment-1491789081)
+Example issue: [autoware_universe#2597](https://github.com/autowarefoundation/autoware_universe/issues/2597#issuecomment-1491789081)
 
 #### Solution
 

@@ -1,0 +1,245 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 530" role="img" aria-labelledby="carla-bridge-title">
+  <title id="carla-bridge-title">
+    The autoware_carla_interface bridge sends CARLA sensor data, vehicle status, and the clock to Autoware, and sends the control commands, the turn indicator and hazard light commands, and the
+    initial pose of Autoware back to CARLA.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="900" height="530"/>
+  <circle class="halo" cx="300" cy="290" r="180"/>
+  <circle class="halo cyan" cx="640" cy="230" r="130"/>
+
+  <!-- Autoware -->
+  <rect class="card" x="170" y="18" width="560" height="80" rx="14"/>
+  <circle class="icon-bg" cx="204" cy="58" r="18"/>
+  <rect class="icon-line" x="195" y="52" width="18" height="9" rx="3"/>
+  <path class="icon-line" d="M198 52 L201 47 H207 L210 52"/>
+  <circle class="icon-dot" cx="199" cy="63" r="2.2"/>
+  <circle class="icon-dot" cx="209" cy="63" r="2.2"/>
+  <text class="lbl" x="234" y="40" dominant-baseline="central">Autoware</text>
+  <text class="code" x="234" y="60" dominant-baseline="central">e2e_simulator.launch.xml</text>
+  <text class="sub" x="234" y="80" dominant-baseline="central">simulator_type:=carla, sensor_model:=carla_sensor_kit</text>
+
+  <!-- The bridge -->
+  <rect class="glass-panel" x="150" y="180" width="600" height="196" rx="18"/>
+  <text class="ttl" x="170" y="202" dominant-baseline="central">Bridge</text>
+  <text class="code" x="316" y="202" dominant-baseline="central">autoware_carla_interface.launch.xml</text>
+
+  <rect class="box primary" x="170" y="222" width="230" height="136" rx="14"/>
+  <circle class="icon-bg on" cx="196" cy="248" r="15"/>
+  <path class="icon-line" d="M189 244 H203 M199 240 L203 244 L199 248 M203 252 H189 M193 248 L189 252 L193 256"/>
+  <text class="code lbl on-primary" x="285" y="282" text-anchor="middle" dominant-baseline="central">autoware_carla_interface</text>
+  <text class="sub on-primary" x="285" y="304" text-anchor="middle" dominant-baseline="central">Spawns the ego vehicle</text>
+  <text class="sub on-primary" x="285" y="322" text-anchor="middle" dominant-baseline="central">Publishes sensors and status</text>
+  <text class="sub on-primary" x="285" y="340" text-anchor="middle" dominant-baseline="central">Ticks the simulation clock</text>
+
+  <rect class="box" x="476" y="222" width="260" height="58" rx="10"/>
+  <text class="code" x="606" y="242" text-anchor="middle" dominant-baseline="central">autoware_raw_vehicle_cmd_converter</text>
+  <text class="sub" x="606" y="262" text-anchor="middle" dominant-baseline="central">Calibrated for the CARLA Prius</text>
+
+  <rect class="box muted" x="476" y="298" width="260" height="60" rx="10"/>
+  <text class="code" x="606" y="318" text-anchor="middle" dominant-baseline="central">multi_camera_combiner</text>
+  <text class="sub" x="606" y="338" text-anchor="middle" dominant-baseline="central">Joins six cameras for RViz</text>
+
+  <path class="edge" d="M476 251 H402"/>
+  <text class="edge-lbl" x="438" y="237" text-anchor="middle" dominant-baseline="central">actuation</text>
+  <text class="edge-lbl" x="438" y="265" text-anchor="middle" dominant-baseline="central">command</text>
+  <path class="edge" d="M400 328 H474"/>
+  <text class="edge-lbl" x="438" y="314" text-anchor="middle" dominant-baseline="central">camera</text>
+  <text class="edge-lbl" x="438" y="342" text-anchor="middle" dominant-baseline="central">images</text>
+
+  <!-- Bridge to Autoware -->
+  <path class="edge accent" d="M230 222 V100"/>
+  <path class="flow flow-accent" pathLength="100" d="M230 222 V104"/>
+  <path class="edge accent head" d="M230 222 V100"/>
+  <text class="edge-lbl code" x="222" y="114" text-anchor="end" dominant-baseline="central">/sensing/*</text>
+  <text class="edge-lbl code" x="222" y="130" text-anchor="end" dominant-baseline="central">/vehicle/status/*</text>
+  <text class="edge-lbl code" x="222" y="146" text-anchor="end" dominant-baseline="central">/clock</text>
+
+  <!-- Autoware to the bridge: lights and the initial pose -->
+  <path class="edge" d="M300 98 V220"/>
+  <path class="flow" pathLength="100" d="M300 98 V216"/>
+  <path class="edge head" d="M300 98 V220"/>
+  <text class="edge-lbl code" x="308" y="118" dominant-baseline="central">/control/command/turn_indicators_cmd</text>
+  <text class="edge-lbl code" x="308" y="134" dominant-baseline="central">/control/command/hazard_lights_cmd</text>
+  <text class="edge-lbl code" x="308" y="150" dominant-baseline="central">/initialpose</text>
+
+  <!-- Autoware to the bridge: control commands -->
+  <path class="edge" d="M606 98 V220"/>
+  <path class="flow" pathLength="100" d="M606 98 V216"/>
+  <path class="edge head" d="M606 98 V220"/>
+  <text class="edge-lbl code" x="614" y="134" dominant-baseline="central">/control/command/control_cmd</text>
+
+  <!-- CARLA -->
+  <rect class="card" x="250" y="440" width="400" height="76" rx="14"/>
+  <circle class="icon-bg" cx="284" cy="478" r="18"/>
+  <circle class="icon-line" cx="284" cy="478" r="8"/>
+  <ellipse class="icon-line" cx="284" cy="478" rx="3.8" ry="8"/>
+  <path class="icon-line" d="M276 478 H292"/>
+  <text class="lbl" x="314" y="460" dominant-baseline="central">CARLA server</text>
+  <text class="code" x="314" y="480" dominant-baseline="central">carlasim/carla:0.9.16</text>
+  <text class="sub" x="314" y="500" dominant-baseline="central">RPC port 2000</text>
+
+  <!-- The bridge and CARLA -->
+  <path class="edge accent" d="M220 440 V360"/>
+  <path class="flow flow-accent" pathLength="100" d="M220 440 V364"/>
+  <path class="edge accent head" d="M220 440 V360"/>
+  <text class="edge-lbl" x="212" y="396" text-anchor="end" dominant-baseline="central">Sensor data</text>
+  <text class="edge-lbl" x="212" y="412" text-anchor="end" dominant-baseline="central">and ego state</text>
+  <path class="edge" d="M340 358 V438"/>
+  <path class="flow" pathLength="100" d="M340 358 V434"/>
+  <path class="edge head" d="M340 358 V438"/>
+  <text class="edge-lbl" x="348" y="404" dominant-baseline="central">Vehicle control</text>
+
+  <!-- Spectator camera -->
+  <rect class="box muted" x="700" y="448" width="180" height="60" rx="10"/>
+  <text class="code" x="790" y="468" text-anchor="middle" dominant-baseline="central">spectator_follow</text>
+  <text class="sub" x="790" y="488" text-anchor="middle" dominant-baseline="central">Chase camera, optional</text>
+  <path class="edge dash" d="M700 478 H652"/>
+</svg>

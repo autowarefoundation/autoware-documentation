@@ -18,7 +18,7 @@ When installing CUDA, errors may occur because of version conflicts. To resolve 
     "tensorrt*"         \
     "nvidia*"
 
-  ansible-playbook autoware.dev_env.install_dev_env
+  ansible-playbook autoware.dev_env.install_dev_env --ask-become-pass
   ```
 
 - Uninstall all CUDA-related libraries and rerun the playbook.
@@ -35,7 +35,7 @@ When installing CUDA, errors may occur because of version conflicts. To resolve 
 
   sudo apt autoremove
 
-  ansible-playbook autoware.dev_env.install_dev_env
+  ansible-playbook autoware.dev_env.install_dev_env --ask-become-pass
   ```
 
 !!! warning
@@ -45,7 +45,7 @@ When installing CUDA, errors may occur because of version conflicts. To resolve 
 - Run the playbook without installing CUDA-related libraries.
 
   ```bash
-  ansible-playbook autoware.dev_env.install_dev_env --skip-tags nvidia
+  ansible-playbook autoware.dev_env.install_dev_env --skip-tags nvidia --ask-become-pass
   ```
 
 !!! warning
@@ -77,7 +77,7 @@ sudo swapon /swapfile
 free -h
 ```
 
-For more detailed configuration steps, along with an explanation of swap, refer to Digital Ocean's ["How To Add Swap Space on Ubuntu 20.04" tutorial](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-20-04)
+For more detailed configuration steps, along with an explanation of swap, refer to DigitalOcean's ["How to Add Swap Space on Ubuntu" tutorial](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-22-04).
 
 If there are too many CPU cores (more than 64) in your machine, it might requires larger memory.
 A workaround here is to limit the job number while building.
@@ -130,7 +130,7 @@ git clone https://github.com/autowarefoundation/autoware.git
 In principle, errors should not occur when using a fixed version. That said, possible causes include:
 
 - ROS 2 has been updated with breaking changes.
-  - For confirmation, check the [Packaging and Release Management](https://discourse.ros.org/c/release/16) tag on ROS Discourse.
+  - For confirmation, check the [Packaging and Release Management](https://discourse.openrobotics.org/c/ros/release/16) category on Open Robotics Discourse (formerly ROS Discourse).
 - Your local environment is broken.
   - Confirm your `.bashrc` file, environment variables, and library versions.
 
@@ -160,16 +160,16 @@ The solution is to update `setuptools` to the newest version with the following 
 pip install --upgrade setuptools
 ```
 
-## Docker/rocker issues
+## Docker issues
 
-If any errors occur when running Autoware with Docker or rocker, first confirm that your Docker installation is working correctly by running the following commands:
+If any errors occur when running Autoware with Docker, first confirm that your Docker installation is working correctly by running the following commands:
 
 ```bash
 docker run --rm -it hello-world
 docker run --rm -it ubuntu:latest
 ```
 
-Next, confirm that you are able to access the base Autoware image that is stored on the GitHub Packages website
+Next, confirm that you are able to access the Autoware image that is stored on the GitHub Container Registry:
 
 ```bash
 docker run --rm -it ghcr.io/autowarefoundation/autoware:universe-jazzy
@@ -179,7 +179,7 @@ docker run --rm -it ghcr.io/autowarefoundation/autoware:universe-jazzy
 
 ### CycloneDDS: Failed to find a free participant index (ROS 2 Jazzy)
 
-When using ROS 2 Jazzy with CycloneDDS, you may see "Failed to find a free participant index for domain 0" and nodes failing to start. See [Runtime Troubleshooting: CycloneDDS failed to find a free participant index](runtime-troubleshooting.md#cyclonedds-failed-to-find-a-free-participant-index) for the cause and how to fix it.
+When using ROS 2 Jazzy with CycloneDDS, you may see "Failed to find a free participant index for domain 0" and nodes failing to start. See [Runtime troubleshooting: CycloneDDS failed to find a free participant index](runtime-troubleshooting.md#cyclonedds-failed-to-find-a-free-participant-index) for the cause and how to fix it.
 
 ### Performance related issues
 
@@ -192,13 +192,13 @@ Symptoms:
 - Point clouds or markers flicker on RViz2
 - When multiple subscribers use the same publishers, the message rate drops
 
-If you have any of these symptoms, please the [Performance Troubleshooting](performance-troubleshooting.md) page.
+If you have any of these symptoms, see the [Performance troubleshooting](performance-troubleshooting.md) page.
 
 ### Map does not display when running the Planning Simulator
 
-When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because [the map path has not been specified correctly in the launch command](../../../demos/planning-sim/lane-driving.md). You can confirm if this is the case by searching for `Could not find lanelet map under {path-to-map-dir}/lanelet2_map.osm` errors in the log.
+When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because [the map path has not been specified correctly in the launch command](../../../demos/planning-sim/lane-driving.md). You can confirm if this is the case by searching for `No such file or directory: {path-to-map-dir}/lanelet2_map.osm` or `No lanelet2 map files found from {path-to-map-dir}/lanelet2_map.osm` errors in the log.
 
-Another possible reason is that map loading is taking a long time due to poor DDS performance. For this, please visit the [Performance Troubleshooting](performance-troubleshooting.md) page.
+Another possible reason is that map loading is taking a long time due to poor DDS performance. For this, see the [Performance troubleshooting](performance-troubleshooting.md) page.
 
 ### Died process issues
 

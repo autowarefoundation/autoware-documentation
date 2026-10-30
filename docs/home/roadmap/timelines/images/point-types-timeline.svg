@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 474" role="img" aria-labelledby="point-types-timeline-title">
+  <title id="point-types-timeline-title">The point cloud type transition plan has three phases from May to December 2026, and the first two phases are not complete in Autoware 2.0.0.</title>
+  <style data-aw-standalone="">
+    svg { --aw-c-crimson: var(--aw-crimson); --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-crimson: #dc143c; --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.warn {
+  fill: color-mix(in srgb, var(--aw-crimson) 10%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-c-crimson) 70%, transparent);
+} .box.ext {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-dasharray: 6 5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .edge.plain {
+  marker-end: none;
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="920" height="474"/>
+  <circle class="halo" cx="560" cy="230" r="200"/>
+  <circle class="halo cyan" cx="160" cy="250" r="120"/>
+
+  <!-- Time axis: one month is 68 units, from May 2026 at x=330 -->
+  <text class="sub" x="330" y="24" text-anchor="middle" dominant-baseline="central">May 2026</text>
+  <text class="sub" x="398" y="24" text-anchor="middle" dominant-baseline="central">Jun</text>
+  <text class="sub" x="466" y="24" text-anchor="middle" dominant-baseline="central">Jul</text>
+  <text class="sub" x="534" y="24" text-anchor="middle" dominant-baseline="central">Aug</text>
+  <text class="sub" x="602" y="24" text-anchor="middle" dominant-baseline="central">Sep</text>
+  <text class="sub" x="670" y="24" text-anchor="middle" dominant-baseline="central">Oct</text>
+  <text class="sub" x="738" y="24" text-anchor="middle" dominant-baseline="central">Nov</text>
+  <text class="sub" x="806" y="24" text-anchor="middle" dominant-baseline="central">Dec</text>
+  <text class="sub" x="874" y="24" text-anchor="middle" dominant-baseline="central">Jan 2027</text>
+  <path class="edge accent" d="M326 44 H906"/>
+  <path class="flow flow-accent" pathLength="100" d="M326 44 H900"/>
+  <path class="edge accent head" d="M326 44 H906"/>
+  <circle class="icon-bg" cx="330" cy="44" r="4"/>
+  <circle class="icon-bg" cx="398" cy="44" r="4"/>
+  <circle class="icon-bg" cx="806" cy="44" r="4"/>
+  <circle class="icon-bg" cx="874" cy="44" r="4"/>
+
+  <!-- Phase 1 -->
+  <rect class="glass-panel" x="12" y="66" width="896" height="78" rx="16"/>
+  <text class="ttl" x="28" y="88" dominant-baseline="central">Phase 1: Standardization</text>
+  <text class="lbl" x="28" y="110" dominant-baseline="central">Stop raw memcpy operations</text>
+  <text class="sub" x="28" y="128" dominant-baseline="central">Move all access to PointCloud2Iterator</text>
+
+  <!-- Phase 2 -->
+  <rect class="glass-panel" x="12" y="156" width="896" height="136" rx="16"/>
+  <text class="ttl" x="28" y="178" dominant-baseline="central">Phase 2: Dual implementation and tooling</text>
+  <text class="lbl" x="28" y="200" dominant-baseline="central">Implement the dual-path logic</text>
+  <text class="sub" x="28" y="218" dominant-baseline="central">Wrapper if the layout is compatible</text>
+  <text class="sub" x="28" y="234" dominant-baseline="central">Iterator with warnings if it is not</text>
+  <text class="lbl" x="28" y="258" dominant-baseline="central">Release a point type adapter node</text>
+  <text class="sub" x="28" y="276" dominant-baseline="central">Converts outside types to Autoware types</text>
+
+  <!-- Phase 3 -->
+  <rect class="glass-panel" x="12" y="304" width="896" height="78" rx="16"/>
+  <text class="ttl" x="28" y="326" dominant-baseline="central">Phase 3: Finalization</text>
+  <text class="lbl" x="28" y="348" dominant-baseline="central">Drop the iterator fallback</text>
+  <text class="sub" x="28" y="366" dominant-baseline="central">Enforce point_cloud_msg_wrapper</text>
+
+  <!-- Phase boundaries -->
+  <path class="edge plain dash" d="M398 52 V380"/>
+  <path class="edge plain dash" d="M806 52 V380"/>
+
+  <!-- Bars -->
+  <rect class="box warn" x="330" y="103" width="68" height="32" rx="8"/>
+  <text class="sub" x="364" y="119" text-anchor="middle" dominant-baseline="central">May</text>
+  <rect class="box warn" x="398" y="201" width="408" height="32" rx="8"/>
+  <text class="sub" x="602" y="217" text-anchor="middle" dominant-baseline="central">June to November</text>
+  <rect class="box warn" x="398" y="251" width="68" height="32" rx="8"/>
+  <text class="sub" x="432" y="267" text-anchor="middle" dominant-baseline="central">30 days</text>
+  <rect class="box ext" x="806" y="341" width="68" height="32" rx="8"/>
+  <text class="sub" x="840" y="357" text-anchor="middle" dominant-baseline="central">Dec</text>
+
+  <!-- Autoware 2.0.0 -->
+  <path class="edge accent plain dash" d="M733 52 V392"/>
+  <rect class="box primary" x="653" y="392" width="160" height="42" rx="21"/>
+  <text class="lbl on-primary" x="733" y="406" text-anchor="middle" dominant-baseline="central">Autoware 2.0.0</text>
+  <text class="sub on-primary" x="733" y="422" text-anchor="middle" dominant-baseline="central">Oct 29, 2026</text>
+
+  <!-- Legend -->
+  <rect class="box warn" x="28" y="445" width="18" height="14" rx="4"/>
+  <text class="sub" x="54" y="452" dominant-baseline="central">Not complete in 2.0.0</text>
+  <rect class="box ext" x="200" y="445" width="18" height="14" rx="4"/>
+  <text class="sub" x="226" y="452" dominant-baseline="central">Planned</text>
+</svg>

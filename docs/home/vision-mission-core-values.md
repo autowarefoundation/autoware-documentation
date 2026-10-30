@@ -1,17 +1,17 @@
-# Vision, Mission, and Core Values
+# Vision, mission, and core values
 
 On this page, we define the vision, mission, and core values of Autoware which reflect our open-source philosophy.
 These will inform our goal setting and will drive our strategic planning and execution going forward.
 
-## Vision Statement
+## Vision statement
 
 “Build open-source software for globally trusted autonomous driving systems that engage and advance society”
 
-## Mission Statement
+## Mission statement
 
 “Co-create a neutral, trusted hub that advances safety and beyond in mobility and society”
 
-## Core Values
+## Core values
 
 - **Open Source:** 100% open source software supporting research and commercialization, as a complete software stack or through component integration with third parties
 - **Collaborative:** Built in collaboration and cooperation through multi-disciplinary ecosystems and alliances, welcome to individual developers all the way up to large organizations

@@ -1,0 +1,251 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 470" role="img" aria-labelledby="humble-jazzy-timeline-title">
+  <title id="humble-jazzy-timeline-title">Autoware supports ROS 2 Humble and Jazzy side by side from April 2026, freezes Humble in January 2027, and supports only Jazzy from May 2027.</title>
+  <style data-aw-standalone="">
+    svg { --aw-c-crimson: var(--aw-crimson); --aw-c-cyan: #0098c7; --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-crimson: #dc143c; --aw-cyan: #00c8ff; --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-green: #00e678; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.ai {
+  fill: color-mix(in srgb, var(--aw-cyan) 14%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-cyan) 70%, transparent);
+} .box.ok {
+  fill: color-mix(in srgb, var(--aw-green) 14%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-c-green) 70%, transparent);
+} .box.warn {
+  fill: color-mix(in srgb, var(--aw-crimson) 10%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-c-crimson) 70%, transparent);
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} .box.ext {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-dasharray: 6 5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .edge.plain {
+  marker-end: none;
+} .leader {
+  fill: none;
+  stroke: var(--aw-d-muted);
+  stroke-width: 1;
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.ai {
+  fill: url("#aw-grad-ai");
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-ai" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00c8ff"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="920" height="470"/>
+  <circle class="halo" cx="330" cy="270" r="190"/>
+  <circle class="halo cyan" cx="740" cy="130" r="110"/>
+
+  <!-- Milestones -->
+  <rect class="box ok" x="178" y="16" width="160" height="68" rx="10"/>
+  <circle class="icon-bg" cx="316" cy="34" r="10"/>
+  <path class="icon-line" d="M311 34 L315 38 L321 30"/>
+  <text class="lbl" x="192" y="34" dominant-baseline="central">Feb 2026</text>
+  <text class="sub" x="192" y="54" dominant-baseline="central">Jazzy Docker beta</text>
+  <text class="sub" x="192" y="70" dominant-baseline="central">Optional CI checks</text>
+
+  <rect class="box ok" x="348" y="16" width="160" height="68" rx="10"/>
+  <circle class="icon-bg" cx="486" cy="34" r="10"/>
+  <path class="icon-line" d="M481 34 L485 38 L491 30"/>
+  <text class="lbl" x="362" y="34" dominant-baseline="central">Apr 2026</text>
+  <text class="sub" x="362" y="54" dominant-baseline="central">Jazzy full support</text>
+  <text class="sub" x="362" y="70" dominant-baseline="central">Dual CI coverage</text>
+
+  <rect class="box ext" x="578" y="16" width="160" height="68" rx="10"/>
+  <circle class="icon-bg ai" cx="716" cy="34" r="10"/>
+  <circle class="icon-line" cx="716" cy="34" r="5.5"/>
+  <path class="icon-line" d="M716 31 V34 L718.5 35.5"/>
+  <text class="lbl" x="592" y="34" dominant-baseline="central">Jan 2027</text>
+  <text class="sub" x="592" y="54" dominant-baseline="central">Humble soft-freeze</text>
+  <text class="sub" x="592" y="70" dominant-baseline="central">Standard support ends</text>
+
+  <rect class="box ext" x="748" y="16" width="160" height="68" rx="10"/>
+  <circle class="icon-bg ai" cx="886" cy="34" r="10"/>
+  <circle class="icon-line" cx="886" cy="34" r="5.5"/>
+  <path class="icon-line" d="M886 31 V34 L888.5 35.5"/>
+  <text class="lbl" x="762" y="34" dominant-baseline="central">May 2027</text>
+  <text class="sub" x="762" y="54" dominant-baseline="central">Jazzy exclusive mode</text>
+  <text class="sub" x="762" y="70" dominant-baseline="central">Humble end of support</text>
+
+  <path class="leader" d="M229 84 V116"/>
+  <path class="leader" d="M380 84 V100 H307 V116"/>
+  <path class="leader" d="M658 84 V116"/>
+  <path class="leader" d="M814 84 V116"/>
+
+  <!-- Time axis: one month is 39 units, from January 2026 at x=190 -->
+  <path class="edge accent" d="M186 124 H906"/>
+  <path class="flow flow-accent" pathLength="100" d="M186 124 H900"/>
+  <path class="edge accent head" d="M186 124 H906"/>
+  <rect class="box ok" x="-6" y="-6" width="12" height="12" rx="2" transform="translate(229 124) rotate(45)"/>
+  <rect class="box ok" x="-6" y="-6" width="12" height="12" rx="2" transform="translate(307 124) rotate(45)"/>
+  <rect class="box ext" x="-6" y="-6" width="12" height="12" rx="2" transform="translate(658 124) rotate(45)"/>
+  <rect class="box ext" x="-6" y="-6" width="12" height="12" rx="2" transform="translate(814 124) rotate(45)"/>
+  <text class="sub" x="190" y="144" text-anchor="middle" dominant-baseline="central">Jan 2026</text>
+  <text class="sub" x="307" y="144" text-anchor="middle" dominant-baseline="central">Apr</text>
+  <text class="sub" x="424" y="144" text-anchor="middle" dominant-baseline="central">Jul</text>
+  <text class="sub" x="541" y="144" text-anchor="middle" dominant-baseline="central">Oct</text>
+  <text class="sub" x="658" y="144" text-anchor="middle" dominant-baseline="central">Jan 2027</text>
+  <text class="sub" x="775" y="144" text-anchor="middle" dominant-baseline="central">Apr</text>
+  <text class="sub" x="892" y="144" text-anchor="middle" dominant-baseline="central">Jul</text>
+
+  <!-- Lanes -->
+  <rect class="glass-panel" x="10" y="158" width="900" height="214" rx="16"/>
+  <path class="edge plain dash" d="M229 160 V370"/>
+  <path class="edge plain dash" d="M307 160 V370"/>
+  <path class="edge plain dash" d="M658 160 V370"/>
+  <path class="edge plain dash" d="M814 160 V370"/>
+
+  <text class="lbl" x="26" y="185" dominant-baseline="central">ROS 2 Humble</text>
+  <text class="sub" x="26" y="203" dominant-baseline="central">Ubuntu 22.04</text>
+  <rect class="box primary" x="190" y="174" width="468" height="40" rx="8"/>
+  <text class="lbl on-primary" x="424" y="194" text-anchor="middle" dominant-baseline="central">Standard support</text>
+  <rect class="box warn" x="658" y="174" width="156" height="40" rx="8"/>
+  <text class="lbl" x="736" y="187" text-anchor="middle" dominant-baseline="central">Low maintenance</text>
+  <text class="sub" x="736" y="203" text-anchor="middle" dominant-baseline="central">Critical fixes only</text>
+  <text class="sub" x="824" y="187" dominant-baseline="central">End of</text>
+  <text class="sub" x="824" y="203" dominant-baseline="central">support</text>
+
+  <text class="lbl" x="26" y="255" dominant-baseline="central">ROS 2 Jazzy</text>
+  <text class="sub" x="26" y="273" dominant-baseline="central">Ubuntu 24.04</text>
+  <rect class="box muted" x="229" y="244" width="78" height="40" rx="8"/>
+  <text class="sub" x="268" y="257" text-anchor="middle" dominant-baseline="central">Docker base</text>
+  <text class="sub" x="268" y="273" text-anchor="middle" dominant-baseline="central">preview</text>
+  <rect class="box primary" x="307" y="244" width="589" height="40" rx="8"/>
+  <text class="lbl on-primary" x="440" y="257" text-anchor="middle" dominant-baseline="central">Full support</text>
+  <text class="sub on-primary" x="440" y="273" text-anchor="middle" dominant-baseline="central">Ubuntu 24.04</text>
+
+  <text class="lbl" x="26" y="325" dominant-baseline="central">CI policy</text>
+  <text class="sub" x="26" y="343" dominant-baseline="central">Pull request checks</text>
+  <rect class="box muted" x="229" y="314" width="78" height="40" rx="8"/>
+  <text class="sub" x="268" y="327" text-anchor="middle" dominant-baseline="central">Optional</text>
+  <text class="sub" x="268" y="343" text-anchor="middle" dominant-baseline="central">checks</text>
+  <rect class="box primary" x="307" y="314" width="507" height="40" rx="8"/>
+  <text class="lbl on-primary" x="440" y="327" text-anchor="middle" dominant-baseline="central">Mandatory dual coverage</text>
+  <text class="sub on-primary" x="440" y="343" text-anchor="middle" dominant-baseline="central">Humble and Jazzy</text>
+  <rect class="box ext" x="814" y="314" width="82" height="40" rx="8"/>
+  <text class="sub" x="855" y="334" text-anchor="middle" dominant-baseline="central">Jazzy only</text>
+
+  <!-- Autoware 2.0.0 -->
+  <path class="edge accent plain dash" d="M577 132 V386"/>
+  <rect class="box primary" x="497" y="386" width="160" height="42" rx="21"/>
+  <text class="lbl on-primary" x="577" y="400" text-anchor="middle" dominant-baseline="central">Autoware 2.0.0</text>
+  <text class="sub on-primary" x="577" y="416" text-anchor="middle" dominant-baseline="central">Oct 29, 2026</text>
+
+  <!-- Legend -->
+  <rect class="box ok" x="26" y="442" width="18" height="14" rx="4"/>
+  <text class="sub" x="52" y="449" dominant-baseline="central">Done in 2.0.0</text>
+  <rect class="box ext" x="150" y="442" width="18" height="14" rx="4"/>
+  <text class="sub" x="176" y="449" dominant-baseline="central">Planned</text>
+</svg>
