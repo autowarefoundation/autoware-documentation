@@ -39,4 +39,4 @@ Schaeffler-Paravan Space Drive DBW Controllers which is used for autonomous driv
 | Custom Integration with Actuators | -     | Optional, Available | Y             | Y                     |
 
 Link to company website:  
-[https://www.schaeffler-paravan.de/en/products/space-drive-system/](https://www.schaeffler-paravan.com/en/space-drive/space-drive-2-already-home-streets-world)
+[Space Drive drive-by-wire system (Schaeffler article)](https://schaeffler-tomorrow.com/en/article/intelligent-chassis-systems)
