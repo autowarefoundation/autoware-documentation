@@ -113,6 +113,10 @@ hide:
 
   The long-term goals of the Autoware Foundation.
 
+- :fa-cl-s fa-palette: **[Media kit](media-kit/index.md)**
+
+  The logos, the colors, and the fonts of Autoware.
+
 </div>
 
 <div class="aw-band" markdown>

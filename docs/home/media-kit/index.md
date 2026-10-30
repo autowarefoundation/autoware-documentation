@@ -1,29 +1,81 @@
 # Media kit
 
-This page gives the logo, the colors, and the fonts of Autoware. Use them for slides, posters, diagrams, and web pages about Autoware.
+This page gives the logos, the colors, and the fonts of Autoware. Use them for slides, posters, diagrams, and web pages about Autoware.
 
-## Logo
+## Logos
 
-The logo is a hexagon with a triangle inside. Download the version that fits your background.
+Each logo comes in black, for light backgrounds, and in white, for dark backgrounds. The SVG files scale to any size. The PNG files are 2048 pixels on their longer side, with a transparent background.
 
-<div class="aw-logos" markdown>
+<button class="md-button md-button--primary aw-kit-all" type="button" hidden>Download all logos (ZIP)</button>
 
-<figure class="aw-logo-tile aw-logo-tile--light">
-  <img src="autoware-logo-black.svg" alt="Black Autoware logo on white">
-  <figcaption>Black, for light backgrounds<br><a href="autoware-logo-black.svg" download>Download SVG</a></figcaption>
+<div class="aw-kit" markdown>
+
+<figure class="aw-kit__logo">
+  <div class="aw-kit__preview aw-kit__preview--light"><img src="logos/autoware-foundation-stacked-black.svg" alt="Stacked logo in black"></div>
+  <div class="aw-kit__preview aw-kit__preview--dark"><img src="logos/autoware-foundation-stacked-white.svg" alt="Stacked logo in white"></div>
+  <figcaption>
+    <strong>Stacked</strong>
+    <span>The main logo of The Autoware Foundation.</span>
+    <span class="aw-kit__files">Black: <a href="logos/autoware-foundation-stacked-black.svg" download>SVG</a> White: <a href="logos/autoware-foundation-stacked-white.svg" download>SVG</a></span>
+  </figcaption>
 </figure>
 
-<figure class="aw-logo-tile aw-logo-tile--dark">
-  <img src="autoware-logo-white.svg" alt="White Autoware logo on navy">
-  <figcaption>White, for dark backgrounds<br><a href="autoware-logo-white.svg" download>Download SVG</a></figcaption>
+<figure class="aw-kit__logo">
+  <div class="aw-kit__preview aw-kit__preview--light"><img src="logos/autoware-foundation-one-line-black.svg" alt="One line logo in black"></div>
+  <div class="aw-kit__preview aw-kit__preview--dark"><img src="logos/autoware-foundation-one-line-white.svg" alt="One line logo in white"></div>
+  <figcaption>
+    <strong>One line</strong>
+    <span>For wide and low spaces, for example a banner or a footer.</span>
+    <span class="aw-kit__files">Black: <a href="logos/autoware-foundation-one-line-black.svg" download>SVG</a> White: <a href="logos/autoware-foundation-one-line-white.svg" download>SVG</a></span>
+  </figcaption>
+</figure>
+
+<figure class="aw-kit__logo">
+  <div class="aw-kit__preview aw-kit__preview--light"><img src="logos/autoware-foundation-vertical-black.svg" alt="Vertical logo in black"></div>
+  <div class="aw-kit__preview aw-kit__preview--dark"><img src="logos/autoware-foundation-vertical-white.svg" alt="Vertical logo in white"></div>
+  <figcaption>
+    <strong>Vertical</strong>
+    <span>The name is centered below the mark.</span>
+    <span class="aw-kit__files">Black: <a href="logos/autoware-foundation-vertical-black.svg" download>SVG</a> White: <a href="logos/autoware-foundation-vertical-white.svg" download>SVG</a></span>
+  </figcaption>
+</figure>
+
+<figure class="aw-kit__logo">
+  <div class="aw-kit__preview aw-kit__preview--light"><img src="logos/autoware-horizontal-black.svg" alt="Autoware, horizontal logo in black"></div>
+  <div class="aw-kit__preview aw-kit__preview--dark"><img src="logos/autoware-horizontal-white.svg" alt="Autoware, horizontal logo in white"></div>
+  <figcaption>
+    <strong>Autoware, horizontal</strong>
+    <span>The mark with the name Autoware beside it.</span>
+    <span class="aw-kit__files">Black: <a href="logos/autoware-horizontal-black.svg" download>SVG</a> White: <a href="logos/autoware-horizontal-white.svg" download>SVG</a></span>
+  </figcaption>
+</figure>
+
+<figure class="aw-kit__logo">
+  <div class="aw-kit__preview aw-kit__preview--light"><img src="logos/autoware-vertical-black.svg" alt="Autoware, vertical logo in black"></div>
+  <div class="aw-kit__preview aw-kit__preview--dark"><img src="logos/autoware-vertical-white.svg" alt="Autoware, vertical logo in white"></div>
+  <figcaption>
+    <strong>Autoware, vertical</strong>
+    <span>The mark with the name Autoware below it.</span>
+    <span class="aw-kit__files">Black: <a href="logos/autoware-vertical-black.svg" download>SVG</a> White: <a href="logos/autoware-vertical-white.svg" download>SVG</a></span>
+  </figcaption>
+</figure>
+
+<figure class="aw-kit__logo">
+  <div class="aw-kit__preview aw-kit__preview--light"><img src="logos/autoware-mark-black.svg" alt="Mark logo in black"></div>
+  <div class="aw-kit__preview aw-kit__preview--dark"><img src="logos/autoware-mark-white.svg" alt="Mark logo in white"></div>
+  <figcaption>
+    <strong>Mark</strong>
+    <span>For small spaces, for example an icon or a profile picture.</span>
+    <span class="aw-kit__files">Black: <a href="logos/autoware-mark-black.svg" download>SVG</a> White: <a href="logos/autoware-mark-white.svg" download>SVG</a></span>
+  </figcaption>
 </figure>
 
 </div>
 
 - Keep the proportions of the logo. Do not stretch, rotate, or crop it.
-- Keep free space around the logo, so that no other element touches it.
+- Keep free space around the logo, so that no other element touches it. The free space is two times the gap between the mark and the name.
 - Use the black logo on light backgrounds, and the white logo on dark backgrounds.
-- The logo with the name "The Autoware Foundation" is in the logo kit of the [Autoware Foundation media kit](https://autoware.org/media-kit/).
+- Do not change the color of the logo, and do not add effects such as shadows or gradients.
 
 ## Colors
 
