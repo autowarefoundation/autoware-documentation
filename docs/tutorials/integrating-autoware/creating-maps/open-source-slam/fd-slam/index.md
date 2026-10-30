@@ -31,7 +31,7 @@ It is based on hdl_graph_slam and the steps to run our system are same with hdl-
 - [ROS](http://wiki.ros.org/noetic/Installation/Ubuntu)
 - [PCL](https://pointclouds.org/downloads/#linux)
 - [g2o](http://wiki.ros.org/g2o)
-- [Suitesparse](https://github.com/ethz-asl/suitesparse)
+- [Suitesparse](https://github.com/DrTimothyAldenDavis/SuiteSparse)
 
 The following ROS packages are required:
 
@@ -39,7 +39,7 @@ The following ROS packages are required:
 - nmea_msgs
 - pcl_ros
 - [ndt_omp](https://github.com/koide3/ndt_omp)
-- [U_gicp](https://github.com/SLAMWang/UGICP) This is modified based on [fast_gicp](https://github.com/SMRT-AIST/fast_gicp) by us. We use UGICP for keyframe matching.
+- [U_gicp](https://github.com/SLAMWang/UGICP) This is modified based on [fast_gicp](https://github.com/koide3/fast_gicp) by us. We use UGICP for keyframe matching.
 
 ## Build & Run
 

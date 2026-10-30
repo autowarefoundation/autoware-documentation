@@ -4,9 +4,25 @@ Autoware requires a pointcloud map and a vector map for the vehicle's operating 
 
 This page explains how users can create maps that can be used for Autoware.
 
+## Map files that Autoware loads
+
+Autoware reads the map files from the directory in the `map_path` launch argument:
+
+```bash
+<YOUR-MAP-DIRECTORY>/
+├── lanelet2_map.osm               # the vector map
+├── pointcloud_map.pcd             # the point cloud map, a file or a directory of PCD files
+├── map_projector_info.yaml        # the projection information
+└── pointcloud_map_metadata.yaml   # only for a divided point cloud map
+```
+
+The `map_projector_info.yaml` file tells `autoware_map_projection_loader` which projection the map uses. The supported `projector_type` values are `Local`, `MGRS`, `LocalCartesianUTM`, `LocalCartesian`, and `TransverseMercator`. If the file does not exist, the loader uses `MGRS` and reads the grid from the Lanelet2 map. This fallback is deprecated. For the format of each file, see the [map component design](../../../design/autoware-architecture-v1/components/map/index.md#map-specification).
+
+The [autoware_tools](https://github.com/autowarefoundation/autoware_tools) repository contains map tools: `bag2lanelet` (described below), `autoware_pointcloud_divider` (described on the [point cloud map preprocessing page](pointcloud-map-pre-processing/index.md)), and `autoware_pointcloud_projection_converter`, which converts a point cloud map from MGRS to Transverse Mercator. Autoware 2.0.0 lists `autoware_tools` 0.8.0 in `repositories/tools.repos`. To build these tools, import this file into your workspace, as described in the [source installation guide](../../../installation/autoware/source-installation.md).
+
 ## Creating a point cloud map
 
-Traditionally, a Mobile Mapping System (MMS) is used in order to create highly accurate large-scale point cloud maps. However, since a MMS requires high-end sensors for precise positioning, its operational cost can be very expensive and may not be suitable for a relatively small driving environment. Alternatively, a Simultaneous Localization And Mapping (SLAM) algorithm can be used to create a point cloud map from recorded LiDAR scans. Some of the useful open-source SLAM implementations are listed in this [page](open-source-slam/index.md).
+Traditionally, a Mobile Mapping System (MMS) is used in order to create highly accurate large-scale point cloud maps. However, since a MMS requires high-end sensors for precise positioning, its operational cost can be very expensive and may not be suitable for a relatively small driving environment. Alternatively, a Simultaneous Localization And Mapping (SLAM) algorithm can be used to create a point cloud map from recorded LiDAR scans. Some of the useful open-source SLAM implementations are listed on the [open-source SLAM page](open-source-slam/index.md). After you create the map, follow the [point cloud map preprocessing page](pointcloud-map-pre-processing/index.md) to filter and downsample it.
 
 ## Creating a vector map
 

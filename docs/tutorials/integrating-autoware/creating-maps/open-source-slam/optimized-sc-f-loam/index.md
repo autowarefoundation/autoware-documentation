@@ -70,7 +70,24 @@ roslaunch optimized_sc_f_loam optimized_sc_f_loam_mapping.launch
 
 ### Results on KITTI Sequence 00 and Sequence 05
 
-![image](https://user-images.githubusercontent.com/95751923/155125294-980e6a3d-6e76-4a23-9771-493ba278677e.png)
+The table shows the results from the Optimized-SC-F-LOAM paper. "OURS" is Optimized-SC-F-LOAM. A dash means that the paper gives no value.
+
+| Methods          | Datasets | ATE (%)  | ARE (deg/100m) | Time (ms/loop frame) |
+| :--------------- | :------: | :------: | :------------: | :------------------: |
+| Simple-SC-F-LOAM |    00    |   0.75   |      0.27      |         501          |
+| Simple-SC-F-LOAM |    05    |   0.51   |      0.24      |         422          |
+| F-LOAM           |    00    |   1.13   |      0.37      |          -           |
+| F-LOAM           |    05    |   0.81   |      0.32      |          -           |
+| SC-A-LOAM        |    00    |   0.83   |      0.34      |         444          |
+| SC-A-LOAM        |    05    |   0.50   |      0.27      |         439          |
+| A-LOAM           |    00    |   1.09   |      0.40      |          -           |
+| A-LOAM           |    05    |   0.87   |      0.37      |          -           |
+| LeGO-LOAM        |    00    |   2.17   |      13.4      |          -           |
+| LeGO-LOAM        |    05    |   1.28   |      0.74      |          -           |
+| LOAM             |    00    |   0.78   |       -        |          -           |
+| LOAM             |    05    |   0.57   |       -        |          -           |
+| OURS             |    00    | **0.75** |    **0.27**    |       **135**        |
+| OURS             |    05    | **0.43** |    **0.22**    |       **129**        |
 
 ### Comparison of trajectories on KITTI dataset
 

@@ -47,7 +47,7 @@ catkin_make
 
 ### 2) Set parameters
 
-- Set parameters on `LeGo-LOAM/loam_config.yaml`
+- Set parameters on `LeGO-LOAM/config/loam_config.yaml`
 
 ### 3) Run
 

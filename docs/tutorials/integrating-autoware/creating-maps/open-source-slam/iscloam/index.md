@@ -20,8 +20,8 @@
 
 ### Dependencies
 
-- Ubuntu 64-bit 18.04
-- ROS Melodic [ROS Installation](http://wiki.ros.org/ROS/Installation)
+- Ubuntu 64-bit 20.04
+- ROS Noetic [ROS Installation](http://wiki.ros.org/ROS/Installation)
 - Ceres Solver [Ceres Installation](http://ceres-solver.org/installation.html)
 - PCL [PCL Installation](https://pointclouds.org/downloads/)
 - Gtsam [GTSAM Installation](https://gtsam.org/get_started/)
@@ -31,7 +31,7 @@
 For visualization purpose, this package uses hector trajectory sever, you may install the package by
 
 ```bash
-sudo apt-get install ros-melodic-hector-trajectory-server
+sudo apt-get install ros-noetic-hector-trajectory-server
 ```
 
 ## Build and Run
@@ -72,14 +72,12 @@ Watch demo video at [Video Link](https://youtu.be/Kfi6CFK4Ke4)
 
 ### Ground Truth Comparison
 
-Green: ISCLOAM Red: Ground Truth
+Blue: ISCLOAM ("Visual Odometry" in the plot legend). Red: ground truth. The left plot shows KITTI sequence 00, and the right plot shows KITTI sequence 05.
 
 <p>
 <img src="images/00.png" width = 45% />
 <img src="images/05.png" width = 45% />
 </p>
-
-                      KITTI sequence 00                                  KITTI sequence 05
 
 ## Citation
 

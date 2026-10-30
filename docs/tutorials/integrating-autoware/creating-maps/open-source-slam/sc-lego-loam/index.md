@@ -40,7 +40,7 @@ sudo make install
 
 ```bash
 cd ~/catkin_ws/src
-git clone https://github.com/irapkaist/SC-LeGO-LOAM.git
+git clone https://github.com/gisbi-kim/SC-LeGO-LOAM.git
 cd ..
 catkin_make
 ```

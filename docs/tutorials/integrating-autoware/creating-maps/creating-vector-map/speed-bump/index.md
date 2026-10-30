@@ -1,6 +1,6 @@
 # Speed bump
 
-Behavior velocity planner's [speed bump module](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_crosswalk_module//) plans velocity
+Behavior velocity planner's [speed bump module](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_velocity_planner/autoware_behavior_velocity_speed_bump_module/) plans velocity
 to slow down before speed bump for comfortable and safety driving.
 In order to operate that, we will add speed bumps to our lanelet2 map.
 
@@ -31,26 +31,33 @@ After the download is finished,
 we need to put lanelet2 map and pointcloud map on the same location.
 The directory structure should be like this:
 
-```diff
-+ <YOUR-MAP-DIRECTORY>/
-+  ├─ pointcloud_map.pcd
-+  └─ lanelet2_map.osm
+```bash
+<YOUR-MAP-DIRECTORY>/
+ ├─ pointcloud_map.pcd
+ ├─ lanelet2_map.osm
+ └─ map_projector_info.yaml
 ```
 
-If your .osm or .pcd map file's name is different from these names,
-you need to update autoware.launch.xml:
+The `map_projector_info.yaml` file tells Autoware the projection of the map. Write the MGRS grid that you entered when you created the Lanelet2 map in Vector Map Builder:
 
-```diff
-  <!-- Map -->
--  <arg name="lanelet2_map_file" default="lanelet2_map.osm" description="lanelet2 map file name"/>
-+  <arg name="lanelet2_map_file" default="<YOUR-LANELET-MAP-NAME>.osm" description="lanelet2 map file name"/>
--  <arg name="pointcloud_map_file" default="pointcloud_map.pcd" description="pointcloud map file name"/>
-+  <arg name="pointcloud_map_file" default="<YOUR-POINTCLOUD-MAP-NAME>.pcd" description="pointcloud map file name"/>
+```yaml
+projector_type: MGRS
+vertical_datum: WGS84
+mgrs_grid: <YOUR-MGRS-GRID> # for example, 35TPF for tutorial_vehicle
+```
+
+Use the vertical datum of your point cloud map. For a point cloud map from the [UTM to MGRS converter](../../converting-utm-to-mgrs-map/index.md), use `EGM2008`. If the file does not exist, Autoware reads the MGRS grid from the Lanelet2 map. This fallback is deprecated.
+
+If your .osm or .pcd map file's name is different from these names,
+add the `lanelet2_map_file` and `pointcloud_map_file` arguments to the launch command:
+
+```bash
+ros2 launch autoware_launch planning_simulator.launch.xml map_path:=<YOUR-MAP-FOLDER-DIR> vehicle_model:=<YOUR-VEHICLE-MODEL> sensor_model:=<YOUR-SENSOR-KIT> lanelet2_map_file:=<YOUR-LANELET-MAP-NAME>.osm pointcloud_map_file:=<YOUR-POINTCLOUD-MAP-NAME>.pcd
 ```
 
 !!! note
 
-    The speed bump module not enabled default. To enable that, please uncomment it your [behavior_velocity_planner.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/behavior_velocity_planner.param.yaml).
+    The speed bump module is not enabled by default. To enable it, set the default value of `launch_speed_bump_module` to `"true"` in [default_preset.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_universe_launch/autoware_planning_config/config/preset/default_preset.yaml). If you did not build Autoware with `--symlink-install`, build the `autoware_planning_config` package again. The module parameters are in [speed_bump.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_universe_launch/autoware_planning_config/config/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/speed_bump.param.yaml).
 
 Now we are ready to launch the planning simulator:
 

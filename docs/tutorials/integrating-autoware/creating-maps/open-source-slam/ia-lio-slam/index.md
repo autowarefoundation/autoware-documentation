@@ -76,7 +76,7 @@
 
       # open new terminal: run IA_LIO
       source devel/setup.bash
-      roslaunch lio_sam mapping_ouster64.launch
+      roslaunch lio_sam run.launch
 
       # play bag file in the other terminal
       rosbag play RECORDED_BAG.bag --clock
@@ -95,13 +95,26 @@ Check original repo link for example dataset.
 
 ## Contact
 
-<!-- cspell: ignore minwoo -->
+<!-- cspell: ignore minwoo Sangwoo Hyesu Ayoung -->
 
 - Maintainer: Kevin Jung (`GitHub: minwoo0611`)
 
 ## Paper
 
-Thank you for citing IA-LIO-SAM(./config/doc/KRS-2021-17.pdf) if you use any of this code.
+Thank you for citing [IA-LIO-SAM](https://github.com/minwoo0611/IA_LIO_SAM/blob/master/config/doc/KRS-2021-17.pdf) if you use any of this code.
+
+```bash
+@article{jung2021intensity,
+  title={Intensity and Ambient Enhanced Lidar-Inertial SLAM for Unstructured Construction Environment},
+  author={Jung, Minwoo and Jung, Sangwoo and Jang, Hyesu and Kim, Ayoung},
+  journal={The Journal of Korea Robotics Society},
+  volume={16},
+  number={3},
+  pages={179--188},
+  year={2021},
+  publisher={Korea Robotics Society}
+}
+```
 
 Part of the code is adapted from [LIO-SAM (IROS-2020)](https://github.com/TixiaoShan/LIO-SAM).
 

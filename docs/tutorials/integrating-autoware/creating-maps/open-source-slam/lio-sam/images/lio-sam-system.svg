@@ -1,0 +1,274 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-labelledby="lio-sam-system-title">
+  <title id="lio-sam-system-title">
+    The LIO-SAM system: IMU preintegration, image projection, feature extraction, and map optimization exchange IMU odometry, cloud_info messages, and lidar odometry, and the IMU odometry is the
+    output at IMU frequency.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.plain {
+  marker-end: none;
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="960" height="620"/>
+  <circle class="halo" cx="480" cy="280" r="250"/>
+  <circle class="halo cyan" cx="480" cy="520" r="90"/>
+
+  <!-- Sensor inputs -->
+  <rect class="box muted" x="160" y="20" width="140" height="44" rx="12"/>
+  <circle class="icon-bg" cx="186" cy="42" r="13"/>
+  <rect class="icon-line" x="180" y="36" width="12" height="12" rx="2"/>
+  <circle class="icon-dot" cx="186" cy="42" r="2.2"/>
+  <text class="lbl" x="208" y="42" dominant-baseline="central">IMU</text>
+  <rect class="box muted" x="410" y="20" width="140" height="44" rx="12"/>
+  <circle class="icon-bg" cx="436" cy="42" r="13"/>
+  <circle class="icon-dot" cx="431" cy="38" r="1.6"/>
+  <circle class="icon-dot" cx="436" cy="36" r="1.6"/>
+  <circle class="icon-dot" cx="441" cy="39" r="1.6"/>
+  <circle class="icon-dot" cx="432" cy="45" r="1.6"/>
+  <circle class="icon-dot" cx="438" cy="44" r="1.6"/>
+  <circle class="icon-dot" cx="442" cy="47" r="1.6"/>
+  <circle class="icon-dot" cx="435" cy="49" r="1.6"/>
+  <text class="lbl" x="458" y="42" dominant-baseline="central">Point cloud</text>
+  <rect class="box muted" x="660" y="20" width="140" height="44" rx="12"/>
+  <circle class="icon-bg" cx="686" cy="42" r="13"/>
+  <circle class="icon-dot" cx="682" cy="46" r="2.2"/>
+  <path class="icon-line" d="M682 39 A7 7 0 0 1 689 46"/>
+  <path class="icon-line" d="M682 33 A13 13 0 0 1 695 46"/>
+  <text class="lbl" x="708" y="42" dominant-baseline="central">GPS</text>
+
+  <!-- imuPreintegration.cpp -->
+  <rect class="card" x="20" y="120" width="170" height="312" rx="14"/>
+  <text class="lbl" x="32" y="142" dominant-baseline="central">IMU preintegration</text>
+  <text class="code" x="32" y="162" dominant-baseline="central">imuPreintegration.cpp</text>
+  <path class="edge plain" d="M32 180 H178"/>
+  <text class="ttl" x="32" y="200" dominant-baseline="central">Subscribes to</text>
+  <text class="sub" x="32" y="220" dominant-baseline="central">• IMU data</text>
+  <text class="sub" x="32" y="237" dominant-baseline="central">• lidar odometry</text>
+  <text class="ttl" x="32" y="266" dominant-baseline="central">Main function</text>
+  <text class="sub" x="32" y="286" dominant-baseline="central">• Graph optimization</text>
+  <text class="sub" x="32" y="303" dominant-baseline="central">• Estimate IMU bias</text>
+  <text class="ttl" x="32" y="332" dominant-baseline="central">Publishes</text>
+  <text class="sub" x="32" y="352" dominant-baseline="central">• IMU odometry</text>
+
+  <!-- imageProjection.cpp -->
+  <rect class="card" x="270" y="120" width="170" height="312" rx="14"/>
+  <text class="lbl" x="282" y="142" dominant-baseline="central">Image projection</text>
+  <text class="code" x="282" y="162" dominant-baseline="central">imageProjection.cpp</text>
+  <path class="edge plain" d="M282 180 H428"/>
+  <text class="ttl" x="282" y="200" dominant-baseline="central">Subscribes to</text>
+  <text class="sub" x="282" y="220" dominant-baseline="central">• point cloud</text>
+  <text class="sub" x="282" y="237" dominant-baseline="central">• IMU data</text>
+  <text class="sub" x="282" y="254" dominant-baseline="central">• odometry data</text>
+  <text class="ttl" x="282" y="283" dominant-baseline="central">Main function</text>
+  <text class="sub" x="282" y="303" dominant-baseline="central">• Get transformation</text>
+  <text class="sub" x="293" y="320" dominant-baseline="central">initial guess</text>
+  <text class="sub" x="282" y="337" dominant-baseline="central">• Organize point cloud</text>
+  <text class="sub" x="282" y="354" dominant-baseline="central">• Deskew point cloud</text>
+  <text class="ttl" x="282" y="383" dominant-baseline="central">Publishes</text>
+  <text class="sub" x="282" y="403" dominant-baseline="central">• cloud_info message</text>
+
+  <!-- featureExtraction.cpp -->
+  <rect class="card" x="520" y="120" width="170" height="312" rx="14"/>
+  <text class="lbl" x="532" y="142" dominant-baseline="central">Feature extraction</text>
+  <text class="code" x="532" y="162" dominant-baseline="central">featureExtraction.cpp</text>
+  <path class="edge plain" d="M532 180 H678"/>
+  <text class="ttl" x="532" y="200" dominant-baseline="central">Subscribes to</text>
+  <text class="sub" x="532" y="220" dominant-baseline="central">• cloud_info message</text>
+  <text class="ttl" x="532" y="249" dominant-baseline="central">Main function</text>
+  <text class="sub" x="532" y="269" dominant-baseline="central">• Extract edge and</text>
+  <text class="sub" x="543" y="286" dominant-baseline="central">planar features</text>
+  <text class="ttl" x="532" y="315" dominant-baseline="central">Publishes</text>
+  <text class="sub" x="532" y="335" dominant-baseline="central">• cloud_info message</text>
+
+  <!-- mapOptimization.cpp -->
+  <rect class="card" x="770" y="120" width="170" height="312" rx="14"/>
+  <text class="lbl" x="782" y="142" dominant-baseline="central">Map optimization</text>
+  <text class="code" x="782" y="162" dominant-baseline="central">mapOptimization.cpp</text>
+  <path class="edge plain" d="M782 180 H928"/>
+  <text class="ttl" x="782" y="200" dominant-baseline="central">Subscribes to</text>
+  <text class="sub" x="782" y="220" dominant-baseline="central">• cloud_info message</text>
+  <text class="sub" x="782" y="237" dominant-baseline="central">• GPS</text>
+  <text class="ttl" x="782" y="266" dominant-baseline="central">Main function</text>
+  <text class="sub" x="782" y="286" dominant-baseline="central">• Register point cloud</text>
+  <text class="sub" x="782" y="303" dominant-baseline="central">• Get lidar odometry</text>
+  <text class="sub" x="782" y="320" dominant-baseline="central">• Graph optimization</text>
+  <text class="ttl" x="782" y="349" dominant-baseline="central">Publishes</text>
+  <text class="sub" x="782" y="369" dominant-baseline="central">• lidar odometry</text>
+
+  <!-- Inputs into the modules -->
+  <path class="edge" d="M230 64 V176 H196"/>
+  <path class="flow" pathLength="100" d="M230 64 V176 H196"/>
+  <path class="edge head" d="M230 64 V176 H196"/>
+  <path class="edge" d="M230 64 V176 H264"/>
+  <path class="flow" pathLength="100" d="M230 64 V176 H264"/>
+  <path class="edge head" d="M230 64 V176 H264"/>
+  <path class="edge" d="M730 64 V176 H764"/>
+  <path class="flow" pathLength="100" d="M730 64 V176 H764"/>
+  <path class="edge head" d="M730 64 V176 H764"/>
+
+  <!-- Main flow: point cloud to map optimization -->
+  <path class="edge accent" d="M480 64 V176 H446"/>
+  <path class="flow flow-accent" pathLength="100" d="M480 64 V176 H446"/>
+  <path class="edge accent head" d="M480 64 V176 H446"/>
+  <path class="edge accent" d="M440 316 H514"/>
+  <path class="flow flow-accent" pathLength="100" d="M440 316 H514"/>
+  <path class="edge accent head" d="M440 316 H514"/>
+  <path class="edge accent" d="M690 316 H764"/>
+  <path class="flow flow-accent" pathLength="100" d="M690 316 H764"/>
+  <path class="edge accent head" d="M690 316 H764"/>
+  <text class="edge-lbl code" x="480" y="300" text-anchor="middle" dominant-baseline="central">cloud_info</text>
+  <text class="edge-lbl code" x="730" y="300" text-anchor="middle" dominant-baseline="central">cloud_info</text>
+
+  <!-- IMU odometry -->
+  <path class="edge" d="M190 316 H264"/>
+  <path class="flow" pathLength="100" d="M190 316 H264"/>
+  <path class="edge head" d="M190 316 H264"/>
+  <path class="edge" d="M230 316 V524 H374"/>
+  <path class="flow" pathLength="100" d="M230 316 V524 H374"/>
+  <path class="edge head" d="M230 316 V524 H374"/>
+  <text class="edge-lbl" x="230" y="286" text-anchor="middle" dominant-baseline="central">IMU</text>
+  <text class="edge-lbl" x="230" y="300" text-anchor="middle" dominant-baseline="central">odometry</text>
+
+  <!-- Lidar odometry back to IMU preintegration -->
+  <path class="edge" d="M855 432 V592 H105 V438"/>
+  <path class="flow" pathLength="100" d="M855 432 V592 H105 V438"/>
+  <path class="edge head" d="M855 432 V592 H105 V438"/>
+  <text class="edge-lbl" x="660" y="592" text-anchor="middle" dominant-baseline="central">lidar odometry</text>
+
+  <!-- Output -->
+  <rect class="box primary" x="380" y="498" width="200" height="52" rx="14"/>
+  <circle class="icon-bg on" cx="410" cy="524" r="15"/>
+  <path class="icon-line" d="M402 530 L407 522 L412 526 L418 517"/>
+  <text class="lbl on-primary" x="434" y="514" dominant-baseline="central">Odometry</text>
+  <text class="sub on-primary" x="434" y="534" dominant-baseline="central">IMU frequency</text>
+</svg>
