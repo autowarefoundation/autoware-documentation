@@ -2,12 +2,9 @@
 
 # Review guidelines
 
-This page explains how to review a pull request in Autoware repositories.
-Authors can read it too, so that they know what the reviewers look for.
+This page explains how to review a pull request in Autoware repositories. Authors can read it too, so that they know what the reviewers look for.
 
-Anyone can review a pull request.
-In some repositories, a review from a person who is not a code owner is not enough to merge, but it helps the code owners and the maintainers to decide.
-For who is asked to review and why, refer to the [code owners](code-owners.md) guidelines.
+Anyone can review a pull request. In some repositories, a review from a person who is not a code owner is not enough to merge, but it helps the code owners and the maintainers to decide. For who is asked to review and why, refer to the [code owners](code-owners.md) guidelines.
 
 ## Merge requirements
 
@@ -19,9 +16,7 @@ Each repository sets its own merge rules on GitHub. For example:
 | `autoware_core`          | 2                  | Yes                          |
 | `autoware-documentation` | 1                  | No                           |
 
-The required [CI checks](ci-checks.md) must also pass.
-In `autoware-documentation`, all review conversations must also be resolved before the merge.
-Most code repositories use squash merges, so the pull request becomes one commit on the default branch.
+The required [CI checks](ci-checks.md) must also pass. In `autoware-documentation`, all review conversations must also be resolved before the merge. Most code repositories use squash merges, so the pull request becomes one commit on the default branch.
 
 ## Before you review
 
@@ -93,8 +88,7 @@ When you submit a review, choose one of these options:
 - **Approve**: The change is ready to merge. You can approve with small non-blocking comments.
 - **Request changes**: The change must not merge until the author addresses your comments.
 
-After the author updates the pull request and asks for a new review, review the new commits.
-If the author has addressed your comments, approve the pull request.
+After the author updates the pull request and asks for a new review, review the new commits. If the author has addressed your comments, approve the pull request.
 
 ## Review in time
 
@@ -104,9 +98,7 @@ If the author has addressed your comments, approve the pull request.
 
 ## After the approval
 
-Anyone with write access can merge the pull request when the merge requirements are met.
-The author is encouraged to merge their own pull request.
-If the author does not have write access, a reviewer or a maintainer merges it.
+Anyone with write access can merge the pull request when the merge requirements are met. The author is encouraged to merge their own pull request. If the author does not have write access, a reviewer or a maintainer merges it.
 
 ## Further reading
 

@@ -98,8 +98,10 @@ This workflow checks `colcon build` and `colcon test` for the pull request.
 To make the CI faster, it doesn't check all packages but only modified packages and the dependencies.
 It builds and tests the packages for both ROS 2 Humble and ROS 2 Jazzy.
 
-The workflow runs only when the pull request has the `run:build-and-test-differential` label.
+In most repositories (for example `autoware_universe`, `autoware_core`, and `autoware_launch`), the workflow runs only when the pull request has the `run:build-and-test-differential` label.
 Without the label, the `require-label` check fails.
+`autoware_tools` uses the `tag:run-build-and-test-differential` label instead.
+Without this label, the workflow skips the build and the check does not fail.
 Add the label when the pull request is ready for CI. If you cannot add labels, ask a reviewer or a maintainer.
 
 In `autoware_universe`, the `build-test-tidy-pr` workflow runs this check together with related checks:

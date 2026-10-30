@@ -38,7 +38,7 @@ Note that we won't write their copyrights to the `NOTICE` file unless they agree
 
 References:
 
-- <https://opensource.google/documentation/reference/copyright>
+- <https://opensource.google/documentation/reference/copyright#the_year>
 - <https://www.linuxfoundation.org/blog/blog/copyright-notices-in-open-source-software-projects>
 - <https://www.apache.org/licenses/LICENSE-2.0>
 - <https://www.apache.org/legal/src-headers.html>

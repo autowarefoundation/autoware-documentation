@@ -1,14 +1,10 @@
 # Discussion guidelines
 
-Autoware uses [GitHub Discussions](https://github.com/orgs/autowarefoundation/discussions) for questions, ideas, feature requests, and design topics.
-This page explains how to start a discussion and how to take part in one.
-For the list of all support channels, refer to the [support guidelines](../../community/support/support-guidelines.md).
+Autoware uses [GitHub Discussions](https://github.com/orgs/autowarefoundation/discussions) for questions, ideas, feature requests, and design topics. This page explains how to start a discussion and how to take part in one. For the list of all support channels, refer to the [support guidelines](../../community/support/support-guidelines.md).
 
 ## Choose the right place
 
-Use GitHub Discussions for topics that are not yet confirmed bugs or tasks.
-Use GitHub Issues only for confirmed bugs and confirmed tasks.
-If an issue is a question or an unconfirmed bug, the maintainers can move it to Discussions.
+Use GitHub Discussions for topics that are not yet confirmed bugs or tasks. Use GitHub Issues only for confirmed bugs and confirmed tasks. If an issue is a question or an unconfirmed bug, the maintainers can move it to Discussions.
 
 The discussions of the Autoware Foundation organization have these categories:
 
@@ -34,8 +30,7 @@ The discussions of the Autoware Foundation organization have these categories:
 
 ## Start a discussion
 
-Some categories use a form. For example, the form of the General category asks you to confirm that you read the [Code of Conduct](https://github.com/autowarefoundation/autoware/blob/main/CODE_OF_CONDUCT.md) and the support guidelines.
-Then you write your post in the `Contents` field.
+The General category uses a form. The form asks you to confirm that you read the [Code of Conduct](https://github.com/autowarefoundation/autoware/blob/main/CODE_OF_CONDUCT.md) and the support guidelines. Then you write your post in the `Contents` field. The other categories have a plain text box.
 
 Write a post that other people can answer without asking for more information:
 

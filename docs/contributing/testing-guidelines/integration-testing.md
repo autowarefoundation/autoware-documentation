@@ -231,6 +231,7 @@ import unittest
 
 import rclpy
 from rclpy.context import Context
+from std_msgs.msg import String
 
 class TestRunningDataPublisher(unittest.TestCase):
 
@@ -247,9 +248,10 @@ class TestRunningDataPublisher(unittest.TestCase):
     def setUp(self):
         self.msgs = []
         sub = self.node.create_subscription(
-            msg_type=my_msg_type,
+            msg_type=String,
             topic="/info_test",
-            callback=self._msg_received
+            callback=self._msg_received,
+            qos_profile=10,
         )
         self.addCleanup(self.node.destroy_subscription, sub)
 
@@ -278,7 +280,7 @@ class TestRunningDataPublisher(unittest.TestCase):
 
     def test_message_content(self):
         msg = self.get_message()
-        self.assertEqual(msg, "Hello, world")
+        self.assertEqual(msg.data, "Hello, world")
 ```
 
 ## References

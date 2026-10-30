@@ -11,8 +11,7 @@ The sections below explain how these principles shape the way the Autoware proje
 
 ## Develop in the open
 
-Autoware is developed in public repositories on GitHub under the [Autoware Foundation organization](https://github.com/autowarefoundation).
-The work happens in public too:
+Autoware is developed in public repositories on GitHub under the [Autoware Foundation organization](https://github.com/autowarefoundation). The work happens in public too:
 
 - Questions, feature requests, and design proposals start in [GitHub Discussions](https://github.com/orgs/autowarefoundation/discussions).
 - Confirmed bugs and tasks are tracked in the GitHub issues of each repository.
@@ -40,19 +39,15 @@ Autoware separates the packages that need strict quality control from the packag
 - [Autoware Universe](https://github.com/autowarefoundation/autoware_universe) holds packages that individuals, companies, and research groups contribute. Their authors maintain them.
 - The [Autoware Index](https://index.autoware.org) lists community packages that live in their own repositories. Its CI builds and tests each registered package against the latest Autoware release.
 
-Mature packages from Universe can move into Core.
-For details, refer to [Autoware concepts](../design/autoware-concepts/index.md#core-and-universe-repository-model) and [What belongs in Autoware Core](../design/autoware-concepts/core-package-inclusion-criteria.md).
+Mature packages from Universe can move into Core. For details, refer to [Autoware concepts](../design/autoware-concepts/index.md#core-and-universe-repository-model) and [What belongs in Autoware Core](../design/autoware-concepts/core-package-inclusion-criteria.md).
 
 ## Build on open standards
 
-Autoware is built on [ROS 2](https://docs.ros.org/), and its components talk to each other through ROS 2 topics, services, and messages.
-The interfaces between the components and the [Autoware AD API](../design/autoware-architecture-v1/interfaces/ad-api/index.md) are documented, so that you can replace one component or connect your own system without changes to the rest.
-Maps use the open [Lanelet2](https://github.com/fzi-forschungszentrum-informatik/Lanelet2) format with the [Autoware extension](https://github.com/autowarefoundation/autoware_lanelet2_extension).
+Autoware is built on [ROS 2](https://docs.ros.org/), and its components talk to each other through ROS 2 topics, services, and messages. The interfaces between the components and the [Autoware AD API](../design/autoware-architecture-v1/interfaces/ad-api/index.md) are documented, so that you can replace one component or connect your own system without changes to the rest. Maps use the open [Lanelet2](https://github.com/fzi-forschungszentrum-informatik/Lanelet2) format with the [Autoware extension](https://github.com/autowarefoundation/autoware_lanelet2_extension).
 
 ## Contribute back
 
-Autoware improves when its users share their work.
-If you fix a bug, adapt Autoware to new hardware, or build a new feature, consider contributing it:
+Autoware improves when its users share their work. If you fix a bug, adapt Autoware to new hardware, or build a new feature, consider contributing it:
 
 - Make a pull request to the related repository. Refer to the [contribution guidelines](index.md).
 - Register your own packages in the [Autoware Index](../installation/autoware/autoware-index.md), so that other users can find them.
