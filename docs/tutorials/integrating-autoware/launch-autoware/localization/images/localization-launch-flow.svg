@@ -1,0 +1,316 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 970" role="img" aria-labelledby="localization-launch-flow-title">
+  <title id="localization-launch-flow-title">
+    autoware.launch.xml includes component_localization.launch.xml. In the localization namespace, it includes the pose and twist estimators that pose_source and twist_source select, the pose
+    estimator arbiter when several pose sources run, and always the util, pose_twist_fusion_filter, and localization_error_monitor launch files of autoware_localization_launch.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-group: color-mix(in
+    srgb, var(--aw-c-indigo) 6%, var(--md-default-bg-color)); --aw-d-group-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 25%, transparent); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} .group {
+  fill: var(--aw-d-group);
+  stroke: var(--aw-d-group-stroke);
+  stroke-width: 1.5;
+} .group.dashed {
+  stroke-dasharray: 7 5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="960" height="970"/>
+  <circle class="halo" cx="190" cy="120" r="110"/>
+  <circle class="halo cyan" cx="246" cy="560" r="220"/>
+  <circle class="halo" cx="714" cy="560" r="220"/>
+
+  <!-- Launch chain -->
+  <rect class="box primary" x="40" y="24" width="300" height="60" rx="14"/>
+  <circle class="icon-bg on" cx="71" cy="54" r="17"/>
+  <path class="icon-line" d="M66.75 46.5625 L78.4375 54 L66.75 61.4375 Z"/>
+  <text class="code lbl on-primary" x="100" y="45" dominant-baseline="central">autoware.launch.xml</text>
+  <text class="sub on-primary" x="100" y="63" dominant-baseline="central">autoware_launch</text>
+  <rect class="card" x="40" y="128" width="300" height="56" rx="12"/>
+  <text class="code lbl" x="190" y="147" text-anchor="middle" dominant-baseline="central">component_localization.launch.xml</text>
+  <text class="sub" x="190" y="165" text-anchor="middle" dominant-baseline="central">autoware_launch</text>
+  <text class="code" x="364" y="130" dominant-baseline="central">pose_source: ndt (default), yabloc, eagleye, artag, lidar-marker,</text>
+  <text class="code" x="364" y="148" dominant-baseline="central">or several of them joined by _ (for example ndt_yabloc)</text>
+  <text class="code" x="364" y="172" dominant-baseline="central">twist_source: gyro_odom (default) or eagleye</text>
+  <text class="sub" x="364" y="196" dominant-baseline="central">Parameter files: autoware_localization_config</text>
+
+  <!-- Namespace /localization -->
+  <rect class="glass-panel" x="12" y="236" width="936" height="710" rx="18"/>
+  <text class="ttl" x="932" y="262" text-anchor="end">Namespace /localization</text>
+  <text class="sub" x="480" y="928" text-anchor="middle" dominant-baseline="central">The launch files in both groups are in autoware_localization_launch. Gray boxes are off by default.</text>
+
+  <!-- Pose and twist estimators -->
+  <rect class="group" x="28" y="284" width="444" height="626" rx="16"/>
+  <text class="ttl" x="44" y="310">Pose and twist estimators</text>
+  <rect class="card" x="76" y="328" width="380" height="52" rx="12"/>
+  <circle class="icon-bg" cx="105" cy="354" r="15"/>
+  <path class="icon-line" d="M100.312 346.5 H106.875 L110.625 350.25 V361.5 H100.312 Z M103.125 354 H107.812 M103.125 357.75 H107.812"/>
+  <text class="code lbl" x="132" y="345" dominant-baseline="central">ndt_scan_matcher.launch.xml</text>
+  <text class="sub" x="132" y="363" dominant-baseline="central">If pose_source has ndt (the default)</text>
+  <rect class="card" x="76" y="394" width="380" height="52" rx="12"/>
+  <circle class="icon-bg" cx="105" cy="420" r="15"/>
+  <path class="icon-line" d="M100.312 412.5 H106.875 L110.625 416.25 V427.5 H100.312 Z M103.125 420 H107.812 M103.125 423.75 H107.812"/>
+  <text class="code lbl" x="132" y="411" dominant-baseline="central">yabloc.launch.xml</text>
+  <text class="sub" x="132" y="429" dominant-baseline="central">If pose_source has yabloc</text>
+  <rect class="card" x="76" y="460" width="380" height="52" rx="12"/>
+  <circle class="icon-bg" cx="105" cy="486" r="15"/>
+  <path class="icon-line" d="M100.312 478.5 H106.875 L110.625 482.25 V493.5 H100.312 Z M103.125 486 H107.812 M103.125 489.75 H107.812"/>
+  <text class="code lbl" x="132" y="477" dominant-baseline="central">ar_tag_based_localizer.launch.xml</text>
+  <text class="sub" x="132" y="495" dominant-baseline="central">If pose_source has artag</text>
+  <rect class="card" x="76" y="526" width="380" height="52" rx="12"/>
+  <circle class="icon-bg" cx="105" cy="552" r="15"/>
+  <path class="icon-line" d="M100.312 544.5 H106.875 L110.625 548.25 V559.5 H100.312 Z M103.125 552 H107.812 M103.125 555.75 H107.812"/>
+  <text class="code lbl" x="132" y="543" dominant-baseline="central">lidar_marker_localizer.launch.xml</text>
+  <text class="sub" x="132" y="561" dominant-baseline="central">If pose_source has lidar-marker</text>
+  <rect class="card" x="76" y="592" width="380" height="52" rx="12"/>
+  <circle class="icon-bg" cx="105" cy="618" r="15"/>
+  <path class="icon-line" d="M100.312 610.5 H106.875 L110.625 614.25 V625.5 H100.312 Z M103.125 618 H107.812 M103.125 621.75 H107.812"/>
+  <text class="code lbl" x="132" y="609" dominant-baseline="central">eagleye/eagleye_rt.launch.xml</text>
+  <text class="sub" x="132" y="627" dominant-baseline="central">If eagleye is a pose source or the twist source</text>
+  <rect class="card" x="76" y="658" width="380" height="52" rx="12"/>
+  <circle class="icon-bg" cx="105" cy="684" r="15"/>
+  <path class="icon-line" d="M100.312 676.5 H106.875 L110.625 680.25 V691.5 H100.312 Z M103.125 684 H107.812 M103.125 687.75 H107.812"/>
+  <text class="code lbl" x="132" y="675" dominant-baseline="central">gyro_odometer.launch.xml</text>
+  <text class="sub" x="132" y="693" dominant-baseline="central">If twist_source is gyro_odom (the default)</text>
+  <rect class="group dashed" x="68" y="720" width="396" height="76" rx="14"/>
+  <rect class="box muted" x="76" y="726" width="380" height="64" rx="12"/>
+  <circle class="icon-bg" cx="107" cy="758" r="17"/>
+  <path class="icon-line" d="M100.625 750.562 V765.438 M100.625 756.938 Q100.625 751.625 113.375 751.625"/>
+  <circle class="icon-dot" cx="113.375" cy="751.625" r="2.7625"/>
+  <circle class="icon-dot" cx="100.625" cy="765.438" r="2.7625"/>
+  <text class="code lbl" x="136" y="740" dominant-baseline="central">pose_estimator_arbiter.launch.xml</text>
+  <text class="sub" x="136" y="758" dominant-baseline="central">autoware_pose_estimator_arbiter</text>
+  <text class="sub" x="136" y="776" dominant-baseline="central">If pose_source has two or more sources</text>
+  <text class="sub" x="76" y="896" dominant-baseline="central">The ndt branch can add pose_covariance_modifier.launch.xml.</text>
+
+  <!-- Always launched -->
+  <rect class="group" x="488" y="284" width="452" height="626" rx="16"/>
+  <text class="ttl" x="504" y="310">Always launched</text>
+  <rect class="card" x="532" y="328" width="392" height="52" rx="12"/>
+  <circle class="icon-bg" cx="561" cy="354" r="15"/>
+  <path class="icon-line" d="M556.312 346.5 H562.875 L566.625 350.25 V361.5 H556.312 Z M559.125 354 H563.812 M559.125 357.75 H563.812"/>
+  <text class="code lbl" x="588" y="345" dominant-baseline="central">util.launch.xml</text>
+  <text class="sub" x="588" y="363" dominant-baseline="central">Namespace util</text>
+  <rect class="box" x="572" y="388" width="352" height="40" rx="9"/>
+  <text class="code" x="586" y="400" dominant-baseline="central">autoware_pose_initializer</text>
+  <text class="sub" x="586" y="416" dominant-baseline="central">pose_initializer.launch.xml</text>
+  <rect class="box" x="572" y="434" width="352" height="40" rx="9"/>
+  <text class="code" x="586" y="446" dominant-baseline="central">autoware_pose_initialization_requester</text>
+  <text class="sub" x="586" y="462" dominant-baseline="central">if gnss_enabled is true</text>
+  <rect class="box" x="572" y="480" width="352" height="40" rx="9"/>
+  <text class="code" x="586" y="492" dominant-baseline="central">autoware_pointcloud_preprocessor</text>
+  <text class="sub" x="586" y="508" dominant-baseline="central">NDT input filters, if ndt is used</text>
+  <rect class="card" x="532" y="542" width="392" height="52" rx="12"/>
+  <circle class="icon-bg" cx="561" cy="568" r="15"/>
+  <path class="icon-line" d="M556.312 560.5 H562.875 L566.625 564.25 V575.5 H556.312 Z M559.125 568 H563.812 M559.125 571.75 H563.812"/>
+  <text class="code lbl" x="588" y="559" dominant-baseline="central">pose_twist_fusion_filter.launch.xml</text>
+  <text class="sub" x="588" y="577" dominant-baseline="central">Namespace pose_twist_fusion_filter</text>
+  <rect class="box" x="572" y="602" width="352" height="40" rx="9"/>
+  <text class="code" x="586" y="614" dominant-baseline="central">autoware_ekf_localizer</text>
+  <text class="sub" x="586" y="630" dominant-baseline="central">ekf_localizer.launch.xml</text>
+  <rect class="box" x="572" y="648" width="352" height="40" rx="9"/>
+  <text class="code" x="586" y="660" dominant-baseline="central">autoware_stop_filter</text>
+  <text class="sub" x="586" y="676" dominant-baseline="central">stop_filter.launch.xml</text>
+  <rect class="box" x="572" y="694" width="352" height="40" rx="9"/>
+  <text class="code" x="586" y="706" dominant-baseline="central">autoware_twist2accel</text>
+  <text class="sub" x="586" y="722" dominant-baseline="central">twist2accel.launch.xml</text>
+  <rect class="box" x="572" y="740" width="352" height="40" rx="9"/>
+  <text class="code" x="586" y="752" dominant-baseline="central">autoware_pose_instability_detector</text>
+  <text class="sub" x="586" y="768" dominant-baseline="central">pose_instability_detector.launch.xml</text>
+  <rect class="card" x="532" y="802" width="392" height="52" rx="12"/>
+  <circle class="icon-bg" cx="561" cy="828" r="15"/>
+  <path class="icon-line" d="M556.312 820.5 H562.875 L566.625 824.25 V835.5 H556.312 Z M559.125 828 H563.812 M559.125 831.75 H563.812"/>
+  <text class="code lbl" x="588" y="819" dominant-baseline="central">localization_error_monitor.launch.xml</text>
+  <text class="sub" x="588" y="837" dominant-baseline="central">Namespace localization</text>
+  <rect class="box" x="572" y="862" width="352" height="40" rx="9"/>
+  <text class="code" x="586" y="874" dominant-baseline="central">autoware_localization_error_monitor</text>
+  <text class="sub" x="586" y="890" dominant-baseline="central">localization_error_monitor.launch.xml</text>
+
+  <!-- Lines: optional ones first, the main flow on top -->
+  <path class="edge dash" d="M190 184 V260 H36 V758 H62"/>
+  <path class="flow" pathLength="100" d="M190 184 V260 H36 V758 H62"/>
+  <path class="edge dash head" d="M190 184 V260 H36 V758 H62"/>
+  <path class="edge" d="M552 380 V408.0 H566"/>
+  <path class="edge" d="M552 380 V454.0 H566"/>
+  <path class="edge" d="M552 380 V500.0 H566"/>
+  <path class="edge" d="M552 594 V622.0 H566"/>
+  <path class="edge" d="M552 594 V668.0 H566"/>
+  <path class="edge" d="M552 594 V714.0 H566"/>
+  <path class="edge" d="M552 594 V760.0 H566"/>
+  <path class="edge" d="M552 854 V882.0 H566"/>
+  <path class="edge accent" d="M190 84 V122"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 84 V122"/>
+  <path class="edge accent head" d="M190 84 V122"/>
+  <path class="edge accent" d="M190 184 V260 H36 V354.0 H70"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 184 V260 H36 V354.0 H70"/>
+  <path class="edge accent head" d="M190 184 V260 H36 V354.0 H70"/>
+  <path class="edge accent" d="M190 184 V260 H36 V420.0 H70"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 184 V260 H36 V420.0 H70"/>
+  <path class="edge accent head" d="M190 184 V260 H36 V420.0 H70"/>
+  <path class="edge accent" d="M190 184 V260 H36 V486.0 H70"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 184 V260 H36 V486.0 H70"/>
+  <path class="edge accent head" d="M190 184 V260 H36 V486.0 H70"/>
+  <path class="edge accent" d="M190 184 V260 H36 V552.0 H70"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 184 V260 H36 V552.0 H70"/>
+  <path class="edge accent head" d="M190 184 V260 H36 V552.0 H70"/>
+  <path class="edge accent" d="M190 184 V260 H36 V618.0 H70"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 184 V260 H36 V618.0 H70"/>
+  <path class="edge accent head" d="M190 184 V260 H36 V618.0 H70"/>
+  <path class="edge accent" d="M190 184 V260 H36 V684.0 H70"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 184 V260 H36 V684.0 H70"/>
+  <path class="edge accent head" d="M190 184 V260 H36 V684.0 H70"/>
+  <path class="edge accent" d="M190 184 V260 H496 V354 H526"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 184 V260 H496 V354 H526"/>
+  <path class="edge accent head" d="M190 184 V260 H496 V354 H526"/>
+  <path class="edge accent" d="M190 184 V260 H496 V568 H526"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 184 V260 H496 V568 H526"/>
+  <path class="edge accent head" d="M190 184 V260 H496 V568 H526"/>
+  <path class="edge accent" d="M190 184 V260 H496 V828 H526"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 184 V260 H496 V828 H526"/>
+  <path class="edge accent head" d="M190 184 V260 H496 V828 H526"/>
+  <text class="edge-lbl code" x="202" y="103" text-anchor="start" dominant-baseline="central">launch_localization:=true</text>
+</svg>

@@ -1,0 +1,305 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1114" role="img" aria-labelledby="perception-launch-flow-title">
+  <title id="perception-launch-flow-title">
+    autoware.launch.xml includes component_perception.launch.xml and component_traffic_light.launch.xml. The first includes the common downsampling, one ground segmentation backend, the occupancy grid
+    map, and one object recognition pipeline in the perception namespace, and the perception evaluators. The second includes one of three traffic light recognition pipelines.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-group: color-mix(in
+    srgb, var(--aw-c-indigo) 6%, var(--md-default-bg-color)); --aw-d-group-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 25%, transparent); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} .group {
+  fill: var(--aw-d-group);
+  stroke: var(--aw-d-group-stroke);
+  stroke-width: 1.5;
+} .group.dashed {
+  stroke-dasharray: 7 5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="960" height="1114"/>
+  <circle class="halo" cx="480" cy="120" r="110"/>
+  <circle class="halo cyan" cx="300" cy="560" r="220"/>
+  <circle class="halo" cx="774" cy="470" r="150"/>
+
+  <!-- Launch chain -->
+  <rect class="box primary" x="330" y="24" width="300" height="60" rx="14"/>
+  <circle class="icon-bg on" cx="361" cy="54" r="17"/>
+  <path class="icon-line" d="M356.75 46.5625 L368.438 54 L356.75 61.4375 Z"/>
+  <text class="code lbl on-primary" x="390" y="45" dominant-baseline="central">autoware.launch.xml</text>
+  <text class="sub on-primary" x="390" y="63" dominant-baseline="central">autoware_launch</text>
+  <rect class="card" x="60" y="128" width="300" height="56" rx="12"/>
+  <text class="code lbl" x="210" y="147" text-anchor="middle" dominant-baseline="central">component_perception.launch.xml</text>
+  <text class="sub" x="210" y="165" text-anchor="middle" dominant-baseline="central">autoware_launch</text>
+  <rect class="card" x="624" y="128" width="300" height="56" rx="12"/>
+  <text class="code lbl" x="774" y="147" text-anchor="middle" dominant-baseline="central">component_traffic_light.launch.xml</text>
+  <text class="sub" x="774" y="165" text-anchor="middle" dominant-baseline="central">autoware_launch</text>
+  <text class="sub" x="380" y="156" dominant-baseline="central">Parameter files:</text>
+  <text class="sub" x="380" y="174" dominant-baseline="central">autoware_perception_config</text>
+
+  <!-- Namespace /perception -->
+  <rect class="glass-panel" x="20" y="232" width="572" height="706" rx="18"/>
+  <text class="ttl" x="576" y="258" text-anchor="end">Namespace /perception</text>
+  <rect class="box muted" x="64" y="282" width="508" height="52" rx="12"/>
+  <circle class="icon-bg" cx="93" cy="308" r="15"/>
+  <path class="icon-line" d="M88.3125 300.5 H94.875 L98.625 304.25 V315.5 H88.3125 Z M91.125 308 H95.8125 M91.125 311.75 H95.8125"/>
+  <text class="code lbl" x="120" y="299" dominant-baseline="central">common/pointcloud_downsample.launch.xml</text>
+  <text class="sub" x="120" y="317" dominant-baseline="central">If downsample_perception_common_pointcloud is true</text>
+  <rect class="group" x="64" y="352" width="508" height="178" rx="14"/>
+  <text class="code" x="80" y="374" dominant-baseline="central">obstacle_segmentation: one backend</text>
+  <rect class="box" x="80" y="386" width="476" height="40" rx="12"/>
+  <text class="code lbl" x="318" y="397" text-anchor="middle" dominant-baseline="central">ground_segmentation_rule_based.launch.xml</text>
+  <text class="sub" x="318" y="415" text-anchor="middle" dominant-baseline="central">The default</text>
+  <rect class="box muted" x="80" y="432" width="476" height="40" rx="12"/>
+  <text class="code lbl" x="318" y="443" text-anchor="middle" dominant-baseline="central">ground_segmentation_rule_based_cuda.launch.xml</text>
+  <text class="sub" x="318" y="461" text-anchor="middle" dominant-baseline="central">If use_cuda_ground_segmentation is true</text>
+  <rect class="box muted" x="80" y="478" width="476" height="40" rx="12"/>
+  <text class="code lbl" x="318" y="489" text-anchor="middle" dominant-baseline="central">ground_segmentation_ml.launch.xml</text>
+  <text class="sub" x="318" y="507" text-anchor="middle" dominant-baseline="central">If use_semantic_segmentation_ptv3 is true</text>
+  <rect class="card" x="64" y="548" width="508" height="52" rx="12"/>
+  <circle class="icon-bg" cx="93" cy="574" r="15"/>
+  <path class="icon-line" d="M88.3125 566.5 H94.875 L98.625 570.25 V581.5 H88.3125 Z M91.125 574 H95.8125 M91.125 577.75 H95.8125"/>
+  <text class="code lbl" x="120" y="565" dominant-baseline="central">probabilistic_occupancy_grid_map.launch.xml</text>
+  <text class="sub" x="120" y="583" dominant-baseline="central">Namespace occupancy_grid_map. Method: pointcloud_based (default)</text>
+  <rect class="group" x="64" y="618" width="508" height="304" rx="14"/>
+  <text class="code" x="80" y="640" dominant-baseline="central">object_recognition: one pipeline</text>
+  <rect class="card" x="80" y="652" width="476" height="52" rx="12"/>
+  <circle class="icon-bg" cx="109" cy="678" r="15"/>
+  <path class="icon-line" d="M104.312 670.5 H110.875 L114.625 674.25 V685.5 H104.312 Z M107.125 678 H111.812 M107.125 681.75 H111.812"/>
+  <text class="code lbl" x="136" y="669" dominant-baseline="central">object_recognition_lidar.launch.xml</text>
+  <text class="sub" x="136" y="687" dominant-baseline="central">The default</text>
+  <rect class="box" x="120" y="712" width="436" height="40" rx="12"/>
+  <text class="code lbl" x="338" y="723" text-anchor="middle" dominant-baseline="central">detection: lidar_dnn_detector, lidar_rule_detector</text>
+  <text class="sub" x="338" y="741" text-anchor="middle" dominant-baseline="central">Detectors and filters of autoware_perception_launch</text>
+  <rect class="box" x="120" y="758" width="436" height="40" rx="12"/>
+  <text class="code lbl" x="338" y="769" text-anchor="middle" dominant-baseline="central">tracking: multi_object_tracker.launch.xml</text>
+  <text class="sub" x="338" y="787" text-anchor="middle" dominant-baseline="central">autoware_multi_object_tracker</text>
+  <rect class="box" x="120" y="804" width="436" height="40" rx="12"/>
+  <text class="code lbl" x="338" y="815" text-anchor="middle" dominant-baseline="central">prediction: prediction.launch.xml</text>
+  <text class="sub" x="338" y="833" text-anchor="middle" dominant-baseline="central">autoware_perception_launch</text>
+  <rect class="box muted" x="80" y="852" width="476" height="52" rx="12"/>
+  <circle class="icon-bg" cx="109" cy="878" r="15"/>
+  <path class="icon-line" d="M104.312 870.5 H110.875 L114.625 874.25 V885.5 H104.312 Z M107.125 878 H111.812 M107.125 881.75 H111.812"/>
+  <text class="code lbl" x="136" y="869" dominant-baseline="central">object_recognition_lidar_ptv3.launch.xml</text>
+  <text class="sub" x="136" y="887" dominant-baseline="central">If use_semantic_segmentation_ptv3 is true</text>
+
+  <!-- Evaluators, outside the perception namespace -->
+  <rect class="group dashed" x="20" y="960" width="572" height="132" rx="16"/>
+  <text class="code" x="64" y="980" dominant-baseline="central">autoware_perception_online_evaluator, outside the namespace</text>
+  <rect class="box" x="64" y="994" width="508" height="40" rx="12"/>
+  <text class="code lbl" x="318" y="1005" text-anchor="middle" dominant-baseline="central">perception_analytics_publisher.launch.xml</text>
+  <text class="sub" x="318" y="1023" text-anchor="middle" dominant-baseline="central">If use_perception_analytics_publisher is true (the default)</text>
+  <rect class="box muted" x="64" y="1040" width="508" height="40" rx="12"/>
+  <text class="code lbl" x="318" y="1051" text-anchor="middle" dominant-baseline="central">perception_online_evaluator.launch.xml</text>
+  <text class="sub" x="318" y="1069" text-anchor="middle" dominant-baseline="central">If use_perception_online_evaluator is true</text>
+
+  <!-- Traffic light recognition -->
+  <rect class="glass-panel" x="608" y="232" width="332" height="860" rx="18"/>
+  <text class="ttl" x="924" y="258" text-anchor="end">Namespace /perception/</text>
+  <text class="ttl" x="924" y="276" text-anchor="end">traffic_light_recognition</text>
+  <text class="sub" x="640" y="298" dominant-baseline="central">If use_traffic_light_recognition is true</text>
+  <text class="sub" x="640" y="316" dominant-baseline="central">(the default), one of these pipelines:</text>
+  <rect class="card" x="640" y="344" width="284" height="106" rx="12"/>
+  <text class="code lbl" x="782" y="361" text-anchor="middle" dominant-baseline="central">traffic_light_recognition_fine</text>
+  <text class="code lbl" x="782" y="379" text-anchor="middle" dominant-baseline="central">.launch.xml</text>
+  <text class="sub" x="782" y="397" text-anchor="middle" dominant-baseline="central">If use_high_accuracy_detection is true</text>
+  <text class="sub" x="782" y="415" text-anchor="middle" dominant-baseline="central">and high_accuracy_detection_type is</text>
+  <text class="sub" x="782" y="433" text-anchor="middle" dominant-baseline="central">fine_detection (the defaults)</text>
+  <rect class="box muted" x="640" y="466" width="284" height="106" rx="12"/>
+  <text class="code lbl" x="782" y="483" text-anchor="middle" dominant-baseline="central">traffic_light_recognition</text>
+  <text class="code lbl" x="782" y="501" text-anchor="middle" dominant-baseline="central">_whole_image.launch.xml</text>
+  <text class="sub" x="782" y="519" text-anchor="middle" dominant-baseline="central">If use_high_accuracy_detection is true</text>
+  <text class="sub" x="782" y="537" text-anchor="middle" dominant-baseline="central">and high_accuracy_detection_type is</text>
+  <text class="sub" x="782" y="555" text-anchor="middle" dominant-baseline="central">whole_image_detection</text>
+  <rect class="box muted" x="640" y="588" width="284" height="88" rx="12"/>
+  <text class="code lbl" x="782" y="605" text-anchor="middle" dominant-baseline="central">traffic_light_recognition_rough</text>
+  <text class="code lbl" x="782" y="623" text-anchor="middle" dominant-baseline="central">.launch.xml</text>
+  <text class="sub" x="782" y="641" text-anchor="middle" dominant-baseline="central">If use_high_accuracy_detection</text>
+  <text class="sub" x="782" y="659" text-anchor="middle" dominant-baseline="central">is false</text>
+  <text class="sub" x="640" y="698" dominant-baseline="central">Each pipeline includes a detector file,</text>
+  <text class="code" x="640" y="716" dominant-baseline="central">traffic_light_detector_*.launch.xml,</text>
+  <text class="code" x="640" y="734" dominant-baseline="central">and traffic_light_fusion.launch.xml.</text>
+  <text class="sub" x="640" y="762" dominant-baseline="central">All launch files on this page are in</text>
+  <text class="sub" x="640" y="780" dominant-baseline="central">autoware_perception_launch, unless</text>
+  <text class="sub" x="640" y="798" dominant-baseline="central">the diagram names another package.</text>
+  <text class="sub" x="640" y="826" dominant-baseline="central">Gray boxes are off by default.</text>
+
+  <!-- Lines: optional ones first, the main flow on top -->
+  <path class="edge dash" d="M210 184 V254 H38 V308 H58"/>
+  <path class="flow" pathLength="100" d="M210 184 V254 H38 V308 H58"/>
+  <path class="edge dash head" d="M210 184 V254 H38 V308 H58"/>
+  <path class="edge dash" d="M210 184 V254 H38 V1060.0 H58"/>
+  <path class="flow" pathLength="100" d="M210 184 V254 H38 V1060.0 H58"/>
+  <path class="edge dash head" d="M210 184 V254 H38 V1060.0 H58"/>
+  <path class="edge dash" d="M774 184 V222 H622 V519.0 H634"/>
+  <path class="flow" pathLength="100" d="M774 184 V222 H622 V519.0 H634"/>
+  <path class="edge dash head" d="M774 184 V222 H622 V519.0 H634"/>
+  <path class="edge dash" d="M774 184 V222 H622 V632.0 H634"/>
+  <path class="flow" pathLength="100" d="M774 184 V222 H622 V632.0 H634"/>
+  <path class="edge dash head" d="M774 184 V222 H622 V632.0 H634"/>
+  <path class="edge" d="M100 704 V732.0 H114"/>
+  <path class="edge" d="M100 704 V778.0 H114"/>
+  <path class="edge" d="M100 704 V824.0 H114"/>
+  <path class="edge" d="M210 184 V254 H38 V1014.0 H58"/>
+  <path class="flow" pathLength="100" d="M210 184 V254 H38 V1014.0 H58"/>
+  <path class="edge head" d="M210 184 V254 H38 V1014.0 H58"/>
+  <path class="edge accent" d="M480 84 V104 H210 V122"/>
+  <path class="flow flow-accent" pathLength="100" d="M480 84 V104 H210 V122"/>
+  <path class="edge accent head" d="M480 84 V104 H210 V122"/>
+  <path class="edge accent" d="M480 84 V104 H774 V122"/>
+  <path class="flow flow-accent" pathLength="100" d="M480 84 V104 H774 V122"/>
+  <path class="edge accent head" d="M480 84 V104 H774 V122"/>
+  <path class="edge accent" d="M210 184 V254 H38 V369 H58"/>
+  <path class="flow flow-accent" pathLength="100" d="M210 184 V254 H38 V369 H58"/>
+  <path class="edge accent head" d="M210 184 V254 H38 V369 H58"/>
+  <path class="edge accent" d="M210 184 V254 H38 V574 H58"/>
+  <path class="flow flow-accent" pathLength="100" d="M210 184 V254 H38 V574 H58"/>
+  <path class="edge accent head" d="M210 184 V254 H38 V574 H58"/>
+  <path class="edge accent" d="M210 184 V254 H38 V635 H58"/>
+  <path class="flow flow-accent" pathLength="100" d="M210 184 V254 H38 V635 H58"/>
+  <path class="edge accent head" d="M210 184 V254 H38 V635 H58"/>
+  <path class="edge accent" d="M774 184 V222 H622 V397.0 H634"/>
+  <path class="flow flow-accent" pathLength="100" d="M774 184 V222 H622 V397.0 H634"/>
+  <path class="edge accent head" d="M774 184 V222 H622 V397.0 H634"/>
+  <text class="edge-lbl code" x="492" y="94" text-anchor="start" dominant-baseline="central">launch_perception:=true</text>
+</svg>

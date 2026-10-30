@@ -1,0 +1,319 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-labelledby="autoware-launch-overview-title">
+  <title id="autoware-launch-overview-title">
+    autoware.launch.xml of the autoware_launch repository includes vehicle.launch.xml of tier4_vehicle_launch directly, and one component launch file for each other component. The component files
+    include
+    the feature launch files of the autoware_*_launch packages, which read the parameter files of the autoware_*_config packages. The sensing component includes the sensing.launch.xml file of the
+    sensor kit.
+    The system and the API use the tier4_*_launch packages, and vehicle.launch.xml includes vehicle_interface.launch.xml of the vehicle package. The launch files start the nodes of autoware_core and
+    autoware_universe and override their default parameters.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="960" height="640"/>
+  <circle class="halo" cx="170" cy="170" r="150"/>
+  <circle class="halo cyan" cx="490" cy="280" r="120"/>
+  <circle class="halo" cx="480" cy="470" r="160"/>
+
+  <!-- The autoware_launch repository -->
+  <rect class="glass-panel" x="20" y="20" width="920" height="320" rx="18"/>
+  <text class="ttl" x="36" y="46">autoware_launch repository</text>
+  <rect class="box primary" x="40" y="60" width="260" height="60" rx="14"/>
+  <circle class="icon-bg on" cx="71" cy="90" r="17"/>
+  <path class="icon-line" d="M66.75 82.5625 L78.4375 90 L66.75 97.4375 Z"/>
+  <text class="code lbl on-primary" x="100" y="81" dominant-baseline="central">autoware.launch.xml</text>
+  <text class="sub on-primary" x="100" y="99" dominant-baseline="central">Starts the whole stack</text>
+  <rect class="card" x="40" y="160" width="260" height="60" rx="12"/>
+  <circle class="icon-bg" cx="71" cy="190" r="17"/>
+  <path class="icon-line" d="M65.6875 181.5 H73.125 L77.375 185.75 V198.5 H65.6875 Z M68.875 190 H74.1875 M68.875 194.25 H74.1875"/>
+  <text class="code lbl" x="100" y="181" dominant-baseline="central">component_*.launch.xml</text>
+  <text class="sub" x="100" y="199" dominant-baseline="central">One file for each component</text>
+  <rect class="card" x="40" y="260" width="260" height="60" rx="12"/>
+  <circle class="icon-bg" cx="71" cy="290" r="17"/>
+  <path class="icon-line" d="M65.6875 281.5 H73.125 L77.375 285.75 V298.5 H65.6875 Z M68.875 290 H74.1875 M68.875 294.25 H74.1875"/>
+  <text class="code lbl" x="100" y="281" dominant-baseline="central">autoware_*_launch</text>
+  <text class="sub" x="100" y="299" dominant-baseline="central">Feature launch files</text>
+  <rect class="card" x="380" y="260" width="280" height="60" rx="12"/>
+  <circle class="icon-bg" cx="411" cy="290" r="17"/>
+  <path class="icon-line" d="M402.5 285.75 H419.5 M402.5 294.25 H419.5"/>
+  <circle class="icon-dot" cx="407.812" cy="285.75" r="2.975"/>
+  <circle class="icon-dot" cx="414.188" cy="294.25" r="2.975"/>
+  <text class="code lbl" x="440" y="281" dominant-baseline="central">autoware_*_config</text>
+  <text class="sub" x="440" y="299" dominant-baseline="central">Parameter files of the nodes</text>
+  <rect class="card" x="380" y="160" width="280" height="60" rx="12"/>
+  <circle class="icon-bg" cx="411" cy="190" r="17"/>
+  <path class="icon-line" d="M401.438 193.188 V188.938 L404.625 183.625 H417.375 L420.562 188.938 V193.188 Z"/>
+  <circle class="icon-dot" cx="405.688" cy="195.312" r="2.55"/>
+  <circle class="icon-dot" cx="416.312" cy="195.312" r="2.55"/>
+  <text class="code lbl" x="440" y="181" dominant-baseline="central">sensor_kit/</text>
+  <text class="sub" x="440" y="199" dominant-baseline="central">Sensor kits, sensing.launch.xml</text>
+  <rect class="card" x="680" y="60" width="240" height="60" rx="12"/>
+  <circle class="icon-bg" cx="711" cy="90" r="17"/>
+  <path class="icon-line" d="M705.688 81.5 H713.125 L717.375 85.75 V98.5 H705.688 Z M708.875 90 H714.188 M708.875 94.25 H714.188"/>
+  <text class="code lbl" x="740" y="81" dominant-baseline="central">tier4_*_launch</text>
+  <text class="sub" x="740" y="99" dominant-baseline="central">Vehicle, system, and API</text>
+  <rect class="card" x="730" y="160" width="190" height="60" rx="12"/>
+  <circle class="icon-bg" cx="761" cy="190" r="17"/>
+  <path class="icon-line" d="M751.438 193.188 V188.938 L754.625 183.625 H767.375 L770.562 188.938 V193.188 Z"/>
+  <circle class="icon-dot" cx="755.688" cy="195.312" r="2.55"/>
+  <circle class="icon-dot" cx="766.312" cy="195.312" r="2.55"/>
+  <text class="code lbl" x="790" y="181" dominant-baseline="central">vehicle/</text>
+  <text class="sub" x="790" y="199" dominant-baseline="central">Vehicle packages</text>
+
+  <!-- Nodes -->
+  <rect class="glass-panel" x="20" y="376" width="920" height="140" rx="18"/>
+  <text class="ttl" x="36" y="502">Node packages of autoware_core and autoware_universe</text>
+  <rect class="card" x="36" y="392" width="96" height="82" rx="12"/>
+  <text class="lbl" x="84" y="406" text-anchor="middle" dominant-baseline="central">Map</text>
+  <text class="sub" x="84" y="424" text-anchor="middle" dominant-baseline="central">Nodes and</text>
+  <text class="sub" x="84" y="442" text-anchor="middle" dominant-baseline="central">their default</text>
+  <text class="sub" x="84" y="460" text-anchor="middle" dominant-baseline="central">parameters</text>
+  <rect class="card" x="140" y="392" width="96" height="82" rx="12"/>
+  <text class="lbl" x="188" y="406" text-anchor="middle" dominant-baseline="central">Sensing</text>
+  <text class="sub" x="188" y="424" text-anchor="middle" dominant-baseline="central">Nodes and</text>
+  <text class="sub" x="188" y="442" text-anchor="middle" dominant-baseline="central">their default</text>
+  <text class="sub" x="188" y="460" text-anchor="middle" dominant-baseline="central">parameters</text>
+  <rect class="card" x="244" y="392" width="96" height="82" rx="12"/>
+  <text class="lbl" x="292" y="406" text-anchor="middle" dominant-baseline="central">Localization</text>
+  <text class="sub" x="292" y="424" text-anchor="middle" dominant-baseline="central">Nodes and</text>
+  <text class="sub" x="292" y="442" text-anchor="middle" dominant-baseline="central">their default</text>
+  <text class="sub" x="292" y="460" text-anchor="middle" dominant-baseline="central">parameters</text>
+  <rect class="card" x="348" y="392" width="96" height="82" rx="12"/>
+  <text class="lbl" x="396" y="406" text-anchor="middle" dominant-baseline="central">Perception</text>
+  <text class="sub" x="396" y="424" text-anchor="middle" dominant-baseline="central">Nodes and</text>
+  <text class="sub" x="396" y="442" text-anchor="middle" dominant-baseline="central">their default</text>
+  <text class="sub" x="396" y="460" text-anchor="middle" dominant-baseline="central">parameters</text>
+  <rect class="card" x="452" y="392" width="96" height="82" rx="12"/>
+  <text class="lbl" x="500" y="406" text-anchor="middle" dominant-baseline="central">Planning</text>
+  <text class="sub" x="500" y="424" text-anchor="middle" dominant-baseline="central">Nodes and</text>
+  <text class="sub" x="500" y="442" text-anchor="middle" dominant-baseline="central">their default</text>
+  <text class="sub" x="500" y="460" text-anchor="middle" dominant-baseline="central">parameters</text>
+  <rect class="card" x="556" y="392" width="96" height="82" rx="12"/>
+  <text class="lbl" x="604" y="406" text-anchor="middle" dominant-baseline="central">Control</text>
+  <text class="sub" x="604" y="424" text-anchor="middle" dominant-baseline="central">Nodes and</text>
+  <text class="sub" x="604" y="442" text-anchor="middle" dominant-baseline="central">their default</text>
+  <text class="sub" x="604" y="460" text-anchor="middle" dominant-baseline="central">parameters</text>
+  <rect class="card" x="668" y="392" width="84" height="82" rx="12"/>
+  <text class="lbl" x="710" y="406" text-anchor="middle" dominant-baseline="central">Vehicle</text>
+  <text class="sub" x="710" y="424" text-anchor="middle" dominant-baseline="central">Nodes and</text>
+  <text class="sub" x="710" y="442" text-anchor="middle" dominant-baseline="central">their default</text>
+  <text class="sub" x="710" y="460" text-anchor="middle" dominant-baseline="central">parameters</text>
+  <rect class="card" x="760" y="392" width="84" height="82" rx="12"/>
+  <text class="lbl" x="802" y="406" text-anchor="middle" dominant-baseline="central">System</text>
+  <text class="sub" x="802" y="424" text-anchor="middle" dominant-baseline="central">Nodes and</text>
+  <text class="sub" x="802" y="442" text-anchor="middle" dominant-baseline="central">their default</text>
+  <text class="sub" x="802" y="460" text-anchor="middle" dominant-baseline="central">parameters</text>
+  <rect class="card" x="852" y="392" width="84" height="82" rx="12"/>
+  <text class="lbl" x="894" y="406" text-anchor="middle" dominant-baseline="central">API</text>
+  <text class="sub" x="894" y="424" text-anchor="middle" dominant-baseline="central">Nodes and</text>
+  <text class="sub" x="894" y="442" text-anchor="middle" dominant-baseline="central">their default</text>
+  <text class="sub" x="894" y="460" text-anchor="middle" dominant-baseline="central">parameters</text>
+
+  <!-- Notes -->
+  <rect class="box muted" x="20" y="540" width="450" height="84" rx="12"/>
+  <text class="lbl" x="245" y="555" text-anchor="middle" dominant-baseline="central">Parameters</text>
+  <text class="sub" x="245" y="573" text-anchor="middle" dominant-baseline="central">The autoware_*_config packages hold the parameter files.</text>
+  <text class="sub" x="245" y="591" text-anchor="middle" dominant-baseline="central">The launch files give them to the nodes. These values replace</text>
+  <text class="sub" x="245" y="609" text-anchor="middle" dominant-baseline="central">the default parameters of the node packages.</text>
+  <rect class="box muted" x="490" y="540" width="450" height="84" rx="12"/>
+  <text class="lbl" x="715" y="555" text-anchor="middle" dominant-baseline="central">Launch</text>
+  <text class="sub" x="715" y="573" text-anchor="middle" dominant-baseline="central">autoware_launch starts the launch pipelines of all</text>
+  <text class="sub" x="715" y="591" text-anchor="middle" dominant-baseline="central">Autoware components. Launch arguments enable or</text>
+  <text class="sub" x="715" y="609" text-anchor="middle" dominant-baseline="central">disable each component.</text>
+
+  <!-- Lines: optional ones first, the main flow on top -->
+  <path class="edge" d="M374 290 H306"/>
+  <path class="flow" pathLength="100" d="M374 290 H306"/>
+  <path class="edge head" d="M374 290 H306"/>
+  <path class="edge" d="M300 190 H374"/>
+  <path class="flow" pathLength="100" d="M300 190 H374"/>
+  <path class="edge head" d="M300 190 H374"/>
+  <path class="edge" d="M880 120 V154"/>
+  <path class="flow" pathLength="100" d="M880 120 V154"/>
+  <path class="edge head" d="M880 120 V154"/>
+  <path class="edge accent" d="M170 120 V154"/>
+  <path class="flow flow-accent" pathLength="100" d="M170 120 V154"/>
+  <path class="edge accent head" d="M170 120 V154"/>
+  <path class="edge accent" d="M170 220 V254"/>
+  <path class="flow flow-accent" pathLength="100" d="M170 220 V254"/>
+  <path class="edge accent head" d="M170 220 V254"/>
+  <path class="edge accent" d="M300 90 H674"/>
+  <path class="flow flow-accent" pathLength="100" d="M300 90 H674"/>
+  <path class="edge accent head" d="M300 90 H674"/>
+  <path class="edge accent" d="M170 320 V350 H84.0 V386"/>
+  <path class="flow flow-accent" pathLength="100" d="M170 320 V350 H84.0 V386"/>
+  <path class="edge accent head" d="M170 320 V350 H84.0 V386"/>
+  <path class="edge accent" d="M170 320 V350 H188.0 V386"/>
+  <path class="flow flow-accent" pathLength="100" d="M170 320 V350 H188.0 V386"/>
+  <path class="edge accent head" d="M170 320 V350 H188.0 V386"/>
+  <path class="edge accent" d="M170 320 V350 H292.0 V386"/>
+  <path class="flow flow-accent" pathLength="100" d="M170 320 V350 H292.0 V386"/>
+  <path class="edge accent head" d="M170 320 V350 H292.0 V386"/>
+  <path class="edge accent" d="M170 320 V350 H396.0 V386"/>
+  <path class="flow flow-accent" pathLength="100" d="M170 320 V350 H396.0 V386"/>
+  <path class="edge accent head" d="M170 320 V350 H396.0 V386"/>
+  <path class="edge accent" d="M170 320 V350 H500.0 V386"/>
+  <path class="flow flow-accent" pathLength="100" d="M170 320 V350 H500.0 V386"/>
+  <path class="edge accent head" d="M170 320 V350 H500.0 V386"/>
+  <path class="edge accent" d="M170 320 V350 H604.0 V386"/>
+  <path class="flow flow-accent" pathLength="100" d="M170 320 V350 H604.0 V386"/>
+  <path class="edge accent head" d="M170 320 V350 H604.0 V386"/>
+  <path class="edge accent" d="M700 120 V360 H710 V386"/>
+  <path class="flow flow-accent" pathLength="100" d="M700 120 V360 H710 V386"/>
+  <path class="edge accent head" d="M700 120 V360 H710 V386"/>
+  <path class="edge accent" d="M700 120 V360 H802 V386"/>
+  <path class="flow flow-accent" pathLength="100" d="M700 120 V360 H802 V386"/>
+  <path class="edge accent head" d="M700 120 V360 H802 V386"/>
+  <path class="edge accent" d="M700 120 V360 H894 V386"/>
+  <path class="flow flow-accent" pathLength="100" d="M700 120 V360 H894 V386"/>
+  <path class="edge accent head" d="M700 120 V360 H894 V386"/>
+  <text class="edge-lbl" x="340" y="278" text-anchor="middle" dominant-baseline="central">Parameters</text>
+  <text class="edge-lbl" x="337" y="178" text-anchor="middle" dominant-baseline="central">Sensing</text>
+  <text class="edge-lbl" x="487" y="76" text-anchor="middle" dominant-baseline="central">Vehicle: vehicle.launch.xml directly</text>
+  <text class="edge-lbl" x="487" y="104" text-anchor="middle" dominant-baseline="central">System and API: tier4_*_component.launch.xml</text>
+  <text class="edge-lbl" x="872" y="137" text-anchor="end" dominant-baseline="central">vehicle_interface.launch.xml</text>
+  <text class="edge-lbl" x="420" y="350" text-anchor="middle" dominant-baseline="central">Launch the nodes and override their parameters</text>
+</svg>

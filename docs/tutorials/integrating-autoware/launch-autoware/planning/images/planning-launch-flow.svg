@@ -1,0 +1,318 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1230" role="img" aria-labelledby="planning-launch-flow-title">
+  <title id="planning-launch-flow-title">
+    autoware.launch.xml includes component_planning.launch.xml, which includes planning.launch.xml of autoware_planning_launch. planning.launch.xml reads a module preset of
+    autoware_planning_config. In the planning namespace it includes mission planning, scenario planning or the diffusion planner as planning_setting selects, the planning validator, the planning
+    evaluator, and the remaining distance and time calculator.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-cyan: #00c8ff; --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-group: color-mix(in
+    srgb, var(--aw-c-indigo) 6%, var(--md-default-bg-color)); --aw-d-group-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 25%, transparent); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.ai {
+  fill: color-mix(in srgb, var(--aw-cyan) 14%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-cyan) 70%, transparent);
+} .group {
+  fill: var(--aw-d-group);
+  stroke: var(--aw-d-group-stroke);
+  stroke-width: 1.5;
+} .group.ai {
+  fill: color-mix(in srgb, var(--aw-cyan) 7%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-cyan) 45%, transparent);
+} .group.dashed {
+  stroke-dasharray: 7 5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .card.ai {
+  fill: color-mix(in srgb, var(--aw-cyan) 8%, var(--aw-d-node));
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 65%, transparent);
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.ai {
+  fill: url("#aw-grad-ai");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-ai" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00c8ff"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="960" height="1230"/>
+  <circle class="halo" cx="190" cy="150" r="130"/>
+  <circle class="halo cyan" cx="480" cy="720" r="260"/>
+  <circle class="halo" cx="630" cy="258" r="100"/>
+
+  <!-- Launch chain -->
+  <rect class="box primary" x="40" y="24" width="300" height="60" rx="14"/>
+  <circle class="icon-bg on" cx="71" cy="54" r="17"/>
+  <path class="icon-line" d="M66.75 46.5625 L78.4375 54 L66.75 61.4375 Z"/>
+  <text class="code lbl on-primary" x="100" y="45" dominant-baseline="central">autoware.launch.xml</text>
+  <text class="sub on-primary" x="100" y="63" dominant-baseline="central">autoware_launch</text>
+  <rect class="card" x="40" y="128" width="300" height="56" rx="12"/>
+  <text class="code lbl" x="190" y="147" text-anchor="middle" dominant-baseline="central">component_planning.launch.xml</text>
+  <text class="sub" x="190" y="165" text-anchor="middle" dominant-baseline="central">autoware_launch</text>
+  <rect class="card" x="40" y="228" width="300" height="60" rx="12"/>
+  <circle class="icon-bg" cx="71" cy="258" r="17"/>
+  <path class="icon-line" d="M65.6875 249.5 H73.125 L77.375 253.75 V266.5 H65.6875 Z M68.875 258 H74.1875 M68.875 262.25 H74.1875"/>
+  <text class="code lbl" x="100" y="249" dominant-baseline="central">planning.launch.xml</text>
+  <text class="sub" x="100" y="267" dominant-baseline="central">autoware_planning_launch</text>
+
+  <!-- Module preset -->
+  <rect class="card" x="440" y="228" width="380" height="60" rx="12"/>
+  <circle class="icon-bg" cx="471" cy="258" r="17"/>
+  <path class="icon-line" d="M462.5 253.75 H479.5 M462.5 262.25 H479.5"/>
+  <circle class="icon-dot" cx="467.812" cy="253.75" r="2.975"/>
+  <circle class="icon-dot" cx="474.188" cy="262.25" r="2.975"/>
+  <text class="code lbl" x="500" y="249" dominant-baseline="central">preset/default_preset.yaml</text>
+  <text class="sub" x="500" y="267" dominant-baseline="central">autoware_planning_config: the launch_* arguments</text>
+
+  <!-- Namespace /planning -->
+  <rect class="glass-panel" x="20" y="336" width="920" height="872" rx="18"/>
+  <text class="ttl" x="924" y="362" text-anchor="end">Namespace /planning</text>
+  <rect class="group" x="64" y="384" width="860" height="100" rx="14"/>
+  <text class="code" x="80" y="406" dominant-baseline="central">mission_planning</text>
+  <rect class="card" x="80" y="418" width="400" height="52" rx="12"/>
+  <circle class="icon-bg" cx="109" cy="444" r="15"/>
+  <path class="icon-line" d="M104.312 436.5 H110.875 L114.625 440.25 V451.5 H104.312 Z M107.125 444 H111.812 M107.125 447.75 H111.812"/>
+  <text class="code lbl" x="136" y="435" dominant-baseline="central">manual_lane_change_handler.launch.xml</text>
+  <text class="sub" x="136" y="453" dominant-baseline="central">autoware_manual_lane_change_handler</text>
+  <rect class="card" x="496" y="418" width="412" height="52" rx="12"/>
+  <circle class="icon-bg" cx="525" cy="444" r="15"/>
+  <path class="icon-line" d="M518.438 451.5 Q518.438 442.125 525 442.125 Q531.562 442.125 531.562 435.562"/>
+  <circle class="icon-dot" cx="518.438" cy="451.5" r="2.4375"/>
+  <circle class="icon-dot" cx="531.562" cy="435.562" r="2.4375"/>
+  <text class="code lbl" x="552" y="435" dominant-baseline="central">mission_planning.launch.xml</text>
+  <text class="sub" x="552" y="453" dominant-baseline="central">mission_planner, goal_pose_visualizer</text>
+  <rect class="group" x="64" y="500" width="860" height="400" rx="14"/>
+  <text class="code" x="80" y="522" dominant-baseline="central">planning_setting:=rule_based (the default): namespace scenario_planning</text>
+  <rect class="card" x="80" y="534" width="400" height="52" rx="12"/>
+  <circle class="icon-bg" cx="109" cy="560" r="15"/>
+  <path class="icon-line" d="M104.312 552.5 H110.875 L114.625 556.25 V567.5 H104.312 Z M107.125 560 H111.812 M107.125 563.75 H111.812"/>
+  <text class="code lbl" x="136" y="551" dominant-baseline="central">scenario_planning.launch.xml</text>
+  <text class="sub" x="136" y="569" dominant-baseline="central">autoware_planning_launch</text>
+  <rect class="box" x="120" y="598" width="350" height="40" rx="10"/>
+  <text class="code lbl" x="295" y="609" text-anchor="middle" dominant-baseline="central">scenario_selector.launch.xml</text>
+  <text class="sub" x="295" y="627" text-anchor="middle" dominant-baseline="central">autoware_scenario_selector</text>
+  <rect class="box" x="120" y="646" width="350" height="40" rx="10"/>
+  <text class="code lbl" x="295" y="657" text-anchor="middle" dominant-baseline="central">external_velocity_limit_selector.launch.xml</text>
+  <text class="sub" x="295" y="675" text-anchor="middle" dominant-baseline="central">autoware_external_velocity_limit_selector</text>
+  <rect class="box" x="120" y="694" width="350" height="40" rx="10"/>
+  <text class="code lbl" x="295" y="705" text-anchor="middle" dominant-baseline="central">velocity_smoother</text>
+  <text class="sub" x="295" y="723" text-anchor="middle" dominant-baseline="central">Node of autoware_velocity_smoother</text>
+  <rect class="box" x="120" y="742" width="350" height="40" rx="10"/>
+  <text class="code lbl" x="295" y="753" text-anchor="middle" dominant-baseline="central">hazard_lights_selector.launch.xml</text>
+  <text class="sub" x="295" y="771" text-anchor="middle" dominant-baseline="central">autoware_hazard_lights_selector</text>
+  <rect class="card" x="490" y="598" width="418" height="52" rx="10"/>
+  <circle class="icon-bg" cx="519" cy="624" r="15"/>
+  <path class="icon-line" d="M514.312 616.5 H520.875 L524.625 620.25 V631.5 H514.312 Z M517.125 624 H521.812 M517.125 627.75 H521.812"/>
+  <text class="code lbl" x="546" y="615" dominant-baseline="central">lane_driving.launch.xml</text>
+  <text class="sub" x="546" y="633" dominant-baseline="central">Namespace lane_driving, autoware_planning_launch</text>
+  <rect class="box" x="530" y="658" width="378" height="70" rx="10"/>
+  <text class="code lbl" x="719" y="675" text-anchor="middle" dominant-baseline="central">behavior_planning.launch.xml</text>
+  <text class="sub" x="719" y="693" text-anchor="middle" dominant-baseline="central">behavior_path_planner or path_generator,</text>
+  <text class="sub" x="719" y="711" text-anchor="middle" dominant-baseline="central">and behavior_velocity_planner</text>
+  <rect class="box" x="530" y="736" width="378" height="70" rx="10"/>
+  <text class="code lbl" x="719" y="753" text-anchor="middle" dominant-baseline="central">motion_planning.launch.xml</text>
+  <text class="sub" x="719" y="771" text-anchor="middle" dominant-baseline="central">path smoother, path optimizer or path sampler,</text>
+  <text class="sub" x="719" y="789" text-anchor="middle" dominant-baseline="central">motion_velocity_planner, surround_obstacle_checker</text>
+  <rect class="box" x="490" y="814" width="418" height="70" rx="10"/>
+  <text class="code lbl" x="699" y="831" text-anchor="middle" dominant-baseline="central">parking.launch.xml</text>
+  <text class="sub" x="699" y="849" text-anchor="middle" dominant-baseline="central">costmap_generator and freespace_planner,</text>
+  <text class="sub" x="699" y="867" text-anchor="middle" dominant-baseline="central">if launch_parking_module is true</text>
+  <rect class="group dashed" x="64" y="916" width="860" height="100" rx="14"/>
+  <text class="code" x="80" y="938" dominant-baseline="central">planning_setting:=diffusion_planner</text>
+  <rect class="card ai" x="80" y="950" width="828" height="52" rx="12"/>
+  <circle class="icon-bg ai" cx="109" cy="976" r="15"/>
+  <path class="icon-line" d="M109 967.562 L116.5 971.781 V980.219 L109 984.438 L101.5 980.219 V971.781 Z M101.5 971.781 L109 976 L116.5 971.781 M109 976 V984.438"/>
+  <text class="code lbl" x="136" y="967" dominant-baseline="central">learning_based_planning/diffusion_planner.launch.xml</text>
+  <text class="sub" x="136" y="985" dominant-baseline="central">autoware_diffusion_planner and autoware_trajectory_modifier, in the namespace trajectory_generator</text>
+  <rect class="group" x="64" y="1032" width="860" height="162" rx="14"/>
+  <text class="ttl" x="80" y="1058">Validator, evaluator, and calculator</text>
+  <rect class="card" x="80" y="1066" width="406" height="60" rx="12"/>
+  <circle class="icon-bg" cx="111" cy="1096" r="17"/>
+  <path class="icon-line" d="M111 1086.44 L119.5 1089.62 V1096 Q119.5 1102.38 111 1105.56 Q102.5 1102.38 102.5 1096 V1089.62 Z"/>
+  <text class="code lbl" x="140" y="1078" dominant-baseline="central">planning_validator.launch.xml</text>
+  <text class="sub" x="140" y="1096" dominant-baseline="central">autoware_planning_validator</text>
+  <text class="code" x="140" y="1114" dominant-baseline="central">Output: /planning/trajectory</text>
+  <rect class="card" x="502" y="1066" width="406" height="60" rx="12"/>
+  <circle class="icon-bg" cx="533" cy="1096" r="17"/>
+  <path class="icon-line" d="M523.438 1096 H528.75 L531.938 1089.62 L535.125 1102.38 L538.312 1096 H542.562"/>
+  <text class="code lbl" x="562" y="1087" dominant-baseline="central">planning_evaluator.launch.xml</text>
+  <text class="sub" x="562" y="1105" dominant-baseline="central">autoware_planning_evaluator</text>
+  <rect class="box" x="80" y="1136" width="828" height="44" rx="12"/>
+  <text class="code lbl" x="494" y="1149" text-anchor="middle" dominant-baseline="central">remaining_distance_time_calculator.launch.xml</text>
+  <text class="sub" x="494" y="1167" text-anchor="middle" dominant-baseline="central">
+    autoware_remaining_distance_time_calculator, if launch_remaining_distance_time_calculator is true (true in default_preset.yaml)
+  </text>
+
+  <!-- Lines: optional ones first, the main flow on top -->
+  <path class="edge dash" d="M190 288 V360 H38 V976 H58"/>
+  <path class="flow" pathLength="100" d="M190 288 V360 H38 V976 H58"/>
+  <path class="edge dash head" d="M190 288 V360 H38 V976 H58"/>
+  <path class="edge" d="M346 258 H434"/>
+  <path class="flow" pathLength="100" d="M346 258 H434"/>
+  <path class="edge head" d="M346 258 H434"/>
+  <path class="edge" d="M100 586 V618.0 H114"/>
+  <path class="edge" d="M100 586 V666.0 H114"/>
+  <path class="edge" d="M100 586 V714.0 H114"/>
+  <path class="edge" d="M100 586 V762.0 H114"/>
+  <path class="edge" d="M480 560 H520 V592"/>
+  <path class="flow" pathLength="100" d="M480 560 H520 V592"/>
+  <path class="edge head" d="M480 560 H520 V592"/>
+  <path class="edge" d="M510 650 V693 H524"/>
+  <path class="edge" d="M510 650 V771 H524"/>
+  <path class="edge" d="M480 560 H478 V849 H484"/>
+  <path class="edge accent" d="M190 84 V122"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 84 V122"/>
+  <path class="edge accent head" d="M190 84 V122"/>
+  <path class="edge accent" d="M190 184 V222"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 184 V222"/>
+  <path class="edge accent head" d="M190 184 V222"/>
+  <path class="edge accent" d="M190 288 V360 H38 V444 H58"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 288 V360 H38 V444 H58"/>
+  <path class="edge accent head" d="M190 288 V360 H38 V444 H58"/>
+  <path class="edge accent" d="M190 288 V360 H38 V560 H58"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 288 V360 H38 V560 H58"/>
+  <path class="edge accent head" d="M190 288 V360 H38 V560 H58"/>
+  <path class="edge accent" d="M190 288 V360 H38 V1092 H58"/>
+  <path class="flow flow-accent" pathLength="100" d="M190 288 V360 H38 V1092 H58"/>
+  <path class="edge accent head" d="M190 288 V360 H38 V1092 H58"/>
+  <text class="edge-lbl code" x="202" y="103" text-anchor="start" dominant-baseline="central">launch_planning:=true</text>
+  <text class="edge-lbl code" x="202" y="203" text-anchor="start" dominant-baseline="central">planning_module_preset, planning_setting</text>
+  <text class="edge-lbl" x="390" y="246" text-anchor="middle" dominant-baseline="central">includes</text>
+</svg>

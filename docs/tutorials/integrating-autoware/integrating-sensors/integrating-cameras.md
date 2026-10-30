@@ -1,6 +1,6 @@
 # Integrating cameras
 
-## Camera Requirements
+## Camera requirements
 
 Autoware has no strict requirements for camera interfaces, as long as BGR color images are published in `sensor_msgs/Image` topic format.
 
@@ -10,8 +10,9 @@ Many common camera hardware interfaces are exposed as V4L2 devices.
 For example, USB cameras are widely supported via the USB Video Class (UVC) on many operating systems.
 Similarly, cameras using Gigabit Multimedia Serial Link 2 (GMSL2) can be accessed through V4L2 once their dedicated drivers expose them as such.
 
-The following figure depicts the architecture overview to integrate cameras to Autoware:
-![Architecture overview](images/camera_connection_architecture_overview.svg)
+The following figure shows the architecture to integrate cameras into Autoware:
+
+{{ diagram("images/camera-connection-architecture.svg", "GMSL2 and USB cameras reach ros2_v4l2_camera through V4L2, and ros2_v4l2_camera publishes image_raw to Autoware.") }}
 
 For users who prefer cameras connected via Gigabit Ethernet (GigE), it may be efficient to decode packets directly instead of relying on the V4L2 framework.
 This scenario will be addressed in a separate section of this document.
@@ -46,7 +47,7 @@ Each interface type requires different components to be implemented or configure
 |               | GMSL2                                                                                                          | USB3                                                                          | GigE                                                                                    |
 | ------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | Device driver | Requires implementation of dedicated drivers for specific camera and ECU combinations to expose as V4L2 device | Native UVC driver provides V4L2 support for most cameras/ECUs                 | Not required (V4L2 protocol not applicable)                                             |
-| ROS driver    | <ul> <li>`ros2_v4l2_camera`</li> <li>`gscam`</li> <ul>                                                         | <ul> <li>`ros2_v4l2_camera`</li> <li>`uvc_camera`</li> <li>`gscam`</li> </ul> | <ul> <li>`gscam` (if data is transferred via RTP)</li> <li>Dedicated driver </li> </ul> |
+| ROS driver    | <ul> <li>`ros2_v4l2_camera`</li> <li>`gscam`</li> </ul>                                                        | <ul> <li>`ros2_v4l2_camera`</li> <li>`uvc_camera`</li> <li>`gscam`</li> </ul> | <ul> <li>`gscam` (if data is transferred via RTP)</li> <li>Dedicated driver </li> </ul> |
 
 ### Calibration
 
@@ -58,8 +59,6 @@ For the calibration procedure, please refer to the documentation [here](../../in
 Some cameras support the shutter triggering feature, which enables precise time synchronization between multiple cameras and other sensors/ECUs.
 The following table summarizes the effect of the time synchronization presence against major functions that use camera data in Autoware.
 Although time synchronization is recommended for achieving the best performance across varying speed conditions, it could be omitted in cases where strict control of capture timing is not crucial.
-
-<!-- See [here]() for more detail regarding time synchronization. -->
 
 |                         | Image-based object detection/segmentation | Traffic light recognition                                    | LiDAR-camera fusion                                          |
 | ----------------------- | :---------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |

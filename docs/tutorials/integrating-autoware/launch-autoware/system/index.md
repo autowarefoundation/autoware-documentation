@@ -1,19 +1,10 @@
-# System Launch Files
+# System launch files
 
 ## Overview
 
-The Autoware system stacks start
-launching at `autoware_launch.xml` as we mentioned at [Launch Autoware](../index.md) page.
-The `autoware_launch` package includes `tier4_system_component.launch.xml`
-for starting system launch files invocation from `autoware_launch.xml`.
-This diagram describes some of the Autoware system launch files flow at `autoware_launch` and `autoware_universe` packages.
+The Autoware system stack starts with `autoware.launch.xml`, as the [Launch Autoware](../index.md) page explains. If `launch_system` is `true`, `autoware.launch.xml` includes `tier4_system_component.launch.xml` of the `autoware_launch` package. This file includes `system.launch.xml` of the [`tier4_system_launch`](https://github.com/autowarefoundation/autoware_launch/tree/0.53.0/tier4_universe_launch/tier4_system_launch) package. The following diagram shows the system launch flow in the `autoware_launch` repository.
 
-<figure markdown>
-  ![system-launch-flow](images/system_launch_flow.svg){ align=center }
-  <figcaption>
-    Autoware system launch flow diagram
-  </figcaption>
-</figure>
+{{ diagram("images/system-launch-flow.svg", "tier4_system_component.launch.xml includes system.launch.xml, which launches the system packages that its launch arguments enable.") }}
 
 !!! note
 
@@ -26,32 +17,43 @@ This diagram describes some of the Autoware system launch files flow at `autowar
     if we define an argument at the top-level launch,
     it will override the value on lower-level launches.
 
-As described in the flow diagram of the system launch pipeline,
-the `system.launch.xml` from the `tier4_system_launch` package directly launches the following packages:
+As the flow diagram shows, `system.launch.xml` of `tier4_system_launch` always launches these packages:
 
-- [system_monitor](https://autowarefoundation.github.io/autoware_universe/main/system/autoware_system_monitor/)
-- [component_interface_tools](https://autowarefoundation.github.io/autoware_universe/main/common/autoware_component_interface_tools/)
-- [component_state_monitor](https://autowarefoundation.github.io/autoware_universe/main/system/autoware_component_state_monitor/)
-- [system_error_monitor](https://autowarefoundation.github.io/autoware_universe/main/system/system_error_monitor/)
-- [emergency_handler](https://autowarefoundation.github.io/autoware_universe/main/system/emergency_handler/)
 - [duplicated_node_checker](https://autowarefoundation.github.io/autoware_universe/main/system/autoware_duplicated_node_checker/)
-- [mrm_comfortable_stop_operator](https://autowarefoundation.github.io/autoware_universe/main/system/autoware_mrm_comfortable_stop_operator/)
+- [processing_time_checker](https://autowarefoundation.github.io/autoware_universe/main/system/autoware_processing_time_checker/)
+- [pipeline_latency_monitor](https://autowarefoundation.github.io/autoware_universe/main/system/autoware_pipeline_latency_monitor/)
+- [component_state_monitor](https://autowarefoundation.github.io/autoware_universe/main/system/autoware_component_state_monitor/)
 - [mrm_emergency_stop_operator](https://autowarefoundation.github.io/autoware_universe/main/system/autoware_mrm_emergency_stop_operator/)
-- [dummy_diag_publisher](https://autowarefoundation.github.io/autoware_universe/main/system/autoware_dummy_diag_publisher/)
+- [diagnostic_graph_aggregator](https://autowarefoundation.github.io/autoware_universe/main/system/autoware_diagnostic_graph_aggregator/)
+- [hazard_status_converter](https://github.com/autowarefoundation/autoware_universe/tree/0.53.1/system/autoware_hazard_status_converter)
 
-We don't have many modification options in the system launching files
-(as the parameters are included in config files),
-but you can modify the file path for the system_error_monitor parameter.
-For instance, if you want to change the path for your system_error_monitor.param.yaml file,
-you can run Autoware with the following command line argument:
+It launches these packages when their launch arguments allow it:
+
+- [system_monitor](https://autowarefoundation.github.io/autoware_universe/main/system/autoware_system_monitor/), if `launch_system_monitor` is `true` (the default).
+- [mrm_comfortable_stop_operator](https://autowarefoundation.github.io/autoware_universe/main/system/autoware_mrm_comfortable_stop_operator/) and [mrm_handler](https://autowarefoundation.github.io/autoware_universe/main/system/autoware_mrm_handler/), if `use_control_command_gate` is `false` (the default).
+- [command_mode_switcher](https://autowarefoundation.github.io/autoware_universe/main/system/autoware_command_mode_switcher/) and [command_mode_decider](https://autowarefoundation.github.io/autoware_universe/main/system/autoware_command_mode_decider/), if `use_control_command_gate` is `true`.
+- [dummy_diag_publisher](https://autowarefoundation.github.io/autoware_universe/main/simulator/autoware_dummy_diag_publisher/), if `launch_dummy_diag_publisher` is `true`. The default is `false`.
+
+`tier4_system_component.launch.xml` also includes `logging.launch.xml` of [diagnostic_graph_utils](https://autowarefoundation.github.io/autoware_universe/main/system/autoware_diagnostic_graph_utils/). It logs the errors of the diagnostic graph in the terminal.
+
+`autoware.launch.xml` has these system arguments:
+
+| Argument                                 | Default value                                                                    | Description                                                                                        |
+| ---------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `system_run_mode`                        | `online`                                                                         | The run mode of the system. The options are `online`, `logging_simulation`, `planning_simulation`. |
+| `launch_system_monitor`                  | `true`                                                                           | Launch the system monitor.                                                                         |
+| `launch_dummy_diag_publisher`            | `false`                                                                          | Launch the dummy diagnostic publisher.                                                             |
+| `diagnostic_graph_aggregator_graph_path` | `$(find-pkg-share autoware_launch)/config/system/diagnostics/autoware-main.yaml` | The graph file of the diagnostic graph aggregator.                                                 |
+
+For example, to use your own diagnostic graph, launch Autoware with this command-line argument:
 
 ```bash
-ros2 launch autoware_launch autoware.launch.xml ... system_error_monitor_param_path:=<YOUR-SYSTEM-ERROR-PARAM-PATH> ...
+ros2 launch autoware_launch autoware.launch.xml ... diagnostic_graph_aggregator_graph_path:=<YOUR-DIAGNOSTIC-GRAPH-PATH> ...
 ```
 
-Or you can change it on your `tier4_system_component.launch.xml` launch file:
+The parameter files of the system packages are in the `config/system/` directory of the `autoware_launch` package. `tier4_system_component.launch.xml` gives their paths to `system.launch.xml` as fixed values, so a command-line argument cannot change them. To use another parameter file, change the path in your `tier4_system_component.launch.xml`. For example, for the parameter file of `mrm_handler`:
 
 ```diff
-- <arg name="system_error_monitor_param_path" default="$(find-pkg-share autoware_launch)/config/..."/>
-+ <arg name="system_error_monitor_param_path" default="<YOUR-SYSTEM-ERROR-PARAM-PATH>"/>
+- <arg name="mrm_handler_param_path" value="$(find-pkg-share autoware_launch)/config/system/mrm_handler/mrm_handler.param.yaml"/>
++ <arg name="mrm_handler_param_path" value="<YOUR-MRM-HANDLER-PARAM-PATH>"/>
 ```
