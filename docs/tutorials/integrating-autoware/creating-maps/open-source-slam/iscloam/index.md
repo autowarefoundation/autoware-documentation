@@ -22,7 +22,7 @@
 
 - Ubuntu 64-bit 20.04
 - ROS Noetic [ROS Installation](http://wiki.ros.org/ROS/Installation)
-- Ceres Solver [Ceres Installation](http://ceres-solver.org/installation.html)
+- Ceres Solver [Ceres Installation](https://github.com/ceres-solver/ceres-solver/blob/master/docs/source/installation.rst)
 - PCL [PCL Installation](https://pointclouds.org/downloads/)
 - Gtsam [GTSAM Installation](https://gtsam.org/get_started/)
 - OpenCV [OPENCV Installation](https://opencv.org/releases/)
