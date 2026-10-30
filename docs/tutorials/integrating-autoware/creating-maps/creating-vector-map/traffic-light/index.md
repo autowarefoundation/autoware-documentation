@@ -26,21 +26,28 @@ After the download is finished,
 we need to put lanelet2 map and pointcloud map on the same location.
 The directory structure should be like this:
 
-```diff
-+ <YOUR-MAP-DIRECTORY>/
-+  ├─ pointcloud_map.pcd
-+  └─ lanelet2_map.osm
+```text
+<YOUR-MAP-DIRECTORY>/
+ ├─ pointcloud_map.pcd
+ ├─ lanelet2_map.osm
+ └─ map_projector_info.yaml
 ```
 
-If your .osm or .pcd map file's name is different from these names,
-you need to update autoware.launch.xml:
+The `map_projector_info.yaml` file tells Autoware the projection of the map. Write the MGRS grid that you entered when you created the Lanelet2 map in Vector Map Builder:
 
-```diff
-  <!-- Map -->
--  <arg name="lanelet2_map_file" default="lanelet2_map.osm" description="lanelet2 map file name"/>
-+  <arg name="lanelet2_map_file" default="<YOUR-LANELET-MAP-NAME>.osm" description="lanelet2 map file name"/>
--  <arg name="pointcloud_map_file" default="pointcloud_map.pcd" description="pointcloud map file name"/>
-+  <arg name="pointcloud_map_file" default="<YOUR-POINTCLOUD-MAP-NAME>.pcd" description="pointcloud map file name"/>
+```yaml
+projector_type: MGRS
+vertical_datum: WGS84
+mgrs_grid: <YOUR-MGRS-GRID> # for example, 35TPF
+```
+
+Use the vertical datum of your point cloud map. For a point cloud map from the [UTM to MGRS converter](../../converting-utm-to-mgrs-map/index.md), use `EGM2008`. If the file does not exist, Autoware reads the MGRS grid from the Lanelet2 map. This fallback is deprecated.
+
+If your .osm or .pcd map file's name is different from these names,
+add the `lanelet2_map_file` and `pointcloud_map_file` arguments to the launch command:
+
+```bash
+ros2 launch autoware_launch planning_simulator.launch.xml map_path:=<YOUR-MAP-FOLDER-DIR> vehicle_model:=<YOUR-VEHICLE-MODEL> sensor_model:=<YOUR-SENSOR-KIT> lanelet2_map_file:=<YOUR-LANELET-MAP-NAME>.osm pointcloud_map_file:=<YOUR-POINTCLOUD-MAP-NAME>.pcd
 ```
 
 Now we are ready to launch the planning simulator:
@@ -61,6 +68,8 @@ ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autowa
 4. Then, Click `SET` and `PUBLISH` button.
 5. Click `2D Goal Pose` button on rviz or press `G` and give a pose for goal point.
 6. You can see the traffic light marker on the rviz screen if you set the traffic light color as `RED`.
+
+For more information about `TrafficLightPublishPanel`, see the [traffic light recognition simulation](../../../../../demos/planning-sim/traffic-light.md).
 
 Traffic Light markers on rviz:
 

@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 396" role="img" aria-labelledby="slam-comparison-tf-tree-title">
+  <title id="slam-comparison-tf-tree-title">The transforms from the global NED frame to the Velodyne frame: the GNSS/INS orientation, the NED to ENU conversion, and the lidar IMU calibration.</title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .on-primary {
+  fill: #fff;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and a soft glow -->
+  <rect class="dots" x="0" y="0" width="720" height="396"/>
+  <circle class="halo" cx="300" cy="200" r="170"/>
+
+  <!-- Frames -->
+  <rect class="card" x="180" y="20" width="240" height="48" rx="14"/>
+  <circle class="icon-bg" cx="208" cy="44" r="14"/>
+  <circle class="icon-line" cx="208" cy="44" r="7"/>
+  <path class="icon-line" d="M201 44 H215 M208 37 Q212 44 208 51 Q204 44 208 37"/>
+  <text class="lbl" x="232" y="44" dominant-baseline="central">Global frame (NED)</text>
+
+  <rect class="card" x="180" y="128" width="240" height="48" rx="14"/>
+  <circle class="icon-bg" cx="208" cy="152" r="14"/>
+  <circle class="icon-dot" cx="204" cy="156" r="2.2"/>
+  <path class="icon-line" d="M204 149 A7 7 0 0 1 211 156"/>
+  <path class="icon-line" d="M204 143 A13 13 0 0 1 217 156"/>
+  <text class="lbl" x="232" y="152" dominant-baseline="central">GNSS frame (NED)</text>
+
+  <rect class="card" x="180" y="236" width="240" height="48" rx="14"/>
+  <circle class="icon-bg" cx="208" cy="260" r="14"/>
+  <circle class="icon-dot" cx="204" cy="264" r="2.2"/>
+  <path class="icon-line" d="M204 257 A7 7 0 0 1 211 264"/>
+  <path class="icon-line" d="M204 251 A13 13 0 0 1 217 264"/>
+  <text class="lbl" x="232" y="260" dominant-baseline="central">GNSS frame (ENU)</text>
+
+  <rect class="box primary" x="180" y="344" width="240" height="44" rx="14"/>
+  <circle class="icon-bg on" cx="208" cy="366" r="13"/>
+  <circle class="icon-line" cx="208" cy="366" r="6"/>
+  <circle class="icon-line" cx="208" cy="366" r="2"/>
+  <text class="lbl on-primary" x="232" y="366" dominant-baseline="central">Velodyne frame</text>
+
+  <!-- Transforms -->
+  <path class="edge accent" d="M300 68 V122"/>
+  <path class="flow flow-accent" pathLength="100" d="M300 68 V118"/>
+  <path class="edge accent head" d="M300 68 V122"/>
+  <text class="edge-lbl" x="316" y="98" dominant-baseline="central">Global orientation of GNSS/INS</text>
+
+  <path class="edge accent" d="M300 176 V230"/>
+  <path class="flow flow-accent" pathLength="100" d="M300 176 V226"/>
+  <path class="edge accent head" d="M300 176 V230"/>
+  <text class="edge-lbl" x="316" y="206" dominant-baseline="central">NED to ENU conversion</text>
+
+  <path class="edge accent" d="M300 284 V338"/>
+  <path class="flow flow-accent" pathLength="100" d="M300 284 V334"/>
+  <path class="edge accent head" d="M300 284 V338"/>
+  <text class="edge-lbl" x="316" y="314" dominant-baseline="central">Lidar IMU calibration</text>
+</svg>

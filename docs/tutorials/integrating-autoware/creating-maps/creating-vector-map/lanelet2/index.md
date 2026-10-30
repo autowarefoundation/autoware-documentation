@@ -35,7 +35,7 @@ Now, we are ready to create lanelet2 map on our pointcloud map:
 
 In order to create a simple lanelet on your map, please follow these steps:
 
-1. CLick `Lanelet2Maps` on the bar
+1. Click `Lanelet2Maps` on the bar
 2. Enable Lanelet mode via selecting `Lanelet`.
 3. Then, you can click the pointcloud map to create lanelet.
 4. If your lanelet is finished, you can disable `Lanelet`.
@@ -58,7 +58,7 @@ Video Demonstration:
 
 ![type:video](https://youtube.com/embed/_tHilFUKDQc)
 
-### Join Multiple lanelets
+### Join multiple lanelets
 
 In order to add (join) two or more lanelets to another lanelet, please follow these steps:
 
@@ -72,7 +72,7 @@ Video Demonstration:
 
 ![type:video](https://youtube.com/embed/l5ZnL0Cjmnk)
 
-### Change Speed Limit Of Lanelet
+### Change the speed limit of a lanelet
 
 In order to change the speed limit of lanelet, please follow these steps:
 
@@ -88,21 +88,28 @@ After the download is finished,
 we need to put lanelet2 map and pointcloud map on the same location.
 The directory structure should be like this:
 
-```diff
+```text
 <YOUR-MAP-DIRECTORY>/
  ├─ pointcloud_map.pcd
- └─ lanelet2_map.osm
+ ├─ lanelet2_map.osm
+ └─ map_projector_info.yaml
 ```
 
-If your .osm or .pcd map file's name is different from these names,
-you need to update autoware.launch.xml:
+The `map_projector_info.yaml` file tells Autoware the projection of the map. Write the MGRS grid that you entered when you created the Lanelet2 map in Vector Map Builder:
 
-```diff
-  <!-- Map -->
--  <arg name="lanelet2_map_file" default="lanelet2_map.osm" description="lanelet2 map file name"/>
-+  <arg name="lanelet2_map_file" default="<YOUR-LANELET-MAP-NAME>.osm" description="lanelet2 map file name"/>
--  <arg name="pointcloud_map_file" default="pointcloud_map.pcd" description="pointcloud map file name"/>
-+  <arg name="pointcloud_map_file" default="<YOUR-POINTCLOUD-MAP-NAME>.pcd" description="pointcloud map file name"/>
+```yaml
+projector_type: MGRS
+vertical_datum: WGS84
+mgrs_grid: <YOUR-MGRS-GRID> # for example, 35TPF
+```
+
+Use the vertical datum of your point cloud map. For a point cloud map from the [UTM to MGRS converter](../../converting-utm-to-mgrs-map/index.md), use `EGM2008`. If the file does not exist, Autoware reads the MGRS grid from the Lanelet2 map. This fallback is deprecated.
+
+If your .osm or .pcd map file's name is different from these names,
+add the `lanelet2_map_file` and `pointcloud_map_file` arguments to the launch command:
+
+```bash
+ros2 launch autoware_launch planning_simulator.launch.xml map_path:=<YOUR-MAP-FOLDER-DIR> vehicle_model:=<YOUR-VEHICLE-MODEL> sensor_model:=<YOUR-SENSOR-KIT> lanelet2_map_file:=<YOUR-LANELET-MAP-NAME>.osm pointcloud_map_file:=<YOUR-POINTCLOUD-MAP-NAME>.pcd
 ```
 
 Now we are ready to launch the planning simulator:

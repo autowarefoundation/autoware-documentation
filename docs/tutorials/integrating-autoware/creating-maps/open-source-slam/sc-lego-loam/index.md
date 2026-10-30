@@ -40,7 +40,7 @@ sudo make install
 
 ```bash
 cd ~/catkin_ws/src
-git clone https://github.com/irapkaist/SC-LeGO-LOAM.git
+git clone https://github.com/gisbi-kim/SC-LeGO-LOAM.git
 cd ..
 catkin_make
 ```
@@ -94,7 +94,7 @@ roslaunch lego_loam run.launch
 
 and
 
-```bash
+```bibtex
 @inproceedings{legoloam2018,
   title={LeGO-LOAM: Lightweight and Ground-Optimized Lidar Odometry and Mapping on Variable Terrain},
   author={Shan, Tixiao and Englot, Brendan},
