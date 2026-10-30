@@ -46,6 +46,8 @@ theme:
         name: Switch to light mode
 
 extra:
+  # The logo links to the home page itself, not to the redirect page at the root.
+  homepage: home/
   version:
     provider: mike
 
