@@ -342,7 +342,12 @@
   <path class="edge" d="M650 544 H688"/>
   <text class="edge-lbl" x="669" y="528" text-anchor="middle" dominant-baseline="central">Yes</text>
   <rect class="box" x="690" y="514" width="226" height="60" rx="10"/>
-  <text class="lbl" x="803" y="544" text-anchor="middle" dominant-baseline="central">Continue waiting / yield</text>
+  <text class="lbl" x="803" y="534" text-anchor="middle" dominant-baseline="central">Continue waiting / yield</text>
+  <text class="sub" x="803" y="554" text-anchor="middle" dominant-baseline="central">until the planned path is clear</text>
+
+  <!-- Loop: check the planned path again -->
+  <path class="edge" d="M803 514 V494 H560 V514"/>
+  <text class="edge-lbl" x="682" y="494" text-anchor="middle" dominant-baseline="central">Check again</text>
 
   <!-- No: resume -->
   <path class="edge accent" d="M455 604 V642"/>

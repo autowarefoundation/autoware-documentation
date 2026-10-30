@@ -31,6 +31,6 @@
 
 !!! tip "Run a scenario with Docker"
 
-    The Autoware repository has a Docker Compose example in [`docker/examples/demos/scenario-simulator`](https://github.com/autowarefoundation/autoware/tree/main/docker/examples/demos/scenario-simulator). It runs the planning simulator with `scenario_simulation:=true` in one container and `scenario_test_runner` in another. It uses the scenario from the [autoware_sample_scenarios](https://github.com/autowarefoundation/autoware_sample_scenarios) repository and the [sample map](../../planning-sim/index.md#download-the-sample-map).
+    The Autoware repository has a Docker Compose example in [`docker/examples/demos/scenario-simulator`](https://github.com/autowarefoundation/autoware/tree/2.0.0/docker/examples/demos/scenario-simulator). It runs the planning simulator with `scenario_simulation:=true` in one container and `scenario_test_runner` in another. It uses the scenario from the [autoware_sample_scenarios](https://github.com/autowarefoundation/autoware_sample_scenarios) repository and the [sample map](../../planning-sim/index.md#download-the-sample-map).
 
 [Reference video tutorials](https://user-images.githubusercontent.com/102840938/206996920-758b62ae-270a-497c-8a72-f9e4867df695.mp4)

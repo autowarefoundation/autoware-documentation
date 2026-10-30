@@ -30,7 +30,7 @@ AWSIM publishes Autoware messages directly, so the launch file starts no simulat
 
 !!! tip "Run Autoware in Docker"
 
-    The Autoware repository has a Docker Compose example for AWSIM in [`docker/examples/demos/awsim`](https://github.com/autowarefoundation/autoware/tree/main/docker/examples/demos/awsim). It runs the same launch command in a container. AWSIM runs on the host.
+    The Autoware repository has a Docker Compose example for AWSIM in [`docker/examples/demos/awsim`](https://github.com/autowarefoundation/autoware/tree/2.0.0/docker/examples/demos/awsim). It runs the same launch command in a container. AWSIM runs on the host.
 
 !!! warning
 

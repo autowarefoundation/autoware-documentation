@@ -4,7 +4,7 @@
 
 ### Download the sample map and rosbag
 
-Use the [`demo_artifacts`](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/demo_artifacts) ansible role to download and extract both the sample map and the sample rosbag. Run these commands in the root folder of the `autoware` repository:
+Use the [`demo_artifacts`](https://github.com/autowarefoundation/autoware/tree/2.0.0/ansible/roles/demo_artifacts) ansible role to download and extract both the sample map and the sample rosbag. Run these commands in the root folder of the `autoware` repository:
 
 ```bash
 cd ~/autoware
@@ -43,7 +43,7 @@ vad
 yabloc_pose_initializer
 ```
 
-If not, download them with the [`artifacts`](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts) ansible role.
+If not, download them with the [`artifacts`](https://github.com/autowarefoundation/autoware/tree/2.0.0/ansible/roles/artifacts) ansible role.
 
 !!! info
 

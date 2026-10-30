@@ -21,7 +21,7 @@ Each evaluation type is a use case. For example, `localization`, `perception`, `
 - Ubuntu 22.04 with ROS 2 Humble and Python 3.10, or Ubuntu 24.04 with ROS 2 Jazzy and Python 3.12.
 - An NVIDIA GPU, if you evaluate perception.
 - The `zstd` tool, to extract the sample data: `sudo apt install zstd`.
-- The `gdown` tool, to download the sample data from Google Drive.
+- The `gdown` tool, to download the sample data from Google Drive: `pipx install gdown`.
 
 ## Build Driving Log Replayer
 
@@ -116,6 +116,12 @@ The `dlr2` command-line tool runs all scenarios in a folder, one after the other
 
 ```bash
 pipx install git+https://github.com/tier4/driving_log_replayer_v2.git
+```
+
+The `dlr2` tool starts `ros2 launch` for each scenario, so source the Autoware workspace before you run it:
+
+```bash
+source ~/autoware/install/setup.bash
 dlr2 simulation run <scenario-root>
 ```
 

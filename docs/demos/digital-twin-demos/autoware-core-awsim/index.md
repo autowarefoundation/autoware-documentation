@@ -43,11 +43,31 @@ If you have not yet installed Autoware Core, refer to the [source installation](
 
    ![goal-pose](images/goal-pose.png)
 
-5. Start autonomous driving. Autoware Core does not include the operation mode manager of Autoware Universe, so publish the operation mode and the gear command by hand. Run these commands in a new terminal, in the same environment that you used to launch Autoware. For a source installation, source the workspace first:
+5. Start autonomous driving. Autoware Core does not include the operation mode manager of Autoware Universe, so publish the operation mode and the gear command by hand. Open a new terminal and set up the same environment that you used to launch Autoware:
+
+   - For a Docker installation, open a shell in the running container and source the setup files:
+
+     ```bash
+     docker exec -it autoware-core bash
+     source /opt/ros/humble/setup.bash
+     source /opt/autoware/setup.bash
+     ```
+
+   - For a source installation, source the workspace:
+
+     ```bash
+     source $HOME/autoware_core_workspace/install/setup.bash
+     ```
+
+   - For a Debian package installation, source ROS 2:
+
+     ```bash
+     source /opt/ros/humble/setup.bash
+     ```
+
+   Then run these commands:
 
    ```bash
-   source $HOME/autoware_core_workspace/install/setup.bash
-
    ros2 topic pub /system/operation_mode/state autoware_adapi_v1_msgs/msg/OperationModeState \
      "{mode: 2, is_autoware_control_enabled: true, is_autonomous_mode_available: true}" \
      --once --qos-durability transient_local
@@ -62,7 +82,7 @@ If you have not yet installed Autoware Core, refer to the [source installation](
 
    ```bash
    xhost +local:
-   docker run --rm -it --net host -e DISPLAY=$DISPLAY -v $HOME/Downloads/Shinjuku-Map/map:/home/aw/autoware_data/maps ghcr.io/autowarefoundation/autoware:core-humble
+   docker run --rm -it --name autoware-core --net host -e DISPLAY=$DISPLAY -v $HOME/Downloads/Shinjuku-Map/map:/home/aw/autoware_data/maps ghcr.io/autowarefoundation/autoware:core-humble
    ```
 
 2. Run the following command in the docker container.
