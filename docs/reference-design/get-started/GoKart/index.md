@@ -1,31 +1,39 @@
+<!-- cspell: ignore gokart purepursuit Adafruit -->
+
+# Go-Kart
+
 ## Overview
 
-This document elaborates the hardware and software configurations for using Autoware for autonomous driving. Hence, it will serve as a guideline to select hardware and software components to build autonomous vehicles. However, this document is NOT prepared as neither step-by-step instructions nor Q&A books, which will be provided as a reference link if available.
+This document describes the hardware and software configurations of the autonomous Go-Kart, which uses Autoware for autonomous driving. It serves as a guideline to select hardware and software components to build autonomous vehicles. This document is not a step-by-step instruction or a Q&A book. Where such material exists, this document links to it.
 
-## Design Overview
+## Design overview
 
-![Meta-Info Radar Chart for Go-Kart Design](images/MetaRadarChart-GoKart.png)
+The charts give a high-level overview of the design. The [metrics page](../../metrics.md) defines the values.
 
-![Tech Feature Radar Chart for Go-Kart Design](images/TechRadarChart-GoKart.png)
+{{ diagram("images/gokart-meta-info-chart.svg", "The Go-Kart design scores from 0 to 5 on each of the nine meta-info metrics.") }}
+
+{{ diagram("images/gokart-tech-info-chart.svg", "The Go-Kart design scores from 0 to 5 on each of the eleven tech-info metrics.") }}
 
 ## Who should read
 
-One is interested in building your small size autonomous vehicles and looks for the place to start with.
+Read this page if you want to build a small autonomous vehicle and look for a place to start.
 
-## References and Resources
+## References and resources
 
-- Complete Go-Kart with Autoware documents: [link](https://go-kart-upenn.readthedocs.io/en/latest/)
-- ROS 2 Foxy setup and autonomous code: [link](https://github.com/mlab-upenn/gokart-sensor/tree/ros2_foxy_purepursuit)
+- Complete Go-Kart with Autoware documents: [Go-Kart documentation](https://go-kart-upenn.readthedocs.io/en/latest/)
+- ROS 2 Foxy setup and autonomous code: [`ros2_foxy_purepursuit` branch](https://github.com/mlab-upenn/gokart-sensor/tree/ros2_foxy_purepursuit)
+- ROS 2 Humble setup and autonomous code: [`ros2_humble_purepursuit` branch](https://github.com/mlab-upenn/gokart-sensor/tree/ros2_humble_purepursuit)
+- STM32 Nucleo controller code: [`STM32 Control` folder](https://github.com/mlab-upenn/gokart-mechatronics/tree/main/STM32%20Control)
 
-- ROS 2 Humble setup and autonomous code: [Link](https://github.com/mlab-upenn/gokart-sensor/tree/ros2_humble_purepursuit)
+!!! note
 
-- STM32 nucleo controller code: [link](https://github.com/mlab-upenn/gokart-mechatronics/tree/main/STM32%20Control)
+    The Go-Kart code uses ROS 2 Foxy or ROS 2 Humble. Autoware 2.0.0 supports ROS 2 Humble on Ubuntu 22.04 and ROS 2 Jazzy on Ubuntu 24.04. To build Autoware for the Go-Kart, see [Source installation](../../../installation/autoware/source-installation.md).
 
 ## Contributors
 
--  Autoware Center of Excellence (under Prof. Rahul Mangharam)
+- Autoware Center of Excellence (under Prof. Rahul Mangharam)
 
-## Targeted Use Cases
+## Targeted use cases
 
 | Use Cases: |             Education             |              Racing               |                PoC                 |             Open AD Kit             |   Commercial Services/Production    |
 | :--------: | :-------------------------------: | :-------------------------------: | :--------------------------------: | :---------------------------------: | :---------------------------------: |
@@ -37,34 +45,38 @@ One is interested in building your small size autonomous vehicles and looks for 
 | :-----: | :---------------------------------: | :--------------------------------: | :---------------------------------: | :---------------------------------: | :---------------------------------: |
 | Go-Kart | <input type="checkbox" disabled  /> | <input type="checkbox" disabled /> | <input type="checkbox" disabled  /> | <input type="checkbox" disabled  /> | <input type="checkbox" disabled  /> |
 
-## Automation Level
+## Automation level
 
 | Automation Level |                 0                  |                 1                  |                 2                 |                 3                  |                  4                  |                  5                  |
 | :--------------: | :--------------------------------: | :--------------------------------: | :-------------------------------: | :--------------------------------: | :---------------------------------: | :---------------------------------: |
 |     Go-Kart      | <input type="checkbox" checked  /> | <input type="checkbox" checked  /> | <input type="checkbox" checked /> | <input type="checkbox" checked  /> | <input type="checkbox" disabled  /> | <input type="checkbox" disabled  /> |
 
-## System Architecture
+## System architecture
 
-Autonomous Go-Kart is a one-third scale autonomous go-kart autonomous vehicle for development and prototyping purpose. It can be used for developing and testing software components in Autoware.
+The autonomous Go-Kart is a one-third scale autonomous vehicle for development and prototyping. You can use it to develop and test software components of Autoware. The photo shows the drive-by-wire parts: the drive motor with throttle-by-wire, the upper and lower steer-by-wire, the brake-by-wire, and the back shelf with the main controller.
 
-![System Architecture](https://raw.githubusercontent.com/mlab-upenn/Go-Kart/45e3f067209b3805c7d544e4d88beb27d8ee5934/docs/source/avev_gokart.png)
+![The Go-Kart with its drive-by-wire parts](https://raw.githubusercontent.com/mlab-upenn/Go-Kart/45e3f067209b3805c7d544e4d88beb27d8ee5934/docs/source/avev_gokart.png)
 
-## Hardware Configuration
+## Hardware configuration
 
 ### Chassis
 
-- TopKart: [link to purchase](https://go-kart-upenn.readthedocs.io/en/latest/Bom.html)
+- TopKart: [bill of materials and purchase links](https://go-kart-upenn.readthedocs.io/en/latest/Bom.html)
 
 ### Sensors
 
-- Lidar: Ouster LIDAR OS1 and Velodyne M1600
+- LiDAR: Ouster OS1 and Velodyne Velarray M1600
 - Camera: OAK-D camera
-- GNSS: RTK-GNSS
+- GNSS: RTK-GNSS (Septentrio receiver)
+- IMU: Adafruit 9-DoF IMU
 
-### Computing Platforms
+### Computing platforms
 
-- X86 laptop with nVidia GPU
+- x86 laptop with NVIDIA GPU
+- STM32 Nucleo microcontroller boards (Nucleo L432KC and Nucleo F439ZI)
 
-## Software Configuration
+## Software configuration
 
-![GoKart-ComputeSensing.png](https://github.com/mlab-upenn/Go-Kart/blob/45e3f067209b3805c7d544e4d88beb27d8ee5934/docs/source/Build-the-Kart/imgs/Software/compute.png?raw=true)
+The diagram shows how the sensors and the microcontrollers connect to the computer.
+
+{{ diagram("images/gokart-compute-sensing.svg", "The Go-Kart sensors and microcontrollers connect to the computer over Ethernet, USB, and USB-TTL.") }}

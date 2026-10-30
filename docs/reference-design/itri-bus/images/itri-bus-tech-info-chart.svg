@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 660" role="img" aria-labelledby="itri-bus-tech-info-chart-title">
+  <title id="itri-bus-tech-info-chart-title">
+    Tech-info radar chart of the ITRI bus: payload 3, cost 3, communication 4, vehicle speed 1, distance between disengagements 2, and power consumption 2.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-cyan: #00c8ff; --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-muted: var(--md-default-fg-color--light); --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .lanelet {
+  fill: color-mix(in srgb, var(--aw-indigo) 38%, transparent);
+  stroke: none;
+} .bound {
+  fill: none;
+  stroke: var(--aw-cyan);
+  stroke-width: 2.5;
+} .bound.point {
+  fill: var(--aw-cyan);
+  stroke: none;
+} .leader {
+  fill: none;
+  stroke: var(--aw-d-muted);
+  stroke-width: 1;
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .glow {
+  filter: url("#aw-glow");
+}
+  </style>
+  <defs data-aw-standalone="">
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <filter id="aw-glow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="820" height="660"/>
+  <circle class="halo" cx="410" cy="360" r="230"/>
+  <circle class="halo cyan" cx="580" cy="210" r="110"/>
+
+  <!-- Panel and heading -->
+  <rect class="glass-panel" x="20" y="20" width="780" height="620" rx="22"/>
+  <text class="ttl" x="44" y="52">Tech-info chart</text>
+  <text class="sub" x="44" y="72">ITRI bus. Each axis has a value from 0 to 5.</text>
+
+  <!-- Grid: one ring for each value from 1 to 5, and one spoke for each axis -->
+  <path class="leader" d="M410.0 322.0 L442.9 341.0 L442.9 379.0 L410.0 398.0 L377.1 379.0 L377.1 341.0 Z"/>
+  <path class="leader" d="M410.0 284.0 L475.8 322.0 L475.8 398.0 L410.0 436.0 L344.2 398.0 L344.2 322.0 Z"/>
+  <path class="leader" d="M410.0 246.0 L508.7 303.0 L508.7 417.0 L410.0 474.0 L311.3 417.0 L311.3 303.0 Z"/>
+  <path class="leader" d="M410.0 208.0 L541.6 284.0 L541.6 436.0 L410.0 512.0 L278.4 436.0 L278.4 284.0 Z"/>
+  <path class="leader" d="M410.0 170.0 L574.5 265.0 L574.5 455.0 L410.0 550.0 L245.5 455.0 L245.5 265.0 Z"/>
+  <path class="leader" d="M410 360 L410.0 170.0"/>
+  <path class="leader" d="M410 360 L574.5 265.0"/>
+  <path class="leader" d="M410 360 L574.5 455.0"/>
+  <path class="leader" d="M410 360 L410.0 550.0"/>
+  <path class="leader" d="M410 360 L245.5 455.0"/>
+  <path class="leader" d="M410 360 L245.5 265.0"/>
+  <text class="edge-lbl" x="402" y="360.0" text-anchor="end" dominant-baseline="central">0</text>
+  <text class="edge-lbl" x="402" y="322.0" text-anchor="end" dominant-baseline="central">1</text>
+  <text class="edge-lbl" x="402" y="284.0" text-anchor="end" dominant-baseline="central">2</text>
+  <text class="edge-lbl" x="402" y="246.0" text-anchor="end" dominant-baseline="central">3</text>
+  <text class="edge-lbl" x="402" y="208.0" text-anchor="end" dominant-baseline="central">4</text>
+  <text class="edge-lbl" x="402" y="170.0" text-anchor="end" dominant-baseline="central">5</text>
+
+  <!-- ITRI bus -->
+  <path class="lanelet" d="M410.0 246.0 L508.7 303.0 L541.6 436.0 L410.0 398.0 L344.2 398.0 L344.2 322.0 Z"/>
+  <path class="bound glow" d="M410.0 246.0 L508.7 303.0 L541.6 436.0 L410.0 398.0 L344.2 398.0 L344.2 322.0 Z"/>
+  <circle class="bound point" cx="410.0" cy="246.0" r="4.5"/>
+  <circle class="bound point" cx="508.7" cy="303.0" r="4.5"/>
+  <circle class="bound point" cx="541.6" cy="436.0" r="4.5"/>
+  <circle class="bound point" cx="410.0" cy="398.0" r="4.5"/>
+  <circle class="bound point" cx="344.2" cy="398.0" r="4.5"/>
+  <circle class="bound point" cx="344.2" cy="322.0" r="4.5"/>
+
+  <!-- Axis names and values -->
+  <text class="lbl" x="410.0" y="119.0" text-anchor="middle" dominant-baseline="central">Payload</text>
+  <text class="sub" x="410.0" y="137.0" text-anchor="middle" dominant-baseline="central">3</text>
+  <text class="lbl" x="595.3" y="244.0" text-anchor="start" dominant-baseline="central">Cost</text>
+  <text class="sub" x="595.3" y="262.0" text-anchor="start" dominant-baseline="central">3</text>
+  <text class="lbl" x="595.3" y="458.0" text-anchor="start" dominant-baseline="central">Communication</text>
+  <text class="sub" x="595.3" y="476.0" text-anchor="start" dominant-baseline="central">4</text>
+  <text class="lbl" x="410.0" y="577.0" text-anchor="middle" dominant-baseline="central">Vehicle speed</text>
+  <text class="sub" x="410.0" y="595.0" text-anchor="middle" dominant-baseline="central">1</text>
+  <text class="lbl" x="224.7" y="449.5" text-anchor="end" dominant-baseline="central">Distance between</text>
+  <text class="lbl" x="224.7" y="466.5" text-anchor="end" dominant-baseline="central">disengagements</text>
+  <text class="sub" x="224.7" y="484.5" text-anchor="end" dominant-baseline="central">2</text>
+  <text class="lbl" x="224.7" y="244.0" text-anchor="end" dominant-baseline="central">Power consumption</text>
+  <text class="sub" x="224.7" y="262.0" text-anchor="end" dominant-baseline="central">2</text>
+</svg>

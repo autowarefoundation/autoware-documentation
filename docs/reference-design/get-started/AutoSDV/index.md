@@ -1,4 +1,6 @@
-# Overview
+# AutoSDV
+
+## Overview
 
 <p align="center">
   <img src="images/logo_brand_black.png" alt="AutoSDV Logo" width="300"/>
@@ -6,7 +8,7 @@
 
 The AutoSDV project (Autoware Software-Defined Vehicle) is an affordable 1/10 scale autonomous driving platform developed by NEWSLab at National Taiwan University. It provides a complete stack from hardware specifications to software implementation for educational and research institutes.
 
-## Platform Models
+## Platform models
 
 | Feature          | Base        | 360° LiDAR            | Solid-State        | Connected          |
 | ---------------- | ----------- | --------------------- | ------------------ | ------------------ |
@@ -36,7 +38,7 @@ The AutoSDV project (Autoware Software-Defined Vehicle) is an affordable 1/10 sc
   </tr>
 </table>
 
-## Core Components
+## Core components
 
 | Component    | Specification                |
 | ------------ | ---------------------------- |
@@ -49,13 +51,16 @@ The AutoSDV project (Autoware Software-Defined Vehicle) is an affordable 1/10 sc
 
 ## Software
 
-AutoSDV runs on Autoware with ROS 2, providing autonomous navigation capabilities for outdoor environments.
+AutoSDV runs on Autoware with ROS 2, providing autonomous navigation capabilities for outdoor environments. The AutoSDV repository defines all version dependencies in its [`versions.yaml`](https://github.com/NEWSLabNTU/AutoSDV/blob/main/versions.yaml) file.
 
 | Component       | Details                                         |
 | --------------- | ----------------------------------------------- |
-| **Autoware**    | Autoware.universe                               |
+| **Autoware**    | Autoware 2025.02 (AutoSDV v0.1.0)               |
+| **JetPack**     | 6.0                                             |
 | **ROS**         | ROS 2 Humble                                    |
 | **Source Code** | [GitHub](https://github.com/NEWSLabNTU/AutoSDV) |
+
+AutoSDV v0.1.0 is based on Autoware 2025.02, a release from before Autoware 2.0.0.
 
 ## Resources
 

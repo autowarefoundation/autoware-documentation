@@ -1,5 +1,6 @@
 nav:
   - index.md
+  - Get started: get-started
   - Reference HW: reference-hw
   - metrics.md
   - ITRI Bus: itri-bus

@@ -24,7 +24,7 @@ TIER IV sensor fusion system contents are listed below:
 | TIER IV ADK             | TIER IV C1, C2 | HESAI (AT-128,XT-32)<br>Velodyne | ADLINK (RQX-58G, AVA-3510) | Y             | Y                     |
 
 Link to company website:  
-[https://sensor.tier4.jp/sensor-fusion-system](https://sensor.tier4.jp/sensor-fusion-system)
+[https://edge.auto/sensor-fusion-system](https://edge.auto/sensor-fusion-system)
 
 ## **RoboSense AD Sensor Kit**
 
