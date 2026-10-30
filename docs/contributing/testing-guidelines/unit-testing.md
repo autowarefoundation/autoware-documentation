@@ -11,7 +11,7 @@ The same framework is also used to analyze the test results.
 It currently supports a few different testing frameworks like `pytest`, `gtest`, and `gmock`.
 
 In order to prevent tests running in parallel from interfering with each other when publishing and subscribing to ROS topics,
-it is recommended to use commands from [`ament_cmake_ros`](https://github.com/ros2/ament_cmake_ros/tree/master/ament_cmake_ros/cmake) to run tests in isolation.
+it is recommended to use commands from [`ament_cmake_ros`](https://github.com/ros2/ament_cmake_ros/tree/humble/ament_cmake_ros/cmake) to run tests in isolation.
 
 See below for an example of using `ament_add_ros_isolated_gtest` with `colcon test`.
 All other tests follow a similar pattern.
@@ -65,7 +65,7 @@ while `EXPECT_*` will mark the test as failed but continue on to the next test c
     More information about `gtest` and its features can be found in the [gtest repo](https://github.com/google/googletest).
 
 In the demo `CMakeLists.txt`, `ament_add_ros_isolated_gtest` is a predefined macro in `ament_cmake_ros` that helps simplify adding `gtest` code.
-Details can be viewed in [ament_add_gtest.cmake](https://github.com/ros2/ament_cmake_ros/tree/master/ament_cmake_ros/cmake).
+Details can be viewed in [ament_add_ros_isolated_gtest.cmake](https://github.com/ros2/ament_cmake_ros/blob/humble/ament_cmake_ros/cmake/ament_add_ros_isolated_gtest.cmake).
 
 ## Build test
 
