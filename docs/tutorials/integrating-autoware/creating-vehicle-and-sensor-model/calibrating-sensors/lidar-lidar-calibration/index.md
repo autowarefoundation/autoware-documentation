@@ -73,6 +73,14 @@ Click `Launch`.
 RViz starts with the calibrator.
 You can save your RViz configuration for later use.
 
+The calibrator needs the `tf` of your vehicle and sensors.
+The bag does not give it, because the command below remaps the `tf` topics of the bag.
+In another terminal, publish the `tf` with `tier4_vehicle_launch`, as on the [manual calibration](../extrinsic-manual-calibration/index.md#checking-the-calibration-in-rviz) page:
+
+```bash
+ros2 launch tier4_vehicle_launch vehicle.launch.xml vehicle_model:=<OWN-VEHICLE-MODEL> sensor_model:=<OWN-SENSOR-KIT> launch_vehicle_interface:=false use_sim_time:=true
+```
+
 Then play ROS 2 bag file:
 
 ```bash
@@ -110,7 +118,8 @@ The green points indicate aligned point (calibration result).
 
 The sensor calibration manager shows the result in the `Calibration tree` and `Final TF tree` widgets.
 Click `Save calibration` to save the result to a file.
-Then copy the values to `sensor_kit_calibration.yaml` in your sensor kit description package.
+The result is the transformation from `mapping_lidar_frame` to each lidar in `calibration_lidar_frames`.
+Before you write it to `sensor_kit_calibration.yaml`, convert it to the transformation from `sensor_kit_base_link` to the base frame of the lidar (for example `rs_bpearl_front_base_link`). Use the other transformations of your `tf` tree for this conversion.
 
 Here is the video for demonstrating the mapping-based lidar-lidar calibration process on tutorial_vehicle.
 The video shows an earlier version of CalibrationTools, so the windows look different.

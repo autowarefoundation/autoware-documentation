@@ -211,7 +211,8 @@
     <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
     <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
   </g>
-  <text class="note" x="306" y="500" dominant-baseline="central">Ego vehicle</text>
+  <path class="leader" d="M352 490 H298"/>
+  <text class="note" x="358" y="490" dominant-baseline="central">Ego vehicle</text>
 
   <!-- Notes -->
   <path class="leader" d="M150 76 L231 403 M150 76 L300 404 M150 76 L533 141 M150 76 L573 211"/>

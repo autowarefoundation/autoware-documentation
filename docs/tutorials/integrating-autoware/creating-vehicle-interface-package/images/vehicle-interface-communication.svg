@@ -178,8 +178,8 @@
   <path class="edge" fill="none" d="M300 96 H418 V124"/>
   <path class="flow" pathLength="100" d="M300 96 H418 V124"/>
   <path class="edge head" fill="none" d="M300 96 H418 V124"/>
-  <text class="edge-lbl" x="372" y="80" text-anchor="middle" dominant-baseline="central">Turn indicators,</text>
-  <text class="edge-lbl" x="372" y="114" text-anchor="middle" dominant-baseline="central">hazard lights</text>
+  <text class="edge-lbl" x="366" y="66" text-anchor="middle" dominant-baseline="central">Turn indicators,</text>
+  <text class="edge-lbl" x="366" y="82" text-anchor="middle" dominant-baseline="central">hazard lights</text>
   <path class="edge" fill="none" d="M300 290 H418 V256"/>
   <path class="flow" pathLength="100" d="M300 290 H418 V256"/>
   <path class="edge head" fill="none" d="M300 290 H418 V256"/>

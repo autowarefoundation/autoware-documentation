@@ -1,4 +1,4 @@
-# Creating individual params
+# Sensor calibration files (formerly individual params)
 
 ## Introduction
 

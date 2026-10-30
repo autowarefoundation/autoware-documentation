@@ -672,6 +672,7 @@ For tutorial_vehicle,
 we use the [Lucid Vision TRIO54S](https://thinklucid.com/product/triton-5-mp-imx490/) camera
 with the [lucid_vision_driver](https://github.com/autowarefoundation/lucid_vision_driver) at the [autowarefoundation](https://github.com/autowarefoundation) organization.
 This driver supports image rectification, so there is no need to add `image_proc` for tutorial_vehicle.
+The [`camera.launch.xml`](https://github.com/leo-drive/tutorial_vehicle_sensor_kit_launch/blob/main/tutorial_vehicle_sensor_kit_launch/launch/camera.launch.xml) of tutorial_vehicle is in the `tutorial_vehicle_sensor_kit_launch` repository. It was written for an earlier Autoware version.
 
 We will add our sensor driver to sensor_kit_launch's `package.xml` dependencies.
 
@@ -789,6 +790,8 @@ our `gnss.launch.xml` for tutorial vehicle looks like this:
       </group>
     </launch>
     ```
+
+The original [`gnss.launch.xml`](https://github.com/leo-drive/tutorial_vehicle_sensor_kit_launch/blob/main/tutorial_vehicle_sensor_kit_launch/launch/gnss.launch.xml) of tutorial_vehicle, for an earlier Autoware version, is in the `tutorial_vehicle_sensor_kit_launch` repository.
 
 Clap B7 includes an IMU also, so for tutorial_vehicle we use its IMU topic in `imu.launch.xml`, as the next section explains.
 

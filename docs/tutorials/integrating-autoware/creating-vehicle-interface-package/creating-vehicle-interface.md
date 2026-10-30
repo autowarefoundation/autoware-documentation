@@ -54,7 +54,8 @@ Here are some factors that might be considered:
 | /vehicle/status/actuation_status       | tier4_vehicle_msgs/msg/ActuationStatusStamped  | This topic is necessary only for Type B. It reports the current accelerator, brake, and steering values to `autoware_raw_vehicle_cmd_converter`. Please check [ActuationStatusStamped](https://github.com/tier4/tier4_autoware_msgs/blob/tier4/universe/tier4_vehicle_msgs/msg/ActuationStatusStamped.msg) message type for detailed information. |
 | etc.                                   | etc.                                           | etc.                                                                                                                                                                                                                                                                                                                                              |
 
-The [vehicle interface design](../../../design/autoware-architecture-v1/interfaces/components/vehicle-interface.md) page lists all inputs and outputs of the vehicle interface, with their QoS settings.
+The [vehicle interface design](../../../design/autoware-architecture-v1/interfaces/components/vehicle-interface.md) page lists all inputs and outputs of the vehicle interface.
+The [component interfaces](../../../design/autoware-architecture-v1/interfaces/components/index.md) page lists their QoS settings.
 
 This diagram as an example for communication of vehicle interface and autoware
 with describing sample topics and message types.

@@ -127,15 +127,9 @@
 
   <!-- Wheel velocities of robot 1: the right side is faster -->
   <path class="edge accent" d="M102 196 V132"/>
-  <text class="lbl" x="102" y="118" text-anchor="middle" dominant-baseline="central">
-    v
-    <tspan class="sub" dy="5">l</tspan>
-  </text>
+  <text class="lbl" x="102" y="118" text-anchor="middle" dominant-baseline="central">vₗ</text>
   <path class="edge accent" d="M278 196 V64"/>
-  <text class="lbl" x="278" y="50" text-anchor="middle" dominant-baseline="central">
-    v
-    <tspan class="sub" dy="5">r</tspan>
-  </text>
+  <text class="lbl" x="278" y="50" text-anchor="middle" dominant-baseline="central">vᵣ</text>
 
   <!-- Turn direction of robot 1 -->
   <path class="route" fill="none" d="M214 160 Q214 70 150 62 Q100 58 64 86"/>
@@ -152,15 +146,9 @@
 
   <!-- Wheel velocities of robot 2: the left side is faster -->
   <path class="edge accent" d="M464 242 V64"/>
-  <text class="lbl" x="464" y="50" text-anchor="middle" dominant-baseline="central">
-    v
-    <tspan class="sub" dy="5">l</tspan>
-  </text>
+  <text class="lbl" x="464" y="50" text-anchor="middle" dominant-baseline="central">vₗ</text>
   <path class="edge accent" d="M656 242 V132"/>
-  <text class="lbl" x="656" y="118" text-anchor="middle" dominant-baseline="central">
-    v
-    <tspan class="sub" dy="5">r</tspan>
-  </text>
+  <text class="lbl" x="656" y="118" text-anchor="middle" dominant-baseline="central">vᵣ</text>
 
   <!-- Turn direction of robot 2 -->
   <path class="route" fill="none" d="M546 160 Q546 70 610 62 Q660 58 696 86"/>

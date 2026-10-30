@@ -59,6 +59,14 @@ Click `Launch`.
 RViz starts with the calibrator.
 You can save your RViz configuration for later use.
 
+The calibrator needs the `tf` of your vehicle and sensors.
+The bag does not give it, because the command below remaps the `tf` topics of the bag.
+In another terminal, publish the `tf` with `tier4_vehicle_launch`, as on the [manual calibration](../extrinsic-manual-calibration/index.md#checking-the-calibration-in-rviz) page:
+
+```bash
+ros2 launch tier4_vehicle_launch vehicle.launch.xml vehicle_model:=<OWN-VEHICLE-MODEL> sensor_model:=<OWN-SENSOR-KIT> launch_vehicle_interface:=false use_sim_time:=true
+```
+
 Then play ROS 2 bag file:
 
 ```bash

@@ -66,6 +66,8 @@ ros2 run interactive_camera_lidar_calibrator interactive_calibrator --ros-args \
   -r camera_info:=<CAMERA-INFO-TOPIC> \
   -p image_frame:=<CAMERA-OPTICAL-FRAME> \
   -p lidar_frame:=<LIDAR-FRAME> \
+  -p parent_frame:=<SENSOR-KIT-BASE-LINK> \
+  -p child_frame:=<CAMERA-LINK> \
   -p use_compressed:=false \
   -p use_calibration_api:=false \
   -p use_sim_time:=true
@@ -80,6 +82,8 @@ ros2 run interactive_camera_lidar_calibrator interactive_calibrator --ros-args \
   -r camera_info:=/sensing/camera/camera0/camera_info \
   -p image_frame:=camera0/camera_optical_link \
   -p lidar_frame:=rs_helios_top \
+  -p parent_frame:=sensor_kit_base_link \
+  -p child_frame:=camera0/camera_link \
   -p use_compressed:=false \
   -p use_calibration_api:=false \
   -p use_sim_time:=true
@@ -125,6 +129,7 @@ The calibrator saves the point pairs and the calibrated transformation from the 
 If you also set the `parent_frame` and `child_frame` parameters (for example `sensor_kit_base_link` and `camera0/camera_link`), it saves the transformation between these two frames in `tf_postprocessed.yaml`.
 Then you need
 to update the calibration values in `sensor_kit_calibration.yaml` of your `sensor_kit_description` package.
+Copy the values from `tf_postprocessed.yaml`, because this file uses the same frames as `sensor_kit_calibration.yaml`.
 
 Here is the video
 for demonstrating the lidar-camera calibration process on tutorial_vehicle.

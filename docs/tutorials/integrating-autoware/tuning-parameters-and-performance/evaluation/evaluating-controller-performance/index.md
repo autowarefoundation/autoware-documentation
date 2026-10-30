@@ -35,7 +35,7 @@ source ~/autoware/install/setup.bash
 ros2 run plotjuggler plotjuggler
 ```
 
-- If you do not have PlotJuggler in your computer, please follow the [PlotJuggler installation guide](https://github.com/facontidavide/PlotJuggler#how-to-get-started). The `dev_tools` role of the Autoware setup script installs it with the `ros-$ROS_DISTRO-plotjuggler-ros` package.
+- If you do not have PlotJuggler with its ROS 2 plugins, install it with `sudo apt install ros-$ROS_DISTRO-plotjuggler-ros`. The `dev_tools` role of the Autoware setup script installs only the `ros-$ROS_DISTRO-plotjuggler` package, which does not have the ROS 2 plugins.
 
 #### 5. Increase the buffer size (maximum is 100), and import the layout from `src/universe/autoware_universe/control/autoware_control_performance_analysis/config/controller_monitor.xml`
 

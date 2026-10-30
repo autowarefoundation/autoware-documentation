@@ -80,10 +80,10 @@ Then do these steps:
 
 1. Select a project and a calibrator, and click `Continue`. A project is a set of launch files for one vehicle type. The `default_project` shows most parameters of each calibrator, so you can use it with your own vehicle without new files.
 2. Set the arguments of the launch file in the `Launcher configuration` window, for example the frame names and the topic names of your sensors. Then click `Launch`.
-3. Play your rosbag, or start your sensors. When the calibrator service and the required `tf` frames are available, the `Calibrate` button becomes active.
+3. Play your rosbag, or start your sensors. When the calibrator service and the required `tf` frames are available, the `Calibrate` button becomes active. If you remap the `tf` topics of the rosbag, publish the `tf` of your vehicle with `tier4_vehicle_launch` (see the [manual calibration](../extrinsic-manual-calibration/index.md#checking-the-calibration-in-rviz) page).
 4. Click `Calibrate`. Some calibrators need more input, for example points that you select in RViz.
 5. Check the result in the `Calibration tree` and `Final TF tree` widgets, and click `Save calibration`.
-6. Copy the calibrated values to `sensor_kit_calibration.yaml` or `sensors_calibration.yaml` in your sensor kit description package, and build the package again.
+6. Copy the calibrated values to `sensor_kit_calibration.yaml` or `sensors_calibration.yaml` in your sensor kit description package, and build the package again. If the saved frames are different from the frames in these files, convert the values first. The page of each calibrator tells you which frames it saves.
 
 The manager remembers your last configuration in `~/.config/tier4/sensor_calibration_manager.conf`.
 If you calibrate your vehicles often, you can create your own project with your frame names and topic names.

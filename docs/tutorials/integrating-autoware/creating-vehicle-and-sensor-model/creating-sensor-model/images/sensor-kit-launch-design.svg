@@ -228,12 +228,12 @@
   <rect class="card" x="60" y="226" width="160" height="48" rx="12"/>
   <text class="lbl" x="140" y="242" text-anchor="middle" dominant-baseline="central">Crop box filter</text>
   <text class="sub" x="140" y="260" text-anchor="middle" dominant-baseline="central">Vehicle body and mirrors</text>
-  <rect class="card" x="60" y="290" width="160" height="44" rx="12"/>
-  <text class="lbl" x="140" y="312" text-anchor="middle" dominant-baseline="central">Distortion corrector</text>
-  <rect class="card" x="60" y="350" width="160" height="44" rx="12"/>
-  <text class="lbl" x="140" y="372" text-anchor="middle" dominant-baseline="central">Ring outlier filter</text>
-  <text class="ttl" x="140" y="424" text-anchor="middle">Pointcloud preprocessor</text>
-  <text class="code" x="140" y="446" text-anchor="middle" dominant-baseline="central">autoware_sensing_launch</text>
+  <rect class="card" x="60" y="298" width="160" height="40" rx="12"/>
+  <text class="lbl" x="140" y="318" text-anchor="middle" dominant-baseline="central">Distortion corrector</text>
+  <rect class="card" x="60" y="362" width="160" height="40" rx="12"/>
+  <text class="lbl" x="140" y="382" text-anchor="middle" dominant-baseline="central">Ring outlier filter</text>
+  <text class="ttl" x="140" y="432" text-anchor="middle">Pointcloud preprocessor</text>
+  <text class="code" x="140" y="452" text-anchor="middle" dominant-baseline="central">autoware_sensing_launch</text>
 
   <rect class="box primary" x="60" y="490" width="160" height="56" rx="10"/>
   <text class="lbl on-primary" x="140" y="510" text-anchor="middle" dominant-baseline="central">Concatenation</text>
@@ -269,11 +269,11 @@
   <path class="edge" d="M520 196 V220"/>
   <path class="edge" d="M700 196 V220"/>
   <path class="edge accent" d="M140 196 V218"/>
-  <path class="edge accent" d="M140 274 V282"/>
-  <path class="edge accent" d="M140 334 V342"/>
-  <path class="edge accent" fill="none" d="M60 372 H44 V518 H52"/>
-  <path class="flow flow-accent" pathLength="100" d="M60 372 H44 V518 H52"/>
-  <path class="edge accent head" fill="none" d="M60 372 H44 V518 H52"/>
+  <path class="edge accent" d="M140 274 V290"/>
+  <path class="edge accent" d="M140 338 V354"/>
+  <path class="edge accent" fill="none" d="M60 382 H44 V518 H52"/>
+  <path class="flow flow-accent" pathLength="100" d="M60 382 H44 V518 H52"/>
+  <path class="edge accent head" fill="none" d="M60 382 H44 V518 H52"/>
 
   <!-- Second stage to the outputs -->
   <path class="edge" d="M780 256 H792"/>
