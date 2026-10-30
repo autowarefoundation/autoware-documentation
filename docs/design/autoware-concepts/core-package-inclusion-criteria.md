@@ -67,15 +67,17 @@ Promotion is a deliberate port, not a copy:
 
 ## The CUDA layer
 
-Core is planned to ship in two forms: the default CPU-only packages, and an optional GPU layer in the [`autoware_cuda`](https://github.com/autowarefoundation/autoware_cuda) repository, built into separate CUDA images.
+Core ships in two forms: the default CPU-only packages, and an optional GPU layer.
 A package that needs CUDA or TensorRT can still be Core, but only in this layer, so the default build never requires a GPU.
 
-The shared CUDA/TensorRT base (`autoware_cuda_dependency_meta`, `autoware_cuda_utils`, and `autoware_tensorrt_common`) is the first candidate for this layer.
-It is Core-quality: it depends only on these packages, Core tooling, ROS, and one external CMake module, with nothing from Universe, and many downstream GPU packages build on it.
-`autoware_tensorrt_plugins` stays in Universe, because it still changes often and only a few packages use it.
+The CUDA layer has two repositories, both cloned under `src/core/cuda/`:
 
-!!! info "Current state"
+- [`autoware_cuda`](https://github.com/autowarefoundation/autoware_cuda) holds the shared CUDA/TensorRT base: `autoware_cuda_dependency_meta`, `autoware_cuda_utils`, and `autoware_tensorrt_common`.
+- [`cuda_blackboard`](https://github.com/autowarefoundation/cuda_blackboard) lets nodes share data on the GPU without a copy to the host.
 
-    The `autoware_cuda` repository holds the three base packages, but it has no release yet.
-    The `autoware.repos` file of Autoware 2.0.0 does not include `autoware_cuda`, so Autoware 2.0.0 builds these packages from [Autoware Universe](https://github.com/autowarefoundation/autoware_universe).
-    The issue [Extract the shared CUDA base packages into a new autoware_cuda repository](https://github.com/autowarefoundation/autoware/issues/7340) tracks the move.
+Only the CUDA images (`autoware-core-*-cuda` and the images built on them) build this layer.
+The CPU-only Core images do not build `src/core/cuda`.
+Autoware 2.0.0 does not have this layer yet: it builds these packages from Autoware Universe.
+
+The shared base is Core-quality: it depends only on its own packages, Core tooling, ROS, and one external CMake module, with nothing from Universe, and many downstream GPU packages build on it.
+`autoware_tensorrt_plugins` stays in [Autoware Universe](https://github.com/autowarefoundation/autoware_universe), because it still changes often and only a few packages use it.
