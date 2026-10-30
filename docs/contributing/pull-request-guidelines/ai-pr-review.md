@@ -1,6 +1,7 @@
-# AI PR Review
+# AI PR review
 
-We have [Codium-ai/pr-agent](https://github.com/Codium-ai/pr-agent/tree/main) enabled for Autoware Universe repository.
+We have [PR-Agent](https://github.com/The-PR-Agent/pr-agent) enabled for the [Autoware Universe](https://github.com/autowarefoundation/autoware_universe) repository.
+The workflow uses OpenAI `gpt-4o` as its model.
 
 ## The workflow
 
@@ -8,7 +9,8 @@ Workflow: [pr-agent.yaml](https://github.com/autowarefoundation/autoware_univers
 
 ### Additional links for the workflow maintainers
 
-- [Available models list](https://github.com/Codium-ai/pr-agent/blob/main/pr_agent/algo/__init__.py)
+- [Available models list](https://github.com/The-PR-Agent/pr-agent/blob/main/pr_agent/algo/__init__.py)
+- [Changing a model](https://docs.pr-agent.ai/usage-guide/changing_a_model/)
 
 ## How to use
 
@@ -23,7 +25,7 @@ Wait until both PR-Agent jobs are completed successfully:
 
     If you add multiple labels at the same time, `prevent-no-label-execution` can get confused.
 
-    For example, first add `tag:pr-agent`, wait until it is ready, then add `tag:run-build-and-test-differential` if you need it.
+    For example, first add `tag:pr-agent`, wait until it is ready, then add `run:build-and-test-differential` if you need it.
 
 Then you can pick one of the following commands:
 
@@ -37,10 +39,10 @@ Then you can pick one of the following commands:
 /help: Get a list of all available PR-Agent tools and their descriptions.
 ```
 
-- [Here is the official documentation](https://pr-agent-docs.codium.ai/tools/).
-- [Usage Guide](https://pr-agent-docs.codium.ai/usage-guide/automations_and_usage/#online-usage)
+- [PR-Agent tools documentation](https://docs.pr-agent.ai/tools/)
+- [PR-Agent usage guide](https://docs.pr-agent.ai/usage-guide/automations_and_usage/#online-usage)
 
-To use it, [drop a comment post within your PR like this](https://github.com/Codium-ai/pr-agent/pull/229#issuecomment-1695021901).
+To use it, [drop a comment post within your PR like this](https://github.com/The-PR-Agent/pr-agent/pull/229#issuecomment-1695021901).
 
 Within a minute, you should see 👀 reaction under your comment post.
 

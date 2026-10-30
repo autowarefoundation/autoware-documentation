@@ -30,7 +30,7 @@ A typical integration-test framework has three parts:
 2. A series of expected outputs that should match the output of the executables.
 3. A launcher that starts the tests, compares the outputs to the expected outputs, and determines if the test passes.
 
-In Autoware, we use the [launch_testing](https://github.com/ros2/launch/tree/master/launch_testing) framework.
+In Autoware, we use the [launch_testing](https://github.com/ros2/launch/tree/humble/launch_testing) framework.
 
 ### Smoke tests
 
@@ -76,6 +76,7 @@ you can follow the example of the `lanelet2_map_loader` in the [`autoware_map_lo
 In [`package.xml`](https://github.com/autowarefoundation/autoware_core/blob/main/map/autoware_map_loader/package.xml), add:
 
 ```xml
+<test_depend>launch_testing_ament_cmake</test_depend>
 <test_depend>ros_testing</test_depend>
 ```
 
@@ -84,7 +85,7 @@ add or modify the `BUILD_TESTING` section:
 
 ```cmake
 if(BUILD_TESTING)
-  add_ros_test(
+  add_launch_test(
     test/lanelet2_map_loader_launch.test.py
     TIMEOUT "30"
   )
@@ -95,15 +96,19 @@ if(BUILD_TESTING)
 endif()
 ```
 
-In addition to the command `add_ros_test`, we also install any data that is required by the test using the `install` command.
+In addition to the command `add_launch_test`, we also install any data that is required by the test using the `install` command.
+
+`add_launch_test` comes from `launch_testing_ament_cmake`.
+The `add_ros_test` command from `ros_testing` takes the same arguments.
+`add_ros_test` runs the test with `ros2 test`, which picks a unique `ROS_DOMAIN_ID` for each test.
+This prevents interference between tests that run in parallel.
 
 !!! note
 
-    - The `TIMEOUT` argument is given in seconds; see the [add_ros_test.cmake file](https://github.com/ros2/ros_testing/blob/master/ros_testing/cmake/add_ros_test.cmake) for details.
-    - The `add_ros_test` command will run the test in a unique `ROS_DOMAIN_ID` which avoids interference between tests running in parallel.
+    - The `TIMEOUT` argument is given in seconds. For details, see the [add_launch_test.cmake file](https://github.com/ros2/launch/blob/humble/launch_testing_ament_cmake/cmake/add_launch_test.cmake) and the [add_ros_test.cmake file](https://github.com/ros2/ros_testing/blob/humble/ros_testing/cmake/add_ros_test.cmake).
 
 To create a test,
-either read the [launch_testing quick-start example](https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example),
+either read the [launch_testing quick-start example](https://github.com/ros2/launch/tree/humble/launch_testing#quick-start-example),
 or follow the steps below.
 
 Taking [`test/lanelet2_map_loader_launch.test.py`](https://github.com/autowarefoundation/autoware_core/blob/main/map/autoware_map_loader/test/lanelet2_map_loader_launch.test.py) as an example,
@@ -136,7 +141,16 @@ def generate_test_description():
     lanelet2_map_loader = Node(
         package="autoware_map_loader",
         executable="autoware_lanelet2_map_loader",
-        parameters=[{"lanelet2_map_path": lanelet2_map_path}],
+        parameters=[
+            {
+                "lanelet2_map_path": lanelet2_map_path,
+                "center_line_resolution": 5.0,
+                "use_waypoints": True,
+                "allow_unsupported_version": True,
+                "enable_selected_map_loading": False,
+                "lanelet2_map_metadata_path": "",
+            }
+        ],
     )
 
     context = {}
@@ -208,11 +222,16 @@ The simple test described in [Integration test with a single node: component tes
 #### Testing the output of a node
 
 To test while the node is running,
-create an [_active test_](https://github.com/ros2/launch/tree/foxy/launch_testing#active-tests) by adding a subclass of Python's `unittest.TestCase` to `*launch.test.py`.
+create an [_active test_](https://github.com/ros2/launch/tree/humble/launch_testing#active-tests) by adding a subclass of Python's `unittest.TestCase` to `*launch.test.py`.
 Some boilerplate code is required to access output by creating a node and a subscription to a particular topic, e.g.
 
 ```python
+import time
 import unittest
+
+import rclpy
+from rclpy.context import Context
+from std_msgs.msg import String
 
 class TestRunningDataPublisher(unittest.TestCase):
 
@@ -229,9 +248,10 @@ class TestRunningDataPublisher(unittest.TestCase):
     def setUp(self):
         self.msgs = []
         sub = self.node.create_subscription(
-            msg_type=my_msg_type,
+            msg_type=String,
             topic="/info_test",
-            callback=self._msg_received
+            callback=self._msg_received,
+            qos_profile=10,
         )
         self.addCleanup(self.node.destroy_subscription, sub)
 
@@ -258,13 +278,13 @@ class TestRunningDataPublisher(unittest.TestCase):
         finally:
             executor.remove_node(self.node)
 
-    def test_message_content():
+    def test_message_content(self):
         msg = self.get_message()
-        self.assertEqual(msg, "Hello, world")
+        self.assertEqual(msg.data, "Hello, world")
 ```
 
 ## References
 
-- [colcon](https://github.com/ros2/ros2/wiki/Colcon-Tutorial) is used to build and run tests.
-- [launch testing](https://github.com/ros2/launch/tree/master/launch_testing) launches nodes and runs tests.
+- [colcon](https://colcon.readthedocs.io/en/released/) is used to build and run tests.
+- [launch testing](https://github.com/ros2/launch/tree/humble/launch_testing) launches nodes and runs tests.
 - [Testing guidelines](index.md) describes the different types of tests performed in Autoware and links to the corresponding guidelines.
