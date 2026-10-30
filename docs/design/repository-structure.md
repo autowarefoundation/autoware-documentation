@@ -12,7 +12,7 @@ Autoware has the following repository structure defined by the [`autoware.repos`
 
 !!! note
 
-    The diagram shows the repositories of Autoware 2.0.0. It leaves out some external packages of Universe, for example vendor packages of third-party libraries.
+    The diagram shows the repositories of the `main` branch of Autoware. It leaves out some external packages of Universe, for example vendor packages of third-party libraries.
 
 ## Important repositories
 
@@ -23,6 +23,12 @@ Here is an overview of the most important repositories:
 - Contains high-quality, well-tested packages essential for self-driving.
 - It has sensing, perception, localization, planning, control packages.
 - Maintained by the Autoware Foundation.
+
+### `autoware_cuda`
+
+- Contains the shared CUDA and TensorRT base packages: `autoware_cuda_dependency_meta`, `autoware_cuda_utils`, and `autoware_tensorrt_common`.
+- It is the optional CUDA layer of Core, together with `cuda_blackboard`. Only the CUDA images build it.
+- See [the CUDA layer](autoware-concepts/core-package-inclusion-criteria.md#the-cuda-layer).
 
 ### `autoware_universe`
 
