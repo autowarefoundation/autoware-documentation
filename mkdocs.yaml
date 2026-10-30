@@ -23,6 +23,8 @@ theme:
     - navigation.top
     - navigation.footer
     - navigation.tracking
+    - content.action.edit
+    - content.action.view
   favicon: assets/images/autoware-foundation.png
   font:
     text: Montserrat
@@ -30,6 +32,8 @@ theme:
   icon:
     logo: autoware/logo
     repo: fontawesome/brands/github
+    edit: material/pencil
+    view: fontawesome/brands/github
   language: en
   palette:
     - scheme: default
@@ -48,6 +52,10 @@ theme:
 extra:
   # The logo links to the home page itself, not to the redirect page at the root.
   homepage: home/
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/autowarefoundation/autoware-documentation
+      name: Source of this documentation on GitHub
   version:
     provider: mike
 
