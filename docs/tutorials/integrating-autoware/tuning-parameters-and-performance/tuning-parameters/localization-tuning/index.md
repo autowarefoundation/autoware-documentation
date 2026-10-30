@@ -30,20 +30,22 @@ ensuring optimal performance in the specific conditions of the YTU campus.
   may prove insufficient for aligning point clouds.
   The default NDT input point cloud parameters are shown below:
 
-!!! note "The default [crop_box_filter_measurement_range.param.yaml](https://github.com/autowarefoundation/autoware_launch/tree/main/autoware_launch/config/localization/ndt_scan_matcher/pointcloud_preprocessor/crop_box_filter_measurement_range.param.yaml) file for localization util."
+!!! note "The default [crop_box_filter_measurement_range.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_universe_launch/autoware_localization_config/config/ndt_scan_matcher/pointcloud_preprocessor/crop_box_filter_measurement_range.param.yaml) file for localization util."
 
     ```yaml
     /**:
       ros__parameters:
-      input_frame: "base_link"
-      output_frame: "base_link"
-      min_x: -60.0
-      max_x: 60.0
-      min_y: -60.0
-      max_y: 60.0
-      min_z: -30.0
-      max_z: 50.0
-      negative: False
+        input_frame: base_link
+        output_frame: base_link
+
+        min_x: -60.0
+        min_y: -60.0
+        min_z: -30.0
+        max_x: 60.0
+        max_y: 60.0
+        max_z: 50.0
+        negative: false
+        processing_time_threshold_sec: 0.01
     ```
 
 - The green points (topic name: `/localization/pose_estimator/points_aligned`)
@@ -63,24 +65,26 @@ ensuring optimal performance in the specific conditions of the YTU campus.
   please bear in mind that since this alteration enlarges the size of the NDT input point cloud,
   it will require additional resources on your processor.
 
-!!! note "[`crop_box_filter_measurement_range.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/localization/ndt_scan_matcher/pointcloud_preprocessor/crop_box_filter_measurement_range.param.yaml) parameter file:"
+!!! note "[`crop_box_filter_measurement_range.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_universe_launch/autoware_localization_config/config/ndt_scan_matcher/pointcloud_preprocessor/crop_box_filter_measurement_range.param.yaml) parameter file:"
 
     ```diff
     /**:
       ros__parameters:
-        input_frame: "base_link"
-        output_frame: "base_link"
+        input_frame: base_link
+        output_frame: base_link
+
     -   min_x: -60.0
     +   min_x: -150.0
-    -   max_x: 60.0
-    +   max_x: 150.0
     -   min_y: -60.0
     +   min_y: -150.0
+        min_z: -30.0
+    -   max_x: 60.0
+    +   max_x: 150.0
     -   max_y: 60.0
     +   max_y: 150.0
-        min_z: -30.0
         max_z: 50.0
-        negative: False
+        negative: false
+        processing_time_threshold_sec: 0.01
     ```
 
 <figure markdown>
@@ -102,15 +106,17 @@ ensuring optimal performance in the specific conditions of the YTU campus.
   reducing the voxel size can enhance localization accuracy.
   However, please be aware that this will demand more computational power.
 
-!!! note " The default [voxel_grid_filter.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/localization/ndt_scan_matcher/pointcloud_preprocessor/voxel_grid_filter.param.yaml) file for localization util."
+!!! note " The default [voxel_grid_filter.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_universe_launch/autoware_localization_config/config/ndt_scan_matcher/pointcloud_preprocessor/voxel_grid_filter.param.yaml) file for localization util."
 
     ```yaml
     /**:
       ros__parameters:
-      voxel_size_x: 3.0
-      voxel_size_y: 3.0
-      voxel_size_z: 3.0
+        voxel_size_x: 3.0 # {OVERRIDE}
+        voxel_size_y: 3.0 # {OVERRIDE}
+        voxel_size_z: 3.0 # {OVERRIDE}
     ```
+
+    The `# {OVERRIDE}` marker keeps these values when a workflow syncs this file with the default file of the package. Keep the marker when you change a value.
 
 - The default voxel size for downsampling is 3.0,
   and the resulting aligned points will resemble the image below.
@@ -126,18 +132,17 @@ ensuring optimal performance in the specific conditions of the YTU campus.
   so we will reduce the voxel size to improve localization accuracy.
   Feel free to experiment with tuning the voxel size for your own computer setup.
 
-!!! note "[voxel_grid_filter.param.yaml](https://github.com/autowarefoundation/autoware_launch/tree/main/autoware_launch/config/localization/ndt_scan_matcher/pointcloud_preprocessor/voxel_grid_filter.param.yaml) parameter file:"
+!!! note "[voxel_grid_filter.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_universe_launch/autoware_localization_config/config/ndt_scan_matcher/pointcloud_preprocessor/voxel_grid_filter.param.yaml) parameter file:"
 
     ```diff
-
     /**:
       ros__parameters:
-    - voxel_size_x: 3.0
-    + voxel_size_x: 1.0
-    - voxel_size_y: 3.0
-    + voxel_size_y: 1.0
-    - voxel_size_z: 3.0
-    + voxel_size_z: 1.0
+    -   voxel_size_x: 3.0 # {OVERRIDE}
+    +   voxel_size_x: 1.0 # {OVERRIDE}
+    -   voxel_size_y: 3.0 # {OVERRIDE}
+    +   voxel_size_y: 1.0 # {OVERRIDE}
+    -   voxel_size_z: 3.0 # {OVERRIDE}
+    +   voxel_size_z: 1.0 # {OVERRIDE}
     ```
 
 <figure markdown>

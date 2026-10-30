@@ -1,11 +1,11 @@
 # Evaluating the controller performance
 
-This page shows how to use `control_performance_analysis` package to evaluate the controllers.
+This page shows how to use `autoware_control_performance_analysis` package to evaluate the controllers.
 
-`control_performance_analysis` is the package to analyze the tracking performance of a control module
+`autoware_control_performance_analysis` is the package to analyze the tracking performance of a control module
 and monitor the driving status of the vehicle.
 
-If you need more detailed information about package, refer to the [control_performance_analysis](https://github.com/autowarefoundation/autoware_universe/tree/main/control/autoware_control_performance_analysis).
+If you need more detailed information about package, refer to the [autoware_control_performance_analysis](https://github.com/autowarefoundation/autoware_universe/tree/main/control/autoware_control_performance_analysis) package.
 
 ## How to use
 
@@ -17,10 +17,10 @@ If you need more detailed information about package, refer to the [control_perfo
 
 - If you have any problem with launching Autoware, please see the [demos](../../../../../demos/index.md) page.
 
-#### 3. Launch the control_performance_analysis package
+#### 3. Launch the autoware_control_performance_analysis package
 
 ```bash
-ros2 launch control_performance_analysis control_performance_analysis.launch.xml
+ros2 launch autoware_control_performance_analysis control_performance_analysis.launch.xml
 ```
 
 - After this command, you should be able to see the driving monitor and error variables in topics.
@@ -35,9 +35,9 @@ source ~/autoware/install/setup.bash
 ros2 run plotjuggler plotjuggler
 ```
 
-- If you do not have PlotJuggler in your computer, please refer [here](https://github.com/facontidavide/PlotJuggler#installation) for installation guideline.
+- If you do not have PlotJuggler in your computer, please follow the [PlotJuggler installation guide](https://github.com/facontidavide/PlotJuggler#how-to-get-started). The `dev_tools` role of the Autoware setup script installs it with the `ros-$ROS_DISTRO-plotjuggler-ros` package.
 
-#### 5. Increase the buffer size (maximum is 100), and import the layout from `/autoware_universe/control/autoware_control_performance_analysis/config/controller_monitor.xml`
+#### 5. Increase the buffer size (maximum is 100), and import the layout from `src/universe/autoware_universe/control/autoware_control_performance_analysis/config/controller_monitor.xml`
 
 - After import the layout, please specify the topics that are listed below.
 
@@ -72,4 +72,4 @@ ros2 run plotjuggler plotjuggler
 
 ![Plot XY Curve](images/evaluating-controller-performance/plot-xy.png)
 
-- If you see too much noised curve in plots, you can adjust the `odom_interval` and `low_pass_filter_gain` from [here](https://github.com/autowarefoundation/autoware_universe/blob/main/control/autoware_control_performance_analysis/config/control_performance_analysis.param.yaml) to avoid noised data.
+- If you see too much noised curve in plots, you can adjust the `odom_interval` and `low_pass_filter_gain` parameters in [control_performance_analysis.param.yaml](https://github.com/autowarefoundation/autoware_universe/blob/main/control/autoware_control_performance_analysis/config/control_performance_analysis.param.yaml) to avoid noised data.

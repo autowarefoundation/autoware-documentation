@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" role="img" aria-labelledby="differential-drive-vehicles-title">
+  <title id="differential-drive-vehicles-title">
+    Two differential drive robots seen from above: a four-wheel robot that turns left because its right wheels are faster, and a two-wheel round robot that turns right because its left wheel is
+    faster.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-car-shadow: #00002a40; --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-d-arrow--route {
+  fill: var(--aw-c-green);
+} .route {
+  fill: none;
+  stroke: var(--aw-c-green);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  marker-end: url("#aw-arrow-route");
+} .note {
+  font-size: 13px;
+  fill: var(--aw-d-fg);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .car-body {
+  fill: url("#aw-grad-car");
+} .car-body.npc {
+  fill: url("#aw-grad-car-npc");
+} .car-glass {
+  fill: url("#aw-grad-car-glass");
+  stroke: #ffffffb3;
+  stroke-width: 1;
+} .wheel {
+  fill: #1b1d29;
+} .car-shadow {
+  fill: var(--aw-car-shadow);
+  filter: url("#aw-soft");
+}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-route" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--route" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-car" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2a1fa8"/>
+      <stop offset="0.35" stop-color="#3f2ee3"/>
+      <stop offset="0.75" stop-color="#2a6df2"/>
+      <stop offset="1" stop-color="#00b4ff"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-car-glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#bfeeff" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#7fd8ff" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-car-npc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5f6375"/>
+      <stop offset="0.5" stop-color="#8d91a0"/>
+      <stop offset="1" stop-color="#b9bcc8"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="aw-soft" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feGaussianBlur stdDeviation="3.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="760" height="440"/>
+  <circle class="halo" cx="190" cy="280" r="130"/>
+  <circle class="halo cyan" cx="560" cy="280" r="130"/>
+
+  <!-- Robot 1: four wheels, turns left -->
+  <rect class="car-shadow" x="102" y="183" width="180" height="232" rx="22"/>
+  <rect class="car-body" x="100" y="180" width="180" height="232" rx="22"/>
+  <rect class="car-glass" x="128" y="200" width="124" height="30" rx="8"/>
+  <rect class="wheel" x="84" y="196" width="36" height="84" rx="8"/>
+  <rect class="wheel" x="84" y="306" width="36" height="84" rx="8"/>
+  <rect class="wheel" x="260" y="196" width="36" height="84" rx="8"/>
+  <rect class="wheel" x="260" y="306" width="36" height="84" rx="8"/>
+  <text class="lbl on-primary" x="190" y="352" text-anchor="middle" dominant-baseline="central">Robot 1</text>
+  <text class="sub on-primary" x="190" y="372" text-anchor="middle" dominant-baseline="central">Four wheels</text>
+
+  <!-- Wheel velocities of robot 1: the right side is faster -->
+  <path class="edge accent" d="M102 196 V132"/>
+  <text class="lbl" x="102" y="118" text-anchor="middle" dominant-baseline="central">
+    v
+    <tspan class="sub" dy="5">l</tspan>
+  </text>
+  <path class="edge accent" d="M278 196 V64"/>
+  <text class="lbl" x="278" y="50" text-anchor="middle" dominant-baseline="central">
+    v
+    <tspan class="sub" dy="5">r</tspan>
+  </text>
+
+  <!-- Turn direction of robot 1 -->
+  <path class="route" fill="none" d="M214 160 Q214 70 150 62 Q100 58 64 86"/>
+  <text class="note" x="160" y="40" text-anchor="middle" dominant-baseline="central">Turn direction</text>
+
+  <!-- Robot 2: two wheels, round body, turns right -->
+  <circle class="car-shadow" cx="562" cy="296" r="120"/>
+  <circle class="car-body npc" cx="560" cy="292" r="120"/>
+  <rect class="car-glass" x="508" y="196" width="104" height="26" rx="8"/>
+  <rect class="wheel" x="446" y="242" width="36" height="96" rx="8"/>
+  <rect class="wheel" x="638" y="242" width="36" height="96" rx="8"/>
+  <text class="lbl" x="560" y="352" text-anchor="middle" dominant-baseline="central">Robot 2</text>
+  <text class="sub" x="560" y="372" text-anchor="middle" dominant-baseline="central">Two wheels</text>
+
+  <!-- Wheel velocities of robot 2: the left side is faster -->
+  <path class="edge accent" d="M464 242 V64"/>
+  <text class="lbl" x="464" y="50" text-anchor="middle" dominant-baseline="central">
+    v
+    <tspan class="sub" dy="5">l</tspan>
+  </text>
+  <path class="edge accent" d="M656 242 V132"/>
+  <text class="lbl" x="656" y="118" text-anchor="middle" dominant-baseline="central">
+    v
+    <tspan class="sub" dy="5">r</tspan>
+  </text>
+
+  <!-- Turn direction of robot 2 -->
+  <path class="route" fill="none" d="M546 160 Q546 70 610 62 Q660 58 696 86"/>
+  <text class="note" x="600" y="40" text-anchor="middle" dominant-baseline="central">Turn direction</text>
+</svg>

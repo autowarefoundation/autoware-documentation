@@ -1,3 +1,5 @@
+<!-- cspell: ignore Zhejiang surfel -->
+
 # Calibrating your sensors
 
 ## Overview
@@ -6,7 +8,7 @@ Autoware expects to have multiple sensors attached to the vehicle as input to pe
 Autoware uses fusion techniques to combine information from multiple sensors.
 For this to work effectively,
 all sensors must be calibrated properly to align their coordinate systems, and their positions must be defined using either urdf files
-(as in [sample_sensor_kit](https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_description))
+(as in [sample_sensor_kit_description](https://github.com/autowarefoundation/autoware_launch/tree/main/sensor_kit/sample_sensor_kit_launch/sample_sensor_kit_description))
 or as tf launch files.
 In this documentation,
 we will explain TIER IV's [CalibrationTools](https://github.com/tier4/CalibrationTools) repository for the calibration process.
@@ -21,7 +23,7 @@ If you want to look at other calibration packages and methods, you can check out
 
 #### Intrinsic Calibration
 
-- Navigation2 provides a [good tutorial for camera internal calibration](https://docs.nav2.org/tutorials/docs/camera_calibration.html).
+- The ROS `camera_calibration` package has a [tutorial for monocular camera calibration](https://docs.ros.org/en/jazzy/p/camera_calibration/doc/tutorial_mono.html).
 - [AutoCore](https://autocore.ai/) provides a [light-weight tool](https://github.com/autocore-ai/calibration_tools/tree/main/camera_intrinsic_calib).
 
 #### Camera calibration tools provided by TIER IV
@@ -34,7 +36,7 @@ At TIER IV, we provide two types of calibration tools for camera calibration:
 
   ***
 
-  This tool allows you to directly modify parameter values and adjust them while viewing the result in RViz.
+  This tool detects a calibration board in the images and calculates the intrinsic parameters. It can read the images from a ROS topic, a ROS bag, or image files.
 
 - [:octicons-arrow-right-24: **Camera Calibration via camera-lidar calibration**](https://github.com/tier4/CalibrationTools/blob/tier4/universe/docs/tutorials/tag_based_sfm_calibrator.md#external-camera-intrinsic-calibration)
 
@@ -54,17 +56,17 @@ At TIER IV, we provide two types of calibration tools for camera calibration:
 
 TIER IV provides the following two types of calibration tools for performing LiDAR–LiDAR calibration:
 
-- [**Extrinsic Manual Calibration**](https://github.com/tier4/CalibrationTools/tree/tier4/universe/system/tunable_static_tf_broadcaster)
-  This tool allows you to directly modify parameter values and adjust them while viewing the results in RViz.
+- [**Mapping-based calibrator**](https://github.com/tier4/CalibrationTools/blob/tier4/universe/docs/tutorials/mapping_based_calibrator.md)
+  This tool makes a pointcloud map with one LiDAR, and then registers the other LiDARs to this map. It calibrates the full pose.
 
-- [**Extrinsic Map-Based Calibration**](https://github.com/tier4/CalibrationTools/blob/tier4/universe/docs/tutorials/mapping_based_calibrator.md)
-  This tool performs automatic calibration using a point cloud map.
+- [**Lidar-lidar 2D calibrator**](https://github.com/tier4/CalibrationTools/tree/tier4/universe/calibrators/lidar_to_lidar_2d_calibrator)
+  This tool uses natural features to calibrate only x, y, and yaw.
 
 ### Lidar-camera calibration
 
 Developed by MathWorks, The Lidar Camera Calibrator app enables you to interactively estimate the rigid transformation between a lidar sensor and a camera.
 
-<https://ww2.mathworks.cn/help/lidar/ug/get-started-lidar-camera-calibrator.html>
+<https://www.mathworks.com/help/lidar/ug/get-started-lidar-camera-calibrator.html>
 
 SensorsCalibration toolbox v0.1: One more open source method for Lidar-camera calibration.
 This is a project for LiDAR to camera calibration,including automatic calibration and manual calibration
@@ -79,14 +81,14 @@ Developed by [AutoCore](https://autocore.ai/), an easy-to-use lightweight toolki
 
 TIER IV provides the following calibration tools for performing LiDAR–Camera calibration:
 
-- [**Extrinsic Manual Calibration**](https://github.com/tier4/CalibrationTools/tree/tier4/universe/system/tunable_static_tf_broadcaster)
-  This tool allows you to directly modify parameter values and adjust them while viewing the results in RViz.
-
-- [**Extrinsic Interactive Calibration**](https://github.com/tier4/CalibrationTools/tree/tier4/universe/calibrators/interactive_camera_lidar_calibrator)
+- [**Interactive camera-lidar calibrator**](https://github.com/tier4/CalibrationTools/tree/tier4/universe/calibrators/interactive_camera_lidar_calibrator)
   This tool performs calibration by clicking corresponding points between the image and the point cloud.
 
-- [**Extrinsic Tag-Based Calibration**](https://github.com/tier4/CalibrationTools/blob/tier4/universe/docs/tutorials/tag_based_pnp_calibrator.md)
+- [**Tag-based PnP calibrator**](https://github.com/tier4/CalibrationTools/blob/tier4/universe/docs/tutorials/tag_based_pnp_calibrator.md)
   This tool performs automatic calibration using a calibration board.
+
+- [**Tag-based SfM calibrator**](https://github.com/tier4/CalibrationTools/blob/tier4/universe/docs/tutorials/tag_based_sfm_calibrator.md)
+  This tool uses tags on the ground and on boards to calibrate the cameras, the LiDARs, and `base_link` together.
 
 ### Lidar-IMU calibration
 
@@ -101,13 +103,21 @@ IMU-based cost and LiDAR point-to-surfel (surfel = surface element) distance are
 
 TIER IV provides the following two types of calibration tools for performing Base–LiDAR calibration:
 
-- [**Extrinsic Manual Calibration**](https://github.com/tier4/CalibrationTools/blob/tier4/universe/docs/tutorials/mapping_based_calibrator.md)
-  This tool allows you to directly modify parameter values and adjust them while viewing the results in RViz.
-
-- [**Extrinsic Ground-Plane Calibration**](https://github.com/tier4/CalibrationTools/tree/tier4/universe/calibrators/ground_plane_calibrator)
+- [**Ground plane calibrator**](https://github.com/tier4/CalibrationTools/tree/tier4/universe/calibrators/ground_plane_calibrator)
   This tool automatically calibrates roll, pitch, and z.
 
-## Other calibration tools provided by TIER IV
+- [**Mapping-based calibrator (base-lidar)**](https://github.com/tier4/CalibrationTools/tree/tier4/universe/calibrators/mapping_based_calibrator)
+  This tool uses natural features and the ground to calibrate roll, pitch, and z.
 
-In addition to sensor calibration, TIER IV also develops calibration tools for localization and control, which are released as open-source software.
-Please refer to the other calibration tools [here](https://github.com/tier4/CalibrationTools).
+## Radar-lidar calibration
+
+TIER IV provides the [**Marker radar-lidar calibrator**](https://github.com/tier4/CalibrationTools/blob/tier4/universe/docs/tutorials/marker_radar_lidar_calibrator.md).
+This tool uses radar reflectors as markers, and it calibrates x, y, and yaw.
+
+## Vehicle calibration tools
+
+The CalibrationTools repository has only sensor calibration tools.
+To calibrate the vehicle itself, `autoware_universe` has these packages:
+
+- [autoware_accel_brake_map_calibrator](https://github.com/autowarefoundation/autoware_universe/tree/main/vehicle/autoware_accel_brake_map_calibrator) calibrates the accelerator and brake maps of `autoware_raw_vehicle_cmd_converter`.
+- [autoware_steer_offset_estimator](https://github.com/autowarefoundation/autoware_universe/tree/main/vehicle/autoware_steer_offset_estimator) estimates the offset of the steering angle.
