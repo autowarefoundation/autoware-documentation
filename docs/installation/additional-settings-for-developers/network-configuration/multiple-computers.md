@@ -73,7 +73,7 @@ The full file with a manually set interface looks like this. Only the `NetworkIn
 </CycloneDDS>
 ```
 
-Open a new terminal after you change the file, or restart the nodes. CycloneDDS reads the file only when a node starts.
+CycloneDDS reads the file only when a node starts. After you change the file, restart the nodes. Also run `ros2 daemon stop`, so that the `ros2` command line tools use the new file.
 
 ### Using the Autoware Docker images
 

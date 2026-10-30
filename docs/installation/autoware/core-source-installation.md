@@ -10,7 +10,7 @@
 
 !!! tip
 
-    If ROS 2 is not installed yet, the Ansible playbook of the [source installation](source-installation.md#how-to-set-up-a-development-environment) can install it together with the other Autoware Core dependencies. The `core` tag selects only the parts for Autoware Core (ROS 2, the ROS 2 development tools, the build tools, the RMW implementation, Agnocast, the recommended development tools, and the RViz theme). Clone the `autoware` repository first (step 2 below), then run these commands from its root folder:
+    If ROS 2 is not installed yet, the Ansible playbook of the [source installation](source-installation.md#how-to-set-up-a-development-environment) can install it together with the other Autoware Core dependencies. The `core` tag selects only the parts for Autoware Core (ROS 2, the ROS 2 development tools, the build tools, the RMW implementation, Agnocast, the recommended development tools, and the RViz theme). Run only the `git clone` and `cd` commands of step 2 first. Then run these commands from the root folder of the repository:
 
     ```bash
     bash ansible/scripts/install-ansible.sh
@@ -18,6 +18,8 @@
     ansible-galaxy collection install -f -r ansible-galaxy-requirements.yaml
     ansible-playbook autoware.dev_env.install_dev_env --tags core --ask-become-pass
     ```
+
+    The playbook also installs the tools of step 1 and runs `sudo rosdep init`, so you can skip step 1. After the playbook finishes, continue with the rest of step 2.
 
 ## How to set up
 

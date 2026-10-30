@@ -139,10 +139,10 @@ sudo apt-get -y install git
    The tool `rosdep` allows an automatic search and installation of such dependencies.
    You might need to run `rosdep update` before `rosdep install`.
 
-   On Ubuntu 24.04, replace `humble` with `jazzy`.
+   On Ubuntu 22.04, replace `jazzy` with `humble`.
 
    ```bash
-   source /opt/ros/humble/setup.bash
+   source /opt/ros/jazzy/setup.bash
    # Make sure all previously installed ros-$ROS_DISTRO-* packages are upgraded to their latest version
    sudo apt update && sudo apt upgrade
    rosdep update
@@ -231,10 +231,10 @@ sudo apt-get -y install git
 
 3. Install dependent ROS packages.
 
-   On Ubuntu 24.04, replace `humble` with `jazzy`.
+   On Ubuntu 22.04, replace `jazzy` with `humble`.
 
    ```bash
-   source /opt/ros/humble/setup.bash
+   source /opt/ros/jazzy/setup.bash
    # Make sure all previously installed ros-$ROS_DISTRO-* packages are upgraded to their latest version
    sudo apt update && sudo apt upgrade
    rosdep update

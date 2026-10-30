@@ -7,7 +7,7 @@
 | OS   | [Ubuntu 22.04](https://releases.ubuntu.com/22.04/) or [Ubuntu 24.04](https://releases.ubuntu.com/24.04/)                                               |
 | ROS  | ROS 2 Humble on Ubuntu 22.04, ROS 2 Jazzy on Ubuntu 24.04 (For ROS 2 system dependencies, refer to [REP-2000](https://www.ros.org/reps/rep-2000.html)) |
 
-The ROS 2 apt repository must be set up on the computer. If ROS 2 is not installed yet, follow the ROS 2 installation guide for [Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html) or [Jazzy](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html).
+The ROS 2 apt repository must be set up on the computer. If ROS 2 is not installed yet, follow the ROS 2 installation guide for [Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html) or [Jazzy](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html).
 
 ## How to set up
 
