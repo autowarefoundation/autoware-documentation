@@ -25,7 +25,7 @@ theme:
     - navigation.tracking
   favicon: assets/images/autoware-foundation.png
   font:
-    text: Roboto
+    text: Montserrat
     code: Roboto Mono
   icon:
     logo: autoware/logo

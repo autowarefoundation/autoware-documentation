@@ -177,7 +177,7 @@ Autoware uses three fonts. All of them are free on Google Fonts.
 
 </div>
 
-This documentation site uses Roboto for text and Roboto Mono for code.
+This documentation site uses Montserrat for text and Outfit for headings and diagrams. Code uses Roboto Mono, because the guideline names no font for code.
 
 ## Use the colors in this site
 

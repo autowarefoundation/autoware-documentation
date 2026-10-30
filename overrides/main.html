@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 
 <!-- prettier-ignore -->
+{#- Outfit is the heading font of the brand. The theme loads only the text font and the code font. -#}
+{% block extrahead %}
+  {{ super() }}
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Outfit:wght@400..800&display=fallback"
+/>
+{% endblock %}
+
+<!-- prettier-ignore -->
 {#-
   The arrow heads and gradients that the diagrams share (see tools/diagrams/README.md).
   They are in every page once, so that the diagrams in a page do not repeat their ids.

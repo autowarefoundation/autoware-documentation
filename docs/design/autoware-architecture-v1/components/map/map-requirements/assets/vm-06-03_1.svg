@@ -2,7 +2,7 @@
   <title id="vm-06-03_1-title">A no parking and no stopping sign, and a solid yellow line along the curb of the road.</title>
   <style data-aw-standalone="">
     svg { --aw-c-indigo: var(--aw-indigo); --aw-crimson: #dc143c; --aw-d-bg: color-mix(in
-    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } text {
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } text {
   font-size: 14px;
   fill: var(--aw-d-fg);
 } .road {

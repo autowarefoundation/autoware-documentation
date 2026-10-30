@@ -2,7 +2,7 @@
   <title id="vm-03-02-1-title">A T-junction. A road goes from west to east, and a second road joins it from the south. The road from the south has a stop line.</title>
   <style data-aw-standalone="">
     svg { --aw-c-indigo: var(--aw-indigo); --aw-d-bg: color-mix(in
-    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } text {
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } text {
   font-size: 14px;
   fill: var(--aw-d-fg);
 } .road {
