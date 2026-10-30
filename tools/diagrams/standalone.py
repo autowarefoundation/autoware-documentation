@@ -31,7 +31,7 @@ MATERIAL = {
     "--md-default-fg-color--lighter": "#00000052",
     "--md-default-fg-color--lightest": "#0000000d",
     "--md-default-bg-color": "#fff",
-    "--md-text-font-family": "Roboto, system-ui, sans-serif",
+    "--md-text-font-family": "Montserrat, system-ui, sans-serif",
     "--md-code-font-family": "Roboto Mono, ui-monospace, monospace",
 }
 # Selectors whose custom properties hold the light-mode values, in the order that the theme applies them.
@@ -124,7 +124,7 @@ def standalone_block(svg, values, rules, defs):
             for attribute in re.findall(r'class="([^"]+)"', text):
                 used |= set(attribute.split())
     needed = set(re.findall(r"var\((--[\w-]+)", " ".join(chosen_rules))) | {
-        "--md-text-font-family",
+        "--aw-heading-font-family",
         "--aw-d-bg",
     }
     for _ in range(3):
@@ -132,7 +132,7 @@ def standalone_block(svg, values, rules, defs):
             needed |= set(re.findall(r"var\((--[\w-]+)", values.get(name, "")))
     declarations = "".join(f"{name}: {values[name]}; " for name in sorted(needed) if name in values)
     css = (
-        f"svg {{ {declarations}font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); }} "
+        f"svg {{ {declarations}font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); }} "
         + " ".join(chosen_rules)
     )
     defs_text = "".join(chosen_defs[i] for i in sorted(chosen_defs))

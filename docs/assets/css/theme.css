@@ -21,6 +21,16 @@
   --aw-navy: #00002a;
   --aw-mist: #f2f5ff;
   --aw-gradient: linear-gradient(90deg, var(--aw-indigo), var(--aw-cyan) 55%, var(--aw-green));
+  --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+}
+
+/*
+ * The fonts of the brand guideline: Montserrat for text (theme.font in mkdocs.yaml) and Outfit for headings.
+ * The diagrams also use Outfit: its letters are as wide as the letters of Roboto, which the diagrams were drawn for.
+ */
+.md-typeset :is(h1, h2, h3, h4, h5, h6),
+.md-header__title {
+  font-family: var(--aw-heading-font-family);
 }
 
 /* Colors for each scheme. The icon colors are darker on light pages and lighter on dark pages, so they stay visible. */
@@ -340,7 +350,7 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
 .md-main:has(.aw-hero) .md-typeset h2 {
   margin-top: 2.8rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 /* A faint dot grid behind the hero. It fades out toward the edges. */
@@ -1428,7 +1438,7 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
   min-width: 34rem;
   height: auto;
   margin: 0 auto;
-  font-family: var(--md-text-font-family);
+  font-family: var(--aw-heading-font-family);
 }
 
 .md-typeset .aw-diagram > figcaption {

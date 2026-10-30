@@ -2,7 +2,7 @@
   <title id="vm-03-03-3-title">Incorrect: the width of the lanelet that turns right changes, and its linestrings are not smooth.</title>
   <style data-aw-standalone="">
     svg { --aw-c-crimson: var(--aw-crimson); --aw-c-indigo: var(--aw-indigo); --aw-crimson: #dc143c; --aw-cyan: #00c8ff; --aw-d-bg: color-mix(in
-    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-muted: var(--md-default-fg-color--light); --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; --md-text-font-family: Roboto, system-ui, sans-serif; font-family: var(--md-text-font-family); background-color: var(--aw-d-bg, #fff); } text {
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-muted: var(--md-default-fg-color--light); --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } text {
   font-size: 14px;
   fill: var(--aw-d-fg);
 } .road {
