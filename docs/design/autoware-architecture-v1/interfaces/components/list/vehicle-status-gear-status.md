@@ -51,7 +51,7 @@ This interface is required. If the vehicle does not have gear, simulate the gear
 
 Latency: Gear shifting is a mechanical process that takes time (typically 0.5s to 2.0s). The status reported here reflects the actual engaged gear, so there will be a delay after sending a command. Autoware must handle this transition period.
 
-## Use Cases
+## Use cases
 
 - Control the vehicle for autonomous driving.
 - Display current gear status to the operator.

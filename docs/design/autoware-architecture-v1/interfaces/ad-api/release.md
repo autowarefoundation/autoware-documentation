@@ -1,9 +1,9 @@
 # Release notes
 
 These notes list the changes of each AD API interface version. The version is the value that {{ link_ad_api('/api/interface/version') }} returns.
-Autoware 2.0.0 provides v1.9.1. The default implementation sets this value in [`interface.cpp`](https://github.com/autowarefoundation/autoware_core/blob/main/api/autoware_default_adapi/src/interface.cpp) of the `autoware_default_adapi` package.
+Autoware 2.0.0 provides v1.9.1. The default implementation sets this value in [`interface.cpp`](https://github.com/autowarefoundation/autoware_core/blob/1.10.0/api/autoware_default_adapi/src/interface.cpp) of the `autoware_default_adapi` package (Autoware Core 1.10.0).
 
-The interface version is separate from the package version of [`autoware_adapi_msgs`](https://github.com/autowarefoundation/autoware_adapi_msgs). For example, `autoware_adapi_msgs` 1.9.2 only adds comments to the message files and does not change the interface.
+The interface version is separate from the package version of [`autoware_adapi_msgs`](https://github.com/autowarefoundation/autoware_adapi_msgs). Autoware 2.0.0 uses `autoware_adapi_msgs` 1.9.2. This release only adds comments to the message files and does not change the interface.
 An API with the status "not released" in the [list of APIs](list/index.md) is not part of any interface version yet, even if the default implementation already provides it.
 
 ## v1.9.1

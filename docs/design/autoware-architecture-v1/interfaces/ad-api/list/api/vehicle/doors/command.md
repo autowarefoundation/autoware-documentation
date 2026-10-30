@@ -18,4 +18,6 @@ type:
 {% block description %}
 Set the door command. This API is only available if the vehicle supports software door control.
 This API fails if the doors cannot be opened or closed safely.
+The default implementation rejects all commands when vehicle control by Autoware is disabled. The `check_autoware_control` parameter turns this check on, and it is true by default.
+The default implementation also rejects a command that opens a door when the operation mode is not stop.
 {% endblock %}

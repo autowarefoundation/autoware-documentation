@@ -11,15 +11,18 @@ uses:
 
 ```txt
 std_msgs/Header header
+# Route planning options (e.g., allow_goal_modification)
 autoware_adapi_v1_msgs/RouteOption option
+# Goal pose in map frame
 geometry_msgs/Pose goal
+# Intermediate waypoints between current position and goal
 geometry_msgs/Pose[] waypoints
 ---
-uint16 ERROR_ROUTE_EXISTS = 1 # Deprecated. Use ERROR_INVALID_STATE.
-uint16 ERROR_INVALID_STATE = 1
-uint16 ERROR_PLANNER_UNREADY = 2
-uint16 ERROR_PLANNER_FAILED = 3
-uint16 ERROR_REROUTE_FAILED = 4
+uint16 ERROR_ROUTE_EXISTS = 1  # Deprecated. Use ERROR_INVALID_STATE.
+uint16 ERROR_INVALID_STATE = 1   # Route already exists or invalid state for setting route
+uint16 ERROR_PLANNER_UNREADY = 2  # Route planner is not ready
+uint16 ERROR_PLANNER_FAILED = 3   # Route planning failed
+uint16 ERROR_REROUTE_FAILED = 4   # Reroute operation failed
 autoware_adapi_v1_msgs/ResponseStatus status
 ```
 

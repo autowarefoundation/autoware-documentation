@@ -10,7 +10,7 @@ type:
     - name: state
       text: The state of MRM operation.
     - name: behavior
-      text: The currently selected behavior of MRM.
+      text: The currently selected behavior of MRM. The behavior constants in the message are deprecated. Use [/api/fail_safe/list_mrm_description](list_mrm_description.md) to get the meaning of each value.
 ---
 
 {% extends 'design/autoware-architecture-v1/interfaces/templates/autoware-interface.jinja2' %}

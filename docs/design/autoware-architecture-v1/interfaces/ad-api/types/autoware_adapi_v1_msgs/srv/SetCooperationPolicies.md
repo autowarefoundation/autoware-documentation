@@ -10,6 +10,7 @@ uses:
 {% block definition %}
 
 ```txt
+# List of cooperation policies to set for planning modules
 autoware_adapi_v1_msgs/CooperationPolicy[] policies
 ---
 autoware_adapi_v1_msgs/ResponseStatus status

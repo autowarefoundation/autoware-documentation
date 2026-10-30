@@ -12,7 +12,7 @@ The Vector Map uses the [Autoware Lanelet2 format](https://github.com/autowarefo
 
 This specification is a set of requirements for the creation of Vector Maps, so that Autoware drives safely and autonomously as the user intends. To create a Lanelet2 format .osm file, refer to [Creating a vector map](../../../../../../tutorials/integrating-autoware/creating-maps/creating-vector-map/index.md).
 
-## Handling of the Requirement Specification
+## Handling of the requirement specification
 
 Which requirements apply depends on the configuration of the Autoware system on the vehicle. Before you create a Vector Map, decide how the vehicle with the system must behave in each environment.
 
@@ -23,7 +23,7 @@ Next, you must comply with the laws of the country where the autonomous vehicle 
 - The examples of road signs and road surface markings are the ones used in Japan. Replace them with the ones used in your country.
 - The values for ranges and distances are minimum values. Choose values that comply with the laws of your country. These minimum values can also change with the maximum velocity of the autonomous vehicle.
 
-## List of Requirement Specifications
+## List of requirement specifications
 
 <div class="grid cards aw-cards aw-cards--small" markdown>
 

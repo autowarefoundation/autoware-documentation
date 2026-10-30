@@ -39,7 +39,7 @@ This interface is required. If the vehicle does not have hazard lights, always i
 
 None.
 
-## Use Cases
+## Use cases
 
 - Control the vehicle for autonomous driving.
 - Relay commands from the operator.

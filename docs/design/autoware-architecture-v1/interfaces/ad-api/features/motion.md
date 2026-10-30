@@ -22,11 +22,11 @@ In the default implementation, the `require_accept_start` parameter of the `/ada
 
 {{ diagram("motion/state.svg", "The motion state. BRAKING is planned and is not in the message yet.") }}
 
-| State            | Description                                     |
-| ---------------- | ----------------------------------------------- |
-| STOPPED          | The vehicle is stopped.                         |
-| STARTING         | The vehicle is stopped, but is trying to start. |
-| MOVING           | The vehicle is moving.                          |
-| BRAKING (T.B.D.) | The vehicle is decelerating strongly.           |
+| State             | Description                                     |
+| ----------------- | ----------------------------------------------- |
+| STOPPED           | The vehicle is stopped.                         |
+| STARTING          | The vehicle is stopped, but is trying to start. |
+| MOVING            | The vehicle is moving.                          |
+| BRAKING (planned) | The vehicle is decelerating strongly.           |
 
 BRAKING is a planned state. The `MotionState` message does not define it yet.

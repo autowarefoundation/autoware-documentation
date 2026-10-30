@@ -10,6 +10,7 @@ uses:
 {% block definition %}
 
 ```txt
+# List of door commands to execute
 autoware_adapi_v1_msgs/DoorCommand[] doors
 ---
 autoware_adapi_v1_msgs/ResponseStatus status

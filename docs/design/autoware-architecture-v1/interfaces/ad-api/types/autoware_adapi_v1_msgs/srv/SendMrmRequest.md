@@ -10,6 +10,7 @@ uses:
 {% block definition %}
 
 ```txt
+# MRM (Minimal Risk Maneuver) request to execute for safe vehicle stop
 autoware_adapi_v1_msgs/MrmRequest request
 ---
 autoware_adapi_v1_msgs/ResponseStatus status

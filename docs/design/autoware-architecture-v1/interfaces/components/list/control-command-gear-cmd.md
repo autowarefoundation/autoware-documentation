@@ -52,7 +52,7 @@ Response time: Mechanical gear shifting takes time (typically 0.5s - 2.0s). The 
 
 Simulated gear: For vehicles without physical gears (e.g., direct drive EVs), for example, the NEUTRAL state might be simulated logic and not a mechanical disconnection.
 
-## Use Cases
+## Use cases
 
 - Control the vehicle for autonomous driving.
 - Relay commands from the operator.

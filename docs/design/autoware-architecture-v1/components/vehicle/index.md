@@ -14,8 +14,8 @@ Goals:
 
 Non-goals:
 
-- Accuracy of responses from the vehicle will not be defined, but example accuracy requirements from reference designs are provided as examples.
-- Response speed will not be defined.
+- This design does not define the accuracy of the responses from the vehicle.
+- This design does not define the response speed.
 
 ## 2. Architecture
 
@@ -105,14 +105,10 @@ The velocity status goes to the Localization component. The `autoware_vehicle_ve
 ### Assumptions
 
 - The control command is for an Ackermann-style platform. If the vehicle has more than one steering tire, the steering tire angle is for a virtual tire at the average lateral position of the steering tires.
-- The vehicle interface publishes the velocity status and the steering status at about 10 Hz, and the control command comes at about 33 Hz. The [interface list](../../interfaces/components/index.md) gives the rate of each topic.
+- The [interface list](../../interfaces/components/index.md) gives 10 Hz as the design rate of the velocity status and the steering status. The real rate depends on the vehicle interface. For example, `autoware_simple_planning_simulator` publishes them at 40 Hz. The control command comes at about 33 Hz.
 - A vehicle without gears simulates the gear behavior. A vehicle without turn indicators or hazard lights ignores those commands and reports them as disabled.
 
 ### Limitations
 
 - The control mode request supports these modes: `AUTONOMOUS`, `AUTONOMOUS_STEER_ONLY`, `AUTONOMOUS_VELOCITY_ONLY`, `MANUAL`, and `NO_COMMAND`. The control mode report also has `DISENGAGED` and `NOT_READY`.
 - Autoware has no standard message for the handbrake, the headlights, the horn, or the wipers.
-
-## 6. Examples of accuracy requirements by ODD
-
-This section has no examples yet.

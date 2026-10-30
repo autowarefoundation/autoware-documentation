@@ -14,5 +14,6 @@ type:
 {% extends 'design/autoware-architecture-v1/interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
 Sends velocity command used in local operation mode.
+The default implementation does not support the velocity mode yet, so it does not use this command.
 To use this API, select the corresponding mode as described in [manual control](../../../../../features/manual-control.md).
 {% endblock %}

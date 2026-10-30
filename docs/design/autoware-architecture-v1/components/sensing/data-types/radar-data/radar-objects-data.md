@@ -84,7 +84,7 @@ Example is as below.
 
 - [radar_objects_adapter](https://github.com/autowarefoundation/autoware_universe/tree/main/sensing/autoware_radar_objects_adapter)
 
-Some radar drivers also publish `autoware_sensing_msgs/msg/RadarObjects`. For example, the Nebula driver of the Continental ARS548 publishes `RadarScan`, `RadarTracks`, and `RadarObjects`. The `autoware_radar_objects_adapter` package converts `RadarObjects` into `autoware_perception_msgs/msg/DetectedObjects` without filtering. It also reads `autoware_sensing_msgs/msg/RadarInfo` and can remap the classification labels. For the message definitions, see [Data message for radars](reference-implementations/data-message.md).
+Some radar drivers also publish `autoware_sensing_msgs/msg/RadarObjects`. For example, the Nebula driver of the Continental ARS548 publishes `RadarScan`, `RadarTracks`, and `RadarObjects`. The `autoware_radar_objects_adapter` package converts `RadarObjects` into `autoware_perception_msgs/msg/DetectedObjects` and `autoware_perception_msgs/msg/TrackedObjects` without filtering. It also reads `autoware_sensing_msgs/msg/RadarInfo` and can remap the classification labels. For the message definitions, see [Data message for radars](reference-implementations/data-message.md).
 
 ## Appendix
 

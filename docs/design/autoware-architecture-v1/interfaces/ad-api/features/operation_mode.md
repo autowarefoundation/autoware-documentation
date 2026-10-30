@@ -40,8 +40,8 @@ The field `mode` indicates what command is used when Autoware control is enabled
 The flags `is_stop_mode_available`, `is_autonomous_mode_available`, `is_local_mode_available`, and `is_remote_mode_available` show if it is possible to transition to each mode.
 A change request to a mode that is not available fails with `ERROR_NOT_AVAILABLE`.
 
-In the default implementation, the availability comes from the diagnostic graph (the `/system/operation_mode/availability` topic).
-For example, the autonomous mode is available only when the map, localization, planning (including the route), perception, control, vehicle, and system diagnostics are OK.
+In the default implementation, a mode is available only when the operation mode component and the diagnostic graph (the `/system/operation_mode/availability` topic) both allow it.
+For example, in the diagnostic graph of `autoware_launch`, the autonomous mode is available only when the map, localization, planning (including the route), perception, control, vehicle, and system diagnostics are OK. An [MRM request](fail-safe.md#mrm-request) with the `DELEGATE` strategy also makes the mode unavailable.
 Use the [diagnostics API](diagnostics.md) to find the cause when a mode is not available.
 
 ### Transition flag

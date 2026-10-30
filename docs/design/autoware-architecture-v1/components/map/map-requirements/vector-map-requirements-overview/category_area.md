@@ -59,6 +59,8 @@ Refer to [Web.Auto Documentation - Creation of No Parking Area](https://docs.web
 
 The goal planner does not select a goal in a _no_parking_area_. As a result, Autoware does not park the vehicle there.
 
+The goal planner reads only the Regulatory Elements of the Lanelets in which it looks for a goal. These are the road shoulder Lanelets around the goal, or the outermost road Lanelet if the road has no road shoulder. If the road has a road shoulder, the road shoulder Lanelet must also refer to the Regulatory Element (_subtype:no_parking_area_).
+
 {{ diagram("../assets/vm-06-02_1.svg", "A no parking sign and the yellow line along the curb.") }}
 
 #### Preferred vector map <!-- omit in toc -->
@@ -118,6 +120,8 @@ Refer to [Web.Auto Documentation - Creation of No Stopping Area](https://docs.we
 ##### Behavior of Autoware <!-- omit in toc -->
 
 The vehicle does not make temporary stops in a _no_stopping_area_. If a stopped vehicle ahead blocks the area, the vehicle stops before the area. The goal planner does not select a goal in a _no_stopping_area_, so the vehicle cannot park there.
+
+The no stopping area module reads the Regulatory Element from the Lanelets on the path of the vehicle. The goal planner reads it only from the Lanelets in which it looks for a goal, as in vm-06-02. If the road has a road shoulder, the road shoulder Lanelet must also refer to the Regulatory Element (_subtype:no_stopping_area_).
 
 {{ diagram("../assets/vm-06-04_1.svg", "A no stopping zone: the vehicle must drive through without stopping.") }}
 

@@ -80,16 +80,22 @@ When you create a Linestring for guardrails or guard pipes (_type: guard_rail_),
 
 Use the same position rules for Linestrings of fences (_type:fence_).
 
+##### Supplemental information <!-- omit in toc -->
+
+With the default parameters of `autoware_launch`, the obstacle velocity limiter uses _guard_rail_ Linestrings as static obstacles (`obstacles.static_map_tags`). It decreases the velocity of the vehicle when the vehicle drives close to a guardrail, for example in a curve. The run out module cuts the predicted paths of objects at _guard_rail_ and _fence_ Linestrings (see vm-07-02). The drivable area expansion does not use these Linestrings by default. Its parameter `avoid_linestring.types` contains only _road_border_ and _curbstone_.
+
 #### Preferred vector map <!-- omit in toc -->
 
-![The guard_rail Linestring is under the part of the guardrail that sticks out most toward the road](../assets/vm-07-03_1.png)
+{{ diagram("../assets/vm-07-03_1.svg", "The guard_rail Linestring is under the part of the guardrail that sticks out most toward the road.") }}
 
 #### Incorrect vector map <!-- omit in toc -->
 
-![The guard_rail Linestring is at the posts of the guardrail, not under its outer edge](../assets/vm-07-03_2.png)
+{{ diagram("../assets/vm-07-03_2.svg", "The guard_rail Linestring is at the posts of the guardrail, not under its outer edge.") }}
 
 #### Related Autoware module
 
+- [Obstacle Velocity Limiter - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_planner/autoware_motion_velocity_obstacle_velocity_limiter_module/)
+- [Run Out - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/motion_velocity_planner/autoware_motion_velocity_run_out_module/)
 - [Drivable Area design - Autoware Universe Documentation](https://autowarefoundation.github.io/autoware_universe/main/planning/behavior_path_planner/autoware_behavior_path_planner_common/docs/behavior_path_planner_drivable_area_design/)
 
 ---

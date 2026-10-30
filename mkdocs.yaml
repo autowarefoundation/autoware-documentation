@@ -84,6 +84,10 @@ plugins:
       redirect_maps:
         index.md: home/index.md
         design/autoware-architecture-v1/interfaces/components/perception-interface.md: design/autoware-architecture-v1/interfaces/components/perception.md
+        design/autoware-interfaces/ad-api/features/fail-safe.md: design/autoware-architecture-v1/interfaces/ad-api/features/fail-safe.md
+        design/autoware-interfaces/ad-api/features/routing.md: design/autoware-architecture-v1/interfaces/ad-api/features/routing.md
+        design/autoware-interfaces/ad-api/list/api/localization/index.md: design/autoware-architecture-v1/interfaces/ad-api/features/localization.md
+        design/autoware-interfaces/ad-api/list/api/routing/index.md: design/autoware-architecture-v1/interfaces/ad-api/features/routing.md
   # https://zensical.org/docs/setup/search/
   - search:
       separator: '[\s\-_,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'

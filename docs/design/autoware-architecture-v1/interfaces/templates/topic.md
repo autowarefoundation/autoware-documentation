@@ -56,7 +56,7 @@ Also, describe how to handle cases where the interface features cannot be suppor
 
 Note any limitations regarding this interface here.
 
-## Use Cases
+## Use cases
 
 This section is for interface designers. Describe the use case this interface targets.
 This will help derive the requirements that should be maintained in future interface redesigns.

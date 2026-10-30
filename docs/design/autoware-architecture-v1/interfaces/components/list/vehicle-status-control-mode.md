@@ -41,9 +41,8 @@ The vehicle may drive in any behavior, by manual control interfaces such as the 
 | AUTONOMOUS_STEER_ONLY    | ignore         | accept         | accept       |
 | AUTONOMOUS_VELOCITY_ONLY | accept         | ignore         | accept       |
 | MANUAL                   | ignore         | ignore         | ignore       |
-| DISENGAGED               | T.B.D.         | T.B.D.         | T.B.D.       |
-| NO_COMMAND               | T.B.D.         | T.B.D.         | T.B.D.       |
-| NOT_READY                | T.B.D.         | T.B.D.         | T.B.D.       |
+
+The design does not define which commands the vehicle accepts in the `DISENGAGED`, `NO_COMMAND`, and `NOT_READY` modes. In Autoware 2.0.0, no consumer of this topic treats these three modes as Autoware control. For example, the [`autoware_operation_mode_transition_manager`](https://github.com/autowarefoundation/autoware_universe/blob/0.53.1/control/autoware_operation_mode_transition_manager/src/node.cpp) node treats only `AUTONOMOUS`, `AUTONOMOUS_STEER_ONLY`, and `AUTONOMOUS_VELOCITY_ONLY` as Autoware control. It uses `NO_COMMAND` as the mode until it receives the first message.
 
 ## Message
 
@@ -66,7 +65,7 @@ Latency: There is an inevitable latency between sending a mode change request an
 
 Override detection: Some vehicle platforms do not explicitly report override activation. In such cases, the vehicle interface calculates this state by comparing command and feedback, which may introduce detection delay.
 
-## Use Cases
+## Use cases
 
 - Control the vehicle for autonomous driving.
 - Display current control mode status to the operator.

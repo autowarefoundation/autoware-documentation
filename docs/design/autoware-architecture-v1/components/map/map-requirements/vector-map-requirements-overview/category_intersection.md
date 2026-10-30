@@ -352,12 +352,14 @@ None in particular.
 
 Set _location=private_ for Lanelets within private property.
 
+Give the private Lanelet that joins the public road a _turn_direction_ tag, as in [vm-03-02](#vm-03-02-lanelets-turn-direction-and-virtual-linestring). Without this tag, the intersection module does not stop the vehicle before the public road.
+
 When a road, which enters or exits private property, intersects with a sidewalk, create a Lanelet for that sidewalk (_subtype:walkway_).
 
 ##### Behavior of Autoware <!-- omit in toc -->
 
 - The vehicle stops temporarily before entering the sidewalk. The walkway module does this for a _subtype:walkway_ Lanelet.
-- The vehicle comes to a stop before merging onto the public road. The intersection module does this ("merge from private") when the Lanelet of the vehicle has _location=private_ and crosses Lanelets that are not private.
+- The vehicle comes to a stop before merging onto the public road. The intersection module does this ("merge from private") for a Lanelet on the path that has _location=private_ and a _turn_direction_ tag, when the next Lanelet on the path is not private.
 
 {{ diagram("../assets/vm-03-13_1.svg", "Vehicles enter and leave a private area across the sidewalk.") }}
 
@@ -418,7 +420,7 @@ Older maps model the bicycle lane as a Lanelet with _subtype:road_. In that case
 
 The blind spot module checks the side of a turning vehicle for bicycles and pedestrians. It uses the _road_shoulder_ or _bicycle_lane_ Lanelet next to the outermost road Lanelet on the turning side. If there is none, it uses the outermost road Lanelet.
 
-![Road sign for an exclusive bicycle lane](../assets/vm-03-15_1.png)
+{{ diagram("../assets/vm-03-15_1.svg", "The road sign for an exclusive bicycle lane in Japan.") }}
 
 {{ diagram("../assets/vm-03-15_2.svg", "A road with an exclusive bicycle lane on each side.") }}
 

@@ -40,7 +40,7 @@ This interface is required. If the vehicle does not have turn indicators, always
 
 - Regarding the actual lighting status of the vehicle, hazard lights may have priority.
 
-## Use Cases
+## Use cases
 
 - Control the vehicle for autonomous driving.
 - Relay commands from the operator.
