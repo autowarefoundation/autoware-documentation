@@ -9,9 +9,11 @@ Use the decision tree to identify which reference configuration matches your dep
 The decision tree asks up to four questions:
 
 1. Technology maturity: a system at Technology Readiness Level (TRL) 7 or higher is close to production. See the [example production platforms](#example-production-platforms). A system at TRL 6 or lower starts from a design guideline.
-2. Environment: an indoor-only system uses the Low Speed Autonomy (LSA) guideline, a racing robot, or the Go-Kart. A mixed indoor and outdoor system uses the LSA guideline.
-3. Location: an outdoor system on a closed campus uses the LSA guideline. A highway system uses the Privately Owned Vehicles (PoV) guideline. An off-road system uses the off-road vehicle guideline.
+2. Environment: an indoor-only system uses the Low Speed Autonomy (LSA) guideline or a racing robot such as RoboRacer. A mixed indoor and outdoor system uses the LSA guideline.
+3. Location: an outdoor system on a closed campus uses the LSA guideline or the delivery vehicle concept. A highway system uses the Privately Owned Vehicles (PoV) guideline. An off-road system uses the off-road vehicle guideline.
 4. Size: a city system that is large is a bus. A city system of sedan size is a robotaxi.
+
+The Go-Kart is an outdoor platform for racing and development. The tree has no branch for it.
 
 ---
 
@@ -32,6 +34,7 @@ These are conceptual configurations optimized for different deployment scenarios
 | [LSA](https://autowarefoundation.github.io/LSA-reference-design-docs/main/)               | Mixed traffic flows and low budget | Paved, GPS available   | RTK GNSS     | Balanced cost/capability             |
 | [PoV](https://autowarefoundation.github.io/autoware.pov-reference-design-docs/main/)      | Highway                            | Paved, GPS available   | RTK GNSS     | End-to-End Machine Learning Pipeline |
 | [Off-road](https://autowarefoundation.github.io/autoware.orv-reference-design-docs/main/) | Racing, education, and research    | Unpaved, GPS available | Single GNSS  | No map and AI-enabled                |
+| Truck (planned)                                                                           | Heavy duty vehicles                | Outdoor                | RTK GNSS     |                                      |
 | [RoboRacer](RoboRacer/index.md)                                                           | Racing and education               | Indoor tracks          | No           | Racing robots using Autoware         |
 | [Go-Kart](GoKart/index.md)                                                                | Racing and development             | Outdoor                | RTK GNSS     | EV Go-Kart using Autoware            |
 | [Delivery vehicle](Delivery/index.md)                                                     | Cargo delivery on private campus   | Private campus         | GNSS/IMU     | Symmetric vehicle with crab steering |

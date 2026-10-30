@@ -188,7 +188,7 @@
   <rect class="icon-line" x="770" y="234.0" width="12" height="12" rx="2"/>
   <path class="icon-line" d="M773 231V234M779 231V234M773 246V249M779 246V249"/>
   <text class="lbl" x="800" y="231.0" dominant-baseline="central">Go-kart drive info</text>
-  <text class="sub" x="800" y="250.0" dominant-baseline="central">Microcontroller</text>
+  <text class="sub" x="800" y="250.0" dominant-baseline="central">Main Nucleo F439ZI</text>
   <rect class="card" x="10" y="390" width="170" height="64" rx="14"/>
   <circle class="icon-bg" cx="36" cy="422.0" r="15"/>
   <rect class="icon-line" x="28" y="423.0" width="16" height="6" rx="2"/>

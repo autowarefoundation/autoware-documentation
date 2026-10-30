@@ -2,7 +2,7 @@
 
 # Autoware delivery vehicle
 
-This page describes the Autoware AW1, a concept for an autonomous delivery vehicle based on Autoware. The Reference Design Working Group discussed the concept in 2024. The full concept is in the [Autoware Delivery Vehicle Prototype (PDF)](Autoware_Delivery_Vehicle_Prototype.pdf).
+This page describes the Autoware AW1, a concept for an autonomous delivery vehicle based on Autoware. The concept document is from December 2024. The full concept is in the [Autoware Delivery Vehicle Prototype (PDF)](Autoware_Delivery_Vehicle_Prototype.pdf).
 
 !!! note
 
@@ -13,7 +13,7 @@ This page describes the Autoware AW1, a concept for an autonomous delivery vehic
 The AW1 is an autonomous delivery vehicle that drives only on a private campus. It has these features:
 
 - Symmetric vehicle body
-- 4-wheel steering and crab steering (all wheels turn in the same direction, so the vehicle can move sideways)
+- 4-wheel steering and crab steering (all wheels turn in the same direction, so the vehicle can move diagonally and keep its heading)
 - HVAC and an agile battery swap
 - One side cargo door that opens automatically
 - Variable height, to make unloading easier
@@ -46,7 +46,7 @@ The AW1 is an autonomous delivery vehicle that drives only on a private campus. 
 | Wheel torque        | 840 Nm  |
 | Payload             | 1000 kg |
 
-The concept plans the first prototype in 8 months. The next 4 pre-series units follow in 4 to 5 months, and the next 5 units in 4 months. The concept says that this timeline can change when the details are refined.
+The concept (December 2024) plans the first prototype in 8 months. The next 4 pre-series units follow in 4 to 5 months, and the next 5 units in 4 months. The concept says that this timeline can change when the details are refined.
 
 ## Electronics and electrical architecture
 

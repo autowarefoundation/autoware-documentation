@@ -8,7 +8,7 @@ This document describes the hardware and software configurations of the autonomo
 
 ## Design overview
 
-The charts give a high-level overview of the design. The [metrics page](../../metrics.md) defines the values.
+The charts give a high-level overview of the design. The [metrics page](../../metrics.md) defines most of the axes. It has no definition for ODD, supportability, traffic density, camera, GPS, LiDAR, and radar.
 
 {{ diagram("images/gokart-meta-info-chart.svg", "The Go-Kart design scores from 0 to 5 on each of the nine meta-info metrics.") }}
 

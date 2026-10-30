@@ -8,7 +8,7 @@ This document describes the hardware and software configurations of RoboRacer (f
 
 ## Design overview
 
-The chart compares RoboRacer with the LeoDrive bus of the Bus ODD project. The [metrics page](../../metrics.md) defines the values.
+The chart compares RoboRacer with the LeoDrive bus of the Bus ODD project. The [metrics page](../../metrics.md) defines most of the axes. It has no definition for ODD.
 
 {{ diagram("images/roboracer-meta-info-chart.svg", "RoboRacer and the LeoDrive bus score from 0 to 5 on each of the nine meta-info metrics.") }}
 

@@ -209,8 +209,8 @@
   <circle class="icon-dot" cx="584.5" cy="217.5" r="1.8"/>
   <circle class="icon-dot" cx="591.5" cy="217.5" r="1.8"/>
   <path class="icon-line" d="M588 212 V208 M583 223 V227 M593 223 V227"/>
-  <text class="lbl" x="614" y="209" dominant-baseline="central">LSA, racing robots, Go-Kart</text>
-  <text class="sub" x="614" y="228" dominant-baseline="central">Low-speed and development platforms</text>
+  <text class="lbl" x="614" y="209" dominant-baseline="central">LSA, racing robots</text>
+  <text class="sub" x="614" y="228" dominant-baseline="central">LSA guideline, RoboRacer</text>
 
   <!-- Mixed indoor and outdoor -->
   <path class="edge" d="M270 258 C420 258 404 298 554 298"/>
@@ -242,8 +242,8 @@
   <circle class="icon-dot" cx="584.5" cy="427.5" r="1.8"/>
   <circle class="icon-dot" cx="591.5" cy="427.5" r="1.8"/>
   <path class="icon-line" d="M588 422 V418 M583 433 V437 M593 433 V437"/>
-  <text class="lbl" x="614" y="419" dominant-baseline="central">LSA</text>
-  <text class="sub" x="614" y="438" dominant-baseline="central">Low-speed autonomy guideline</text>
+  <text class="lbl" x="614" y="419" dominant-baseline="central">LSA, delivery vehicle</text>
+  <text class="sub" x="614" y="438" dominant-baseline="central">LSA guideline, AW1 concept</text>
 
   <!-- Highway -->
   <path class="edge" d="M270 428 C420 428 404 488 554 488"/>

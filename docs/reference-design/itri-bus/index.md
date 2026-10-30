@@ -6,7 +6,7 @@ This document describes the bus of the Industrial Technology Research Institute 
 
 ## Design overview
 
-The charts give a high-level overview of the design. The [metrics page](../metrics.md) defines the values.
+The charts give a high-level overview of the design. The [metrics page](../metrics.md) defines most of the axes. It has no definition for supportability.
 
 {{ diagram("images/itri-bus-meta-info-chart.svg", "The ITRI bus design scores from 0 to 5 on each of the eight meta-info metrics.") }}
 

@@ -60,7 +60,7 @@ AutoSDV runs on Autoware with ROS 2, providing autonomous navigation capabilitie
 | **ROS**         | ROS 2 Humble                                    |
 | **Source Code** | [GitHub](https://github.com/NEWSLabNTU/AutoSDV) |
 
-AutoSDV v0.1.0 is based on Autoware 2025.02, a release from before Autoware 2.0.0.
+AutoSDV v0.1.0 is based on Autoware 2025.02, a release from before Autoware 2.0.0. The AutoSDV [`develop` branch](https://github.com/NEWSLabNTU/AutoSDV/blob/develop/versions.yaml) is AutoSDV 0.2.0, which is still in development. It uses Autoware 1.5.0 and JetPack 6.2.2 or newer.
 
 ## Resources
 
