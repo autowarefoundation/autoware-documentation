@@ -162,7 +162,8 @@ class Resolver:
         )
         self.note(page, target)
         full = self.root / target
-        if full.is_file() and full.suffix.lower() != ".html":
+        # The Markdown copy of a page is a page too: the assembly rewrites its links.
+        if full.is_file() and full.suffix.lower() not in (".html", ".md"):
             return ("file", self.file_hash(full))
         if full.is_dir() and (full / "index.html").is_file():
             target = (PurePosixPath(target) / "index.html").as_posix()

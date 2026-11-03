@@ -40,6 +40,15 @@ def test_verify_finds_a_missing_image(bundles, tmp_path):
     assert "picture.png" in problems[0]
 
 
+def test_verify_accepts_a_markdown_copy_with_rewritten_links(tmp_path):
+    bundles = tmp_path / "bundles"
+    write(bundles / "main" / "a" / "b.png", PNG)
+    write(bundles / "main" / "a" / "index.html", page('<link rel="alternate" href="./index.md">'))
+    write(bundles / "main" / "a" / "index.md", "[PNG](<b.png>)\n")
+    output, _ = run(bundles, tmp_path)
+    assert verify_version("main", bundles / "main", output, SITE_URL) == []
+
+
 def test_verify_finds_changed_text(bundles, tmp_path):
     output, _ = run(bundles, tmp_path)
     page_path = output / "main" / "home" / "index.html"

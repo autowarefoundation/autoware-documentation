@@ -16,7 +16,7 @@ A pull request from a fork keeps its site as an artifact only. The `comment-docs
 
 - `collect_bundles.py` downloads one built site per version: every release archive, the newest `docs-main` artifact, and the newest artifact of every open pull request from this repository. It keeps the release archives in a cache directory, because they never change.
 - `assemble.py` puts the versions together:
-  - Every image, diagram, and PDF moves to the `_media` directory, named after a hash of its content. The script rewrites the references in the HTML and CSS of each version. A file that no page references is left out.
+  - Every image, diagram, and PDF moves to the `_media` directory, named after a hash of its content. The script rewrites the references in the HTML, CSS, and Markdown of each version. A file that no page references is left out.
   - The HTML is minified.
   - Each page gets a canonical address with the name of its version, and so does each `sitemap.xml`. Each sitemap also lists the root of its version, because the version selector keeps the current page only if the sitemap of the target version lists that root.
   - The site root gets `versions.json` for the version selector, an `index.html` that redirects to the default version, and a `404.html`.
