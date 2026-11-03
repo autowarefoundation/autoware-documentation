@@ -25,7 +25,7 @@
 }
 
 /*
- * The fonts of the brand guideline: Montserrat for text (theme.font in mkdocs.yaml) and Outfit for headings.
+ * The fonts of the brand guideline: Montserrat for text (theme.font in zensical.toml) and Outfit for headings.
  * The diagrams also use Outfit: its letters are as wide as the letters of Roboto, which the diagrams were drawn for.
  */
 .md-typeset :is(h1, h2, h3, h4, h5, h6),

@@ -17,7 +17,7 @@ import pytest
         ("docs/contributing/README.md", "contributing/"),
         ("docs/home/images/picture.png", None),
         ("README.md", None),
-        ("mkdocs.yaml", None),
+        ("zensical.toml", None),
     ],
 )
 def test_page_address(path, expected):
@@ -27,7 +27,7 @@ def test_page_address(path, expected):
 def test_comment_body_lists_only_the_changed_pages():
     body = comment_body(
         "https://example.org/docs/pr-12/",
-        ["docs/home/index.md", "mkdocs.yaml", "docs/demos/lane-change.md"],
+        ["docs/home/index.md", "zensical.toml", "docs/demos/lane-change.md"],
     )
     assert body == (
         "Documentation URL: https://example.org/docs/pr-12/\n"

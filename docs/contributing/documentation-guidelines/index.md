@@ -53,7 +53,7 @@ To preview this site, install the dependencies of this repository in a virtual e
 cd /PATH/TO/YOUR-autoware-documentation
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r mkdocs-requirements.txt
+pip install -r requirements.txt
 ```
 
 Then start the server.
