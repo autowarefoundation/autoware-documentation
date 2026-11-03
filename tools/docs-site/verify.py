@@ -7,7 +7,9 @@
 For every HTML page of every version, the page in the site must have the same
 text, the same content in each pre element, and references that lead to the
 same files as the page in the bundle. A reference to an image can change its
-address, but it must still lead to a file with the same content.
+address, but it must still lead to a file with the same content. The Markdown
+copy of each page must have the same text and links that lead to the same
+files.
 
 A reference that is broken in the bundle may stay broken in the site. A
 reference that works in the bundle must work in the site.
@@ -32,6 +34,7 @@ import sys
 import urllib.parse
 
 from assemble import DRAWIO_LINK
+from assemble import MARKDOWN_LINK
 from assemble import MEDIA_DIRECTORY
 from assemble import is_external
 
@@ -162,7 +165,8 @@ class Resolver:
         )
         self.note(page, target)
         full = self.root / target
-        if full.is_file() and full.suffix.lower() != ".html":
+        # The Markdown copy of a page is a page too: the assembly rewrites its links.
+        if full.is_file() and full.suffix.lower() not in (".html", ".md"):
             return ("file", self.file_hash(full))
         if full.is_dir() and (full / "index.html").is_file():
             target = (PurePosixPath(target) / "index.html").as_posix()
@@ -213,8 +217,38 @@ def verify_version_and_dependencies(name, bundle, site, site_url):
             if attribute == "href" and tag == "link" and was[0] == "external":
                 continue  # The canonical address gets the name of the version.
             problems.append(f"{page}: <{tag} {attribute}={before!r}> led to {was}, now {now}")
+    problems += verify_markdown(name, bundle, site, bundle_resolver, site_resolver)
     dependencies = {"bundles": bundle_resolver.dependencies, "site": site_resolver.dependencies}
     return problems, dependencies
+
+
+def verify_markdown(name, bundle, site, bundle_resolver, site_resolver):
+    """Return the differences of the Markdown copies of the pages.
+
+    The text without the link targets must be the same, and each link must
+    lead to the same thing.
+    """
+    problems = []
+    for source in sorted(Path(bundle).rglob("*.md")):
+        page = f"{name}/{source.relative_to(bundle).as_posix()}"
+        assembled = Path(site) / page
+        if not assembled.is_file():
+            problems.append(f"{page}: missing from the site")
+            continue
+        before = source.read_text(encoding="utf-8")
+        after = assembled.read_text(encoding="utf-8")
+        if MARKDOWN_LINK.sub("", before) != MARKDOWN_LINK.sub("", after):
+            problems.append(f"{page}: the text differs")
+            continue
+        links_before = [match.group(2) for match in MARKDOWN_LINK.finditer(before)]
+        links_after = [match.group(2) for match in MARKDOWN_LINK.finditer(after)]
+        for link_before, link_after in zip(links_before, links_after):
+            was = bundle_resolver.resolve(page, link_before)
+            now = site_resolver.resolve(page, link_after)
+            if was == now or (was[0] == "missing" and now[0] == "missing"):
+                continue
+            problems.append(f"{page}: the link {link_before!r} led to {was}, now {now}")
+    return problems
 
 
 # The code and the packages that decide how a version is assembled and checked.

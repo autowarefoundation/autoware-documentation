@@ -12,7 +12,7 @@ GitHub Pages allows.
 This script puts every version in its own directory, as before, but moves each
 image, diagram and PDF into one shared directory named after a hash of its
 content. A file that several versions contain is stored once. The references
-in the HTML and CSS of each version are rewritten to point there.
+in the HTML, CSS, and Markdown of each version are rewritten to point there.
 
 It also minifies the HTML, gives each page the canonical address of its
 version, and writes the files that the site root needs: versions.json for the
@@ -70,6 +70,9 @@ ATTRIBUTE = re.compile(
 SRCSET = re.compile(r"""((?<=[\s"'])srcset\s*=\s*)(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))""", re.I)
 STYLE_ELEMENT = re.compile(r"(<style\b[^>]*>)(.*?)(</style>)", re.I | re.S)
 CSS_URL = re.compile(r"""url\(\s*(["']?)([^"')]+)\1\s*\)""")
+# A link in the Markdown copy of a page. Zensical puts each target in angle
+# brackets, for example "[SVG](<logo.svg>)" or "[PDF](<file.pdf> "Title")".
+MARKDOWN_LINK = re.compile(r"(\]\(<)([^<>\n]*)(>)")
 CANONICAL = re.compile(r"""<link\b[^>]*\brel=["']?canonical\b[^>]*>""", re.I)
 HREF = re.compile(r"""(\bhref=)(["']?)([^"'\s>]+)\2""", re.I)
 SITEMAP_LOCATION = re.compile(r"(<loc>)([^<]*)(</loc>)")
@@ -231,6 +234,20 @@ def rewrite_css(text, page, version):
     return CSS_URL.sub(replace, text)
 
 
+def rewrite_markdown(text, page, version):
+    """Rewrite the link targets of the Markdown copy of a page.
+
+    A link in a code block changes too. verify.py checks every link in the
+    same way, and a rewritten link still leads to the same file.
+    """
+
+    def replace(match):
+        reference = rewrite_reference(match.group(2), page, version)
+        return f"{match.group(1)}{reference}{match.group(3)}"
+
+    return MARKDOWN_LINK.sub(replace, text)
+
+
 def canonical_address(address, version, site_url):
     """Return the address of a page with the name of its version in it."""
     if not address.startswith(site_url):
@@ -343,6 +360,10 @@ def copy_version(version, versions, output, site_url, used):
             text = rewrite_css(path.read_text(encoding="utf-8"), page, version)
             destination.write_text(text, encoding="utf-8")
             used.update(USED_MEDIA.findall(text))
+        elif suffix == ".md":
+            text = rewrite_markdown(path.read_text(encoding="utf-8"), page, version)
+            destination.write_text(text, encoding="utf-8")
+            used.update(USED_MEDIA.findall(text))
         elif relative == "sitemap.xml":
             text = rewrite_sitemap(path.read_text(encoding="utf-8"), version, site_url)
             destination.write_text(text, encoding="utf-8")
@@ -377,7 +398,11 @@ def rewrite_sitemap(text, version, site_url):
 
 
 def write_root_files(output, versions, default_version, releases_url):
-    """Write versions.json, the redirect to the default version, and the 404 page."""
+    """Write versions.json, the redirect to the default version, the 404 page, and llms.txt.
+
+    AI agents look for llms.txt at the root of a site. The root copy is the
+    llms.txt of the default version, with its links moved into that version.
+    """
     entries = [{"version": v.name, "title": v.name, "aliases": []} for v in versions]
     entries = reorder_entries(entries, default_version)
     (output / "versions.json").write_text(json.dumps(entries, indent=2) + "\n", encoding="utf-8")
@@ -388,6 +413,17 @@ def write_root_files(output, versions, default_version, releases_url):
         NOT_FOUND_PAGE.format(version=default_version, releases_url=releases_url),
         encoding="utf-8",
     )
+    llms = output / default_version / "llms.txt"
+    if llms.is_file():
+
+        def replace(match):
+            target = match.group(2)
+            if not is_external(target):
+                target = f"{default_version}/{target}"
+            return f"{match.group(1)}{target}{match.group(3)}"
+
+        text = MARKDOWN_LINK.sub(replace, llms.read_text(encoding="utf-8"))
+        (output / "llms.txt").write_text(text, encoding="utf-8")
 
 
 def assemble(bundles, output, site_url, default_version, releases_url):

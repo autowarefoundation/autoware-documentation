@@ -47,8 +47,10 @@ features = [
   "navigation.top",
   "navigation.footer",
   "navigation.tracking",
+  "content.action.copy",
   "content.action.edit",
   "content.action.view",
+  "content.code.copy",
 ]
 
 [project.theme.font]
@@ -94,6 +96,24 @@ regex = [
 [project.plugins.macros]
 include_dir = "docs"
 include_yaml = { autoware_interfaces = "yaml/autoware-interfaces.yaml" }
+
+# Writes llms.txt and a Markdown copy of each page for AI agents.
+# The links are relative, so that they work in each version directory.
+[project.plugins.llmstxt]
+base_url = "./"
+markdown_description = "Documentation of Autoware, the open-source software for autonomous driving."
+
+# One section for each top-level directory of docs/.
+[project.plugins.llmstxt.sections]
+Home = ["home/*.md"]
+Installation = ["installation/*.md"]
+Simulation = ["simulation/*.md"]
+Tutorials = ["tutorials/*.md"]
+"Architecture design" = ["design/*.md"]
+"Reference design" = ["reference-design/*.md"]
+Contributing = ["contributing/*.md"]
+Datasets = ["datasets/*.md"]
+Community = ["community/*.md"]
 
 [project.plugins.minify]
 minify_html = true
