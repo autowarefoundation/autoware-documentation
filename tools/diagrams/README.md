@@ -4,7 +4,7 @@ The diagrams of this site are hand-written SVG files. The SVG uses a small set o
 
 ## Add a diagram to a page
 
-1. Write the SVG file next to the page, in the `images/` folder of the page, with the extension `.svg`.
+1. Write the SVG file next to the page, in the image folder that the page already uses, with the extension `.svg`. For a new page, use `images/`.
 2. In the Markdown, call the `diagram` macro on its own line, with a blank line before and after it:
 
    ```jinja
@@ -24,7 +24,7 @@ GitHub and other viewers show an SVG file on its own, without the CSS of the sit
 Do not edit these two elements by hand. After you add or change a diagram, or change the diagram styles in `docs/assets/css/theme.css` or the definitions in `overrides/main.html`, run:
 
 ```bash
-python3 tools/diagrams/standalone.py docs/design
+python3 tools/diagrams/standalone.py docs
 pre-commit run prettier-svg --all-files
 ```
 
@@ -42,7 +42,7 @@ pre-commit run prettier-svg --all-files
 
 ### Shapes
 
-Use `<rect>` with `rx="10"` for boxes and `rx="16"` for groups.
+Use `<rect>` with `rx="12"` for boxes and cards, and `rx="16"` for groups.
 
 | Class          | Use                                                                                       |
 | :------------- | :---------------------------------------------------------------------------------------- |
@@ -105,7 +105,7 @@ Use these classes for drawings of roads, lanelets, and vehicles. The road colors
 
 ### Illustration layer
 
-Use these classes only for a few overview diagrams, for example the generator-selector diagram of Architecture 2.0. They add depth and motion. Reference diagrams stay plain.
+Most diagrams use these classes, for example the generator-selector diagram of Architecture 2.0. They add depth and motion. Map drawings use mostly the glass vehicles and the pulses on the routes.
 
 | Class                                                                                           | Use                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | :---------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

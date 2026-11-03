@@ -12,7 +12,7 @@ The script reads the diagram rules and the light-mode colors from docs/assets/cs
 markers, gradients, patterns, and filters from overrides/main.html. Each file gets only the rules and definitions
 that it uses. Run it again after you change one of these files or a diagram. It takes a folder or one SVG file:
 
-    python3 tools/diagrams/standalone.py docs/design
+    python3 tools/diagrams/standalone.py docs
 """
 
 import pathlib
@@ -143,7 +143,7 @@ def standalone_block(svg, values, rules, defs):
 
 
 def main():
-    folder = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else ROOT / "docs/design")
+    folder = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else ROOT / "docs")
     css = THEME.read_text(encoding="utf-8")
     values, rules = variables(css), diagram_rules(css)
     defs = definitions(TEMPLATE.read_text(encoding="utf-8"))
