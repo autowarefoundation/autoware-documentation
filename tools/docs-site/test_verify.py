@@ -49,6 +49,19 @@ def test_verify_accepts_a_markdown_copy_with_rewritten_links(tmp_path):
     assert verify_version("main", bundles / "main", output, SITE_URL) == []
 
 
+def test_verify_finds_a_broken_link_in_a_markdown_copy(tmp_path):
+    bundles = tmp_path / "bundles"
+    write(bundles / "main" / "a" / "b.png", PNG)
+    write(bundles / "main" / "a" / "index.html", page('<img src="b.png">'))
+    write(bundles / "main" / "a" / "index.md", "[PNG](<b.png>)\n")
+    output, _ = run(bundles, tmp_path)
+    copy = output / "main" / "a" / "index.md"
+    copy.write_text("[PNG](<b.png>)\n", encoding="utf-8")
+    problems = verify_version("main", bundles / "main", output, SITE_URL)
+    assert len(problems) == 1
+    assert problems[0].startswith("main/a/index.md: the link 'b.png' led to ('file',")
+
+
 def test_verify_finds_changed_text(bundles, tmp_path):
     output, _ = run(bundles, tmp_path)
     page_path = output / "main" / "home" / "index.html"

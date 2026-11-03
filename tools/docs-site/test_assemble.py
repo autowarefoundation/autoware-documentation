@@ -81,14 +81,36 @@ def test_markdown_links_are_rewritten(tmp_path):
     write(root / "main" / "a" / "index.html", page("<p>Only the Markdown links the file.</p>"))
     write(
         root / "main" / "a" / "index.md",
-        "[PNG](<b.png>) [page](<../other/>) [site](<https://example.com/b.png>)\n",
+        "[PNG](<b.png>) [page](<../other/>) [site](<https://example.com/b.png>)\n"
+        '[titled](<b.png> "The PNG")\n',
     )
     output, _ = run(root, tmp_path)
+    png = f"../../{shared(PNG, '.png')}"
     assert read(output / "main" / "a" / "index.md") == (
-        f"[PNG](<../../{shared(PNG, '.png')}>) [page](<../other/>)"
-        " [site](<https://example.com/b.png>)\n"
+        f"[PNG](<{png}>) [page](<../other/>) [site](<https://example.com/b.png>)\n"
+        f'[titled](<{png}> "The PNG")\n'
     )
     assert (output / shared(PNG, ".png")).is_file()
+
+
+def test_the_root_llms_txt_points_into_the_default_version(tmp_path):
+    root = tmp_path / "bundles"
+    write(root / "main" / "index.html", page("<p>main</p>"))
+    write(
+        root / "main" / "llms.txt",
+        "# Site\n\n- [Home](<home/index.md>)\n- [Other](<https://example.com/>)\n",
+    )
+    output, _ = run(root, tmp_path)
+    assert read(output / "llms.txt") == (
+        "# Site\n\n- [Home](<main/home/index.md>)\n- [Other](<https://example.com/>)\n"
+    )
+
+
+def test_no_root_llms_txt_without_one_in_the_default_version(tmp_path):
+    root = tmp_path / "bundles"
+    write(root / "main" / "index.html", page("<p>main</p>"))
+    output, _ = run(root, tmp_path)
+    assert not (output / "llms.txt").exists()
 
 
 def test_text_that_only_looks_like_an_attribute_is_kept(tmp_path):

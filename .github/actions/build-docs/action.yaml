@@ -25,6 +25,11 @@ runs:
       run: pip3 install -r requirements.txt
       shell: bash
 
+    # Zensical writes the Markdown copy of a page only if a section of the llmstxt plugin lists the page.
+    - name: Check the llmstxt sections
+      run: python3 tools/docs-site/llmstxt_sections.py
+      shell: bash
+
     # Zensical and the PlantUML extension keep what they rendered in .cache.
     # With the cache of an earlier build, only the changed pages are rendered again.
     - name: Restore the build cache

@@ -70,8 +70,9 @@ ATTRIBUTE = re.compile(
 SRCSET = re.compile(r"""((?<=[\s"'])srcset\s*=\s*)(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))""", re.I)
 STYLE_ELEMENT = re.compile(r"(<style\b[^>]*>)(.*?)(</style>)", re.I | re.S)
 CSS_URL = re.compile(r"""url\(\s*(["']?)([^"')]+)\1\s*\)""")
-# A link or an image in the Markdown copy of a page, for example "[SVG](<logo.svg>)".
-MARKDOWN_LINK = re.compile(r"(\]\(<)([^<>\n]*)(>\))")
+# A link in the Markdown copy of a page. Zensical puts each target in angle
+# brackets, for example "[SVG](<logo.svg>)" or "[PDF](<file.pdf> "Title")".
+MARKDOWN_LINK = re.compile(r"(\]\(<)([^<>\n]*)(>)")
 CANONICAL = re.compile(r"""<link\b[^>]*\brel=["']?canonical\b[^>]*>""", re.I)
 HREF = re.compile(r"""(\bhref=)(["']?)([^"'\s>]+)\2""", re.I)
 SITEMAP_LOCATION = re.compile(r"(<loc>)([^<]*)(</loc>)")
@@ -234,7 +235,11 @@ def rewrite_css(text, page, version):
 
 
 def rewrite_markdown(text, page, version):
-    """Rewrite the link targets of the Markdown copy of a page."""
+    """Rewrite the link targets of the Markdown copy of a page.
+
+    A link in a code block changes too. verify.py checks every link in the
+    same way, and a rewritten link still leads to the same file.
+    """
 
     def replace(match):
         reference = rewrite_reference(match.group(2), page, version)
@@ -393,7 +398,11 @@ def rewrite_sitemap(text, version, site_url):
 
 
 def write_root_files(output, versions, default_version, releases_url):
-    """Write versions.json, the redirect to the default version, and the 404 page."""
+    """Write versions.json, the redirect to the default version, the 404 page, and llms.txt.
+
+    AI agents look for llms.txt at the root of a site. The root copy is the
+    llms.txt of the default version, with its links moved into that version.
+    """
     entries = [{"version": v.name, "title": v.name, "aliases": []} for v in versions]
     entries = reorder_entries(entries, default_version)
     (output / "versions.json").write_text(json.dumps(entries, indent=2) + "\n", encoding="utf-8")
@@ -404,6 +413,17 @@ def write_root_files(output, versions, default_version, releases_url):
         NOT_FOUND_PAGE.format(version=default_version, releases_url=releases_url),
         encoding="utf-8",
     )
+    llms = output / default_version / "llms.txt"
+    if llms.is_file():
+
+        def replace(match):
+            target = match.group(2)
+            if not is_external(target):
+                target = f"{default_version}/{target}"
+            return f"{match.group(1)}{target}{match.group(3)}"
+
+        text = MARKDOWN_LINK.sub(replace, llms.read_text(encoding="utf-8"))
+        (output / "llms.txt").write_text(text, encoding="utf-8")
 
 
 def assemble(bundles, output, site_url, default_version, releases_url):

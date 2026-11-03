@@ -1,4 +1,4 @@
-# cspell:ignore cachedir llms llmstxt panosim pygments
+# cspell:ignore cachedir panosim pygments
 
 [project]
 site_name = "Autoware Documentation"
