@@ -18,7 +18,7 @@
     }
   },
   "forwardPorts": [8000],
-  "postCreateCommand": "pip install --user -r mkdocs-requirements.txt",
+  "postCreateCommand": "pip install --user -r requirements.txt",
   "remoteUser": "autoware",
 
   "workspaceFolder": "/autoware-documentation",

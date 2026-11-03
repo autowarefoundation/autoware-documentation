@@ -1,3 +1,5 @@
+# cspell:ignore tomllib
+
 name: publish-docs
 
 # Puts every version of the documentation together and publishes it to GitHub Pages:
@@ -104,7 +106,7 @@ jobs:
 
       - name: Read the site address
         id: site
-        run: echo "url=$(grep -oP '^site_url:\s+\K(.*)' mkdocs.yaml)" >> "$GITHUB_OUTPUT"
+        run: python3 -c 'import tomllib; print("url=" + tomllib.load(open("zensical.toml", "rb"))["project"]["site_url"])' >> "$GITHUB_OUTPUT"
         shell: bash
 
       - name: Assemble the site
@@ -173,7 +175,7 @@ jobs:
 
       - name: Read the site address
         id: site
-        run: echo "url=$(grep -oP '^site_url:\s+\K(.*)' mkdocs.yaml)" >> "$GITHUB_OUTPUT"
+        run: python3 -c 'import tomllib; print("url=" + tomllib.load(open("zensical.toml", "rb"))["project"]["site_url"])' >> "$GITHUB_OUTPUT"
         shell: bash
 
       # The pull request comes from the GitHub API, never from the run or its artifact.

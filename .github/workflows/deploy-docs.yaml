@@ -8,8 +8,8 @@ on:
     branches:
       - main
     paths:
-      - mkdocs.yaml
-      - mkdocs-requirements.txt
+      - zensical.toml
+      - requirements.txt
       - main.py
       - overrides/**
       - .github/actions/build-docs/**
