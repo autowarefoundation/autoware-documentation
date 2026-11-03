@@ -2,7 +2,7 @@
 
 [project]
 site_name = "Autoware Documentation"
-# Must end with "/". The publish-docs workflow reads this line with grep.
+# Must end with "/". The publish-docs workflow reads it.
 site_url = "https://autowarefoundation.github.io/autoware-documentation/"
 repo_url = "https://github.com/autowarefoundation/autoware"
 edit_uri = "https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/"
@@ -138,7 +138,8 @@ minify_html = true
 [project.plugins.search]
 separator = '[\s\-_,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
 
-# Quoted keys keep the order of the extensions.
+# Quote a name that has a dot, or TOML makes a nested table.
+# The order of the tables is the order of the extensions.
 [project.markdown_extensions.abbr]
 [project.markdown_extensions.admonition]
 [project.markdown_extensions.attr_list]
