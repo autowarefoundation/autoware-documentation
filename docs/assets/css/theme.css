@@ -1846,7 +1846,8 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
 
 /*
  * Illustration layer for the main diagrams: glass panels, glows, icons, a glass car, and data that flows along the
- * lines. Use it only for a few overview diagrams (see tools/diagrams/README.md).
+ * lines. Most diagrams use it. Map drawings use mostly the glass car and the pulses on the routes
+ * (see tools/diagrams/README.md).
  */
 [data-md-color-scheme="default"] {
   --aw-glass-a: #ffffffd9;
