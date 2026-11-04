@@ -186,7 +186,7 @@
   <text class="code" x="455" y="187" text-anchor="middle" dominant-baseline="central">managed_transform_buffer</text>
   <rect class="box muted" x="342" y="210" width="226" height="30" rx="10"/>
   <text class="code" x="455" y="225" text-anchor="middle" dominant-baseline="central">bevdet_vendor</text>
-  <text class="sub" x="455" y="262" text-anchor="middle" dominant-baseline="central">and 8 more external packages</text>
+  <text class="sub" x="455" y="262" text-anchor="middle" dominant-baseline="central">and 7 more external packages</text>
 
   <!-- Sensor components -->
   <rect class="glass-panel" x="330" y="340" width="250" height="220" rx="18"/>

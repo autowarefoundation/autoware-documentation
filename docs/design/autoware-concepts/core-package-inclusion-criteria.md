@@ -70,12 +70,13 @@ Promotion is a deliberate port, not a copy:
 Core ships in two forms: the default CPU-only packages, and an optional GPU layer.
 A package that needs CUDA or TensorRT can still be Core, but only in this layer, so the default build never requires a GPU.
 
-The CUDA layer has two repositories, both cloned under `src/core/cuda/`:
+The CUDA layer has three repositories, all cloned under `src/core/cuda/`:
 
 - [`autoware_cuda`](https://github.com/autowarefoundation/autoware_cuda) holds the shared CUDA/TensorRT base: `autoware_cuda_dependency_meta`, `autoware_cuda_utils`, and `autoware_tensorrt_common`.
 - [`cuda_blackboard`](https://github.com/autowarefoundation/cuda_blackboard) lets nodes share data on the GPU without a copy to the host.
+- [`negotiated`](https://github.com/osrf/negotiated) lets a publisher and its subscribers agree on the message type of a topic. `cuda_blackboard` depends on it.
 
-Only the CUDA images (`autoware-core-*-cuda` and the images built on them) build this layer.
+Only the CUDA images build this layer: `core-devel-cuda`, `core-cuda`, and the universe CUDA images built on them.
 The CPU-only Core images do not build `src/core/cuda`.
 Autoware 2.0.0 does not have this layer yet: it builds these packages from Autoware Universe.
 
