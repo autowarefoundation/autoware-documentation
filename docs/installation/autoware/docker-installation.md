@@ -2,7 +2,7 @@
 
 Autoware publishes prebuilt multi-arch (amd64, arm64) Docker images on GHCR. There are runtime images for trying things out, devel images for building locally, and CUDA variants for GPU workloads.
 
-The full image catalog has twelve images that form a build graph. The canonical Docker reference next to the Dockerfiles in the `autoware` repository documents it. Bookmark these sections, since they track the implementation:
+The full image catalog has fifteen images that form a build graph. The canonical Docker reference next to the Dockerfiles in the `autoware` repository documents it. Bookmark these sections, since they track the implementation:
 
 - [`docker/README.md` → Image Graph](https://github.com/autowarefoundation/autoware/blob/main/docker/README.md#image-graph): a diagram of how the images depend on each other.
 - [`docker/README.md` → Images](https://github.com/autowarefoundation/autoware/blob/main/docker/README.md#images): a table that describes each image and when to use it.
@@ -257,6 +257,6 @@ vcs import src < repositories/autoware.repos
 docker buildx bake -f docker/docker-bake.hcl
 ```
 
-That builds the `default` group of `docker-bake.hcl`, which contains all twelve images of the [image graph](https://github.com/autowarefoundation/autoware/blob/main/docker/README.md#image-graph). To build a specific stage (for example `core-devel` or `base-cuda-runtime`), pass it as an argument. Its dependencies are resolved automatically. To build for ROS 2 Humble, prefix the command with `ROS_DISTRO=humble`. To pin the base image and the package versions to the lockfiles, prefix it with `USE_LOCKFILE=true`. See [`docker/README.md` → Build locally](https://github.com/autowarefoundation/autoware/blob/main/docker/README.md#build-locally) for the full target list and multi-arch flow.
+That builds the `default` group of `docker-bake.hcl`, which contains all fifteen images of the [image graph](https://github.com/autowarefoundation/autoware/blob/main/docker/README.md#image-graph). To build a specific stage (for example `core-devel` or `base-cuda-runtime`), pass it as an argument. Its dependencies are resolved automatically. To build for ROS 2 Humble, prefix the command with `ROS_DISTRO=humble`. To pin the base image and the package versions to the lockfiles, prefix it with `USE_LOCKFILE=true`. See [`docker/README.md` → Build locally](https://github.com/autowarefoundation/autoware/blob/main/docker/README.md#build-locally) for the full target list and multi-arch flow.
 
 Pinned date- and release-tagged versions of every image are published on [GHCR](https://github.com/autowarefoundation/autoware/pkgs/container/autoware). Use them when you need a fixed version of the image.

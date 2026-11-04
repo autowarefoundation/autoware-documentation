@@ -2,18 +2,22 @@
 
 ## Prerequisites
 
-| Item   | Requirement                                                                                                                                       |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Docker | [Docker Engine](https://docs.docker.com/engine/install/ubuntu/). Core images do not use the GPU, so the NVIDIA Container Toolkit is not required. |
+| Item   | Requirement                                                                                                                                                    |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Docker | [Docker Engine](https://docs.docker.com/engine/install/ubuntu/). The CPU-only core images do not use the GPU, so the NVIDIA Container Toolkit is not required. |
 
 To install Docker Engine with the Ansible playbook of the `autoware` repository, see step 2 of the [Docker installation](docker-installation.md#prerequisites) and add `--skip-tags nvidia`.
 
+The core CUDA images need the NVIDIA Container Toolkit and the NVIDIA GPU driver, the same as the [Docker installation](docker-installation.md#prerequisites). For these images, do not add `--skip-tags nvidia`.
+
 ## Select docker image
 
-| Image                                                | Description                                                                                                             |
-| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| ghcr.io/autowarefoundation/autoware:core-jazzy       | This is a runtime image. It contains the compiled Autoware Core packages and their runtime dependencies only.           |
-| ghcr.io/autowarefoundation/autoware:core-devel-jazzy | This is a develop image. It contains the build dependencies and the compiled Autoware Core packages in `/opt/autoware`. |
+| Image                                                     | Description                                                                                                                                               |
+| --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ghcr.io/autowarefoundation/autoware:core-jazzy            | This is a runtime image. It contains the compiled Autoware Core packages and their runtime dependencies only.                                             |
+| ghcr.io/autowarefoundation/autoware:core-devel-jazzy      | This is a develop image. It contains the build dependencies and the compiled Autoware Core packages in `/opt/autoware`.                                   |
+| ghcr.io/autowarefoundation/autoware:core-cuda-jazzy       | The runtime image with CUDA and TensorRT. It also contains the CUDA layer of Core (`autoware_cuda`, `cuda_blackboard` and `negotiated`), built with CUDA. |
+| ghcr.io/autowarefoundation/autoware:core-devel-cuda-jazzy | The develop image with CUDA, TensorRT and the CUDA layer of Core.                                                                                         |
 
 Replace `jazzy` with `humble` for ROS 2 Humble. Tag scheme: `<stage>-<ros_distro>[-<date>|-<version>]`. For example, `core-jazzy-2.0.0` is the image of the Autoware 2.0.0 release. The full image catalog and tag list lives in [`autoware/docker/README.md`](https://github.com/autowarefoundation/autoware/blob/main/docker/README.md).
 
