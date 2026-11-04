@@ -73,12 +73,15 @@ A package that needs CUDA or TensorRT can still be Core, but only in this layer,
 The CUDA layer has three repositories, all cloned under `src/core/cuda/`:
 
 - [`autoware_cuda`](https://github.com/autowarefoundation/autoware_cuda) holds the shared CUDA/TensorRT base: `autoware_cuda_dependency_meta`, `autoware_cuda_utils`, and `autoware_tensorrt_common`.
-- [`cuda_blackboard`](https://github.com/autowarefoundation/cuda_blackboard) lets nodes share data on the GPU without a copy to the host.
+- [`cuda_blackboard`](https://github.com/autowarefoundation/cuda_blackboard) lets nodes in one process share data on the GPU without a copy to the host.
 - [`negotiated`](https://github.com/osrf/negotiated) lets a publisher and its subscribers agree on the message type of a topic. `cuda_blackboard` depends on it.
 
-Only the CUDA images build this layer: `core-devel-cuda`, `core-cuda`, and the universe CUDA images built on them.
-The CPU-only Core images do not build `src/core/cuda`.
-Autoware 2.0.0 does not have this layer yet: it builds these packages from Autoware Universe.
+The core CUDA images, `core-devel-cuda` and `core-cuda`, hold this layer, built with CUDA.
+The universe CUDA images build on them.
+The CPU-only Core images leave out `src/core/cuda`.
+The CPU-only Universe images still run colcon on `src/core/cuda`, but without CUDA its CUDA code does not build.
+Autoware 2.0.0 does not have this layer yet.
+It builds these packages as part of Autoware Universe.
 
 The shared base is Core-quality: it depends only on its own packages, Core tooling, ROS, and one external CMake module, with nothing from Universe, and many downstream GPU packages build on it.
 `autoware_tensorrt_plugins` stays in [Autoware Universe](https://github.com/autowarefoundation/autoware_universe), because it still changes often and only a few packages use it.

@@ -12,7 +12,7 @@ Autoware has the following repository structure defined by the [`autoware.repos`
 
 !!! note
 
-    The diagram shows the repositories of the `main` branch of Autoware. It leaves out some external packages of Universe, for example vendor packages of third-party libraries.
+    The diagram shows the repositories of the `main` branch of Autoware. It leaves out some external packages, for example `negotiated` in the CUDA layer and vendor packages of third-party libraries in Universe.
 
 ## Important repositories
 
@@ -27,7 +27,7 @@ Here is an overview of the most important repositories:
 ### `autoware_cuda`
 
 - Contains the shared CUDA and TensorRT base packages: `autoware_cuda_dependency_meta`, `autoware_cuda_utils`, and `autoware_tensorrt_common`.
-- It is the optional CUDA layer of Core, together with `cuda_blackboard`. Only the CUDA images build it.
+- It is the optional CUDA layer of Core, together with `cuda_blackboard` and `negotiated`. The core CUDA images hold it, built with CUDA.
 - See [the CUDA layer](autoware-concepts/core-package-inclusion-criteria.md#the-cuda-layer).
 
 ### `autoware_universe`
