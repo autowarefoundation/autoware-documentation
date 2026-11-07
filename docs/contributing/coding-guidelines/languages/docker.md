@@ -27,7 +27,7 @@ If a rule does not fit the whole repository, add it to the `.hadolint.yaml` file
 
 ## Name the files
 
-Give each Dockerfile a name of the form `<name>.Dockerfile`, for example `base.Dockerfile` and `universe-cuda.Dockerfile`. Put them in the `docker/` directory. If a project builds more than one image, describe the targets in a [Docker Bake](https://docs.docker.com/build/bake/) file such as [`docker/docker-bake.hcl`](https://github.com/autowarefoundation/autoware/blob/2.0.0/docker/docker-bake.hcl).
+Give each Dockerfile a name of the form `<name>.Dockerfile`, for example `base.Dockerfile` and `base-cuda.Dockerfile`. Put them in the `docker/` directory. If a project builds more than one image, describe the targets in a [Docker Bake](https://docs.docker.com/build/bake/) file such as [`docker/docker-bake.hcl`](https://github.com/autowarefoundation/autoware/blob/2.0.0/docker/docker-bake.hcl).
 
 ## Use multi-stage builds
 
