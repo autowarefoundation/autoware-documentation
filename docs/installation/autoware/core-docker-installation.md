@@ -23,7 +23,7 @@ The core CUDA images (`core-cuda` and `core-devel-cuda`) need the NVIDIA Contain
 | ghcr.io/autowarefoundation/autoware:core-cuda-jazzy       | This is a runtime image with CUDA and TensorRT. It contains the compiled Autoware Core packages and the CUDA layer of Core (`autoware_cuda`, `cuda_blackboard` and `negotiated`), built with CUDA. |
 | ghcr.io/autowarefoundation/autoware:core-devel-cuda-jazzy | This is a develop image with CUDA and TensorRT. It contains the build dependencies, the compiled Autoware Core packages and the CUDA layer of Core in `/opt/autoware`.                             |
 
-Replace `jazzy` with `humble` for ROS 2 Humble. Tag scheme: `<stage>-<ros_distro>[-<date>|-<version>]`. For example, `core-jazzy-2.0.0` is the image of the Autoware 2.0.0 release. The core CUDA images came after the 2.0.0 release, so they have date tags such as `core-cuda-jazzy-20261106`, but no release tag yet. The full image catalog and tag list lives in [`autoware/docker/README.md`](https://github.com/autowarefoundation/autoware/blob/main/docker/README.md).
+Replace `jazzy` with `humble` for ROS 2 Humble. Tag scheme: `<stage>-<ros_distro>[-<date>|-<version>]`. For example, `core-jazzy-2.0.0` is the image of the Autoware 2.0.0 release. The core CUDA images started after the 2.0.0 release, so they have no release tag for 2.0.0 or an older release. The full image catalog and tag list lives in [`autoware/docker/README.md`](https://github.com/autowarefoundation/autoware/blob/main/docker/README.md).
 
 ## How to set up
 
