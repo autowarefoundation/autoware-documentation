@@ -189,72 +189,76 @@
   <text class="sub" x="762" y="54" dominant-baseline="central">Lyrical exclusive mode</text>
   <text class="sub" x="762" y="70" dominant-baseline="central">Jazzy end of support</text>
 
-  <path class="leader" d="M150 84 V100 H212 V116"/>
-  <path class="leader" d="M234 84 V116"/>
-  <path class="leader" d="M400 84 V100 H322 V116"/>
-  <path class="leader" d="M700 84 V100 H762 V116"/>
-  <path class="leader" d="M850 84 V116"/>
+  <path class="leader" d="M160 84 V100 H230 V116"/>
+  <path class="leader" d="M270 84 V116"/>
+  <path class="leader" d="M430 84 V116"/>
+  <path class="leader" d="M720 84 V100 H780 V116"/>
+  <path class="leader" d="M840 84 V116"/>
 
-  <!-- Time axis: one month is 22 units, from November 2026 at x=190 -->
+  <!-- Time axis: November 2026 is at x=190. Until July 2027 (x=510), one month is 40 units. After it, one month is 15 units. -->
   <path class="edge accent" d="M186 124 H906"/>
   <path class="flow flow-accent" pathLength="100" d="M186 124 H900"/>
   <path class="edge accent head" d="M186 124 H906"/>
-  <rect class="box ext" x="-6" y="-6" width="12" height="12" rx="2" transform="translate(212 124) rotate(45)"/>
-  <rect class="box ext" x="-6" y="-6" width="12" height="12" rx="2" transform="translate(234 124) rotate(45)"/>
-  <rect class="box ext" x="-6" y="-6" width="12" height="12" rx="2" transform="translate(322 124) rotate(45)"/>
-  <rect class="box ext" x="-6" y="-6" width="12" height="12" rx="2" transform="translate(762 124) rotate(45)"/>
-  <rect class="box ext" x="-6" y="-6" width="12" height="12" rx="2" transform="translate(850 124) rotate(45)"/>
-  <text class="sub" x="234" y="144" text-anchor="middle" dominant-baseline="central">Jan 2027</text>
-  <text class="sub" x="366" y="144" text-anchor="middle" dominant-baseline="central">Jul</text>
-  <text class="sub" x="498" y="144" text-anchor="middle" dominant-baseline="central">Jan 2028</text>
-  <text class="sub" x="630" y="144" text-anchor="middle" dominant-baseline="central">Jul</text>
-  <text class="sub" x="762" y="144" text-anchor="middle" dominant-baseline="central">Jan 2029</text>
-  <text class="sub" x="894" y="144" text-anchor="middle" dominant-baseline="central">Jul</text>
+  <path class="leader" d="M502 132 L510 116"/>
+  <path class="leader" d="M510 132 L518 116"/>
+  <rect class="box ext" x="-6" y="-6" width="12" height="12" rx="2" transform="translate(230 124) rotate(45)"/>
+  <rect class="box ext" x="-6" y="-6" width="12" height="12" rx="2" transform="translate(270 124) rotate(45)"/>
+  <rect class="box ext" x="-6" y="-6" width="12" height="12" rx="2" transform="translate(430 124) rotate(45)"/>
+  <rect class="box ext" x="-6" y="-6" width="12" height="12" rx="2" transform="translate(780 124) rotate(45)"/>
+  <rect class="box ext" x="-6" y="-6" width="12" height="12" rx="2" transform="translate(840 124) rotate(45)"/>
+  <text class="sub" x="270" y="144" text-anchor="middle" dominant-baseline="central">Jan 2027</text>
+  <text class="sub" x="390" y="144" text-anchor="middle" dominant-baseline="central">Apr</text>
+  <text class="sub" x="510" y="144" text-anchor="middle" dominant-baseline="central">Jul</text>
+  <text class="sub" x="600" y="144" text-anchor="middle" dominant-baseline="central">Jan 2028</text>
+  <text class="sub" x="690" y="144" text-anchor="middle" dominant-baseline="central">Jul</text>
+  <text class="sub" x="780" y="144" text-anchor="middle" dominant-baseline="central">Jan 2029</text>
+  <text class="sub" x="870" y="144" text-anchor="middle" dominant-baseline="central">Jul</text>
 
   <!-- Lanes -->
   <rect class="glass-panel" x="10" y="158" width="900" height="284" rx="16"/>
-  <path class="edge plain dash" d="M212 160 V440"/>
-  <path class="edge plain dash" d="M234 160 V440"/>
-  <path class="edge plain dash" d="M322 160 V440"/>
-  <path class="edge plain dash" d="M762 160 V440"/>
-  <path class="edge plain dash" d="M850 160 V440"/>
+  <path class="edge plain dash" d="M230 160 V440"/>
+  <path class="edge plain dash" d="M270 160 V440"/>
+  <path class="edge plain dash" d="M430 160 V440"/>
+  <path class="edge plain dash" d="M780 160 V440"/>
+  <path class="edge plain dash" d="M840 160 V440"/>
 
   <text class="lbl" x="26" y="185" dominant-baseline="central">ROS 2 Humble</text>
   <text class="sub" x="26" y="203" dominant-baseline="central">Ubuntu 22.04</text>
-  <rect class="box primary" x="190" y="174" width="44" height="40" rx="8"/>
-  <rect class="box warn" x="234" y="174" width="88" height="40" rx="8"/>
-  <text class="sub" x="278" y="187" text-anchor="middle" dominant-baseline="central">Critical</text>
-  <text class="sub" x="278" y="203" text-anchor="middle" dominant-baseline="central">fixes only</text>
-  <text class="sub" x="330" y="187" dominant-baseline="central">End of</text>
-  <text class="sub" x="330" y="203" dominant-baseline="central">support</text>
+  <rect class="box primary" x="190" y="174" width="80" height="40" rx="8"/>
+  <text class="sub on-primary" x="230" y="194" text-anchor="middle" dominant-baseline="central">Full support</text>
+  <rect class="box warn" x="270" y="174" width="160" height="40" rx="8"/>
+  <text class="sub" x="350" y="194" text-anchor="middle" dominant-baseline="central">Critical fixes only</text>
+  <text class="sub" x="438" y="187" dominant-baseline="central">End of</text>
+  <text class="sub" x="438" y="203" dominant-baseline="central">support</text>
 
   <text class="lbl" x="26" y="255" dominant-baseline="central">ROS 2 Jazzy</text>
   <text class="sub" x="26" y="273" dominant-baseline="central">Ubuntu 24.04</text>
-  <rect class="box primary" x="190" y="244" width="572" height="40" rx="8"/>
-  <text class="lbl on-primary" x="476" y="264" text-anchor="middle" dominant-baseline="central">Full support</text>
-  <rect class="box warn" x="762" y="244" width="88" height="40" rx="8"/>
-  <text class="sub" x="806" y="257" text-anchor="middle" dominant-baseline="central">Critical</text>
-  <text class="sub" x="806" y="273" text-anchor="middle" dominant-baseline="central">fixes only</text>
-  <text class="sub" x="858" y="257" dominant-baseline="central">End of</text>
-  <text class="sub" x="858" y="273" dominant-baseline="central">support</text>
+  <rect class="box primary" x="190" y="244" width="590" height="40" rx="8"/>
+  <text class="lbl on-primary" x="485" y="264" text-anchor="middle" dominant-baseline="central">Full support</text>
+  <rect class="box warn" x="780" y="244" width="60" height="40" rx="8"/>
+  <text class="sub" x="810" y="257" text-anchor="middle" dominant-baseline="central">Critical</text>
+  <text class="sub" x="810" y="273" text-anchor="middle" dominant-baseline="central">fixes only</text>
+  <text class="sub" x="848" y="257" dominant-baseline="central">End of</text>
+  <text class="sub" x="848" y="273" dominant-baseline="central">support</text>
 
   <text class="lbl" x="26" y="325" dominant-baseline="central">ROS 2 Lyrical</text>
   <text class="sub" x="26" y="343" dominant-baseline="central">Ubuntu 26.04</text>
-  <rect class="box muted" x="212" y="314" width="22" height="40" rx="8"/>
-  <rect class="box primary" x="234" y="314" width="660" height="40" rx="8"/>
-  <text class="lbl on-primary" x="564" y="334" text-anchor="middle" dominant-baseline="central">Full support</text>
+  <rect class="box muted" x="230" y="314" width="40" height="40" rx="8"/>
+  <text class="sub" x="250" y="334" text-anchor="middle" dominant-baseline="central">Beta</text>
+  <rect class="box primary" x="270" y="314" width="624" height="40" rx="8"/>
+  <text class="lbl on-primary" x="582" y="334" text-anchor="middle" dominant-baseline="central">Full support</text>
 
   <text class="lbl" x="26" y="395" dominant-baseline="central">CI policy</text>
   <text class="sub" x="26" y="413" dominant-baseline="central">Pull request checks</text>
-  <rect class="box primary" x="214" y="384" width="106" height="40" rx="8"/>
-  <text class="sub on-primary" x="267" y="397" text-anchor="middle" dominant-baseline="central">Humble, Jazzy,</text>
-  <text class="sub on-primary" x="267" y="413" text-anchor="middle" dominant-baseline="central">and Lyrical</text>
-  <rect class="box primary" x="324" y="384" width="526" height="40" rx="8"/>
-  <text class="lbl on-primary" x="587" y="397" text-anchor="middle" dominant-baseline="central">Required checks</text>
-  <text class="sub on-primary" x="587" y="413" text-anchor="middle" dominant-baseline="central">Jazzy and Lyrical</text>
-  <rect class="box ext" x="850" y="384" width="54" height="40" rx="8"/>
-  <text class="sub" x="877" y="397" text-anchor="middle" dominant-baseline="central">Lyrical</text>
-  <text class="sub" x="877" y="413" text-anchor="middle" dominant-baseline="central">only</text>
+  <rect class="box primary" x="232" y="384" width="196" height="40" rx="8"/>
+  <text class="lbl on-primary" x="330" y="397" text-anchor="middle" dominant-baseline="central">Required checks</text>
+  <text class="sub on-primary" x="330" y="413" text-anchor="middle" dominant-baseline="central">Humble, Jazzy, and Lyrical</text>
+  <rect class="box primary" x="432" y="384" width="406" height="40" rx="8"/>
+  <text class="lbl on-primary" x="635" y="397" text-anchor="middle" dominant-baseline="central">Required checks</text>
+  <text class="sub on-primary" x="635" y="413" text-anchor="middle" dominant-baseline="central">Jazzy and Lyrical</text>
+  <rect class="box ext" x="842" y="384" width="52" height="40" rx="8"/>
+  <text class="sub" x="868" y="397" text-anchor="middle" dominant-baseline="central">Lyrical</text>
+  <text class="sub" x="868" y="413" text-anchor="middle" dominant-baseline="central">only</text>
 
   <!-- Autoware 2.0.0 -->
   <path class="edge accent plain dash" d="M190 132 V456"/>
@@ -265,6 +269,9 @@
   <!-- Legend -->
   <rect class="box muted" x="300" y="512" width="18" height="14" rx="4"/>
   <text class="sub" x="326" y="519" dominant-baseline="central">Docker beta</text>
-  <rect class="box ext" x="490" y="512" width="18" height="14" rx="4"/>
-  <text class="sub" x="516" y="519" dominant-baseline="central">Planned milestone</text>
+  <rect class="box ext" x="440" y="512" width="18" height="14" rx="4"/>
+  <text class="sub" x="466" y="519" dominant-baseline="central">Planned milestone</text>
+  <path class="leader" d="M610 527 L618 511"/>
+  <path class="leader" d="M618 527 L626 511"/>
+  <text class="sub" x="636" y="519" dominant-baseline="central">The scale changes after July 2027</text>
 </svg>
