@@ -21,7 +21,7 @@ Autoware 2.0.0 supports ROS 2 Humble and Jazzy. It does not support ROS 2 Lyrica
 
 ## Next steps
 
-The Lyrical CI checks are never optional. Each Lyrical check is a required check from the day that it is added. Until the support for Humble ends in May 2027, the CI checks Humble, Jazzy, and Lyrical.
+Until the support for Humble ends in May 2027, the CI checks Humble, Jazzy, and Lyrical.
 
 1. **2026 December:** Lyrical Docker beta. The CI adds the Lyrical checks as required checks. Source fixes for the Ubuntu 26.04 toolchain come before this date. Each fix keeps the build on Jazzy.
 2. **2027 January:** Lyrical full support, on January 1 at the latest. It can come earlier. In the same month, the Humble soft-freeze starts. The standard support for Humble ends, and Humble gets only critical fixes.
