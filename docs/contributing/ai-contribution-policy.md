@@ -3,7 +3,7 @@
 This policy applies to all repositories in the [Autoware Foundation GitHub organization](https://github.com/autowarefoundation) and to all types of contribution: code, documentation, pull requests, issues, discussions, reviews and review responses.
 
 It applies to everyone equally, from first-time contributors to long-time maintainers.
-Project-sanctioned automation, such as dependency-update bots or the [PR-Agent workflow](pull-request-guidelines/ai-pr-review.md), is exempt from this policy.
+Project-sanctioned automation, such as dependency-update bots, is exempt from this policy.
 Propose new automation to the maintainers of the affected repositories before deploying it.
 
 ## Our stance
