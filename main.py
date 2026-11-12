@@ -34,7 +34,7 @@ def _sort_key(src):
 
 
 def _nav_title(file):
-    # A ".nav.yml" entry such as "Humble to Jazzy: humble-jazzy.md" sets the title.
+    # A ".nav.yml" entry such as "ROS 2 distributions: ros-2-distributions.md" sets the title.
     nav_file = file.parent / ".nav.yml"
     if not nav_file.exists():
         return None
