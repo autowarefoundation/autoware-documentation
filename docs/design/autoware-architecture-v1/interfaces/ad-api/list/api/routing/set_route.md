@@ -22,6 +22,6 @@ type:
 {% block description %}
 Set the route with the waypoint segments in lanelet format. The current pose of the vehicle is the start of the route.
 This API only accepts the route when the route state is UNSET. In any other state, clear the route first.
-This API only guarantees that a request has been accepted.
-Use [the state API](./state.md) to verify whether the request has been reflected.
+A successful response only means that Autoware accepted the request.
+The process is complete when `state` in {{ link_ad_api('/api/routing/state') }} is `SET`.
 {% endblock %}

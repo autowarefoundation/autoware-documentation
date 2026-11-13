@@ -23,6 +23,6 @@ type:
 Same as {{ link_ad_api('/api/routing/set_route') }}, but change the route while driving.
 This API only accepts the route when the route state is SET.
 In any other state, set the route first or wait for the route change to complete.
-This API only guarantees that a request has been accepted.
-Use [the state API](./state.md) to verify whether the request has been reflected.
+A successful response only means that Autoware accepted the request.
+The route change is complete when `state` in {{ link_ad_api('/api/routing/state') }} is `SET` again and {{ link_ad_api('/api/routing/route') }} shows the new route.
 {% endblock %}
