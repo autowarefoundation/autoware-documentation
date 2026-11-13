@@ -1,4 +1,4 @@
-# Training and Deploying Models
+# Training and deploying models
 
 ## Overview
 
@@ -11,15 +11,17 @@ Furthermore, you will find the essential conversion scripts to deploy your train
 
 ## Training traffic light classifier model
 
-The traffic light classifier model within the Autoware has been trained using the **[mmlab/pretrained](https://github.com/open-mmlab/mmpretrain)** repository.
+The traffic light classifier model within the Autoware has been trained using the **[open-mmlab/mmpretrain](https://github.com/open-mmlab/mmpretrain)** repository.
 The Autoware offers pretrained models based on EfficientNet-b1 and MobileNet-v2 architectures.
-To fine-tune these models, a total of 83,400 images were employed, comprising 58,600 for training,
+To fine-tune these models for vehicular traffic lights, a total of 83,400 images were employed, comprising 58,600 for training,
 14,800 for evaluation, and 10,000 for testing. These images represent Japanese traffic lights and were trained using TIER IV's internal dataset.
 
 | Name            | Input Size | Test Accuracy |
 | --------------- | ---------- | ------------- |
 | EfficientNet-b1 | 128 x 128  | 99.76%        |
 | MobileNet-v2    | 224 x 224  | 99.81%        |
+
+The classifiers for pedestrian traffic lights were trained separately, with 21,199 TIER IV internal images (17,860 for training, 2,114 for evaluation, and 1,225 for testing). Their test accuracy is 97.89% for EfficientNet-b1 and 99.10% for MobileNet-v2.
 
 Comprehensive training instructions for the traffic light classifier model are detailed within
 the readme file accompanying **"traffic_light_classifier"** package. These instructions will guide you through
@@ -30,7 +32,7 @@ Detailed instructions for training the traffic light classifier model can be fou
 
 ## Training CenterPoint 3D object detection model
 
-The CenterPoint 3D object detection model within the Autoware has been trained using the **[autowarefoundation/mmdetection3d](https://github.com/autowarefoundation/mmdetection3d/blob/main/projects/AutowareCenterPoint/README.md)** repository.
+The CenterPoint 3D object detection model within the Autoware has been trained using the **[open-mmlab/mmdetection3d](https://github.com/open-mmlab/mmdetection3d)** repository. To train your own model, use the fork **[autowarefoundation/mmdetection3d](https://github.com/autowarefoundation/mmdetection3d/blob/main/projects/AutowareCenterPoint/README.md)**, which adds a CenterPoint project for Autoware.
 
 To train custom CenterPoint models and convert them into ONNX format for deployment in Autoware, please refer to the instructions provided in the README file included with Autoware's
 **[lidar_centerpoint](https://autowarefoundation.github.io/autoware_universe/main/perception/autoware_lidar_centerpoint/)** package. These instructions will provide a step-by-step guide for training the CenterPoint model.
@@ -65,7 +67,7 @@ To train a custom YOLOX model for use with the **Autoware Traffic Light Fine Det
 
     </div>
 
-### 📦 Example Dataset (VOC Format)
+### Example dataset (VOC format)
 
 To assist with training, an example dataset containing **1062 cropped traffic-light images with Pascal VOC annotations** is available here:
 

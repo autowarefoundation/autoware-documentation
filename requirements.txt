@@ -1,0 +1,6 @@
+fontawesome-in-markdown
+mdx_truly_sane_lists
+plantuml-markdown==3.10.4
+pymdown-extensions
+python-markdown-math
+zensical==0.0.73

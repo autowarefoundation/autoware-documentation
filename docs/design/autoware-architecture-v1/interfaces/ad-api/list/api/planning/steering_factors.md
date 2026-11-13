@@ -1,14 +1,16 @@
 ---
 title: /api/planning/steering_factors
 status: not released
-method: realtime stream
+method: reliable stream
 type:
   name: autoware_adapi_v1_msgs/msg/SteeringFactorArray
   msg:
+    - name: header
+      text: Header with the timestamp and the frame ID of the poses.
     - name: factors.pose
-      text: The base link pose related to the steering factor.
+      text: The start and end poses of the steering section, in the frame of the message header.
     - name: factors.distance
-      text: The distance from the base link to the above pose.
+      text: The distances from the vehicle to the above poses.
     - name: factors.direction
       text: The direction of the steering factor.
     - name: factors.status
@@ -25,6 +27,7 @@ type:
 
 {% extends 'design/autoware-architecture-v1/interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
-Get the steering factors, sorted in ascending order of distance.
+Get the steering factors.
+The specification intends the factors to be sorted in ascending order of distance. The default implementation does not sort them. It lists them in the fixed order of its input topics.
 For details, see the [planning factors](../../../features/planning-factors.md).
 {% endblock %}

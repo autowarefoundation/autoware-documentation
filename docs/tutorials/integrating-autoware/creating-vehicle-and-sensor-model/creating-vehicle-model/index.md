@@ -7,8 +7,10 @@ This page introduces the following packages for the vehicle model:
 1. `<YOUR-VEHICLE-NAME>_vehicle_description`
 2. `<YOUR-VEHICLE-NAME>_vehicle_launch`
 
-Previously,
-we forked our vehicle model at the [creating autoware repositories](../../creating-your-autoware-repositories/creating-autoware-repositories.md) page step.
+The template for these packages is [`sample_vehicle_launch`](https://github.com/autowarefoundation/autoware_launch/tree/main/vehicle/sample_vehicle_launch).
+It is in the `vehicle/` folder of the `autoware_launch` repository.
+(The old `sample_vehicle_launch` repository is archived.)
+Copy it into your own repository, as we described on the [creating autoware repositories](../../creating-your-autoware-repositories/creating-autoware-repositories.md) page.
 For instance,
 we created [tutorial_vehicle_launch](https://github.com/leo-drive/tutorial_vehicle_launch)
 as an implementation example for the said step.
@@ -31,7 +33,11 @@ and run the `vcs import src < repositories/autoware.repos` command in your termi
 to import the newly included repositories at autoware.repos file.
 
 Now, we are ready to modify the following vehicle model packages for our vehicle.
-Firstly, we need to rename the description and launch packages:
+Firstly, we need to rename the description and launch packages.
+Autoware finds these packages by the `vehicle_model` launch argument:
+it loads `<vehicle_model>_description` and `<vehicle_model>_launch`.
+For example, `vehicle_model:=sample_vehicle` loads `sample_vehicle_description` and `sample_vehicle_launch`.
+So the package names must have this form:
 
 ```diff
 <YOUR-VEHICLE-NAME>_vehicle_launch/
@@ -53,20 +59,18 @@ Change the `<name>` attribute at `package.xml` file:
 <package format="3">
 - <name>sample_vehicle_description</name>
 + <name><YOUR-VEHICLE-NAME>_vehicle_description</name>
-  <version>0.1.0</version>
-  <description>The vehicle_description package</description>
+  <version>0.53.0</version>
+  <description>The sample_vehicle_description package</description>
   ...
   ...
 ```
 
-Change the `project()` method at `CmakeList.txt` file.
+Change the `project()` method at `CMakeLists.txt` file.
 
 ```diff
   cmake_minimum_required(VERSION 3.5)
 - project(sample_vehicle_description)
 + project(<YOUR-VEHICLE-NAME>_vehicle_description)
-
-  find_package(ament_cmake_auto REQUIRED)
 ...
 ...
 ```
@@ -82,7 +86,7 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --package
 ## Vehicle description
 
 The main purpose of this package is to describe the vehicle dimensions,
-3D model of the vehicle, mirror_dimensions of the vehicle,
+3D model of the vehicle, mirror dimensions of the vehicle,
 simulator model parameters and URDF of the vehicle.
 
 The folder structure of vehicle_description package is:
@@ -107,6 +111,9 @@ Now, we will modify these files according to our vehicle design.
 This file describes your vehicle mirror dimension for
 [CropBox filter](https://autowarefoundation.github.io/autoware_universe/main/sensing/autoware_pointcloud_preprocessor/docs/crop-box-filter/) of [PointCloudPreprocessor](../../../../design/autoware-architecture-v1/components/sensing/data-types/point-cloud.md).
 This is important for cropping mirrors from your lidar's point cloud.
+The sensor kit does not read this file at run time.
+Instead, a script makes the crop box parameter files of the sensor kit from this file and from `vehicle_info.param.yaml`.
+See the [creating sensor model](../creating-sensor-model/index.md#crop-box-parameter-files) page.
 
 The `mirror.param.yaml` consist of the following parameters:
 
@@ -121,16 +128,13 @@ The `mirror.param.yaml` consist of the following parameters:
     max_height_offset: 0.0
 ```
 
-The mirror param file should be filled with this dimension information,
-please be careful with `min_lateral_offset`parameter,
-it could be negative value like the mirror dimension figure below.
+Fill the mirror param file with this dimension information.
+All values are in meters, from `base_link`.
+Please be careful with the `min_lateral_offset` parameter.
+The right side of the vehicle has negative `y` values, so this value is usually negative, like in the mirror dimension figure below.
+For example, the `sample_vehicle` uses `min_lateral_offset: -1.4` and `max_lateral_offset: 1.4`.
 
-<figure markdown>
-  ![mirror_dimensions](images/mirror_dimensions.svg){ align=center }
-  <figcaption>
-    Dimension demonstration for mirror.param.yaml
-  </figcaption>
-</figure>
+{{ diagram("images/mirror-dimensions.svg", "The dimensions of the side mirrors that mirror.param.yaml describes.") }}
 
 !!! warning
 
@@ -139,10 +143,10 @@ it could be negative value like the mirror dimension figure below.
 
 ### simulator_model.param.yaml
 
-This file is a configuration file for the [simulator environment](https://autowarefoundation.github.io/autoware_universe/main/simulator/autoware_simple_planning_simulator/).
+This file is a configuration file for the simulator environment.
 Please update these parameters according to your vehicle specifications.
 For detailed information about variables,
-please check the [simple_planning_simulator](https://github.com/autowarefoundation/autoware_universe/tree/main/simulator/autoware_simple_planning_simulator) package.
+please check the [autoware_simple_planning_simulator](https://github.com/autowarefoundation/autoware_simple_planning_simulator/tree/main/autoware_simple_planning_simulator) package.
 The file consists of these parameters:
 
 ```yaml
@@ -162,8 +166,10 @@ The file consists of these parameters:
     acc_time_constant: 0.1 # time constant of the 1st-order acceleration dynamics
     steer_time_delay: 0.24 # dead time for the steering input
     steer_time_constant: 0.27 # time constant of the 1st-order steering dynamics
+    steer_dead_band: 0.0 # dead band of the steering angle
     x_stddev: 0.0001 # x standard deviation for dummy covariance in map coordinate
     y_stddev: 0.0001 # y standard deviation for dummy covariance in map coordinate
+    enable_road_slope_simulation: true # if true, slopes in the lanelet map are used to apply an extra acceleration to the ego vehicle
 ```
 
 ### vehicle_info.param.yaml
@@ -171,7 +177,7 @@ The file consists of these parameters:
 This file stores the vehicle dimensions for Autoware modules.
 Please update it with your vehicle information.
 You can refer to the [vehicle dimensions](../../../../design/autoware-architecture-v1/interfaces/components/vehicle-dimensions.md) page for detailed dimension demonstration.
-Here is the `vehicle_info.param.yaml` for [sample_vehicle](https://github.com/autowarefoundation/sample_vehicle_launch/blob/main/sample_vehicle_description/config/vehicle_info.param.yaml):
+Here is the `vehicle_info.param.yaml` for [sample_vehicle](https://github.com/autowarefoundation/autoware_launch/blob/main/vehicle/sample_vehicle_launch/sample_vehicle_description/config/vehicle_info.param.yaml):
 
 ```yaml
 /**:
@@ -234,13 +240,13 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --package
 ### Launching vehicle interface
 
 If your vehicle interface is ready,
-then you can add your vehicle_interface launch file in `vehicle_interface.launch.xml`.
+then you can add your vehicle_interface launch file in `vehicle_interface.launch.xml` of the `<YOUR-VEHICLE-NAME>_vehicle_launch` package.
+In `sample_vehicle_launch`, this file only declares the `vehicle_id` argument and launches nothing.
 Please check the [creating vehicle interface](../../creating-vehicle-interface-package/creating-vehicle-interface.md) page for more info.
 
 ### Launch planning simulator with your own vehicle
 
-After completing the [sensor_model](../creating-sensor-model/index.md),
-[individual_parameters](../creating-individual-params/index.md)
+After completing the [sensor_model](../creating-sensor-model/index.md)
 and vehicle model of your vehicle,
 you are ready to launch the planning simulator with your own vehicle.
 If you are not sure if every custom package in your Autoware project folder is built,
@@ -256,13 +262,13 @@ source the install/setup.bash file in your Autoware project folder
 and run this command in your terminal:
 
 ```bash
-ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware_data/maps/sample-map-planning/ vehicle_model:=<YOUR-VEHICLE-MODEL> sensor_model:=<YOUR-SENSOR-KIT> vehicle_id:=<YOUR-VEHICLE-ID>
+ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware_data/maps/sample-map-planning/ vehicle_model:=<YOUR-VEHICLE-MODEL> sensor_model:=<YOUR-SENSOR-KIT>
 ```
 
 For example, if we try planning simulator with the tutorial_vehicle:
 
 ```bash
-ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware_data/maps/sample-map-planning/ vehicle_model:=tutorial_vehicle sensor_model:=tutorial_vehicle_sensor_kit vehicle_id:=tutorial_vehicle
+ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware_data/maps/sample-map-planning/ vehicle_model:=tutorial_vehicle sensor_model:=tutorial_vehicle_sensor_kit
 ```
 
 The planning simulator will open, and you can give an initial pose to your vehicle

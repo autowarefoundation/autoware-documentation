@@ -12,12 +12,16 @@
     - source: .github/workflows/comment-on-pr.yaml
     - source: .github/workflows/semantic-pull-request.yaml
     - source: .github/workflows/spell-check-differential.yaml
+    - source: .github/workflows/spell-check-daily.yaml
     - source: .github/workflows/sync-files.yaml
     - source: .markdown-link-check.json
       pre-commands: |
         sd -s -- \
         '     "pattern": "^http://localhost"' \
         '     "pattern": "^https://www\\.autosar\\.org/*"
+            },
+            {
+              "pattern": "^https://www\\.u-blox\\.com/"
             },
             {
               "pattern": "^http://localhost"' \

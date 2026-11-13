@@ -1,6 +1,6 @@
 # Using Eagleye with Autoware
 
-This page will show you how to set up [Eagleye](https://github.com/MapIV/eagleye) in order to use it with Autoware.
+This page shows you how to set up [Eagleye](https://github.com/MapIV/eagleye) to use it with Autoware.
 For the details of the integration proposal, please refer to [this discussion](https://github.com/orgs/autowarefoundation/discussions/3257).
 
 ## What is Eagleye?
@@ -9,23 +9,25 @@ Eagleye is an open-source GNSS/IMU-based localizer initially developed by [MAP I
 
 ### Dependencies
 
-The below packages are automatically installed during the setup of Autoware as they are listed in [repositories/autoware.repos](https://github.com/autowarefoundation/autoware/blob/main/repositories/autoware.repos).
+The setup of Autoware imports the packages below, because [repositories/autoware.repos](https://github.com/autowarefoundation/autoware/blob/2.0.0/repositories/autoware.repos) of Autoware 2.0.0 lists them. Each repository is pinned to a fixed commit.
 
-1. [Eagleye](https://github.com/MapIV/eagleye.git) (autoware-main branch)
-2. [RTKLIB ROS Bridge](https://github.com/MapIV/rtklib_ros_bridge.git) (ros2-v0.1.0 branch)
-3. [LLH Converter](https://github.com/MapIV/llh_converter.git) (ros2 branch)
+1. [Eagleye](https://github.com/MapIV/eagleye) (commit `575136eb`)
+2. [RTKLIB ROS Bridge](https://github.com/MapIV/rtklib_ros_bridge) (commit `ef094407`)
+3. [LLH Converter](https://github.com/MapIV/llh_converter) (commit `4fc2a2e1`)
 
 ## Architecture
 
-Eagleye can be utilized in the Autoware localization stack in two ways:
+You can use Eagleye in the Autoware localization stack in two ways.
 
-1. Feed only twist into the EKF localizer.
+In the first way, Eagleye gives only the twist to the EKF localizer. Set `twist_source:=eagleye` and keep another pose source, for example `pose_source:=ndt`.
 
-   ![Eagleye twist integration](images/eagleye-integration-guide/eagleye_twist.drawio.svg)
+{{ diagram("images/eagleye-twist.svg", "Eagleye gives the twist and NDT gives the pose to the EKF localizer.") }}
 
-2. Feed both twist and pose from Eagleye into the EKF localizer (twist can also be used with regular `gyro_odometry`).
+In the second way, Eagleye gives both the twist and the pose to the EKF localizer. Set `pose_source:=eagleye` and `twist_source:=eagleye`. You can also use Eagleye only for the pose and keep `twist_source:=gyro_odom`.
 
-   ![Eagleye pose twist integration](images/eagleye-integration-guide/eagleye_pose_twist.drawio.svg)
+{{ diagram("images/eagleye-pose-twist.svg", "Eagleye gives both the twist and the pose to the EKF localizer.") }}
+
+`component_localization.launch.xml` of `autoware_launch` includes `pose_twist_estimator/eagleye/eagleye_rt.launch.xml` of `autoware_localization_launch` for both ways. For more information, see the [Localization launch files](../index.md) page.
 
 **Note: RTK positioning is required when using Eagleye as the pose estimator.**
 On the other hand, it is not mandatory when using it as the twist estimator.
@@ -57,28 +59,28 @@ Your GNSS ROS driver must publish the following messages:
 | [ublox_gps](https://github.com/KumarRobotics/ublox/tree/ros2/ublox_gps)              | No additional settings are required. It publishes `sensor_msgs/msg/NavSatFix` and `geometry_msgs/msg/TwistWithCovarianceStamped` required by Eagleye with default settings.    |
 | [septentrio_gnss_driver](https://github.com/septentrio-gnss/septentrio_gnss_driver/) | Set `publish.navsatfix` and `publish.twist` in the config file [`gnss.yaml`](https://github.com/septentrio-gnss/septentrio_gnss_driver/blob/master/config/gnss.yaml) to `true` |
 
-## Parameter Modifications for Integration into Your Vehicle
+## Parameter modifications for integration into your vehicle
 
-### topic name & topic type
+### Topic name and topic type
 
-The users must correctly specify input topics for GNSS latitude, longitude, and height , GNSS doppler speed , IMU , and vehicle speed in the [`eagleye_config.yaml`](https://github.com/MapIV/autoware_launch/blob/3f04a9dd7bc4a4c49d4ec790e3f6b9958ab822da/autoware_launch/config/localization/eagleye_config.param.yaml#L7-L16).
+Specify the input topics for the GNSS latitude, longitude, and height, the GNSS Doppler velocity, the IMU, and the vehicle speed in [`eagleye_config.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.53.0/autoware_universe_launch/autoware_localization_config/config/eagleye_config.param.yaml#L7-L16) of the `autoware_localization_config` package.
 
 ```yaml
 # Topic
 twist:
   twist_type: 1 # TwistStamped : 0, TwistWithCovarianceStamped: 1
   twist_topic: /sensing/vehicle_velocity_converter/twist_with_covariance
-imu_topic: /sensing/imu/tamagawa/imu_raw
+imu_topic: /sensing/imu/imu_data
 gnss:
-  velocity_source_type: 2 # rtklib_msgs/RtklibNav: 0, nmea_msgs/Sentence: 1, ublox_msgs/NavPVT: 2, geometry_msgs/TwistWithCovarianceStamped: 3
+  velocity_source_type: 2 # rtklib_msgs/RtklibNav: 0, nmea_msgs/Sentence: 1, ublox_msgs/NavPVT: 2, geometry_msgs/TwistWithCovarianceStamped: 3, septentrio_gnss_driver/PVTGeodetic: 4
   velocity_source_topic: /sensing/gnss/ublox/navpvt
   llh_source_type: 2 # rtklib_msgs/RtklibNav: 0, nmea_msgs/Sentence: 1, sensor_msgs/NavSatFix: 2
   llh_source_topic: /sensing/gnss/ublox/nav_sat_fix
 ```
 
-### sensor frequency
+### Sensor frequency
 
-Also, the frequency of GNSS and IMU must be set in [`eagleye_config.yaml`](https://github.com/MapIV/autoware_launch/blob/3f04a9dd7bc4a4c49d4ec790e3f6b9958ab822da/autoware_launch/config/localization/eagleye_config.param.yaml#L36)
+Also, set the frequency of the GNSS and the IMU in [`eagleye_config.param.yaml`](https://github.com/autowarefoundation/autoware_launch/blob/0.53.0/autoware_universe_launch/autoware_localization_config/config/eagleye_config.param.yaml#L37-L39):
 
 ```yaml
 common:
@@ -86,21 +88,19 @@ common:
   gnss_rate: 5
 ```
 
-### Conversion from fix to pose
+### Conversion from the geographic pose to the map frame
 
-The parameters for converting `sensor_msgs/msg/NavSatFix` to `geometry_msgs/msg/PoseWithCovarianceStamped` is listed in [`geo_pose_converter.launch.xml`](https://github.com/MapIV/eagleye/blob/autoware-main/eagleye_util/geo_pose_converter/launch/geo_pose_converter.launch.xml).
-If you use a different geoid or projection type, change these parameters.
+When Eagleye is a pose source, `eagleye_geo_pose_fusion` publishes the pose as a `geographic_msgs/msg/GeoPoseWithCovarianceStamped` message. Then [`autoware_geo_pose_projector`](https://autowarefoundation.github.io/autoware_universe/main/localization/autoware_geo_pose_projector/) converts it into a `geometry_msgs/msg/PoseWithCovarianceStamped` message in the map frame. The projector reads the map projection from the `/map/map_projector_info` topic. So the projection type and the vertical datum come from `map_projector_info.yaml` of your map. For more information, see [`autoware_map_projection_loader`](https://autowarefoundation.github.io/autoware_core/main/map/autoware_map_projection_loader/).
 
 ### Other parameters
 
-The other parameters are described [here](https://github.com/MapIV/eagleye/tree/autoware-main/eagleye_rt/config).
-Basically, these do not need to be changed .
+The [Eagleye documentation](https://github.com/MapIV/eagleye/tree/575136ebba99892946d36d8398f228aee2136af0/eagleye_rt/config) describes the other parameters. Usually, you do not need to change them.
 
 ## Notes on initialization
 
 Eagleye requires an initialization process for proper operation. **Without initialization, the output for twist will be in the raw value, and the pose data will not be available.**
 
-### 1. Static Initialization
+### 1. Static initialization
 
 The first step is static initialization, which involves allowing the Eagleye to remain stationary for approximately 5 seconds after startup to estimate the yaw-rate offset.
 
@@ -112,7 +112,26 @@ Once dynamic initialization is complete, the Eagleye will be able to provide cor
 
 ### How to check the progress of initialization
 
-- **TODO**
+The `monitor` node of Eagleye publishes the state of each estimate on the `/diagnostics` topic. Until an estimate starts, its diagnostic has the level WARN and the message `estimates have not started yet`. When the estimate is available, the message changes to `OK`. Use these diagnostics to follow the initialization:
+
+| Diagnostic name                        | Initialization step                                         |
+| -------------------------------------- | ----------------------------------------------------------- |
+| `eagleye_yaw_rate_offset_stop`         | Static initialization: the yaw rate offset at standstill    |
+| `eagleye_velocity_scale_factor`        | Dynamic initialization: the scale factor of the wheel speed |
+| `eagleye_heading_interpolate_1st`      | Dynamic initialization: the first estimate of the heading   |
+| `eagleye_enu_absolute_pos_interpolate` | The position, when Eagleye is a pose source                 |
+
+You can see the diagnostics in `rqt_runtime_monitor`, or print them in a terminal:
+
+```bash
+ros2 topic echo /diagnostics | grep -B 1 -A 1 "eagleye_velocity_scale_factor"
+```
+
+You can also read the status of each estimate directly. The Eagleye topics are in the namespace of the estimator, for example `/localization/twist_estimator/eagleye/` when Eagleye is only the twist source, or `/localization/pose_twist_estimator/eagleye/` when it is the pose and the twist source. The `status.enabled_status` field becomes `true` when the first estimate is done:
+
+```bash
+ros2 topic echo /localization/twist_estimator/eagleye/velocity_scale_factor --field status
+```
 
 ## Note on georeferenced maps
 

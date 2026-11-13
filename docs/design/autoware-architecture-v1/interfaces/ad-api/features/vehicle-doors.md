@@ -36,3 +36,7 @@ The status API provides an array of door status. This array order is consistent 
 Use the command API to control doors.
 Unlike the status and layout APIs, array index do not correspond to doors.
 The command has a field to specify the target door index.
+
+The default implementation rejects a command that opens a door while the operation mode is not stop.
+It also rejects all commands while Autoware control is disabled, unless the `check_autoware_control` parameter of the `/adapi/node/vehicle_door` node is `false`.
+See [get on and get off](../use-cases/get-on-off.md) for the sequence.

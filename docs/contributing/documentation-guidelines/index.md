@@ -35,25 +35,39 @@ There are two ways to preview your modification on a documentation website.
 Follow the steps below.
 
 1. Create a pull request to the repository.
-2. Add the `deploy-docs` label from the sidebar (See below figure).
-3. Wait for a couple of minutes, and the `github-actions` bot will notify the URL for the pull request's preview.
+2. Wait for the `deploy-docs-pr` check to finish. What happens next depends on where your branch is.
+   - If your branch is in the repository itself, the `publish-docs` workflow publishes the preview a few minutes later. Then the `github-actions` bot adds a comment with the URL of the preview.
+   - If your branch is in a fork, the site is built but not published. The `github-actions` bot adds a comment with a link to download the site, and the summary of the run explains how to view it on your computer.
 
-![deploy-docs-label](images/deploy-docs-label-for-pull-request.png){ width="800" }
+If this is your first pull request to the repository, a maintainer must approve the workflows before they run.
 
-#### 2. Running an MkDocs server in your local environment
+#### 2. Running a local server
 
-Instead of creating a PR, you can use the `mkdocs` command to build Autoware's documentation websites on your local computer.
-Assuming that you are using Ubuntu OS, run the following to install the required libraries.
+You can also build the documentation website on your local computer.
+This site uses [Zensical](https://zensical.org/).
+Most other Autoware repositories still use [MkDocs](https://www.mkdocs.org/).
+
+To preview this site, install the dependencies of this repository in a virtual environment.
+
+```bash
+cd /PATH/TO/YOUR-autoware-documentation
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+Then start the server.
+
+```bash
+zensical serve
+```
+
+Open <http://127.0.0.1:8000/autoware-documentation/> to see the preview of the website.
+
+To preview the documentation of another Autoware repository, install the shared MkDocs dependencies.
 
 ```bash
 python3 -m pip install -U $(curl -fsSL https://raw.githubusercontent.com/autowarefoundation/autoware-github-actions/main/deploy-docs/mkdocs-requirements.txt)
 ```
 
-Then, run `mkdocs serve` on your documentation directory.
-
-```bash
-cd /PATH/TO/YOUR-autoware-documentation
-mkdocs serve
-```
-
-It will launch the MkDocs server. Access [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to see the preview of the website.
+Then run `mkdocs serve` in the directory of that repository, and open <http://127.0.0.1:8000/>.

@@ -12,7 +12,7 @@ NovAtel GNSS/INS sensors which has ROS 2 driver and tested by one or more commun
 | Span CPT7               | 200 Hz   | R (0.01°) <br>P (0.01°) <br>Y (0.03°)  | 20 Hz <br>L1 / L2 / L5 <br>555 Channels | Y             | -                     |
 
 Link to ROS 2 driver:  
-[https://github.com/swri-robotics/novatel_gps_driver/tree/dashing-devel](https://github.com/swri-robotics/novatel_gps_driver/tree/dashing-devel)
+[https://github.com/swri-robotics/novatel_gps_driver/tree/ros2-devel](https://github.com/swri-robotics/novatel_gps_driver/tree/ros2-devel)
 
 Link to company website:  
 [https://novatel.com/products/gnss-inertial-navigation-systems](https://novatel.com/products/gnss-inertial-navigation-systems)
@@ -46,10 +46,10 @@ SBG GNSS/INS sensors which has ROS 2 driver and tested by one or more community 
 | Ellipse-A (AHRS)        | 200 Hz, 1 kHz (IMU) | R (0.1°)<br>P (0.1°)<br>Y (0.8°)  | Not Applicable                  | Y             | -                     |
 
 Link to ROS 2 driver:  
-[https://github.com/SBG-Systems/sbg_ros2](https://github.com/SBG-Systems/sbg_ros2)
+[https://github.com/SBG-Systems/sbg_ros2_driver](https://github.com/SBG-Systems/sbg_ros2_driver)
 
 Link to company website:  
-[https://www.sbg-systems.com/products/ellipse-series/](https://www.sbg-systems.com/products/ellipse-series/)
+[https://www.sbg-systems.com/ellipse-series/](https://www.sbg-systems.com/ellipse-series/)
 
 ## **Applanix GNSS/INS Sensors**
 
@@ -57,7 +57,7 @@ Link to company website:
 
 ![images/gnss-applanix.png](images/gnss-applanix.png)
 
-SBG GNSS/INS sensors which has ROS 2 driver and tested by one or more community members are listed below:
+Applanix GNSS/INS sensors which has ROS 2 driver and tested by one or more community members are listed below:
 
 | Supported Products List | INS/IMU Rate | Roll, Pitch, Yaw Acc.               | GNSS                         | ROS 2 Driver  | Autoware Tested (Y/N) |
 | ----------------------- | ------------ | ----------------------------------- | ---------------------------- | ------------- | --------------------- |
@@ -68,7 +68,7 @@ Link to ROS 2 driver:
 [http://wiki.ros.org/applanix_driver](http://wiki.ros.org/applanix_driver)
 
 Link to company website:  
-[https://www.applanix.com/products/poslv.htm](https://www.applanix.com/products/poslv.htm)
+[https://applanix.trimble.com/en/products/hardware/applanix-pos-lv](https://applanix.trimble.com/en/products/hardware/applanix-pos-lv)
 
 ## **PolyExplore GNSS/INS Sensors** <!-- cspell: ignore  PolyExplore -->
 
@@ -103,5 +103,5 @@ Link to company website:
 
 Additional utilities:
 
-- Fixposition GNSS transformation lib: [https://github.com/fixposition/fixposition_gnss_tf](https://github.com/fixposition/fixposition_gnss_tf)
+- Fixposition SDK, which has the GNSS transformation functions: [https://github.com/fixposition/fixposition-sdk](https://github.com/fixposition/fixposition-sdk)
 - Miscellaneous utilities (logging, software update, ...): [https://github.com/fixposition/fixposition_utility](https://github.com/fixposition/fixposition_utility)

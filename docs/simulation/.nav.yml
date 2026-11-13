@@ -1,0 +1,7 @@
+nav:
+  - index.md
+  - Planning simulation: planning-simulation
+  - rosbag-replay-simulation.md
+  - Scenario simulation: scenario-simulation
+  - Digital twin simulation: digital-twin-simulation
+  - Evaluation: evaluation

@@ -1,3 +1,5 @@
+<!-- cspell: ignore AUMOVIO -->
+
 # RADARs
 
 ## **Smartmicro Automotive Radars**
@@ -47,4 +49,4 @@ Link to ROS 2 driver:
 [https://github.com/tier4/ars408_driver](https://github.com/tier4/ars408_driver)
 
 Link to company website:  
-[https://conti-engineering.com/components/ars430/](https://conti-engineering.com/components/ars430/)
+[ARS 408 product page (archived copy)](https://web.archive.org/web/20250814035648/https://conti-engineering.com/components/ars-408/). Continental moved this business to AUMOVIO, and the old product page no longer exists.

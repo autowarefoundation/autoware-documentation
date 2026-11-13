@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" role="img" aria-labelledby="vehicle-launch-flow-title">
+  <title id="vehicle-launch-flow-title">
+    autoware.launch.xml includes vehicle.launch.xml of tier4_vehicle_launch when launch_vehicle is true. vehicle.launch.xml starts robot_state_publisher, and it includes vehicle_interface.launch.xml
+    of the vehicle launch package when launch_vehicle_interface is true.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="760" height="440"/>
+  <circle class="halo" cx="380" cy="150" r="120"/>
+  <circle class="halo cyan" cx="190" cy="330" r="110"/>
+  <circle class="halo" cx="570" cy="330" r="110"/>
+
+  <!-- Top-level launch file -->
+  <rect class="box primary" x="240" y="24" width="280" height="60" rx="14"/>
+  <circle class="icon-bg on" cx="271" cy="54" r="17"/>
+  <path class="icon-line" d="M266.75 46.5625 L278.438 54 L266.75 61.4375 Z"/>
+  <text class="code lbl on-primary" x="300" y="45" dominant-baseline="central">autoware.launch.xml</text>
+  <text class="sub on-primary" x="300" y="63" dominant-baseline="central">autoware_launch</text>
+
+  <!-- Vehicle launch file -->
+  <rect class="card" x="240" y="136" width="280" height="60" rx="12"/>
+  <circle class="icon-bg" cx="271" cy="166" r="17"/>
+  <path class="icon-line" d="M261.438 169.188 V164.938 L264.625 159.625 H277.375 L280.562 164.938 V169.188 Z"/>
+  <circle class="icon-dot" cx="265.688" cy="171.312" r="2.55"/>
+  <circle class="icon-dot" cx="276.312" cy="171.312" r="2.55"/>
+  <text class="code lbl" x="300" y="157" dominant-baseline="central">vehicle.launch.xml</text>
+  <text class="sub" x="300" y="175" dominant-baseline="central">tier4_vehicle_launch</text>
+
+  <!-- Vehicle description -->
+  <rect class="box" x="40" y="282" width="300" height="96" rx="12"/>
+  <circle class="icon-bg" cx="71" cy="330" r="17"/>
+  <path class="icon-line" d="M71 320.438 L79.5 325.219 V334.781 L71 339.562 L62.5 334.781 V325.219 Z M62.5 325.219 L71 330 L79.5 325.219 M71 330 V339.562"/>
+  <text class="lbl" x="100" y="303" dominant-baseline="central">robot_state_publisher</text>
+  <text class="sub" x="100" y="321" dominant-baseline="central">Node of robot_state_publisher</text>
+  <text class="sub" x="100" y="339" dominant-baseline="central">Reads the URDF of vehicle.xacro</text>
+  <text class="sub" x="100" y="357" dominant-baseline="central">in tier4_vehicle_launch</text>
+
+  <!-- Vehicle interface -->
+  <rect class="card" x="420" y="282" width="300" height="96" rx="12"/>
+  <circle class="icon-bg" cx="451" cy="330" r="17"/>
+  <path class="icon-line" d="M445.688 321.5 H453.125 L457.375 325.75 V338.5 H445.688 Z M448.875 330 H454.188 M448.875 334.25 H454.188"/>
+  <text class="code lbl" x="480" y="303" dominant-baseline="central">vehicle_interface.launch.xml</text>
+  <text class="code" x="480" y="321" dominant-baseline="central">&lt;vehicle_model&gt;_launch</text>
+  <text class="sub" x="480" y="339" dominant-baseline="central">Starts the vehicle interface</text>
+  <text class="sub" x="480" y="357" dominant-baseline="central">of your vehicle</text>
+  <text class="sub" x="380" y="410" text-anchor="middle" dominant-baseline="central">vehicle_model, sensor_model, and vehicle_id come from autoware.launch.xml.</text>
+
+  <!-- Lines: optional ones first, the main flow on top -->
+  <path class="edge accent" d="M380 84 V130"/>
+  <path class="flow flow-accent" pathLength="100" d="M380 84 V130"/>
+  <path class="edge accent head" d="M380 84 V130"/>
+  <path class="edge accent" d="M330 196 V230 H190 V276"/>
+  <path class="flow flow-accent" pathLength="100" d="M330 196 V230 H190 V276"/>
+  <path class="edge accent head" d="M330 196 V230 H190 V276"/>
+  <path class="edge accent" d="M430 196 V230 H570 V276"/>
+  <path class="flow flow-accent" pathLength="100" d="M430 196 V230 H570 V276"/>
+  <path class="edge accent head" d="M430 196 V230 H570 V276"/>
+  <text class="edge-lbl code" x="392" y="107" text-anchor="start" dominant-baseline="central">launch_vehicle:=true</text>
+  <text class="edge-lbl code" x="570" y="252" text-anchor="middle" dominant-baseline="central">launch_vehicle_interface:=true</text>
+</svg>

@@ -2,7 +2,7 @@
 
 ## Format
 
-All messages should follow [ROS message description specification](https://docs.ros.org/en/humble/Concepts/About-ROS-Interfaces.html#background).
+All messages should follow [ROS message description specification](https://docs.ros.org/en/humble/Concepts/Basic/About-Interfaces.html#background).
 
 The accepted formats are:
 
@@ -49,7 +49,7 @@ uint32 count_emergency_brake
 # If the value is 0.0, the lane has no specific speed limit, so common speed limit in the country is applied
 # e.g. 30.0
 # default: 0.0
-float limit_kmph
+float32 limit_kmph
 
 
 ```
@@ -75,11 +75,28 @@ _Example:_
 
 ## Naming
 
-!!! warning ""
+ROS 2 sets some naming rules for interface files, and Autoware adds more. The examples come from [autoware_msgs](https://github.com/autowarefoundation/autoware_msgs/tree/1.13.0).
 
-    Under Construction
+### Type names
+
+- Write the name of a message, service, or action type in `PascalCase`. The file has the same name, for example `VelocityReport.msg`.
+- Add the `Stamped` suffix to a type that adds a `std_msgs/Header` to another type. For example, `GnssInsOrientationStamped` holds a header and a `GnssInsOrientation`. This suffix is also used in [common_interfaces](https://github.com/ros2/common_interfaces), for example `geometry_msgs/msg/PoseStamped`.
+- `autoware_vehicle_msgs` uses the `Command` suffix for a type that requests a state, and the `Report` suffix for a type that gives the current state. For example, `GearCommand` and `GearReport`. Use the same suffixes for new types of this kind.
+- Most service types in autoware_msgs start with a verb, for example `ChangeOperationMode`, `ClearRoute`, and `SetLaneletRoute`.
+
+### Plural types
 
 Use `Array` as a suffix when creating a plural type of a message. This suffix is commonly used in [common_interfaces](https://github.com/ros2/common_interfaces).
+
+_Example:_ `TrafficLightGroupArray` in `autoware_perception_msgs` holds a list of `TrafficLightGroup`.
+
+Some existing messages use a plural noun instead, for example `DetectedObjects` and `PredictedObjects` in `autoware_perception_msgs`.
+
+### Field and constant names
+
+- Write field names in `snake_case`. ROS 2 allows only lowercase letters, digits, and underscores. A field name must start with a letter. It must not end with an underscore or contain two underscores in a row.
+- Write constant names in `CONSTANT_CASE`. ROS 2 requires uppercase constant names. See [Enumerations](#enumerations).
+- For a field with a unit, follow [Default units](#default-units) and [Non-default units](#non-default-units).
 
 ## Default units
 
@@ -124,7 +141,7 @@ For non-default units, use following suffixes:
 
 ## Message field types
 
-For list of types supported by the ROS interfaces [see here](https://docs.ros.org/en/humble/Concepts/About-ROS-Interfaces.html#field-types).
+For list of types supported by the ROS interfaces [see here](https://docs.ros.org/en/humble/Concepts/Basic/About-Interfaces.html#field-types).
 
 Also copied here for convenience:
 

@@ -8,7 +8,7 @@ Autoware uses CycloneDDS as its default communication middleware, but it's also 
 - **Reduced Discovery Overhead**: Zenoh significantly reduces discovery packet overhead, a known issue with DDS in wireless environments.
 - **Superior Performance**: [A study](https://zenoh.io/blog/2023-03-21-zenoh-vs-mqtt-kafka-dds/) has shown that Zenoh generally outperforms other protocols such as DDS, MQTT, and Kafka.
 
-The following sections provide a step-by-step tutorial for running Autoware with Zenoh. We recommend using **ROS 2 Jazzy**, supported since Autoware 1.7.1, as it includes a fix for the GuardCondition use-after-free issue and eliminates the need for any workaround patches.
+The following sections provide a step-by-step tutorial for running Autoware with Zenoh. We recommend using **ROS 2 Jazzy**, which Autoware 2.0.0 supports, as it includes a fix for the GuardCondition use-after-free issue and eliminates the need for any workaround patches.
 
 ## Install rmw_zenoh
 

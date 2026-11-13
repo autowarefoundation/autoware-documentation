@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 210" role="img" aria-labelledby="ros-nodes-gnss-ins-frames-title">
+  <title id="ros-nodes-gnss-ins-frames-title">The frames of an integrated GNSS/INS sensor: earth, map, gnss_ins_by_gnss_ins, and base_link_by_gnss_ins, in a chain from left to right.</title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.ext {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-dasharray: 6 5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="960" height="210"/>
+  <circle class="halo" cx="560" cy="70" r="110"/>
+  <circle class="halo cyan" cx="830" cy="70" r="90"/>
+
+  <!-- earth -->
+  <rect class="box ext" x="20" y="44" width="170" height="48" rx="12"/>
+  <text class="code" x="105" y="68" text-anchor="middle" dominant-baseline="central">earth</text>
+  <text class="sub" x="105" y="112" text-anchor="middle" dominant-baseline="central">Optional</text>
+
+  <!-- map -->
+  <rect class="card" x="270" y="44" width="170" height="48" rx="12"/>
+  <text class="code" x="355" y="68" text-anchor="middle" dominant-baseline="central">map</text>
+  <text class="sub" x="355" y="112" text-anchor="middle" dominant-baseline="central">Local map frame</text>
+
+  <!-- gnss_ins_by_gnss_ins -->
+  <rect class="card" x="520" y="44" width="170" height="48" rx="12"/>
+  <text class="code" x="605" y="68" text-anchor="middle" dominant-baseline="central">gnss_ins_by_gnss_ins</text>
+  <text class="sub" x="605" y="112" text-anchor="middle" dominant-baseline="central">Pose of gnss_ins estimated</text>
+  <text class="sub" x="605" y="128" text-anchor="middle" dominant-baseline="central">by the GNSS/INS sensor</text>
+
+  <!-- base_link_by_gnss_ins -->
+  <rect class="box primary" x="770" y="44" width="170" height="48" rx="12"/>
+  <text class="code on-primary" x="855" y="68" text-anchor="middle" dominant-baseline="central">base_link_by_gnss_ins</text>
+  <text class="sub" x="855" y="112" text-anchor="middle" dominant-baseline="central">Pose of base_link estimated</text>
+  <text class="sub" x="855" y="128" text-anchor="middle" dominant-baseline="central">by the GNSS/INS sensor</text>
+  <text class="sub" x="855" y="152" text-anchor="middle" dominant-baseline="central">autoware_gnss_poser publishes</text>
+  <text class="sub" x="855" y="168" text-anchor="middle" dominant-baseline="central">
+    it as
+    <tspan class="code">gnss_base_link</tspan>
+  </text>
+
+  <!-- Edges -->
+  <path class="edge dash" d="M190 68 H264"/>
+
+  <path class="edge accent" d="M440 68 H514"/>
+  <path class="flow flow-accent" pathLength="100" d="M440 68 H510"/>
+  <path class="edge accent head" d="M440 68 H514"/>
+  <text class="edge-lbl" x="480" y="50" text-anchor="middle" dominant-baseline="central">gnss_poser</text>
+
+  <path class="edge accent" d="M690 68 H764"/>
+  <path class="flow flow-accent" pathLength="100" d="M690 68 H760"/>
+  <path class="edge accent head" d="M690 68 H764"/>
+  <text class="edge-lbl" x="730" y="50" text-anchor="middle" dominant-baseline="central">static tf</text>
+</svg>

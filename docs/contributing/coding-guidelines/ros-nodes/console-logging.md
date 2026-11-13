@@ -3,7 +3,7 @@
 ROS 2 logging is a powerful tool for understanding and debugging ROS nodes.
 
 This page focuses on how to design console logging in Autoware and shows several practical examples.
-To comprehensively understand how ROS 2 logging works, refer to the [logging documentation](https://docs.ros.org/en/humble/Concepts/About-Logging.html).
+To comprehensively understand how ROS 2 logging works, refer to the [logging documentation](https://docs.ros.org/en/humble/Concepts/Intermediate/About-Logging.html).
 
 ## Logging use cases in Autoware
 
@@ -170,16 +170,16 @@ To filter logs, using `rqt_console` is useful:
 ros2 run rqt_console rqt_console
 ```
 
-For more details, refer to [ROS 2 Documentation](https://docs.ros.org/en/rolling/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.html).
+For more details, refer to [ROS 2 Documentation](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.html).
 
-### Useful marco expressions
+### Useful macro expressions
 
 To debug program, sometimes you need to see which functions and lines of code are executed.
 In that case, you can use `__FILE__`, `__LINE__` and `__FUNCTION__` macro:
 
 ```cpp
 void FooNode::on_timer() {
-  RCLCPP_DEBUG(get_logger(), "file: %s, line: %s, function: %s" __FILE__, __LINE__, __FUNCTION__);
+  RCLCPP_DEBUG(get_logger(), "file: %s, line: %d, function: %s", __FILE__, __LINE__, __FUNCTION__);
 }
 ```
 

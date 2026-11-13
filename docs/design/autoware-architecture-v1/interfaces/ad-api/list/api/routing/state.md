@@ -5,6 +5,8 @@ method: notification
 type:
   name: autoware_adapi_v1_msgs/msg/RouteState
   msg:
+    - name: stamp
+      text: Timestamp when this message was sent.
     - name: state
       text: A value of the route state.
 ---

@@ -16,7 +16,7 @@ Autoware constantly incorporates new features.
 It is crucial to initially confirm that it operates as expected with the current version, which helps in problem troubleshooting.
 
 In this context, AWSIM is presumed.
-Therefore, [AWSIM simulator demo](../../demos/digital-twin-demos/awsim-tutorial.md) can be useful.
+Therefore, [AWSIM simulator](../../simulation/digital-twin-simulation/awsim-tutorial.md) can be useful.
 If you are using actual hardware, please refer to the [Tutorials](../index.md).
 
 ## 2. Recording a rosbag using Autoware
@@ -42,12 +42,12 @@ It is advisable to thoroughly read the [Design page](../../design/index.md), con
 For example, a node doing NDT, a LiDAR-based localization method, is [ndt_scan_matcher](https://github.com/autowarefoundation/autoware_core/tree/main/localization/autoware_ndt_scan_matcher).
 If you want to replace this with a different approach, implement a node which produces the same topics and provides the same services.
 
-`ndt_scan_matcher` is launched as [pose_estimator](https://github.com/autowarefoundation/autoware_launch/blob/main/tier4_universe_launch/tier4_localization_launch/launch/pose_twist_estimator/ndt_scan_matcher.launch.xml), so it is necessary to replace the launch file as well.
+`ndt_scan_matcher` is launched as [pose_estimator](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_universe_launch/autoware_localization_launch/launch/pose_twist_estimator/ndt_scan_matcher.launch.xml) by the `autoware_localization_launch` package of `autoware_launch`, so it is necessary to replace the launch file as well.
 
 ## 4. Evaluating by a rosbag-based simulator
 
 Once the new node is implemented, it is time to evaluate it.
-[logging_simulator](../../demos/rosbag-replay-simulation.md) is a tool of how to evaluate the new node using the rosbag captured in step 2.
+[logging_simulator](../../simulation/rosbag-replay-simulation.md) is a tool of how to evaluate the new node using the rosbag captured in step 2.
 
 When you run the logging_simulator, you can set `planning:=false` or `control:=false` to disable the launch of specific component nodes.
 

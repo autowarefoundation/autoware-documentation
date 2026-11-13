@@ -143,7 +143,7 @@ Note that it is not the right place to get help for your issues.
 
 ## ROS Discourse
 
-If you want to widely discuss a topic with the general ROS community, post to [the Autoware category on ROS Discourse](https://discourse.ros.org).
+If you want to widely discuss a topic with the general ROS community, post to the [ROS category of Open Robotics Discourse](https://discourse.openrobotics.org/c/ros/111). This forum was formerly ROS Discourse. Its [Autoware category](https://discourse.openrobotics.org/c/archive/autoware/46) is in the Archive section.
 
 !!! warning
 

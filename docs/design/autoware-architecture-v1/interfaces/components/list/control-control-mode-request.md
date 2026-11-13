@@ -1,6 +1,6 @@
 ---
 last_updated: 2026-01-21
-interface_type: topic
+interface_type: service
 interface_name: /control/control_mode_request
 data_type_name: autoware_vehicle_msgs/srv/ControlModeCommand
 data_type_link: https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_vehicle_msgs/srv/ControlModeCommand.srv
@@ -57,7 +57,7 @@ If the mode change is not possible through this interface, for example, only a h
 The mode change without using this interface may result in sudden changes in vehicle behavior.
 In this case, switch when the command difference is small, such as when the vehicle is stopped.
 
-## Use Cases
+## Use cases
 
 - Switch to manual driving.
 - Switch to Autoware control when the vehicle is stopped.

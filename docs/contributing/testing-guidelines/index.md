@@ -10,7 +10,7 @@ For details, see the [Unit testing guidelines](unit-testing.md).
 
 Integration testing combines and tests the individual software modules as a group, and is done after unit testing.
 
-While performing integration testing, the following subtypes of tests are written:
+Integration testing can include the following subtypes of tests:
 
 1. Fault injection testing
 2. Back-to-back comparison between a model and code

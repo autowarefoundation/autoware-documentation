@@ -1,0 +1,370 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 840" role="img" aria-labelledby="crosswalk-non-signalized-logic-title">
+  <title id="crosswalk-non-signalized-logic-title">
+    At a crosswalk without a traffic light, the ego vehicle stops one time for a pedestrian on the crosswalk, waits, and resumes when nothing is on its planned path.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-green: #00a352; --aw-c-indigo: var(--aw-indigo); --aw-car-shadow: #00002a40; --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-green: #00e678; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.ok {
+  fill: color-mix(in srgb, var(--aw-green) 14%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-c-green) 70%, transparent);
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .edge.dash {
+  stroke-dasharray: 6 5;
+} .aw-d-arrow--route {
+  fill: var(--aw-c-green);
+} .road {
+  fill: #5c6070;
+} .mark {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+} .mark.dash {
+  stroke-dasharray: 14 10;
+} .mark.thick {
+  stroke-width: 7;
+} .route {
+  fill: none;
+  stroke: var(--aw-c-green);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  marker-end: url("#aw-arrow-route");
+} .leader {
+  fill: none;
+  stroke: var(--aw-d-muted);
+  stroke-width: 1;
+} .note {
+  font-size: 13px;
+  fill: var(--aw-d-fg);
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .flow.flow-route {
+  stroke: color-mix(in srgb, var(--aw-c-green) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} .car-body {
+  fill: url("#aw-grad-car");
+} .ped-body {
+  fill: url("#aw-grad-car-other");
+  stroke: #fff;
+  stroke-width: 1;
+} .ped-head {
+  fill: #ffe1d2;
+  stroke: #fff;
+  stroke-width: 1;
+} .car-glass {
+  fill: url("#aw-grad-car-glass");
+  stroke: #ffffffb3;
+  stroke-width: 1;
+} .car-shadow {
+  fill: var(--aw-car-shadow);
+  filter: url("#aw-soft");
+} .headlight {
+  fill: #9ff3ff;
+  filter: url("#aw-glow");
+} .lidar {
+  fill: url("#aw-grad-ai");
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-route" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--route" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <filter id="aw-glow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="aw-grad-ai" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00c8ff"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-car" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2a1fa8"/>
+      <stop offset="0.35" stop-color="#3f2ee3"/>
+      <stop offset="0.75" stop-color="#2a6df2"/>
+      <stop offset="1" stop-color="#00b4ff"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-car-glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#bfeeff" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#7fd8ff" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-car-other" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a50f2d"/>
+      <stop offset="0.5" stop-color="#dc143c"/>
+      <stop offset="1" stop-color="#ff6a7c"/>
+    </linearGradient>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+    <filter id="aw-soft" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feGaussianBlur stdDeviation="3.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="940" height="840"/>
+  <circle class="halo" cx="455" cy="200" r="190"/>
+  <circle class="halo cyan" cx="800" cy="200" r="120"/>
+  <circle class="halo" cx="455" cy="600" r="190"/>
+  <circle class="halo cyan" cx="130" cy="380" r="110"/>
+
+  <!-- Illustration: a crosswalk with a pedestrian on it, but not on the planned path -->
+  <rect class="glass-panel" x="24" y="36" width="210" height="772" rx="22"/>
+  <text class="ttl" x="46" y="64">Crosswalk</text>
+  <text class="sub" x="46" y="84">No traffic light</text>
+  <rect class="road" x="130" y="104" width="84" height="680"/>
+  <line class="mark" x1="134" y1="104" x2="134" y2="784"/>
+  <line class="mark" x1="210" y1="104" x2="210" y2="784"/>
+  <line class="mark dash" x1="172" y1="104" x2="172" y2="320"/>
+  <line class="mark dash" x1="172" y1="390" x2="172" y2="784"/>
+  <line class="mark thick" x1="140" y1="326" x2="140" y2="384"/>
+  <line class="mark thick" x1="153" y1="326" x2="153" y2="384"/>
+  <line class="mark thick" x1="166" y1="326" x2="166" y2="384"/>
+  <line class="mark thick" x1="179" y1="326" x2="179" y2="384"/>
+  <line class="mark thick" x1="192" y1="326" x2="192" y2="384"/>
+  <line class="mark thick" x1="205" y1="326" x2="205" y2="384"/>
+  <line class="mark thick" x1="172" y1="404" x2="210" y2="404"/>
+
+  <!-- The pedestrian stands on the crosswalk, in the other lane -->
+  <g>
+    <ellipse class="car-shadow" cx="152" cy="368" rx="8" ry="2.5"/>
+    <path class="ped-body" d="M145 367 V356 Q145 349 152 349 Q159 349 159 356 V367 Z"/>
+    <circle class="ped-head" cx="152" cy="342" r="5.5"/>
+  </g>
+  <text class="note" x="120" y="352" text-anchor="end" dominant-baseline="central">Pedestrian</text>
+  <line class="leader" x1="123" y1="352" x2="143" y2="352"/>
+
+  <!-- The planned path of the ego vehicle -->
+  <path class="route" d="M191 470 V200"/>
+  <path class="flow flow-route" pathLength="100" d="M191 470 V200"/>
+  <path class="route head" d="M191 470 V200"/>
+  <text class="note" x="120" y="420" text-anchor="end" dominant-baseline="central">Stop line</text>
+  <line class="leader" x1="123" y1="420" x2="172" y2="406"/>
+
+  <!-- The ego vehicle drives up -->
+  <g transform="translate(180 474)">
+    <rect class="car-shadow" x="0" y="1" width="22" height="40" rx="7"/>
+    <rect class="car-body" x="0" y="0" width="22" height="40" rx="7"/>
+    <path class="car-glass" d="M4 10 Q11 7 18 10 L16.5 15.5 Q11 14 5.5 15.5 Z"/>
+    <rect class="car-glass" x="5.5" y="29" width="11" height="5" rx="2"/>
+    <circle class="lidar" cx="11" cy="22" r="3.2"/>
+    <rect class="headlight" x="3" y="1" width="4" height="2" rx="1"/>
+    <rect class="headlight" x="15" y="1" width="4" height="2" rx="1"/>
+  </g>
+  <text class="note" x="120" y="494" text-anchor="end" dominant-baseline="central">Ego vehicle</text>
+  <line class="leader" x1="123" y1="494" x2="178" y2="494"/>
+
+  <!-- 1. Approach the crosswalk -->
+  <rect class="box primary" x="305" y="36" width="300" height="52" rx="26"/>
+  <circle class="icon-bg on" cx="333" cy="62" r="16"/>
+  <path class="icon-line" d="M333 70 V55 M327 60 L333 54 L339 60"/>
+  <text class="lbl on-primary" x="360" y="62" dominant-baseline="central">Approach the crosswalk</text>
+
+  <path class="edge accent" d="M455 88 V116"/>
+  <path class="flow flow-accent" pathLength="100" d="M455 88 V112"/>
+  <path class="edge accent head" d="M455 88 V116"/>
+
+  <!-- 2. Is a pedestrian on the crosswalk? -->
+  <path class="card" d="M455 118 L650 188 L455 258 L260 188 Z"/>
+  <text class="lbl" x="455" y="168" text-anchor="middle" dominant-baseline="central">Pedestrian somewhere</text>
+  <text class="lbl" x="455" y="188" text-anchor="middle" dominant-baseline="central">on the crosswalk?</text>
+  <text class="sub" x="455" y="210" text-anchor="middle" dominant-baseline="central">(Pedestrian velocity is not important.)</text>
+
+  <!-- No: proceed -->
+  <path class="edge" d="M650 188 H688"/>
+  <text class="edge-lbl" x="669" y="172" text-anchor="middle" dominant-baseline="central">No</text>
+  <rect class="box ok" x="690" y="158" width="226" height="60" rx="10"/>
+  <text class="lbl" x="803" y="178" text-anchor="middle" dominant-baseline="central">Proceed without</text>
+  <text class="lbl" x="803" y="198" text-anchor="middle" dominant-baseline="central">slowing down</text>
+
+  <!-- Yes: stop one time -->
+  <path class="edge accent" d="M455 258 V294"/>
+  <path class="flow flow-accent" pathLength="100" d="M455 258 V290"/>
+  <path class="edge accent head" d="M455 258 V294"/>
+  <text class="edge-lbl" x="476" y="276" dominant-baseline="central">Yes</text>
+
+  <!-- 3. Slow down and stop one time -->
+  <rect class="card" x="305" y="296" width="300" height="60" rx="14"/>
+  <circle class="icon-bg" cx="337" cy="326" r="16"/>
+  <rect class="icon-line" x="330" y="319" width="14" height="14" rx="3"/>
+  <text class="lbl" x="362" y="326" dominant-baseline="central">Slow down and stop one time</text>
+
+  <path class="edge accent" d="M455 356 V384"/>
+  <path class="flow flow-accent" pathLength="100" d="M455 356 V380"/>
+  <path class="edge accent head" d="M455 356 V384"/>
+
+  <!-- 4. Wait -->
+  <rect class="card" x="305" y="386" width="300" height="60" rx="14"/>
+  <circle class="icon-bg" cx="337" cy="416" r="16"/>
+  <circle class="icon-line" cx="337" cy="416" r="8"/>
+  <path class="icon-line" d="M337 411 V416 L341 419"/>
+  <text class="lbl" x="362" y="406" dominant-baseline="central">Wait a few seconds</text>
+  <text class="sub" x="362" y="426" dominant-baseline="central">to confirm that it is safe to proceed</text>
+
+  <path class="edge accent" d="M455 446 V482"/>
+  <path class="flow flow-accent" pathLength="100" d="M455 446 V478"/>
+  <path class="edge accent head" d="M455 446 V482"/>
+
+  <!-- 5. Is something on the planned path? -->
+  <path class="card" d="M455 484 L650 544 L455 604 L260 544 Z"/>
+  <text class="lbl" x="455" y="534" text-anchor="middle" dominant-baseline="central">Pedestrian or object</text>
+  <text class="lbl" x="455" y="554" text-anchor="middle" dominant-baseline="central">on the planned path?</text>
+
+  <!-- Yes: keep waiting -->
+  <path class="edge" d="M650 544 H688"/>
+  <text class="edge-lbl" x="669" y="528" text-anchor="middle" dominant-baseline="central">Yes</text>
+  <rect class="box" x="690" y="514" width="226" height="60" rx="10"/>
+  <text class="lbl" x="803" y="534" text-anchor="middle" dominant-baseline="central">Continue waiting / yield</text>
+  <text class="sub" x="803" y="554" text-anchor="middle" dominant-baseline="central">until the planned path is clear</text>
+
+  <!-- Loop: check the planned path again -->
+  <path class="edge" d="M803 514 V494 H560 V514"/>
+  <text class="edge-lbl" x="682" y="494" text-anchor="middle" dominant-baseline="central">Check again</text>
+
+  <!-- No: resume -->
+  <path class="edge accent" d="M455 604 V642"/>
+  <path class="flow flow-accent" pathLength="100" d="M455 604 V638"/>
+  <path class="edge accent head" d="M455 604 V642"/>
+  <text class="edge-lbl" x="476" y="623" dominant-baseline="central">No</text>
+
+  <!-- 6. Resume driving -->
+  <rect class="box ok" x="305" y="644" width="300" height="60" rx="10"/>
+  <text class="lbl" x="455" y="664" text-anchor="middle" dominant-baseline="central">Resume driving</text>
+  <text class="sub" x="455" y="684" text-anchor="middle" dominant-baseline="central">Will not stop again for this crosswalk</text>
+
+  <path class="edge" d="M455 704 V734"/>
+
+  <!-- 7. Crosswalk passed -->
+  <rect class="box muted" x="305" y="736" width="300" height="72" rx="10"/>
+  <text class="lbl" x="455" y="756" text-anchor="middle" dominant-baseline="central">Crosswalk passed</text>
+  <text class="sub" x="455" y="776" text-anchor="middle" dominant-baseline="central">The behavior resets when the ego vehicle</text>
+  <text class="sub" x="455" y="792" text-anchor="middle" dominant-baseline="central">meets the same crosswalk again</text>
+</svg>

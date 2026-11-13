@@ -1,4 +1,4 @@
-# Planning Evaluation Using Scenarios
+# Planning evaluation using scenarios
 
 ## Introduction
 
@@ -18,14 +18,14 @@ Below, brief definitions of the three primary tools used to create, execute, and
   categorization, and execution of scenarios along with their corresponding map files. It allows for parallel scenario
   executions and provides detailed results.
 
-## Creating Scenarios
+## Creating scenarios
 
 Scenarios are created using the Scenario Editor tool, which provides a user-friendly interface to define road users,
 their behaviors, and the success and failure conditions for the ego vehicle.
 
 To demonstrate the scenario creation process, we will create a simple scenario.
 
-### Scenario Definition
+### Scenario definition
 
 - **Initial condition:** The ego vehicle is driving in a straight lane, and a bicycle is stopped in the same lane.
 - **Action:** When the longitudinal distance between the ego vehicle and the bicycle is less than 10 meters, the bicycle
@@ -33,7 +33,7 @@ To demonstrate the scenario creation process, we will create a simple scenario.
 - **Success condition:** The ego vehicle reaches the goal point.
 - **Failure condition:** The ego vehicle collides with the bicycle.
 
-### Scenario Creation
+### Scenario creation
 
 1. Open the [Scenario Editor](https://scenario.ci.tier4.jp/scenario_editor/) tool.
 2. Load the map from the **MAP** tab. For this tutorial, we will use the `LEO-VM-00001` map, which can be downloaded
@@ -68,7 +68,7 @@ To demonstrate the scenario creation process, we will create a simple scenario.
 
    ![scenario-create-tutorial-06.png](images/planning-evaluation-using-scenarios/scenario-create-tutorial-06.png)
 
-### Important Notes for Scenario Creation
+### Important notes for scenario creation
 
 - The tutorial we made is a simple scenario implementation for more complex definitions and other road user actions,
   please refer to
@@ -81,9 +81,9 @@ To demonstrate the scenario creation process, we will create a simple scenario.
   scenarios in the
   [Autoware Evaluator](https://evaluation.ci.tier4.jp/) to see other implementations.
 
-## Running Scenarios using Scenario Simulator
+## Running scenarios using Scenario Simulator
 
-### Creating the Scenario Simulator Environment
+### Creating the Scenario Simulator environment
 
 - Clone the Autoware main repository.
 
@@ -112,15 +112,17 @@ vcs import src < repositories/simulator.repos
 
 ```bash
 bash ansible/scripts/install-ansible.sh
+source ~/.bashrc
 ansible-galaxy collection install -f -r ansible-galaxy-requirements.yaml
-ansible-playbook autoware.dev_env.install_dev_env
+ansible-playbook autoware.dev_env.install_dev_env --ask-become-pass
 ```
 
 - Install dependent ROS packages.
 
 Autoware and Scenario Simulator require some ROS 2 packages in addition to the core components. The tool rosdep allows
 an automatic search and
-installation of such dependencies. You might need to run rosdep update before rosdep install.
+installation of such dependencies. You might need to run rosdep update before rosdep install. On Ubuntu 24.04, replace
+`humble` with `jazzy`.
 
 ```bash
 source /opt/ros/humble/setup.bash
@@ -162,6 +164,7 @@ define a dummy file for this field.
 
 ```bash
 ros2 launch scenario_test_runner scenario_test_runner.launch.py \
+architecture_type:=awf/universe/20250130 \
 record:=false \
 scenario:='/path/to/scenario/sample.yaml' \
 sensor_model:=sample_sensor_kit \
@@ -285,7 +288,7 @@ state. And, the scenario author set this condition as a failure condition. There
 - b) Shows the success and failing conditions are satisfied or not
 - c) Shows the state of the actions and events and their start conditions
 
-## For Further Support
+## For further support
 
 Creating scenarios, analyzing them using Autoware Evaluator would be complicated for new users. If you need further help
 or support, you can reach out to the Autoware community through
@@ -297,7 +300,7 @@ to get the meeting invitations.
 
 - ODD WG meetings are held weekly in the single time slot which is 2:00pm, Monday (UTC).
 
-### Other Useful Pages
+### Other useful pages
 
 - <https://docs.web.auto/en/user-manuals/>
 - <https://tier4.github.io/scenario_simulator_v2-docs/>

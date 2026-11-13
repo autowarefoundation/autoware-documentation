@@ -8,6 +8,7 @@ title: autoware_adapi_v1_msgs/msg/VelocityCommand
 
 ```txt
 builtin_interfaces/Time stamp
+# [m/s]. Negative value is backward.
 float32 velocity
 ```
 

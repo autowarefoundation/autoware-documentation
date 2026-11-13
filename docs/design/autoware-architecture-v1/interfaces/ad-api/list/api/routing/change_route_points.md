@@ -7,6 +7,8 @@ type:
   req:
     - name: header
       text: header for pose transformation
+    - name: option
+      text: route options, see [routing](../../../features/routing.md)
     - name: goal
       text: goal pose
     - name: waypoints

@@ -44,8 +44,7 @@
 ```bash
     mkdir -p ~/ws_fastlio_lc/src
     cd ~/ws_fastlio_lc/src
-    git clone https://github.com/gisbi-kim/FAST_LIO_SLAM.git
-    git clone https://github.com/Livox-SDK/livox_ros_driver
+    git clone https://github.com/yanliang-wang/FAST_LIO_LC.git
     cd ..
     catkin_make
 ```
@@ -54,7 +53,7 @@
 
 <!-- cspell: ignore mulran -->
 
-- After downloading the repository, change topic and sensor settings on the config file (`workspace/src/FAST_LIO_LC/FAST_LIO/config/ouster64_mulran.yaml`) with the lidar topic name in your bag file.
+- After downloading the repository, change topic and sensor settings on the config file (`workspace/src/FAST_LIO_LC/FAST-LIO/config/ouster64_mulran.yaml`) with the lidar topic name in your bag file.
 
  <img src="images/config_info.png" width="712" >
 
@@ -62,7 +61,7 @@
 
 <p> <img src="images/extrinsic.png" alt="Extrinsic Matrices"></p>
 
-- To enable auto-save, `pcd_save_enable` must be `1` from the launch file (`workspace/src/FAST_LIO_LC/FAST_LIO/launch/mapping_ouster64_mulran.launch`).
+- To enable auto-save, `pcd_save_enable` must be `1` from the launch file (`workspace/src/FAST_LIO_LC/FAST-LIO/launch/mapping_ouster64_mulran.launch`).
 
 ### 3) Run
 
@@ -71,7 +70,7 @@
 - For Ouster OS1-64
 
       # open new terminal: run FAST-LIO
-      roslaunch fast_lio mapping_ouster64.launch
+      roslaunch fast_lio mapping_ouster64_mulran.launch
 
       # open the other terminal tab: run SC-PGO
       roslaunch aloam_velodyne fastlio_ouster64.launch

@@ -1,0 +1,8 @@
+# cspell:ignore panosim
+nav:
+  - AWSIM: awsim-tutorial.md
+  - AWSIM with Autoware Core: autoware-core-awsim
+  - MORAI_Sim-tutorial.md
+  - carla-tutorial.md
+  - panosim-demo.md
+  - compatibility-test.md

@@ -1,0 +1,266 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 930" role="img" aria-labelledby="vehicle-interface-communication-title">
+  <title id="vehicle-interface-communication-title">
+    The vehicle command gate of Autoware publishes the vehicle command topics to the vehicle interface. The vehicle interface drives the low-level controller of the vehicle and publishes the vehicle
+    status topics back to Autoware.
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-group: color-mix(in
+    srgb, var(--aw-c-indigo) 6%, var(--md-default-bg-color)); --aw-d-group-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 25%, transparent); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-glass-a: #ffffffd9; --aw-glass-b: #f0f6ff8c; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-code-font-family: Roboto
+    Mono, ui-monospace, monospace; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} .box.muted {
+  fill: color-mix(in srgb, var(--aw-d-fg) 5%, var(--aw-d-bg));
+  stroke: color-mix(in srgb, var(--aw-d-fg) 20%, transparent);
+} .group {
+  fill: var(--aw-d-group);
+  stroke: var(--aw-d-group-stroke);
+  stroke-width: 1.5;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .code {
+  font-family: var(--md-code-font-family);
+  font-size: 12px;
+} .ttl {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--aw-d-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-glass-a {
+  stop-color: var(--aw-glass-a);
+} .aw-glass-b {
+  stop-color: var(--aw-glass-b);
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .glass-panel {
+  fill: url("#aw-grad-glass");
+  stroke: color-mix(in srgb, var(--aw-c-cyan) 45%, transparent);
+  stroke-width: 1.5;
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <linearGradient id="aw-grad-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" class="aw-glass-a"/>
+      <stop offset="1" class="aw-glass-b"/>
+    </linearGradient>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="960" height="930"/>
+  <circle class="halo" cx="420" cy="190" r="120"/>
+  <circle class="halo cyan" cx="746" cy="640" r="110"/>
+
+  <!-- Autoware -->
+  <rect class="glass-panel" x="16" y="16" width="504" height="344" rx="18"/>
+  <text class="ttl" x="32" y="38">Autoware</text>
+  <rect class="card" x="40" y="60" width="260" height="72" rx="12"/>
+  <text class="lbl" x="170" y="84" text-anchor="middle" dominant-baseline="central">Planning</text>
+  <text class="code" x="170" y="108" text-anchor="middle" dominant-baseline="central">behavior_path_planner</text>
+  <rect class="card" x="40" y="196" width="260" height="140" rx="12"/>
+  <text class="lbl" x="170" y="220" text-anchor="middle" dominant-baseline="central">Control</text>
+  <text class="code" x="170" y="246" text-anchor="middle" dominant-baseline="central">/control/external_cmd_selector</text>
+  <text class="code" x="170" y="266" text-anchor="middle" dominant-baseline="central">/control/trajectory_follower/</text>
+  <text class="code" x="170" y="286" text-anchor="middle" dominant-baseline="central">controller_node_exe</text>
+  <text class="code" x="170" y="306" text-anchor="middle" dominant-baseline="central">...</text>
+  <rect class="box primary" x="332" y="132" width="172" height="116" rx="12"/>
+  <circle class="icon-bg on" cx="418" cy="164" r="16"/>
+  <path class="icon-line" d="M418 155 L426 158 V164 Q426 170 418 173 Q410 170 410 164 V158 Z"/>
+  <text class="lbl on-primary" x="418" y="196" text-anchor="middle" dominant-baseline="central">Vehicle command gate</text>
+  <text class="code on-primary" x="418" y="216" text-anchor="middle" dominant-baseline="central">/control/</text>
+  <text class="code on-primary" x="418" y="232" text-anchor="middle" dominant-baseline="central">vehicle_cmd_gate</text>
+  <path class="edge" fill="none" d="M300 96 H418 V124"/>
+  <path class="flow" pathLength="100" d="M300 96 H418 V124"/>
+  <path class="edge head" fill="none" d="M300 96 H418 V124"/>
+  <text class="edge-lbl" x="366" y="66" text-anchor="middle" dominant-baseline="central">Turn indicators,</text>
+  <text class="edge-lbl" x="366" y="82" text-anchor="middle" dominant-baseline="central">hazard lights</text>
+  <path class="edge" fill="none" d="M300 290 H418 V256"/>
+  <path class="flow" pathLength="100" d="M300 290 H418 V256"/>
+  <path class="edge head" fill="none" d="M300 290 H418 V256"/>
+  <text class="edge-lbl" x="418" y="306" text-anchor="middle" dominant-baseline="central">Control, external,</text>
+  <text class="edge-lbl" x="418" y="322" text-anchor="middle" dominant-baseline="central">and system commands</text>
+
+  <!-- Vehicle commands -->
+  <rect class="group" x="548" y="16" width="396" height="436" rx="16"/>
+  <text class="ttl" x="564" y="38">Vehicle commands</text>
+  <rect class="card" x="560" y="52" width="372" height="56" rx="12"/>
+  <text class="code lbl" x="746" y="70" text-anchor="middle" dominant-baseline="central">/control/command/control_cmd</text>
+  <text class="code" x="746" y="90" text-anchor="middle" dominant-baseline="central">autoware_control_msgs/msg/Control</text>
+  <rect class="card" x="560" y="118" width="372" height="56" rx="12"/>
+  <text class="code lbl" x="746" y="136" text-anchor="middle" dominant-baseline="central">/control/command/gear_cmd</text>
+  <text class="code" x="746" y="156" text-anchor="middle" dominant-baseline="central">autoware_vehicle_msgs/msg/GearCommand</text>
+  <rect class="card" x="560" y="184" width="372" height="56" rx="12"/>
+  <text class="code lbl" x="746" y="202" text-anchor="middle" dominant-baseline="central">/control/current_gate_mode</text>
+  <text class="code" x="746" y="222" text-anchor="middle" dominant-baseline="central">tier4_control_msgs/msg/GateMode</text>
+  <rect class="card" x="560" y="250" width="372" height="56" rx="12"/>
+  <text class="code lbl" x="746" y="268" text-anchor="middle" dominant-baseline="central">/control/command/emergency_cmd</text>
+  <text class="code" x="746" y="288" text-anchor="middle" dominant-baseline="central">tier4_vehicle_msgs/msg/VehicleEmergencyStamped</text>
+  <rect class="card" x="560" y="316" width="372" height="56" rx="12"/>
+  <text class="code lbl" x="746" y="334" text-anchor="middle" dominant-baseline="central">/control/command/turn_indicators_cmd</text>
+  <text class="code" x="746" y="354" text-anchor="middle" dominant-baseline="central">autoware_vehicle_msgs/msg/TurnIndicatorsCommand</text>
+  <rect class="card" x="560" y="382" width="372" height="56" rx="12"/>
+  <text class="code lbl" x="746" y="400" text-anchor="middle" dominant-baseline="central">/control/command/hazard_lights_cmd</text>
+  <text class="code" x="746" y="420" text-anchor="middle" dominant-baseline="central">autoware_vehicle_msgs/msg/HazardLightsCommand</text>
+  <path class="edge accent" d="M504 190 H540"/>
+  <path class="flow flow-accent" pathLength="100" d="M504 190 H540"/>
+  <path class="edge accent head" d="M504 190 H540"/>
+
+  <!-- Vehicle -->
+  <rect class="glass-panel" x="548" y="512" width="396" height="248" rx="18"/>
+  <text class="ttl" x="564" y="534">Vehicle</text>
+  <rect class="box primary" x="600" y="560" width="292" height="80" rx="12"/>
+  <circle class="icon-bg on" cx="630" cy="600" r="16"/>
+  <circle class="icon-line" cx="630" cy="600" r="7.5"/>
+  <path class="icon-line" d="M622.5 600 H637.5 M630 600 V607.5"/>
+  <text class="lbl on-primary" x="760" y="588" text-anchor="middle" dominant-baseline="central">Vehicle interface</text>
+  <text class="code on-primary" x="760" y="612" text-anchor="middle" dominant-baseline="central">/&lt;YOUR-OWN-INTERFACE-NODE&gt;</text>
+  <rect class="box muted" x="600" y="684" width="292" height="56" rx="12"/>
+  <text class="lbl" x="746" y="704" text-anchor="middle" dominant-baseline="central">Low-level controller actuation</text>
+  <text class="sub" x="746" y="724" text-anchor="middle" dominant-baseline="central">CAN, serial, and others</text>
+  <path class="edge" d="M746 640 V676"/>
+  <path class="flow" pathLength="100" d="M746 640 V676"/>
+  <path class="edge head" d="M746 640 V676"/>
+  <path class="edge accent" d="M746 452 V552"/>
+  <path class="flow flow-accent" pathLength="100" d="M746 452 V552"/>
+  <path class="edge accent head" d="M746 452 V552"/>
+  <text class="edge-lbl" x="746" y="486" text-anchor="middle" dominant-baseline="central">Control commands</text>
+
+  <!-- Vehicle status -->
+  <rect class="group" x="16" y="420" width="396" height="494" rx="16"/>
+  <text class="ttl" x="32" y="442">Vehicle status</text>
+  <rect class="card" x="28" y="456" width="372" height="56" rx="12"/>
+  <text class="code lbl" x="214" y="474" text-anchor="middle" dominant-baseline="central">/vehicle/status/battery_charge</text>
+  <text class="code" x="214" y="494" text-anchor="middle" dominant-baseline="central">tier4_vehicle_msgs/msg/BatteryStatus</text>
+  <rect class="card" x="28" y="520" width="372" height="56" rx="12"/>
+  <text class="code lbl" x="214" y="538" text-anchor="middle" dominant-baseline="central">/vehicle/status/control_mode</text>
+  <text class="code" x="214" y="558" text-anchor="middle" dominant-baseline="central">autoware_vehicle_msgs/msg/ControlModeReport</text>
+  <rect class="card" x="28" y="584" width="372" height="56" rx="12"/>
+  <text class="code lbl" x="214" y="602" text-anchor="middle" dominant-baseline="central">/vehicle/status/gear_status</text>
+  <text class="code" x="214" y="622" text-anchor="middle" dominant-baseline="central">autoware_vehicle_msgs/msg/GearReport</text>
+  <rect class="card" x="28" y="648" width="372" height="56" rx="12"/>
+  <text class="code lbl" x="214" y="666" text-anchor="middle" dominant-baseline="central">/vehicle/status/hazard_lights_status</text>
+  <text class="code" x="214" y="686" text-anchor="middle" dominant-baseline="central">autoware_vehicle_msgs/msg/HazardLightsReport</text>
+  <rect class="card" x="28" y="712" width="372" height="56" rx="12"/>
+  <text class="code lbl" x="214" y="730" text-anchor="middle" dominant-baseline="central">/vehicle/status/steering_status</text>
+  <text class="code" x="214" y="750" text-anchor="middle" dominant-baseline="central">autoware_vehicle_msgs/msg/SteeringReport</text>
+  <rect class="card" x="28" y="776" width="372" height="56" rx="12"/>
+  <text class="code lbl" x="214" y="794" text-anchor="middle" dominant-baseline="central">/vehicle/status/turn_indicators_status</text>
+  <text class="code" x="214" y="814" text-anchor="middle" dominant-baseline="central">autoware_vehicle_msgs/msg/TurnIndicatorsReport</text>
+  <rect class="card" x="28" y="840" width="372" height="56" rx="12"/>
+  <text class="code lbl" x="214" y="858" text-anchor="middle" dominant-baseline="central">/vehicle/status/velocity_status</text>
+  <text class="code" x="214" y="878" text-anchor="middle" dominant-baseline="central">autoware_vehicle_msgs/msg/VelocityReport</text>
+  <path class="edge" d="M600 600 H420"/>
+  <path class="flow" pathLength="100" d="M600 600 H420"/>
+  <path class="edge head" d="M600 600 H420"/>
+  <text class="edge-lbl" x="510" y="600" text-anchor="middle" dominant-baseline="central">Vehicle status</text>
+  <path class="edge" d="M214 420 V368"/>
+  <path class="flow" pathLength="100" d="M214 420 V368"/>
+  <path class="edge head" d="M214 420 V368"/>
+  <text class="edge-lbl" x="214" y="392" text-anchor="middle" dominant-baseline="central">Vehicle status messages</text>
+</svg>

@@ -16,4 +16,5 @@ type:
 {% extends 'design/autoware-architecture-v1/interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
 Get the interface version. The version follows Semantic Versioning.
+In Autoware 2.0.0, the default implementation returns version 1.9.1.
 {% endblock %}

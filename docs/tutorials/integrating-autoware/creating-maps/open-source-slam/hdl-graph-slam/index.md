@@ -33,7 +33,7 @@ The following ROS packages are required:
 - nmea_msgs
 - pcl_ros
 - [ndt_omp](https://github.com/koide3/ndt_omp)
-- [fast_gicp](https://github.com/SMRT-AIST/fast_gicp)
+- [fast_gicp](https://github.com/koide3/fast_gicp)
 
 ## Build & Run
 
@@ -44,7 +44,7 @@ The following ROS packages are required:
 sudo apt-get install ros-melodic-geodesy ros-melodic-pcl-ros ros-melodic-nmea-msgs ros-melodic-libg2o
 cd catkin_ws/src
 git clone https://github.com/koide3/ndt_omp.git -b melodic
-git clone https://github.com/SMRT-AIST/fast_gicp.git --recursive
+git clone https://github.com/koide3/fast_gicp.git --recursive
 git clone https://github.com/koide3/hdl_graph_slam
 
 cd .. && catkin_make -DCMAKE_BUILD_TYPE=Release
@@ -54,7 +54,7 @@ sudo apt-get install ros-noetic-geodesy ros-noetic-pcl-ros ros-noetic-nmea-msgs 
 
 cd catkin_ws/src
 git clone https://github.com/koide3/ndt_omp.git
-git clone https://github.com/SMRT-AIST/fast_gicp.git --recursive
+git clone https://github.com/koide3/fast_gicp.git --recursive
 git clone https://github.com/koide3/hdl_graph_slam
 
 cd .. && catkin_make -DCMAKE_BUILD_TYPE=Release
@@ -114,7 +114,7 @@ rviz -d hdl_graph_slam.rviz
 ```
 
 ```bash
-rosbag play --clock dataset.bag
+rosbag play --clock hdl_400.bag
 ```
 
 <img src="images/hdl_400_points.png" width="712pix" /> <img src="images/hdl_400_graph.png" width="712pix" />

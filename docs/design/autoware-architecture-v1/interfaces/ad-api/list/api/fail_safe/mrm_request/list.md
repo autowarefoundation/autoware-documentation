@@ -5,6 +5,8 @@ method: notification
 type:
   name: autoware_adapi_v1_msgs/msg/MrmRequestList
   msg:
+    - name: stamp
+      text: Timestamp when this message was sent.
     - name: requests.sender
       text: The sender name of the MRM request.
     - name: requests.strategy

@@ -110,8 +110,9 @@ you will see data visualization for the calibration result statistics.
 You can observe your calibration results with changing "Image view type "Source unrectified"
 to "Source rectified".
 If your calibration is successful (there should be no distortion in the rectified image),
-you can save your calibration results with "Save" button.
-The output will be named as `<YOUR-CAMERA-NAME>_info.yaml`.
+you can save your calibration results with "Save" button and select a folder.
+The tool saves the intrinsics in the camera info format of ROS as `<YOUR-CAMERA-NAME>_info.yaml`.
+It also saves the calibration images and its parameters (`parameters.yaml`) in the same folder.
 So, you use this file with your camera driver directly.
 
 Here is the video

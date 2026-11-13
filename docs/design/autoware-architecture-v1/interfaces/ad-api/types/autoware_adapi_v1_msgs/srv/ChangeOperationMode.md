@@ -9,9 +9,12 @@ uses:
 {% block definition %}
 
 ```txt
+# Request to change operation mode.
+# The target mode is implicit from the service name
+# (e.g., /api/operation_mode/change_to_autonomous).
 ---
-uint16 ERROR_NOT_AVAILABLE = 1
-uint16 ERROR_IN_TRANSITION = 2
+uint16 ERROR_NOT_AVAILABLE = 1  # Requested mode is not available
+uint16 ERROR_IN_TRANSITION = 2  # Already transitioning to another mode
 autoware_adapi_v1_msgs/ResponseStatus status
 ```
 

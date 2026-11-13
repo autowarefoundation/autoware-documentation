@@ -12,4 +12,5 @@ type:
 {% extends 'design/autoware-architecture-v1/interfaces/templates/autoware-interface.jinja2' %}
 {% block description %}
 Accept the vehicle to start. This API can be used when the [motion state](../../../features/motion.md) is STARTING.
+In the default implementation, the motion state becomes STARTING only when the `require_accept_start` parameter of the motion node is true. The default value is false.
 {% endblock %}

@@ -9,6 +9,8 @@ type:
       text: Timestamp when this message was sent.
     - name: steering_tire_angle
       text: Target steering tire angle [rad].
+    - name: steering_tire_velocity
+      text: Target steering tire velocity [rad/s].
 ---
 
 {% extends 'design/autoware-architecture-v1/interfaces/templates/autoware-interface.jinja2' %}

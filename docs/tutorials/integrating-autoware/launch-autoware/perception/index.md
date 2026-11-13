@@ -1,19 +1,10 @@
-# Perception Launch Files
+# Perception launch files
 
 ## Overview
 
-The Autoware perception stacks start
-launching at `autoware_launch.xml` as we mentioned at [Launch Autoware](../index.md) page.
-The `autoware_launch` package includes `tier4_perception_component.launch.xml`
-for starting perception launch files invocation from `autoware_launch.xml`.
-This diagram describes some of the Autoware perception launch files flow at `autoware_launch` and `autoware_universe` packages.
+The Autoware perception stack starts with `autoware.launch.xml`, as the [Launch Autoware](../index.md) page explains. If `launch_perception` is `true`, `autoware.launch.xml` includes two component launch files of the `autoware_launch` package: `component_perception.launch.xml` and `component_traffic_light.launch.xml`. These files include the launch files of the [`autoware_perception_launch`](https://github.com/autowarefoundation/autoware_launch/tree/0.53.0/autoware_universe_launch/autoware_perception_launch) package. The following diagram shows the perception launch flow in the `autoware_launch` repository.
 
-<figure markdown>
-  ![perception-launch-flow](images/perception_launch_flow.svg){ align=center }
-  <figcaption>
-    Autoware perception launch flow diagram
-  </figcaption>
-</figure>
+{{ diagram("images/perception-launch-flow.svg", "component_perception.launch.xml includes the LiDAR perception pipeline, and component_traffic_light.launch.xml includes one traffic light recognition pipeline.") }}
 
 !!! note
 
@@ -26,99 +17,76 @@ This diagram describes some of the Autoware perception launch files flow at `aut
     if we define an argument at the top-level launch,
     it will override the value on lower-level launches.
 
-## tier4_perception_component.launch.xml
+## component_perception.launch.xml
 
-The `tier4_perception_component.launch.xml` launch file is the main perception component launch at the `autoware_launch` package.
-This launch file calls `perception.launch.xml` at [tier4_perception_launch](https://github.com/autowarefoundation/autoware_launch/tree/main/tier4_universe_launch/tier4_perception_launch) package from `autoware_universe` repository.
-We can modify perception launch arguments at tier4_perception_component.launch.xml.
-Also,
-we can add any other necessary arguments
-that we want
-to change it since `tier4_perception_component.launch.xml` is the top-level launch file of other perception launch files.
-Here are some predefined perception launch arguments:
+The [`component_perception.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/0.53.0/autoware_launch/launch/components/component_perception.launch.xml) launch file is the main perception launch file of the `autoware_launch` package. It starts the LiDAR pipeline in the `/perception` namespace: the common point cloud downsampling (optional), obstacle segmentation, the occupancy grid map, and object recognition. There is no single `perception.launch.xml` file any more. The parameter files are in the [`autoware_perception_config`](https://github.com/autowarefoundation/autoware_launch/tree/0.53.0/autoware_universe_launch/autoware_perception_config) package. You can change the perception launch arguments in `component_perception.launch.xml`. These are some of its arguments:
 
-- **`occupancy_grid_map_method:`** This argument determines the occupancy grid map method for perception stack. Please check [probabilistic_occupancy_grid_map](https://autowarefoundation.github.io/autoware_universe/main/perception/autoware_probabilistic_occupancy_grid_map/) package for detailed information.
-  The default probabilistic occupancy grid map method is `pointcloud_based_occupancy_grid_map`.
-  If you want to change it to the `laserscan_based_occupancy_grid_map`, you can change it here:
+- **`occupancy_grid_map_method:`** This argument selects the method of the occupancy grid map. For more information, see the [probabilistic_occupancy_grid_map](https://autowarefoundation.github.io/autoware_universe/main/perception/autoware_probabilistic_occupancy_grid_map/) package. The options are `pointcloud_based` (the default), `laserscan_based`, and `multi_lidar_pointcloud_based`. To change it to `laserscan_based`, change it here:
 
   ```diff
-  - <arg name="occupancy_grid_map_method" default="pointcloud_based_occupancy_grid_map" description="options: pointcloud_based_occupancy_grid_map, laserscan_based_occupancy_grid_map"/>
-  + <arg name="occupancy_grid_map_method" default="laserscan_based_occupancy_grid_map" description="options: pointcloud_based_occupancy_grid_map, laserscan_based_occupancy_grid_map"/>
+  - <arg name="occupancy_grid_map_method" default="pointcloud_based" description="options: pointcloud_based, laserscan_based, multi_lidar_pointcloud_based"/>
+  + <arg name="occupancy_grid_map_method" default="laserscan_based" description="options: pointcloud_based, laserscan_based, multi_lidar_pointcloud_based"/>
   ```
 
-- **`detected_objects_filter_method:`** This argument determines the filter method for detected objects.
-  Please check [detected_object_validation](https://autowarefoundation.github.io/autoware_universe/main/perception/autoware_detected_object_validation/) package for detailed information about lanelet and position filter.
-  The default detected object filter method is `lanelet_filter`.
-  If you want to change it to the `position_filter`, you can change it here:
+- **`detected_objects_filter_method:`** This argument selects the filter method for the detected objects. For more information about the lanelet filter and the position filter, see the [detected_object_validation](https://autowarefoundation.github.io/autoware_universe/main/perception/autoware_detected_object_validation/) package. The default filter method is `lanelet_filter`. To change it to `position_filter`, change it here:
 
   ```diff
   - <arg name="detected_objects_filter_method" default="lanelet_filter" description="options: lanelet_filter, position_filter"/>
   + <arg name="detected_objects_filter_method" default="position_filter" description="options: lanelet_filter, position_filter"/>
   ```
 
-- **`detected_objects_validation_method:`** This argument determines the validation method for detected objects.
-  Please check [detected_object_validation](https://autowarefoundation.github.io/autoware_universe/main/perception/autoware_detected_object_validation/) package for detailed information about validation methods.
-  The default detected object filter method is `obstacle_pointcloud`.
-  If you want to change it to the `occupancy_grid`, you can change it here,
-  but remember it requires `laserscan_based_occupancy_grid_map` method as `occupancy_grid_map_method`:
+- **`detected_objects_validation_method:`** This argument selects the validation method for the detected objects. For more information about the validation methods, see the [detected_object_validation](https://autowarefoundation.github.io/autoware_universe/main/perception/autoware_detected_object_validation/) package. The validator runs only if `use_object_validator` is `true`. Its default value is `false`. The default validation method is `obstacle_pointcloud`. To change it to `occupancy_grid`, enable the validator and use `laserscan_based` as `occupancy_grid_map_method`:
 
   ```diff
-  - <arg name="occupancy_grid_map_method" default="pointcloud_based_occupancy_grid_map" description="options: pointcloud_based_occupancy_grid_map, laserscan_based_occupancy_grid_map"/>
-  + <arg name="occupancy_grid_map_method" default="laserscan_based_occupancy_grid_map" description="options: pointcloud_based_occupancy_grid_map, laserscan_based_occupancy_grid_map"/>
-    <arg
-    name="detected_objects_validation_method"
-  - default="obstacle_pointcloud"
-  + default="occupancy_grid"
-    description="options: obstacle_pointcloud, occupancy_grid (occupancy_grid_map_method must be laserscan_based_occupancy_grid_map)"
-    />
+  - <arg name="use_object_validator" default="false" description="use obstacle_pointcloud based object validator"/>
+  + <arg name="use_object_validator" default="true" description="use obstacle_pointcloud based object validator"/>
+  - <arg name="occupancy_grid_map_method" default="pointcloud_based" description="options: pointcloud_based, laserscan_based, multi_lidar_pointcloud_based"/>
+  + <arg name="occupancy_grid_map_method" default="laserscan_based" description="options: pointcloud_based, laserscan_based, multi_lidar_pointcloud_based"/>
+  - <arg name="detected_objects_validation_method" default="obstacle_pointcloud" description="options: obstacle_pointcloud, occupancy_grid (must be used with laserscan_based_occupancy_grid_map)"/>
+  + <arg name="detected_objects_validation_method" default="occupancy_grid" description="options: obstacle_pointcloud, occupancy_grid (must be used with laserscan_based_occupancy_grid_map)"/>
   ```
+
+- **`lidar_detection_model:`** This argument selects the LiDAR detection model. The default value is `centerpoint`. For the other models, see the [Perception component reference implementation](../../../../design/autoware-architecture-v1/components/perception/reference_implementation.md#launch-files).
+
+- **`use_cuda_ground_segmentation` and `use_semantic_segmentation_ptv3`:** These arguments select another ground segmentation backend: the CUDA version of the rule-based filter, or the PTv3 semantic segmentation. The default value of both is `false`. If `use_semantic_segmentation_ptv3` is `true`, object recognition uses `object_recognition_lidar_ptv3.launch.xml` instead of `object_recognition_lidar.launch.xml`. Then `detected_objects_filter_method`, `detected_objects_validation_method`, and `use_object_validator` have no effect.
 
 !!! note
 
-    You can also use this arguments as command line arguments:
+    You can also use these arguments as command-line arguments:
     ```bash
-    ros2 launch autoware_launch autoware.launch.xml ... detected_objects_filter_method:=lanelet_filter occupancy_grid_map_method:=laserscan_based_occupancy_grid_map ...
+    ros2 launch autoware_launch autoware.launch.xml ... detected_objects_filter_method:=lanelet_filter occupancy_grid_map_method:=laserscan_based ...
     ```
 
-The predefined `tier4_perception_component.launch.xml` arguments explained above,
-but there is the lot of perception arguments
-included in `perception.launch.xml` launch file at [tier4_perception_launch](https://github.com/autowarefoundation/autoware_launch/tree/main/tier4_universe_launch/tier4_perception_launch).
-Since we didn't fork `autoware_universe` repository,
-we can add the necessary launch argument to tier4_perception_component.launch.xml file.
-Please follow the guidelines for some examples.
+`component_perception.launch.xml` also launches the perception analytics publisher (`use_perception_analytics_publisher`, `true` by default) and the perception online evaluator (`use_perception_online_evaluator`, `false` by default) of `autoware_perception_online_evaluator`.
 
-## perception.launch.xml
+## Use cameras and radars
 
-The `perception.launch.xml` launch file is the main perception launch at the `autoware_universe`.
-This launch file calls necessary perception launch files
-as we mentioned [`Autoware perception launch flow diagram`](#overview) above.
-The top-level launch file of `perception.launch.xml` is `tier4_perception_component.launch.xml`,
-so if we want to change anything on `perception.launch.xml`,
-we will apply these changes `tier4_perception_component.launch.xml` instead of `perception.launch.xml`.
+Object recognition in `autoware_launch` uses only LiDARs. The sensor kits have no radars, and object recognition does not use their cameras. So `component_perception.launch.xml` uses `object_recognition_lidar.launch.xml`, and Autoware 2.0.0 has no `perception_mode` argument. If your vehicle has cameras or radars, include another object recognition launch file of `autoware_perception_launch` in your fork of `component_perception.launch.xml`, for example `object_recognition_camera_lidar_radar.launch.xml`. For the list of these files and their detectors, see the [Perception component reference implementation](../../../../design/autoware-architecture-v1/components/perception/reference_implementation.md#launch-files).
 
-Here are some example changes for the perception pipeline:
+These launch files have arguments for the camera topics. Give them the topics of your cameras, for example:
 
-- **`remove_unknown:`** This parameter determines the remove unknown objects at camera-lidar fusion.
-  Please check [roi_cluster_fusion](https://github.com/autowarefoundation/autoware_universe/blob/main/perception/autoware_image_projection_based_fusion/docs/roi-cluster-fusion.md) node for detailed information.
-  The default value is `true`.
-  If you want to change it to the `false`,
-  you can add this argument to `tier4_perception_component.launch.xml`,
-  so it will override the `perception.launch.xml`'s `argument`:
-
-  ```diff
-  + <arg name="remove_unknown" default="false"/>
-  ```
-
-- **`camera topics:`** If you are using camera-lidar fusion or camera-lidar-radar fusion as a perception_mode,
-  you can add your camera and info topics on `tier4_perception_component.launch.xml` as well,
-  it will override the `perception.launch.xml` launch file arguments:
-
-  ```diff
-  + <arg name="image_raw0" default="/sensing/camera/camera0/image_rect_color" description="image raw topic name"/>
-  + <arg name="camera_info0" default="/sensing/camera/camera0/camera_info" description="camera info topic name"/>
-  + <arg name="detection_rois0" default="/perception/object_recognition/detection/rois0" description="detection rois output topic name"/>
+```xml
+<include file="$(find-pkg-share autoware_perception_launch)/launch/object_recognition/object_recognition_camera_lidar_radar.launch.xml">
+  <arg name="number_of_cameras" value="1"/>
+  <arg name="input/camera0/image" value="/sensing/camera/camera0/image_rect_color"/>
+  <arg name="input/camera0/info" value="/sensing/camera/camera0/camera_info"/>
+  <arg name="input/camera0/rois" value="/perception/object_recognition/detection/rois0"/>
   ...
-  ```
+</include>
+```
 
-You can add every necessary argument
-to `tier4_perception_component.launch.xml` launch file like these examples.
+The parameters of the camera-LiDAR fusion nodes are in `autoware_perception_config`. For example, `remove_unknown` of [roi_cluster_fusion](https://github.com/autowarefoundation/autoware_universe/blob/0.53.1/perception/autoware_image_projection_based_fusion/docs/roi-cluster-fusion.md) is in `config/object_recognition/detection/image_projection_based_fusion/roi_cluster_fusion.param.yaml`. Its value is `false`.
+
+## component_traffic_light.launch.xml
+
+The [`component_traffic_light.launch.xml`](https://github.com/autowarefoundation/autoware_launch/blob/0.53.0/autoware_launch/launch/components/component_traffic_light.launch.xml) launch file starts traffic light recognition in the `/perception/traffic_light_recognition` namespace, if `use_traffic_light_recognition` is `true` (the default). It includes one of three pipelines of `autoware_perception_launch`:
+
+| Arguments                                                                                                                       | Launch file                                        |
+| ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| `traffic_light_recognition/use_high_accuracy_detection:=true` and `high_accuracy_detection_type:=fine_detection` (the defaults) | `traffic_light_recognition_fine.launch.xml`        |
+| `traffic_light_recognition/use_high_accuracy_detection:=true` and `high_accuracy_detection_type:=whole_image_detection`         | `traffic_light_recognition_whole_image.launch.xml` |
+| `traffic_light_recognition/use_high_accuracy_detection:=false`                                                                  | `traffic_light_recognition_rough.launch.xml`       |
+
+The full name of the second argument is `traffic_light_recognition/high_accuracy_detection_type`. Each pipeline includes a detector launch file and `traffic_light_fusion.launch.xml`. The fine and the rough pipelines also include `traffic_light_occlusion_predictor.launch.xml`. The camera topics are fixed inside each pipeline launch file.
+
+You can add other arguments to `component_perception.launch.xml` and `component_traffic_light.launch.xml` like these examples.

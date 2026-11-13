@@ -22,3 +22,6 @@ node_modules/
 
 # mike deploy generates this
 /site/*
+
+# Zensical and PlantUML build cache
+/.cache/

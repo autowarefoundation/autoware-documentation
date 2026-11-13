@@ -15,22 +15,40 @@ uses:
 uint16 UNKNOWN = 0
 
 # constants for direction
-uint16 LEFT = 1
-uint16 RIGHT = 2
-uint16 STRAIGHT = 3
+uint16 LEFT = 1      # Steering or turning left
+uint16 RIGHT = 2     # Steering or turning right
+uint16 STRAIGHT = 3  # Going straight
 
 # constants for status
-uint16 APPROACHING = 1
-uint16 TURNING = 3
+uint16 APPROACHING = 1  # Approaching the steering point
+uint16 TURNING = 3      # Currently turning/steering
 
-# variables
+# Poses defining the steering segment
+# pose[0]: start pose of the steering action
+# pose[1]: end pose of the steering action
 geometry_msgs/Pose[2] pose
+
+# Distances to the steering segment [m]
+# distance[0]: distance to start pose
+# distance[1]: distance to end pose
 float32[2] distance
+
+# Direction of the steering action (LEFT, RIGHT, or STRAIGHT)
 uint16 direction
+
+# Current status (APPROACHING or TURNING)
 uint16 status
+
+# Behavior type (see PlanningBehavior.msg for typical values, any name is available for user extensions)
 string behavior
+
+# Planning sequence identifier
 string sequence
+
+# Detailed description of the factor
 string detail
+
+# Cooperation status (optional, max 1 element)
 autoware_adapi_v1_msgs/CooperationStatus[<=1] cooperation
 ```
 

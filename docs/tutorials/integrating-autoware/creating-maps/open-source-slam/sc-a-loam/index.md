@@ -81,7 +81,7 @@ roslaunch aloam_velodyne aloam_mulran.launch
 ### Riverside 01, MulRan dataset
 
 - The MulRan dataset provides lidar scans (Ouster OS1-64, horizontally mounted, 10Hz) and consumer level gps (u-blox EVK-7P, 4Hz) data.
-- About how to use (publishing data) data: see here [https://github.com/irapkaist/file_player_mulran](https://github.com/irapkaist/file_player_mulran)
+- About how to use (publishing data) data: see here [https://github.com/RPM-Robotics-Lab/file_player_mulran](https://github.com/RPM-Robotics-Lab/file_player_mulran)
 - example videos on Riverside 01 sequence.
 
   ```bash

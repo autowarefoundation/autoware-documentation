@@ -9,8 +9,10 @@ uses:
 {% block definition %}
 
 ```txt
+# Accept vehicle start after motion state becomes STARTING.
+# Call this service to confirm that the vehicle should begin moving.
 ---
-uint16 ERROR_NOT_STARTING = 1
+uint16 ERROR_NOT_STARTING = 1  # Vehicle is not in STARTING state
 autoware_adapi_v1_msgs/ResponseStatus status
 ```
 

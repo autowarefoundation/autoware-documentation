@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 260" role="img" aria-labelledby="vm-03-15_1-title">
+  <title id="vm-03-15_1-title">
+    The Japanese road sign for an exclusive bicycle lane: a blue square sign with an arrow and a bicycle in the left lane between two solid lines, and the word 専用 (exclusive).
+  </title>
+  <style data-aw-standalone="">
+    svg { --aw-c-indigo: var(--aw-indigo); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-muted: var(--md-default-fg-color--light); --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .sign-panel {
+  fill: #0a5bb5;
+  stroke: #fff;
+  stroke-width: 4;
+} .sign-fill {
+  fill: #fff;
+} .sign-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .sign-label {
+  font-size: 26px;
+  font-weight: 700;
+  fill: #fff;
+} .leader {
+  fill: none;
+  stroke: var(--aw-d-muted);
+  stroke-width: 1;
+} .note {
+  font-size: 13px;
+  fill: var(--aw-d-fg);
+}
+  </style>
+
+  <!-- The sign -->
+  <rect class="sign-panel" x="330" y="30" width="200" height="200" rx="14"/>
+  <rect class="sign-fill" x="350" y="46" width="8" height="168" rx="1"/>
+  <rect class="sign-fill" x="455" y="46" width="8" height="168" rx="1"/>
+  <rect class="sign-fill" x="505" y="50" width="8" height="24" rx="1"/>
+  <rect class="sign-fill" x="505" y="96" width="8" height="24" rx="1"/>
+  <rect class="sign-fill" x="505" y="142" width="8" height="24" rx="1"/>
+  <rect class="sign-fill" x="505" y="188" width="8" height="24" rx="1"/>
+
+  <path class="sign-fill" d="M406 52 L432 82 L414 82 L414 108 L398 108 L398 82 L380 82 Z"/>
+
+  <circle class="sign-line" cx="383" cy="148" r="15"/>
+  <circle class="sign-line" cx="429" cy="148" r="15"/>
+  <path class="sign-line" d="M383 148 L397 124 L405 148 Z M397 124 L423 124 L405 148 M423 124 L429 148 M391 118 L403 118 M420 116 L430 116 L423 124"/>
+
+  <text class="sign-label" x="406" y="194" text-anchor="middle" dominant-baseline="central">専用</text>
+
+  <!-- Notes on the left -->
+  <path class="leader" d="M268 80 L380 80"/>
+  <text class="note" x="30" y="80" dominant-baseline="central">Arrow: the direction of travel</text>
+  <path class="leader" d="M268 148 L366 148"/>
+  <text class="note" x="30" y="148" dominant-baseline="central">Bicycle: the lane is for bicycles</text>
+  <path class="leader" d="M268 194 L376 194"/>
+  <text class="note" x="30" y="194" dominant-baseline="central">専用: exclusive</text>
+
+  <!-- Notes on the right -->
+  <path class="leader" d="M592 66 L463 66"/>
+  <text class="note" x="600" y="58" dominant-baseline="central">Solid lines: the edges</text>
+  <text class="note" x="600" y="76" dominant-baseline="central">of the bicycle lane</text>
+  <path class="leader" d="M592 154 L513 154"/>
+  <text class="note" x="600" y="146" dominant-baseline="central">Dashed line: the lane line</text>
+  <text class="note" x="600" y="164" dominant-baseline="central">of the road next to it</text>
+</svg>

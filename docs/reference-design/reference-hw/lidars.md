@@ -16,7 +16,6 @@ Velodyne Lidars which has ROS 2 driver and tested by one or more community membe
 Link to ROS 2 drivers:  
 [https://github.com/tier4/nebula](https://github.com/tier4/nebula)  
 [https://github.com/ros-drivers/velodyne/tree/ros2/velodyne_pointcloud](https://github.com/ros-drivers/velodyne/tree/ros2/velodyne_pointcloud)  
-[https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/tree/master/src/drivers/velodyne_nodes](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/tree/master/src/drivers/velodyne_nodes)
 [https://github.com/autowarefoundation/awf_velodyne/tree/tier4/universe](https://github.com/autowarefoundation/awf_velodyne/tree/tier4/universe)
 
 Link to company website:  
@@ -37,7 +36,8 @@ RoboSense Lidars which has ROS 2 driver and tested by one or more community memb
 | Helios 32               | 150m  | 70°/360°<br/> 31°/360°<br/> 26°/360° | Y            | Y                     |
 | Helios 16               | 150m  | 30°/360°                             | Y            | ?                     |
 
-Link to ROS 2 driver:  
+Link to ROS 2 drivers:  
+[https://github.com/tier4/nebula](https://github.com/tier4/nebula) (Bpearl and Helios)  
 [https://github.com/RoboSense-LiDAR/rslidar_sdk](https://github.com/RoboSense-LiDAR/rslidar_sdk)
 
 Link to company website:  

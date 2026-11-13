@@ -4,28 +4,30 @@ We use semantic versioning [(SemVer)](https://semver.org/) for releases.
 
 ## Frequency
 
-Releases are made approximately monthly.
+Recent releases came about every two to three months: `1.8.0` in May 2026, `1.9.0` in July 2026, and `2.0.0` in October 2026. The [releases page](https://github.com/autowarefoundation/autoware/releases) lists all releases.
 
-## Constraints and the release process
+## Version numbers
 
-Autoware has many repositories that are expected to work together.
+!!! warning "Autoware has its own version number"
 
-When doing a release, we first make releases from sub-repositories such as `autoware_core`, `autoware_universe`, etc.
+    The Autoware version does not follow the version of `autoware_core` or of any other sub-repository. For example, Autoware `2.0.0` uses `autoware_core` `1.10.0`.
+    From Autoware `1.5.0` to `1.9.0`, the Autoware version was the same as the `autoware_core` version. The one exception is the patch release `1.7.1`, which uses `autoware_core` `1.7.0`.
 
-⚠️ The release version of Autoware is going to be same as the version of the newly released `autoware_core`.
+Each sub-repository tracks its own version. The `repositories/autoware.repos` file at each Autoware release tag records the version of each sub-repository. In Autoware `1.5.0` and earlier releases, this file is `autoware.repos` at the root of the repository.
 
-ℹ️ The rest of the repositories can track their own versions.
+## The release process
 
-Some repositories might not have changed at all, we can refer to their existing versions.
+Autoware has many repositories that must work together. A release follows these steps:
 
-We will release all the _required_ sub-repositories and update their references within the `repositories/autoware.repos` file.
+<div class="aw-steps" markdown>
 
-We then test this system with various [demos](../demos/index.md) manually. And make sure the CI for the build passes.
+1. **Release the sub-repositories.** We release all the _required_ sub-repositories, such as `autoware_core` and `autoware_universe`. A repository that did not change keeps its existing version.
+2. **Update the references.** We update the versions of the sub-repositories in the `repositories/autoware.repos` file.
+3. **Test the system.** We test the system manually in the [simulations](../simulation/index.md), and we make sure that the CI for the build passes.
+4. **Release Autoware.** We make the Autoware release.
 
-Then we make an Autoware release.
+</div>
 
 ## Patches
 
-If there is a critical bug that needs to be fixed, we will make a patch release for the affected repositories.
-
-Then we will go up a patch version release for Autoware.
+If a critical bug needs a fix, we make a patch release of the affected repositories. Then we make a patch release of Autoware.

@@ -1,10 +1,10 @@
-# Autoware Multi-Year Roadmap
+# Autoware multi-year roadmap
 
 We have set the key objectives and multi-year goals we wish to achieve as AWF in alignment with our vision, mission and core values. Based on these key objectives and goals, we will then create an execution plan which scopes out how we will achieve our desired goals.
 
 We have currently defined 8 Key Objectives covering three themes: Technology, Membership & Open Source Community, and Brand. For each Key Objective, we have defined goals over a three year period (Y1 - Y3).
 
-## Key Objectives and Goals
+## Key objectives and goals
 
 ### Technology
 
@@ -42,7 +42,7 @@ We have currently defined 8 Key Objectives covering three themes: Technology, Me
   - Secure a pilot with at least one anchor company to trial Autoware’s Production-Capable stack at TRL-7 for Robobus and Off-Road Vehicles in a small-scale deployment across multiple vehicles in real-world environments.
   - Secure a pilot with at least one anchor company to trial Autoware’s Production-Capable stack at TRL-6 for Robotaxi on a single vehicle in real-world environments - potential anchor company candidates for Robotaxi include (TIER IV)
 
-### Membership & Open Source Community
+### Membership and open-source community
 
 #### Objective 4: Improve the ease with which new users can get started with Autoware and begin open-source contributions, and integration of Autoware technologies within their pre-existing software stack
 
@@ -56,6 +56,10 @@ We have currently defined 8 Key Objectives covering three themes: Technology, Me
 - **Year 3:**
   - Create a first version of a proof-of-concept remote monitoring system for Autoware which allows logging of basic data such as GPS location of the vehicle, sensor log data, basic telemetry from GPS, live camera streams, and other simple information on an online dashboard.
   - Investigate methods to integrate V2X Messages and Infotainment related information into the Remote Monitoring system.
+
+!!! note "Progress"
+
+    The [Autoware Index](https://index.autoware.org) is a searchable registry of community packages that extend Autoware. It records where the source of each package is, and whether the package builds and passes its tests with the latest Autoware release. For more information, see [Autoware Index](../../installation/autoware/autoware-index.md).
 
 #### Objective 5: Grow Autoware’s open-source community, especially Premium Members and Individual Contributors
 

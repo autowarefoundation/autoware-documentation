@@ -1,0 +1,201 @@
+# cspell:ignore cachedir panosim pygments
+
+[project]
+site_name = "Autoware Documentation"
+# Must end with "/". The publish-docs workflow reads it.
+site_url = "https://autowarefoundation.github.io/autoware-documentation/"
+repo_url = "https://github.com/autowarefoundation/autoware"
+edit_uri = "https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/"
+docs_dir = "docs"
+copyright = "Copyright &copy; 2026 The Autoware Foundation"
+
+extra_css = [
+  "assets/css/theme.css",
+  "assets/css/extra.css",
+  "https://use.fontawesome.com/releases/v7.1.0/css/all.css",
+]
+
+extra_javascript = [
+  "assets/js/mathjax.js",
+  "assets/js/hidden-page-nav.js",
+  "assets/js/header-home-link.js",
+  "assets/js/interface-highlight.js",
+  "assets/js/shell-highlight.js",
+  "assets/js/media-kit.js",
+  "assets/js/hero-video.js",
+  "https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js",
+]
+
+[project.theme]
+name = "material"
+variant = "modern"
+custom_dir = "overrides"
+favicon = "assets/images/autoware-foundation.png"
+language = "en"
+features = [
+  # "navigation.expand", # Until we simplify the navigation
+  "navigation.indexes",
+  "navigation.instant",
+  "navigation.instant.prefetch",
+  "navigation.instant.progress",
+  "navigation.path",
+  "navigation.prune",
+  "navigation.sections",
+  "navigation.tabs",
+  "navigation.tabs.sticky",
+  "navigation.top",
+  "navigation.footer",
+  "navigation.tracking",
+  "content.action.copy",
+  "content.action.edit",
+  "content.action.view",
+  "content.code.copy",
+]
+
+[project.theme.font]
+text = "Montserrat"
+code = "Roboto Mono"
+
+[project.theme.icon]
+logo = "autoware/logo"
+repo = "fontawesome/brands/github"
+edit = "material/pencil"
+view = "fontawesome/brands/github"
+
+[[project.theme.palette]]
+scheme = "default"
+primary = "custom"
+accent = "custom"
+toggle = { icon = "material/weather-sunny", name = "Switch to dark mode" }
+
+[[project.theme.palette]]
+scheme = "slate"
+primary = "custom"
+accent = "custom"
+toggle = { icon = "material/weather-night", name = "Switch to light mode" }
+
+[project.extra]
+# The logo links to the home page itself, not to the redirect page at the root.
+homepage = "home/"
+version = { provider = "mike" }
+
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/autowarefoundation/autoware-documentation"
+name = "Source of this documentation on GitHub"
+
+[project.plugins.awesome-nav]
+
+[project.plugins.exclude]
+regex = [
+  '^(?!(.*/)?assets/).*\.(?!(.*\.)?md|(.*\.)?svg|(.*\.)?png|(.*\.)?gif|(.*\.)?jpg|(.*\.)?pdf).*$',
+  '^(.*/)?[^.]*$',
+]
+
+[project.plugins.macros]
+include_dir = "docs"
+include_yaml = { autoware_interfaces = "yaml/autoware-interfaces.yaml" }
+
+# Writes llms.txt and a Markdown copy of each page for AI agents.
+# The links are relative, so that they work in each version directory.
+[project.plugins.llmstxt]
+base_url = "./"
+markdown_description = "Documentation of Autoware, the open-source software for autonomous driving."
+
+# One section for each top-level directory of docs/.
+[project.plugins.llmstxt.sections]
+Home = ["home/*.md"]
+Installation = ["installation/*.md"]
+Simulation = ["simulation/*.md"]
+Tutorials = ["tutorials/*.md"]
+"Architecture design" = ["design/*.md"]
+"Reference design" = ["reference-design/*.md"]
+Contributing = ["contributing/*.md"]
+Datasets = ["datasets/*.md"]
+Community = ["community/*.md"]
+
+[project.plugins.minify]
+minify_html = true
+
+[project.plugins.mkdocs-video]
+
+[project.plugins.redirects.redirect_maps]
+"index.md" = "home/index.md"
+"design/autoware-architecture-v1/interfaces/components/perception-interface.md" = "design/autoware-architecture-v1/interfaces/components/perception.md"
+"support/support-guidelines.md" = "community/support/support-guidelines.md"
+"design/autoware-interfaces/ad-api/features/fail-safe.md" = "design/autoware-architecture-v1/interfaces/ad-api/features/fail-safe.md"
+"design/autoware-interfaces/ad-api/features/routing.md" = "design/autoware-architecture-v1/interfaces/ad-api/features/routing.md"
+"design/autoware-interfaces/ad-api/list/api/localization/index.md" = "design/autoware-architecture-v1/interfaces/ad-api/features/localization.md"
+"design/autoware-interfaces/ad-api/list/api/routing/index.md" = "design/autoware-architecture-v1/interfaces/ad-api/features/routing.md"
+"design/autoware-interfaces/components/vehicle-dimensions.md" = "design/autoware-architecture-v1/interfaces/components/vehicle-dimensions.md"
+"demos/digital-twin-demos/MORAI_Sim-tutorial.md" = "simulation/digital-twin-simulation/MORAI_Sim-tutorial.md"
+"demos/digital-twin-demos/autoware-core-awsim/index.md" = "simulation/digital-twin-simulation/autoware-core-awsim/index.md"
+"demos/digital-twin-demos/awsim-tutorial.md" = "simulation/digital-twin-simulation/awsim-tutorial.md"
+"demos/digital-twin-demos/carla-tutorial.md" = "simulation/digital-twin-simulation/carla-tutorial.md"
+"demos/digital-twin-demos/panosim-demo.md" = "simulation/digital-twin-simulation/panosim-demo.md"
+"demos/index.md" = "simulation/index.md"
+"demos/planning-sim/avoidance.md" = "simulation/planning-simulation/avoidance.md"
+"demos/planning-sim/crosswalk.md" = "simulation/planning-simulation/crosswalk.md"
+"demos/planning-sim/index.md" = "simulation/planning-simulation/index.md"
+"demos/planning-sim/lane-change.md" = "simulation/planning-simulation/lane-change.md"
+"demos/planning-sim/lane-driving.md" = "simulation/planning-simulation/lane-driving.md"
+"demos/planning-sim/parking.md" = "simulation/planning-simulation/parking.md"
+"demos/planning-sim/placing-objects.md" = "simulation/planning-simulation/placing-objects.md"
+"demos/planning-sim/pull-over-out.md" = "simulation/planning-simulation/pull-over-out.md"
+"demos/planning-sim/traffic-light.md" = "simulation/planning-simulation/traffic-light.md"
+"demos/planning-sim/using-launch-gui.md" = "simulation/planning-simulation/using-launch-gui.md"
+"demos/rosbag-replay-simulation.md" = "simulation/rosbag-replay-simulation.md"
+"demos/scenario-simulation/driving-log-replayer.md" = "simulation/scenario-simulation/driving-log-replayer.md"
+"demos/scenario-simulation/scenario-simulator/installation.md" = "simulation/scenario-simulation/scenario-simulator/installation.md"
+"demos/scenario-simulation/scenario-simulator/random-test-simulation.md" = "simulation/scenario-simulation/scenario-simulator/random-test-simulation.md"
+"demos/scenario-simulation/scenario-simulator/scenario-test-simulation.md" = "simulation/scenario-simulation/scenario-simulator/scenario-test-simulation.md"
+"home/roadmap/timelines/humble-jazzy.md" = "home/roadmap/timelines/ros-2-distributions.md"
+"simulation-evaluation/components_evaluation/localization_evaluation/urban-environment-evaluation.md" = "simulation/evaluation/urban-environment-localization.md"
+"simulation-evaluation/digital-twin-simulation/compatibility-test.md" = "simulation/digital-twin-simulation/compatibility-test.md"
+"simulation-evaluation/index.md" = "simulation/index.md"
+
+# https://zensical.org/docs/setup/search/
+[project.plugins.search]
+separator = '[\s\-_,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+
+# Quote a name that has a dot, or TOML makes a nested table.
+# The order of the tables is the order of the extensions.
+[project.markdown_extensions.abbr]
+[project.markdown_extensions.admonition]
+[project.markdown_extensions.attr_list]
+[project.markdown_extensions.codehilite]
+guess_lang = false
+[project.markdown_extensions.fontawesome_in_markdown]
+[project.markdown_extensions.footnotes]
+[project.markdown_extensions.md_in_html]
+[project.markdown_extensions.mdx_math]
+[project.markdown_extensions.mdx_truly_sane_lists]
+nested_indent = 2
+[project.markdown_extensions.plantuml_markdown]
+server = "http://www.plantuml.com/plantuml"
+format = "svg"
+cachedir = ".cache/plantuml"
+[project.markdown_extensions."pymdownx.arithmatex"]
+generic = true
+[project.markdown_extensions."pymdownx.caret"]
+[project.markdown_extensions."pymdownx.critic"]
+[project.markdown_extensions."pymdownx.details"]
+[project.markdown_extensions."pymdownx.emoji"]
+emoji_index = "zensical.extensions.emoji.twemoji"
+emoji_generator = "zensical.extensions.emoji.to_svg"
+[project.markdown_extensions."pymdownx.highlight"]
+# Gives each code block a `language-*` class (see shell-highlight.js).
+pygments_lang_class = true
+[project.markdown_extensions."pymdownx.keys"]
+[project.markdown_extensions."pymdownx.mark"]
+[project.markdown_extensions."pymdownx.tilde"]
+[project.markdown_extensions."pymdownx.snippets"]
+auto_append = ["includes/abbreviations.md"]
+[project.markdown_extensions."pymdownx.superfences"]
+custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
+[project.markdown_extensions.toc]
+permalink = "#"
+toc_depth = 3

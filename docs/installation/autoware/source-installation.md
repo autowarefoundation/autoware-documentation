@@ -4,9 +4,11 @@
 
 - OS
   - [Ubuntu 22.04](https://releases.ubuntu.com/22.04/)
+  - [Ubuntu 24.04](https://releases.ubuntu.com/24.04/)
 
 - ROS
-  - ROS 2 Humble
+  - ROS 2 Humble (on Ubuntu 22.04)
+  - ROS 2 Jazzy (on Ubuntu 24.04)
 
   For ROS 2 system dependencies, refer to [REP-2000](https://www.ros.org/reps/rep-2000.html).
 
@@ -27,10 +29,10 @@ sudo apt-get -y install git
    cd autoware
    ```
 
-   By default, this checks out the `main` branch, which contains the latest in-development changes. If you want to use a stable release, check out the corresponding release tag. For example, to use the `1.9.0` release (compatible with both ROS 2 Humble and Jazzy):
+   By default, this checks out the `main` branch, which contains the latest in-development changes. If you want to use a stable release, check out the corresponding release tag. For example, to use the `2.0.0` release (compatible with both ROS 2 Humble and Jazzy):
 
    ```bash
-   git checkout 1.9.0
+   git checkout 2.0.0
    ```
 
    The list of available tags can be found on the [autoware releases page](https://github.com/autowarefoundation/autoware/releases).
@@ -41,14 +43,23 @@ sudo apt-get -y install git
    bash ansible/scripts/install-ansible.sh
    source ~/.bashrc
    ansible-galaxy collection install -f -r ansible-galaxy-requirements.yaml
-   ansible-playbook autoware.dev_env.install_dev_env
+   ansible-playbook autoware.dev_env.install_dev_env --ask-become-pass
    ```
 
    To install without **NVIDIA GPU** support:
 
    ```bash
-   ansible-playbook autoware.dev_env.install_dev_env --skip-tags nvidia
+   ansible-playbook autoware.dev_env.install_dev_env --skip-tags nvidia --ask-become-pass
    ```
+
+   The playbook reads your Ubuntu version and selects the versions of ROS 2 and the NVIDIA libraries:
+
+   | Ubuntu | ROS 2  | CUDA | TensorRT                                   |
+   | ------ | ------ | ---- | ------------------------------------------ |
+   | 22.04  | Humble | 12.8 | 10.8 on amd64, 10.3 on arm64 (Jetson Orin) |
+   | 24.04  | Jazzy  | 13.0 | 10.13                                      |
+
+   The playbook stops on other Ubuntu versions.
 
    If you encounter any build issues, please consult the [Troubleshooting](../../community/support/troubleshooting/index.md#build-issues) section for assistance.
 
@@ -73,14 +84,13 @@ sudo apt-get -y install git
     - [Install ROS 2 Dev Tools](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2_dev_tools#manual-installation)
     - [Install Nvidia CUDA](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/cuda#manual-installation)
     - [Install Nvidia cuDNN and TensorRT](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/tensorrt#manual-installation)
+    - [Install spconv](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/spconv#manual-installation) (for sparse convolutions)
+    - [Install acados](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/acados#readme)
+    - [Install Agnocast](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/agnocast#installation)
     - [Install the Autoware RViz Theme](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/qt5ct_setup#readme) (only affects Autoware RViz)
     - [Download the Artifacts](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts#readme) (for perception inference)
 
 ## How to set up a workspace
-
-!!! info "[Using Autoware Build GUI](#using-autoware-build-gui)"
-
-    If you prefer a graphical user interface (GUI) over the command line for launching and managing your simulations, refer to the `Using Autoware Build GUI` section at the end of this document for a step-by-step guide.
 
 1. Create the `src` directory and clone repositories into it.
 
@@ -110,10 +120,12 @@ sudo apt-get -y install git
    >
    > ➡️ Check the readme of the extra packages for more information.
 
+   The `tools.repos` file adds [autoware_tools](https://github.com/autowarefoundation/autoware_tools), and the `simulator.repos` file adds [scenario_simulator_v2](https://github.com/tier4/scenario_simulator_v2). Import them only if you need them. For a description of each file, see [`repositories/*.repos` files](../../design/repos-files.md).
+
 2. Add community packages to your workspace. _(optional)_ <span class="aw-badge-new">NEW</span>
 
    The [Autoware Index](autoware-index.md) is a registry of community packages that extend Autoware, each built and tested against the latest Autoware release.
-   Pick packages on its [browse site](https://autowarefoundation.github.io/autoware-index/) or with `aw-index-cli` to generate `repositories/autoware-index.repos`, then import it the same way:
+   Pick packages on its [browse site](https://index.autoware.org/) or with `aw-index-cli` to generate `repositories/autoware-index.repos`, then import it the same way:
 
    ```bash
    vcs import src < repositories/autoware-index.repos
@@ -127,8 +139,10 @@ sudo apt-get -y install git
    The tool `rosdep` allows an automatic search and installation of such dependencies.
    You might need to run `rosdep update` before `rosdep install`.
 
+   On Ubuntu 22.04, replace `jazzy` with `humble`.
+
    ```bash
-   source /opt/ros/humble/setup.bash
+   source /opt/ros/jazzy/setup.bash
    # Make sure all previously installed ros-$ROS_DISTRO-* packages are upgraded to their latest version
    sudo apt update && sudo apt upgrade
    rosdep update
@@ -148,11 +162,24 @@ sudo apt-get -y install git
 
    If there is any build issue, refer to [Troubleshooting](../../community/support/troubleshooting/index.md#build-issues).
 
-6. Follow the steps in [Network Configuration](../../installation/additional-settings-for-developers/network-configuration/index.md) before running Autoware.
+6. Follow the steps in [Network Configuration](../additional-settings-for-developers/network-configuration/index.md) before running Autoware.
 
-7. Apply the settings recommended in [Console settings for ROS 2](../../installation/additional-settings-for-developers/console-settings.md) for a better development experience. _(optional)_
+7. Apply the settings recommended in [Console settings for ROS 2](../additional-settings-for-developers/console-settings.md) for a better development experience. _(optional)_
 
 ## How to update a workspace
+
+!!! warning "Upgrade from 1.9.0 or older to 2.0.0"
+
+    Autoware 2.0.0 downloads the AI models from [Hugging Face](https://huggingface.co/AutowareFoundation). The models use one folder per variant, for example `lidar_centerpoint/tiny/`. The 2.0.0 launch files read only this layout.
+
+    After you update the workspace, download the models again:
+
+    ```bash
+    ansible-galaxy collection install -f -r ansible-galaxy-requirements.yaml
+    ansible-playbook autoware.dev_env.install_dev_env --tags artifacts --ask-become-pass
+    ```
+
+    `autoware_livox_tag_filter` moved from `autoware_universe` to the [Autoware Index](autoware-index.md). If you use it, add it to your workspace with `aw-index-cli`.
 
 1. Update the `.repos` file.
 
@@ -204,8 +231,10 @@ sudo apt-get -y install git
 
 3. Install dependent ROS packages.
 
+   On Ubuntu 22.04, replace `jazzy` with `humble`.
+
    ```bash
-   source /opt/ros/humble/setup.bash
+   source /opt/ros/jazzy/setup.bash
    # Make sure all previously installed ros-$ROS_DISTRO-* packages are upgraded to their latest version
    sudo apt update && sudo apt upgrade
    rosdep update
@@ -217,37 +246,3 @@ sudo apt-get -y install git
    ```bash
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
-
-## Using Autoware Build GUI
-
-In addition to the traditional command-line methods of building Autoware packages, developers and users can leverage the Autoware Build GUI for a more streamlined and user-friendly experience. This GUI application simplifies the process of building and managing Autoware packages.
-
-### Integration with Autoware source installation
-
-When using the Autoware Build GUI in conjunction with the traditional source installation process:
-
-- **Initial Setup**: Follow the standard Autoware source installation guide to set up your environment and workspace.
-- **Using the GUI**: Once the initial setup is complete, you can use the Autoware Build GUI to manage subsequent builds and package updates.
-
-This integration offers a more accessible approach to building and managing Autoware packages, catering to both new users and experienced developers.
-
-### Getting started with Autoware Build GUI
-
-1. **Installation:** Ensure you have installed the Autoware Build GUI. [Installation instructions](https://github.com/autowarefoundation/autoware-build-gui#installation).
-2. **Launching the App**: Once installed, launch the Autoware Build GUI.
-   ![Build_GUI_Main](images/build-gui/build_gui_main.png)
-3. **Setting Up**: Set the path to your Autoware folder within the GUI.
-   ![Build_GUI_Setup](images/build-gui/build_gui_setup.png)
-4. **Building Packages**: Select the Autoware packages you wish to build and manage the build process through the GUI.
-   ![Build_GUI_Build](images/build-gui/build_gui_build.png)
-
-   4.1. **Build Configuration**: Choose from a list of default build configurations, or select the packages you wish to build manually.
-   ![Build_GUI_Build_Configuration](images/build-gui/build_gui_build_configuration.png)
-
-   4.2. **Build Options**: Choose which build type you wish to use, with ability to specify additional build options.
-   ![Build_GUI_Build_Options](images/build-gui/build_gui_build_options.png)
-
-5. **Save and Load**: Save your build configurations for future use, or load a previously saved configuration if you don't wish to build all packages or use one of the default configurations provided.
-   ![Build_GUI_Save](images/build-gui/build_gui_save.png)
-6. **Updating Workspace**: Update your Autoware workspace's packages to the latest version using the GUI or adding Calibration tools to the workspace.
-   ![Build_GUI_Update](images/build-gui/build_gui_update.png)

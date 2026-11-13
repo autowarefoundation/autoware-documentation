@@ -54,12 +54,20 @@ Use this workflow as a reference when you contribute to Autoware.
 
 #### Steps to use an appropriate pull request template
 
-Some repositories may have multiple pull request templates. Follow the following instructions to create a pull request using the appropriate template:
+Each repository has one pull request template in `.github/pull_request_template.md`.
+When you create a pull request, GitHub puts the template into the description.
+Most repositories get the template from [sync-file-templates](https://github.com/autowarefoundation/sync-file-templates), which has two versions:
 
-1. Select the appropriate template, as shown in [this video](https://user-images.githubusercontent.com/31987104/184344710-2adee239-799f-4fdf-bfab-be76345bfac1.mp4).
-2. Read the selected template carefully and fill the required content.
-3. Check the checkboxes during a review.
-   - There are [pre-review checklist](https://github.com/autowarefoundation/autoware/blob/44c70d33825617b56d8de5e6fe921000238238bd/.github/PULL_REQUEST_TEMPLATE/standard-change.md#pre-review-checklist-for-the-pr-author) and [post-review checklist](https://github.com/autowarefoundation/autoware/blob/44c70d33825617b56d8de5e6fe921000238238bd/.github/PULL_REQUEST_TEMPLATE/standard-change.md#post-review-checklist-for-the-pr-author) for the author.
+- The standard template has the sections `Description`, `How was this PR tested?`, `Notes for reviewers`, and `Effects on system behavior`. For example, `autoware_launch`, `autoware_msgs`, and `autoware_tools` use it.
+- The extended template, which `autoware_universe` and `autoware_core` use, also has `Related links` and `Interface changes`. Its hidden comments contain tables for topic changes and ROS parameter changes.
+
+Some repositories, such as `autoware` and `autoware-documentation`, keep their own short template with only the `Description` and `How was this PR tested?` sections.
+
+Follow these steps to fill in the template:
+
+1. Read the template carefully and fill in each section.
+2. Keep `None.` in a section only if it is true, for example if the pull request has no interface changes.
+3. If the pull request changes topics or parameters, copy the matching table out of the hidden comment and fill it in.
 
 ### Set appropriate reviewers after creating a pull request (required, partially automated)
 

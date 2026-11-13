@@ -4,7 +4,7 @@ Autoware now supports control inputs for vehicles based on an Ackermann kinemati
 This section introduces you a brief concept of the Ackermann kinematic model
 and explains how Autoware controls it.
 Please remember,
-Autoware control output (/control/command/control_cmd)
+Autoware control output (`/control/command/control_cmd`)
 publishes lateral and longitudinal commands according to the Ackermann kinematic model.
 
 - If your vehicle does not suit the Ackermann kinematic model, you have to modify the control commands. [Another document gives you an example of how to convert your Ackermann kinematic model control inputs into a differential drive model.](customizing-for-differential-drive-model.md)
@@ -27,41 +27,42 @@ the Ackermann kinematic model accepts the longitudinal speed $v$ and the steerin
 In autoware, $\phi$ is positive if it is steered counterclockwise,
 so the steering angle in the figure below is actually negative.
 
-<figure markdown>
-  ![ackermann_link](images/Ackermann_WB.png){ align=center }
-  <figcaption>
-    The basic style of an Ackermann kinematic model. The left figure shows a vehicle facing straight forward, while the right figure shows a vehicle steering to the right.
-  </figcaption>
-</figure>
+{{ diagram("images/ackermann-kinematic-model.svg", "An Ackermann kinematic model: on the left the vehicle drives straight ahead, and on the right it steers to the right.") }}
 
 ### Control
 
-Autoware publishes a ROS 2 topic named `control_cmd` from several types of publishers.  
-A `control_cmd` topic is a [`AckermannControlCommand`](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl) type message that contains
+Autoware publishes the control command on the `/control/command/control_cmd` topic.
+The type of this topic is [`autoware_control_msgs/msg/Control`](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_control_msgs/msg/Control.msg). It contains a lateral command and a longitudinal command:
 
-```bash title="AckermannControlCommand"
-  builtin_interfaces/Time stamp
-  autoware_auto_control_msgs/AckermannLateralCommand lateral
-  autoware_auto_control_msgs/LongitudinalCommand longitudinal
+```bash title="Control"
+builtin_interfaces/Time stamp
+builtin_interfaces/Time control_time
+autoware_control_msgs/Lateral lateral
+autoware_control_msgs/Longitudinal longitudinal
 ```
 
 where,
 
-```bash title="AckermannLateralCommand"
-  builtin_interfaces/Time stamp
-  float32 steering_tire_angle
-  float32 steering_tire_rotation_rate
+```bash title="Lateral"
+builtin_interfaces/Time stamp
+builtin_interfaces/Time control_time
+float32 steering_tire_angle
+float32 steering_tire_rotation_rate
+bool is_defined_steering_tire_rotation_rate
 ```
 
-```bash title="LongitudinalCommand"
-  builtin_interfaces/Time stamp
-  float32 speed
-  float32 accelaration
-  float32 jerk
+```bash title="Longitudinal"
+builtin_interfaces/Time stamp
+builtin_interfaces/Time control_time
+float32 velocity
+float32 acceleration
+float32 jerk
+bool is_defined_acceleration
+bool is_defined_jerk
 ```
 
-See the [AckermannLateralCommand.idl](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannLateralCommand.idl) and [LongitudinalCommand.idl](https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/LongitudinalCommand.idl) for details.
+See [Lateral.msg](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_control_msgs/msg/Lateral.msg) and [Longitudinal.msg](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_control_msgs/msg/Longitudinal.msg) for details.
 
 The vehicle interface should realize these control commands through your vehicle's control device.
 
-Moreover, Autoware also provides brake commands, light commands, and more (see [vehicle interface design](../../../design/autoware-architecture-v1/interfaces/components/vehicle-interface.md)), so the vehicle interface module should be applicable to these commands as long as there are devices available to handle them.
+Autoware also sends gear, turn indicator, and hazard light commands (see the [vehicle interface design](../../../design/autoware-architecture-v1/interfaces/components/vehicle-interface.md)). The vehicle interface module must also handle these commands if the vehicle has devices for them.

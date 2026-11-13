@@ -1,18 +1,47 @@
-# Autoware Architecture
+# Architecture roadmap
 
-## Executive Summary
+This roadmap describes how the Autoware project plans to evolve from a traditional robotics-based autonomous driving stack to a data-centric, AI-based stack. The target is a stack that can power safe and globally scalable end-to-end (E2E) autonomous driving for many use cases. The roadmap called the robotics stack "Autoware 1.0" and the target stack "Autoware 2.0".
 
-This document presents a framework for the evolution of the Autoware Project from Autoware 1.0, a traditional robotics-based autonomous driving stack, to Autoware 2.0, a data-centric AI-based autonomous driving stack which can power safe and globally scalable End-to-End autonomous driving across multiple use-cases
+!!! info "Status in Autoware 2.0.0"
+
+    Autoware 2.0.0 contains the generator-selector framework and Step 1 of the plan: you can select the Diffusion Planner, a learned planner, at launch. The rule-based stack is still the default. The other steps are plans. The [Architecture 2.0](../index.md) page describes what 2.0.0 does today.
 
 ## Overview
 
-The Autonomous Driving industry has experienced rapid technological developments powered by advancements in Artificial Intelligence.
+The autonomous driving industry developed quickly because of advances in artificial intelligence (AI).
 
-The emergence of neural networks have helped transform self-driving technologies from hand-coded software modules which follow a traditional robotics paradigm, to neural-network based components powered by machine learning.
-By leveraging such data-driven approaches, self-driving technology developers have been able to rapidly scale and deploy autonomy around the world.
+Neural networks changed self-driving technology. Hand-coded software modules that follow a traditional robotics paradigm became components that machine learning powers. With these data-driven approaches, developers of self-driving technology can scale autonomy and deploy it around the world.
 
-One of the latest such technological breakthroughs is the introduction of End-to-End autonomous driving, in which a single monolithic neural network can map sensing data to safe driving trajectories - essentially learning the entire driving task.
+A recent breakthrough is end-to-end autonomous driving. In this approach, a single monolithic neural network maps the sensing data to safe driving trajectories. The network learns the full driving task.
 
-While this approach has great promise, there are important considerations around safety, explainability and model training which must be addressed.
+This approach is promising, but safety, explainability, and model training need attention.
 
-Here, we present our framework for adopting End-to-End autonomous within the open-source Autoware project.
+These pages give the framework that the Autoware project uses to adopt end-to-end autonomous driving.
+
+<div class="grid cards aw-cards" markdown>
+
+- :fa-cl-s fa-layer-group: **[Autonomous driving stack architecture](autonomous-driving-stack-architecture.md)**
+
+  The steps from the robotics stack to learned planning, learned perception, learned driving, and a learned hybrid stack.
+
+- :fa-cl-s fa-code-branch: **[Detailed architectural interface](detailed-architectural-interface.md)**
+
+  The requirements of the new architecture and the generator-selector framework.
+
+- :fa-cl-s fa-scale-balanced: **[Assessment of safety and benchmarks](assessment-safety-and-benchmarks.md)**
+
+  The tools that check and measure planners and learned models today.
+
+- :fa-cl-s fa-database: **[Data, MLOps, and training](data-mlops-and-training.md)**
+
+  How the AI models of Autoware are trained, versioned, and distributed today.
+
+- :fa-cl-s fa-flag-checkered: **[Development roadmap](development-roadmap.md)**
+
+  The status of the generator-selector migration and where the work is discussed.
+
+- :fa-cl-s fa-cube: **[Neural world simulation](neural-world-simulation.md)**
+
+  The current work on simulation with learned scene models.
+
+</div>

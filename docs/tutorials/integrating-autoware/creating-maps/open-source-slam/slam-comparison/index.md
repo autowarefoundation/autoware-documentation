@@ -17,17 +17,7 @@ Therefore, one trajectory must be rotated and translated to match the other.
 
 The TF tree defining these transformations is shown below:
 
-```mermaid
-graph TD
-    A(["Global Frame (NED)"])
-    B(["GNSS Frame (NED)"])
-    C(["GNSS Frame (ENU)"])
-    D(["Velodyne Frame"])
-
-    A -->|"Global Orientation of <br> GNSS/INS"| B
-    B -->|"NED to ENU conversion"| C
-    C -->|"Lidar IMU calibration"| D
-```
+{{ diagram("images/slam-comparison-tf-tree.svg", "The transforms that bring the GNSS/INS trajectory from the global NED frame into the Velodyne frame.") }}
 
 Transformation matrices are first derived from this tree, and these matrices are then applied to the GNSS/INS positions to align them with the lidar frame.
 
@@ -41,13 +31,22 @@ Before applying the transformation:
 
 Below are the RViz visualizations of the aligned ground-truth and SLAM trajectories, along with the corresponding position-error plots for each algorithm.
 
-|                         SLAM Algorithm                          |                    Trajectory After Transformation                     |                             Position Error Graphs                              |         Average Position Error (meters)         |
-| :-------------------------------------------------------------: | :--------------------------------------------------------------------: | :----------------------------------------------------------------------------: | :---------------------------------------------: |
-|   [hdl_graph_slam](https://github.com/koide3/hdl_graph_slam)    |    <img src="images/hdl_vs_gnss_path.png" width="200" height="400">    | <img src="images/hdl_graph_slam_position_errors.png" width="628" height="314"> | x: 11.903188 <br> y: 3.887582 <br> z: 13.905123 |
-| [lidarslam_ros2](https://github.com/rsasaki0109/lidarslam_ros2) | <img src="images/lidarslam_vs_gnss_path.png" width="200" height="400"> |   <img src="images/lidarslam_position_errors.png" width="628" height="314">    | x: 8.949974 <br> y: 2.818557 <br> z: 16.495759  |
+|                          SLAM Algorithm                          |                    Trajectory After Transformation                     |                             Position Error Graphs                              |         Average Position Error (meters)         |
+| :--------------------------------------------------------------: | :--------------------------------------------------------------------: | :----------------------------------------------------------------------------: | :---------------------------------------------: |
+|    [hdl_graph_slam](https://github.com/koide3/hdl_graph_slam)    |    <img src="images/hdl_vs_gnss_path.png" width="200" height="400">    | <img src="images/hdl_graph_slam_position_errors.png" width="628" height="314"> | x: 11.903188 <br> y: 3.887582 <br> z: 13.905123 |
+| [lidarslam_ros2](https://github.com/rsasaki0109/lidar_slam_ros2) | <img src="images/lidarslam_vs_gnss_path.png" width="200" height="400"> |   <img src="images/lidarslam_position_errors.png" width="628" height="314">    | x: 8.949974 <br> y: 2.818557 <br> z: 16.495759  |
 
-## TODO
+## Interpretation
 
-- Implement the GNSS/INS–to–SLAM transformation using ROS TF.
-- Evaluate SLAM algorithms using IMU data.
-- Test remaining SLAM algorithms.
+In this test, lidarslam_ros2 has a smaller average error than hdl_graph_slam on the x-axis and on the y-axis. hdl_graph_slam has a smaller average error on the z-axis. For both algorithms, the average error on the z-axis is the largest.
+
+These numbers come from one data set and one sensor setup. Do not use them as a general ranking. Before you select an algorithm, test it with data from your own vehicle and environment.
+
+## Limitations
+
+This comparison has these limitations:
+
+- The alignment does not use ROS TF. The transformation matrices are calculated from the TF tree above and applied to the GNSS/INS positions.
+- The SLAM algorithms ran without IMU data.
+- The comparison contains only hdl_graph_slam and lidarslam_ros2. The other algorithms on the [list of open-source SLAM implementations](../index.md) are not tested here.
+- The comparison measures only the position error. It does not measure the orientation error.

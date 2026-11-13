@@ -1,0 +1,218 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" role="img" aria-labelledby="gokart-compute-sensing-title">
+  <title id="gokart-compute-sensing-title">The Go-Kart sensors, router, and microcontrollers, and the cables and buses that connect them to the computer.</title>
+  <style data-aw-standalone="">
+    svg { --aw-c-cyan: #0098c7; --aw-c-indigo: var(--aw-indigo); --aw-d-accent: var(--aw-c-cyan); --aw-d-bg: color-mix(in
+    srgb, var(--aw-c-indigo) 2%, var(--md-default-bg-color)); --aw-d-fg: var(--md-default-fg-color); --aw-d-line: #8d90a3; --aw-d-muted: var(--md-default-fg-color--light); --aw-d-node: var(--md-default-bg-color); --aw-d-node-stroke: color-mix(in
+    srgb, var(--aw-c-indigo) 45%, transparent); --aw-flow-tone: 22%; --aw-halo-opacity: 0.22; --aw-heading-font-family: Outfit, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; --aw-indigo: #3f2ee3; --md-default-bg-color: #fff; --md-default-fg-color: #000000de; --md-default-fg-color--light: #0000008c; font-family: var(--aw-heading-font-family); background-color: var(--aw-d-bg, #fff); } .aw-d-arrow {
+  fill: var(--aw-d-line);
+} .aw-d-arrow--accent {
+  fill: var(--aw-d-accent);
+} .box {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.5;
+} .box.primary {
+  fill: url("#aw-grad-primary");
+  stroke: none;
+} text {
+  font-size: 14px;
+  fill: var(--aw-d-fg);
+} .lbl {
+  font-weight: 600;
+} .sub {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+} .on-primary {
+  fill: #fff;
+} .on-primary.sub {
+  fill: #ffffffc7;
+} .edge-lbl {
+  font-size: 12px;
+  fill: var(--aw-d-muted);
+  paint-order: stroke;
+  stroke: var(--aw-d-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+} .edge {
+  fill: none;
+  stroke: var(--aw-d-line);
+  stroke-width: 1.6;
+  marker-end: url("#aw-arrow");
+} .edge.accent {
+  stroke: var(--aw-d-accent);
+  stroke-width: 2;
+  marker-end: url("#aw-arrow-accent");
+} .aw-dot {
+  fill: var(--aw-d-fg);
+  opacity: 0.12;
+} .dots {
+  fill: url("#aw-dots");
+} .halo {
+  fill: url("#aw-grad-halo");
+  opacity: var(--aw-halo-opacity);
+} .halo.cyan {
+  fill: url("#aw-grad-halo-cyan");
+} .card {
+  fill: var(--aw-d-node);
+  stroke: var(--aw-d-node-stroke);
+  stroke-width: 1.2;
+  filter: url("#aw-shadow");
+} .icon-bg {
+  fill: url("#aw-grad-primary");
+} .icon-bg.on {
+  fill: #ffffff2e;
+} .icon-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+} .icon-dot {
+  fill: #fff;
+} .flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--aw-d-line) var(--aw-flow-tone), #fff);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 44;
+  animation: aw-flow 2.4s linear infinite;
+} .flow.flow-accent {
+  stroke: color-mix(in srgb, var(--aw-d-accent) var(--aw-flow-tone), #fff);
+} .edge.head, .edge.accent.head, .traj.head, .route.head {
+  stroke: none;
+} @keyframes aw-flow {
+  from {
+    stroke-dashoffset: 6;
+  }
+
+  to {
+    stroke-dashoffset: -94;
+  }
+} @media (prefers-reduced-motion: reduce) {.flow {
+    display: none;
+    animation: none;
+  }}
+  </style>
+  <defs data-aw-standalone="">
+    <marker id="aw-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <marker id="aw-arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="aw-d-arrow aw-d-arrow--accent" d="M0,0.5 L10,5 L0,9.5 z"/>
+    </marker>
+    <pattern id="aw-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle class="aw-dot" cx="2" cy="2" r="1.1"/>
+    </pattern>
+    <radialGradient id="aw-grad-halo">
+      <stop offset="0" stop-color="#3f2ee3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3f2ee3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aw-grad-halo-cyan">
+      <stop offset="0" stop-color="#00c8ff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00c8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aw-grad-primary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2ee3"/>
+      <stop offset="1" stop-color="#2a6df2"/>
+    </linearGradient>
+    <filter id="aw-shadow" filterUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="6000">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00002a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background: a faint dot grid and soft glows -->
+  <rect class="dots" x="0" y="0" width="960" height="500"/>
+  <circle class="halo" cx="590" cy="240" r="170"/>
+  <circle class="halo cyan" cx="280" cy="240" r="120"/>
+
+  <!-- Connections -->
+  <path class="edge accent" d="M590 104 V196"/>
+  <path class="flow flow-accent" pathLength="100" d="M590 104 V196"/>
+  <path class="edge accent head" d="M590 104 V196"/>
+  <text class="edge-lbl" x="602" y="150" text-anchor="start" dominant-baseline="central">Ethernet</text>
+  <path class="edge" d="M180 240 H246"/>
+  <text class="edge-lbl" x="213" y="222" text-anchor="middle" dominant-baseline="central">TNC cable</text>
+  <path class="edge" d="M95 390 V330 H280 V276"/>
+  <text class="edge-lbl" x="188" y="330" text-anchor="middle" dominant-baseline="central">Wireless</text>
+  <path class="edge accent" d="M420 240 H486"/>
+  <path class="flow flow-accent" pathLength="100" d="M420 240 H486"/>
+  <path class="edge accent head" d="M420 240 H486"/>
+  <text class="edge-lbl" x="453" y="222" text-anchor="middle" dominant-baseline="central">Micro-USB</text>
+  <path class="edge accent" d="M750 240 H694"/>
+  <path class="flow flow-accent" pathLength="100" d="M750 240 H694"/>
+  <path class="edge accent head" d="M750 240 H694"/>
+  <text class="edge-lbl" x="722" y="222" text-anchor="middle" dominant-baseline="central">USB-TTL</text>
+  <path class="edge accent" d="M395 390 V330 H550 V284"/>
+  <path class="flow flow-accent" pathLength="100" d="M395 390 V330 H550 V284"/>
+  <path class="edge accent head" d="M395 390 V330 H550 V284"/>
+  <text class="edge-lbl" x="472" y="330" text-anchor="middle" dominant-baseline="central">USB</text>
+  <path class="edge accent" d="M645 390 V284"/>
+  <path class="flow flow-accent" pathLength="100" d="M645 390 V284"/>
+  <path class="edge accent head" d="M645 390 V284"/>
+  <text class="edge-lbl" x="657" y="337" text-anchor="start" dominant-baseline="central">USB-TTL</text>
+  <path class="edge" d="M750 422 H704"/>
+  <text class="edge-lbl" x="727" y="404" text-anchor="middle" dominant-baseline="central">I2C</text>
+
+  <!-- Computer -->
+  <rect class="box primary" x="490" y="200" width="200" height="80" rx="18"/>
+  <circle class="icon-bg on" cx="522" cy="240" r="18"/>
+  <rect class="icon-line" x="513" y="231" width="18" height="12" rx="2"/>
+  <path class="icon-line" d="M510 248H534"/>
+  <text class="lbl on-primary" x="550" y="230" dominant-baseline="central">Computer</text>
+  <text class="sub on-primary" x="550" y="250" dominant-baseline="central">Computing unit</text>
+
+  <!-- Sensors, devices, and microcontrollers -->
+  <rect class="card" x="505" y="40" width="170" height="64" rx="14"/>
+  <circle class="icon-bg" cx="531" cy="72.0" r="15"/>
+  <circle class="icon-dot" cx="527" cy="76.0" r="2.4"/>
+  <path class="icon-line" d="M527 69A7 7 0 0 1 534 76"/>
+  <path class="icon-line" d="M527 63A13 13 0 0 1 540 76"/>
+  <text class="lbl" x="555" y="63.0" dominant-baseline="central">Ouster LiDAR</text>
+  <text class="sub" x="555" y="82.0" dominant-baseline="central">Sensor</text>
+  <rect class="card" x="10" y="208" width="170" height="64" rx="14"/>
+  <circle class="icon-bg" cx="36" cy="240.0" r="15"/>
+  <circle class="icon-dot" cx="32" cy="244.0" r="2.4"/>
+  <path class="icon-line" d="M32 237A7 7 0 0 1 39 244"/>
+  <path class="icon-line" d="M32 231A13 13 0 0 1 45 244"/>
+  <text class="lbl" x="60" y="231.0" dominant-baseline="central">GNSS antenna</text>
+  <text class="sub" x="60" y="250.0" dominant-baseline="central">Sensor</text>
+  <rect class="card" x="250" y="208" width="170" height="64" rx="14"/>
+  <circle class="icon-bg" cx="276" cy="240.0" r="15"/>
+  <circle class="icon-dot" cx="272" cy="244.0" r="2.4"/>
+  <path class="icon-line" d="M272 237A7 7 0 0 1 279 244"/>
+  <path class="icon-line" d="M272 231A13 13 0 0 1 285 244"/>
+  <text class="lbl" x="300" y="231.0" dominant-baseline="central">Septentrio GNSS</text>
+  <text class="sub" x="300" y="250.0" dominant-baseline="central">Sensor</text>
+  <rect class="card" x="750" y="208" width="190" height="64" rx="14"/>
+  <circle class="icon-bg" cx="776" cy="240.0" r="15"/>
+  <rect class="icon-line" x="770" y="234.0" width="12" height="12" rx="2"/>
+  <path class="icon-line" d="M773 231V234M779 231V234M773 246V249M779 246V249"/>
+  <text class="lbl" x="800" y="231.0" dominant-baseline="central">Go-kart drive info</text>
+  <text class="sub" x="800" y="250.0" dominant-baseline="central">Main Nucleo F439ZI</text>
+  <rect class="card" x="10" y="390" width="170" height="64" rx="14"/>
+  <circle class="icon-bg" cx="36" cy="422.0" r="15"/>
+  <rect class="icon-line" x="28" y="423.0" width="16" height="6" rx="2"/>
+  <path class="icon-line" d="M31 423L29 414M41 423L43 414"/>
+  <text class="lbl" x="60" y="413.0" dominant-baseline="central">LTE router</text>
+  <text class="sub" x="60" y="432.0" dominant-baseline="central">Device</text>
+  <rect class="card" x="310" y="390" width="170" height="64" rx="14"/>
+  <circle class="icon-bg" cx="336" cy="422.0" r="15"/>
+  <circle class="icon-dot" cx="332" cy="426.0" r="2.4"/>
+  <path class="icon-line" d="M332 419A7 7 0 0 1 339 426"/>
+  <path class="icon-line" d="M332 413A13 13 0 0 1 345 426"/>
+  <text class="lbl" x="360" y="413.0" dominant-baseline="central">OAK-D camera</text>
+  <text class="sub" x="360" y="432.0" dominant-baseline="central">Sensor</text>
+  <rect class="card" x="530" y="390" width="170" height="64" rx="14"/>
+  <circle class="icon-bg" cx="556" cy="422.0" r="15"/>
+  <rect class="icon-line" x="550" y="416.0" width="12" height="12" rx="2"/>
+  <path class="icon-line" d="M553 413V416M559 413V416M553 428V431M559 428V431"/>
+  <text class="lbl" x="580" y="413.0" dominant-baseline="central">Nucleo L432KC</text>
+  <text class="sub" x="580" y="432.0" dominant-baseline="central">Microcontroller</text>
+  <rect class="card" x="750" y="390" width="190" height="64" rx="14"/>
+  <circle class="icon-bg" cx="776" cy="422.0" r="15"/>
+  <circle class="icon-dot" cx="772" cy="426.0" r="2.4"/>
+  <path class="icon-line" d="M772 419A7 7 0 0 1 779 426"/>
+  <path class="icon-line" d="M772 413A13 13 0 0 1 785 426"/>
+  <text class="lbl" x="800" y="413.0" dominant-baseline="central">Adafruit 9-DoF IMU</text>
+  <text class="sub" x="800" y="432.0" dominant-baseline="central">Sensor</text>
+</svg>

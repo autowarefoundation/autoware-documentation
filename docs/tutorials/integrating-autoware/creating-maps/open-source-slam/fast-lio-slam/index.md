@@ -54,7 +54,9 @@ sudo make install
 
 ### 2) Set parameters
 
-- Set imu and lidar topic on `Fast_LIO/config/ouster64.yaml`
+- Set imu and lidar topic on `FAST-LIO/config/ouster64.yaml`
+
+<p><img src="images/topic_name.png" width=712pix></p>
 
 ### 3) Run
 
@@ -68,14 +70,14 @@ sudo make install
     roslaunch aloam_velodyne fastlio_ouster64.launch
 
     # play bag file in the other terminal
-    rosbag play xxx.bag -- clock --pause
+    rosbag play xxx.bag --clock --pause
 ```
 
 ## Example Result
 
 <p><img src="images/fast_lio_slam.png" width=712pix></p>
 
-<p><img src="images/fast_lio_slam.png" width=712pix></p>
+<p><img src="images/video.png" width=712pix></p>
 
 ## Other Examples
 

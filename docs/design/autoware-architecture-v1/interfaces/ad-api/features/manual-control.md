@@ -33,9 +33,11 @@ The command sent will be used when [operation mode](operation_mode.md) is remote
 
 ## Operator status
 
-The application needs to determine whether the operator is able to drive and send that information via the operator status API.
+The application needs to determine whether the operator is able to drive and send that information via the operator heartbeat API (`/api/manual/*/operator/heartbeat`).
 If the operator is unable to continue driving during manual operation, Autoware will perform MRM to bring the vehicle to a safe state.
 For level 3 and below, the operator status is referenced even during autonomous driving.
+
+The default implementation reports a diagnostic warning if no heartbeat arrives for 1.0 second, and a diagnostic error after 2.0 seconds.
 
 ## Control mode
 
@@ -47,6 +49,10 @@ Since there are multiple ways to control a vehicle, such as pedals or accelerati
 | pedals       | This mode provides longitudinal control using the pedals.                  |
 | acceleration | This mode provides longitudinal control using the target acceleration.     |
 | velocity     | This mode provides longitudinal control using the target velocity.         |
+
+The default implementation (the `manual/local` and `manual/remote` nodes of `autoware_default_adapi_universe`) supports only the pedals mode.
+The list API returns only `PEDALS`, and a request to select the acceleration or velocity mode fails.
+A request to select a mode also fails while the operation mode is the target mode of the API, for example remote for the remote API.
 
 ## Commands
 

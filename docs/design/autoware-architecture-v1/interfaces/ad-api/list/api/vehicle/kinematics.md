@@ -6,9 +6,9 @@ type:
   name: autoware_adapi_v1_msgs/msg/VehicleKinematics
   msg:
     - name: geographic_pose
-      text: The longitude and latitude of the vehicle. If the map uses local coordinates, it will not be available.
+      text: The latitude, longitude, and altitude of the vehicle. If the map uses local coordinates, it is not available (NaN).
     - name: pose
-      text: The pose with covariance from the base link.
+      text: The pose of the base link with covariance in the map frame.
     - name: twist
       text: Vehicle current twist with covariance.
     - name: accel

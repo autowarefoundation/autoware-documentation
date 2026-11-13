@@ -1,0 +1,8 @@
+nav:
+  - Find your reference design: find-your-reference-design.md
+  - Design choices by example: build-examples.md
+  - Example builds:
+      - RoboRacer: RoboRacer
+      - Go-Kart: GoKart
+      - AutoSDV: AutoSDV
+      - Delivery vehicle: Delivery

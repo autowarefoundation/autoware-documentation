@@ -21,25 +21,20 @@
 The system architecture of LIO-SAM method described in the following diagram,
 please look at the official repository for getting more information.
 
-<figure markdown>
-  ![lio-sam-architecture](images/system.png){ align=center width="960"}
-  <figcaption>
-    System Architecture of LIO-SAM
-  </figcaption>
-</figure>
+{{ diagram("images/lio-sam-system.svg", "The four LIO-SAM modules, the data that they exchange, and the IMU-rate odometry output.") }}
 
-We are using [Robosense Helios 5515](https://www.robosense.ai/en/IncrementalComponents/Helios) and [CLAP B7](https://en.unicorecomm.com/assets/upload/file/CLAP-B7_Product_Brief_En.pdf) sensor on tutorial_vehicle,
+We are using [Robosense Helios 5515](https://www.robosense.ai/en/IncrementalComponents/Helios) and CLAP B7 sensor on tutorial_vehicle,
 so we will use these sensors for running LIO-SAM.
 
-Additionally, LIO-SAM tested with [Applanix POS LVX](https://www.applanix.com/downloads/products/specs/POS_LVX-Datasheet.pdf) and [Hesai Pandar XT32](https://www.hesaitech.com/product/xt32/) sensor setup. Some additional information
+Additionally, LIO-SAM tested with Applanix POS LVX and [Hesai Pandar XT32](https://www.hesaitech.com/product/xt16-32-32m/) sensor setup. Some additional information
 according to the sensors will be provided in this page.
 
 ### ROS Compatibility
 
-Since Autoware uses ROS 2 Humble currently, we will continue with ROS 2 version of LIO-SAM.
+Autoware 2.0.0 runs on ROS 2 Humble (Ubuntu 22.04) and ROS 2 Jazzy (Ubuntu 24.04), so this page uses the ROS 2 version of LIO-SAM.
 
 - [ROS](https://github.com/TixiaoShan/LIO-SAM/tree/master)
-- [ROS 2](https://github.com/TixiaoShan/LIO-SAM/tree/ros2) (Also, it is compatible with Humble distro)
+- [ROS 2](https://github.com/TixiaoShan/LIO-SAM/tree/ros2) (The LIO-SAM authors tested it with Foxy, Galactic, and Humble. Jazzy is not in their list.)
 
 ### Dependencies
 
@@ -53,10 +48,10 @@ ROS 2 dependencies:
 To install these dependencies, you can use this bash command in your terminal:
 
 ```bash
-sudo apt install ros-humble-perception-pcl \
-       ros-humble-pcl-msgs \
-       ros-humble-vision-opencv \
-       ros-humble-xacro
+sudo apt install ros-$ROS_DISTRO-perception-pcl \
+       ros-$ROS_DISTRO-pcl-msgs \
+       ros-$ROS_DISTRO-vision-opencv \
+       ros-$ROS_DISTRO-xacro
 ```
 
 Other dependencies:
@@ -111,7 +106,7 @@ The necessary topics are described in the [config file](https://github.com/leo-d
 We use `use_odometry` as true at [clap_b7_driver](https://github.com/Robeff-Technology/clap_b7_driver/tree/dev/autoware) for publishing GPS odometry topic from navsatfix.
 
 Please set topics and sensor settings on `lio_sam/config/params.yaml`.
-Here are some example modifications for out tutorial_vehicle.
+Here are some example modifications for our tutorial_vehicle.
 
 - Topic names:
 
@@ -256,7 +251,7 @@ please follow [convert-utm-to-mgrs-map](../../converting-utm-to-mgrs-map/index.m
 
 Thank you for citing LIO-SAM (IROS-2020) if you use any of this code.
 
-```bash
+```bibtex
 @inproceedings{liosam2020shan,
   title={LIO-SAM: Tightly-coupled Lidar Inertial Odometry via Smoothing and Mapping},
   author={Shan, Tixiao and Englot, Brendan and Meyers, Drew and Wang, Wei and Ratti, Carlo and Rus Daniela},
@@ -269,7 +264,7 @@ Thank you for citing LIO-SAM (IROS-2020) if you use any of this code.
 
 Part of the code is adapted from [LeGO-LOAM](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM).
 
-```bash
+```bibtex
 @inproceedings{legoloam2018shan,
   title={LeGO-LOAM: Lightweight and Ground-Optimized Lidar Odometry and Mapping on Variable Terrain},
   author={Shan, Tixiao and Englot, Brendan},

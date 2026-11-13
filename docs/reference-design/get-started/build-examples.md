@@ -1,8 +1,8 @@
-# Design Choices by Example
+# Design choices by example
 
-This page provides detailed component specifications for each reference configuration. Use these as starting points for your own build.
+This page provides detailed component specifications for each reference configuration of the [Low Speed Autonomy (LSA) guideline](https://autowarefoundation.github.io/LSA-reference-design-docs/main/). Use these as starting points for your own build. The ODD scenario IDs, for example `LSA-CAM-0001`, come from the [outdoor ODD definition](https://autowarefoundation.github.io/LSA-reference-design-docs/main/odd-definition/outdoor/) of the LSA guideline.
 
-## Configuration Overview
+## Configuration overview
 
 | Configuration                                       | ECU              | Primary LiDAR | Localization         |
 | --------------------------------------------------- | ---------------- | ------------- | -------------------- |
@@ -14,17 +14,17 @@ This page provides detailed component specifications for each reference configur
 
 ---
 
-## Campus Configuration
+## Campus configuration
 
 Balanced configuration for outdoor paved environments with pedestrian interaction.
 
-| Component   | Choice                   | Rationale                                      |
-| ----------- | ------------------------ | ---------------------------------------------- |
-| **ECU**     | NVIDIA AGX Orin 32/64GB  | 275 TOPS, 15-60W, proven Autoware support      |
-| **LiDAR**   | Ouster OS1-64            | 120m range, 64 channels, reliable ROS 2 driver |
-| **Cameras** | 2-4 wide-angle           | Object classification, sign detection          |
-| **GNSS**    | Dual-antenna RTK         | Cm-level accuracy, heading estimation          |
-| **IMU**     | Integrated or standalone | Motion estimation, sensor fusion               |
+| Component   | Choice                   | Rationale                                       |
+| ----------- | ------------------------ | ----------------------------------------------- |
+| **ECU**     | NVIDIA AGX Orin 32/64GB  | Up to 275 TOPS, 15-60W, proven Autoware support |
+| **LiDAR**   | Ouster OS1-64            | 120m range, 64 channels, reliable ROS 2 driver  |
+| **Cameras** | 2-4 wide-angle           | Object classification, sign detection           |
+| **GNSS**    | Dual-antenna RTK         | Cm-level accuracy, heading estimation           |
+| **IMU**     | Integrated or standalone | Motion estimation, sensor fusion                |
 
 **Performance Targets:**
 
@@ -41,11 +41,11 @@ Balanced configuration for outdoor paved environments with pedestrian interactio
 
 **Real World Examples:** [TalTech iseAuto](find-your-reference-design.md#taltech-iseauto), [NC A&T Aggie Auto](find-your-reference-design.md#nc-at-aggie-auto)
 
-For detailed ECU specifications, see [ARM-based ECUs](../hardware-configuration/ECUs/ARM/index.md).
+For detailed ECU specifications, see [ARM-based ECUs](https://autowarefoundation.github.io/LSA-reference-design-docs/main/hardware-configuration/ECUs/ARM/) in the LSA guideline.
 
 ---
 
-## Indoor Configuration
+## Indoor configuration
 
 Optimized for GPS-denied warehouse and indoor structured environments.
 
@@ -64,11 +64,11 @@ Optimized for GPS-denied warehouse and indoor structured environments.
 - Marker infrastructure for localization accuracy
 - Lower speed limits (5-10 kph typical)
 
-For indoor scenarios, see [Indoor ODD](../odd-definition/indoor/index.md).
+For indoor scenarios, see the [indoor ODD](https://autowarefoundation.github.io/LSA-reference-design-docs/main/odd-definition/indoor/) of the LSA guideline.
 
 ---
 
-## High-Performance Configuration
+## High-performance configuration
 
 Maximum capability for research and complex scenarios.
 
@@ -86,7 +86,7 @@ Maximum capability for research and complex scenarios.
 
 ---
 
-## Budget Configuration
+## Budget configuration
 
 Cost-optimized with reduced capabilities.
 
@@ -103,7 +103,7 @@ Cost-optimized with reduced capabilities.
 
 ---
 
-## Compact Configuration
+## Compact configuration
 
 For small vehicles with space and weight constraints.
 
@@ -119,9 +119,9 @@ For small vehicles with space and weight constraints.
 
 ---
 
-## Component Selection Reference
+## Component selection reference
 
-### ECU Selection by Criteria
+### ECU selection by criteria
 
 | Criteria                  | Recommendation            |
 | ------------------------- | ------------------------- |
@@ -134,10 +134,10 @@ For small vehicles with space and weight constraints.
 
 For full ECU specifications:
 
-- [ARM-based ECUs](../hardware-configuration/ECUs/ARM/index.md)
-- [x86-based ECUs](../hardware-configuration/ECUs/x86_64/index.md)
+- [ARM-based ECUs](https://autowarefoundation.github.io/LSA-reference-design-docs/main/hardware-configuration/ECUs/ARM/)
+- [x86-based ECUs](https://autowarefoundation.github.io/LSA-reference-design-docs/main/hardware-configuration/ECUs/x86_64/)
 
-### LiDAR Selection by Application
+### LiDAR selection by application
 
 | Application        | Recommendation | Range | Channels          |
 | ------------------ | -------------- | ----- | ----------------- |
@@ -147,9 +147,9 @@ For full ECU specifications:
 | Budget outdoor     | Ouster OS0-32  | 35m   | 32                |
 | Compact vehicles   | Ouster OSDome  | 20m   | 128               |
 
-For sensor options, see [Sensors and Actuators](../hardware-configuration/Sensors-and-Actuators/index.md).
+For sensor options, see [Sensors and actuators](https://autowarefoundation.github.io/LSA-reference-design-docs/main/hardware-configuration/Sensors-and-Actuators/) in the LSA guideline and the [reference hardware](../reference-hw/index.md) list.
 
-### Localization Method by Environment
+### Localization method by environment
 
 | Environment           | Primary Method    | Backup/Enhancement       |
 | --------------------- | ----------------- | ------------------------ |
@@ -158,7 +158,7 @@ For sensor options, see [Sensors and Actuators](../hardware-configuration/Sensor
 | Indoor, structured    | LiDAR SLAM        | Marker-based (AprilTags) |
 | Indoor, featureless   | Marker-based      | Wheel odometry           |
 
-### Middleware Selection
+### Middleware selection
 
 | Scenario               | Recommendation | Rationale              |
 | ---------------------- | -------------- | ---------------------- |
@@ -166,12 +166,12 @@ For sensor options, see [Sensors and Actuators](../hardware-configuration/Sensor
 | Wired, lowest latency  | Cyclone DDS    | Minimal overhead       |
 | Enterprise integration | RTI Connext    | Commercial support     |
 
-For middleware setup, see [Middleware Configuration](../software-configuration/middleware-configuration/index.md).
+For middleware setup, see [Middleware configuration](https://autowarefoundation.github.io/LSA-reference-design-docs/main/software-configuration/middleware-configuration/) in the LSA guideline.
 
 ---
 
-## Next Steps
+## Next steps
 
-- Use [Find Your Reference Design](find-your-reference-design.md) to see real-world examples for each configuration
-- Review [Hardware Configuration](../hardware-configuration/index.md) for component details
-- Follow [Software Configuration](../software-configuration/index.md) for setup guides
+- Use [Find your reference design](find-your-reference-design.md) to see real-world examples for each configuration
+- Review the [hardware configuration](https://autowarefoundation.github.io/LSA-reference-design-docs/main/hardware-configuration/) of the LSA guideline for component details
+- Follow the [software configuration](https://autowarefoundation.github.io/LSA-reference-design-docs/main/software-configuration/) of the LSA guideline for setup guides

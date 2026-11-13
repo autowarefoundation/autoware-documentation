@@ -2,7 +2,7 @@
 
 Meta-Info and Tech-Info charts are provided for each project to provide a high-level overview of the design and technologies used in each project. The metrics for the chart are defined on this page.
 
-## Meta-Info charts
+## Meta-info charts
 
 ### Openness
 
@@ -73,14 +73,14 @@ Highest SAE automation level the system targets/supports.
 
 Minimum sensor suite required (unordered).
 
-| Value | Definition                                     |
-| :---: | ---------------------------------------------- |
-|   0   | RGB Camera                                     |
-|   1   | RGB Camera + GPS SNSS                          |
-|   2   | RGB Camera + GPS SNSS + IMU                    |
-|   3   | RGB Camera + GPS SNSS + IMU + 2D Lidar         |
-|   4   | RGB Camera + GPS SNSS + IMU + 3D Lidar         |
-|   5   | RGB Camera + GPS SNSS + IMU + Radar + 3D Lidar |
+| Value | Definition                                 |
+| :---: | ------------------------------------------ |
+|   0   | RGB Camera                                 |
+|   1   | RGB Camera + GNSS                          |
+|   2   | RGB Camera + GNSS + IMU                    |
+|   3   | RGB Camera + GNSS + IMU + 2D Lidar         |
+|   4   | RGB Camera + GNSS + IMU + 3D Lidar         |
+|   5   | RGB Camera + GNSS + IMU + Radar + 3D Lidar |
 
 ### Maturity of the systems
 
@@ -99,16 +99,16 @@ Demonstrated maturity of the complete system in testing and evaluation.
 
 How readily the platform or components can be obtained.
 
-| Value | Definition                                          |
-| :---: | --------------------------------------------------- |
-|   0   | No, only one set.                                   |
-|   1   | Multiple customized vehicles.                       |
-|   2   | Off-the-shelf parts but build-by-yourself.          |
-|   3   | Retrofit existing vehicles using off-the-self parts |
-|   4   | Available for purchase but limited supply.          |
-|   5   | Available for purchase but limited supply.          |
+| Value | Definition                                           |
+| :---: | ---------------------------------------------------- |
+|   0   | No, only one set.                                    |
+|   1   | Multiple customized vehicles.                        |
+|   2   | Off-the-shelf parts but build-by-yourself.           |
+|   3   | Retrofit existing vehicles using off-the-shelf parts |
+|   4   | Available for purchase but limited supply.           |
+|   5   | Available for purchase but limited supply.           |
 
-## Tech-Info charts
+## Tech-info charts
 
 ### Payload
 
