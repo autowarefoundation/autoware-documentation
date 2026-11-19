@@ -15,6 +15,13 @@ It is integrated in autoware_universe and actively maintained to stay compatible
 - Package Link and Tutorial: [autoware_carla_interface](https://github.com/autowarefoundation/autoware_universe/tree/main/simulator/autoware_carla_interface).
 - Docker Compose demo: [`docker/examples/demos/carla`](https://github.com/autowarefoundation/autoware/tree/2.0.0/docker/examples/demos/carla) in the Autoware repository. It runs CARLA 0.9.16, `autoware_carla_interface`, and Autoware (`e2e_simulator.launch.xml` with `simulator_type:=carla`) in separate containers.
 
+### autoware_carla_interface_v2
+
+The successor of `autoware_carla_interface` for [CARLA 1.0](https://github.com/carla-simulator/carla/releases/tag/1.0) (Unreal Engine 5.8). CARLA 1.0 publishes the sensor data and the vehicle status on Autoware's topics and applies Autoware's control commands itself, so this rclpy node only attaches to the ego, spawns the sensor kit, and publishes the traffic-light states. It is registered in the [Autoware Index](https://github.com/autowarefoundation/autoware-index).
+
+- Project Link: [autoware_carla_interface_v2](https://github.com/autowarefoundation/autoware_carla_interface_v2)
+- Tutorial: [CARLA 1.0 with autoware_carla_interface_v2](carla-1-0-tutorial.md), including a sample scenario of [autoware_carla_scenario](https://github.com/autowarefoundation/autoware_carla_scenario)
+
 ### autoware_tensorrt_vad (end-to-end planning)
 
 TensorRT-optimized Vectorized Autonomous Driving ([VAD](https://github.com/hustvl/VAD)) node that replaces the traditional perception/localization/planning stack with a single end-to-end model trained on CARLA ([Bench2Drive](https://github.com/Thinklab-SJTU/Bench2Drive)). Ships with a CARLA-focused launch file (`vad_carla_tiny.launch.xml`) that you start next to `e2e_simulator.launch.xml`.
