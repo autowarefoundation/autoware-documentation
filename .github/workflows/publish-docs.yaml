@@ -45,11 +45,6 @@ jobs:
     permissions:
       actions: read
       contents: read
-      id-token: write
-      pages: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       # A scheduled run has no repository in its event, and a closed pull request can target another branch,
       # so the default branch comes from the GitHub API.
@@ -146,6 +141,22 @@ jobs:
         with:
           path: ${{ runner.temp }}/site
 
+  # deploy-pages runs in its own job: in the same job as the upload, it can miss the artifact that was just uploaded.
+  # See https://github.com/actions/deploy-pages/issues/451.
+  deploy-site:
+    needs: publish-docs
+    runs-on: ubuntu-24.04
+    # Deployments go out in the order of the publications above, one at a time.
+    concurrency:
+      group: publish-docs-deploy
+      cancel-in-progress: false
+    permissions:
+      id-token: write
+      pages: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
       - name: Deploy the site
         id: deploy
         uses: actions/deploy-pages@v5
