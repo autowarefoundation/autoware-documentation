@@ -37,7 +37,7 @@ jobs:
         github.event.workflow_run.head_repository.full_name == github.repository
       ) }}
     runs-on: ubuntu-24.04
-    # One publication at a time. A newer request replaces one that waits, and it publishes the newer state anyway.
+    # One assembly at a time. A newer request replaces one that waits, and it assembles the newer state anyway.
     # The group is on the job and not on the workflow, so a run whose job is skipped above never joins it.
     concurrency:
       group: publish-docs
@@ -146,7 +146,9 @@ jobs:
   deploy-site:
     needs: publish-docs
     runs-on: ubuntu-24.04
-    # Deployments go out in the order of the publications above, one at a time.
+    # A deployment joins this group when its assembly ends, and assemblies run one at a time,
+    # so the deployments go out in the same order, one at a time.
+    # A re-run of this job alone deploys the site of its own run, which can be older than the live site.
     concurrency:
       group: publish-docs-deploy
       cancel-in-progress: false
