@@ -160,6 +160,8 @@ sudo apt-get -y install git
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
 
+   To watch the build live in your browser, use [Colcon Dashboard](../related-tools/index.md#colcon-dashboard). _(optional)_
+
    If there is any build issue, refer to [Troubleshooting](../../community/support/troubleshooting/index.md#build-issues).
 
 6. Follow the steps in [Network Configuration](../additional-settings-for-developers/network-configuration/index.md) before running Autoware.

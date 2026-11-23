@@ -38,3 +38,19 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
 
 Check the [README.md file](https://github.com/tier4/CalibrationTools/blob/tier4/universe/README.md) for a more detailed explanation.
+
+## Colcon Dashboard
+
+[Colcon Dashboard](https://github.com/autowarefoundation/colcon-dashboard) shows a `colcon build` live in the browser: the dependency graph, a timeline of every package, one log per package, and the CPU and memory load. It reads the log files that colcon already writes into `log/`, so you build the same way as before.
+
+To install it on Ubuntu 22.04 or 24.04 and start it:
+
+```bash
+sudo add-apt-repository ppa:xmfcx/colcon-dashboard
+sudo apt install python3-colcon-dashboard
+colcon-dashboard --start-service
+```
+
+Then open <http://localhost:8642/>, select your `autoware` directory, and build as usual. For other installation methods, see the [Colcon Dashboard documentation](https://autowarefoundation.github.io/colcon-dashboard/).
+
+<!-- cspell:ignore xmfcx -->
