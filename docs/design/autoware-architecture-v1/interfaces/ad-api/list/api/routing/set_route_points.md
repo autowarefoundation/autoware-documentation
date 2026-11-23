@@ -22,4 +22,6 @@ type:
 {% block description %}
 Set the route with the waypoint poses. The current pose of the vehicle is the start of the route.
 This API only accepts the route when the route state is UNSET. In any other state, clear the route first.
+A successful response only means that Autoware accepted the request.
+The process is complete when `state` in {{ link_ad_api('/api/routing/state') }} is `SET`.
 {% endblock %}
