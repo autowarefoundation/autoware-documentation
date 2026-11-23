@@ -8,7 +8,7 @@ The logic lives in Python with unit tests, so that you can read and test it with
 
 1. The `deploy-docs` workflow builds the site of the default branch and of every pull request. It keeps each site as an artifact, named `docs-main` or `docs-pr-<number>`.
 2. The `github-release` workflow builds the site of every release tag. It attaches the site to the release as `autoware-docs-site.tar.gz`.
-3. The `publish-docs` workflow runs after each of these builds, after a pull request closes, and once a day. It runs these scripts and deploys the result to GitHub Pages. Only one run publishes at a time. A newer run that waits replaces an older one that waits, because it publishes the newer state anyway. A separate job comments the preview address on the pull request, so that a replaced run never loses its comment.
+3. The `publish-docs` workflow runs after each of these builds, after a pull request closes, and once a day. It runs these scripts in one job and deploys the result to GitHub Pages in a second job. Only one assembly runs at a time, and only one deployment runs at a time. A newer assembly that waits replaces an older one that waits, because it assembles the newer state anyway. To recover from a failed deployment, start a new run of `publish-docs`: a re-run of the failed deployment alone deploys the site of its own run, which can be older than the live site. A separate job comments the preview address on the pull request, so that a replaced run never loses its comment.
 
 A pull request from a fork keeps its site as an artifact only. The `comment-docs-artifact` workflow links that artifact on the pull request. Dependabot pull requests get no preview and no comment.
 

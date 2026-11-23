@@ -37,7 +37,7 @@ jobs:
         github.event.workflow_run.head_repository.full_name == github.repository
       ) }}
     runs-on: ubuntu-24.04
-    # One publication at a time. A newer request replaces one that waits, and it publishes the newer state anyway.
+    # One assembly at a time. A newer request replaces one that waits, and it assembles the newer state anyway.
     # The group is on the job and not on the workflow, so a run whose job is skipped above never joins it.
     concurrency:
       group: publish-docs
@@ -45,11 +45,6 @@ jobs:
     permissions:
       actions: read
       contents: read
-      id-token: write
-      pages: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       # A scheduled run has no repository in its event, and a closed pull request can target another branch,
       # so the default branch comes from the GitHub API.
@@ -146,6 +141,24 @@ jobs:
         with:
           path: ${{ runner.temp }}/site
 
+  # deploy-pages runs in its own job: in the same job as the upload, it can miss the artifact that was just uploaded.
+  # See https://github.com/actions/deploy-pages/issues/451.
+  deploy-site:
+    needs: publish-docs
+    runs-on: ubuntu-24.04
+    # A deployment joins this group when its assembly ends, and assemblies run one at a time,
+    # so the deployments go out in the same order, one at a time.
+    # A re-run of this job alone deploys the site of its own run, which can be older than the live site.
+    concurrency:
+      group: publish-docs-deploy
+      cancel-in-progress: false
+    permissions:
+      id-token: write
+      pages: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
       - name: Deploy the site
         id: deploy
         uses: actions/deploy-pages@v5
