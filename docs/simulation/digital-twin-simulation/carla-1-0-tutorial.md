@@ -13,10 +13,10 @@ CARLA 1.0 publishes the sensor data, the vehicle status, and `/clock` on Autowar
 
 !!! note "Tested versions"
 
-    This procedure was tested on 2026-11-19 with:
+    This procedure was tested on 2026-11-19, and again from a fresh workspace on 2026-11-28, with:
 
     - Autoware: the `main` branch of every repository (`repositories/autoware.repos` with `repositories/autoware-nightly.repos` on top)
-    - Dev container image: `ghcr.io/autowarefoundation/autoware:universe-devel-cuda-jazzy` (built 2026-11-09)
+    - Dev container image: `ghcr.io/autowarefoundation/autoware:universe-devel-cuda-jazzy` (built 2026-11-10)
     - `autoware_carla_interface_v2`: the `main` branch from the Autoware Index (`jazzy` distribution)
     - CARLA: the 1.0 nightly build of `ue58-dev` (commit `d93dfef63`), with the CARLA changes in [CARLA server requirements](#carla-server-requirements)
     - `autoware_carla_scenario`: 28.1.1
@@ -73,13 +73,20 @@ Until #10206 is merged, build CARLA's ROS 2 library (`libcarla-ros2-native.so`) 
 
    The rest of this section runs in the container, in `/home/aw/autoware`.
 
+   With Docker Compose, source ROS 2 in the container's `~/.bashrc` once, as VS Code does with the dev container's `postCreateCommand`. A shell started with `docker compose exec` does not run the image's entrypoint, so without this step ROS 2 is not sourced, and `colcon build` fails with `Could not find a package configuration file provided by "ament_cmake_core"`.
+
+   ```bash
+   echo 'source /opt/ros/$ROS_DISTRO/setup.bash' >> ~/.bashrc
+   source ~/.bashrc
+   ```
+
 2. Remove the root-owned acados lock file that the image ships. Without this step, `autoware_trajectory_modifier` fails to build with `PermissionError: [Errno 13] Permission denied: '/tmp/acados_codegen_temporal.lock'`.
 
    ```bash
    sudo rm -f /tmp/acados_codegen_*.lock
    ```
 
-3. Install the dependencies. `autoware_carla_interface_v2` depends on the CARLA client [typesafe_carla](https://github.com/hakuturu583/typesafe_carla) through the pip key `python3-typesafe-carla-pip`. The image activates the Python virtual environment `/opt/autoware-venv`, and `--as-root pip:false` makes rosdep install pip keys into it instead of the system Python.
+3. Install the dependencies. `autoware_carla_interface_v2` depends on the CARLA client [typesafe_carla](https://github.com/hakuturu583/typesafe_carla) through the pip key `python3-typesafe-carla-pip`. The image activates the Python virtual environment `/opt/autoware-venv`, and `--as-root pip:false` makes rosdep run that environment's `pip` as the `aw` user instead of the system `pip` with `sudo`. The environment is owned by root, so `pip` installs into the user site (`~/.local`, with `Defaulting to user installation because normal site-packages is not writeable`), which the environment uses because it includes the system site packages.
 
    ```bash
    sudo apt-get update
@@ -212,5 +219,6 @@ The map is placed in `~/autoware_data/maps/autoware_maps/Town10HD_Opt`. The dev 
 | The ego does not move after Autoware engages                                                                                | CARLA without carla-simulator/carla#10216 with `ego.native_autoware_interface=true`. Use a newer nightly build, or set `ego.native_autoware_interface=false` |
 | `Installing the dependencies of ... failed`, and `Could not find an activated virtualenv (required)` in `autoware-deps.log` | `autoware_carla_scenario` older than 28.1.1. See the note in [Run a sample scenario](#run-a-sample-scenario)                                                 |
 | `Traffic lights: 0 of 15 assigned to Autoware groups` in the Autoware log                                                   | The map has no traffic lights. See [Download the map](#download-the-map)                                                                                     |
+| `colcon build` fails with `Could not find a package configuration file provided by "ament_cmake_core"`                      | ROS 2 is not sourced in a shell started with `docker compose exec`. See [Build in the dev container](#build-in-the-dev-container)                            |
 | No `/clock` or sensor topics in the container                                                                               | CARLA started with `-ros2` instead of `--ros2`, or without the Cyclone DDS configuration of the dev container                                                |
 | The ego stops before the goal, and the goal planner logs `generated 0 pull over path candidates`                            | The goal is too close to the junction. Put it farther along the lane with `ego.goal_lanelet_id` and `ego.goal_s`                                             |
