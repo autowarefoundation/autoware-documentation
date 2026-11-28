@@ -4,5 +4,6 @@ nav:
   - AWSIM with Autoware Core: autoware-core-awsim
   - MORAI_Sim-tutorial.md
   - carla-tutorial.md
+  - CARLA 1.0 with autoware_carla_interface_v2: carla-1-0-tutorial.md
   - panosim-demo.md
   - compatibility-test.md
