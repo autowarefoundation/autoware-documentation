@@ -211,6 +211,10 @@ The map is placed in `~/autoware_data/maps/autoware_maps/Town10HD_Opt`. The dev 
 
    The results and the logs, including the output of Autoware (`autoware-000-intersection_passing.log`), are written under `outputs/<date>/<time>/`.
 
+   This video shows the run, with CARLA's chase camera on the left and Autoware's RViz on the right:
+
+   [![CARLA 1.0 with autoware_carla_interface_v2: a right turn on Town10HD_Opt](https://img.youtube.com/vi/3MP5VW7aoIE/maxresdefault.jpg)](https://youtu.be/3MP5VW7aoIE)
+
 ## Troubleshooting
 
 | Symptom                                                                                                                     | Cause and fix                                                                                                                                                |
